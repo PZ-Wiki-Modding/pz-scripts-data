@@ -18,7 +18,7 @@ The `ID` dictionary can have the following attributes:
 - 
 
 # Parameters
-Parameters can have the following attributes:
+Parameters are written inside script blocks with the syntax `parameter = value`. They can have the following attributes defined:
 - `name`: The name of the parameter. (required)
 - `#ref`: A reference to another block parameter.
 - `description`: A brief description of what the parameter does.
@@ -29,3 +29,8 @@ Parameters can have the following attributes:
 - `required`: A boolean indicating whether the parameter is required.
 - `default`: The default value of the parameter if not provided.
 - `type`: The data type of the parameter (e.g., "string", "float", "int", etc.).
+- `values`: A list of allowed values for the parameter.
+- `deprecated`: A boolean indicating whether the parameter is deprecated.
+
+# Properties
+Properties are special parameters based on specific blocks, such as the `inputs` block which doesn't follow normal `parameter = value` syntax. They may not follow the same structure as parameters.

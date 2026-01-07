@@ -93,6 +93,15 @@
           "type": {
             "type": "string",
             "description": "The data type of the parameter (e.g., 'string', 'int', 'float', 'boolean', etc.)."
+          },
+          "values": {
+            "type": "array",
+            "description": "A list of allowed values for the parameter.",
+            "items": { "type": ["string", "number"] }
+          },
+          "deprecated": {
+            "type": "boolean",
+            "description": "Indicates whether the parameter is deprecated."
           }
         }
       }
