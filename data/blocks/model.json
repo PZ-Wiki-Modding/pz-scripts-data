@@ -53,7 +53,9 @@
             "name": "postProcess"
         },
         {
-            "name": "scale"
+            "name": "scale",
+            "description": "Used to scale the model up or down.",
+            "type": "float"
         },
         {
             "name": "shader"
