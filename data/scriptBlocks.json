@@ -90,9 +90,6 @@
       "animationsmesh": {
         "name": "animationsMesh"
       },
-      "attachment": {
-        "name": "attachment"
-      },
       "boneweight": {
         "name": "boneWeight"
       },

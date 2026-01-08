@@ -1,6 +1,27 @@
 Provides information regarding various script blocks and parameters of Project Zomboid [scripts](https://pzwiki.net/wiki/Scripts) system.
 
-# Script blocks
+# Contributing
+To contribute to the dataset, follow these steps to set up your development environment:
+1. Clone the repository
+2. Create a virtual environment:
+   ```bash
+   python -m venv .venv
+   ```
+3. Activate the virtual environment:
+   - Linux/Mac: `source .venv/bin/activate`
+   - Windows: `.venv\Scripts\activate`
+4. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+5. Install pre-commit hooks:
+   ```bash
+   pre-commit install
+   ```
+
+This will format the singular JSON file on each commit, which is used to allow for a single source of truth for all script blocks. The smaller JSON files are easier to manage and work with during development.
+
+## Script blocks
 Script blocks can have the following attributes:
 - `name`: The name of the block. (required)
 - `description`: A brief description of what the block does. (required)
@@ -10,14 +31,14 @@ Script blocks can have the following attributes:
 - `ID`: A dictionary about the ID attribute of the block. If not given, the block can't have any ID.
 - `parameters`: A list of parameters associated with the block.
 
-## ID
+### ID
 The `ID` dictionary can have the following attributes:
 - `parentsWithout`: A list of block names that cannot be parents if this block has an ID.
 - `values`: A list of allowed ID values for this block. If not given, any value is allowed.
 - `asType`: Specifies if the ID of the block should count as the block type. For example components have specific definitions based on their ID. This means a script block needs to be defined with the name `component <componentID>` as well as `component` to cover all component types available with the `values` attribute.
 - 
 
-# Parameters
+## Parameters
 Parameters are written inside script blocks with the syntax `parameter = value`. They can have the following attributes defined:
 - `name`: The name of the parameter. (required)
 - `#ref`: A reference to another block parameter.
@@ -32,5 +53,5 @@ Parameters are written inside script blocks with the syntax `parameter = value`.
 - `values`: A list of allowed values for the parameter.
 - `deprecated`: A boolean indicating whether the parameter is deprecated.
 
-# Properties
+## Properties
 Properties are special parameters based on specific blocks, such as the `inputs` block which doesn't follow normal `parameter = value` syntax. They may not follow the same structure as parameters.

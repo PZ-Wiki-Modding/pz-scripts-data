@@ -3,7 +3,6 @@ Console logging utilities with coloured output, warning control, and tqdm suppor
 """
 import os
 import traceback
-from tqdm import tqdm
 import color
 
 _ignore_warnings = False # True=Ignore warnings
@@ -43,10 +42,7 @@ def _message(message: str, prefix: str, style_func, *, emit_warning: bool = Fals
 
     output = f"{style_func(prefix)} {message}"
 
-    if tqdm._instances:
-        tqdm.write(output)
-    else:
-        print(output)
+    print(output)
 
 def ignore_warnings(warnings_level: int = 0, ignore: bool = True):
     """
@@ -70,10 +66,7 @@ def write(message: str, style_func=None):
     """
     output = style_func(message) if style_func else message
 
-    if tqdm._instances:
-        tqdm.write(f"{output}")
-    else:
-        print(f"{output}")
+    print(f"{output}")
 
 def info(message: str):
     """
