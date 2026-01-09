@@ -1,0 +1,46 @@
+{
+    "version": 1.0,
+    "$schema": "../../$schema.json",
+    "name": "option",
+    "description": "Defines a custom sandbox option for a mod.",
+    "shouldHaveParent": false,
+    "parents": [],
+    "ID": {},
+    "parameters": [
+        {
+            "name": "type",
+            "type": "string",
+            "description": "The type of the option.",
+            "values": [
+                "boolean",
+                "integer",
+                "double",
+                "string",
+                "enum"
+            ],
+            "required": true
+        },
+        {
+            "name": "min",
+            "type": "float"
+        },
+        {
+            "name": "max",
+            "type": "float"
+        },
+        {
+            "name": "default",
+            "type": "float"
+        },
+        {
+            "name": "page",
+            "type": "string",
+            "description": "The sandbox option to add the option to. Can be a custom page."
+        },
+        {
+            "name": "translation",
+            "type": "string",
+            "description": "The translation key for the option's name."
+        }
+    ]
+}
