@@ -8,7 +8,8 @@ parents: [
   tileset
 ]
 parameters:
-  - name: xyIsProfessionTrait
+  - name: xy
+  - name: IsProfessionTrait
   - name: runtime
   - name: modelScript
   - name: translate

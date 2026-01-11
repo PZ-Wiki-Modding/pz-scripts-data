@@ -4347,8 +4347,11 @@
       "tileset"
     ],
     "parameters": {
-      "xyisprofessiontrait": {
-        "name": "xyIsProfessionTrait"
+      "xy": {
+        "name": "xy"
+      },
+      "isprofessiontrait": {
+        "name": "IsProfessionTrait"
       },
       "runtime": {
         "name": "runtime"
