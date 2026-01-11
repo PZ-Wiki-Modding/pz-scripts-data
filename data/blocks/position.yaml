@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: position
+description: ""
+shouldHaveParent: true
+parents:
+  - passenger
+ID: {}
+parameters:
+  - name: offset
+  - name: rotate
+  - name: area

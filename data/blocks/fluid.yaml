@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: fluid
+description: Defines a fluid.
+shouldHaveParent: true
+parents:
+  - module
+ID: {}
+parameters:
+  - name: BlendWhiteList
+  - name: Categories
+  - name: ColorReference
+  - name: DisplayName
+  - name: Poison
+  - name: Properties

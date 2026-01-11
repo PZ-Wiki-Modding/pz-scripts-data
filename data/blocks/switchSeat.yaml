@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: switchSeat
+description: ""
+shouldHaveParent: true
+parents:
+  - passenger
+ID: {}
+parameters:
+  - name: anim
+  - name: rate
+  - name: sound

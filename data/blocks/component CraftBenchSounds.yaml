@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: component CraftBenchSounds
+description: ""
+shouldHaveParent: true
+parents:
+  - entity
+parameters:
+  - name: AddFuel
+  - name: LightFire
+  - name: Running

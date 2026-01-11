@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: part
+description: ""
+shouldHaveParent: true
+parents:
+  - template
+  - vehicle
+ID: {}
+parameters:
+  - name: itemType
+  - name: category
+  - name: durability

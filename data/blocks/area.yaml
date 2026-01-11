@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: area
+description: ""
+shouldHaveParent: true
+parents:
+  - template
+  - vehicle
+ID: {}
+parameters:
+  - name: xywh

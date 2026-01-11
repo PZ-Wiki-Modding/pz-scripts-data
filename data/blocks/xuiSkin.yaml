@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: xuiSkin
+description: Defines a XUI interface skin.
+shouldHaveParent: true
+parents:
+  - module
+needsChildren:
+  - entity
+ID: {}
+parameters: []

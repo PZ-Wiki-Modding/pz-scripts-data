@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: component
+description: ""
+shouldHaveParent: true
+parents:
+  - item
+  - entity
+ID:
+  values:
+    - CraftRecipe
+    - SpriteConfig
+    - UiConfig
+    - CraftBench
+    - CraftBenchSounds
+    - Resources
+    - DryingCraftLogic
+    - SpriteOverlayConfig
+    - Durability
+    - FluidContainer
+    - ContextMenuConfig
+    - WallCoveringConfig
+  asType: true
+parameters: []

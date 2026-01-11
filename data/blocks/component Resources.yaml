@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: component Resources
+description: ""
+shouldHaveParent: true
+parents:
+  - entity
+parameters: []

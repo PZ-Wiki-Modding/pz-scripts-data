@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: mannequin
+description: Defines a mannequin tile properties.
+shouldHaveParent: true
+parents:
+  - module
+ID: {}
+parameters:
+  - name: animSet
+  - name: animState
+  - name: female
+  - name: model
+  - name: outfit
+  - name: pose
+  - name: texture

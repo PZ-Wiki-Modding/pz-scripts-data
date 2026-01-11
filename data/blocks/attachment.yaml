@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: attachment
+description: ""
+shouldHaveParent: true
+parents:
+  - vehicle
+  - model
+  - template
+ID: {}
+parameters:
+  - name: offset
+  - name: rotate
+  - name: zoffset
+  - name: scale
+  - name: bone

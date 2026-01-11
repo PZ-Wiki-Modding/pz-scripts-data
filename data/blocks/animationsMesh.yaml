@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: animationsMesh
+description: Defines an animated mesh, usually for characters or animals.
+shouldHaveParent: true
+parents:
+  - module
+ID: {}
+parameters:
+  - name: animationDirectory
+  - name: animationPrefix
+  - name: keepMeshAnimations
+  - name: meshFile
+  - name: postProcess

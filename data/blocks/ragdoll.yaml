@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: ragdoll
+description: Defines the ragdoll properties of a bone.
+shouldHaveParent: true
+parents:
+  - module
+ID: {}
+parameters: []

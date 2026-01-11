@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: Fluids
+description: ""
+shouldHaveParent: true
+parents:
+  - component FluidContainer
+parameters:
+  - name: fluid
+    allowedDuplicate: true

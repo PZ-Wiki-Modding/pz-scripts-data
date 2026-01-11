@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: component FluidContainer
+description: ""
+shouldHaveParent: true
+parents:
+  - item
+parameters:
+  - name: Capacity
+  - name: ContainerName
+  - name: CustomDrinkSound
+  - name: InitialPercentMax
+  - name: InitialPercentMin
+  - name: InputLocked
+  - name: Opened
+  - name: PickRandomFluid
+  - name: RainFactor

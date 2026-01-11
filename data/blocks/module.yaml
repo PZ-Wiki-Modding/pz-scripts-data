@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: module
+description: A module holds different types of script definitions.
+shouldHaveParent: false
+parents: []
+ID: {}

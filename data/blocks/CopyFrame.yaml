@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: CopyFrame
+description: It is unknown what this block does.
+shouldHaveParent: true
+parents:
+  - animation
+parameters:
+  - name: frame
+  - name: source
+  - name: sourceFrame

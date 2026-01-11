@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: vehicle
+description: Defines a vehicle.
+shouldHaveParent: true
+parents:
+  - module
+ID: {}
+parameters:
+  - name: animalTrailerSize
+  - name: area
+  - name: attachment
+  - name: brakingForce
+  - name: carMechanicsOverlay
+  - name: carModelName
+  - name: centerOfMassOffset
+  - name: engineForce
+  - name: engineLoudness
+  - name: engineQuality
+  - name: engineRepairLevel
+  - name: engineRPMType
+  - name: extents
+  - name: extentsOffset
+  - name: frontEndHealth
+  - name: gearRatio1
+  - name: gearRatio2
+  - name: gearRatio3
+  - name: gearRatio4
+  - name: gearRatio5
+  - name: gearRatioCount
+  - name: gearRatioR
+  - name: isSmallVehicle
+  - name: lightbar
+  - name: mass
+  - name: maxSpeed
+  - name: maxSuspensionTravelCm
+  - name: mechanicType
+  - name: model
+  - name: neverSpawnKey
+  - name: offRoadEfficiency
+  - name: part
+  - name: passenger
+  - name: physics
+  - name: physicsChassisShape
+  - name: playerDamageProtection
+  - name: rearEndHealth
+  - name: rollInfluence
+  - name: seatNumber
+  - name: seats
+  - name: shadowExtents
+  - name: shadowOffset
+  - name: skin
+  - name: sound
+  - name: spawnOffsetY
+  - name: specialKeyRing
+  - name: specialKeyRingChance
+  - name: specialLootChance
+  - name: steeringClamp
+  - name: steeringIncrement
+  - name: stoppingMovementForce
+  - name: suspensionCompression
+  - name: suspensionDamping
+  - name: suspensionRestLength
+  - name: suspensionStiffness
+  - name: template
+    description: Uses a template script data for this vehicle.
+    allowedDuplicate: true
+  - name: template!
+    allowedDuplicate: true
+  - name: textureDamage1Overlay
+  - name: textureDamage1Shell
+  - name: textureDamage2Overlay
+  - name: textureDamage2Shell
+  - name: textureLights
+  - name: textureMask
+  - name: textureRust
+  - name: useChassisPhysicsCollision
+  - name: wheel
+  - name: wheelFriction
+  - name: zombieType

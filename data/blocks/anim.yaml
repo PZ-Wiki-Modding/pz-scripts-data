@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: anim
+description: ""
+shouldHaveParent: true
+parents:
+  - part
+  - passenger
+ID: {}
+parameters:
+  - name: anim
+  - name: rate

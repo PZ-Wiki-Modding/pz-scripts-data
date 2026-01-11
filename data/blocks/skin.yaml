@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: skin
+description: ""
+shouldHaveParent: true
+parents:
+  - template
+  - vehicle
+parameters: []

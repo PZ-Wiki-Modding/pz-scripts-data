@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: component SpriteConfig
+description: ""
+shouldHaveParent: true
+parents:
+  - entity
+needsChildren:
+  - face
+parameters:
+  - name: isThumpable
+  - name: OnCreate
+  - name: isProp
+  - name: OnIsValid
+  - name: TimedActionOnIsValid

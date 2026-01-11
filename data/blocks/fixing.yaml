@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: fixing
+description: Defines how an item can be repaired or fixed.
+shouldHaveParent: true
+parents:
+  - module
+ID: {}
+parameters:
+  - name: Fixer
+    allowedDuplicate: true
+  - name: Require

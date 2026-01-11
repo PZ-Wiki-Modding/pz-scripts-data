@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: animation
+description: It is unknown what this block does.
+shouldHaveParent: true
+parents:
+  - module
+ID: {}
+parameters: []

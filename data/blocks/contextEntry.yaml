@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: contextEntry
+description: ""
+shouldHaveParent: true
+parents:
+  - component ContextMenuConfig
+parameters:
+  - name: menu
+  - name: customFunction

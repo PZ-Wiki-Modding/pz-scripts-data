@@ -1,5 +1,4 @@
-import os
-import json
+import os, json, yaml
 
 SCRIPT_DIR = os.path.join(os.path.dirname(__file__))
 
@@ -9,7 +8,6 @@ OUTPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'scriptBlocks.json')
 def prepare_parameters(data: dict) -> dict:
     # remove unnecessary fields
     data.pop('version')
-    data.pop('$schema')
 
     # for each parameters, make an easy access by name (case insensitive)
     parameters_data = data.get('parameters', [])
@@ -34,11 +32,11 @@ def prepare_parameters(data: dict) -> dict:
 # combine all block json files into one
 blocks = {}
 for filename in os.listdir(BLOCKS_DIR):
-    if filename.endswith('.json'):
+    if filename.endswith('.yaml'):
         key = os.path.splitext(filename)[0]
         file_path = os.path.join(BLOCKS_DIR, filename)
         with open(file_path, 'r', encoding='utf-8') as f:
-            blocks[key] = prepare_parameters(json.load(f))
+            blocks[key] = prepare_parameters(yaml.safe_load(f))
 
 # copy #ref of parameters
 for block_key, block_data in blocks.items():

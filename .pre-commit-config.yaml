@@ -2,9 +2,10 @@ repos:
   - repo: local
     hooks:
       - id: format-blocks
-        name: Format scriptBlocks.json
+        name: Format scriptBlocks.yaml
         entry: python formatBlocks.py
         language: python
-        files: ^data/blocks/.*\.json$
+        files: ^data/blocks/.*\.yaml$
         pass_filenames: false
         always_run: true
+        additional_dependencies: [pyyaml]

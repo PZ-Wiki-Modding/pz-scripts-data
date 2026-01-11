@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: evolvedrecipe
+description: Defines a dynamic recipe.
+shouldHaveParent: true
+parents:
+  - module
+ID: {}
+parameters:
+  - name: AddIngredientIfCooked
+  - name: AddIngredientSound
+  - name: BaseItem
+  - name: CanAddSpicesEmpty
+  - name: Cookable
+  - name: MaxItems
+  - name: MinimumWater
+  - name: Name
+  - name: ResultItem
+  - name: Template

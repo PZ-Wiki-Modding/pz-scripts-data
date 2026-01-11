@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: component ContextMenuConfig
+description: ""
+shouldHaveParent: true
+parents:
+  - item
+needsChildren:
+  - contextEntry
+parameters: []

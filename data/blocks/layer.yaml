@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: layer
+description: ""
+shouldHaveParent: true
+parents:
+  - face
+parameters:
+  - name: row
+    allowedDuplicate: true

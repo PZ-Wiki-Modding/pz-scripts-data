@@ -1,0 +1,10 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: container
+description: ""
+shouldHaveParent: true
+parents:
+  - part
+parameters:
+  - name: capacity

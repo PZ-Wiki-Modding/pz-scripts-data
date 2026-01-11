@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: component WallCoveringConfig
+description: ""
+shouldHaveParent: true
+parents:
+  - entity
+parameters:
+  - name: sign
+  - name: type

@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: model
+description: Defines a 3D model properties.
+shouldHaveParent: true
+parents:
+  - module
+  - vehicle
+  - part
+ID:
+  parentsWithout:
+    - vehicle
+    - template
+parameters:
+  - name: animationsMesh
+  - name: boneWeight
+  - name: ColorBlue
+  - name: ColorGreen
+  - name: ColorRed
+  - name: cullFace
+  - name: file
+  - name: invertX
+  - name: mesh
+  - name: offset
+  - name: postProcess
+  - name: scale
+    description: Used to scale the model up or down.
+    type: float
+  - name: shader
+  - name: specialKeyRing
+  - name: static
+  - name: texture
+  - name: undoCoreScale

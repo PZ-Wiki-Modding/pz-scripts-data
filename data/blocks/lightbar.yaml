@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: lightbar
+description: ""
+shouldHaveParent: true
+parents:
+  - template
+  - vehicle
+parameters:
+  - name: texture
+  - name: soundSiren
+  - name: leftCol
+  - name: rightCol

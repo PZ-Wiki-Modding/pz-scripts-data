@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: craftRecipe
+description: Defines a crafting recipe.
+shouldHaveParent: true
+parents:
+  - module
+needsChildren:
+  - inputs
+ID: {}
+parameters:
+  - name: AllowBatchCraft
+  - name: AutoLearnAll
+  - name: AutoLearnAny
+  - name: category
+    description: The category under which the recipe will be listed in the crafting menu.
+  - name: Icon
+  - name: itemMappers
+  - name: MetaRecipe
+  - name: NeedToBeLearn
+    description: Whether the recipe needs to be learned before it can be crafted.
+  - name: OnCreate
+  - name: OnTest
+  - name: overlayStyle
+  - name: recipeGroup
+  - name: ResearchAny
+  - name: ResearchSkillLevel
+  - name: SkillRequired
+    description: The skill required to craft the item.
+  - name: tags
+    description: Tags to define the special behavior of the recipe.
+    required: true
+  - name: time
+    description: The time it takes to craft the item, not using a specific unit of time.
+  - name: timedAction
+    description: The timed action script to trigger during crafting. Used to trigger
+      animations and/or sounds.
+  - name: Tooltip
+  - name: xpAward
+    description: The amount of experience points awarded upon crafting the item.
