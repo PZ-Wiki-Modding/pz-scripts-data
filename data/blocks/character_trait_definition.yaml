@@ -10,8 +10,7 @@ parents: [
 ID: {}
 parameters:
   - name: IsProfessionTrait
-    description: Defines whenever the trait is a profession trait or not, meaning it
-      will only be available when selecting a profession.
+    description: Defines whenever the trait is a profession trait or not, meaning it will only be available when selecting a profession.
     type: boolean
     required: true
   - name: DisabledInMultiplayer
@@ -19,31 +18,23 @@ parameters:
     type: boolean
     required: true
   - name: Cost
-    description: The cost of the trait when selecting a character. Negative values
-      give points, positive values take points.
+    description: The cost of the trait when selecting a character. Negative values give points, positive values take points.
     type: integer
     required: true
   - name: CharacterTrait
-    description: The registries trait definition ID to link to. see the wiki page
-      about [registries](https://pzwiki.net/wiki/Registries) for more
-      information.
+    description: The registries trait definition ID to link to. see the wiki page about [registries](https://pzwiki.net/wiki/Registries) for more information.
     type: string
     required: true
   - name: UIName
-    description: The translation key for the trait's name. The translation key needs
-      to be in the UI translation file. See the wiki page about
-      [translations](https://pzwiki.net/wiki/Translations) for more information.
+    description: The translation key for the trait's name. The translation key needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations) for more information.
     type: string
     required: true
   - name: UIDescription
-    description: The translation key for the trait's description. The translation
-      key needs to be in the UI translation file. See the wiki page about
-      [translations](https://pzwiki.net/wiki/Translations) for more information.
+    description: The translation key for the trait's description. The translation key needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations) for more information.
     type: string
     required: true
   - name: MutuallyExclusiveTraits
-    description: A list of trait IDs that are mutually exclusive with this trait. If
-      one is selected, the others cannot be selected.
+    description: A list of trait IDs that are mutually exclusive with this trait. If one is selected, the others cannot be selected.
     type: array
   - name: XPBoosts
     description: |-
@@ -53,4 +44,7 @@ parameters:
       ```cpp
       XPBoosts = Axe=1;Blunt=1,
       ```
+    type: array
+  - name: GrantedRecipes
+    description: A list of [craftRecipe](https://pzwiki.net/wiki/CraftRecipe) IDs that are granted to the character when this trait is selected.
     type: array
