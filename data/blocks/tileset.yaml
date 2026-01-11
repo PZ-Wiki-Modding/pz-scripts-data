@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: tileset
+description: Used to define properties of tiles of tilesets.
+shouldHaveParent: true
+parents: [
+  spriteModel
+]
+parameters:
+  - name: name

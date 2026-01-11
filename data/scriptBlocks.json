@@ -347,6 +347,18 @@
       }
     }
   },
+  "spriteModel": {
+    "name": "spriteModel",
+    "description": "Used to define tileset properties.",
+    "shouldHaveParent": false,
+    "parents": [],
+    "parameters": {
+      "version": {
+        "name": "VERSION",
+        "type": "integer"
+      }
+    }
+  },
   "physicsHitReaction": {
     "name": "physicsHitReaction",
     "description": "Defines the physics reaction a bullet or bomb imposes to objects.",
@@ -3574,6 +3586,19 @@
       }
     }
   },
+  "tileset": {
+    "name": "tileset",
+    "description": "Used to define properties of tiles of tilesets.",
+    "shouldHaveParent": true,
+    "parents": [
+      "spriteModel"
+    ],
+    "parameters": {
+      "name": {
+        "name": "name"
+      }
+    }
+  },
   "animation": {
     "name": "animation",
     "description": "It is unknown what this block does.",
@@ -3645,7 +3670,9 @@
     "name": "character_trait_definition",
     "description": "Defines a character trait.",
     "shouldHaveParent": true,
-    "parents": [],
+    "parents": [
+      "module"
+    ],
     "ID": {},
     "parameters": {
       "isprofessiontrait": {
@@ -4309,6 +4336,40 @@
       },
       "sourceframe2": {
         "name": "sourceFrame2"
+      }
+    }
+  },
+  "tile": {
+    "name": "tile",
+    "description": "Defines some tile properties from a tileset.",
+    "shouldHaveParent": true,
+    "parents": [
+      "tileset"
+    ],
+    "parameters": {
+      "xyisprofessiontrait": {
+        "name": "xyIsProfessionTrait"
+      },
+      "runtime": {
+        "name": "runtime"
+      },
+      "modelscript": {
+        "name": "modelScript"
+      },
+      "translate": {
+        "name": "translate"
+      },
+      "rotate": {
+        "name": "rotate"
+      },
+      "scale": {
+        "name": "scale"
+      },
+      "animation": {
+        "name": "animation"
+      },
+      "animationtime": {
+        "name": "animationTime"
       }
     }
   }

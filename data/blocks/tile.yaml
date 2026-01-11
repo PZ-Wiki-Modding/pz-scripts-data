@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: tile
+description: Defines some tile properties from a tileset.
+shouldHaveParent: true
+parents: [
+  tileset
+]
+parameters:
+  - name: xyIsProfessionTrait
+  - name: runtime
+  - name: modelScript
+  - name: translate
+  - name: rotate
+  - name: scale
+  - name: animation
+  - name: animationTime
