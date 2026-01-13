@@ -1167,24 +1167,7 @@
         ]
       },
       "displaycategory": {
-        "name": "DisplayCategory",
-        "itemTypes": [
-          "alarmclock",
-          "alarmclockclothing",
-          "animal",
-          "clothing",
-          "container",
-          "drainable",
-          "food",
-          "key",
-          "literature",
-          "map",
-          "moveable",
-          "normal",
-          "radio",
-          "weapon",
-          "weaponpart"
-        ]
+        "name": "DisplayCategory"
       },
       "doordamage": {
         "name": "DoorDamage",
@@ -1495,6 +1478,9 @@
           "food"
         ]
       },
+      "hidden": {
+        "name": "Hidden"
+      },
       "hitanglemod": {
         "name": "HitAngleMod",
         "itemTypes": [
@@ -1538,23 +1524,6 @@
       },
       "icon": {
         "name": "Icon",
-        "itemTypes": [
-          "alarmclock",
-          "alarmclockclothing",
-          "animal",
-          "clothing",
-          "container",
-          "drainable",
-          "food",
-          "key",
-          "literature",
-          "map",
-          "moveable",
-          "normal",
-          "radio",
-          "weapon",
-          "weaponpart"
-        ],
         "type": "string",
         "default": "None"
       },
@@ -1706,23 +1675,6 @@
       },
       "itemtype": {
         "name": "ItemType",
-        "itemTypes": [
-          "alarmclock",
-          "alarmclockclothing",
-          "animal",
-          "clothing",
-          "container",
-          "drainable",
-          "food",
-          "key",
-          "literature",
-          "map",
-          "moveable",
-          "normal",
-          "radio",
-          "weapon",
-          "weaponpart"
-        ],
         "values": [
           "base:alarmclock",
           "base:alarmclockclothing",
@@ -3029,23 +2981,6 @@
       },
       "weight": {
         "name": "Weight",
-        "itemTypes": [
-          "alarmclock",
-          "alarmclockclothing",
-          "animal",
-          "clothing",
-          "container",
-          "drainable",
-          "food",
-          "key",
-          "literature",
-          "map",
-          "moveable",
-          "normal",
-          "radio",
-          "weapon",
-          "weaponpart"
-        ],
         "type": "float",
         "default": 1
       },
@@ -3115,23 +3050,7 @@
         ]
       },
       "worldstaticmodel": {
-        "name": "WorldStaticModel",
-        "itemTypes": [
-          "alarmclock",
-          "alarmclockclothing",
-          "clothing",
-          "container",
-          "drainable",
-          "food",
-          "key",
-          "literature",
-          "map",
-          "moveable",
-          "normal",
-          "radio",
-          "weapon",
-          "weaponpart"
-        ]
+        "name": "WorldStaticModel"
       },
       "worldstaticmodelsbyindex": {
         "name": "WorldStaticModelsByIndex",
@@ -4189,6 +4108,15 @@
     "parents": [
       "template",
       "vehicle"
+    ],
+    "parameters": {}
+  },
+  "imports": {
+    "name": "imports",
+    "description": "By importing the Base module or any other module, you give your scripts direct access to the elements from these modules, and you can use item IDs directly without the module prefix (for example, you can use Nails instead of Base.Nails).\n\nIt is overall suggested to not import modules and instead directly reference the IDs with their module.",
+    "shouldHaveParent": true,
+    "parents": [
+      "module"
     ],
     "parameters": {}
   },

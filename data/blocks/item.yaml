@@ -407,22 +407,6 @@ parameters:
       - clothing
       - container
   - name: DisplayCategory
-    itemTypes:
-      - alarmclock
-      - alarmclockclothing
-      - animal
-      - clothing
-      - container
-      - drainable
-      - food
-      - key
-      - literature
-      - map
-      - moveable
-      - normal
-      - radio
-      - weapon
-      - weaponpart
   - name: DoorDamage
     itemTypes:
       - weapon
@@ -597,6 +581,7 @@ parameters:
   - name: HerbalistType
     itemTypes:
       - food
+  - name: Hidden
   - name: HitAngleMod
     itemTypes:
       - weapon
@@ -621,22 +606,6 @@ parameters:
       - drainable
       - food
   - name: Icon
-    itemTypes:
-      - alarmclock
-      - alarmclockclothing
-      - animal
-      - clothing
-      - container
-      - drainable
-      - food
-      - key
-      - literature
-      - map
-      - moveable
-      - normal
-      - radio
-      - weapon
-      - weaponpart
     type: string
     default: None
   - name: IconColorMask
@@ -723,22 +692,6 @@ parameters:
     itemTypes:
       - normal
   - name: ItemType
-    itemTypes:
-      - alarmclock
-      - alarmclockclothing
-      - animal
-      - clothing
-      - container
-      - drainable
-      - food
-      - key
-      - literature
-      - map
-      - moveable
-      - normal
-      - radio
-      - weapon
-      - weaponpart
     values:
       - base:alarmclock
       - base:alarmclockclothing
@@ -1514,22 +1467,6 @@ parameters:
     type: float
     default: 1
   - name: Weight
-    itemTypes:
-      - alarmclock
-      - alarmclockclothing
-      - animal
-      - clothing
-      - container
-      - drainable
-      - food
-      - key
-      - literature
-      - map
-      - moveable
-      - normal
-      - radio
-      - weapon
-      - weaponpart
     type: float
     default: 1
   - name: WeightEmpty
@@ -1568,21 +1505,6 @@ parameters:
       - normal
       - radio
   - name: WorldStaticModel
-    itemTypes:
-      - alarmclock
-      - alarmclockclothing
-      - clothing
-      - container
-      - drainable
-      - food
-      - key
-      - literature
-      - map
-      - moveable
-      - normal
-      - radio
-      - weapon
-      - weaponpart
   - name: WorldStaticModelsByIndex
     itemTypes:
       - container

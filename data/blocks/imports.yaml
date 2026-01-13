@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: imports
+description: |-
+  By importing the Base module or any other module, you give your scripts direct access to the elements from these modules, and you can use item IDs directly without the module prefix (for example, you can use Nails instead of Base.Nails).
+
+  It is overall suggested to not import modules and instead directly reference the IDs with their module.
+shouldHaveParent: true
+parents:
+  - module
+parameters: []
