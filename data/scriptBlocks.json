@@ -11,7 +11,7 @@
     "ID": {
       "parentsWithout": [
         "vehicle",
-        "template"
+        "part"
       ]
     },
     "parameters": {

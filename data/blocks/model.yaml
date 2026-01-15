@@ -11,7 +11,7 @@ parents:
 ID:
   parentsWithout:
     - vehicle
-    - template
+    - part
 parameters:
   - name: animationsMesh
   - name: boneWeight
