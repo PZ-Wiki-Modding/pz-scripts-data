@@ -478,6 +478,7 @@
       "module"
     ],
     "ID": {},
+    "softOverride": true,
     "parameters": {
       "acceptitemfunction": {
         "name": "AcceptItemFunction",
@@ -4030,6 +4031,7 @@
       "inputs"
     ],
     "ID": {},
+    "softOverride": true,
     "parameters": {
       "allowbatchcraft": {
         "name": "AllowBatchCraft"
@@ -4128,6 +4130,7 @@
       "craftRecipe"
     ],
     "ID": {},
+    "softOverride": true,
     "parameters": {}
   },
   "face": {

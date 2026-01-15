@@ -9,6 +9,7 @@ parents:
 needsChildren:
   - inputs
 ID: {}
+softOverride: true
 parameters:
   - name: AllowBatchCraft
   - name: AutoLearnAll

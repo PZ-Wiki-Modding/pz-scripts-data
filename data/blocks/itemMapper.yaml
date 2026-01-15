@@ -7,3 +7,4 @@ shouldHaveParent: true
 parents:
   - craftRecipe
 ID: {}
+softOverride: true

@@ -29,6 +29,7 @@ Script blocks can have the following attributes:
 - `parents`: A list of block names that can be parents to this block.
 - `needsChildren`: A list of block names that are required as children of this block.
 - `ID`: A dictionary about the ID attribute of the block. If not given, the block can't have any ID.
+- `softOverride`: A boolean indicating whether the block can be [soft overridden](https://pzwiki.net/wiki/Scripts#Soft_overrides) in scripts.
 - `parameters`: A list of parameters associated with the block.
 
 ### ID

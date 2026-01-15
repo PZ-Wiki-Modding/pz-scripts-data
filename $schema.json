@@ -46,6 +46,10 @@
       "items": { "type": "string" },
       "description": "A list of required child block types."
     },
+    "softOverride": {
+      "type": "boolean",
+      "description": "Indicates whether the block can be soft overridden in scripts."
+    },
     "parameters": { 
       "type": "array",
       "description": "A list of parameters available for this block type.",
