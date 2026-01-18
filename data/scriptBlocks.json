@@ -3091,6 +3091,7 @@
     "name": "inputs",
     "description": "",
     "shouldHaveParent": true,
+    "softOverride": false,
     "parents": [
       "craftRecipe",
       "component CraftRecipe"
@@ -3200,6 +3201,7 @@
     "name": "ouputs",
     "description": "",
     "shouldHaveParent": true,
+    "softOverride": false,
     "parents": [
       "craftRecipe"
     ],

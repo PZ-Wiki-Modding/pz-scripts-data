@@ -4,6 +4,7 @@ version: 1
 name: inputs
 description: ""
 shouldHaveParent: true
+softOverride: false
 parents:
   - craftRecipe
   - component CraftRecipe
