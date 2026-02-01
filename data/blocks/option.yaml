@@ -3,9 +3,12 @@
 version: 1
 name: option
 description: Defines a custom sandbox option for a mod.
-shouldHaveParent: false
-parents: []
+shouldHaveParent: true
+parents:
+  - _DOCUMENT
 ID: {}
+files:
+  - sandbox-options.txt
 parameters:
   - name: type
     type: string

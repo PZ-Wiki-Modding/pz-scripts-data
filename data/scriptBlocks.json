@@ -224,8 +224,10 @@
   "module": {
     "name": "module",
     "description": "A module holds different types of script definitions.",
-    "shouldHaveParent": false,
-    "parents": [],
+    "shouldHaveParent": true,
+    "parents": [
+      "_DOCUMENT"
+    ],
     "ID": {},
     "parameters": {}
   },
@@ -350,8 +352,10 @@
   "spriteModel": {
     "name": "spriteModel",
     "description": "Used to define tileset properties.",
-    "shouldHaveParent": false,
-    "parents": [],
+    "shouldHaveParent": true,
+    "parents": [
+      "_DOCUMENT"
+    ],
     "parameters": {
       "version": {
         "name": "VERSION",
@@ -367,6 +371,13 @@
       "module"
     ],
     "ID": {},
+    "parameters": {}
+  },
+  "_DOCUMENT": {
+    "name": "_DOCUMENT",
+    "description": "Not exactly a script block, but serves as the root of the document. Blocks than need to be in the root of the document should have this as parent.",
+    "shouldHaveParent": false,
+    "parents": [],
     "parameters": {}
   },
   "clip": {
@@ -3931,9 +3942,14 @@
   "option": {
     "name": "option",
     "description": "Defines a custom sandbox option for a mod.",
-    "shouldHaveParent": false,
-    "parents": [],
+    "shouldHaveParent": true,
+    "parents": [
+      "_DOCUMENT"
+    ],
     "ID": {},
+    "files": [
+      "sandbox-options.txt"
+    ],
     "parameters": {
       "type": {
         "name": "type",

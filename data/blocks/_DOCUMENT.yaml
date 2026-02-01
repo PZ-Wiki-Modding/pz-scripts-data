@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=../../$schema.json
+
+version: 1
+name: _DOCUMENT
+description: Not exactly a script block, but serves as the root of the document. Blocks than need to be in the root of the document should have this as parent.
+shouldHaveParent: false
+parents: []
