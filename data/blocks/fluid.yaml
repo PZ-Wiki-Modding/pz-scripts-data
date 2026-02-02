@@ -8,9 +8,5 @@ parents:
   - module
 ID: {}
 parameters:
-  - name: BlendWhiteList
-  - name: Categories
   - name: ColorReference
   - name: DisplayName
-  - name: Poison
-  - name: Properties
