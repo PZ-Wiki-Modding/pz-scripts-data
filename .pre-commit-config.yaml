@@ -2,10 +2,26 @@ repos:
   - repo: local
     hooks:
       - id: format-blocks
-        name: Format scriptBlocks.yaml
+        name: Format scriptBlocks.json
         entry: python formatBlocks.py
         language: python
         files: ^data/blocks/.*\.yaml$
+        pass_filenames: false
+        always_run: true
+        additional_dependencies: [pyyaml]
+      - id: format-translation-files
+        name: Format translationFiles.json
+        entry: python formatTranslationFiles.py
+        language: python
+        files: ^data/translation_files/.*\.yaml$
+        pass_filenames: false
+        always_run: true
+        additional_dependencies: [pyyaml]
+      - id: format-language-codes
+        name: Format languageCodes.json
+        entry: python formatLanguageCodes.py
+        language: python
+        files: ^data/language_codes/.*\.yaml$
         pass_filenames: false
         always_run: true
         additional_dependencies: [pyyaml]
