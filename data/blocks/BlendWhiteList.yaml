@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../schemas/blocks.json
+
+version: 1
+name: BlendWhiteList
+description: Seems to define blend properties with other fluids.
+shouldHaveParent: true
+parents:
+  - fluid
+ID: {}
+parameters:
+  - name: whitelist
+    type: boolean

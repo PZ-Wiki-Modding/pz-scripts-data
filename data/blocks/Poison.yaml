@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../../schemas/blocks.json
+
+version: 1
+name: Poison
+description: Defines poison properties for a fluid script.
+shouldHaveParent: true
+parents:
+  - fluid
+ID: {}
+parameters:
+  - name: maxEffect
+    type: string
+    description: Defines the strength of the poison.
+    values:
+      - Deadly
+      - Medium
+  - name: minAmount
+    type: number
+    description: The minimum amount required to consume to poison the player.
+  - name: diluteRatio
+    type: number
+    description: The ratio at which the poison is diluted when mixed with other fluids.
