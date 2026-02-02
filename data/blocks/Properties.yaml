@@ -6,7 +6,6 @@ description: Define properties for a fluid script.
 shouldHaveParent: true
 parents:
   - fluid
-ID: {}
 parameters:
   - name: ThirstChange
     type: number

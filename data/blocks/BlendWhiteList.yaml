@@ -6,7 +6,6 @@ description: Seems to define blend properties with other fluids.
 shouldHaveParent: true
 parents:
   - fluid
-ID: {}
 parameters:
   - name: whitelist
     type: boolean

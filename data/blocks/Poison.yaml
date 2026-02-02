@@ -6,7 +6,6 @@ description: Defines poison properties for a fluid script.
 shouldHaveParent: true
 parents:
   - fluid
-ID: {}
 parameters:
   - name: maxEffect
     type: string
