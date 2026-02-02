@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=../../schemas/translation_files.json
+
+version: 1
+name: MultiStageBuild
+description: ""
+filePrefix: MultiStageBuild_
+fileStarter: MultiStageBuild_

@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=../../schemas/translation_files.json
+
+version: 1
+name: EvolvedRecipeName
+description: ""
+filePrefix: EvolvedRecipeName_
+fileStarter: EvolvedRecipeName_

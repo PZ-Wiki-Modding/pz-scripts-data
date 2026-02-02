@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Language Codes Schema",
+  "type": "object",
+  "properties": {
+    "version": { "type": ["number", "string"] },
+    "name": { 
+      "type": "string",
+      "description": "The name of the language code." 
+    },
+    "languageName": {
+      "type": "string",
+      "description": "The full name of the language."
+    },
+    "encoding": {
+      "type": "string",
+      "description": "The text file encoding needed for this language."
+    }
+  }
+}

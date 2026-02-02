@@ -1,0 +1,6 @@
+# yaml-language-server: $schema=../../schemas/language_codes.json
+
+version: 1
+name: TH
+languageName: Thai
+encoding: UTF-8
