@@ -3,5 +3,5 @@
 version: 1
 name: GameSound
 description: ""
-filePrefix: GameSound_
+filePrefix: GameSound
 fileStarter: GameSound_

@@ -3,5 +3,5 @@
 version: 1
 name: BodyParts
 description: ""
-filePrefix: BodyParts_
+filePrefix: BodyParts
 fileStarter: BodyParts_

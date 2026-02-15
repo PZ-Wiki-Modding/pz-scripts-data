@@ -3,5 +3,5 @@
 version: 1
 name: Moveables
 description: ""
-filePrefix: Moveables_
+filePrefix: Moveables
 fileStarter: Moveables_

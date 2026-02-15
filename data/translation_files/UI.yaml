@@ -3,5 +3,5 @@
 version: 1
 name: UI
 description: Translation file for user interface elements.
-filePrefix: UI_
+filePrefix: UI
 fileStarter: UI_

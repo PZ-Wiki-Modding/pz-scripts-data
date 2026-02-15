@@ -3,5 +3,5 @@
 version: 1
 name: Print_Media
 description: ""
-filePrefix: Print_Media_
+filePrefix: Print_Media
 fileStarter: Print_Media_

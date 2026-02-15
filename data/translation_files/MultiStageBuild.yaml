@@ -3,5 +3,5 @@
 version: 1
 name: MultiStageBuild
 description: ""
-filePrefix: MultiStageBuild_
+filePrefix: MultiStageBuild
 fileStarter: MultiStageBuild_

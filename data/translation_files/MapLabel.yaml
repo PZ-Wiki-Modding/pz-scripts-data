@@ -3,5 +3,5 @@
 version: 1
 name: MapLabel
 description: ""
-filePrefix: MapLabel_
+filePrefix: MapLabel
 fileStarter: MapLabel_

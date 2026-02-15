@@ -3,5 +3,5 @@
 version: 1
 name: Fluids
 description: ""
-filePrefix: Fluids_
+filePrefix: Fluids
 fileStarter: Fluids_

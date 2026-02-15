@@ -3,5 +3,5 @@
 version: 1
 name: SurvivorNames
 description: ""
-filePrefix: SurvivorNames_
+filePrefix: SurvivorNames
 fileStarter: SurvivorNames_

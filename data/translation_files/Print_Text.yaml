@@ -3,5 +3,5 @@
 version: 1
 name: Print_Text
 description: ""
-filePrefix: Print_Text_
+filePrefix: Print_Text
 fileStarter: Print_Text_

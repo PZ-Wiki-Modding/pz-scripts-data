@@ -3,5 +3,5 @@
 version: 1
 name: Attributes
 description: ""
-filePrefix: Attributes_
+filePrefix: Attributes
 fileStarter: Attributes_

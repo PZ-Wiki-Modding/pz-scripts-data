@@ -3,5 +3,5 @@
 version: 1
 name: Farming
 description: ""
-filePrefix: Farming_
+filePrefix: Farming
 fileStarter: Farming_

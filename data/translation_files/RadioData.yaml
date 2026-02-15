@@ -3,5 +3,5 @@
 version: 1
 name: RadioData
 description: ""
-filePrefix: RadioData_
+filePrefix: RadioData
 fileStarter: RadioData_

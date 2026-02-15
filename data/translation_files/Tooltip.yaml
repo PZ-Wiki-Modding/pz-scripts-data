@@ -3,5 +3,5 @@
 version: 1
 name: Tooltip
 description: ""
-filePrefix: Tooltip_
+filePrefix: Tooltip
 fileStarter: Tooltip_

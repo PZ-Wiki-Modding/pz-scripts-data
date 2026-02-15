@@ -3,5 +3,5 @@
 version: 1
 name: ItemName
 description: ""
-filePrefix: ItemName_
+filePrefix: ItemName
 fileStarter: ItemName_

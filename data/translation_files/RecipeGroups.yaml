@@ -3,5 +3,5 @@
 version: 1
 name: RecipeGroups
 description: ""
-filePrefix: RecipeGroups_
+filePrefix: RecipeGroups
 fileStarter: RecipeGroups_

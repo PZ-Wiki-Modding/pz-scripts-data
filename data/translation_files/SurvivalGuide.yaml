@@ -3,5 +3,5 @@
 version: 1
 name: SurvivalGuide
 description: ""
-filePrefix: SurvivalGuide_
+filePrefix: SurvivalGuide
 fileStarter: SurvivalGuide_

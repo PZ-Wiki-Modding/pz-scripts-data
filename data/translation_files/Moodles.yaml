@@ -3,5 +3,5 @@
 version: 1
 name: Moodles
 description: ""
-filePrefix: Moodles_
+filePrefix: Moodles
 fileStarter: Moodles_

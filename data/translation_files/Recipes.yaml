@@ -3,5 +3,5 @@
 version: 1
 name: Recipes
 description: ""
-filePrefix: Recipes_
+filePrefix: Recipes
 fileStarter: Recipes_
