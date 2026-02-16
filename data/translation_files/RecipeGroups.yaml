@@ -5,3 +5,4 @@ name: RecipeGroups
 description: ""
 filePrefix: RecipeGroups
 fileStarter: RecipeGroups_
+keyPrefix: RecipeGroup_

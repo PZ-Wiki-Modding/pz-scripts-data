@@ -5,3 +5,4 @@ name: SurvivalGuide
 description: ""
 filePrefix: SurvivalGuide
 fileStarter: SurvivalGuide_
+keyPrefix: SurvivalGuide_

@@ -5,3 +5,4 @@ name: MultiStageBuild
 description: ""
 filePrefix: MultiStageBuild
 fileStarter: MultiStageBuild_
+keyPrefix: MultiStageBuild_

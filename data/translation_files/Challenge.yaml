@@ -5,3 +5,4 @@ name: Challenge
 description: ""
 filePrefix: Challenge
 fileStarter: Challenge_
+keyPrefix: Challenge_

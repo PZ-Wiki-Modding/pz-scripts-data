@@ -5,3 +5,4 @@ name: MapLabel
 description: ""
 filePrefix: MapLabel
 fileStarter: MapLabel_
+keyPrefix: MapLabel_

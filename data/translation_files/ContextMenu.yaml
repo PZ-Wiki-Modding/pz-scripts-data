@@ -5,3 +5,4 @@ name: ContextMenu
 description: ""
 filePrefix: ContextMenu
 fileStarter: ContextMenu_
+keyPrefix: ContextMenu_

@@ -5,3 +5,4 @@ name: Recipes
 description: ""
 filePrefix: Recipes
 fileStarter: Recipes_
+keyPrefix: Recipe_

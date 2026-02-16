@@ -5,3 +5,4 @@ name: Stash
 description: ""
 filePrefix: Stash
 fileStarter: Stash_
+keyPrefix: Stash_

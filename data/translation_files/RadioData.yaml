@@ -5,3 +5,4 @@ name: RadioData
 description: ""
 filePrefix: RadioData
 fileStarter: RadioData_
+keyPrefix: RD_

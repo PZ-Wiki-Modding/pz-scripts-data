@@ -5,3 +5,4 @@ name: Fluids
 description: ""
 filePrefix: Fluids
 fileStarter: Fluids_
+keyPrefix: Fluid_Name_

@@ -5,3 +5,4 @@ name: Moodles
 description: ""
 filePrefix: Moodles
 fileStarter: Moodles_
+keyPrefix: Moodles_

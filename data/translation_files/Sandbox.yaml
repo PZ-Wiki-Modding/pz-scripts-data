@@ -5,3 +5,4 @@ name: Sandbox
 description: ""
 filePrefix: Sandbox
 fileStarter: Sandbox_
+keyPrefix: Sandbox_

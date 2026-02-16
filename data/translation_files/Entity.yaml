@@ -5,3 +5,4 @@ name: Entity
 description: ""
 filePrefix: Entity
 fileStarter: Entity_
+keyPrefix: EC_

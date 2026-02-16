@@ -5,3 +5,4 @@ name: ItemName
 description: ""
 filePrefix: ItemName
 fileStarter: ItemName_
+keyPrefix: ItemName_

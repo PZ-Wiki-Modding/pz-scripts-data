@@ -5,3 +5,4 @@ name: UI
 description: Translation file for user interface elements.
 filePrefix: UI
 fileStarter: UI_
+keyPrefix: UI_

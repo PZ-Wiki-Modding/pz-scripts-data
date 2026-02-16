@@ -5,3 +5,4 @@ name: GameSound
 description: ""
 filePrefix: GameSound
 fileStarter: GameSound_
+keyPrefix: GameSound_

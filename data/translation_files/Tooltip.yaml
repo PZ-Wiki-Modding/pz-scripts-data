@@ -5,3 +5,4 @@ name: Tooltip
 description: ""
 filePrefix: Tooltip
 fileStarter: Tooltip_
+keyPrefix: Tooltip_
