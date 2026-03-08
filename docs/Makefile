@@ -13,7 +13,7 @@ clean:
 	rm -f source/blocks/*.rst
 
 generate:
-	python ../scripts/generate_docs.py
+	python ../scripts/generateDocs.py
 
 html: generate
 	sphinx-build -b html source build/html
