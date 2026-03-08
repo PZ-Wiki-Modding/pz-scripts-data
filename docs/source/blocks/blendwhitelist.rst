@@ -16,6 +16,12 @@ Hierarchy
 - :doc:`categories`
 
 
+ID Properties
+-------------
+
+This block should not have an ID.
+
+
 Parameters
 ----------
 

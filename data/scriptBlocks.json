@@ -430,7 +430,7 @@
   },
   "_DOCUMENT": {
     "name": "_DOCUMENT",
-    "description": "Not exactly a script block, but serves as the root of the document. Blocks than need to be in the root of the document should have this as parent.",
+    "description": "Not a script block, but serves as the root of the document. Blocks than need to be in the root of the document should have this as parent.",
     "shouldHaveParent": false,
     "parents": [],
     "parameters": {}
@@ -4406,6 +4406,21 @@
       },
       "sourceframe2": {
         "name": "sourceFrame2"
+      }
+    }
+  },
+  "component CraftBench": {
+    "name": "component CraftBench",
+    "description": "",
+    "shouldHaveParent": true,
+    "isVariant": "components",
+    "parents": [
+      "entity"
+    ],
+    "parameters": {
+      "recipes": {
+        "name": "Recipes",
+        "type": "list"
       }
     }
   },

@@ -1,5 +1,5 @@
-area
-====
+component CraftBench
+====================
 
 
 
@@ -9,21 +9,20 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`template`
-- :doc:`vehicle`
+- :doc:`entity`
 
 
 ID Properties
 -------------
 
-This block should have an ID.
+This block should not have an ID.
 
 
 Parameters
 ----------
 
-**xywh**
-   Type: ``Any``
+**Recipes**
+   Type: ``list``
 
    No description
 

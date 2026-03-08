@@ -3,6 +3,8 @@ craftRecipe
 
 Defines a crafting recipe.
 
+This block can be soft overridden in scripts.
+
 
 Hierarchy
 ---------
@@ -22,7 +24,11 @@ Hierarchy
 - :doc:`ouputs`
 - :doc:`overlaymapper`
 
-This block can be soft overridden in scripts.
+
+ID Properties
+-------------
+
+This block should have an ID.
 
 
 Parameters

@@ -12,6 +12,12 @@ Hierarchy
 - :doc:`component_contextmenuconfig`
 
 
+ID Properties
+-------------
+
+This block should not have an ID.
+
+
 Parameters
 ----------
 

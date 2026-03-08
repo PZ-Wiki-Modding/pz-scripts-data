@@ -16,20 +16,22 @@ Hierarchy
 ID Properties
 -------------
 
-The ID of this block counts as the block type.
+This block should have an ID.
+
+Using a specific ID will make this block have different properties.
 
 **Allowed ID Values:**
 
-- ``CraftRecipe``
-- ``SpriteConfig``
-- ``UiConfig``
-- ``CraftBench``
-- ``CraftBenchSounds``
-- ``Resources``
-- ``DryingCraftLogic``
-- ``SpriteOverlayConfig``
-- ``Durability``
-- ``FluidContainer``
-- ``ContextMenuConfig``
-- ``WallCoveringConfig``
+- :doc:`CraftRecipe <component_craftrecipe>`
+- :doc:`SpriteConfig <component_spriteconfig>`
+- :doc:`UiConfig <component_uiconfig>`
+- :doc:`CraftBench <component_craftbench>`
+- :doc:`CraftBenchSounds <component_craftbenchsounds>`
+- :doc:`Resources <component_resources>`
+- :doc:`DryingCraftLogic <component_dryingcraftlogic>`
+- :doc:`SpriteOverlayConfig <component_spriteoverlayconfig>`
+- :doc:`Durability <component_durability>`
+- :doc:`FluidContainer <component_fluidcontainer>`
+- :doc:`ContextMenuConfig <component_contextmenuconfig>`
+- :doc:`WallCoveringConfig <component_wallcoveringconfig>`
 

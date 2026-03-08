@@ -3,6 +3,8 @@ itemMapper
 
 
 
+This block can be soft overridden in scripts.
+
 
 Hierarchy
 ---------
@@ -11,5 +13,9 @@ Hierarchy
 
 - :doc:`craftrecipe`
 
-This block can be soft overridden in scripts.
+
+ID Properties
+-------------
+
+This block should have an ID.
 

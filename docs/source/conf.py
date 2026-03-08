@@ -41,7 +41,7 @@ html_theme_options = {
     # 'includehidden': True,
     # 'titles_only': False,
     "external_links": [
-        {"name": "GitHub", "url": "https://github.com/SirDoggyJvla/pz-scripts-data"},
+        {"name": "Repository", "url": "https://github.com/SirDoggyJvla/pz-scripts-data"},
         {"name": "ZedScripts", "url": "https://pzwiki.net/wiki/ZedScripts"},
     ],
 }

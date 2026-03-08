@@ -15,6 +15,7 @@ Hierarchy
 **Possible Child Blocks:**
 
 - :doc:`component`
+- :doc:`component_craftbench`
 - :doc:`component_craftbenchsounds`
 - :doc:`component_craftrecipe`
 - :doc:`component_dryingcraftlogic`
@@ -24,6 +25,12 @@ Hierarchy
 - :doc:`component_uiconfig`
 - :doc:`component_wallcoveringconfig`
 - :doc:`components`
+
+
+ID Properties
+-------------
+
+This block should have an ID.
 
 
 Parameters

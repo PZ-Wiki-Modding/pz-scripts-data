@@ -117,22 +117,26 @@ class BlockDocumentationGenerator:
         
         return rst
     
-    def _generate_id_section(self, id_info: Dict[str, Any]) -> str:
+    def _generate_id_section(self, block_name: str, id_info: Dict[str, Any]) -> str:
         """Generate RST documentation for ID properties."""
-        if not id_info:
-            return ""
-        
-        rst = "\nID Properties\n-------------\n\n"
+
+        rst = "This block should have an ID.\n\n"
         
         as_type = id_info.get('asType', False)
-        if as_type:
-            rst += "The ID of this block counts as the block type.\n\n"
-        
         values = id_info.get('values', [])
+        if as_type:
+            rst += "Using a specific ID will make this block have different properties.\n\n"
+            # for value in values:
+            #     rst += f"- :doc:`{value} <{self._get_block_link(f"{block_name} {value}")}>`\n"
+            # rst += "\n"
+        
         if values:
             rst += "**Allowed ID Values:**\n\n"
             for value in values:
-                rst += f"- ``{value}``\n"
+                if as_type:
+                    rst += f"- :doc:`{value} <{self._get_block_link(f"{block_name} {value}")}>`\n"
+                else:
+                    rst += f"- ``{value}``\n"
             rst += "\n"
         
         parents_without = id_info.get('parentsWithout', [])
@@ -182,9 +186,6 @@ class BlockDocumentationGenerator:
     
     def _get_block_link(self, block_name: str) -> str:
         """Get the documentation link for a block."""
-        # Handle component blocks with IDs
-        if block_name.startswith('component '):
-            return block_name.lower().replace(' ', '_')
         return block_name.lower().replace(' ', '_')
     
     def generate_block_doc(self, block_name: str, block_data: Dict[str, Any]) -> str:
@@ -207,18 +208,21 @@ class BlockDocumentationGenerator:
         # Description
         description = self._format_description(block_data.get('description', 'No description available.'))
         rst += f"{description}\n\n"
+
+        # Soft override info
+        if block_data.get('softOverride', False):
+            rst += "This block can be soft overridden in scripts.\n\n"
         
         # Hierarchy section
         rst += self._generate_hierarchy_section(block_data)
         
         # ID Properties section
-        id_info = block_data.get('ID', {})
-        if id_info:
-            rst += self._generate_id_section(id_info)
-        
-        # Soft override info
-        if block_data.get('softOverride', False):
-            rst += "This block can be soft overridden in scripts.\n\n"
+        id_info: dict|None = block_data.get('ID', None)
+        rst += "\nID Properties\n-------------\n\n"
+        if id_info is not None:
+            rst += self._generate_id_section(block_name, id_info)
+        else:
+            rst += "This block should not have an ID.\n\n"
         
         # Parameters section
         parameters = block_data.get('parameters', [])
@@ -238,7 +242,7 @@ class BlockDocumentationGenerator:
         # Sort blocks by name
         for block_name in sorted(self.blocks.keys(), key=str.lower):
             safe_name = self._get_block_link(block_name)
-            rst += f"   {safe_name}\n"
+            rst += f"   blocks/{safe_name}\n"
         
         return rst
     
@@ -246,7 +250,7 @@ class BlockDocumentationGenerator:
         """Write generated documentation to files."""
         # Create blocks index
         index_rst = self.generate_blocks_index()
-        index_path = self.output_dir / 'index.rst'
+        index_path = os.path.join(os.path.dirname(self.output_dir), 'blocks.rst')
         with open(index_path, 'w') as f:
             f.write(index_rst)
         print(f"Created {index_path}")

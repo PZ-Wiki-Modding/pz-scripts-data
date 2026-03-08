@@ -3,6 +3,8 @@ item
 
 Defines an item to register.
 
+This block can be soft overridden in scripts.
+
 
 Hierarchy
 ---------
@@ -18,7 +20,11 @@ Hierarchy
 - :doc:`component_durability`
 - :doc:`component_fluidcontainer`
 
-This block can be soft overridden in scripts.
+
+ID Properties
+-------------
+
+This block should have an ID.
 
 
 Parameters
