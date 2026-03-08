@@ -1013,7 +1013,7 @@ Parameters
 **HaveChamber**
    Type: ``boolean``
 
-   No description
+   Whether the weapon has a chamber that can hold a round in addition to its magazine.
 
    Default: ``True``
 

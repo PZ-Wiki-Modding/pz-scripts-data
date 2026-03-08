@@ -1505,7 +1505,8 @@
           "weapon"
         ],
         "type": "boolean",
-        "default": true
+        "default": true,
+        "description": "Whether the weapon has a chamber that can hold a round in addition to its magazine."
       },
       "headcondition": {
         "name": "HeadCondition",
