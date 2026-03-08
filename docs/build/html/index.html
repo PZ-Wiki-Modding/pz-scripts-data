@@ -1,0 +1,216 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Zomboid Scripts API Reference &mdash; Project Zomboid Scripts API Reference</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Script Blocks Reference" href="blocks/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Project Zomboid Scripts API Reference
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="blocks/index.html">Script Blocks Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Project Zomboid Scripts API Reference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Project Zomboid Scripts API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="project-zomboid-scripts-api-reference">
+<h1>Project Zomboid Scripts API Reference<a class="headerlink" href="#project-zomboid-scripts-api-reference" title="Link to this heading"></a></h1>
+<p>Welcome to the <strong>Project Zomboid Scripts API Reference</strong>. This documentation provides comprehensive information about script blocks, their properties, parameters, and usage in the Project Zomboid modding system.</p>
+</section>
+<section id="about-scripts">
+<h1>About Scripts<a class="headerlink" href="#about-scripts" title="Link to this heading"></a></h1>
+<p>Project Zomboid scripts allow you to define custom events, behaviors, and configurations for the game. This documentation covers:</p>
+<ul class="simple">
+<li><p><strong>Script Blocks</strong>: The fundamental building blocks of scripts</p></li>
+<li><p><strong>Block Properties</strong>: Attributes and behaviors of different block types</p></li>
+<li><p><strong>Parameters</strong>: Configuration options available for each block type</p></li>
+<li><p><strong>Block Hierarchies</strong>: Parent-child relationships between blocks</p></li>
+</ul>
+</section>
+<section id="documentation-structure">
+<h1>Documentation Structure<a class="headerlink" href="#documentation-structure" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="blocks/index.html">Script Blocks Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="blocks/blendwhitelist.html">BlendWhiteList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/categories.html">Categories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/copyframe.html">CopyFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/copyframes.html">CopyFrames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/craftlogic.html">CraftLogic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/fluids.html">Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/poison.html">Poison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/_document.html">_DOCUMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/anim.html">anim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/animation.html">animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/animationsmesh.html">animationsMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/area.html">area</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/attachment.html">attachment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/character_trait_definition.html">character_trait_definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/clip.html">clip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/component.html">component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/component_contextmenuconfig.html">component ContextMenuConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/component_craftbenchsounds.html">component CraftBenchSounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/component_craftrecipe.html">component CraftRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/component_dryingcraftlogic.html">component DryingCraftLogic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/component_durability.html">component Durability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/component_fluidcontainer.html">component FluidContainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/component_resources.html">component Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/component_spriteconfig.html">component SpriteConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/component_spriteoverlayconfig.html">component SpriteOverlayConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/component_uiconfig.html">component UiConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/component_wallcoveringconfig.html">component WallCoveringConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/components.html">components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/container.html">container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/contextentry.html">contextEntry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/craftrecipe.html">craftRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/door.html">door</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/energy.html">energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/entity.html">entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/evolvedrecipe.html">evolvedrecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/face.html">face</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/fixing.html">fixing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/fluid.html">fluid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/group.html">group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/imports.html">imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/inputs.html">inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/item.html">item</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/itemmapper.html">itemMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/layer.html">layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/lightbar.html">lightbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/lua.html">lua</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/mannequin.html">mannequin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/model.html">model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/module.html">module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/option.html">option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/ouputs.html">ouputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/overlaymapper.html">overlayMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/part.html">part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/passenger.html">passenger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/physicshitreaction.html">physicsHitReaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/position.html">position</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/ragdoll.html">ragdoll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/skin.html">skin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/sound.html">sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/spritemodel.html">spriteModel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/switchseat.html">switchSeat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/table.html">table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/template.html">template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/tile.html">tile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/tileset.html">tileset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/timedaction.html">timedAction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/vehicle.html">vehicle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/wheel.html">wheel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blocks/xuiskin.html">xuiSkin</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h1>
+<p>To learn about a specific block type, navigate to the <a class="reference internal" href="blocks/index.html"><span class="doc">Script Blocks Reference</span></a> section.</p>
+<p>Each block is documented with:</p>
+<ul class="simple">
+<li><p><strong>Description</strong>: What the block does</p></li>
+<li><p><strong>Parent Blocks</strong>: Which blocks can contain this block</p></li>
+<li><p><strong>Child Blocks</strong>: Which blocks can be nested within this block</p></li>
+<li><p><strong>Parameters</strong>: Available configuration parameters and their details</p></li>
+<li><p><strong>Examples</strong>: Usage examples (where applicable)</p></li>
+</ul>
+</section>
+<section id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Link to this heading"></a></h1>
+<p>This documentation is auto-generated from the YAML block definitions. To contribute or suggest improvements, please refer to the main repository’s contribution guidelines.</p>
+<p>For more information about Project Zomboid scripting, visit the official PZWiki: <a class="reference external" href="https://pzwiki.net/wiki/Scripts">https://pzwiki.net/wiki/Scripts</a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="blocks/index.html" class="btn btn-neutral float-right" title="Script Blocks Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Scripts-Data Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1718 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>item &mdash; Project Zomboid Scripts API Reference</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="itemMapper" href="itemmapper.html" />
+    <link rel="prev" title="inputs" href="inputs.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Project Zomboid Scripts API Reference
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Script Blocks Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="blendwhitelist.html">BlendWhiteList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="categories.html">Categories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copyframe.html">CopyFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="copyframes.html">CopyFrames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="craftlogic.html">CraftLogic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fluids.html">Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poison.html">Poison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_document.html">_DOCUMENT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anim.html">anim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animation.html">animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animationsmesh.html">animationsMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="area.html">area</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attachment.html">attachment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="character_trait_definition.html">character_trait_definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component.html">component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_contextmenuconfig.html">component ContextMenuConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_craftbenchsounds.html">component CraftBenchSounds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_craftrecipe.html">component CraftRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_dryingcraftlogic.html">component DryingCraftLogic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_durability.html">component Durability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_fluidcontainer.html">component FluidContainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_resources.html">component Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_spriteconfig.html">component SpriteConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_spriteoverlayconfig.html">component SpriteOverlayConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_uiconfig.html">component UiConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="component_wallcoveringconfig.html">component WallCoveringConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html">components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container.html">container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contextentry.html">contextEntry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="craftrecipe.html">craftRecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="door.html">door</a></li>
+<li class="toctree-l2"><a class="reference internal" href="energy.html">energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entity.html">entity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolvedrecipe.html">evolvedrecipe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="face.html">face</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fixing.html">fixing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fluid.html">fluid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="group.html">group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imports.html">imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html">inputs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">item</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hierarchy">Hierarchy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="itemmapper.html">itemMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="layer.html">layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lightbar.html">lightbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lua.html">lua</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mannequin.html">mannequin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module.html">module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="option.html">option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ouputs.html">ouputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overlaymapper.html">overlayMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="part.html">part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="passenger.html">passenger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physicshitreaction.html">physicsHitReaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="position.html">position</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ragdoll.html">ragdoll</a></li>
+<li class="toctree-l2"><a class="reference internal" href="skin.html">skin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sound.html">sound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spritemodel.html">spriteModel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchseat.html">switchSeat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table.html">table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="template.html">template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tile.html">tile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tileset.html">tileset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timedaction.html">timedAction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vehicle.html">vehicle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wheel.html">wheel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xuiskin.html">xuiSkin</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Project Zomboid Scripts API Reference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Script Blocks Reference</a></li>
+      <li class="breadcrumb-item active">item</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/blocks/item.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="item">
+<h1>item<a class="headerlink" href="#item" title="Link to this heading"></a></h1>
+<p>Defines an item to register.</p>
+<section id="hierarchy">
+<h2>Hierarchy<a class="headerlink" href="#hierarchy" title="Link to this heading"></a></h2>
+<p><strong>Valid Parent Blocks:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="module.html"><span class="doc">module</span></a></p></li>
+</ul>
+<p>This block can be soft overridden in scripts.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<dl>
+<dt><strong>AcceptItemFunction</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container</p>
+</dd>
+<dt><strong>AcceptMediaType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code></p>
+<p>Item types: radio</p>
+</dd>
+<dt><strong>ActivatedItem</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, drainable, weaponpart</p>
+</dd>
+<dt><strong>AimingMod</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>AimingPerkCritModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>AimingPerkHitChanceModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>AimingPerkMinAngleModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>AimingPerkRangeModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>Aimingtime</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>AimingTimeModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weaponpart</p>
+</dd>
+<dt><strong>AimReleaseSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>AlarmSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: alarmclock, alarmclockclothing</p>
+</dd>
+<dt><strong>Alcoholic</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>AlcoholPower</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable</p>
+</dd>
+<dt><strong>AlwaysKnockdown</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>AlwaysWelcomeGift</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>AmmoBox</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>AmmoType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal, weapon</p>
+</dd>
+<dt><strong>AngleFalloff</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>AnimalFeedType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>AttachmentReplacement</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container, radio</p>
+</dd>
+<dt><strong>AttachmentsProvided</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, container</p>
+</dd>
+<dt><strong>AttachmentType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, normal, radio, weapon</p>
+</dd>
+<dt><strong>BadCold</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>BadInMicrowave</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>BandagePower</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>BaseSpeed</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>BaseVolumeRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: radio</p>
+</dd>
+<dt><strong>BiteDefense</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>BloodLocation</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, container, normal, radio</p>
+</dd>
+<dt><strong>BodyLocation</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: alarmclockclothing, clothing, container, normal</p>
+</dd>
+<dt><strong>book_subject</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container, literature</p>
+</dd>
+<dt><strong>BoredomChange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food, literature</p>
+</dd>
+<dt><strong>brakeForce</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>BreakSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, normal, weapon</p>
+</dd>
+<dt><strong>BringToBearSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>BulletDefense</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>BulletHitArmourSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>Calories</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, normal</p>
+</dd>
+<dt><strong>CanAttach</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weaponpart</p>
+</dd>
+<dt><strong>CanBandage</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>CanBarricade</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>CanBeEquipped</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container, radio</p>
+</dd>
+<dt><strong>CanBePlaced</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>CanBeRemote</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>CanBeReused</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>CanBeWrite</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: literature</p>
+</dd>
+<dt><strong>CanDetach</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weaponpart</p>
+</dd>
+<dt><strong>CanHaveHoles</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<p>Item types: clothing, container, normal</p>
+</dd>
+<dt><strong>CannedFood</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>CanStack</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>CanStoreWater</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, normal, weapon</p>
+</dd>
+<dt><strong>CantAttackWithLowestEndurance</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>cantBeConsolided</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable</p>
+</dd>
+<dt><strong>CantBeFrozen</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>CantEat</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>Capacity</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code></p>
+<p>Item types: container</p>
+</dd>
+<dt><strong>Carbohydrates</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, normal</p>
+</dd>
+<dt><strong>Categories</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ChanceToFall</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, normal</p>
+</dd>
+<dt><strong>ChanceToSpawnDamaged</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, normal</p>
+</dd>
+<dt><strong>ClickSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">string</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">Stormy9mmClick</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ClipSize</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>CloseKillMove</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>CloseSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container</p>
+</dd>
+<dt><strong>ClothingExtraSubmenu</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: alarmclockclothing, clothing, container</p>
+</dd>
+<dt><strong>ClothingItem</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: alarmclockclothing, clothing, container, radio</p>
+</dd>
+<dt><strong>ClothingItemExtra</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: alarmclockclothing, clothing, container</p>
+</dd>
+<dt><strong>ClothingItemExtraOption</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: alarmclockclothing, clothing, container</p>
+</dd>
+<dt><strong>ColorBlue</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">255</span></code></p>
+<p>Item types: clothing, food, literature, normal, weapon</p>
+</dd>
+<dt><strong>ColorGreen</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">255</span></code></p>
+<p>Item types: clothing, food, literature, normal, weapon</p>
+</dd>
+<dt><strong>ColorRed</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">255</span></code></p>
+<p>Item types: clothing, food, literature, normal, weapon</p>
+</dd>
+<dt><strong>CombatSpeedModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: clothing, container</p>
+</dd>
+<dt><strong>ConditionAffectsCapacity</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>ConditionLowerChanceOneIn</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">10</span></code></p>
+<p>Item types: clothing, normal, weapon</p>
+</dd>
+<dt><strong>ConditionLowerOffroad</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>ConditionLowerStandard</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, normal</p>
+</dd>
+<dt><strong>ConditionMax</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">10</span></code></p>
+<p>Item types: clothing, container, drainable, food, normal, radio, weapon</p>
+</dd>
+<dt><strong>ConsolidateOption</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable</p>
+</dd>
+<dt><strong>CookingSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, normal</p>
+</dd>
+<dt><strong>CorpseSicknessDefense</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>Cosmetic</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: alarmclockclothing, clothing</p>
+</dd>
+<dt><strong>count</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>CritDmgMultiplier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>CriticalChance</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">20</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>CustomContextMenu</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, normal</p>
+</dd>
+<dt><strong>CustomEatSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>Custom sound to play when eating or drinking this item, refers to the ID of a sound script. Set to an empty string to disable any sound from playing.</p>
+<p>Can be empty: ✓</p>
+<p>Item types: drainable, food, normal</p>
+</dd>
+<dt><strong>CyclicRateMultiplier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>DamageCategory</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>DamageMakeHole</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>DangerousUncooked</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>DaysFresh</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>DaysTotallyRotten</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>DigitalPadlock</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: key</p>
+</dd>
+<dt><strong>DigType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal, weapon</p>
+</dd>
+<dt><strong>DisappearOnUse</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<p>Item types: drainable, radio, weaponpart</p>
+</dd>
+<dt><strong>DiscomfortModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, container</p>
+</dd>
+<dt><strong>DisplayCategory</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+</dd>
+<dt><strong>DoorDamage</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>DoorHitSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">string</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">BaseballBatHit</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>DoubleClickRecipe</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, literature, normal</p>
+</dd>
+<dt><strong>DropSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal, weapon</p>
+</dd>
+<dt><strong>Eattime</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, normal</p>
+</dd>
+<dt><strong>EatType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, drainable, food, normal, weapon</p>
+</dd>
+<dt><strong>EjectAmmoSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>EjectAmmoStartSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>EjectAmmoStopSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>enduranceChange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>EnduranceMod</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>engineLoudness</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>EquippedNoSprint</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>EquipSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container, drainable, weapon</p>
+</dd>
+<dt><strong>EvolvedRecipe</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>List of evolved recipes this item can be used in.</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>EvolvedRecipeName</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>ExplosionDuration</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ExplosionPower</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ExplosionRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ExplosionSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ExplosionTimer</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>FabricType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, normal</p>
+</dd>
+<dt><strong>fatigueChange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>FillFromDispenserSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, normal</p>
+</dd>
+<dt><strong>FillFromLakeSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>FillFromTapSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, normal</p>
+</dd>
+<dt><strong>FillFromToiletSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>FireFuelRatio</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, moveable, normal, weapon</p>
+</dd>
+<dt><strong>FireMode</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>FireModePossibilities</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>FireRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>FireStartingChance</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>FireStartingEnergy</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>FishingLure</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food, normal</p>
+</dd>
+<dt><strong>fluReduction</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>FoodSicknessChange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>FoodType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>GoodHot</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>GunType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>HaveChamber</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>HeadCondition</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal, weapon</p>
+</dd>
+<dt><strong>HeadConditionLowerChanceMultiplier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: normal, weapon</p>
+</dd>
+<dt><strong>HeadConditionMax</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>HearingModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>HerbalistType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>Hidden</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+</dd>
+<dt><strong>HitAngleMod</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>HitChance</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>HitChanceModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weaponpart</p>
+</dd>
+<dt><strong>HitFloorSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">string</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">BatOnFloor</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>HitSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">string</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">BaseballBatHit</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>HungerChange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>Icon</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">string</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt><strong>IconColorMask</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, literature, normal, weapon</p>
+</dd>
+<dt><strong>IconFluidMask</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal, weapon</p>
+</dd>
+<dt><strong>IconsForTexture</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, container, food, key, literature, normal, weapon</p>
+</dd>
+<dt><strong>IdleAnim</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">string</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">Idle</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ImpactSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">string</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">BaseballBatHit</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>InsertAllBulletsReload</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>InsertAmmoSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>InsertAmmoStartSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>InsertAmmoStopSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>Insulation</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, normal</p>
+</dd>
+<dt><strong>InverseCoughProbability</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>InverseCoughProbabilitySmoker</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>IsAimedFirearm</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>IsAimedHandWeapon</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>IsCookable</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, normal, weapon</p>
+</dd>
+<dt><strong>IsDung</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>IsHighTier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: radio</p>
+</dd>
+<dt><strong>IsPortable</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: radio</p>
+</dd>
+<dt><strong>IsTelevision</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: radio</p>
+</dd>
+<dt><strong>IsWaterSource</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable</p>
+</dd>
+<dt><strong>ItemAfterCleaning</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>ItemType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">string</span></code> <em>(required)</em></p>
+<p>No description</p>
+</dd>
+<dt><strong>Type</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>This parameter was replaced by <cite>ItemType</cite> in Build 42.13.</p>
+</dd>
+<dt><strong>DisplayName</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>This parameter was removed in Build 42.13, naming an item should be done with a translation entry. See the [wiki](<a class="reference external" href="https://pzwiki.net/wiki/DisplayName">https://pzwiki.net/wiki/DisplayName</a>) page for more information.</p>
+</dd>
+<dt><strong>ItemWhenDry</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>JamGunChance</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>KeepOnDeplete</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, drainable</p>
+</dd>
+<dt><strong>KnockBackOnNoDeath</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>KnockdownMod</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>LearnedRecipes</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: literature</p>
+</dd>
+<dt><strong>LightDistance</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, weaponpart</p>
+</dd>
+<dt><strong>LightStrength</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, weaponpart</p>
+</dd>
+<dt><strong>Lipids</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, normal</p>
+</dd>
+<dt><strong>LowLightBonus</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weaponpart</p>
+</dd>
+<dt><strong>LvlSkillTrained</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code></p>
+<p>Item types: literature</p>
+</dd>
+<dt><strong>magazine_subject</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: literature</p>
+</dd>
+<dt><strong>MagazineType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>MakeUpType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable</p>
+</dd>
+<dt><strong>ManuallyRemoveSpentRounds</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>Map</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: map</p>
+</dd>
+<dt><strong>MaxAmmo</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal, weapon</p>
+</dd>
+<dt><strong>MaxCapacity</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code></p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>MaxChannel</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">108000</span></code></p>
+<p>Item types: radio</p>
+</dd>
+<dt><strong>MaxDamage</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1.5</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>MaxHitcount</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1000</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>MaxItemSize</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container</p>
+</dd>
+<dt><strong>MaxRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>MaxRangeModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weaponpart</p>
+</dd>
+<dt><strong>MaxSightRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon, weaponpart</p>
+</dd>
+<dt><strong>MechanicsItem</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, normal</p>
+</dd>
+<dt><strong>MediaCategory</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>Medical</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container, drainable, food, normal</p>
+</dd>
+<dt><strong>MetalValue</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: alarmclock, alarmclockclothing, clothing, container, drainable, key, normal, weapon, weaponpart</p>
+</dd>
+<dt><strong>MicRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: radio</p>
+</dd>
+<dt><strong>MinAngle</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>MinChannel</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">88000</span></code></p>
+<p>Item types: radio</p>
+</dd>
+<dt><strong>MinDamage</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>MinimumSwingtime</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>MinRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>MinSightRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon, weaponpart</p>
+</dd>
+<dt><strong>MinutesToBurn</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>How many in-game minutes it takes to burn the food. This value must be higher than <cite>MinutesToCook</cite>.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">120</span></code></p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>MinutesToCook</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>How many in-game minutes it takes to cook the food. This value must be smaller than <cite>MinutesToBurn</cite>.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">60</span></code></p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>ModelWeaponPart</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Can be duplicated: ✓</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>MountOn</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weaponpart</p>
+</dd>
+<dt><strong>MultipleHitConditionAffected</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>MuzzleFlashModelKey</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>NeckProtectionModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>needtobeclosedoncereload</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>NoiseDuration</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>NoiseRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>NoTransmit</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: radio</p>
+</dd>
+<dt><strong>NPCSoundBoost</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>NumberOfPages</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code></p>
+<p>Item types: literature</p>
+</dd>
+<dt><strong>NumLevelsTrained</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: literature</p>
+</dd>
+<dt><strong>OnBreak</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>OnCooked</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>OnCreate</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, container, drainable, food, literature, moveable, normal, weapon</p>
+</dd>
+<dt><strong>OnEat</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>OpeningRecipe</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food, normal</p>
+</dd>
+<dt><strong>OpenSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container</p>
+</dd>
+<dt><strong>OriginX</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: key</p>
+</dd>
+<dt><strong>OriginY</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: key</p>
+</dd>
+<dt><strong>originZ</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: key</p>
+</dd>
+<dt><strong>OtherHandRequire</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>OtherHandUse</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>Packaged</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, normal</p>
+</dd>
+<dt><strong>Padlock</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: key</p>
+</dd>
+<dt><strong>PageToWrite</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: literature</p>
+</dd>
+<dt><strong>painReduction</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>PartType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weaponpart</p>
+</dd>
+<dt><strong>PhysicsObject</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>PiercingBullets</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>PlacedSprite</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>PlaceMultipleSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>PlaceOneSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>PoisonPower</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>PourType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, normal</p>
+</dd>
+<dt><strong>primaryAnimMask</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, normal, weaponpart</p>
+</dd>
+<dt><strong>Projectilecount</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ProjectileSpread</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ProjectileSpreadModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weaponpart</p>
+</dd>
+<dt><strong>ProjectileWeightCenter</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ProtectFromRainWhenEquipped</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>Proteins</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, normal</p>
+</dd>
+<dt><strong>PushBackMod</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>PutInSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container</p>
+</dd>
+<dt><strong>RackAfterShoot</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>RackSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>RainFactor</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, normal, weapon</p>
+</dd>
+<dt><strong>Ranged</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>RangeFalloff</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ReadType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: literature</p>
+</dd>
+<dt><strong>RecoilDelay</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>RecoilDelayModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weaponpart</p>
+</dd>
+<dt><strong>ReduceInfectionPower</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>Reloadtime</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ReloadTimeModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weaponpart</p>
+</dd>
+<dt><strong>RemoteController</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>RemoteRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>RemoveNegativeEffectOnCooked</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>RemoveOnBroken</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>RemoveUnhappinessWhenCooked</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>ReplaceInPrimaryHand</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, container, drainable, normal, radio</p>
+</dd>
+<dt><strong>ReplaceInSecondHand</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, container, drainable, normal, radio</p>
+</dd>
+<dt><strong>ReplaceOnCooked</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>ReplaceOnDeplete</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable</p>
+</dd>
+<dt><strong>ReplaceOnExtinguish</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable</p>
+</dd>
+<dt><strong>ReplaceOnRotten</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>ReplaceOnUse</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food, normal</p>
+</dd>
+<dt><strong>RequireInHandOrInventory</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>RequiresEquippedBothHands</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: moveable, normal, weapon</p>
+</dd>
+<dt><strong>Researchablerecipes</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, container, drainable, food, moveable, normal, radio, weapon</p>
+</dd>
+<dt><strong>RunAnim</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">string</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">Run</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>RunSpeedModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: clothing, container, radio</p>
+</dd>
+<dt><strong>ScaleWorldIcon</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: drainable</p>
+</dd>
+<dt><strong>ScratchDefense</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>secondaryAnimMask</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, normal, weaponpart</p>
+</dd>
+<dt><strong>SensorRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>Sharpness</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal, weapon</p>
+</dd>
+<dt><strong>ShellFallSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>ShoutMultiplier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: clothing, normal</p>
+</dd>
+<dt><strong>ShoutType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, normal</p>
+</dd>
+<dt><strong>SkillTrained</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">string</span></code></p>
+<p>No description</p>
+<p>Item types: literature</p>
+</dd>
+<dt><strong>SmokeRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>SoundGain</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>SoundMap</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Can be duplicated: ✓</p>
+<p>Item types: drainable, food, weapon, weaponpart</p>
+</dd>
+<dt><strong>SoundParameter</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container</p>
+</dd>
+<dt><strong>SoundRadius</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: alarmclock, alarmclockclothing, normal, weapon</p>
+</dd>
+<dt><strong>SoundVolume</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal, weapon</p>
+</dd>
+<dt><strong>SpawnWith</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>Spice</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food</p>
+</dd>
+<dt><strong>SplatBloodOnNoDeath</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>SplatNumber</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>SplatSize</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>StaticModel</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, container, drainable, food, literature, map, moveable, normal, radio, weaponpart</p>
+</dd>
+<dt><strong>StaticModelsByIndex</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food, literature, normal</p>
+</dd>
+<dt><strong>StompPower</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>StopPower</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">5</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>StressChange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, literature</p>
+</dd>
+<dt><strong>SubCategory</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">string</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>SurvivalGear</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container, drainable, food, map, normal, weapon</p>
+</dd>
+<dt><strong>suspensionCompression</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>suspensionDamping</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>SwingAmountBeforeImpact</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>SwingAnim</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">string</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">Rifle</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>SwingSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>Swingtime</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>Tags</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">array</span></code></p>
+<p>No description</p>
+<p>Item types: alarmclock, alarmclockclothing, clothing, container, drainable, food, key, literature, map, moveable, normal, radio, weapon, weaponpart</p>
+</dd>
+<dt><strong>ThirstChange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: food</p>
+</dd>
+<dt><strong>ticksPerEquipUse</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">int</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">30</span></code></p>
+<p>Item types: drainable</p>
+</dd>
+<dt><strong>ToHitModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>Tooltip</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, container, drainable, food, key, literature, moveable, normal, radio, weapon, weaponpart</p>
+</dd>
+<dt><strong>TorchCone</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, weaponpart</p>
+</dd>
+<dt><strong>TorchDot</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">0.96</span></code></p>
+<p>Item types: drainable, weaponpart</p>
+</dd>
+<dt><strong>TransmitRange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: radio</p>
+</dd>
+<dt><strong>Trap</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>TreeDamage</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>triggerExplosionTimer</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>TwoHandWeapon</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>TwoWay</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: radio</p>
+</dd>
+<dt><strong>UnequipSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, normal, weapon</p>
+</dd>
+<dt><strong>UnhappyChange</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, literature</p>
+</dd>
+<dt><strong>UseDelta</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">0.03125</span></code></p>
+<p>Item types: drainable, food, radio, weaponpart</p>
+</dd>
+<dt><strong>UseEndurance</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>UsesBattery</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: radio</p>
+</dd>
+<dt><strong>UseSelf</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>UseWhileEquipped</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">boolean</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<p>Item types: drainable, food, normal, radio</p>
+</dd>
+<dt><strong>UseWhileUnequipped</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable</p>
+</dd>
+<dt><strong>UseWorldItem</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable</p>
+</dd>
+<dt><strong>VehiclePartModel</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>VehicleType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, normal</p>
+</dd>
+<dt><strong>VisionModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>VisualAid</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>WaterResistance</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>WeaponHitArmourSound</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>WeaponLength</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">0.4</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>WeaponReloadType</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>WeaponSprite</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>WeaponSpritesByIndex</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>WeaponWeight</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Item types: weapon</p>
+</dd>
+<dt><strong>Weight</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">float</span></code></p>
+<p>No description</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</dd>
+<dt><strong>WeightEmpty</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: drainable, food, normal</p>
+</dd>
+<dt><strong>WeightModifier</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: weaponpart</p>
+</dd>
+<dt><strong>WeightReduction</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container</p>
+</dd>
+<dt><strong>Wet</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>WetCooldown</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>wheelFriction</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: normal</p>
+</dd>
+<dt><strong>WindResistance</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing, normal</p>
+</dd>
+<dt><strong>WithDrainable</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>WithoutDrainable</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: clothing</p>
+</dd>
+<dt><strong>WorldObjectSprite</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: moveable, normal, radio</p>
+</dd>
+<dt><strong>WorldStaticModel</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+</dd>
+<dt><strong>WorldStaticModelsByIndex</strong></dt><dd><p>Type: <code class="docutils literal notranslate"><span class="pre">Any</span></code></p>
+<p>No description</p>
+<p>Item types: container, food, key, literature, normal, weapon</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="inputs.html" class="btn btn-neutral float-left" title="inputs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="itemmapper.html" class="btn btn-neutral float-right" title="itemMapper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Scripts-Data Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

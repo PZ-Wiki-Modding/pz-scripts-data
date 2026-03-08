@@ -1,0 +1,38 @@
+lightbar
+========
+
+
+
+
+Hierarchy
+---------
+
+**Valid Parent Blocks:**
+
+- :doc:`template`
+- :doc:`vehicle`
+
+
+Parameters
+----------
+
+**texture**
+   Type: ``Any``
+
+   No description
+
+**soundSiren**
+   Type: ``Any``
+
+   No description
+
+**leftCol**
+   Type: ``Any``
+
+   No description
+
+**rightCol**
+   Type: ``Any``
+
+   No description
+
