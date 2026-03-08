@@ -12,6 +12,15 @@ Hierarchy
 - :doc:`template`
 - :doc:`vehicle`
 
+**Possible Child Blocks:**
+
+- :doc:`anim`
+- :doc:`container`
+- :doc:`door`
+- :doc:`lua`
+- :doc:`model`
+- :doc:`table`
+
 
 Parameters
 ----------

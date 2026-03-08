@@ -11,6 +11,18 @@ Hierarchy
 
 - :doc:`module`
 
+**Possible Child Blocks:**
+
+- :doc:`area`
+- :doc:`attachment`
+- :doc:`lightbar`
+- :doc:`model`
+- :doc:`part`
+- :doc:`passenger`
+- :doc:`skin`
+- :doc:`sound`
+- :doc:`wheel`
+
 
 Parameters
 ----------

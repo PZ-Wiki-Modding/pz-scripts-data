@@ -11,6 +11,10 @@ Hierarchy
 
 - :doc:`_document`
 
+**Possible Child Blocks:**
+
+- :doc:`tileset`
+
 
 Parameters
 ----------

@@ -27,6 +27,7 @@ class BlockDocumentationGenerator:
         self.blocks_dir = blocks_dir
         self.output_dir = output_dir
         self.blocks: Dict[str, Any] = {}
+        self.children_map: Dict[str, List[str]] = {}  # Maps parent block name to list of child blocks
         
     def load_blocks(self) -> None:
         """Load all block definitions from YAML files."""
@@ -42,6 +43,18 @@ class BlockDocumentationGenerator:
                         self.blocks[block_data['name']] = block_data
             except Exception as e:
                 print(f"Warning: Failed to load {yaml_file}: {e}")
+        
+        # Build children map after all blocks are loaded
+        self._build_children_map()
+    
+    def _build_children_map(self) -> None:
+        """Build a map of which blocks can be children of which parent blocks."""
+        for block_name, block_data in self.blocks.items():
+            parents = block_data.get('parents', [])
+            for parent in parents:
+                if parent not in self.children_map:
+                    self.children_map[parent] = []
+                self.children_map[parent].append(block_name)
     
     def _format_description(self, text: Optional[str]) -> str:
         """Format description text for RST."""
@@ -134,6 +147,7 @@ class BlockDocumentationGenerator:
     def _generate_hierarchy_section(self, block_data: Dict[str, Any]) -> str:
         """Generate RST documentation for block hierarchy."""
         rst = "\nHierarchy\n---------\n\n"
+        block_name = block_data.get('name', '')
         
         should_have_parent = block_data.get('shouldHaveParent', False)
         if should_have_parent:
@@ -152,6 +166,15 @@ class BlockDocumentationGenerator:
         if needs_children:
             rst += "**Required Child Blocks:**\n\n"
             for child in needs_children:
+                rst += f"- :doc:`{self._get_block_link(child)}`\n"
+            rst += "\n"
+        
+        # Show all possible child blocks
+        possible_children = self.children_map.get(block_name, [])
+        if possible_children:
+            rst += "**Possible Child Blocks:**\n\n"
+            # Sort and display all possible children
+            for child in sorted(possible_children):
                 rst += f"- :doc:`{self._get_block_link(child)}`\n"
             rst += "\n"
         

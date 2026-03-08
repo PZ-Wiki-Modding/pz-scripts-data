@@ -11,3 +11,7 @@ Hierarchy
 
 - :doc:`entity`
 
+**Possible Child Blocks:**
+
+- :doc:`craftlogic`
+

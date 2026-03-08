@@ -11,3 +11,8 @@ Hierarchy
 
 - :doc:`module`
 
+**Possible Child Blocks:**
+
+- :doc:`copyframe`
+- :doc:`copyframes`
+

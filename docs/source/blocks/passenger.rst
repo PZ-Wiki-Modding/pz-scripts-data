@@ -11,6 +11,12 @@ Hierarchy
 
 - :doc:`vehicle`
 
+**Possible Child Blocks:**
+
+- :doc:`anim`
+- :doc:`position`
+- :doc:`switchseat`
+
 
 Parameters
 ----------

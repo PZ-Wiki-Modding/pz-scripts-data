@@ -15,6 +15,10 @@ Hierarchy
 
 - :doc:`inputs`
 
+**Possible Child Blocks:**
+
+- :doc:`inputs`
+
 
 Parameters
 ----------

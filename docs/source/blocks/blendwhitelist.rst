@@ -11,6 +11,10 @@ Hierarchy
 
 - :doc:`fluid`
 
+**Possible Child Blocks:**
+
+- :doc:`categories`
+
 
 Parameters
 ----------

@@ -13,6 +13,10 @@ Hierarchy
 - :doc:`vehicle`
 - :doc:`template`
 
+**Possible Child Blocks:**
+
+- :doc:`clip`
+
 
 ID Properties
 -------------

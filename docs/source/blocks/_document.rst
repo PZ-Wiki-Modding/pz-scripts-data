@@ -9,3 +9,9 @@ Hierarchy
 
 This block does not require a parent block.
 
+**Possible Child Blocks:**
+
+- :doc:`module`
+- :doc:`option`
+- :doc:`spritemodel`
+

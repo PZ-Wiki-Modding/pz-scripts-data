@@ -13,6 +13,10 @@ Hierarchy
 - :doc:`vehicle`
 - :doc:`part`
 
+**Possible Child Blocks:**
+
+- :doc:`attachment`
+
 
 ID Properties
 -------------

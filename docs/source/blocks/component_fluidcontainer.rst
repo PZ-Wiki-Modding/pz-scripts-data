@@ -11,6 +11,10 @@ Hierarchy
 
 - :doc:`item`
 
+**Possible Child Blocks:**
+
+- :doc:`fluids`
+
 
 Parameters
 ----------

@@ -15,6 +15,10 @@ Hierarchy
 
 - :doc:`face`
 
+**Possible Child Blocks:**
+
+- :doc:`face`
+
 
 Parameters
 ----------

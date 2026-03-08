@@ -15,6 +15,13 @@ Hierarchy
 
 - :doc:`inputs`
 
+**Possible Child Blocks:**
+
+- :doc:`inputs`
+- :doc:`itemmapper`
+- :doc:`ouputs`
+- :doc:`overlaymapper`
+
 This block can be soft overridden in scripts.
 
 

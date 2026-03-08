@@ -11,6 +11,10 @@ Hierarchy
 
 - :doc:`spritemodel`
 
+**Possible Child Blocks:**
+
+- :doc:`tile`
+
 
 Parameters
 ----------

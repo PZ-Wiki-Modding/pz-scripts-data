@@ -11,6 +11,10 @@ Hierarchy
 
 - :doc:`component_spriteconfig`
 
+**Possible Child Blocks:**
+
+- :doc:`layer`
+
 
 ID Properties
 -------------

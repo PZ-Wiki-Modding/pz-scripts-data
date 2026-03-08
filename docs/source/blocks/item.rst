@@ -11,6 +11,13 @@ Hierarchy
 
 - :doc:`module`
 
+**Possible Child Blocks:**
+
+- :doc:`component`
+- :doc:`component_contextmenuconfig`
+- :doc:`component_durability`
+- :doc:`component_fluidcontainer`
+
 This block can be soft overridden in scripts.
 
 

@@ -11,6 +11,13 @@ Hierarchy
 
 - :doc:`module`
 
+**Possible Child Blocks:**
+
+- :doc:`blendwhitelist`
+- :doc:`categories`
+- :doc:`poison`
+- :doc:`properties`
+
 
 Parameters
 ----------
