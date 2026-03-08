@@ -1,7 +1,7 @@
 component
 =========
 
-
+A component is a block which can be added as a child to a specific block type like an item, vehicle etc, to provide additional functionalities.
 
 
 Hierarchy

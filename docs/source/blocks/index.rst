@@ -7,20 +7,14 @@ This section provides detailed documentation for all available script blocks.
    :maxdepth: 1
    :caption: Blocks
 
-   blendwhitelist
-   categories
-   copyframe
-   copyframes
-   craftlogic
-   fluids
-   poison
-   properties
    _document
    anim
    animation
    animationsmesh
    area
    attachment
+   blendwhitelist
+   categories
    character_trait_definition
    clip
    component
@@ -38,6 +32,9 @@ This section provides detailed documentation for all available script blocks.
    components
    container
    contextentry
+   copyframe
+   copyframes
+   craftlogic
    craftrecipe
    door
    energy
@@ -46,6 +43,7 @@ This section provides detailed documentation for all available script blocks.
    face
    fixing
    fluid
+   fluids
    group
    imports
    inputs
@@ -63,7 +61,9 @@ This section provides detailed documentation for all available script blocks.
    part
    passenger
    physicshitreaction
+   poison
    position
+   properties
    ragdoll
    skin
    sound

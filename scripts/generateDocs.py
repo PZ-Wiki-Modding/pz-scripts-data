@@ -37,6 +37,8 @@ class BlockDocumentationGenerator:
                 with open(yaml_file, 'r') as f:
                     block_data = yaml.safe_load(f)
                     if block_data and 'name' in block_data:
+                        # if block_data['name'].startswith('_'):
+                        #     continue
                         self.blocks[block_data['name']] = block_data
             except Exception as e:
                 print(f"Warning: Failed to load {yaml_file}: {e}")
@@ -211,7 +213,7 @@ class BlockDocumentationGenerator:
         rst += "   :caption: Blocks\n\n"
         
         # Sort blocks by name
-        for block_name in sorted(self.blocks.keys()):
+        for block_name in sorted(self.blocks.keys(), key=str.lower):
             safe_name = self._get_block_link(block_name)
             rst += f"   {safe_name}\n"
         

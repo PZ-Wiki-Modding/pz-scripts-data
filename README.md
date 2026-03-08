@@ -31,6 +31,7 @@ Script blocks can have the following attributes:
 - `ID`: A dictionary about the ID attribute of the block. If not given, the block can't have any ID.
 - `softOverride`: A boolean indicating whether the block can be [soft overridden](https://pzwiki.net/wiki/Scripts#Soft_overrides) in scripts.
 - `parameters`: A list of parameters associated with the block.
+- `isVariant`: Indicates if this block is a variant of another block, notably used for blocks which have different definitions based on the ID attribute, such as `component` blocks. The value is the original block name.
 
 ### ID
 The `ID` dictionary can have the following attributes:
