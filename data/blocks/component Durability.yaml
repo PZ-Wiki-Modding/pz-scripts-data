@@ -4,6 +4,7 @@ version: 1
 name: component Durability
 description: ""
 shouldHaveParent: true
+isVariant: components
 parents:
   - item
 parameters: []

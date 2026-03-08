@@ -4,6 +4,7 @@ version: 1
 name: component UiConfig
 description: ""
 shouldHaveParent: true
+isVariant: components
 parents:
   - entity
 parameters:

@@ -1,0 +1,23 @@
+_DOCUMENT
+=========
+
+Not a script block, but serves as the root of the document. Blocks than need to be in the root of the document should have this as parent.
+
+
+Hierarchy
+---------
+
+This block does not require a parent block.
+
+**Possible Child Blocks:**
+
+- :doc:`module`
+- :doc:`option`
+- :doc:`spritemodel`
+
+
+ID Properties
+-------------
+
+This block should not have an ID.
+

@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=../../schemas/blocks.json
+
+version: 1
+name: component CraftBench
+description: ""
+shouldHaveParent: true
+isVariant: components
+parents:
+  - entity
+parameters:
+  - name: Recipes
+    type: list
