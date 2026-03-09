@@ -1,8 +1,5 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: RadioData
-description: ""
-filePrefix: RadioData
-fileStarter: RadioData_
+description: Radio translations with the key being a GUID of the radio text.
 keyPrefix: RD_
+fileName: RadioData

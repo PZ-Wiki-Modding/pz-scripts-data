@@ -1,8 +1,5 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: Moodles
-description: ""
-filePrefix: Moodles
-fileStarter: Moodles_
+description: Moodles status and descriptions translations
 keyPrefix: Moodles_
+fileName: Moodles

@@ -1,8 +1,5 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: Print_Text
-description: ""
-filePrefix: Print_Text
-fileStarter: Print_Text_
+description: Raw text content for media items such as newspapers, describing their content.
 keyPrefix: Print_Text_
+fileName: Print_Text

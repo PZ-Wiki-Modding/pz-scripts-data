@@ -1,8 +1,5 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: UI
 description: Translation file for user interface elements.
-filePrefix: UI
-fileStarter: UI_
 keyPrefix: UI_
+fileName: UI

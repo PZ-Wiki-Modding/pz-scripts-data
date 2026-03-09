@@ -1,8 +1,5 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: Fluids
-description: ""
-filePrefix: Fluids
-fileStarter: Fluids_
+description: Translations for fluid related UI elements and fluid containers.
+fileName: Fluids
 keyPrefix: Fluid_Name_

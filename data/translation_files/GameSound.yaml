@@ -1,8 +1,5 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: GameSound
-description: ""
-filePrefix: GameSound
-fileStarter: GameSound_
+description: Game sounds and categories translations.
+fileName: GameSound
 keyPrefix: GameSound_

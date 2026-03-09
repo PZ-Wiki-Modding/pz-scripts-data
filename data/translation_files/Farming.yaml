@@ -1,8 +1,5 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: Farming
-description: ""
-filePrefix: Farming
-fileStarter: Farming_
+description: Translations for farming menus.
+fileName: Farming
 keyPrefix: Farming_

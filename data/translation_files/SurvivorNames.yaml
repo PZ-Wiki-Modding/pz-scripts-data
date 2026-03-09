@@ -1,7 +1,4 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: SurvivorNames
-description: ""
-filePrefix: SurvivorNames
-fileStarter: SurvivorNames_
+description: All possible automatic character names. Used for random name generation of the player character or for zombies.
+fileName: SurvivorNames

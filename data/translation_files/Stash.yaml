@@ -1,8 +1,5 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: Stash
-description: ""
-filePrefix: Stash
-fileStarter: Stash_
+description: Survivor maps translations.
 keyPrefix: Stash_
+fileName: Stash

@@ -1,7 +1,5 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: DynamicRadio
-description: ""
-filePrefix: DynamicRadio
-fileStarter: DynamicRadio_
+description: Dynamic radio translations.
+fileName: DynamicRadio
+keyPrefix: AEBS_

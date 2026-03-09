@@ -1,8 +1,5 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: MapLabel
-description: ""
-filePrefix: MapLabel
-fileStarter: MapLabel_
+description: ''
 keyPrefix: MapLabel_
+fileName: MapLabel

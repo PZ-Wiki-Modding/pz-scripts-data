@@ -1,7 +1,4 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: MakeUp
-description: ""
-filePrefix: MakeUp
-fileStarter: MakeUp_
+description: Translations for make up.
+fileName: MakeUp

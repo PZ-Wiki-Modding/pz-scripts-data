@@ -1,7 +1,4 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: Moveables
-description: ""
-filePrefix: Moveables
-fileStarter: Moveables_
+description: Moveable tiles as items translations.
+fileName: Moveables

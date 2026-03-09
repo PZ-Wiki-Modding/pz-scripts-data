@@ -1,8 +1,5 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
 version: 1
 name: IGUI
-description: Translation file for in-game user interface elements.
-filePrefix: IG_UI
-fileStarter: IGUI_
+description: Translations for in-game user interface elements.
+fileName: IG_UI
 keyPrefix: IGUI_
