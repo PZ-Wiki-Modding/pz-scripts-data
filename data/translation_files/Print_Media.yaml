@@ -3,3 +3,4 @@ name: Print_Media
 description: Text content for media items such as newspapers, describing their content.
 keyPrefix: Print_Media_
 fileName: Print_Media
+function: getText

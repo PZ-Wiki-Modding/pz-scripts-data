@@ -3,3 +3,4 @@ name: IGUI
 description: Translations for in-game user interface elements.
 fileName: IG_UI
 keyPrefix: IGUI_
+function: getText

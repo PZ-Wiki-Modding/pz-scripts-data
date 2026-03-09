@@ -3,3 +3,4 @@ name: Attributes
 description: ''
 fileName: Attributes
 fileStarter: Attributes_
+function: getText

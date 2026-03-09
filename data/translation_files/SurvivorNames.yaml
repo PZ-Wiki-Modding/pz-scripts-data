@@ -1,4 +1,6 @@
 version: 1
 name: SurvivorNames
-description: All possible automatic character names. Used for random name generation of the player character or for zombies.
+description: All possible automatic character names. Used for random name generation
+  of the player character or for zombies.
 fileName: SurvivorNames
+function: getText

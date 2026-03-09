@@ -2,3 +2,4 @@ version: 1
 name: Moveables
 description: Moveable tiles as items translations.
 fileName: Moveables
+function: Translator.getMoveableDisplayName

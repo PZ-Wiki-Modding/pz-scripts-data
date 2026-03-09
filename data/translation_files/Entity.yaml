@@ -3,3 +3,4 @@ name: Entity
 description: Translations for entity scripts.
 fileName: Entity
 keyPrefix: EC_
+function: getText

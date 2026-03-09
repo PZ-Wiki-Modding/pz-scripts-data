@@ -3,3 +3,4 @@ name: ContextMenu
 description: Translations used in the context menus of the game.
 fileName: ContextMenu
 keyPrefix: ContextMenu_
+function: getText

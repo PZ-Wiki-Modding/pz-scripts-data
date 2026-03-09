@@ -3,3 +3,4 @@ name: Tooltip
 description: Tooltips used for UIs.
 keyPrefix: Tooltip_
 fileName: Tooltip
+function: getText

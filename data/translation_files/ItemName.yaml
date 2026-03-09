@@ -1,4 +1,6 @@
 version: 1
 name: ItemName
-description: Translations for item scripts. The key needs to be the full type of the item.
+description: Translations for item scripts. The key needs to be the full type of the
+  item.
 fileName: ItemName
+function: getItemNameFromFullType

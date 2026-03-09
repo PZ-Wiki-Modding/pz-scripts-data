@@ -3,3 +3,4 @@ name: Recorded_Media
 description: Recorded media translations with the key being a GUID of the media text.
 keyPrefix: RM_
 fileName: Recorded_Media
+function: getText

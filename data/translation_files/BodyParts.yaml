@@ -3,3 +3,4 @@ name: BodyParts
 description: ''
 fileName: BodyParts
 fileStarter: BodyParts_
+function: getText

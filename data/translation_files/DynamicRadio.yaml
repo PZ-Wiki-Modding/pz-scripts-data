@@ -3,3 +3,4 @@ name: DynamicRadio
 description: Dynamic radio translations.
 fileName: DynamicRadio
 keyPrefix: AEBS_
+function: getRadioText

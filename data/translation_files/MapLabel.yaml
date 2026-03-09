@@ -3,3 +3,4 @@ name: MapLabel
 description: ''
 keyPrefix: MapLabel_
 fileName: MapLabel
+function: getText

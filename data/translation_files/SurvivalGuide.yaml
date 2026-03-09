@@ -3,3 +3,4 @@ name: SurvivalGuide
 description: Survival guide translations.
 keyPrefix: SurvivalGuide_
 fileName: SurvivalGuide
+function: getText

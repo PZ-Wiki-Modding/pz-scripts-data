@@ -2,3 +2,4 @@ version: 1
 name: EvolvedRecipeName
 description: Translations for evolved recipe scripts.
 fileName: EvolvedRecipeName
+function: Translator.getItemEvolvedRecipeName

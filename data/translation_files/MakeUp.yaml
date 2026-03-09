@@ -2,3 +2,4 @@ version: 1
 name: MakeUp
 description: Translations for make up.
 fileName: MakeUp
+function: getText

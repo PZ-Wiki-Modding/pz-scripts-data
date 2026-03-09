@@ -16,5 +16,8 @@ for file in os.listdir(translation_files_path):
             data.pop("filePrefix", None)
             data.pop("fileStarter", None)
 
+        if "function" not in data:
+            data["function"] = "getText"
+
         with open(os.path.join(translation_files_path, file), "w") as f:
             yaml.dump(data, f, sort_keys=False)
