@@ -161,6 +161,11 @@
     "fileName": "UI",
     "function": "getText"
   },
+  "Mod": {
+    "name": "Mod",
+    "description": "Translations for the mod.info file. Possible keys are \"name\" and \"description\".",
+    "fileName": "Mod"
+  },
   "MultiStageBuild": {
     "name": "MultiStageBuild",
     "description": "Translations for multi stage build.",
