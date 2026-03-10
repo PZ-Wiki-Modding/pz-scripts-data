@@ -1,4 +1,4 @@
-Provides information regarding various script blocks and parameters of Project Zomboid [scripts](https://pzwiki.net/wiki/Scripts) system.
+Provides information regarding various script blocks and parameters of Project Zomboid [scripts](https://pzwiki.net/wiki/Scripts) system. This dataset is used to provide a [ScriptsDocs](https://sirdoggyjvla.github.io/pz-scripts-data/).
 
 # Contributing
 To contribute to the dataset, follow these steps to set up your development environment:
