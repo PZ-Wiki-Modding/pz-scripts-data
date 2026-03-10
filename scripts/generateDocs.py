@@ -18,6 +18,19 @@ def _get_block_link(block_name: str) -> str:
     return block_name.lower().replace(' ', '_')
 
 
+def _dict_to_rst_csv(data: Dict[str, Any]) -> str:
+    """Convert a dictionary to an RST CSV table."""
+    rst = ".. csv-table::\n"
+    rst += "   :header: " + ", ".join(f'"{key}"' for key in data.keys()) + "\n"
+    rst += "   :widths: " + ", ".join("20" for _ in data) + "\n\n"
+    
+    # Add the single row of data
+    rst += "   " + ", ".join(f'"{value}"' for value in data.values()) + "\n\n"
+    
+    return rst
+
+
+
 children_map = {}
 class ScriptBlock:
     """Represents a script block definition."""
@@ -32,6 +45,15 @@ class ScriptBlock:
             return ""
         # Remove extra whitespace and format
         return text.strip()
+    
+    def _generate_properties_table(self) -> str:
+        properties = {
+            "Parent blocks": ", ".join(self.data.get('parents', [])) if self.data.get('parents') else "None",
+            "Required child blocks": ", ".join(self.data.get('needsChildren', [])) if self.data.get('needsChildren') else "None",
+            "Possible child blocks": ", ".join(children_map.get(self.name, [])) if children_map.get(self.name) else "None",
+            "Soft Override": "Yes" if self.data.get('softOverride', False) else "No",
+        }
+        return _dict_to_rst_csv(properties)
     
     def _generate_hierarchy_section(self) -> str:
         """Generate RST documentation for block hierarchy."""
@@ -174,6 +196,8 @@ class ScriptBlock:
         description = self._format_description(self.data.get('description', 'No description available.'))
         rst += f"{description}\n\n"
 
+        # rst += self._generate_properties_table()
+
         # Soft override info
         if self.data.get('softOverride', False):
             rst += "This block can be soft overridden in scripts.\n\n"
@@ -229,7 +253,7 @@ class BlockDocumentationGenerator:
         for block_name, block in self.blocks.items():
             parents = block.data.get('parents', [])
             for parent in parents:
-                if parent not in self.blocks:
+                if parent not in children_map:
                     children_map[parent] = []
                 children_map[parent].append(block_name)
 
