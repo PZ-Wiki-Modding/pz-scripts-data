@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
-version: 1
-name: Recipes
-description: ""
-filePrefix: Recipes
-fileStarter: Recipes_
-keyPrefix: Recipe_

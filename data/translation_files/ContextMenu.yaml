@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
-version: 1
-name: ContextMenu
-description: ""
-filePrefix: ContextMenu
-fileStarter: ContextMenu_
-keyPrefix: ContextMenu_

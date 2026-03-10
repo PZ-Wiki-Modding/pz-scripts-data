@@ -1,6 +1,0 @@
-# yaml-language-server: $schema=../../schemas/language_codes.json
-
-version: 1
-name: CH
-languageName: Traditional Chinese
-encoding: UTF-8

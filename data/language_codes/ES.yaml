@@ -1,6 +1,0 @@
-# yaml-language-server: $schema=../../schemas/language_codes.json
-
-version: 1
-name: ES
-languageName: Espanol (ES) - Spanish
-encoding: UTF-8

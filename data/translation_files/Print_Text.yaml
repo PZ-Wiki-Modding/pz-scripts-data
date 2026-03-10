@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=../../schemas/translation_files.json
-
-version: 1
-name: Print_Text
-description: ""
-filePrefix: Print_Text
-fileStarter: Print_Text_
-keyPrefix: Print_Text_
