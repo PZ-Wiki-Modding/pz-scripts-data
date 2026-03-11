@@ -1,6 +1,0 @@
-# yaml-language-server: $schema=../../schemas/language_codes.json
-
-version: 1
-name: RO
-languageName: Romanian
-encoding: UTF-8

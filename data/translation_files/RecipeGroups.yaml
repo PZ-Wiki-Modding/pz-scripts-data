@@ -1,6 +1,0 @@
-version: 1
-name: RecipeGroups
-description: ''
-keyPrefix: RecipeGroup_
-fileName: RecipeGroups
-function: Translator.getRecipeGroupName

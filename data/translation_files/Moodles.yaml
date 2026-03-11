@@ -1,6 +1,0 @@
-version: 1
-name: Moodles
-description: Moodles status and descriptions translations
-keyPrefix: Moodles_
-fileName: Moodles
-function: getText

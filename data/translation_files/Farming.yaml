@@ -1,6 +1,0 @@
-version: 1
-name: Farming
-description: Translations for farming menus.
-fileName: Farming
-keyPrefix: Farming_
-function: getText

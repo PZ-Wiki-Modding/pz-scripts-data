@@ -1,6 +1,0 @@
-version: 1
-name: RadioData
-description: Radio translations with the key being a GUID of the radio text.
-keyPrefix: RD_
-fileName: RadioData
-function: getText

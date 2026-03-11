@@ -1,6 +1,0 @@
-version: 1
-name: UI
-description: Translation file for user interface elements.
-keyPrefix: UI_
-fileName: UI
-function: getText

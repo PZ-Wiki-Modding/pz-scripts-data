@@ -1,6 +1,0 @@
-version: 1
-name: Recipes
-description: Translations for the craftRecipe scripts. The key needs to be the ID
-  of the craftRecipe block.
-fileName: Recipes
-function: getRecipeDisplayName

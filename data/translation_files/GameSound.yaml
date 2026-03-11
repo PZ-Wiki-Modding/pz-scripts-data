@@ -1,6 +1,0 @@
-version: 1
-name: GameSound
-description: Game sounds and categories translations.
-fileName: GameSound
-keyPrefix: GameSound_
-function: getText

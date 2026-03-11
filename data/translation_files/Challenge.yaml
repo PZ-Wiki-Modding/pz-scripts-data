@@ -1,6 +1,0 @@
-version: 1
-name: Challenge
-description: ''
-fileName: Challenge
-keyPrefix: Challenge_
-function: getText

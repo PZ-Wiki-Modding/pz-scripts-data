@@ -1,6 +1,0 @@
-version: 1
-name: MultiStageBuild
-description: Translations for multi stage build.
-keyPrefix: MultiStageBuild_
-fileName: MultiStageBuild
-function: Translator.getMultiStageBuild

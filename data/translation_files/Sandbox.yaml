@@ -1,6 +1,0 @@
-version: 1
-name: Sandbox
-description: Sandbox options translations.
-keyPrefix: Sandbox_
-fileName: Sandbox
-function: getText

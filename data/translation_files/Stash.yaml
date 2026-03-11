@@ -1,6 +1,0 @@
-version: 1
-name: Stash
-description: Survivor maps translations.
-keyPrefix: Stash_
-fileName: Stash
-function: getText

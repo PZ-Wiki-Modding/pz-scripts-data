@@ -13,58 +13,127 @@ from typing import Dict, List, Any, Optional
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
-class BlockDocumentationGenerator:
-    """Generates RST documentation from YAML block definitions."""
+def _get_block_link(block_name: str) -> str:
+    """Get the documentation link for a block."""
+    return block_name.lower().replace(' ', '_')
+
+
+def _dict_to_rst_csv(data: Dict[str, Any]) -> str:
+    """Convert a dictionary to an RST CSV table."""
+    rst = ".. csv-table::\n"
+    rst += "   :header: " + ", ".join(f'"{key}"' for key in data.keys()) + "\n"
+    rst += "   :widths: " + ", ".join("20" for _ in data) + "\n\n"
     
-    def __init__(self, blocks_dir: Path, output_dir: Path):
-        """
-        Initialize the generator.
-        
-        Args:
-            blocks_dir: Path to the blocks directory
-            output_dir: Path to output documentation directory
-        """
-        self.blocks_dir = blocks_dir
-        self.output_dir = output_dir
-        self.blocks: Dict[str, Any] = {}
-        self.children_map: Dict[str, List[str]] = {}  # Maps parent block name to list of child blocks
-        
-    def load_blocks(self) -> None:
-        """Load all block definitions from YAML files."""
-        yaml_files = sorted(self.blocks_dir.glob('*.yaml'))
-        
-        for yaml_file in yaml_files:
-            try:
-                with open(yaml_file, 'r') as f:
-                    block_data = yaml.safe_load(f)
-                    if block_data and 'name' in block_data:
-                        # if block_data['name'].startswith('_'):
-                        #     continue
-                        self.blocks[block_data['name']] = block_data
-            except Exception as e:
-                print(f"Warning: Failed to load {yaml_file}: {e}")
-        
-        # Build children map after all blocks are loaded
-        self._build_children_map()
+    # Add the single row of data
+    rst += "   " + ", ".join(f'"{value}"' for value in data.values()) + "\n\n"
     
-    def _build_children_map(self) -> None:
-        """Build a map of which blocks can be children of which parent blocks."""
-        for block_name, block_data in self.blocks.items():
-            parents = block_data.get('parents', [])
-            for parent in parents:
-                if parent not in self.children_map:
-                    self.children_map[parent] = []
-                self.children_map[parent].append(block_name)
+    return rst
+
+
+
+children_map = {}
+class ScriptBlock:
+    """Represents a script block definition."""
     
+    def __init__(self, name: str, data: Dict[str, Any]):
+        self.name = name
+        self.data = data
+
     def _format_description(self, text: Optional[str]) -> str:
-        """Format description text for RST."""
+        """Format the block description for RST."""
         if not text:
             return ""
         # Remove extra whitespace and format
         return text.strip()
     
-    def _generate_parameters_section(self, parameters: List[Dict[str, Any]]) -> str:
+    def _generate_properties_table(self) -> str:
+        properties = {
+            "Parent blocks": ", ".join(self.data.get('parents', [])) if self.data.get('parents') else "None",
+            "Required child blocks": ", ".join(self.data.get('needsChildren', [])) if self.data.get('needsChildren') else "None",
+            "Possible child blocks": ", ".join(children_map.get(self.name, [])) if children_map.get(self.name) else "None",
+            "Soft Override": "Yes" if self.data.get('softOverride', False) else "No",
+        }
+        return _dict_to_rst_csv(properties)
+    
+    def _generate_hierarchy_section(self) -> str:
+        """Generate RST documentation for block hierarchy."""
+        block_data = self.data
+        
+        rst = "\nHierarchy\n---------\n\n"
+        block_name = block_data.get('name', '')
+        
+        should_have_parent = block_data.get('shouldHaveParent', False)
+        if should_have_parent:
+            parents = block_data.get('parents', [])
+            if parents:
+                rst += "**Valid Parent Blocks:**\n\n"
+                for parent in parents:
+                    rst += f"- :doc:`{_get_block_link(parent)}`\n"
+                rst += "\n"
+            else:
+                rst += "This block should have a parent block.\n\n"
+        else:
+            rst += "This block does not require a parent block.\n\n"
+        
+        needs_children = block_data.get('needsChildren', [])
+        if needs_children:
+            rst += "**Required Child Blocks:**\n\n"
+            for child in needs_children:
+                rst += f"- :doc:`{_get_block_link(child)}`\n"
+            rst += "\n"
+        
+        # Show all possible child blocks
+        possible_children = children_map.get(block_name, [])
+        if possible_children:
+            rst += "**Possible Child Blocks:**\n\n"
+            # Sort and display all possible children
+            for child in sorted(possible_children):
+                rst += f"- :doc:`{_get_block_link(child)}`\n"
+            rst += "\n"
+        
+        return rst
+    
+    def _generate_id_section(self) -> str:
+        """Generate RST documentation for ID properties."""
+
+        rst = "\nID Properties\n-------------\n\n"
+
+        id_info: dict|None = self.data.get('ID', None)
+        if id_info is None:
+            rst += "This block should not have an ID.\n\n"
+            return rst
+
+        rst += "This block should have an ID.\n\n"
+        
+        as_type = id_info.get('asType', False)
+        values = id_info.get('values', [])
+        if as_type:
+            rst += "Using a specific ID will make this block have different properties.\n\n"
+            # for value in values:
+            #     rst += f"- :doc:`{value} <{self._get_block_link(f"{block_name} {value}")}>`\n"
+            # rst += "\n"
+        
+        if values:
+            rst += "**Allowed ID Values:**\n\n"
+            for value in values:
+                if as_type:
+                    rst += f"- :doc:`{value} <{_get_block_link(f"{self.name} {value}")}>`\n"
+                else:
+                    rst += f"- ``{value}``\n"
+            rst += "\n"
+        
+        parents_without = id_info.get('parentsWithout', [])
+        if parents_without:
+            rst += "**Incompatible Parents:**\n\n"
+            for parent in parents_without:
+                rst += f"- {parent}\n"
+            rst += "\n"
+        
+        return rst
+    
+    def _generate_parameters_section(self) -> str:
         """Generate RST documentation for parameters."""
+        parameters = self.data.get('parameters', None)
         if not parameters:
             return ""
         
@@ -116,119 +185,81 @@ class BlockDocumentationGenerator:
                 rst += f"   Only for parents: {parents_str}\n\n"
         
         return rst
-    
-    def _generate_id_section(self, block_name: str, id_info: Dict[str, Any]) -> str:
-        """Generate RST documentation for ID properties."""
 
-        rst = "This block should have an ID.\n\n"
-        
-        as_type = id_info.get('asType', False)
-        values = id_info.get('values', [])
-        if as_type:
-            rst += "Using a specific ID will make this block have different properties.\n\n"
-            # for value in values:
-            #     rst += f"- :doc:`{value} <{self._get_block_link(f"{block_name} {value}")}>`\n"
-            # rst += "\n"
-        
-        if values:
-            rst += "**Allowed ID Values:**\n\n"
-            for value in values:
-                if as_type:
-                    rst += f"- :doc:`{value} <{self._get_block_link(f"{block_name} {value}")}>`\n"
-                else:
-                    rst += f"- ``{value}``\n"
-            rst += "\n"
-        
-        parents_without = id_info.get('parentsWithout', [])
-        if parents_without:
-            rst += "**Incompatible Parents:**\n\n"
-            for parent in parents_without:
-                rst += f"- {parent}\n"
-            rst += "\n"
-        
+    def generate_doc(self) -> str:
+        """Generate RST documentation for this block."""
+        # Header
+        rst = f"{self.name}\n"
+        rst += "=" * len(self.name) + "\n\n"
+
+        # Description
+        description = self._format_description(self.data.get('description', 'No description available.'))
+        rst += f"{description}\n\n"
+
+        # rst += self._generate_properties_table()
+
+        # Soft override info
+        if self.data.get('softOverride', False):
+            rst += "This block can be soft overridden in scripts.\n\n"
+
+        # Hierarchy section
+        rst += self._generate_hierarchy_section()
+
+        # ID Properties section
+        rst += self._generate_id_section()
+
+        # Parameters section
+        rst += self._generate_parameters_section()
+
         return rst
+
+
+
+class BlockDocumentationGenerator:
+    """Generates RST documentation from YAML block definitions."""
     
-    def _generate_hierarchy_section(self, block_data: Dict[str, Any]) -> str:
-        """Generate RST documentation for block hierarchy."""
-        rst = "\nHierarchy\n---------\n\n"
-        block_name = block_data.get('name', '')
+    def __init__(self, blocks_dir: Path, output_dir: Path):
+        """
+        Initialize the generator.
         
-        should_have_parent = block_data.get('shouldHaveParent', False)
-        if should_have_parent:
-            parents = block_data.get('parents', [])
-            if parents:
-                rst += "**Valid Parent Blocks:**\n\n"
-                for parent in parents:
-                    rst += f"- :doc:`{self._get_block_link(parent)}`\n"
-                rst += "\n"
-            else:
-                rst += "This block should have a parent block.\n\n"
-        else:
-            rst += "This block does not require a parent block.\n\n"
+        Args:
+            blocks_dir: Path to the blocks directory
+            output_dir: Path to output documentation directory
+        """
+        self.blocks_dir = blocks_dir
+        self.output_dir = output_dir
+        self.blocks: Dict[str, ScriptBlock] = {}
+
+    def load_blocks(self) -> None:
+        """Load all block definitions from YAML files."""
+        yaml_files = sorted(self.blocks_dir.glob('*.yaml'))
         
-        needs_children = block_data.get('needsChildren', [])
-        if needs_children:
-            rst += "**Required Child Blocks:**\n\n"
-            for child in needs_children:
-                rst += f"- :doc:`{self._get_block_link(child)}`\n"
-            rst += "\n"
+        for yaml_file in yaml_files:
+            try:
+                with open(yaml_file, 'r') as f:
+                    block_data: dict = yaml.safe_load(f)
+                    if block_data and 'name' in block_data:
+                        # if block_data['name'].startswith('_'):
+                        #     continue
+                        self.blocks[block_data['name']] = ScriptBlock(block_data['name'], block_data)
+            except Exception as e:
+                print(f"Warning: Failed to load {yaml_file}: {e}")
         
-        # Show all possible child blocks
-        possible_children = self.children_map.get(block_name, [])
-        if possible_children:
-            rst += "**Possible Child Blocks:**\n\n"
-            # Sort and display all possible children
-            for child in sorted(possible_children):
-                rst += f"- :doc:`{self._get_block_link(child)}`\n"
-            rst += "\n"
-        
-        return rst
+        # Build children map after all blocks are loaded
+        self._build_children_map()
     
+    def _build_children_map(self) -> None:
+        """Build a map of which blocks can be children of which parent blocks."""
+        for block_name, block in self.blocks.items():
+            parents = block.data.get('parents', [])
+            for parent in parents:
+                if parent not in children_map:
+                    children_map[parent] = []
+                children_map[parent].append(block_name)
+
     def _get_block_link(self, block_name: str) -> str:
         """Get the documentation link for a block."""
         return block_name.lower().replace(' ', '_')
-    
-    def generate_block_doc(self, block_name: str, block_data: Dict[str, Any]) -> str:
-        """
-        Generate RST documentation for a single block.
-        
-        Args:
-            block_name: Name of the block
-            block_data: Block definition data
-            
-        Returns:
-            RST formatted documentation string
-        """
-        safe_name = self._get_block_link(block_name)
-        
-        # Header
-        rst = f"{block_name}\n"
-        rst += "=" * len(block_name) + "\n\n"
-        
-        # Description
-        description = self._format_description(block_data.get('description', 'No description available.'))
-        rst += f"{description}\n\n"
-
-        # Soft override info
-        if block_data.get('softOverride', False):
-            rst += "This block can be soft overridden in scripts.\n\n"
-        
-        # Hierarchy section
-        rst += self._generate_hierarchy_section(block_data)
-        
-        # ID Properties section
-        id_info: dict|None = block_data.get('ID', None)
-        rst += "\nID Properties\n-------------\n\n"
-        if id_info is not None:
-            rst += self._generate_id_section(block_name, id_info)
-        else:
-            rst += "This block should not have an ID.\n\n"
-        
-        # Parameters section
-        parameters = block_data.get('parameters', [])
-        rst += self._generate_parameters_section(parameters)
-        
-        return rst
     
     def generate_blocks_index(self) -> str:
         """Generate the blocks index RST file."""
@@ -256,8 +287,8 @@ class BlockDocumentationGenerator:
         print(f"Created {index_path}")
         
         # Create individual block files
-        for block_name, block_data in self.blocks.items():
-            doc_content = self.generate_block_doc(block_name, block_data)
+        for block_name, block in self.blocks.items():
+            doc_content = block.generate_doc()
             safe_name = self._get_block_link(block_name)
             block_path = self.output_dir / f'{safe_name}.rst'
             

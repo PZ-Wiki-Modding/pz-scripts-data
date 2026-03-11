@@ -1,6 +1,0 @@
-version: 1
-name: Fluids
-description: Translations for fluid related UI elements and fluid containers.
-fileName: Fluids
-keyPrefix: Fluid_Name_
-function: getText
