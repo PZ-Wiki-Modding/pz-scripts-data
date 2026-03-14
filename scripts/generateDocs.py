@@ -6,6 +6,7 @@ Auto-generates Sphinx documentation from YAML block definitions.
 import os
 import sys
 import yaml
+from m2r import convert
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
@@ -44,7 +45,7 @@ class ScriptBlock:
         if not text:
             return ""
         # Remove extra whitespace and format
-        return text.strip()
+        return convert(text).strip()
     
     def _generate_properties_table(self) -> str:
         properties = {
@@ -157,7 +158,8 @@ class ScriptBlock:
             
             # Description
             if description:
-                rst += f"   {description}\n\n"
+                indented_description = "\n   ".join(description.split("\n"))
+                rst += f"   {indented_description}\n\n"
             
             # Default value if present
             if default is not None and default != "":

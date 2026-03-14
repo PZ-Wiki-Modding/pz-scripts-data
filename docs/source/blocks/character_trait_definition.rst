@@ -39,17 +39,17 @@ Parameters
 **CharacterTrait**
    Type: ``string`` *(required)*
 
-   The registries trait definition ID to link to. see the wiki page about [registries](https://pzwiki.net/wiki/Registries) for more information.
+   The registries trait definition ID to link to. see the wiki page about `registries <https://pzwiki.net/wiki/Registries>`_ for more information.
 
 **UIName**
    Type: ``string`` *(required)*
 
-   The translation key for the trait's name. The translation key needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations) for more information.
+   The translation key for the trait's name. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
 
 **UIDescription**
    Type: ``string`` *(required)*
 
-   The translation key for the trait's description. The translation key needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations) for more information.
+   The translation key for the trait's description. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
 
 **MutuallyExclusiveTraits**
    Type: ``array``
@@ -60,14 +60,15 @@ Parameters
    Type: ``array``
 
    A list of experience boosts granted by this trait. Each entry should contain a skill name and the corresponding boost amount.
-
-For example:
-```cpp
-XPBoosts = Axe=1;Blunt=1,
-```
+   
+   For example:
+   
+   .. code-block:: cpp
+   
+      XPBoosts = Axe=1;Blunt=1,
 
 **GrantedRecipes**
    Type: ``array``
 
-   A list of [craftRecipe](https://pzwiki.net/wiki/CraftRecipe) IDs that are granted to the character when this trait is selected.
+   A list of `craftRecipe <https://pzwiki.net/wiki/CraftRecipe>`_ IDs that are granted to the character when this trait is selected.
 

@@ -1288,12 +1288,12 @@ Parameters
 **Type**
    Type: ``Any``
 
-   This parameter was replaced by `ItemType` in Build 42.13.
+   This parameter was replaced by ``ItemType`` in Build 42.13.
 
 **DisplayName**
    Type: ``Any``
 
-   This parameter was removed in Build 42.13, naming an item should be done with a translation entry. See the [wiki](https://pzwiki.net/wiki/DisplayName) page for more information.
+   This parameter was removed in Build 42.13, naming an item should be done with a translation entry. See the `wiki <https://pzwiki.net/wiki/DisplayName>`_ page for more information.
 
 **ItemWhenDry**
    Type: ``Any``
@@ -1570,7 +1570,7 @@ Parameters
 **MinutesToBurn**
    Type: ``float``
 
-   How many in-game minutes it takes to burn the food. This value must be higher than `MinutesToCook`.
+   How many in-game minutes it takes to burn the food. This value must be higher than ``MinutesToCook``.
 
    Default: ``120``
 
@@ -1579,7 +1579,7 @@ Parameters
 **MinutesToCook**
    Type: ``float``
 
-   How many in-game minutes it takes to cook the food. This value must be smaller than `MinutesToBurn`.
+   How many in-game minutes it takes to cook the food. This value must be smaller than ``MinutesToBurn``.
 
    Default: ``60``
 
