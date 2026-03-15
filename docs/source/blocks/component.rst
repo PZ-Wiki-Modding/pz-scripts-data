@@ -5,6 +5,23 @@ component
 
 A component is a block which can be added as a child to a specific block type like an item, vehicle etc, to provide additional functionalities.
 
+.. toctree::
+   :maxdepth: 4
+   :titlesonly:
+   :caption: Variants
+
+   component/component_contextmenuconfig.rst
+   component/component_craftbench.rst
+   component/component_craftbenchsounds.rst
+   component/component_craftrecipe.rst
+   component/component_dryingcraftlogic.rst
+   component/component_durability.rst
+   component/component_fluidcontainer.rst
+   component/component_resources.rst
+   component/component_spriteconfig.rst
+   component/component_spriteoverlayconfig.rst
+   component/component_uiconfig.rst
+   component/component_wallcoveringconfig.rst
 
 Hierarchy
 ---------

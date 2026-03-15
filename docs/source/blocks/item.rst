@@ -306,6 +306,44 @@ Parameters
 
    Item types: clothing, container, normal, radio
 
+   Allowed values:
+
+   - ``Apron``
+   - ``ShirtNoSleeves``
+   - ``JumperNoSleeves``
+   - ``Shirt``
+   - ``ShirtLongSleeves``
+   - ``Jumper``
+   - ``Jacket``
+   - ``LongJacket``
+   - ``ShortsShort``
+   - ``Trousers``
+   - ``Shoes``
+   - ``FullHelmet``
+   - ``Bag``
+   - ``Hands``
+   - ``Head``
+   - ``Neck``
+   - ``Groin``
+   - ``UpperBody``
+   - ``LowerBody``
+   - ``LowerLegs``
+   - ``UpperLegs``
+   - ``LowerArms``
+   - ``UpperArms``
+   - ``Hand_L``
+   - ``Hand_R``
+   - ``ForeArm_L``
+   - ``ForeArm_R``
+   - ``UpperArm_L``
+   - ``UpperArm_R``
+   - ``UpperLeg_L``
+   - ``UpperLeg_R``
+   - ``LowerLeg_L``
+   - ``LowerLeg_R``
+   - ``Foot_L``
+   - ``Foot_R``
+
 .. _bodylocation:
 
 **BodyLocation**

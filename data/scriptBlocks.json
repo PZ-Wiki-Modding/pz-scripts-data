@@ -132,7 +132,7 @@
     "name": "component WallCoveringConfig",
     "description": "",
     "shouldHaveParent": true,
-    "isVariant": "components",
+    "isVariant": "component",
     "parents": [
       "entity"
     ],
@@ -318,7 +318,7 @@
     "name": "component CraftBenchSounds",
     "description": "",
     "shouldHaveParent": true,
-    "isVariant": "components",
+    "isVariant": "component",
     "parents": [
       "entity"
     ],
@@ -755,6 +755,43 @@
           "container",
           "normal",
           "radio"
+        ],
+        "values": [
+          "Apron",
+          "ShirtNoSleeves",
+          "JumperNoSleeves",
+          "Shirt",
+          "ShirtLongSleeves",
+          "Jumper",
+          "Jacket",
+          "LongJacket",
+          "ShortsShort",
+          "Trousers",
+          "Shoes",
+          "FullHelmet",
+          "Bag",
+          "Hands",
+          "Head",
+          "Neck",
+          "Groin",
+          "UpperBody",
+          "LowerBody",
+          "LowerLegs",
+          "UpperLegs",
+          "LowerArms",
+          "UpperArms",
+          "Hand_L",
+          "Hand_R",
+          "ForeArm_L",
+          "ForeArm_R",
+          "UpperArm_L",
+          "UpperArm_R",
+          "UpperLeg_L",
+          "UpperLeg_R",
+          "LowerLeg_L",
+          "LowerLeg_R",
+          "Foot_L",
+          "Foot_R"
         ]
       },
       "bodylocation": {
@@ -3563,7 +3600,7 @@
     "name": "component Durability",
     "description": "",
     "shouldHaveParent": true,
-    "isVariant": "components",
+    "isVariant": "component",
     "parents": [
       "item"
     ],
@@ -3593,7 +3630,7 @@
     "name": "component ContextMenuConfig",
     "description": "",
     "shouldHaveParent": true,
-    "isVariant": "components",
+    "isVariant": "component",
     "parents": [
       "item"
     ],
@@ -3836,7 +3873,7 @@
     "name": "component SpriteOverlayConfig",
     "description": "",
     "shouldHaveParent": true,
-    "isVariant": "components",
+    "isVariant": "component",
     "parents": [
       "entity"
     ],
@@ -3846,7 +3883,7 @@
     "name": "component UiConfig",
     "description": "",
     "shouldHaveParent": true,
-    "isVariant": "components",
+    "isVariant": "component",
     "parents": [
       "entity"
     ],
@@ -3866,7 +3903,7 @@
     "name": "component CraftRecipe",
     "description": "",
     "shouldHaveParent": true,
-    "isVariant": "components",
+    "isVariant": "component",
     "parents": [
       "entity"
     ],
@@ -4076,7 +4113,7 @@
     "name": "component DryingCraftLogic",
     "description": "",
     "shouldHaveParent": true,
-    "isVariant": "components",
+    "isVariant": "component",
     "parents": [
       "entity"
     ],
@@ -4086,7 +4123,7 @@
     "name": "component Resources",
     "description": "",
     "shouldHaveParent": true,
-    "isVariant": "components",
+    "isVariant": "component",
     "parents": [
       "entity"
     ],
@@ -4168,7 +4205,7 @@
     "name": "component FluidContainer",
     "description": "",
     "shouldHaveParent": true,
-    "isVariant": "components",
+    "isVariant": "component",
     "parents": [
       "item"
     ],
@@ -4373,7 +4410,7 @@
     "name": "component SpriteConfig",
     "description": "",
     "shouldHaveParent": true,
-    "isVariant": "components",
+    "isVariant": "component",
     "parents": [
       "entity"
     ],
@@ -4475,7 +4512,7 @@
     "name": "component CraftBench",
     "description": "",
     "shouldHaveParent": true,
-    "isVariant": "components",
+    "isVariant": "component",
     "parents": [
       "entity"
     ],

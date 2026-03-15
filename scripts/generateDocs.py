@@ -9,6 +9,7 @@ import yaml
 from m2r import convert
 from pathlib import Path
 from typing import Dict, List, Any, Optional
+import shutil
 
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -370,6 +371,11 @@ def main():
     root_dir = script_dir.parent  # Go up from scripts to root
     blocks_dir = root_dir / 'data' / 'blocks'
     output_dir = root_dir / 'docs' / 'source'
+
+    # Remove the output_dir / 'blocks' folder if it exists
+    blocks_output_dir = output_dir / 'blocks'
+    if blocks_output_dir.exists() and blocks_output_dir.is_dir():
+        shutil.rmtree(blocks_output_dir)
 
     os.makedirs(output_dir, exist_ok=True)
     

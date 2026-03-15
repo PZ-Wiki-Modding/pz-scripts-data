@@ -4,7 +4,7 @@ version: 1
 name: component FluidContainer
 description: ""
 shouldHaveParent: true
-isVariant: components
+isVariant: component
 parents:
   - item
 parameters:
