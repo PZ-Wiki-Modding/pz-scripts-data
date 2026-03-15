@@ -1,3 +1,5 @@
+.. _spritemodel:
+
 spriteModel
 ===========
 
@@ -9,11 +11,11 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`_document`
+- :ref:`root-scripts`
 
 **Possible Child Blocks:**
 
-- :doc:`tileset`
+- :ref:`tileset`
 
 
 ID Properties
@@ -24,6 +26,8 @@ This block should not have an ID.
 
 Parameters
 ----------
+
+.. _version:
 
 **VERSION**
    Type: ``integer``

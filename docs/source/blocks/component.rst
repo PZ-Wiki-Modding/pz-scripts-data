@@ -1,3 +1,5 @@
+.. _component:
+
 component
 =========
 
@@ -9,8 +11,8 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`item`
-- :doc:`entity`
+- :ref:`item`
+- :ref:`entity`
 
 
 ID Properties
@@ -22,16 +24,16 @@ Using a specific ID will make this block have different properties.
 
 **Allowed ID Values:**
 
-- :doc:`CraftRecipe <component_craftrecipe>`
-- :doc:`SpriteConfig <component_spriteconfig>`
-- :doc:`UiConfig <component_uiconfig>`
-- :doc:`CraftBench <component_craftbench>`
-- :doc:`CraftBenchSounds <component_craftbenchsounds>`
-- :doc:`Resources <component_resources>`
-- :doc:`DryingCraftLogic <component_dryingcraftlogic>`
-- :doc:`SpriteOverlayConfig <component_spriteoverlayconfig>`
-- :doc:`Durability <component_durability>`
-- :doc:`FluidContainer <component_fluidcontainer>`
-- :doc:`ContextMenuConfig <component_contextmenuconfig>`
-- :doc:`WallCoveringConfig <component_wallcoveringconfig>`
+- :ref:`CraftRecipe <component_craftrecipe>`
+- :ref:`SpriteConfig <component_spriteconfig>`
+- :ref:`UiConfig <component_uiconfig>`
+- :ref:`CraftBench <component_craftbench>`
+- :ref:`CraftBenchSounds <component_craftbenchsounds>`
+- :ref:`Resources <component_resources>`
+- :ref:`DryingCraftLogic <component_dryingcraftlogic>`
+- :ref:`SpriteOverlayConfig <component_spriteoverlayconfig>`
+- :ref:`Durability <component_durability>`
+- :ref:`FluidContainer <component_fluidcontainer>`
+- :ref:`ContextMenuConfig <component_contextmenuconfig>`
+- :ref:`WallCoveringConfig <component_wallcoveringconfig>`
 

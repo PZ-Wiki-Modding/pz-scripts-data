@@ -1,3 +1,5 @@
+.. _craftlogic:
+
 CraftLogic
 ==========
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`components`
+- :ref:`components`
 
 
 ID Properties

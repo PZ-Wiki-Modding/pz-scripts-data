@@ -27,22 +27,26 @@ html_title = 'Project Zomboid Scripts API Reference'
 html_logo = None
 html_favicon = None
 
-# Sphinx RTD Theme options
 html_theme_options = {
-    # 'logo_only': False,
-    # 'prev_next_buttons_location': 'bottom',
-    # 'style_external_links': False,
-    # 'vcs_pageview_mode': '',
-    # 'style_nav_header_background': '#2980B9',
-    'collapse_navigation': True,
-    # 'sticky_navigation': True,
-    'navigation_depth': 4,
-    # 'includehidden': True,
-    # 'titles_only': False,
+    'collapse_navigation': False,
+    'navigation_depth': 10,
     "external_links": [
-        {"name": "Repository", "url": "https://github.com/SirDoggyJvla/pz-scripts-data"},
         {"name": "ZedScripts", "url": "https://pzwiki.net/wiki/ZedScripts"},
     ],
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/SirDoggyJvla/pz-scripts-data",
+            "icon": "fa-brands fa-github",
+            "type": "fontawesome",
+        },
+        # {
+        #     "name": "ZedScripts",
+        #     "url": "https://pzwiki.net/wiki/ZedScripts",
+        #     "icon": "https://raw.githubusercontent.com/SirDoggyJvla/ZedScripts/refs/heads/main/images/pz-script.png",
+        #     "type": "url",
+        # },
+   ]
 }
 
 # LaTeX output options

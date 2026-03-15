@@ -1,3 +1,5 @@
+.. _layer:
+
 layer
 =====
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`face`
+- :ref:`face`
 
 
 ID Properties
@@ -20,6 +22,8 @@ This block should not have an ID.
 
 Parameters
 ----------
+
+.. _row:
 
 **row**
    Type: ``Any``

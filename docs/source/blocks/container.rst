@@ -1,3 +1,5 @@
+.. _container:
+
 container
 =========
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`part`
+- :ref:`part`
 
 
 ID Properties
@@ -20,6 +22,8 @@ This block should not have an ID.
 
 Parameters
 ----------
+
+.. _capacity:
 
 **capacity**
    Type: ``Any``

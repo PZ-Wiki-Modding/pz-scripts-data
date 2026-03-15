@@ -1,3 +1,5 @@
+.. _fixing:
+
 fixing
 ======
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`module`
+- :ref:`module`
 
 
 ID Properties
@@ -21,12 +23,16 @@ This block should have an ID.
 Parameters
 ----------
 
+.. _fixer:
+
 **Fixer**
    Type: ``Any``
 
    No description
 
    Can be duplicated: ✓
+
+.. _require:
 
 **Require**
    Type: ``Any``

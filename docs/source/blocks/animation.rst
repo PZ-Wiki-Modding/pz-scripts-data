@@ -1,3 +1,5 @@
+.. _animation:
+
 animation
 =========
 
@@ -9,12 +11,12 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`module`
+- :ref:`module`
 
 **Possible Child Blocks:**
 
-- :doc:`copyframe`
-- :doc:`copyframes`
+- :ref:`copyframe`
+- :ref:`copyframes`
 
 
 ID Properties

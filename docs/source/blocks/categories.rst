@@ -1,3 +1,5 @@
+.. _categories:
+
 Categories
 ==========
 
@@ -9,8 +11,8 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`fluid`
-- :doc:`blendwhitelist`
+- :ref:`fluid`
+- :ref:`blendwhitelist`
 
 
 ID Properties

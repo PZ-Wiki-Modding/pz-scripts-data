@@ -1,3 +1,5 @@
+.. _tileset:
+
 tileset
 =======
 
@@ -9,11 +11,11 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`spritemodel`
+- :ref:`spritemodel`
 
 **Possible Child Blocks:**
 
-- :doc:`tile`
+- :ref:`tile`
 
 
 ID Properties
@@ -24,6 +26,8 @@ This block should not have an ID.
 
 Parameters
 ----------
+
+.. _name:
 
 **name**
    Type: ``Any``

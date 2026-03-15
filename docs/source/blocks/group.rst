@@ -1,3 +1,5 @@
+.. _group:
+
 group
 =====
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`component_resources`
+- :ref:`component_resources`
 
 
 ID Properties

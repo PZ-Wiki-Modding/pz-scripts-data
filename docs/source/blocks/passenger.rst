@@ -1,3 +1,5 @@
+.. _passenger:
+
 passenger
 =========
 
@@ -9,13 +11,13 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`vehicle`
+- :ref:`vehicle`
 
 **Possible Child Blocks:**
 
-- :doc:`anim`
-- :doc:`position`
-- :doc:`switchseat`
+- :ref:`anim`
+- :ref:`position`
+- :ref:`switchseat`
 
 
 ID Properties
@@ -27,10 +29,14 @@ This block should have an ID.
 Parameters
 ----------
 
+.. _door:
+
 **door**
    Type: ``Any``
 
    No description
+
+.. _area:
 
 **area**
    Type: ``Any``

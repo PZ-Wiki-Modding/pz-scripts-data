@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../schemas/blocks.json
+
+version: 1
+name: ROOT-ModInfo
+description: The mod.info file, which contains all the information about a mod.
+shouldHaveParent: false
+parents: []
+isRoot: true
+pattern:
+  - mod.info
+parameters:
+  - name: name
+    type: string
+    description: The name of the mod. A translation can be provided in the [Mod.json translation file](https://pzwiki.net/wiki/Translation).
+  - name: description
+    type: string
+    description: A description of the mod. The description supports [rich text tags](https://pzwiki.net/wiki/ISRichTextPanel). A translation can be provided in the [Mod.json translation file](https://pzwiki.net/wiki/Translation).
+  - name: id
+    type: string
+    description: The unique identifier of the mod.
+  - name: author
+    type: string
+    description: The author of the mod. Multiple authors are often separated by commas but no convention exists.
+  - name: poster
+    type: string
+    description: The relative path to the mod's poster image. The image should be placed in the same folder as the mod's .mod file.

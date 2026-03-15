@@ -1,3 +1,5 @@
+.. _lua:
+
 lua
 ===
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`part`
+- :ref:`part`
 
 
 ID Properties

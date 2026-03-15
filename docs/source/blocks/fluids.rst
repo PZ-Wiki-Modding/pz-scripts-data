@@ -1,3 +1,5 @@
+.. _fluids:
+
 Fluids
 ======
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`component_fluidcontainer`
+- :ref:`component_fluidcontainer`
 
 
 ID Properties
@@ -20,6 +22,8 @@ This block should not have an ID.
 
 Parameters
 ----------
+
+.. _fluid:
 
 **fluid**
    Type: ``Any``

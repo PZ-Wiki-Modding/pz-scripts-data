@@ -1,3 +1,5 @@
+.. _component_contextmenuconfig:
+
 component ContextMenuConfig
 ===========================
 
@@ -9,15 +11,15 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`item`
+- :ref:`item`
 
 **Required Child Blocks:**
 
-- :doc:`contextentry`
+- :ref:`contextentry`
 
 **Possible Child Blocks:**
 
-- :doc:`contextentry`
+- :ref:`contextentry`
 
 
 ID Properties

@@ -5,7 +5,7 @@ name: option
 description: Defines a custom sandbox option for a mod.
 shouldHaveParent: true
 parents:
-  - _DOCUMENT
+  - ROOT-SandboxOptions
 ID: {}
 files:
   - sandbox-options.txt

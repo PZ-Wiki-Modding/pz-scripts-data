@@ -50,6 +50,14 @@
       "type": "boolean",
       "description": "Indicates whether the block can be soft overridden in scripts."
     },
+    "isRoot": {
+      "type": "boolean",
+      "description": "Indicates whether the block is a root document."
+    },
+    "deprecated": {
+      "type": "boolean",
+      "description": "Indicates whether the block type is deprecated."
+    },
     "parameters": { 
       "type": "array",
       "description": "A list of parameters available for this block type.",

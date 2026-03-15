@@ -15,8 +15,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 def _get_block_link(block_name: str) -> str:
-    """Get the documentation link for a block."""
-    return block_name.lower().replace(' ', '_')
+    """Get the documentation page name for a block."""
+    l = block_name.lower()
+    return l.replace(' ', '_')
 
 
 def _dict_to_rst_csv(data: Dict[str, Any]) -> str:
@@ -32,13 +33,16 @@ def _dict_to_rst_csv(data: Dict[str, Any]) -> str:
 
 
 
-children_map = {}
+children_map: dict[str, List['ScriptBlock']] = {}
+variant_map: dict[str, List['ScriptBlock']] = {}
+blocks_map: dict[str, 'ScriptBlock'] = {}
 class ScriptBlock:
     """Represents a script block definition."""
     
-    def __init__(self, name: str, data: Dict[str, Any]):
+    def __init__(self, name: str, data: Dict[str, Any], output_dir: Path):
         self.name = name
         self.data = data
+        self.output_dir = output_dir
 
     def _format_description(self, text: Optional[str]) -> str:
         """Format the block description for RST."""
@@ -51,7 +55,7 @@ class ScriptBlock:
         properties = {
             "Parent blocks": ", ".join(self.data.get('parents', [])) if self.data.get('parents') else "None",
             "Required child blocks": ", ".join(self.data.get('needsChildren', [])) if self.data.get('needsChildren') else "None",
-            "Possible child blocks": ", ".join(children_map.get(self.name, [])) if children_map.get(self.name) else "None",
+            "Possible child blocks": ", ".join(child.name for child in children_map.get(self.name, [])) if children_map.get(self.name) else "None",
             "Soft Override": "Yes" if self.data.get('softOverride', False) else "No",
         }
         return _dict_to_rst_csv(properties)
@@ -69,7 +73,10 @@ class ScriptBlock:
             if parents:
                 rst += "**Valid Parent Blocks:**\n\n"
                 for parent in parents:
-                    rst += f"- :doc:`{_get_block_link(parent)}`\n"
+                    parent_data = blocks_map.get(parent, None)
+                    if parent_data is None or 'deprecated' in parent_data.data:
+                        continue
+                    rst += f"- :ref:`{_get_block_link(parent)}`\n"
                 rst += "\n"
             else:
                 rst += "This block should have a parent block.\n\n"
@@ -80,7 +87,7 @@ class ScriptBlock:
         if needs_children:
             rst += "**Required Child Blocks:**\n\n"
             for child in needs_children:
-                rst += f"- :doc:`{_get_block_link(child)}`\n"
+                rst += f"- :ref:`{_get_block_link(child)}`\n"
             rst += "\n"
         
         # Show all possible child blocks
@@ -88,8 +95,8 @@ class ScriptBlock:
         if possible_children:
             rst += "**Possible Child Blocks:**\n\n"
             # Sort and display all possible children
-            for child in sorted(possible_children):
-                rst += f"- :doc:`{_get_block_link(child)}`\n"
+            for child in sorted(possible_children, key=lambda x: x.name.lower()):
+                rst += f"- :ref:`{_get_block_link(child.name)}`\n"
             rst += "\n"
         
         return rst
@@ -111,14 +118,14 @@ class ScriptBlock:
         if as_type:
             rst += "Using a specific ID will make this block have different properties.\n\n"
             # for value in values:
-            #     rst += f"- :doc:`{value} <{self._get_block_link(f"{block_name} {value}")}>`\n"
+            #     rst += f"- :ref:`{value} <{self._get_block_link(f"{block_name} {value}")}>`\n"
             # rst += "\n"
         
         if values:
             rst += "**Allowed ID Values:**\n\n"
             for value in values:
                 if as_type:
-                    rst += f"- :doc:`{value} <{_get_block_link(f"{self.name} {value}")}>`\n"
+                    rst += f"- :ref:`{value} <{_get_block_link(f"{self.name} {value}")}>`\n"
                 else:
                     rst += f"- ``{value}``\n"
             rst += "\n"
@@ -146,6 +153,10 @@ class ScriptBlock:
             param_type = param.get('type', 'Any')
             required = param.get('required', False)
             default = param.get('default')
+            
+            # Add RST reference label for anchor linking
+            label = name.replace(' ', '-').lower()
+            rst += f".. _{label}:\n\n"
             
             # Parameter name as definition
             rst += f"**{name}**\n"
@@ -185,18 +196,34 @@ class ScriptBlock:
             if parents_only:
                 parents_str = ", ".join(parents_only)
                 rst += f"   Only for parents: {parents_str}\n\n"
+
+            values = param.get('values', [])
+            if values:
+                rst += "   Allowed values:\n\n"
+                for value in values:
+                    rst += f"   - ``{value}``\n"
+                rst += "\n"
         
         return rst
 
     def generate_doc(self) -> str:
         """Generate RST documentation for this block."""
         # Header
-        rst = f"{self.name}\n"
+        rst = f".. _{_get_block_link(self.name)}:\n\n"
+        rst += f"{self.name}\n"
         rst += "=" * len(self.name) + "\n\n"
 
         # Description
         description = self._format_description(self.data.get('description', 'No description available.'))
         rst += f"{description}\n\n"
+
+        if self.name in variant_map:
+            rst += ".. toctree::\n"
+            rst += "   :maxdepth: 4\n"
+            rst += "   :titlesonly:\n"
+            rst += f"   :caption: Variants\n\n"
+            for variant in variant_map[self.name]:
+                rst += f"   {variant.get_block_index()}\n"
 
         # rst += self._generate_properties_table()
 
@@ -214,6 +241,26 @@ class ScriptBlock:
         rst += self._generate_parameters_section()
 
         return rst
+    
+    def get_block_index(self) -> str:
+        safe_name = _get_block_link(self.name)
+        filename = f'{safe_name}.rst'
+
+        isVariant = self.data.get('isVariant', False)
+        if isVariant:
+            return f"{isVariant}/{filename}"
+
+        return f"blocks/{filename}"
+    
+    def get_path(self) -> Path:
+        safe_name = _get_block_link(self.name)
+        filename = f'{safe_name}.rst'
+
+        isVariant = self.data.get('isVariant', False)
+        if isVariant:
+            return self.output_dir /  f"blocks/{isVariant}/{filename}"
+
+        return self.output_dir /  f"blocks/{filename}"
 
 
 
@@ -230,7 +277,7 @@ class BlockDocumentationGenerator:
         """
         self.blocks_dir = blocks_dir
         self.output_dir = output_dir
-        self.blocks: Dict[str, ScriptBlock] = {}
+        # blocks_map: Dict[str, ScriptBlock] = {}
 
     def load_blocks(self) -> None:
         """Load all block definitions from YAML files."""
@@ -240,10 +287,10 @@ class BlockDocumentationGenerator:
             try:
                 with open(yaml_file, 'r') as f:
                     block_data: dict = yaml.safe_load(f)
-                    if block_data and 'name' in block_data:
+                    if block_data and 'name' in block_data and not 'deprecated' in block_data:
                         # if block_data['name'].startswith('_'):
                         #     continue
-                        self.blocks[block_data['name']] = ScriptBlock(block_data['name'], block_data)
+                        blocks_map[block_data['name']] = ScriptBlock(block_data['name'], block_data, self.output_dir)
             except Exception as e:
                 print(f"Warning: Failed to load {yaml_file}: {e}")
         
@@ -252,12 +299,17 @@ class BlockDocumentationGenerator:
     
     def _build_children_map(self) -> None:
         """Build a map of which blocks can be children of which parent blocks."""
-        for block_name, block in self.blocks.items():
-            parents = block.data.get('parents', [])
+        for block_name, block in blocks_map.items():
+            parents: list[str] = block.data.get('parents', [])
             for parent in parents:
                 if parent not in children_map:
                     children_map[parent] = []
-                children_map[parent].append(block_name)
+                children_map[parent].append(block)
+            isVariant = block.data.get('isVariant', False)
+            if isVariant:
+                if isVariant not in variant_map:
+                    variant_map[isVariant] = []
+                variant_map[isVariant].append(block)
 
     def _get_block_link(self, block_name: str) -> str:
         """Get the documentation link for a block."""
@@ -269,13 +321,15 @@ class BlockDocumentationGenerator:
         rst += "=" * len("Script Blocks Reference") + "\n\n"
         rst += "This section provides detailed documentation for all available script blocks.\n\n"
         rst += ".. toctree::\n"
-        rst += "   :maxdepth: 1\n"
+        rst += "   :maxdepth: 4\n"
+        rst += "   :titlesonly:\n"
         rst += "   :caption: Blocks\n\n"
         
         # Sort blocks by name
-        for block_name in sorted(self.blocks.keys(), key=str.lower):
-            safe_name = self._get_block_link(block_name)
-            rst += f"   blocks/{safe_name}\n"
+        for block_name, block in sorted(blocks_map.items(), key=lambda item: item[0].lower()):
+            if block.data.get('isVariant', False):
+                continue
+            rst += f"   {block.get_block_index()}\n"
         
         return rst
     
@@ -283,17 +337,17 @@ class BlockDocumentationGenerator:
         """Write generated documentation to files."""
         # Create blocks index
         index_rst = self.generate_blocks_index()
-        index_path = os.path.join(os.path.dirname(self.output_dir), 'blocks.rst')
+        index_path = os.path.join(self.output_dir, 'blocks.rst')
+        os.makedirs(os.path.dirname(index_path), exist_ok=True)
         with open(index_path, 'w') as f:
             f.write(index_rst)
         print(f"Created {index_path}")
         
         # Create individual block files
-        for block_name, block in self.blocks.items():
+        for block_name, block in blocks_map.items():
             doc_content = block.generate_doc()
-            safe_name = self._get_block_link(block_name)
-            block_path = self.output_dir / f'{safe_name}.rst'
-            
+            block_path = block.get_path()
+            os.makedirs(block_path.parent, exist_ok=True)
             with open(block_path, 'w') as f:
                 f.write(doc_content)
             print(f"Created {block_path}")
@@ -302,7 +356,7 @@ class BlockDocumentationGenerator:
         """Execute the documentation generation."""
         print("Loading block definitions...")
         self.load_blocks()
-        print(f"Loaded {len(self.blocks)} blocks")
+        print(f"Loaded {len(blocks_map)} blocks")
         
         print("Generating documentation...")
         self.write_documentation()
@@ -315,7 +369,9 @@ def main():
     script_dir = Path(__file__).parent
     root_dir = script_dir.parent  # Go up from scripts to root
     blocks_dir = root_dir / 'data' / 'blocks'
-    output_dir = root_dir / 'docs' / 'source' / 'blocks'
+    output_dir = root_dir / 'docs' / 'source'
+
+    os.makedirs(output_dir, exist_ok=True)
     
     # Verify paths exist
     if not blocks_dir.exists():

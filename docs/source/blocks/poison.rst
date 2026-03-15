@@ -1,3 +1,5 @@
+.. _poison:
+
 Poison
 ======
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`fluid`
+- :ref:`fluid`
 
 
 ID Properties
@@ -21,15 +23,26 @@ This block should not have an ID.
 Parameters
 ----------
 
+.. _maxeffect:
+
 **maxEffect**
    Type: ``string``
 
    Defines the strength of the poison.
 
+   Allowed values:
+
+   - ``Deadly``
+   - ``Medium``
+
+.. _minamount:
+
 **minAmount**
    Type: ``number``
 
    The minimum amount required to consume to poison the player.
+
+.. _diluteratio:
 
 **diluteRatio**
    Type: ``number``

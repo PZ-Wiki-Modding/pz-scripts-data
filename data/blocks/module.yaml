@@ -6,4 +6,5 @@ description: A module holds different types of script definitions.
 shouldHaveParent: true
 parents:
   - _DOCUMENT
+  - ROOT-Scripts
 ID: {}

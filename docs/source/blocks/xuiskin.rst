@@ -1,3 +1,5 @@
+.. _xuiskin:
+
 xuiSkin
 =======
 
@@ -9,15 +11,15 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`module`
+- :ref:`module`
 
 **Required Child Blocks:**
 
-- :doc:`entity`
+- :ref:`entity`
 
 **Possible Child Blocks:**
 
-- :doc:`entity`
+- :ref:`entity`
 
 
 ID Properties

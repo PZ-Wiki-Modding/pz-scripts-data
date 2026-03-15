@@ -1,3 +1,5 @@
+.. _blendwhitelist:
+
 BlendWhiteList
 ==============
 
@@ -9,11 +11,11 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`fluid`
+- :ref:`fluid`
 
 **Possible Child Blocks:**
 
-- :doc:`categories`
+- :ref:`categories`
 
 
 ID Properties
@@ -24,6 +26,8 @@ This block should not have an ID.
 
 Parameters
 ----------
+
+.. _whitelist:
 
 **whitelist**
    Type: ``boolean``

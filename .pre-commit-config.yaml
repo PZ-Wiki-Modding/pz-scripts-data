@@ -16,4 +16,4 @@ repos:
         files: ^data/blocks/.*\.yaml$
         pass_filenames: false
         always_run: false
-        additional_dependencies: [pyyaml]
+        additional_dependencies: [pyyaml, m2r]

@@ -1,3 +1,5 @@
+.. _fluid:
+
 fluid
 =====
 
@@ -9,14 +11,14 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`module`
+- :ref:`module`
 
 **Possible Child Blocks:**
 
-- :doc:`blendwhitelist`
-- :doc:`categories`
-- :doc:`poison`
-- :doc:`properties`
+- :ref:`blendwhitelist`
+- :ref:`categories`
+- :ref:`poison`
+- :ref:`properties`
 
 
 ID Properties
@@ -28,10 +30,14 @@ This block should have an ID.
 Parameters
 ----------
 
+.. _colorreference:
+
 **ColorReference**
    Type: ``Any``
 
    No description
+
+.. _displayname:
 
 **DisplayName**
    Type: ``Any``

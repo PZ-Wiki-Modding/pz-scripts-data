@@ -1,3 +1,5 @@
+.. _skin:
+
 skin
 ====
 
@@ -9,8 +11,8 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`template`
-- :doc:`vehicle`
+- :ref:`template`
+- :ref:`vehicle`
 
 
 ID Properties

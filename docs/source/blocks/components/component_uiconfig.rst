@@ -1,5 +1,7 @@
-component CraftBenchSounds
-==========================
+.. _component_uiconfig:
+
+component UiConfig
+==================
 
 
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`entity`
+- :ref:`entity`
 
 
 ID Properties
@@ -21,17 +23,23 @@ This block should not have an ID.
 Parameters
 ----------
 
-**AddFuel**
+.. _xuiskin:
+
+**xuiSkin**
    Type: ``Any``
 
    No description
 
-**LightFire**
+.. _entitystyle:
+
+**entityStyle**
    Type: ``Any``
 
    No description
 
-**Running**
+.. _uienabled:
+
+**uiEnabled**
    Type: ``Any``
 
    No description

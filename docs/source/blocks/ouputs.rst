@@ -1,3 +1,5 @@
+.. _ouputs:
+
 ouputs
 ======
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`craftrecipe`
+- :ref:`craftrecipe`
 
 
 ID Properties

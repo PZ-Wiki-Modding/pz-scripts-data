@@ -1,5 +1,7 @@
-component Durability
-====================
+.. _component_dryingcraftlogic:
+
+component DryingCraftLogic
+==========================
 
 
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`item`
+- :ref:`entity`
 
 
 ID Properties

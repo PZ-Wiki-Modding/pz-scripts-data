@@ -1,3 +1,5 @@
+.. _component_craftbench:
+
 component CraftBench
 ====================
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`entity`
+- :ref:`entity`
 
 
 ID Properties
@@ -20,6 +22,8 @@ This block should not have an ID.
 
 Parameters
 ----------
+
+.. _recipes:
 
 **Recipes**
    Type: ``list``

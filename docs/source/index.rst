@@ -9,7 +9,8 @@ Documentation Structure
 =======================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 10
+   :titlesonly:
    :caption: Contents:
 
    blocks

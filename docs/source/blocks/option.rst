@@ -1,3 +1,5 @@
+.. _option:
+
 option
 ======
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`_document`
+- :ref:`root-sandboxoptions`
 
 
 ID Properties
@@ -21,30 +23,50 @@ This block should have an ID.
 Parameters
 ----------
 
+.. _type:
+
 **type**
    Type: ``string`` *(required)*
 
    The type of the option.
+
+   Allowed values:
+
+   - ``boolean``
+   - ``integer``
+   - ``double``
+   - ``string``
+   - ``enum``
+
+.. _min:
 
 **min**
    Type: ``float``
 
    No description
 
+.. _max:
+
 **max**
    Type: ``float``
 
    No description
+
+.. _default:
 
 **default**
    Type: ``float``
 
    No description
 
+.. _page:
+
 **page**
    Type: ``string``
 
    The sandbox option to add the option to. Can be a custom page.
+
+.. _translation:
 
 **translation**
    Type: ``string``

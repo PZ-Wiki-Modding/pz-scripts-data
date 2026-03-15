@@ -6,6 +6,7 @@ description: Used to define tileset properties.
 shouldHaveParent: true
 parents:
   - _DOCUMENT
+  - ROOT-Scripts
 parameters:
   - name: VERSION
     type: integer

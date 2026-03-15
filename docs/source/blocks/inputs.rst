@@ -1,3 +1,5 @@
+.. _inputs:
+
 inputs
 ======
 
@@ -9,8 +11,8 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`craftrecipe`
-- :doc:`component_craftrecipe`
+- :ref:`craftrecipe`
+- :ref:`component_craftrecipe`
 
 
 ID Properties

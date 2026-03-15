@@ -1,3 +1,5 @@
+.. _wheel:
+
 wheel
 =====
 
@@ -9,8 +11,8 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`template`
-- :doc:`vehicle`
+- :ref:`template`
+- :ref:`vehicle`
 
 
 ID Properties
@@ -22,20 +24,28 @@ This block should have an ID.
 Parameters
 ----------
 
+.. _radius:
+
 **radius**
    Type: ``Any``
 
    No description
+
+.. _offset:
 
 **offset**
    Type: ``Any``
 
    No description
 
+.. _front:
+
 **front**
    Type: ``Any``
 
    No description
+
+.. _width:
 
 **width**
    Type: ``Any``

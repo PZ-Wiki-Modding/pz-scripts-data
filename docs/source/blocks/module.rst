@@ -1,3 +1,5 @@
+.. _module:
+
 module
 ======
 
@@ -9,30 +11,30 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`_document`
+- :ref:`root-scripts`
 
 **Possible Child Blocks:**
 
-- :doc:`animation`
-- :doc:`animationsmesh`
-- :doc:`character_trait_definition`
-- :doc:`craftrecipe`
-- :doc:`energy`
-- :doc:`entity`
-- :doc:`evolvedrecipe`
-- :doc:`fixing`
-- :doc:`fluid`
-- :doc:`imports`
-- :doc:`item`
-- :doc:`mannequin`
-- :doc:`model`
-- :doc:`physicshitreaction`
-- :doc:`ragdoll`
-- :doc:`sound`
-- :doc:`template`
-- :doc:`timedaction`
-- :doc:`vehicle`
-- :doc:`xuiskin`
+- :ref:`animation`
+- :ref:`animationsmesh`
+- :ref:`character_trait_definition`
+- :ref:`craftrecipe`
+- :ref:`energy`
+- :ref:`entity`
+- :ref:`evolvedrecipe`
+- :ref:`fixing`
+- :ref:`fluid`
+- :ref:`imports`
+- :ref:`item`
+- :ref:`mannequin`
+- :ref:`model`
+- :ref:`physicshitreaction`
+- :ref:`ragdoll`
+- :ref:`sound`
+- :ref:`template`
+- :ref:`timedaction`
+- :ref:`vehicle`
+- :ref:`xuiskin`
 
 
 ID Properties

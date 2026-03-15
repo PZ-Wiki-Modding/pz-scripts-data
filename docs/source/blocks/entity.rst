@@ -1,3 +1,5 @@
+.. _entity:
+
 entity
 ======
 
@@ -9,22 +11,22 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`module`
-- :doc:`xuiskin`
+- :ref:`module`
+- :ref:`xuiskin`
 
 **Possible Child Blocks:**
 
-- :doc:`component`
-- :doc:`component_craftbench`
-- :doc:`component_craftbenchsounds`
-- :doc:`component_craftrecipe`
-- :doc:`component_dryingcraftlogic`
-- :doc:`component_resources`
-- :doc:`component_spriteconfig`
-- :doc:`component_spriteoverlayconfig`
-- :doc:`component_uiconfig`
-- :doc:`component_wallcoveringconfig`
-- :doc:`components`
+- :ref:`component`
+- :ref:`component_craftbench`
+- :ref:`component_craftbenchsounds`
+- :ref:`component_craftrecipe`
+- :ref:`component_dryingcraftlogic`
+- :ref:`component_resources`
+- :ref:`component_spriteconfig`
+- :ref:`component_spriteoverlayconfig`
+- :ref:`component_uiconfig`
+- :ref:`component_wallcoveringconfig`
+- :ref:`components`
 
 
 ID Properties
@@ -36,15 +38,21 @@ This block should have an ID.
 Parameters
 ----------
 
+.. _luawindowclass:
+
 **LuaWindowClass**
    Type: ``Any``
 
    No description
 
+.. _displayname:
+
 **DisplayName**
    Type: ``Any``
 
    No description
+
+.. _icon:
 
 **Icon**
    Type: ``Any``

@@ -1,3 +1,5 @@
+.. _face:
+
 face
 ====
 
@@ -9,11 +11,11 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`component_spriteconfig`
+- :ref:`component_spriteconfig`
 
 **Possible Child Blocks:**
 
-- :doc:`layer`
+- :ref:`layer`
 
 
 ID Properties

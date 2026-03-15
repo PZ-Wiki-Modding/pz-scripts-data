@@ -1,3 +1,5 @@
+.. _physicshitreaction:
+
 physicsHitReaction
 ==================
 
@@ -9,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`module`
+- :ref:`module`
 
 
 ID Properties

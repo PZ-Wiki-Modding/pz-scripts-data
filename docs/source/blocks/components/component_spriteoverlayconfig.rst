@@ -1,5 +1,7 @@
-component Resources
-===================
+.. _component_spriteoverlayconfig:
+
+component SpriteOverlayConfig
+=============================
 
 
 
@@ -9,11 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`entity`
-
-**Possible Child Blocks:**
-
-- :doc:`group`
+- :ref:`entity`
 
 
 ID Properties

@@ -1,3 +1,5 @@
+.. _imports:
+
 imports
 =======
 
@@ -11,7 +13,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :doc:`module`
+- :ref:`module`
 
 
 ID Properties
