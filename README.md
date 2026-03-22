@@ -1,3 +1,4 @@
+# PZ Scripts Data
 Provides information regarding various script blocks and parameters of Project Zomboid [scripts](https://pzwiki.net/wiki/Scripts) system. This dataset is used to provide a [ScriptsDocs](https://sirdoggyjvla.github.io/pz-scripts-data/).
 
 The translation data is now moved to [pz-translation-data](https://github.com/SirDoggyJvla/pz-translation-data) and are now deprecated. The main data files holding the last updated translation data are kept for tools that may use them, but will be removed in the future.
@@ -22,6 +23,12 @@ To contribute to the dataset, follow these steps to set up your development envi
    ```
 
 This will format the singular JSON file on each commit, which is used to allow for a single source of truth for all script blocks. The smaller JSON files are easier to manage and work with during development.
+
+Preferably, commits should have the following prefix for clarity:
+- `DATA`: for changes in the data files.
+- `DOC`: for changes in the documentation (README, CONTRIBUTING, and ScriptsDocs). Also includes schemas.
+- `SCRIPTS`: for changes in the script files (e.g., formatting scripts, data generation scripts, etc.).
+- `OTHER`: for changes that don't fit in the above categories.
 
 ## Script blocks
 Script blocks can have the following attributes:
