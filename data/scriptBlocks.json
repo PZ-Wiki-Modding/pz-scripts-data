@@ -3202,6 +3202,12 @@
       },
       "durability": {
         "name": "durability"
+      },
+      "mechanicarea": {
+        "name": "mechanicArea"
+      },
+      "area": {
+        "name": "area"
       }
     }
   },

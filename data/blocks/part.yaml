@@ -12,3 +12,5 @@ parameters:
   - name: itemType
   - name: category
   - name: durability
+  - name: mechanicArea
+  - name: area
