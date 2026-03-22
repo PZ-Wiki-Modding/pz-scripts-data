@@ -24,7 +24,7 @@ This will format the singular JSON file on each commit, which is used to allow f
 Preferably, commits should have the following prefix for clarity:
 - `DATA`: for changes in the data files.
 - `DOC`: for changes in the documentation (README, CONTRIBUTING, and ScriptsDocs). Also includes schemas.
-- `SCRIPTS`: for changes in the script files (e.g., formatting scripts, data generation scripts, etc.).
+- `SCRIPT`: for changes in the script files (e.g., formatting scripts, data generation scripts, etc.).
 - `OTHER`: for changes that don't fit in the above categories.
 
 ## Script blocks
