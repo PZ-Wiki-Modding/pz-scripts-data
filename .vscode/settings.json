@@ -1,5 +1,5 @@
 {
     "yaml.schemas": {
-        "schemas/blocks.json": "/data/blocks/**"
+        "schemas/blocks.json": "data/blocks/**"
     }
 }
