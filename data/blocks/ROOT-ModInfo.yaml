@@ -6,6 +6,7 @@ description: The mod.info file, which contains all the information about a mod.
 shouldHaveParent: false
 parents: []
 isRoot: true
+noComma: true
 pattern:
   - mod.info
 parameters:

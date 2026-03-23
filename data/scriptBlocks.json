@@ -3353,6 +3353,7 @@
     "shouldHaveParent": false,
     "parents": [],
     "isRoot": true,
+    "noComma": true,
     "pattern": [
       "mod.info"
     ],
