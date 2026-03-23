@@ -4,6 +4,7 @@ description: ""
 shouldHaveParent: true
 parents:
   - component SpriteConfig
+  - style
 ID:
   values:
     - SINGLE

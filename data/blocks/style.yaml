@@ -1,0 +1,8 @@
+version: 1
+name: style
+description: ""
+shouldHaveParent: true
+parents:
+  - component SpriteOverlayConfig
+ID: {}
+parameters: []

@@ -13,6 +13,10 @@ Hierarchy
 
 - :ref:`entity`
 
+**Possible Child Blocks:**
+
+- :ref:`style`
+
 
 ID Properties
 -------------

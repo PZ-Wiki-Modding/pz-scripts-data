@@ -12,6 +12,7 @@ Hierarchy
 **Valid Parent Blocks:**
 
 - :ref:`component_spriteconfig`
+- :ref:`style`
 
 **Possible Child Blocks:**
 

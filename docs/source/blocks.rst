@@ -60,6 +60,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/skin.rst
    blocks/sound.rst
    blocks/spritemodel.rst
+   blocks/style.rst
    blocks/switchseat.rst
    blocks/table.rst
    blocks/template.rst
