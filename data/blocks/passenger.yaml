@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=../../schemas/blocks.json
-
 version: 1
 name: passenger
 description: Defines a passenger position in a vehicle script.

@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=../../schemas/blocks.json
-
 version: 1
 name: module
 description: A module holds different types of script definitions.

@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=../../schemas/blocks.json
-
 version: 1
 name: animation
 description: It is unknown what this block does.

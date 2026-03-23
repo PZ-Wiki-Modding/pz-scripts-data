@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=../../schemas/blocks.json
-
 version: 1
 name: Categories
 description: Acts as a sort of tag list. Notably used in fluid scripts. Doesn't have parameters and instead just functions as a list.

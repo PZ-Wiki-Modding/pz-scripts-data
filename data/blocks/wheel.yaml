@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=../../schemas/blocks.json
-
 version: 1
 name: wheel
 description: Defines the wheels of a vehicle. While the ID can technically be

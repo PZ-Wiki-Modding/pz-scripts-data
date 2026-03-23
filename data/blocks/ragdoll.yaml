@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=../../schemas/blocks.json
-
 version: 1
 name: ragdoll
 description: Defines the ragdoll properties of a bone.

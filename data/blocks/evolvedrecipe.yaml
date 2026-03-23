@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=../../schemas/blocks.json
-
 version: 1
 name: evolvedrecipe
 description: Defines a dynamic recipe.

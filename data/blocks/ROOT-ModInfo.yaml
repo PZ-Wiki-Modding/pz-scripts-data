@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=../../schemas/blocks.json
-
 version: 1
 name: ROOT-ModInfo
 description: The mod.info file, which contains all the information about a mod.

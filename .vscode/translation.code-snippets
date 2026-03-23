@@ -1,0 +1,15 @@
+{
+  "Translation File": {
+    "prefix": "TranslationFile",
+    "body": [
+      "# yaml-language-server: \\$schema=../../schemas/translation_files.json",
+      "",
+      "version: 1",
+      "name: ${1}",
+      "description: \"${2:}\"",
+      "filePrefix: ${1}_",
+      "fileStarter: ${1}_"
+    ],
+    "description": "Create a translation file YAML structure"
+  }
+}

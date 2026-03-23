@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=../../schemas/blocks.json
-
 version: 1
 name: fixing
 description: Defines how an item can be repaired or fixed.
