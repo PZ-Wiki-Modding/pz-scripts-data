@@ -81,6 +81,8 @@ Parameters
       poster=../common/mymodname_flying_chickens.png
       poster=../common/mymodname_credits.png
 
+   Can be duplicated: ✓
+
 .. _icon:
 
 **icon**

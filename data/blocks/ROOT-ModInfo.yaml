@@ -25,6 +25,7 @@ parameters:
     description: Shows a URL link in the mod manager on the page of your mod for users to click on to open in their internet browser. The parameter appears as "Homepage" in the mod manager. For a list of valid links, see [URL](https://pzwiki.net/wiki/URL).
   - name: poster
     type: string
+    allowedDuplicate: true
     description: |
       Image which will show up in the mod manager as the mod image. Multiple posters can be used to show multiple images, but the first one will be used as the main poster in the mod manager. The rest will be in a list of images of the mod that users can click on to view.
       

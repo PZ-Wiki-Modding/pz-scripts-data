@@ -3392,6 +3392,7 @@
       "poster": {
         "name": "poster",
         "type": "string",
+        "allowedDuplicate": true,
         "description": "Image which will show up in the mod manager as the mod image. Multiple posters can be used to show multiple images, but the first one will be used as the main poster in the mod manager. The rest will be in a list of images of the mod that users can click on to view.\n\nExample:\n```\nposter=poster.png\nposter=showcase.png\nposter=flying_chickens.png\nposter=credits.png\n```\n\nIf you have multiple versions of your mod (e.g., 42.12 and 42.13) and don't want to copy your images, you can leave them in the common folder and use the following (but use unique names for these images since it will use the pool of all mods and their images in the common folder):\n```\nposter=../common/mymodname_poster.png\nposter=../common/mymodname_showcase.png\nposter=../common/mymodname_flying_chickens.png\nposter=../common/mymodname_credits.png\n```\n"
       },
       "icon": {
