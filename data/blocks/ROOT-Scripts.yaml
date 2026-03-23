@@ -5,4 +5,4 @@ shouldHaveParent: false
 parents: []
 isRoot: true
 pattern:
-  - \/media\/scripts\/[\/\w\s]*\.txt
+  - \/media\/scripts\/[\s\S]+\.txt
