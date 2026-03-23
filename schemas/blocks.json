@@ -113,7 +113,8 @@
           },
           "type": {
             "type": "string",
-            "description": "The data type of the parameter (e.g., 'string', 'int', 'float', 'boolean', etc.)."
+            "description": "The data type of the parameter.",
+            "enum": ["string", "float", "boolean", "array", "object", "integer"]
           },
           "values": {
             "type": "array",

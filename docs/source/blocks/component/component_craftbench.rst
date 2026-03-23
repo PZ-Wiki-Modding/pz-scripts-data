@@ -26,7 +26,7 @@ Parameters
 .. _recipes:
 
 **Recipes**
-   Type: ``list``
+   Type: ``array``
 
    No description
 

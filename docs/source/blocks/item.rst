@@ -44,7 +44,7 @@ Parameters
 .. _acceptmediatype:
 
 **AcceptMediaType**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -583,7 +583,7 @@ Parameters
 .. _capacity:
 
 **Capacity**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -704,7 +704,7 @@ Parameters
 .. _colorblue:
 
 **ColorBlue**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -715,7 +715,7 @@ Parameters
 .. _colorgreen:
 
 **ColorGreen**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -726,7 +726,7 @@ Parameters
 .. _colorred:
 
 **ColorRed**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -757,7 +757,7 @@ Parameters
 .. _conditionlowerchanceonein:
 
 **ConditionLowerChanceOneIn**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -786,7 +786,7 @@ Parameters
 .. _conditionmax:
 
 **ConditionMax**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -833,7 +833,7 @@ Parameters
 .. _count:
 
 **count**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -983,7 +983,7 @@ Parameters
 .. _doordamage:
 
 **DoorDamage**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -1800,7 +1800,7 @@ Parameters
 .. _lvlskilltrained:
 
 **LvlSkillTrained**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -1865,7 +1865,7 @@ Parameters
 .. _maxcapacity:
 
 **MaxCapacity**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -1876,7 +1876,7 @@ Parameters
 .. _maxchannel:
 
 **MaxChannel**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -1898,7 +1898,7 @@ Parameters
 .. _maxhitcount:
 
 **MaxHitcount**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -2003,7 +2003,7 @@ Parameters
 .. _minchannel:
 
 **MinChannel**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -2170,7 +2170,7 @@ Parameters
 .. _numberofpages:
 
 **NumberOfPages**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -2181,7 +2181,7 @@ Parameters
 .. _numlevelstrained:
 
 **NumLevelsTrained**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -2912,7 +2912,7 @@ Parameters
 .. _splatnumber:
 
 **SplatNumber**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 
@@ -3077,7 +3077,7 @@ Parameters
 .. _ticksperequipuse:
 
 **ticksPerEquipUse**
-   Type: ``int``
+   Type: ``integer``
 
    No description
 

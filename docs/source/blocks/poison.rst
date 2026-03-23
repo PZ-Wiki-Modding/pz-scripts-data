@@ -38,14 +38,14 @@ Parameters
 .. _minamount:
 
 **minAmount**
-   Type: ``number``
+   Type: ``float``
 
    The minimum amount required to consume to poison the player.
 
 .. _diluteratio:
 
 **diluteRatio**
-   Type: ``number``
+   Type: ``float``
 
    The ratio at which the poison is diluted when mixed with other fluids.
 

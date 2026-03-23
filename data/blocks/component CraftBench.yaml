@@ -7,4 +7,4 @@ parents:
   - entity
 parameters:
   - name: Recipes
-    type: list
+    type: array

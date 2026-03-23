@@ -26,77 +26,77 @@ Parameters
 .. _thirstchange:
 
 **ThirstChange**
-   Type: ``number``
+   Type: ``float``
 
    The amount of thirst this fluid changes when consumed. Positive values increase thirst, negative values decrease it.
 
 .. _alcohol:
 
 **alcohol**
-   Type: ``number``
+   Type: ``float``
 
    No description
 
 .. _hungerchange:
 
 **HungerChange**
-   Type: ``number``
+   Type: ``float``
 
    The amount of hunger this fluid changes when consumed. Positive values increase hunger, negative values decrease it.
 
 .. _calories:
 
 **Calories**
-   Type: ``number``
+   Type: ``float``
 
    The number of calories this fluid provides when consumed.
 
 .. _carbohydrates:
 
 **Carbohydrates**
-   Type: ``number``
+   Type: ``float``
 
    The amount of carbohydrates this fluid provides when consumed.
 
 .. _lipids:
 
 **Lipids**
-   Type: ``number``
+   Type: ``float``
 
    The amount of lipids (fats) this fluid provides when consumed.
 
 .. _proteins:
 
 **Proteins**
-   Type: ``number``
+   Type: ``float``
 
    The amount of proteins this fluid provides when consumed.
 
 .. _flureduction:
 
 **fluReduction**
-   Type: ``number``
+   Type: ``float``
 
    No description
 
 .. _painreduction:
 
 **painReduction**
-   Type: ``number``
+   Type: ``float``
 
    The amount of pain this fluid reduces when consumed.
 
 .. _endurancechange:
 
 **enduranceChange**
-   Type: ``number``
+   Type: ``float``
 
    The amount of endurance given back.
 
 .. _foodsicknesschange:
 
 **foodSicknessChange**
-   Type: ``number``
+   Type: ``float``
 
    The amount of food sickness provides.
 

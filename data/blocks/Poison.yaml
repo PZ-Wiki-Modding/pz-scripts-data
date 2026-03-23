@@ -12,8 +12,8 @@ parameters:
       - Deadly
       - Medium
   - name: minAmount
-    type: number
+    type: float
     description: The minimum amount required to consume to poison the player.
   - name: diluteRatio
-    type: number
+    type: float
     description: The ratio at which the poison is diluted when mixed with other fluids.

@@ -13,7 +13,7 @@ parameters:
   - name: AcceptMediaType
     itemTypes:
       - radio
-    type: int
+    type: integer
     default: -1
   - name: ActivatedItem
     itemTypes:
@@ -249,7 +249,7 @@ parameters:
   - name: Capacity
     itemTypes:
       - container
-    type: int
+    type: integer
     default: -1
   - name: Carbohydrates
     itemTypes:
@@ -309,7 +309,7 @@ parameters:
       - literature
       - normal
       - weapon
-    type: int
+    type: integer
     default: 255
   - name: ColorGreen
     itemTypes:
@@ -318,7 +318,7 @@ parameters:
       - literature
       - normal
       - weapon
-    type: int
+    type: integer
     default: 255
   - name: ColorRed
     itemTypes:
@@ -327,7 +327,7 @@ parameters:
       - literature
       - normal
       - weapon
-    type: int
+    type: integer
     default: 255
   - name: CombatSpeedModifier
     itemTypes:
@@ -343,7 +343,7 @@ parameters:
       - clothing
       - normal
       - weapon
-    type: int
+    type: integer
     default: 10
   - name: ConditionLowerOffroad
     itemTypes:
@@ -361,7 +361,7 @@ parameters:
       - normal
       - radio
       - weapon
-    type: int
+    type: integer
     default: 10
   - name: ConsolidateOption
     itemTypes:
@@ -381,7 +381,7 @@ parameters:
   - name: count
     itemTypes:
       - normal
-    type: int
+    type: integer
     default: 1
   - name: CritDmgMultiplier
     itemTypes:
@@ -445,7 +445,7 @@ parameters:
   - name: DoorDamage
     itemTypes:
       - weapon
-    type: int
+    type: integer
     default: 1
   - name: DoorHitSound
     itemTypes:
@@ -796,7 +796,7 @@ parameters:
   - name: LvlSkillTrained
     itemTypes:
       - literature
-    type: int
+    type: integer
     default: -1
   - name: magazine_subject
     itemTypes:
@@ -820,12 +820,12 @@ parameters:
   - name: MaxCapacity
     itemTypes:
       - normal
-    type: int
+    type: integer
     default: -1
   - name: MaxChannel
     itemTypes:
       - radio
-    type: int
+    type: integer
     default: 108000
   - name: MaxDamage
     itemTypes:
@@ -835,7 +835,7 @@ parameters:
   - name: MaxHitcount
     itemTypes:
       - weapon
-    type: int
+    type: integer
     default: 1000
   - name: MaxItemSize
     itemTypes:
@@ -887,7 +887,7 @@ parameters:
   - name: MinChannel
     itemTypes:
       - radio
-    type: int
+    type: integer
     default: 88000
   - name: MinDamage
     itemTypes:
@@ -956,12 +956,12 @@ parameters:
   - name: NumberOfPages
     itemTypes:
       - literature
-    type: int
+    type: integer
     default: -1
   - name: NumLevelsTrained
     itemTypes:
       - literature
-    type: int
+    type: integer
     default: 1
   - name: OnBreak
     itemTypes:
@@ -1272,7 +1272,7 @@ parameters:
   - name: SplatNumber
     itemTypes:
       - weapon
-    type: int
+    type: integer
     default: 2
   - name: SplatSize
     itemTypes:
@@ -1369,7 +1369,7 @@ parameters:
   - name: ticksPerEquipUse
     itemTypes:
       - drainable
-    type: int
+    type: integer
     default: 30
   - name: ToHitModifier
     itemTypes:

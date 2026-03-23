@@ -6,33 +6,33 @@ parents:
   - fluid
 parameters:
   - name: ThirstChange
-    type: number
+    type: float
     description: The amount of thirst this fluid changes when consumed. Positive values increase thirst, negative values decrease it.
   - name: alcohol
-    type: number
+    type: float
   - name: HungerChange
-    type: number
+    type: float
     description: The amount of hunger this fluid changes when consumed. Positive values increase hunger, negative values decrease it.
   - name: Calories
-    type: number
+    type: float
     description: The number of calories this fluid provides when consumed.
   - name: Carbohydrates
-    type: number
+    type: float
     description: The amount of carbohydrates this fluid provides when consumed.
   - name: Lipids
-    type: number
+    type: float
     description: The amount of lipids (fats) this fluid provides when consumed.
   - name: Proteins
-    type: number
+    type: float
     description: The amount of proteins this fluid provides when consumed.
   - name: fluReduction
-    type: number
+    type: float
   - name: painReduction
-    type: number
+    type: float
     description: The amount of pain this fluid reduces when consumed.
   - name: enduranceChange
-    type: number
+    type: float
     description: The amount of endurance given back.
   - name: foodSicknessChange
-    type: number
+    type: float
     description: The amount of food sickness provides.
