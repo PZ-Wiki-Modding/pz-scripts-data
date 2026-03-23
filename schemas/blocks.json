@@ -54,6 +54,15 @@
       "type": "boolean",
       "description": "Indicates whether the block is a root document."
     },
+    "pattern": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "A list of regex patterns that can be used to match this block type."
+    },
+    "noComma": {
+      "type": "boolean",
+      "description": "Indicates whether the block parameters should not be followed by a comma."
+    },
     "deprecated": {
       "type": "boolean",
       "description": "Indicates whether the block type is deprecated."
