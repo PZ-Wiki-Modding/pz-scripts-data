@@ -43,19 +43,19 @@ Parameters
 **min**
    Type: ``float``
 
-   No description
+   The minimum value the option can have. Only for integer and double types.
 
 .. _max:
 
 **max**
    Type: ``float``
 
-   No description
+   The maximum value the option can have. Only for integer and double types.
 
 .. _default:
 
 **default**
-   Type: ``float``
+   Type: ``Any``
 
    No description
 

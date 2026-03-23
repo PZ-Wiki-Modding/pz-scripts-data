@@ -20,10 +20,28 @@ parameters:
     required: true
   - name: min
     type: float
+    description: The minimum value the option can have. Only for integer and double types.
+    needs:
+      - name: type
+        values:
+          - integer
+          - double
   - name: max
     type: float
+    description: The maximum value the option can have. Only for integer and double types.
+    needs:
+      - name: type
+        values:
+          - integer
+          - double
   - name: default
-    type: float
+    needs:
+      - name: type
+        valueToType:
+          integer: float
+          double: float
+          boolean: boolean
+          string: string
   - name: page
     type: string
     description: The sandbox option to add the option to. Can be a custom page.

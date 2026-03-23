@@ -123,6 +123,38 @@
           "deprecated": {
             "type": "boolean",
             "description": "Indicates whether the parameter is deprecated."
+          },
+          "needs": {
+            "type": "array",
+            "description": "A list of conditions of other parameters that must be met for this parameter to be valid.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name of the parameter that this condition depends on."
+                },
+                "values": {
+                  "type": "array",
+                  "description": "The values of the dependent parameter that must be met for this parameter to be valid."
+                },
+                "valueToType": {
+                  "type": "object",
+                  "description": "A mapping of values of the dependent parameter to the expected type of this parameter. For example, if the dependent parameter is 'type' and it has a value 'integer', then this parameter should be of type 'float'. The key is the value of the dependent parameter, and the value is the expected type of this parameter when the dependent parameter has that value.",
+                  "examples": [
+                    {
+                      "name": "type",
+                      "valueToType": {
+                        "integer": "float",
+                        "double": "float",
+                        "boolean": "boolean",
+                        "string": "string"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
           }
         }
       }
