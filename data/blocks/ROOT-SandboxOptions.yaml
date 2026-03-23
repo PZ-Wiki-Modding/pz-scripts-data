@@ -5,7 +5,7 @@ shouldHaveParent: false
 parents: []
 isRoot: true
 pattern:
-  - media/sandbox-options.txt
+  - media\/sandbox-options\.txt
 parameters:
   - name: VERSION
     description: The version of the handler of the sandbox options. Keep this equal to 1.

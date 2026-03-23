@@ -6,7 +6,7 @@ parents: []
 isRoot: true
 noComma: true
 pattern:
-  - mod.info
+  - mod\.info
 parameters:
   - name: name
     type: string
