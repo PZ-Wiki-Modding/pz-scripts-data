@@ -747,6 +747,7 @@ parameters:
       - base:weaponpart
     required: true
     type: string
+    description: Defines the class of the item which will impact which parameters the item can take and its properties as well as how it is used by the player. Clothing for instance will handle differently their texture and model in comparison to the other type of items, containers can hold items and weapons can be used by the player to attack and deal damage. You cannot use a custom class of item and only the ones accepted by the game.
   - name: Type
     deprecated: true
     description: This parameter was replaced by `ItemType` in Build 42.13.
