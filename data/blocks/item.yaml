@@ -156,6 +156,7 @@ parameters:
       - clothing
       - container
       - normal
+    description: Used to define which location on the human character this clothing item can be worn.
   - name: book_subject
     itemTypes:
       - container
@@ -221,6 +222,7 @@ parameters:
       - normal
     type: boolean
     default: true
+    description: Used to define whenever this item can get holes in it.
   - name: CannedFood
     itemTypes:
       - food
@@ -278,6 +280,7 @@ parameters:
   - name: CloseKillMove
     itemTypes:
       - weapon
+    description: Used to whenever this weapon can be used to do a close kill move, like knives to assassinate in the back.
   - name: CloseSound
     itemTypes:
       - container
@@ -338,6 +341,7 @@ parameters:
   - name: ConditionAffectsCapacity
     itemTypes:
       - normal
+    description: Set whenever condition of the item can impact the capacity value of the container.
   - name: ConditionLowerChanceOneIn
     itemTypes:
       - clothing
@@ -421,9 +425,11 @@ parameters:
   - name: DaysFresh
     itemTypes:
       - food
+    description: How many days this food item will stay fresh with default sandbox settings.
   - name: DaysTotallyRotten
     itemTypes:
       - food
+    description: How many days this food item will take to rot.
   - name: DigitalPadlock
     itemTypes:
       - key
