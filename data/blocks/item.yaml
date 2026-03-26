@@ -345,6 +345,7 @@ parameters:
       - weapon
     type: integer
     default: 10
+    description: The chance impact to reduce the durability of the item, the value is used to calculate the chance by doing $chance = 1/ConditionLowerChanceOneIn$, which means increasing this parameter value will reduce the chance to damage the item.
   - name: ConditionLowerOffroad
     itemTypes:
       - normal
