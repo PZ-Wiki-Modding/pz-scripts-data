@@ -1,9 +1,9 @@
 version: 1
-name: skin
+name: door
 description: ""
 shouldHaveParent: true
 parents:
-  - template
-  - vehicle
+  - part
 parameters:
-  - name: texture
+  - name: openable
+    type: boolean

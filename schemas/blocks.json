@@ -14,7 +14,7 @@
     },
     "ID": { 
       "type": "object",
-      "description": "Defines the ID properties for this block type.",
+      "description": "Defines the ID properties for this block type. If not specified, the block type does not have an ID.",
       "properties": {
         "parentsWithout": {
           "type": "array",
@@ -29,6 +29,11 @@
         "asType": {
           "type": "boolean",
           "description": "Specifies if the ID of the block should count as the block type. For example, components have specific definitions based on their ID. This means a script block needs to be defined with the name 'component <componentID>' as well as 'component' to cover all component types available with the 'values' attribute."
+        },
+        "optional": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Indicates whether the ID is optional for this block type. If false or not specified, the block must have an ID when the ID field is provided."
         }
       }
     },

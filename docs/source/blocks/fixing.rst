@@ -39,3 +39,17 @@ Parameters
 
    No description
 
+.. _globalitem:
+
+**GlobalItem**
+   Type: ``Any``
+
+   No description
+
+.. _conditionmodifier:
+
+**ConditionModifier**
+   Type: ``Any``
+
+   No description
+

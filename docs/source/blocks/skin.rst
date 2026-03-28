@@ -20,3 +20,14 @@ ID Properties
 
 This block should not have an ID.
 
+
+Parameters
+----------
+
+.. _texture:
+
+**texture**
+   Type: ``Any``
+
+   No description
+

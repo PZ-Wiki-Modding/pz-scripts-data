@@ -12,3 +12,7 @@ parameters:
   - name: durability
   - name: mechanicArea
   - name: area
+  - name: mechanicRequireKey
+  - name: repairMechanic
+  - name: parent
+  - name: specificItem

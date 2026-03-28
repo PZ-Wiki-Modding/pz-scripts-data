@@ -4,5 +4,7 @@ description: ""
 shouldHaveParent: true
 parents:
   - part
-ID: {}
+ID:
+  optional:
+    - part
 parameters: []

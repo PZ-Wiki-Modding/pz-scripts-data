@@ -9,3 +9,7 @@ ID: {}
 parameters:
   - name: anim
   - name: rate
+  - name: angle
+  - name: sound
+  - name: reverse
+  - name: animate

@@ -28,7 +28,6 @@ This block should have an ID.
 **Incompatible Parents:**
 
 - vehicle
-- part
 
 
 Parameters
@@ -149,6 +148,34 @@ Parameters
 .. _undocorescale:
 
 **undoCoreScale**
+   Type: ``Any``
+
+   No description
+
+.. _attachmentparent:
+
+**attachmentParent**
+   Type: ``Any``
+
+   No description
+
+.. _attachmentself:
+
+**attachmentSelf**
+   Type: ``Any``
+
+   No description
+
+.. _ignorevehiclescale:
+
+**ignoreVehicleScale**
+   Type: ``Any``
+
+   No description
+
+.. _rotate:
+
+**rotate**
    Type: ``Any``
 
    No description

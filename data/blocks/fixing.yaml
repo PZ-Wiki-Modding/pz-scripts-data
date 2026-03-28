@@ -9,3 +9,5 @@ parameters:
   - name: Fixer
     allowedDuplicate: true
   - name: Require
+  - name: GlobalItem
+  - name: ConditionModifier

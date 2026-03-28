@@ -6,3 +6,5 @@ parents:
   - part
 parameters:
   - name: capacity
+  - name: conditionAffectsCapacity
+  - name: test

@@ -30,3 +30,17 @@ Parameters
 
    No description
 
+.. _conditionaffectscapacity:
+
+**conditionAffectsCapacity**
+   Type: ``Any``
+
+   No description
+
+.. _test:
+
+**test**
+   Type: ``Any``
+
+   No description
+
