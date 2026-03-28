@@ -156,6 +156,7 @@ parameters:
       - clothing
       - container
       - normal
+    description: Used to define which location on the human character this clothing item can be worn.
   - name: book_subject
     itemTypes:
       - container
@@ -221,6 +222,7 @@ parameters:
       - normal
     type: boolean
     default: true
+    description: Used to define whenever this item can get holes in it.
   - name: CannedFood
     itemTypes:
       - food
@@ -278,6 +280,7 @@ parameters:
   - name: CloseKillMove
     itemTypes:
       - weapon
+    description: Used to whenever this weapon can be used to do a close kill move, like knives to assassinate in the back.
   - name: CloseSound
     itemTypes:
       - container
@@ -338,6 +341,7 @@ parameters:
   - name: ConditionAffectsCapacity
     itemTypes:
       - normal
+    description: Set whenever condition of the item can impact the capacity value of the container.
   - name: ConditionLowerChanceOneIn
     itemTypes:
       - clothing
@@ -345,6 +349,7 @@ parameters:
       - weapon
     type: integer
     default: 10
+    description: The chance impact to reduce the durability of the item, the value is used to calculate the chance by doing $chance = 1/ConditionLowerChanceOneIn$, which means increasing this parameter value will reduce the chance to damage the item.
   - name: ConditionLowerOffroad
     itemTypes:
       - normal
@@ -420,9 +425,11 @@ parameters:
   - name: DaysFresh
     itemTypes:
       - food
+    description: How many days this food item will stay fresh with default sandbox settings.
   - name: DaysTotallyRotten
     itemTypes:
       - food
+    description: How many days this food item will take to rot.
   - name: DigitalPadlock
     itemTypes:
       - key
@@ -746,6 +753,7 @@ parameters:
       - base:weaponpart
     required: true
     type: string
+    description: Defines the class of the item which will impact which parameters the item can take and its properties as well as how it is used by the player. Clothing for instance will handle differently their texture and model in comparison to the other type of items, containers can hold items and weapons can be used by the player to attack and deal damage. You cannot use a custom class of item and only the ones accepted by the game.
   - name: Type
     deprecated: true
     description: This parameter was replaced by `ItemType` in Build 42.13.
