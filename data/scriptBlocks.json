@@ -379,6 +379,16 @@
       }
     }
   },
+  "progress": {
+    "name": "progress",
+    "description": "",
+    "shouldHaveParent": true,
+    "parents": [
+      "style"
+    ],
+    "ID": {},
+    "parameters": {}
+  },
   "group": {
     "name": "group",
     "description": "",
@@ -4268,7 +4278,23 @@
     "parents": [
       "entity"
     ],
-    "parameters": {}
+    "parameters": {
+      "recipes": {
+        "name": "Recipes"
+      },
+      "startmode": {
+        "name": "StartMode"
+      },
+      "inputgroup": {
+        "name": "inputGroup"
+      },
+      "outputgroup": {
+        "name": "outputGroup"
+      },
+      "actionanim": {
+        "name": "actionAnim"
+      }
+    }
   },
   "component Resources": {
     "name": "component Resources",
@@ -4570,7 +4596,8 @@
     "shouldHaveParent": true,
     "parents": [
       "component SpriteConfig",
-      "style"
+      "style",
+      "progress"
     ],
     "ID": {
       "values": [
@@ -4632,6 +4659,14 @@
       },
       "timedactiononisvalid": {
         "name": "TimedActionOnIsValid"
+      },
+      "health": {
+        "name": "health",
+        "type": "integer"
+      },
+      "skillbasehealth": {
+        "name": "skillBaseHealth",
+        "type": "integer"
       }
     }
   },

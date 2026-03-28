@@ -5,6 +5,7 @@ shouldHaveParent: true
 parents:
   - component SpriteConfig
   - style
+  - progress
 ID:
   values:
     - SINGLE

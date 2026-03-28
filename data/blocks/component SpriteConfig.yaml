@@ -13,3 +13,7 @@ parameters:
   - name: isProp
   - name: OnIsValid
   - name: TimedActionOnIsValid
+  - name: health
+    type: integer
+  - name: skillBaseHealth
+    type: integer

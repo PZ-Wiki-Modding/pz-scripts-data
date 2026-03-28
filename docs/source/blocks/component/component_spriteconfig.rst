@@ -66,3 +66,17 @@ Parameters
 
    No description
 
+.. _health:
+
+**health**
+   Type: ``integer``
+
+   No description
+
+.. _skillbasehealth:
+
+**skillBaseHealth**
+   Type: ``integer``
+
+   No description
+

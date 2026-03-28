@@ -13,6 +13,7 @@ Hierarchy
 
 - :ref:`component_spriteconfig`
 - :ref:`style`
+- :ref:`progress`
 
 **Possible Child Blocks:**
 

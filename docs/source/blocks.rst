@@ -52,6 +52,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/physicshitreaction.rst
    blocks/poison.rst
    blocks/position.rst
+   blocks/progress.rst
    blocks/properties.rst
    blocks/ragdoll.rst
    blocks/root-modinfo.rst

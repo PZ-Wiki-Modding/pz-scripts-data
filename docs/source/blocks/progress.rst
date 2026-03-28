@@ -1,7 +1,7 @@
-.. _style:
+.. _progress:
 
-style
-=====
+progress
+========
 
 
 
@@ -11,12 +11,11 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :ref:`component_spriteoverlayconfig`
+- :ref:`style`
 
 **Possible Child Blocks:**
 
 - :ref:`face`
-- :ref:`progress`
 
 
 ID Properties
