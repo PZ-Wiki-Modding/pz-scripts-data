@@ -36,3 +36,12 @@ parameters:
   - name: foodSicknessChange
     type: float
     description: The amount of food sickness provides.
+  - name: fatigueChange
+    type: float
+    description: The amount of fatigue this fluid changes when consumed. Positive values increase fatigue, negative values decrease it.
+  - name: StressChange
+    type: float
+    description: The amount of stress this fluid changes when consumed. Positive values increase stress, negative values decrease it.
+  - name: UnhappyChange
+    type: float
+    description: The amount of unhappiness this fluid changes when consumed. Positive values increase unhappiness, negative values decrease it.

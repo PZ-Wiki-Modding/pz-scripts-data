@@ -3887,6 +3887,21 @@
         "name": "foodSicknessChange",
         "type": "float",
         "description": "The amount of food sickness provides."
+      },
+      "fatiguechange": {
+        "name": "fatigueChange",
+        "type": "float",
+        "description": "The amount of fatigue this fluid changes when consumed. Positive values increase fatigue, negative values decrease it."
+      },
+      "stresschange": {
+        "name": "StressChange",
+        "type": "float",
+        "description": "The amount of stress this fluid changes when consumed. Positive values increase stress, negative values decrease it."
+      },
+      "unhappychange": {
+        "name": "UnhappyChange",
+        "type": "float",
+        "description": "The amount of unhappiness this fluid changes when consumed. Positive values increase unhappiness, negative values decrease it."
       }
     }
   },

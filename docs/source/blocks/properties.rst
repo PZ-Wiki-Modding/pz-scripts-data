@@ -100,3 +100,24 @@ Parameters
 
    The amount of food sickness provides.
 
+.. _fatiguechange:
+
+**fatigueChange**
+   Type: ``float``
+
+   The amount of fatigue this fluid changes when consumed. Positive values increase fatigue, negative values decrease it.
+
+.. _stresschange:
+
+**StressChange**
+   Type: ``float``
+
+   The amount of stress this fluid changes when consumed. Positive values increase stress, negative values decrease it.
+
+.. _unhappychange:
+
+**UnhappyChange**
+   Type: ``float``
+
+   The amount of unhappiness this fluid changes when consumed. Positive values increase unhappiness, negative values decrease it.
+
