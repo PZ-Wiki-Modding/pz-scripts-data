@@ -9,3 +9,6 @@ parameters:
   - name: AddFuel
   - name: LightFire
   - name: Running
+  - name: AddInput
+  - name: RemoveInput
+  - name: StartCraft

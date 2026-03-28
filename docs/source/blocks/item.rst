@@ -349,7 +349,7 @@ Parameters
 **BodyLocation**
    Type: ``Any``
 
-   No description
+   Used to define which location on the human character this clothing item can be worn.
 
    Item types: alarmclockclothing, clothing, container, normal
 
@@ -511,7 +511,7 @@ Parameters
 **CanHaveHoles**
    Type: ``boolean``
 
-   No description
+   Used to define whenever this item can get holes in it.
 
    Default: ``True``
 
@@ -652,7 +652,7 @@ Parameters
 **CloseKillMove**
    Type: ``Any``
 
-   No description
+   Used to whenever this weapon can be used to do a close kill move, like knives to assassinate in the back.
 
    Item types: weapon
 
@@ -750,7 +750,7 @@ Parameters
 **ConditionAffectsCapacity**
    Type: ``Any``
 
-   No description
+   Set whenever condition of the item can impact the capacity value of the container.
 
    Item types: normal
 
@@ -759,7 +759,7 @@ Parameters
 **ConditionLowerChanceOneIn**
    Type: ``integer``
 
-   No description
+   The chance impact to reduce the durability of the item, the value is used to calculate the chance by doing $chance = 1/ConditionLowerChanceOneIn$, which means increasing this parameter value will reduce the chance to damage the item.
 
    Default: ``10``
 
@@ -922,7 +922,7 @@ Parameters
 **DaysFresh**
    Type: ``Any``
 
-   No description
+   How many days this food item will stay fresh with default sandbox settings.
 
    Item types: food
 
@@ -931,7 +931,7 @@ Parameters
 **DaysTotallyRotten**
    Type: ``Any``
 
-   No description
+   How many days this food item will take to rot.
 
    Item types: food
 
@@ -1669,7 +1669,7 @@ Parameters
 **ItemType**
    Type: ``string`` *(required)*
 
-   No description
+   Defines the class of the item which will impact which parameters the item can take and its properties as well as how it is used by the player. Clothing for instance will handle differently their texture and model in comparison to the other type of items, containers can hold items and weapons can be used by the player to attack and deal damage. You cannot use a custom class of item and only the ones accepted by the game.
 
    Allowed values:
 

@@ -44,3 +44,24 @@ Parameters
 
    No description
 
+.. _addinput:
+
+**AddInput**
+   Type: ``Any``
+
+   No description
+
+.. _removeinput:
+
+**RemoveInput**
+   Type: ``Any``
+
+   No description
+
+.. _startcraft:
+
+**StartCraft**
+   Type: ``Any``
+
+   No description
+
