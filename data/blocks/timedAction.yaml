@@ -1,6 +1,6 @@
 version: 1
 name: timedAction
-description: Defines a callable action sound and/or animation.
+description: Defines a callable action sound and/or animation, including effects on calories burned and body heat generation.
 shouldHaveParent: true
 parents:
   - module

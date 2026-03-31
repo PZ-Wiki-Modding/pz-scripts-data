@@ -39,51 +39,80 @@ Parameters
 .. _allowbatchcraft:
 
 **AllowBatchCraft**
-   Type: ``Any``
+   Type: ``boolean``
 
-   No description
+   The AllowBatchCraft parameter is used to allow the recipe to be crafted in batches. This will make a slider appear on the crafting to craft multiple ones at once. Needs to be a boolean and default is true, set to false to disable batch craft.
+
+   Default: ``True``
 
 .. _autolearnall:
 
 **AutoLearnAll**
    Type: ``Any``
 
-   No description
+   The ``autoLearnAll`` parameter specifies that all the provided skills and their associated level need to be reached to learn the recipe. The parameter should be formated this way:
+   
+   .. code-block:: cpp
+   
+      -- a single skill
+      autoLearnAll = <skill name>:<level amount>,
+   
+      -- multiple skills
+      autoLearnAll = <skill1 name>:<level amount>;<skill2 name>:<level amount>,format
+   
+   For the list of available skills, see `this <https://pzwiki.net/wiki/CraftRecipe#Available_skills>`_.
+   
+   For example:
+   
+   .. code-block:: cpp
+   
+      autoLearnAll = Carving:3;Maintenance:2,
 
 .. _autolearnany:
 
 **AutoLearnAny**
    Type: ``Any``
 
-   No description
+   The autoLearnAny parameter specifies that at least one of the skills and its associated level need to be reached to learn the recipe. The parameter should be formated this way:
+   
+   .. code-block:: cpp
+   
+      -- a single skill
+      autoLearnAny = <skill name>:<level amount>,
+   
+      -- multiple skills
+      autoLearnAny = <skill1 name>:<level amount>;<skill2 name>:<level amount>,format
+   
+   For the list of available skills, see `this <https://pzwiki.net/wiki/CraftRecipe#Available_skills>`_.
+   
+   For example:
+   
+   .. code-block:: cpp
+   
+      autoLearnAny = Carving:3;Maintenance:2,
 
 .. _category:
 
 **category**
    Type: ``Any``
 
-   The category under which the recipe will be listed in the crafting menu.
+   The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in the crafting menu. Currently doesn't support translations (confirmed last 42.15).
 
 .. _icon:
 
 **Icon**
    Type: ``Any``
 
-   No description
-
-.. _itemmappers:
-
-**itemMappers**
-   Type: ``Any``
-
-   No description
+   Specifies the icon associated with this crafting recipe. The icon needs to be located in ``media/textures``\ , for example ``media/textures/myIcon.png`` will be refered to as ``Icon = myIcon,``.
+   
+   This seems to be used only once in the vanilla recipes with the entry Icon = "Item_WaterDrop", as the icon usually defaults to the items that will be crafted.
 
 .. _metarecipe:
 
 **MetaRecipe**
    Type: ``Any``
 
-   No description
+   A meta recipe is used to link two recipes so that if the meta recipe is known then this recipe will be known.
 
 .. _needtobelearn:
 
@@ -97,14 +126,35 @@ Parameters
 **OnCreate**
    Type: ``Any``
 
-   No description
+   The OnCreate parameter allows the referencing of a Lua function that will be called when the crafting recipe is finished. This can be used to add custom behavior to the crafting recipe when it gets finished. The Lua function needs to be a `global function <https://pzwiki.net/wiki/Lua_(language>`_\ #Local_and_global), it can also be in a global table. The vanilla game OnCreate's are stored in the `Java <https://pzwiki.net/wiki/Java>`_.
+   
+   The function should have the following structure:
+   
+   .. code-block:: lua
+   
+      function MyOnCreateFunction(craftRecipeData, character)
+          -- your custom code here
+      end
+   
+   The ``craftRecipeData`` is a `java object <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/entity/components/crafting/recipe/CraftRecipeData.html>`_ that contains the data of the crafting recipe. The ``character`` is the player character who is crafting the recipe.
 
 .. _ontest:
 
 **OnTest**
    Type: ``Any``
 
-   No description
+   The OnTest parameter is used to define a Lua function that will be called to verify if the recipe can be crafted. If the function returns true, the recipe can be crafted but if the function returns false, the recipe cannot be crafted. The Lua function needs to be a `global function <https://pzwiki.net/wiki/Lua_(language>`_\ #Local_and_global), it can also be in a global table. The vanilla game OnTest's are stored in the `Java <https://pzwiki.net/wiki/Java>`_.
+   
+   The function should have the following structure:
+   
+   .. code-block:: lua
+   
+      function MyOnTestFunction(item, character)
+          -- your custom code here
+          return logicTestResult  -- based on your logic test above
+      end
+   
+   ``item`` is an InventoryItem while ``character`` is the player trying to craft this recipe.
 
 .. _overlaystyle:
 
@@ -139,14 +189,30 @@ Parameters
 **SkillRequired**
    Type: ``Any``
 
-   The skill required to craft the item.
+   Specifies the skill level required to perform this crafting action. It should be formated this way:
+   
+   .. code-block:: cpp
+   
+      /* a single skill */
+      skillRequired = <skill name>:<level>,
+   
+      /* multiple skills */
+      skillRequired = <skill1 name>:<level>;<skill2 name>:<level>,
+   
+   For the list of available skills, see `this <https://pzwiki.net/wiki/CraftRecipe#Available_skills>`_.
+   
+   For example:
+   
+   .. code-block:: cpp
+   
+      skillRequired = Blacksmith:3;Tailoring:2,
 
 .. _tags:
 
 **tags**
    Type: ``Any`` *(required)*
 
-   Tags to define the special behavior of the recipe.
+   Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as ``AnySurfaceCraft``.
 
 .. _time:
 
@@ -155,24 +221,42 @@ Parameters
 
    The time it takes to craft the item, not using a specific unit of time.
 
+   Default: ``50``
+
 .. _timedaction:
 
 **timedAction**
    Type: ``Any``
 
-   The timed action script to trigger during crafting. Used to trigger animations and/or sounds.
+   Refers to a timed action script block, used to trigger during the crafting process, for animations and/or sounds but also the calories burned and body heat generation.
 
 .. _tooltip:
 
 **Tooltip**
    Type: ``Any``
 
-   No description
+   Description of the crafting which is shown in the crafting menu.
 
 .. _xpaward:
 
 **xpAward**
    Type: ``Any``
 
-   The amount of experience points awarded upon crafting the item.
+   Specifies the experience points awarded for crafting this item. The parameter should be formated this way:
+   
+   .. code-block:: cpp
+   
+      -- a single skill
+      xpAward = <skill name>:<xp amount>,
+   
+      -- multiple skills
+      xpAward = <skill1 name>:<xp amount>;<skill2 name>:<xp amount>,format
+   
+   For the list of available skills, see `this <https://pzwiki.net/wiki/CraftRecipe#Available_skills>`_.
+   
+   For example:
+   
+   .. code-block:: cpp
+   
+      xpAward = Blacksmith:10;Tailoring:5,
 

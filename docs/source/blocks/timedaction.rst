@@ -3,7 +3,7 @@
 timedAction
 ===========
 
-Defines a callable action sound and/or animation.
+Defines a callable action sound and/or animation, including effects on calories burned and body heat generation.
 
 
 Hierarchy
