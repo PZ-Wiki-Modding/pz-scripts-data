@@ -4114,7 +4114,7 @@
       },
       "xpaward": {
         "name": "xpAward",
-        "description": "Specifies the experience points awarded for crafting this item. The parameter should be formated this way:\n```cpp\n-- a single skill\nxpAward = <skill name>:<xp amount>,\n\n-- multiple skills\nxpAward = <skill1 name>:<xp amount>;<skill2 name>:<xp amount>,format\n```\nFor the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nxpAward = Blacksmith:10;Tailoring:5,\n```"
+        "description": "Specifies the experience points awarded for crafting this item. The parameter should be formated this way:\n```cpp\n/* a single skill */\nxpAward = <skill name>:<xp amount>,\n\n/* multiple skills */\nxpAward = <skill1 name>:<xp amount>;<skill2 name>:<xp amount>,format\n```\nFor the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nxpAward = Blacksmith:10;Tailoring:5,\n```"
       }
     }
   },
@@ -4512,11 +4512,11 @@
       },
       "autolearnall": {
         "name": "AutoLearnAll",
-        "description": "The `autoLearnAll` parameter specifies that all the provided skills and their associated level need to be reached to learn the recipe. The parameter should be formated this way:\n```cpp\n-- a single skill\nautoLearnAll = <skill name>:<level amount>,\n\n-- multiple skills\nautoLearnAll = <skill1 name>:<level amount>;<skill2 name>:<level amount>,format\n```\nFor the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nautoLearnAll = Carving:3;Maintenance:2,\n```"
+        "description": "The `autoLearnAll` parameter specifies that all the provided skills and their associated level need to be reached to learn the recipe. The parameter should be formated this way:\n```cpp\n/* a single skill */\nautoLearnAll = <skill name>:<level amount>,\n\n/* multiple skills */\nautoLearnAll = <skill1 name>:<level amount>;<skill2 name>:<level amount>,format\n```\nFor the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nautoLearnAll = Carving:3;Maintenance:2,\n```"
       },
       "autolearnany": {
         "name": "AutoLearnAny",
-        "description": "The autoLearnAny parameter specifies that at least one of the skills and its associated level need to be reached to learn the recipe. The parameter should be formated this way:\n```cpp\n-- a single skill\nautoLearnAny = <skill name>:<level amount>,\n\n-- multiple skills\nautoLearnAny = <skill1 name>:<level amount>;<skill2 name>:<level amount>,format\n```\nFor the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nautoLearnAny = Carving:3;Maintenance:2,\n```"
+        "description": "The autoLearnAny parameter specifies that at least one of the skills and its associated level need to be reached to learn the recipe. The parameter should be formated this way:\n```cpp\n/* a single skill */\nautoLearnAny = <skill name>:<level amount>,\n\n/* multiple skills */\nautoLearnAny = <skill1 name>:<level amount>;<skill2 name>:<level amount>,format\n```\nFor the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nautoLearnAny = Carving:3;Maintenance:2,\n```"
       },
       "category": {
         "name": "category",
@@ -4578,7 +4578,7 @@
       },
       "xpaward": {
         "name": "xpAward",
-        "description": "Specifies the experience points awarded for crafting this item. The parameter should be formated this way:\n```cpp\n-- a single skill\nxpAward = <skill name>:<xp amount>,\n\n-- multiple skills\nxpAward = <skill1 name>:<xp amount>;<skill2 name>:<xp amount>,format\n```\nFor the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nxpAward = Blacksmith:10;Tailoring:5,\n```"
+        "description": "Specifies the experience points awarded for crafting this item. The parameter should be formated this way:\n```cpp\n/* a single skill */\nxpAward = <skill name>:<xp amount>,\n\n/* multiple skills */\nxpAward = <skill1 name>:<xp amount>;<skill2 name>:<xp amount>,format\n```\nFor the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nxpAward = Blacksmith:10;Tailoring:5,\n```"
       }
     }
   },

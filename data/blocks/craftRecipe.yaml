@@ -17,10 +17,10 @@ parameters:
     description: |-
       The `autoLearnAll` parameter specifies that all the provided skills and their associated level need to be reached to learn the recipe. The parameter should be formated this way:
       ```cpp
-      -- a single skill
+      /* a single skill */
       autoLearnAll = <skill name>:<level amount>,
 
-      -- multiple skills
+      /* multiple skills */
       autoLearnAll = <skill1 name>:<level amount>;<skill2 name>:<level amount>,format
       ```
       For the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).
@@ -33,10 +33,10 @@ parameters:
     description: |-
       The autoLearnAny parameter specifies that at least one of the skills and its associated level need to be reached to learn the recipe. The parameter should be formated this way:
       ```cpp
-      -- a single skill
+      /* a single skill */
       autoLearnAny = <skill name>:<level amount>,
 
-      -- multiple skills
+      /* multiple skills */
       autoLearnAny = <skill1 name>:<level amount>;<skill2 name>:<level amount>,format
       ```
       For the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).
@@ -115,10 +115,10 @@ parameters:
     description: |- 
       Specifies the experience points awarded for crafting this item. The parameter should be formated this way:
       ```cpp
-      -- a single skill
+      /* a single skill */
       xpAward = <skill name>:<xp amount>,
 
-      -- multiple skills
+      /* multiple skills */
       xpAward = <skill1 name>:<xp amount>;<skill2 name>:<xp amount>,format
       ```
       For the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).

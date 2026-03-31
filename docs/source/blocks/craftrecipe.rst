@@ -54,10 +54,10 @@ Parameters
    
    .. code-block:: cpp
    
-      -- a single skill
+      /* a single skill */
       autoLearnAll = <skill name>:<level amount>,
    
-      -- multiple skills
+      /* multiple skills */
       autoLearnAll = <skill1 name>:<level amount>;<skill2 name>:<level amount>,format
    
    For the list of available skills, see `this <https://pzwiki.net/wiki/CraftRecipe#Available_skills>`_.
@@ -77,10 +77,10 @@ Parameters
    
    .. code-block:: cpp
    
-      -- a single skill
+      /* a single skill */
       autoLearnAny = <skill name>:<level amount>,
    
-      -- multiple skills
+      /* multiple skills */
       autoLearnAny = <skill1 name>:<level amount>;<skill2 name>:<level amount>,format
    
    For the list of available skills, see `this <https://pzwiki.net/wiki/CraftRecipe#Available_skills>`_.
@@ -246,10 +246,10 @@ Parameters
    
    .. code-block:: cpp
    
-      -- a single skill
+      /* a single skill */
       xpAward = <skill name>:<xp amount>,
    
-      -- multiple skills
+      /* multiple skills */
       xpAward = <skill1 name>:<xp amount>;<skill2 name>:<xp amount>,format
    
    For the list of available skills, see `this <https://pzwiki.net/wiki/CraftRecipe#Available_skills>`_.
