@@ -1,0 +1,35 @@
+version: 1
+name: ROOT-MapInfo
+description: |-
+  The `map.info` file is used to define the map's information. It is used by the game to display the map in the map selection screen and to load the map into the world.
+  It needs to be located in:
+  ```
+  📁 media
+      📁maps
+          📁 <map folder>
+              📄 map.info
+  ```
+shouldHaveParent: false
+parents: []
+isRoot: true
+noComma: true
+pattern:
+  - media\/maps\/[\s\S]+\/map\.info$
+parameters:
+  - name: title
+    description: Title of the map.
+  - name: description
+    description: Description of the map.
+  - name: lots
+    description: Refers to the world map the map will be loaded into. For a map which is inside the vanilla world map, use `lots=Muldraugh, KY`.
+  - name: fixed2x
+    description: Boolean which fixes rendering issues. Leave it as `true` if you are not sure.
+  - name: zoomX
+    description: Position parameter used to define the position of the camera on the world map when chosing the map to spawn in.
+  - name: zoomY
+    description: Position parameter used to define the position of the camera on the world map when chosing the map to spawn in.
+  - name: zoomS
+    description: Zoom parameter used to define the position of the camera on the world map when chosing the map to spawn in.
+  - name: demoVideo
+    description: |-
+      [Video file](https://pzwiki.net/wiki/File_formats#Video_format) used to showcase the map when selecting it.

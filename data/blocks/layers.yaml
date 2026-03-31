@@ -1,0 +1,15 @@
+version: 1
+name: layers
+description: Used to define the default layers of a new TMX file.
+shouldHaveParent: true
+noComma: true
+parents:
+  - ROOT-TMXconfig
+parameters:
+  - name: tile
+    allowedDuplicate: true
+    type: string
+  - name: object
+    parentsOnly:
+      - ROOT-MapBaseXML
+    type: string

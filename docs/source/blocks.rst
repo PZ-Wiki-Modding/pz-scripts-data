@@ -8,11 +8,13 @@ This section provides detailed documentation for all available script blocks.
    :titlesonly:
    :caption: Blocks
 
+   blocks/alias.rst
    blocks/anim.rst
    blocks/animation.rst
    blocks/animationsmesh.rst
    blocks/area.rst
    blocks/attachment.rst
+   blocks/blend.rst
    blocks/blendwhitelist.rst
    blocks/categories.rst
    blocks/character_trait_definition.rst
@@ -39,6 +41,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/item.rst
    blocks/itemmapper.rst
    blocks/layer.rst
+   blocks/layers.rst
    blocks/lightbar.rst
    blocks/lua.rst
    blocks/mannequin.rst
@@ -55,9 +58,15 @@ This section provides detailed documentation for all available script blocks.
    blocks/progress.rst
    blocks/properties.rst
    blocks/ragdoll.rst
+   blocks/root-blends.rst
+   blocks/root-mapbasexml.rst
+   blocks/root-mapinfo.rst
    blocks/root-modinfo.rst
+   blocks/root-rules.rst
    blocks/root-sandboxoptions.rst
    blocks/root-scripts.rst
+   blocks/root-tmxconfig.rst
+   blocks/rule.rst
    blocks/skin.rst
    blocks/sound.rst
    blocks/spritemodel.rst

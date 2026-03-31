@@ -1,0 +1,11 @@
+version: 1
+name: ROOT-MapBaseXML
+description: |-
+  The `MapBaseXML.txt` file is used to configure the layers of the TMX file.
+shouldHaveParent: false
+parents: []
+isRoot: true
+noComma: true
+pattern:
+  - MapBaseXML\.txt$
+parameters: []
