@@ -8,6 +8,7 @@ parents:
   - component CraftRecipe
 properties:
   item:
+    description: Defines an item input needed for the recipe. Different properties can be provided for this singular input to define how the item is used in the recipe and how it impacts the crafting process.
     oneOf:
       - itemList
       - tags
@@ -37,6 +38,7 @@ properties:
         type: array
         description: Tags are used to determine which items can be used as input.
   -fluid:
+    description: ""
     oneOf:
       - fluidList
       - categories
@@ -61,6 +63,7 @@ properties:
           - primary
           - anything
   +fluid:
+    description: ""
     oneOf:
       - singleValue
     properties:
