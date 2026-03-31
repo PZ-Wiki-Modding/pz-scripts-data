@@ -3403,8 +3403,8 @@
     "parameters": {}
   },
   "outputs": {
-    "name": "ouputs",
-    "description": "",
+    "name": "outputs",
+    "description": "The `outputs` block defines the items that will be created when the recipe is finished. Outputs are listed one after the other and follow the format below:\n```cpp\noutputs\n{\n\n    /* simple item output */\n    item quantity item,\n\n    /* using mappers */\n    item quantity mapper:mapperID,\n\n    ...\n}\n```\n\nFor example:\n```cpp\noutputs\n{\n    item 1 Base.Tissue,\n    item 1 Base.ScratchTicket,\n}\n```",
     "shouldHaveParent": true,
     "softOverride": false,
     "parents": [
@@ -4096,8 +4096,9 @@
       },
       "tags": {
         "name": "tags",
-        "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`.",
-        "required": true
+        "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:\n```cpp\n/* single tag */\nTags = tag1,\n\n/* multiple tags */\nTags = tag1;tag2;...,\n```\n\nFor example:\n```cpp\nTags = InHandCraft;CanAlwaysBeResearched,\n```",
+        "required": true,
+        "type": "array"
       },
       "time": {
         "name": "time",
@@ -4560,8 +4561,9 @@
       },
       "tags": {
         "name": "tags",
-        "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`.",
-        "required": true
+        "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:\n```cpp\n/* single tag */\nTags = tag1,\n\n/* multiple tags */\nTags = tag1;tag2;...,\n```\n\nFor example:\n```cpp\nTags = InHandCraft;CanAlwaysBeResearched,\n```",
+        "required": true,
+        "type": "array"
       },
       "time": {
         "name": "time",

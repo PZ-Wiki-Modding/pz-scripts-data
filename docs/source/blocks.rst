@@ -45,7 +45,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/model.rst
    blocks/module.rst
    blocks/option.rst
-   blocks/ouputs.rst
+   blocks/outputs.rst
    blocks/overlaymapper.rst
    blocks/part.rst
    blocks/passenger.rst

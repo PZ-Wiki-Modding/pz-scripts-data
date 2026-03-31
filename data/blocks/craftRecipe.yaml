@@ -102,8 +102,22 @@ parameters:
       skillRequired = Blacksmith:3;Tailoring:2,
       ```
   - name: tags
-    description: Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`.
+    description: |-
+      Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:
+      ```cpp
+      /* single tag */
+      Tags = tag1,
+
+      /* multiple tags */
+      Tags = tag1;tag2;...,
+      ```
+
+      For example:
+      ```cpp
+      Tags = InHandCraft;CanAlwaysBeResearched,
+      ```
     required: true
+    type: array
   - name: time
     description: The time it takes to craft the item, not using a specific unit of time.
     default: 50

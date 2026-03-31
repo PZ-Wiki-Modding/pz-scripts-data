@@ -23,7 +23,7 @@ Hierarchy
 
 - :ref:`inputs`
 - :ref:`itemmapper`
-- :ref:`ouputs`
+- :ref:`outputs`
 - :ref:`overlaymapper`
 
 
@@ -210,9 +210,23 @@ Parameters
 .. _tags:
 
 **tags**
-   Type: ``Any`` *(required)*
+   Type: ``array`` *(required)*
 
-   Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as ``AnySurfaceCraft``.
+   Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as ``AnySurfaceCraft``. The syntax is as follows:
+   
+   .. code-block:: cpp
+   
+      /* single tag */
+      Tags = tag1,
+   
+      /* multiple tags */
+      Tags = tag1;tag2;...,
+   
+   For example:
+   
+   .. code-block:: cpp
+   
+      Tags = InHandCraft;CanAlwaysBeResearched,
 
 .. _time:
 
