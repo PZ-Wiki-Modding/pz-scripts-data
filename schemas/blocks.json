@@ -158,9 +158,19 @@
                       }
                     }
                   ]
+                },
+                "children": {
+                  "type": "array",
+                  "description": "A list of child blocks that must be present for this parameter to be valid.",
+                  "items": { "type": "string" }
                 }
               }
             }
+          },
+          "incompatibleWith": {
+            "type": "array",
+            "description": "List of other parameters which are incompatible with this one.",
+            "items": { "type": "string" }
           }
         }
       }

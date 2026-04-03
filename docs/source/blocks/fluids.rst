@@ -3,7 +3,7 @@
 Fluids
 ======
 
-
+Used to make a list of fluids to appear in a `FluidContainer component <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/component/component_fluidcontainer.html>`_.
 
 
 Hierarchy
@@ -28,7 +28,7 @@ Parameters
 **fluid**
    Type: ``Any``
 
-   No description
+   Refers to a fluid script
 
    Can be duplicated: ✓
 

@@ -4464,7 +4464,7 @@
   },
   "Fluids": {
     "name": "Fluids",
-    "description": "",
+    "description": "Used to make a list of fluids to appear in a [FluidContainer component](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/component/component_fluidcontainer.html).",
     "shouldHaveParent": true,
     "parents": [
       "component FluidContainer"
@@ -4472,7 +4472,8 @@
     "parameters": {
       "fluid": {
         "name": "fluid",
-        "allowedDuplicate": true
+        "allowedDuplicate": true,
+        "description": "Refers to a fluid script"
       }
     }
   },
@@ -4580,39 +4581,100 @@
   },
   "component FluidContainer": {
     "name": "component FluidContainer",
-    "description": "",
+    "description": "Adds a fluid container to an item",
     "shouldHaveParent": true,
     "isVariant": "component",
     "parents": [
-      "item"
+      "item",
+      "entity"
     ],
     "parameters": {
       "capacity": {
-        "name": "Capacity"
+        "name": "Capacity",
+        "type": "float",
+        "default": 1.0,
+        "description": "The fluid capacity of the container, the minimum value is `0.05`."
       },
       "containername": {
-        "name": "ContainerName"
+        "name": "ContainerName",
+        "type": "string",
+        "default": "FluidContainer",
+        "description": "The name of the fluid container, seems to be unused. The name cannot have whitespaces, the game will sanitize it to remove them and show an error in the console about it."
       },
       "customdrinksound": {
-        "name": "CustomDrinkSound"
+        "name": "CustomDrinkSound",
+        "description": "Refers to a [sound block](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/sound.html) to trigger when drinking.",
+        "type": "string",
+        "default": "DrinkingFromGeneric"
+      },
+      "hiddenamount": {
+        "name": "HiddenAmount",
+        "type": "boolean",
+        "default": false,
+        "description": "When true, will hide the fluid quantity from the UI."
+      },
+      "initialpercent": {
+        "name": "InitialPercent",
+        "type": "float",
+        "incompatibleWith": [
+          "InitialPercentMin",
+          "InitialPercentMax"
+        ]
       },
       "initialpercentmax": {
-        "name": "InitialPercentMax"
+        "name": "InitialPercentMax",
+        "type": "float",
+        "default": 1.0,
+        "description": "The minimum amount of fluid which will appear in this container.",
+        "incompatibleWith": [
+          "InitialPercent"
+        ]
       },
       "initialpercentmin": {
-        "name": "InitialPercentMin"
+        "name": "InitialPercentMin",
+        "type": "float",
+        "default": 0.0,
+        "description": "The maximum amount of fluid which will appear in this container.",
+        "incompatibleWith": [
+          "InitialPercent"
+        ]
       },
       "inputlocked": {
-        "name": "InputLocked"
+        "name": "InputLocked",
+        "type": "boolean",
+        "default": false,
+        "description": "Unused."
       },
       "opened": {
-        "name": "Opened"
+        "name": "Opened",
+        "type": "boolean",
+        "default": true,
+        "description": "Unused."
       },
       "pickrandomfluid": {
-        "name": "PickRandomFluid"
+        "name": "PickRandomFluid",
+        "type": "boolean",
+        "default": false,
+        "description": "When set to true, the container will pick one of the available fluids in the [Fluids](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/fluids.html) child block at random when filling. If set to false, it will make every fluids appear.",
+        "needs": [
+          {
+            "children": [
+              "Fluids"
+            ]
+          }
+        ]
       },
       "rainfactor": {
-        "name": "RainFactor"
+        "name": "RainFactor",
+        "type": "float",
+        "default": 0.0,
+        "description": "Defines how much rain contributes to filling the container. A high value increases the rate of filling. A value of `0.0` means that rain will not fill the container, which is the default value of the parameter.\n\nIf the item is a weapon and `RainFactor` is set to a value above the default, when the player aims with the weapon it will empty it."
+      },
+      "fillswithcleanwater": {
+        "name": "FillsWithCleanWater",
+        "type": "boolean",
+        "default": false,
+        "description": "When set to true, the container will fill with clean water instead of tainted water when left outside in the rain."
       }
     }
   },

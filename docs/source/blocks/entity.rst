@@ -21,6 +21,7 @@ Hierarchy
 - :ref:`component_craftbenchsounds`
 - :ref:`component_craftrecipe`
 - :ref:`component_dryingcraftlogic`
+- :ref:`component_fluidcontainer`
 - :ref:`component_resources`
 - :ref:`component_spriteconfig`
 - :ref:`component_spriteoverlayconfig`
