@@ -101,7 +101,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: BaseVolumeRange
     itemTypes:
       - radio
@@ -337,7 +337,7 @@ parameters:
       - clothing
       - container
     type: float
-    default: 1
+    default: 1.0
   - name: ConditionAffectsCapacity
     itemTypes:
       - normal
@@ -395,7 +395,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 20
+    default: 20.0
   - name: CustomContextMenu
     itemTypes:
       - drainable
@@ -497,7 +497,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: engineLoudness
     itemTypes:
       - normal
@@ -612,7 +612,7 @@ parameters:
       - normal
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: HeadConditionMax
     itemTypes:
       - weapon
@@ -620,7 +620,7 @@ parameters:
     itemTypes:
       - clothing
     type: float
-    default: 1
+    default: 1.0
   - name: HerbalistType
     itemTypes:
       - food
@@ -769,7 +769,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: KeepOnDeplete
     itemTypes:
       - clothing
@@ -781,7 +781,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: LearnedRecipes
     itemTypes:
       - literature
@@ -852,7 +852,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: MaxRangeModifier
     itemTypes:
       - weaponpart
@@ -891,7 +891,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: MinChannel
     itemTypes:
       - radio
@@ -914,14 +914,14 @@ parameters:
     itemTypes:
       - food
     type: float
-    default: 120
+    default: 120.0
     description: How many in-game minutes it takes to burn the food. This value must
       be higher than `MinutesToCook`.
   - name: MinutesToCook
     itemTypes:
       - food
     type: float
-    default: 60
+    default: 60.0
     description: How many in-game minutes it takes to cook the food. This value must
       be smaller than `MinutesToBurn`.
   - name: ModelWeaponPart
@@ -943,7 +943,7 @@ parameters:
     itemTypes:
       - clothing
     type: float
-    default: 1
+    default: 1.0
   - name: needtobeclosedoncereload
     itemTypes:
       - weapon
@@ -960,7 +960,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: NumberOfPages
     itemTypes:
       - literature
@@ -1071,7 +1071,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: ProtectFromRainWhenEquipped
     itemTypes:
       - normal
@@ -1084,7 +1084,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: PutInSound
     itemTypes:
       - container
@@ -1200,12 +1200,12 @@ parameters:
       - container
       - radio
     type: float
-    default: 1
+    default: 1.0
   - name: ScaleWorldIcon
     itemTypes:
       - drainable
     type: float
-    default: 1
+    default: 1.0
   - name: ScratchDefense
     itemTypes:
       - clothing
@@ -1229,7 +1229,7 @@ parameters:
       - clothing
       - normal
     type: float
-    default: 1
+    default: 1.0
   - name: ShoutType
     itemTypes:
       - clothing
@@ -1246,7 +1246,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: SoundMap
     itemTypes:
       - drainable
@@ -1286,7 +1286,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: StaticModel
     itemTypes:
       - clothing
@@ -1308,12 +1308,12 @@ parameters:
     itemTypes:
       - clothing
     type: float
-    default: 1
+    default: 1.0
   - name: StopPower
     itemTypes:
       - weapon
     type: float
-    default: 5
+    default: 5.0
   - name: StressChange
     itemTypes:
       - drainable
@@ -1353,7 +1353,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: Tags
     itemTypes:
       - alarmclock
@@ -1383,7 +1383,7 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: Tooltip
     itemTypes:
       - clothing
@@ -1481,7 +1481,7 @@ parameters:
     itemTypes:
       - clothing
     type: float
-    default: 1
+    default: 1.0
   - name: VisualAid
     itemTypes:
       - clothing
@@ -1509,10 +1509,10 @@ parameters:
     itemTypes:
       - weapon
     type: float
-    default: 1
+    default: 1.0
   - name: Weight
     type: float
-    default: 1
+    default: 1.0
   - name: WeightEmpty
     itemTypes:
       - drainable

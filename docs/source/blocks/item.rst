@@ -275,7 +275,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -741,7 +741,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: clothing, container
 
@@ -857,7 +857,7 @@ Parameters
 
    No description
 
-   Default: ``20``
+   Default: ``20.0``
 
    Item types: weapon
 
@@ -1081,7 +1081,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -1364,7 +1364,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: normal, weapon
 
@@ -1384,7 +1384,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: clothing
 
@@ -1719,7 +1719,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -1748,7 +1748,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -1922,7 +1922,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -1996,7 +1996,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -2054,7 +2054,7 @@ Parameters
 
    How many in-game minutes it takes to burn the food. This value must be higher than ``MinutesToCook``.
 
-   Default: ``120``
+   Default: ``120.0``
 
    Item types: food
 
@@ -2065,7 +2065,7 @@ Parameters
 
    How many in-game minutes it takes to cook the food. This value must be smaller than ``MinutesToBurn``.
 
-   Default: ``60``
+   Default: ``60.0``
 
    Item types: food
 
@@ -2116,7 +2116,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: clothing
 
@@ -2163,7 +2163,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -2439,7 +2439,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -2468,7 +2468,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -2735,7 +2735,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: clothing, container, radio
 
@@ -2746,7 +2746,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: drainable
 
@@ -2802,7 +2802,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: clothing, normal
 
@@ -2840,7 +2840,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -2927,7 +2927,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -2956,7 +2956,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: clothing
 
@@ -2967,7 +2967,7 @@ Parameters
 
    No description
 
-   Default: ``5``
+   Default: ``5.0``
 
    Item types: weapon
 
@@ -3052,7 +3052,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -3092,7 +3092,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -3293,7 +3293,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: clothing
 
@@ -3369,7 +3369,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
    Item types: weapon
 
@@ -3380,7 +3380,7 @@ Parameters
 
    No description
 
-   Default: ``1``
+   Default: ``1.0``
 
 .. _weightempty:
 

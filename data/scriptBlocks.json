@@ -913,7 +913,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "basevolumerange": {
         "name": "BaseVolumeRange",
@@ -1288,7 +1288,7 @@
           "container"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "conditionaffectscapacity": {
         "name": "ConditionAffectsCapacity",
@@ -1382,7 +1382,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 20
+        "default": 20.0
       },
       "customcontextmenu": {
         "name": "CustomContextMenu",
@@ -1553,7 +1553,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "engineloudness": {
         "name": "engineLoudness",
@@ -1761,7 +1761,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "headconditionmax": {
         "name": "HeadConditionMax",
@@ -1775,7 +1775,7 @@
           "clothing"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "herbalisttype": {
         "name": "HerbalistType",
@@ -2023,7 +2023,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "keepondeplete": {
         "name": "KeepOnDeplete",
@@ -2044,7 +2044,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "learnedrecipes": {
         "name": "LearnedRecipes",
@@ -2169,7 +2169,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "maxrangemodifier": {
         "name": "MaxRangeModifier",
@@ -2232,7 +2232,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "minchannel": {
         "name": "MinChannel",
@@ -2273,7 +2273,7 @@
           "food"
         ],
         "type": "float",
-        "default": 120,
+        "default": 120.0,
         "description": "How many in-game minutes it takes to burn the food. This value must be higher than `MinutesToCook`."
       },
       "minutestocook": {
@@ -2282,7 +2282,7 @@
           "food"
         ],
         "type": "float",
-        "default": 60,
+        "default": 60.0,
         "description": "How many in-game minutes it takes to cook the food. This value must be smaller than `MinutesToBurn`."
       },
       "modelweaponpart": {
@@ -2318,7 +2318,7 @@
           "clothing"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "needtobeclosedoncereload": {
         "name": "needtobeclosedoncereload",
@@ -2350,7 +2350,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "numberofpages": {
         "name": "NumberOfPages",
@@ -2551,7 +2551,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "protectfromrainwhenequipped": {
         "name": "ProtectFromRainWhenEquipped",
@@ -2573,7 +2573,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "putinsound": {
         "name": "PutInSound",
@@ -2776,7 +2776,7 @@
           "radio"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "scaleworldicon": {
         "name": "ScaleWorldIcon",
@@ -2784,7 +2784,7 @@
           "drainable"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "scratchdefense": {
         "name": "ScratchDefense",
@@ -2826,7 +2826,7 @@
           "normal"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "shouttype": {
         "name": "ShoutType",
@@ -2855,7 +2855,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "soundmap": {
         "name": "SoundMap",
@@ -2922,7 +2922,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "staticmodel": {
         "name": "StaticModel",
@@ -2953,7 +2953,7 @@
           "clothing"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "stoppower": {
         "name": "StopPower",
@@ -2961,7 +2961,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 5
+        "default": 5.0
       },
       "stresschange": {
         "name": "StressChange",
@@ -3028,7 +3028,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "tags": {
         "name": "Tags",
@@ -3070,7 +3070,7 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "tooltip": {
         "name": "Tooltip",
@@ -3231,7 +3231,7 @@
           "clothing"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "visualaid": {
         "name": "VisualAid",
@@ -3283,12 +3283,12 @@
           "weapon"
         ],
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "weight": {
         "name": "Weight",
         "type": "float",
-        "default": 1
+        "default": 1.0
       },
       "weightempty": {
         "name": "WeightEmpty",
