@@ -69,8 +69,18 @@
       "description": "Indicates whether the block parameters should not be followed by a comma."
     },
     "deprecated": {
-      "type": "boolean",
-      "description": "Indicates whether the block type is deprecated."
+      "type": "object",
+      "description": "Indicates whether the block type is deprecated.",
+      "properties": {
+        "replacedBy": {
+          "type": "string",
+          "description": "The name of the block type that replaces this deprecated block type."
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief description of why the block type is deprecated and any additional information about the deprecation."
+        }
+      }
     },
     "parameters": { 
       "type": "array",
@@ -127,8 +137,18 @@
             "items": { "type": ["string", "number"] }
           },
           "deprecated": {
-            "type": "boolean",
-            "description": "Indicates whether the parameter is deprecated."
+            "type": "object",
+            "description": "Indicates whether the parameter is deprecated.",
+            "properties": {
+              "replacedBy": {
+                "type": "string",
+                "description": "The name of the parameter that replaces this deprecated parameter."
+              },
+              "description": {
+                "type": "string",
+                "description": "A brief description of why the parameter is deprecated and any additional information about the deprecation."
+              }
+            }
           },
           "needs": {
             "type": "array",

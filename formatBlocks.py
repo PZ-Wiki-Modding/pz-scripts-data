@@ -57,4 +57,6 @@ os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
 with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
     json.dump(blocks, f, indent=2, ensure_ascii=False)
 
+os.system(f'git add {OUTPUT_FILE}')
+
 # print(f"Combined JSON written to {OUTPUT_FILE}")

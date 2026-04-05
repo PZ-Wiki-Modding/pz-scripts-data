@@ -601,7 +601,9 @@
     "description": "Not a script block, but serves as the root of the document. Blocks than need to be in the root of the document should have this as parent.",
     "shouldHaveParent": false,
     "parents": [],
-    "deprecated": true,
+    "deprecated": {
+      "replacedBy": "ROOT-Scripts"
+    },
     "parameters": {}
   },
   "alias": {
@@ -2003,13 +2005,17 @@
       },
       "type": {
         "name": "Type",
-        "deprecated": true,
+        "deprecated": {
+          "replacedBy": "ItemType"
+        },
         "description": "This parameter was replaced by `ItemType` in Build 42.13."
       },
       "displayname": {
         "name": "DisplayName",
-        "deprecated": true,
-        "description": "This parameter was removed in Build 42.13, naming an item should be done with a translation entry. See the [wiki](https://pzwiki.net/wiki/DisplayName) page for more information."
+        "deprecated": {
+          "description": "This parameter was removed in Build 42.13, naming an item should be done with a translation entry. See the [wiki](https://pzwiki.net/wiki/DisplayName) page for more information."
+        },
+        "description": "Sets the name of the item which will be displayed in-game. It's recommended to use a translation entry for this parameter to allow localization of the item name."
       },
       "itemwhendry": {
         "name": "ItemWhenDry",

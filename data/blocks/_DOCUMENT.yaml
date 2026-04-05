@@ -3,4 +3,5 @@ name: _DOCUMENT
 description: Not a script block, but serves as the root of the document. Blocks than need to be in the root of the document should have this as parent.
 shouldHaveParent: false
 parents: []
-deprecated: true
+deprecated:
+  replacedBy: ROOT-Scripts

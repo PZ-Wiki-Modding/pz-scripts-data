@@ -1701,7 +1701,7 @@ Parameters
 **DisplayName**
    Type: ``Any``
 
-   This parameter was removed in Build 42.13, naming an item should be done with a translation entry. See the `wiki <https://pzwiki.net/wiki/DisplayName>`_ page for more information.
+   Sets the name of the item which will be displayed in-game. It's recommended to use a translation entry for this parameter to allow localization of the item name.
 
 .. _itemwhendry:
 

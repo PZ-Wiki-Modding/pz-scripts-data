@@ -1,6 +1,13 @@
 repos:
   - repo: local
     hooks:
+      - id: validate-blocks
+        name: Validate data/blocks/*.yaml
+        entry: python validateBlocks.py
+        language: python
+        files: ^data/blocks/.*\.yaml$
+        pass_filenames: false
+        additional_dependencies: [pyyaml, jsonschema]
       - id: format-blocks
         name: Format scriptBlocks.json
         entry: python formatBlocks.py
