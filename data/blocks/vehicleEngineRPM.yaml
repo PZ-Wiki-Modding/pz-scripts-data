@@ -1,0 +1,11 @@
+version: 1
+name: vehicleEngineRPM
+description: ""
+shouldHaveParent: true
+parents:
+  - module
+ID: {}
+parameters:
+  - name: VERSION
+    type: integer
+    description: Unclear what this does, preferably keep it at 1.

@@ -27,6 +27,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/copyframes.rst
    blocks/craftlogic.rst
    blocks/craftrecipe.rst
+   blocks/data.rst
    blocks/door.rst
    blocks/energy.rst
    blocks/entity.rst
@@ -78,5 +79,6 @@ This section provides detailed documentation for all available script blocks.
    blocks/tileset.rst
    blocks/timedaction.rst
    blocks/vehicle.rst
+   blocks/vehicleenginerpm.rst
    blocks/wheel.rst
    blocks/xuiskin.rst
