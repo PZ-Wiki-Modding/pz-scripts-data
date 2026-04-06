@@ -3,7 +3,7 @@ name: data
 description: ""
 shouldHaveParent: true
 parents:
-  - module
+  - vehicleEngineRPM
 parameters:
   - name: afterGearChange
     type: float

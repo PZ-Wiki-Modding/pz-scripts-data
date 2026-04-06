@@ -13,6 +13,10 @@ Hierarchy
 
 - :ref:`module`
 
+**Possible Child Blocks:**
+
+- :ref:`data`
+
 
 ID Properties
 -------------

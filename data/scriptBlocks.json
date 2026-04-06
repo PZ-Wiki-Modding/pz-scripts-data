@@ -4481,7 +4481,7 @@
     "description": "",
     "shouldHaveParent": true,
     "parents": [
-      "module"
+      "vehicleEngineRPM"
     ],
     "parameters": {
       "aftergearchange": {

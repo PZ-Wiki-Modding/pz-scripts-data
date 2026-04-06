@@ -19,7 +19,6 @@ Hierarchy
 - :ref:`animationsmesh`
 - :ref:`character_trait_definition`
 - :ref:`craftrecipe`
-- :ref:`data`
 - :ref:`energy`
 - :ref:`entity`
 - :ref:`evolvedrecipe`

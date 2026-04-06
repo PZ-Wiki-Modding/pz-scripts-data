@@ -11,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :ref:`module`
+- :ref:`vehicleenginerpm`
 
 
 ID Properties
