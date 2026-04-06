@@ -5,20 +5,22 @@ sound
 
 Makes one or more sound clips available for use in the game. Multiple clips can be added to a sound script, and the game will randomly select one of them to play when the sound is triggered.
 
-module yourModule {
-  sound yourSound {
-    category = Animal,
-    loop = true,
-    is3D = true,
-    clip {
-      file = media/sound/RideOfTheValkyries.ogg,
-      distanceMin = 20,
-      distanceMax = 650,
-      reverbFactor = 0.1,
-      volume = 0.7,
-    }
-  }
-}
+.. code-block:: cpp
+
+   module yourModule {
+     sound yourSound {
+       category = Animal,
+       loop = true,
+       is3D = true,
+       clip {
+         file = media/sound/RideOfTheValkyries.ogg,
+         distanceMin = 20,
+         distanceMax = 650,
+         reverbFactor = 0.1,
+         volume = 0.7,
+       }
+     }
+   }
 
 
 Hierarchy
