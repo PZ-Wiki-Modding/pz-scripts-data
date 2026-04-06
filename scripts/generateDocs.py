@@ -3,13 +3,10 @@
 Auto-generates Sphinx documentation from YAML block definitions.
 """
 
-import os
-import sys
-import yaml
+import os, sys, yaml, shutil
 from m2r import convert
 from pathlib import Path
 from typing import Dict, List, Any, Optional
-import shutil
 
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -334,14 +331,16 @@ class BlockDocumentationGenerator:
         
         return rst
     
-    def write_documentation(self) -> None:
+    def write_documentation(self) -> list[Path]:
         """Write generated documentation to files."""
+        files: list[Path] = []
         # Create blocks index
         index_rst = self.generate_blocks_index()
         index_path = os.path.join(self.output_dir, 'blocks.rst')
         os.makedirs(os.path.dirname(index_path), exist_ok=True)
         with open(index_path, 'w') as f:
             f.write(index_rst)
+            files.append(Path(index_path))
         print(f"Created {index_path}")
         
         # Create individual block files
@@ -352,16 +351,19 @@ class BlockDocumentationGenerator:
             with open(block_path, 'w') as f:
                 f.write(doc_content)
             print(f"Created {block_path}")
-    
-    def run(self) -> None:
+            files.append(block_path)
+        return files
+
+    def run(self) -> list[Path]:
         """Execute the documentation generation."""
         print("Loading block definitions...")
         self.load_blocks()
         print(f"Loaded {len(blocks_map)} blocks")
         
         print("Generating documentation...")
-        self.write_documentation()
+        files = self.write_documentation()
         print("Documentation generation complete!")
+        return files
 
 
 def main():
@@ -390,7 +392,16 @@ def main():
     
     # Generate documentation
     generator = BlockDocumentationGenerator(blocks_dir, output_dir)
-    generator.run()
+    files = generator.run()
+
+    # git add generated files
+    try:
+        import subprocess
+        for file in files:
+            subprocess.run(['git', 'add', str(file)], check=True)
+        print("Added generated files to git staging area.")
+    except Exception as e:
+        print(f"Warning: Failed to add files to git: {e}")
 
 
 if __name__ == '__main__':
