@@ -1694,7 +1694,7 @@ Parameters
 **Type**
    Type: ``Any``
 
-   This parameter was replaced by ``ItemType`` in Build 42.13.
+   Used to set the class of the item, which will influence parameters available.
 
 .. _displayname:
 

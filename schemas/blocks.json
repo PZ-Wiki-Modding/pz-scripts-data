@@ -150,6 +150,10 @@
               "description": {
                 "type": "string",
                 "description": "A brief description of why the parameter is deprecated and any additional information about the deprecation."
+              },
+              "version": {
+                "type": "string",
+                "description": "The version(s) in which the parameter is deprecated."
               }
             }
           },
