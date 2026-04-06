@@ -12,6 +12,7 @@ Hierarchy
 **Valid Parent Blocks:**
 
 - :ref:`item`
+- :ref:`entity`
 
 **Required Child Blocks:**
 

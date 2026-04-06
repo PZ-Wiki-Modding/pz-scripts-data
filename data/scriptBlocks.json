@@ -626,35 +626,46 @@
   },
   "clip": {
     "name": "clip",
-    "description": "",
+    "description": "Defines a clip to be used in a [sound script](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/sound.html), which is a single sound file with properties that determine how it is played in the game.\n\nmodule yourModule {\n  sound yourSound {\n    category = Animal,\n    loop = true,\n    is3D = true,\n    clip {\n      file = media/sound/RideOfTheValkyries.ogg,\n      distanceMin = 20,\n      distanceMax = 650,\n      reverbFactor = 0.1,\n      volume = 0.7,\n    }\n  }\n}",
     "shouldHaveParent": true,
     "parents": [
       "sound"
     ],
     "parameters": {
       "event": {
-        "name": "event"
+        "name": "event",
+        "type": "string"
       },
       "distancemax": {
-        "name": "distanceMax"
+        "name": "distanceMax",
+        "type": "integer"
       },
       "file": {
-        "name": "file"
+        "name": "file",
+        "type": "string"
       },
       "distancemin": {
-        "name": "distanceMin"
+        "name": "distanceMin",
+        "type": "integer"
       },
       "volume": {
-        "name": "volume"
+        "name": "volume",
+        "type": "float"
       },
       "reverbfactor": {
-        "name": "reverbFactor"
+        "name": "reverbFactor",
+        "type": "float"
       },
       "pitch": {
-        "name": "pitch"
+        "name": "pitch",
+        "type": "float"
       },
       "reverbmaxrange": {
-        "name": "reverbMaxRange"
+        "name": "reverbMaxRange",
+        "type": "float"
+      },
+      "stopimmediate": {
+        "name": "stopImmediate"
       }
     }
   },
@@ -3924,7 +3935,8 @@
     "shouldHaveParent": true,
     "isVariant": "component",
     "parents": [
-      "item"
+      "item",
+      "entity"
     ],
     "needsChildren": [
       "contextEntry"
@@ -4264,7 +4276,7 @@
   },
   "sound": {
     "name": "sound",
-    "description": "Defines a sound properties.",
+    "description": "Makes one or more sound clips available for use in the game. Multiple clips can be added to a sound script, and the game will randomly select one of them to play when the sound is triggered.\n\nmodule yourModule {\n  sound yourSound {\n    category = Animal,\n    loop = true,\n    is3D = true,\n    clip {\n      file = media/sound/RideOfTheValkyries.ogg,\n      distanceMin = 20,\n      distanceMax = 650,\n      reverbFactor = 0.1,\n      volume = 0.7,\n    }\n  }\n}",
     "shouldHaveParent": true,
     "parents": [
       "module",
@@ -4278,62 +4290,153 @@
       ]
     },
     "parameters": {
-      "category": {
-        "name": "category"
-      },
-      "loop": {
-        "name": "loop"
-      },
-      "master": {
-        "name": "master"
-      },
-      "maxinstancesperemitter": {
-        "name": "maxInstancesPerEmitter"
-      },
-      "is3d": {
-        "name": "is3D"
+      "alarm": {
+        "name": "alarm",
+        "needs": [
+          {
+            "parents": [
+              "vehicle",
+              "template"
+            ]
+          }
+        ],
+        "type": "array"
       },
       "alarmloop": {
         "name": "alarmLoop",
-        "parentsOnly": [
-          "vehicle",
-          "template"
+        "needs": [
+          {
+            "parents": [
+              "vehicle",
+              "template"
+            ]
+          }
         ]
+      },
+      "backsignal": {
+        "name": "backSignal",
+        "needs": [
+          {
+            "parents": [
+              "vehicle",
+              "template"
+            ]
+          }
+        ],
+        "type": "string"
+      },
+      "category": {
+        "name": "category",
+        "type": "string"
       },
       "engine": {
         "name": "engine",
-        "parentsOnly": [
-          "vehicle",
-          "template"
-        ]
+        "needs": [
+          {
+            "parents": [
+              "vehicle",
+              "template"
+            ]
+          }
+        ],
+        "type": "string"
       },
       "enginestart": {
         "name": "engineStart",
-        "parentsOnly": [
-          "vehicle",
-          "template"
-        ]
+        "needs": [
+          {
+            "parents": [
+              "vehicle",
+              "template"
+            ]
+          }
+        ],
+        "type": "string"
       },
       "engineturnoff": {
         "name": "engineTurnOff",
-        "parentsOnly": [
-          "vehicle",
-          "template"
-        ]
+        "needs": [
+          {
+            "parents": [
+              "vehicle",
+              "template"
+            ]
+          }
+        ],
+        "type": "string"
+      },
+      "handbrake": {
+        "name": "handBrake",
+        "needs": [
+          {
+            "parents": [
+              "vehicle",
+              "template"
+            ]
+          }
+        ],
+        "type": "string"
       },
       "horn": {
         "name": "horn",
-        "parentsOnly": [
-          "vehicle",
-          "template"
-        ]
+        "needs": [
+          {
+            "parents": [
+              "vehicle",
+              "template"
+            ]
+          }
+        ],
+        "type": "string"
       },
       "ignitionfail": {
         "name": "ignitionFail",
-        "parentsOnly": [
-          "vehicle",
-          "template"
+        "needs": [
+          {
+            "parents": [
+              "vehicle",
+              "template"
+            ]
+          }
         ]
+      },
+      "ignitionfailnopower": {
+        "name": "ignitionFailNoPower",
+        "needs": [
+          {
+            "parents": [
+              "vehicle",
+              "template"
+            ]
+          }
+        ],
+        "type": "string"
+      },
+      "is3d": {
+        "name": "is3D",
+        "type": "string",
+        "description": "This parameter looks unused.",
+        "isUseless": true
+      },
+      "loop": {
+        "name": "loop",
+        "description": "Whether the sound should loop or not. The sound plays until turned off or the emitter is destroyed.",
+        "type": "boolean"
+      },
+      "master": {
+        "name": "master",
+        "type": "string",
+        "description": "Links the sound to a master sound category, which controls the volume of all sounds linked to it.",
+        "values": [
+          "Primary",
+          "Ambient",
+          "Music",
+          "VehicleEngine"
+        ]
+      },
+      "maxinstancesperemitter": {
+        "name": "maxInstancesPerEmitter",
+        "type": "integer"
       }
     }
   },
@@ -4605,7 +4708,8 @@
         "name": "ContainerName",
         "type": "string",
         "default": "FluidContainer",
-        "description": "The name of the fluid container, seems to be unused. The name cannot have whitespaces, the game will sanitize it to remove them and show an error in the console about it."
+        "description": "The name of the fluid container, seems to be unused. The name cannot have whitespaces, the game will sanitize it to remove them and show an error in the console about it.",
+        "isUseless": true
       },
       "customdrinksound": {
         "name": "CustomDrinkSound",

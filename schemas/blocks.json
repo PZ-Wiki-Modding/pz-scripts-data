@@ -70,6 +70,7 @@
     },
     "deprecated": {
       "type": "object",
+      "additionalProperties": false,
       "description": "Indicates whether the block type is deprecated.",
       "properties": {
         "replacedBy": {
@@ -87,6 +88,7 @@
       "description": "A list of parameters available for this block type.",
       "items": {
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "name": {
             "type": "string",
@@ -115,7 +117,7 @@
           },
           "parentsOnly": {
             "type": "array",
-            "description": "A list of parent block types for which this parameter is applicable.",
+            "description": "DEPRECATED: A list of parent block types for which this parameter is applicable.",
             "items": { "type": "string" }
           },
           "required": {
@@ -138,6 +140,7 @@
           },
           "deprecated": {
             "type": "object",
+            "additionalProperties": false,
             "description": "Indicates whether the parameter is deprecated.",
             "properties": {
               "replacedBy": {
@@ -155,6 +158,7 @@
             "description": "A list of conditions of other parameters that must be met for this parameter to be valid.",
             "items": {
               "type": "object",
+              "additionalProperties": false,
               "properties": {
                 "name": {
                   "type": "string",
@@ -183,6 +187,11 @@
                   "type": "array",
                   "description": "A list of child blocks that must be present for this parameter to be valid.",
                   "items": { "type": "string" }
+                },
+                "parents": {
+                  "type": "array",
+                  "description": "A list of parent blocks that must be present for this parameter to be valid.",
+                  "items": { "type": "string" }
                 }
               }
             }
@@ -191,6 +200,10 @@
             "type": "array",
             "description": "List of other parameters which are incompatible with this one.",
             "items": { "type": "string" }
+          },
+          "isUseless": {
+            "type": "boolean",
+            "description": "Indicates whether the parameter is considered useless or not. This can be used to flag parameters that are no longer functional or have no effect in the game, but are still present for compatibility reasons."
           }
         }
       }

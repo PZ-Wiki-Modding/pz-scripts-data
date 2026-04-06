@@ -15,6 +15,7 @@ parameters:
     type: string
     default: FluidContainer
     description: The name of the fluid container, seems to be unused. The name cannot have whitespaces, the game will sanitize it to remove them and show an error in the console about it.
+    isUseless: true
   - name: CustomDrinkSound
     description: Refers to a [sound block](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/sound.html) to trigger when drinking.
     type: string

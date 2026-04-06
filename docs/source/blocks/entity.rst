@@ -17,6 +17,7 @@ Hierarchy
 **Possible Child Blocks:**
 
 - :ref:`component`
+- :ref:`component_contextmenuconfig`
 - :ref:`component_craftbench`
 - :ref:`component_craftbenchsounds`
 - :ref:`component_craftrecipe`

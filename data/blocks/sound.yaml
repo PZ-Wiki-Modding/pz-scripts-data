@@ -1,6 +1,23 @@
 version: 1
 name: sound
-description: Defines a sound properties.
+description: |-
+  Makes one or more sound clips available for use in the game. Multiple clips can be added to a sound script, and the game will randomly select one of them to play when the sound is triggered.
+
+  module yourModule {
+    sound yourSound {
+      category = Animal,
+      loop = true,
+      is3D = true,
+      clip {
+        file = media/sound/RideOfTheValkyries.ogg,
+        distanceMin = 20,
+        distanceMax = 650,
+        reverbFactor = 0.1,
+        volume = 0.7,
+      }
+    }
+  }
+
 shouldHaveParent: true
 parents:
   - module
@@ -11,32 +28,60 @@ ID:
     - vehicle
     - template
 parameters:
-  - name: category
-  - name: loop
-  - name: master
-  - name: maxInstancesPerEmitter
-  - name: is3D
+  - name: alarm
+    needs:
+      - parents: [vehicle, template]
+    type: array
   - name: alarmLoop
-    parentsOnly:
-      - vehicle
-      - template
+    needs:
+      - parents: [vehicle, template]
+  - name: backSignal
+    needs:
+      - parents: [vehicle, template]
+    type: string
+  - name: category
+    type: string
   - name: engine
-    parentsOnly:
-      - vehicle
-      - template
+    needs:
+      - parents: [vehicle, template]
+    type: string
   - name: engineStart
-    parentsOnly:
-      - vehicle
-      - template
+    needs:
+      - parents: [vehicle, template]
+    type: string
   - name: engineTurnOff
-    parentsOnly:
-      - vehicle
-      - template
+    needs:
+      - parents: [vehicle, template]
+    type: string
+  - name: handBrake
+    needs:
+      - parents: [vehicle, template]
+    type: string
   - name: horn
-    parentsOnly:
-      - vehicle
-      - template
+    needs:
+      - parents: [vehicle, template]
+    type: string
   - name: ignitionFail
-    parentsOnly:
-      - vehicle
-      - template
+    needs:
+      - parents: [vehicle, template]
+  - name: ignitionFailNoPower
+    needs:
+      - parents: [vehicle, template]
+    type: string
+  - name: is3D
+    type: string
+    description: This parameter looks unused.
+    isUseless: true
+  - name: loop
+    description: Whether the sound should loop or not. The sound plays until turned off or the emitter is destroyed.
+    type: boolean
+  - name: master
+    type: string
+    description: Links the sound to a master sound category, which controls the volume of all sounds linked to it.
+    values:
+      - Primary
+      - Ambient
+      - Music
+      - VehicleEngine
+  - name: maxInstancesPerEmitter
+    type: integer

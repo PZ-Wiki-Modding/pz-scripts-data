@@ -5,6 +5,7 @@ shouldHaveParent: true
 isVariant: component
 parents:
   - item
+  - entity
 needsChildren:
   - contextEntry
 parameters: []
