@@ -25,17 +25,17 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _version:
-
-**version**
-   Type: ``integer``
-
-   Version of the TMXconfig file. Should be 1 for now.
-
 .. _revision:
 
 **revision**
    Type: ``integer``
 
    Revision of the TMXconfig file. Keep it to 11 for now.
+
+.. _version:
+
+**version**
+   Type: ``integer``
+
+   Version of the TMXconfig file. Should be 1 for now.
 

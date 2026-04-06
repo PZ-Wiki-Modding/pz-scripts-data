@@ -23,13 +23,6 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _xuiskin:
-
-**xuiSkin**
-   Type: ``Any``
-
-   No description
-
 .. _entitystyle:
 
 **entityStyle**
@@ -40,6 +33,13 @@ Parameters
 .. _uienabled:
 
 **uiEnabled**
+   Type: ``Any``
+
+   No description
+
+.. _xuiskin:
+
+**xuiSkin**
    Type: ``Any``
 
    No description

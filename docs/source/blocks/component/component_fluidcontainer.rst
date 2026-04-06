@@ -55,6 +55,15 @@ Parameters
 
    Default: ``DrinkingFromGeneric``
 
+.. _fillswithcleanwater:
+
+**FillsWithCleanWater**
+   Type: ``boolean``
+
+   When set to true, the container will fill with clean water instead of tainted water when left outside in the rain.
+
+   Default: ``False``
+
 .. _hiddenamount:
 
 **HiddenAmount**
@@ -126,13 +135,4 @@ Parameters
    If the item is a weapon and ``RainFactor`` is set to a value above the default, when the player aims with the weapon it will empty it.
 
    Default: ``0.0``
-
-.. _fillswithcleanwater:
-
-**FillsWithCleanWater**
-   Type: ``boolean``
-
-   When set to true, the container will fill with clean water instead of tainted water when left outside in the rain.
-
-   Default: ``False``
 

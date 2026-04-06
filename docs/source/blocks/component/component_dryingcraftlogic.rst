@@ -23,16 +23,9 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _recipes:
+.. _actionanim:
 
-**Recipes**
-   Type: ``Any``
-
-   No description
-
-.. _startmode:
-
-**StartMode**
+**actionAnim**
    Type: ``Any``
 
    No description
@@ -51,9 +44,16 @@ Parameters
 
    No description
 
-.. _actionanim:
+.. _recipes:
 
-**actionAnim**
+**Recipes**
+   Type: ``Any``
+
+   No description
+
+.. _startmode:
+
+**StartMode**
    Type: ``Any``
 
    No description

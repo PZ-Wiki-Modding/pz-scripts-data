@@ -144,6 +144,9 @@ class ScriptBlock:
             return ""
         
         rst = "\nParameters\n----------\n\n"
+
+        # sort parameters by their lowcase name
+        parameters = sorted(parameters, key=lambda p: p.get('name', '').lower())
         
         for param in parameters:
             name = param.get('name', 'Unknown')
@@ -201,6 +204,28 @@ class ScriptBlock:
                 for value in values:
                     rst += f"   - ``{value}``\n"
                 rst += "\n"
+            
+            # Deprecation information
+            deprecated = param.get('deprecated', None)
+            if deprecated:
+                rst += "   .. warning::\n\n"
+                rst += "      **Deprecated**"
+                
+                version = deprecated.get('version')
+                if version:
+                    rst += f" (since version {version})"
+                rst += "\n\n"
+                
+                replaced_by = deprecated.get('replacedBy')
+                if replaced_by:
+                    replaced_label = replaced_by.replace(' ', '-').lower()
+                    rst += f"      Use :ref:`{replaced_label}` instead.\n\n"
+                
+                deprecation_desc = deprecated.get('description')
+                if deprecation_desc:
+                    deprecation_desc = self._format_description(deprecation_desc)
+                    indented_deprecation = "\n      ".join(deprecation_desc.split("\n"))
+                    rst += f"      {indented_deprecation}\n\n"
         
         return rst
 

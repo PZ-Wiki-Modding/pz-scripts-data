@@ -29,12 +29,12 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _title:
+.. _demovideo:
 
-**title**
+**demoVideo**
    Type: ``Any``
 
-   Title of the map.
+   `Video file <https://pzwiki.net/wiki/File_formats#Video_format>`_ used to showcase the map when selecting it.
 
 .. _description:
 
@@ -43,6 +43,13 @@ Parameters
 
    Description of the map.
 
+.. _fixed2x:
+
+**fixed2x**
+   Type: ``Any``
+
+   Boolean which fixes rendering issues. Leave it as ``true`` if you are not sure.
+
 .. _lots:
 
 **lots**
@@ -50,12 +57,19 @@ Parameters
 
    Refers to the world map the map will be loaded into. For a map which is inside the vanilla world map, use ``lots=Muldraugh, KY``.
 
-.. _fixed2x:
+.. _title:
 
-**fixed2x**
+**title**
    Type: ``Any``
 
-   Boolean which fixes rendering issues. Leave it as ``true`` if you are not sure.
+   Title of the map.
+
+.. _zooms:
+
+**zoomS**
+   Type: ``Any``
+
+   Zoom parameter used to define the position of the camera on the world map when chosing the map to spawn in.
 
 .. _zoomx:
 
@@ -70,18 +84,4 @@ Parameters
    Type: ``Any``
 
    Position parameter used to define the position of the camera on the world map when chosing the map to spawn in.
-
-.. _zooms:
-
-**zoomS**
-   Type: ``Any``
-
-   Zoom parameter used to define the position of the camera on the world map when chosing the map to spawn in.
-
-.. _demovideo:
-
-**demoVideo**
-   Type: ``Any``
-
-   `Video file <https://pzwiki.net/wiki/File_formats#Video_format>`_ used to showcase the map when selecting it.
 

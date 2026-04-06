@@ -36,6 +36,20 @@ This block should not have an ID.
 Parameters
 ----------
 
+.. _bitmap:
+
+**bitmap**
+   Type: ``integer``
+
+   A value of ``1`` will have this rule used for the vegetation image, while a value of ``0`` will have it used for the main tiles image. Trees will for example use ``1`` while ground tiles will use ``0``.
+
+.. _color:
+
+**color**
+   Type: ``array``
+
+   The RGB color to replace with the tiles in the ``tiles`` parameter. This is the color you painted in your image file to associate to this rule.
+
 .. _label:
 
 **label**
@@ -43,12 +57,12 @@ Parameters
 
    No description
 
-.. _bitmap:
+.. _layer:
 
-**bitmap**
-   Type: ``integer``
+**layer**
+   Type: ``string``
 
-   A value of ``1`` will have this rule used for the vegetation image, while a value of ``0`` will have it used for the main tiles image. Trees will for example use ``1`` while ground tiles will use ``0``.
+   The layer to apply the tiles on.
 
 .. _tiles:
 
@@ -100,18 +114,4 @@ Parameters
       tiles = [
         treez1
       ]
-
-.. _color:
-
-**color**
-   Type: ``array``
-
-   The RGB color to replace with the tiles in the ``tiles`` parameter. This is the color you painted in your image file to associate to this rule.
-
-.. _layer:
-
-**layer**
-   Type: ``string``
-
-   The layer to apply the tiles on.
 

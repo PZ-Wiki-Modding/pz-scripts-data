@@ -33,16 +33,16 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _offset:
+.. _extents:
 
-**offset**
+**extents**
    Type: ``Any``
 
    No description
 
-.. _extents:
+.. _offset:
 
-**extents**
+**offset**
    Type: ``Any``
 
    No description

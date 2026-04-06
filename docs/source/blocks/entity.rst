@@ -40,13 +40,6 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _luawindowclass:
-
-**LuaWindowClass**
-   Type: ``Any``
-
-   No description
-
 .. _displayname:
 
 **DisplayName**
@@ -57,6 +50,13 @@ Parameters
 .. _icon:
 
 **Icon**
+   Type: ``Any``
+
+   No description
+
+.. _luawindowclass:
+
+**LuaWindowClass**
    Type: ``Any``
 
    No description

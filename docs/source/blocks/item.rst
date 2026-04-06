@@ -980,6 +980,19 @@ Parameters
 
    No description
 
+.. _displayname:
+
+**DisplayName**
+   Type: ``Any``
+
+   Sets the name of the item which will be displayed in-game. It's recommended to use a translation entry for this parameter to allow localization of the item name.
+
+   .. warning::
+
+      **Deprecated** (since version 42.13.0)
+
+      Naming an item should be done with a translation entry. See the `wiki <https://pzwiki.net/wiki/DisplayName>`_ page for more information.
+
 .. _doordamage:
 
 **DoorDamage**
@@ -1688,20 +1701,6 @@ Parameters
    - ``base:radio``
    - ``base:weapon``
    - ``base:weaponpart``
-
-.. _type:
-
-**Type**
-   Type: ``Any``
-
-   Used to set the class of the item, which will influence parameters available.
-
-.. _displayname:
-
-**DisplayName**
-   Type: ``Any``
-
-   Sets the name of the item which will be displayed in-game. It's recommended to use a translation entry for this parameter to allow localization of the item name.
 
 .. _itemwhendry:
 
@@ -3180,6 +3179,19 @@ Parameters
    No description
 
    Item types: radio
+
+.. _type:
+
+**Type**
+   Type: ``Any``
+
+   Used to set the class of the item, which will influence parameters available.
+
+   .. warning::
+
+      **Deprecated** (since version 42.13.0)
+
+      Use :ref:`itemtype` instead.
 
 .. _unequipsound:
 

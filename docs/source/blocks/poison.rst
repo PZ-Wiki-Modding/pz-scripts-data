@@ -23,6 +23,13 @@ This block should not have an ID.
 Parameters
 ----------
 
+.. _diluteratio:
+
+**diluteRatio**
+   Type: ``float``
+
+   The ratio at which the poison is diluted when mixed with other fluids.
+
 .. _maxeffect:
 
 **maxEffect**
@@ -41,11 +48,4 @@ Parameters
    Type: ``float``
 
    The minimum amount required to consume to poison the player.
-
-.. _diluteratio:
-
-**diluteRatio**
-   Type: ``float``
-
-   The ratio at which the poison is diluted when mixed with other fluids.
 

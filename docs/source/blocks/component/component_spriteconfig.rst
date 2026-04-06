@@ -31,6 +31,20 @@ This block should not have an ID.
 Parameters
 ----------
 
+.. _health:
+
+**health**
+   Type: ``integer``
+
+   No description
+
+.. _isprop:
+
+**isProp**
+   Type: ``Any``
+
+   No description
+
 .. _isthumpable:
 
 **isThumpable**
@@ -45,13 +59,6 @@ Parameters
 
    No description
 
-.. _isprop:
-
-**isProp**
-   Type: ``Any``
-
-   No description
-
 .. _onisvalid:
 
 **OnIsValid**
@@ -59,24 +66,17 @@ Parameters
 
    No description
 
-.. _timedactiononisvalid:
-
-**TimedActionOnIsValid**
-   Type: ``Any``
-
-   No description
-
-.. _health:
-
-**health**
-   Type: ``integer``
-
-   No description
-
 .. _skillbasehealth:
 
 **skillBaseHealth**
    Type: ``integer``
+
+   No description
+
+.. _timedactiononisvalid:
+
+**TimedActionOnIsValid**
+   Type: ``Any``
 
    No description
 

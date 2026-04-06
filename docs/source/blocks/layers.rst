@@ -23,15 +23,6 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _tile:
-
-**tile**
-   Type: ``string``
-
-   No description
-
-   Can be duplicated: ✓
-
 .. _object:
 
 **object**
@@ -40,4 +31,13 @@ Parameters
    No description
 
    Only for parents: ROOT-MapBaseXML
+
+.. _tile:
+
+**tile**
+   Type: ``string``
+
+   No description
+
+   Can be duplicated: ✓
 

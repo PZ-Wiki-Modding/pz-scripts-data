@@ -23,19 +23,12 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _isprofessiontrait:
+.. _charactertrait:
 
-**IsProfessionTrait**
-   Type: ``boolean`` *(required)*
+**CharacterTrait**
+   Type: ``string`` *(required)*
 
-   Defines whenever the trait is a profession trait or not, meaning it will only be available when selecting a profession.
-
-.. _disabledinmultiplayer:
-
-**DisabledInMultiplayer**
-   Type: ``boolean`` *(required)*
-
-   If true, this trait will be disabled in multiplayer games.
+   The registries trait definition ID to link to. see the wiki page about `registries <https://pzwiki.net/wiki/Registries>`_ for more information.
 
 .. _cost:
 
@@ -44,19 +37,33 @@ Parameters
 
    The cost of the trait when selecting a character. Negative values give points, positive values take points.
 
-.. _charactertrait:
+.. _disabledinmultiplayer:
 
-**CharacterTrait**
-   Type: ``string`` *(required)*
+**DisabledInMultiplayer**
+   Type: ``boolean`` *(required)*
 
-   The registries trait definition ID to link to. see the wiki page about `registries <https://pzwiki.net/wiki/Registries>`_ for more information.
+   If true, this trait will be disabled in multiplayer games.
 
-.. _uiname:
+.. _grantedrecipes:
 
-**UIName**
-   Type: ``string`` *(required)*
+**GrantedRecipes**
+   Type: ``array``
 
-   The translation key for the trait's name. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
+   A list of `craftRecipe <https://pzwiki.net/wiki/CraftRecipe>`_ IDs that are granted to the character when this trait is selected.
+
+.. _isprofessiontrait:
+
+**IsProfessionTrait**
+   Type: ``boolean`` *(required)*
+
+   Defines whenever the trait is a profession trait or not, meaning it will only be available when selecting a profession.
+
+.. _mutuallyexclusivetraits:
+
+**MutuallyExclusiveTraits**
+   Type: ``array``
+
+   A list of trait IDs that are mutually exclusive with this trait. If one is selected, the others cannot be selected.
 
 .. _uidescription:
 
@@ -65,12 +72,12 @@ Parameters
 
    The translation key for the trait's description. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
 
-.. _mutuallyexclusivetraits:
+.. _uiname:
 
-**MutuallyExclusiveTraits**
-   Type: ``array``
+**UIName**
+   Type: ``string`` *(required)*
 
-   A list of trait IDs that are mutually exclusive with this trait. If one is selected, the others cannot be selected.
+   The translation key for the trait's name. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
 
 .. _xpboosts:
 
@@ -84,11 +91,4 @@ Parameters
    .. code-block:: cpp
    
       XPBoosts = Axe=1;Blunt=1,
-
-.. _grantedrecipes:
-
-**GrantedRecipes**
-   Type: ``array``
-
-   A list of `craftRecipe <https://pzwiki.net/wiki/CraftRecipe>`_ IDs that are granted to the character when this trait is selected.
 

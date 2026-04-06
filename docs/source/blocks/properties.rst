@@ -23,26 +23,12 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _thirstchange:
-
-**ThirstChange**
-   Type: ``float``
-
-   The amount of thirst this fluid changes when consumed. Positive values increase thirst, negative values decrease it.
-
 .. _alcohol:
 
 **alcohol**
    Type: ``float``
 
    No description
-
-.. _hungerchange:
-
-**HungerChange**
-   Type: ``float``
-
-   The amount of hunger this fluid changes when consumed. Positive values increase hunger, negative values decrease it.
 
 .. _calories:
 
@@ -58,47 +44,12 @@ Parameters
 
    The amount of carbohydrates this fluid provides when consumed.
 
-.. _lipids:
-
-**Lipids**
-   Type: ``float``
-
-   The amount of lipids (fats) this fluid provides when consumed.
-
-.. _proteins:
-
-**Proteins**
-   Type: ``float``
-
-   The amount of proteins this fluid provides when consumed.
-
-.. _flureduction:
-
-**fluReduction**
-   Type: ``float``
-
-   No description
-
-.. _painreduction:
-
-**painReduction**
-   Type: ``float``
-
-   The amount of pain this fluid reduces when consumed.
-
 .. _endurancechange:
 
 **enduranceChange**
    Type: ``float``
 
    The amount of endurance given back.
-
-.. _foodsicknesschange:
-
-**foodSicknessChange**
-   Type: ``float``
-
-   The amount of food sickness provides.
 
 .. _fatiguechange:
 
@@ -107,12 +58,61 @@ Parameters
 
    The amount of fatigue this fluid changes when consumed. Positive values increase fatigue, negative values decrease it.
 
+.. _flureduction:
+
+**fluReduction**
+   Type: ``float``
+
+   No description
+
+.. _foodsicknesschange:
+
+**foodSicknessChange**
+   Type: ``float``
+
+   The amount of food sickness provides.
+
+.. _hungerchange:
+
+**HungerChange**
+   Type: ``float``
+
+   The amount of hunger this fluid changes when consumed. Positive values increase hunger, negative values decrease it.
+
+.. _lipids:
+
+**Lipids**
+   Type: ``float``
+
+   The amount of lipids (fats) this fluid provides when consumed.
+
+.. _painreduction:
+
+**painReduction**
+   Type: ``float``
+
+   The amount of pain this fluid reduces when consumed.
+
+.. _proteins:
+
+**Proteins**
+   Type: ``float``
+
+   The amount of proteins this fluid provides when consumed.
+
 .. _stresschange:
 
 **StressChange**
    Type: ``float``
 
    The amount of stress this fluid changes when consumed. Positive values increase stress, negative values decrease it.
+
+.. _thirstchange:
+
+**ThirstChange**
+   Type: ``float``
+
+   The amount of thirst this fluid changes when consumed. Positive values increase thirst, negative values decrease it.
 
 .. _unhappychange:
 

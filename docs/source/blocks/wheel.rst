@@ -24,9 +24,9 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _radius:
+.. _front:
 
-**radius**
+**front**
    Type: ``Any``
 
    No description
@@ -38,9 +38,9 @@ Parameters
 
    No description
 
-.. _front:
+.. _radius:
 
-**front**
+**radius**
    Type: ``Any``
 
    No description

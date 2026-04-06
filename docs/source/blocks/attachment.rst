@@ -25,6 +25,13 @@ This block should have an ID.
 Parameters
 ----------
 
+.. _bone:
+
+**bone**
+   Type: ``Any``
+
+   No description
+
 .. _offset:
 
 **offset**
@@ -39,13 +46,6 @@ Parameters
 
    No description
 
-.. _zoffset:
-
-**zoffset**
-   Type: ``Any``
-
-   No description
-
 .. _scale:
 
 **scale**
@@ -53,9 +53,9 @@ Parameters
 
    No description
 
-.. _bone:
+.. _zoffset:
 
-**bone**
+**zoffset**
    Type: ``Any``
 
    No description

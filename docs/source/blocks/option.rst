@@ -23,27 +23,12 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _type:
+.. _default:
 
-**type**
-   Type: ``string`` *(required)*
+**default**
+   Type: ``Any``
 
-   The type of the option.
-
-   Allowed values:
-
-   - ``boolean``
-   - ``integer``
-   - ``double``
-   - ``string``
-   - ``enum``
-
-.. _min:
-
-**min**
-   Type: ``float``
-
-   The minimum value the option can have. Only for integer and double types.
+   No description
 
 .. _max:
 
@@ -52,12 +37,12 @@ Parameters
 
    The maximum value the option can have. Only for integer and double types.
 
-.. _default:
+.. _min:
 
-**default**
-   Type: ``Any``
+**min**
+   Type: ``float``
 
-   No description
+   The minimum value the option can have. Only for integer and double types.
 
 .. _page:
 
@@ -72,4 +57,19 @@ Parameters
    Type: ``string``
 
    The translation key for the option's name.
+
+.. _type:
+
+**type**
+   Type: ``string`` *(required)*
+
+   The type of the option.
+
+   Allowed values:
+
+   - ``boolean``
+   - ``integer``
+   - ``double``
+   - ``string``
+   - ``enum``
 

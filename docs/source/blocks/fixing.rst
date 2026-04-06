@@ -23,6 +23,13 @@ This block should have an ID.
 Parameters
 ----------
 
+.. _conditionmodifier:
+
+**ConditionModifier**
+   Type: ``Any``
+
+   No description
+
 .. _fixer:
 
 **Fixer**
@@ -32,13 +39,6 @@ Parameters
 
    Can be duplicated: ✓
 
-.. _require:
-
-**Require**
-   Type: ``Any``
-
-   No description
-
 .. _globalitem:
 
 **GlobalItem**
@@ -46,9 +46,9 @@ Parameters
 
    No description
 
-.. _conditionmodifier:
+.. _require:
 
-**ConditionModifier**
+**Require**
    Type: ``Any``
 
    No description

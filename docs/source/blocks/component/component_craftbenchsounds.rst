@@ -30,20 +30,6 @@ Parameters
 
    No description
 
-.. _lightfire:
-
-**LightFire**
-   Type: ``Any``
-
-   No description
-
-.. _running:
-
-**Running**
-   Type: ``Any``
-
-   No description
-
 .. _addinput:
 
 **AddInput**
@@ -51,9 +37,23 @@ Parameters
 
    No description
 
+.. _lightfire:
+
+**LightFire**
+   Type: ``Any``
+
+   No description
+
 .. _removeinput:
 
 **RemoveInput**
+   Type: ``Any``
+
+   No description
+
+.. _running:
+
+**Running**
    Type: ``Any``
 
    No description

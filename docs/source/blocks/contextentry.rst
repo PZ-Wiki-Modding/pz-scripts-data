@@ -23,16 +23,16 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _menu:
+.. _customfunction:
 
-**menu**
+**customFunction**
    Type: ``Any``
 
    No description
 
-.. _customfunction:
+.. _menu:
 
-**customFunction**
+**menu**
    Type: ``Any``
 
    No description

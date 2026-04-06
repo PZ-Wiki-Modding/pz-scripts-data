@@ -38,24 +38,10 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _event:
-
-**event**
-   Type: ``string``
-
-   No description
-
 .. _distancemax:
 
 **distanceMax**
    Type: ``integer``
-
-   No description
-
-.. _file:
-
-**file**
-   Type: ``string``
 
    No description
 
@@ -66,9 +52,23 @@ Parameters
 
    No description
 
-.. _volume:
+.. _event:
 
-**volume**
+**event**
+   Type: ``string``
+
+   No description
+
+.. _file:
+
+**file**
+   Type: ``string``
+
+   No description
+
+.. _pitch:
+
+**pitch**
    Type: ``float``
 
    No description
@@ -76,13 +76,6 @@ Parameters
 .. _reverbfactor:
 
 **reverbFactor**
-   Type: ``float``
-
-   No description
-
-.. _pitch:
-
-**pitch**
    Type: ``float``
 
    No description
@@ -98,6 +91,13 @@ Parameters
 
 **stopImmediate**
    Type: ``Any``
+
+   No description
+
+.. _volume:
+
+**volume**
+   Type: ``float``
 
    No description
 

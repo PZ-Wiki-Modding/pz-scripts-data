@@ -24,9 +24,16 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _texture:
+.. _leftcol:
 
-**texture**
+**leftCol**
+   Type: ``Any``
+
+   No description
+
+.. _rightcol:
+
+**rightCol**
    Type: ``Any``
 
    No description
@@ -38,16 +45,9 @@ Parameters
 
    No description
 
-.. _leftcol:
+.. _texture:
 
-**leftCol**
-   Type: ``Any``
-
-   No description
-
-.. _rightcol:
-
-**rightCol**
+**texture**
    Type: ``Any``
 
    No description
