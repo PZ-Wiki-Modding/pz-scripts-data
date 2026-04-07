@@ -4109,7 +4109,7 @@
   },
   "attachment": {
     "name": "attachment",
-    "description": "Defines an attachment point on a model or vehicle block. The ID is the attachment name, it can be a custom ID or an existing one often used to define specific attachments. While manually modifying the attachment block is definitely possible, it is recommended to use the [attachment editor](https://pzwiki.net/wiki/Attachment_Editor) to create and edit those attachments.",
+    "description": "Defines an attachment point on a [model](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/model.html) or [vehicle](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html) block. The ID is the attachment name, it can be a custom ID or an existing one often used to define specific attachments. While manually modifying the attachment block is definitely possible, it is recommended to use the [attachment editor](https://pzwiki.net/wiki/Attachment_Editor) to create and edit those attachments.\n\nThe syntax of this block should be as follows:\n```cpp\nmodel upperScriptDefinition\n{\n    ...\n    attachment attachmentPointName\n    {\n        ...\n    }\n    ...\n}\n```\n\nFor example:\n```cpp\nmodel Burger\n{\n    mesh = Burger,\n\n    attachment Bip01_Prop2\n    {\n        offset = 0.0142 0.0401 0.0000,\n        rotate = -23.3606 21.2788 37.5386,\n        scale = 0.8280,\n    }\n}\n```\n\nHere is a list of attachment points provided by the game:\n- 1schoolbaglefthand\n- 1schoolbagrighthand\n- AnkleHolster\n- Bip01_Prop1\n- Bip01_Prop2\n- ShoulderHolster\n- axe_back\n- back\n- back_guitar\n- back_guitar_acoustic\n- backpack_left\n- bedroll_bottom\n- bedroll_bottom_alice\n- bedroll_bottom_big\n- belt_left\n- belt_left_screwdriver\n- belt_left_upside\n- belt_right\n- belt_right_screwdriver\n- belt_right_upside\n- belt_rotated_left\n- belt_rotated_right\n- big_blade_back_bag\n- big_w_back\n- big_w_back_bag\n- bighikingbaglefthand\n- bighikingbagrighthand\n- blade_back\n- crowbar_back\n- duffelbaglefthand\n- duffelbagrighthand\n- fryingpan_back\n- fryingpan_back_bag\n- hikingbaglefthand\n- hikingbagrighthand\n- holster_left\n- holster_right\n- knife_belt_back\n- knife_belt_front\n- knife_head\n- knife_in_back\n- knife_left_leg\n- knife_right_leg\n- knife_shoulder\n- knife_stomach\n- meatcleaver_in_back\n- meatcleaver_left\n- meatcleaver_right\n- nightstick_left\n- nightstick_right\n- racket_back\n- racket_back_bag\n- rifle_back\n- rifle_back_bag\n- saucepan_back\n- saucepan_back_bag\n- shovel_back\n- shovel_back_bag\n- stomach\n- walkie_belt_left\n- walkie_belt_right\n- webbing_left_knife\n- webbing_left_walkie\n- webbing_left_knife\n- webbing_left_walkie\n- wrench_left\n- wrench_right",
     "shouldHaveParent": true,
     "parents": [
       "vehicle",
@@ -4119,19 +4119,30 @@
     "ID": {},
     "parameters": {
       "offset": {
-        "name": "offset"
+        "name": "offset",
+        "type": "array",
+        "arrayType": "float",
+        "separator": " ",
+        "description": "The position offset of the model relative to the bone. This is a vector in the format `x y z`. \n\n```cpp\noffset = -0.0300 -0.1020 0.1210,\n```"
       },
       "rotate": {
-        "name": "rotate"
+        "name": "rotate",
+        "type": "array",
+        "arrayType": "float",
+        "separator": " ",
+        "description": "The rotation of the model relative to the bone. This is a vector in the format `x y z`. The values are degrees.\n\n```cpp\nrotate = -60.0000 -49.0000 -3.0000,\n```"
       },
       "zoffset": {
         "name": "zoffset"
       },
       "scale": {
-        "name": "scale"
+        "name": "scale",
+        "type": "float",
+        "description": "The scale multiplier applied to the model attached to this attachment point.\n\n```cpp\nscale = 0.5,\n```"
       },
       "bone": {
-        "name": "bone"
+        "name": "bone",
+        "description": "\tThe name of the bone to which the model is attached to. \n\n ```cpp\n bone = Bip01_L_Hand,\n ```"
       }
     }
   },
