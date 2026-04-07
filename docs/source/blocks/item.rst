@@ -300,7 +300,7 @@ Parameters
 .. _bloodlocation:
 
 **BloodLocation**
-   Type: ``Any``
+   Type: ``array``
 
    No description
 

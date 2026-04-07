@@ -133,6 +133,11 @@
             "description": "The data type of the parameter.",
             "enum": ["string", "float", "boolean", "array", "object", "integer"]
           },
+          "arrayType": {
+            "type": "string",
+            "description": "If the parameter is of type 'array', this specifies the data type of the items in the array.",
+            "enum": ["string", "float", "boolean", "object", "integer"]
+          },
           "values": {
             "type": "array",
             "description": "A list of allowed values for the parameter.",

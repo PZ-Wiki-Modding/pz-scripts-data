@@ -114,6 +114,8 @@ parameters:
       - container
       - normal
       - radio
+    type: array
+    arrayType: string
     values:
       - Apron
       - ShirtNoSleeves
