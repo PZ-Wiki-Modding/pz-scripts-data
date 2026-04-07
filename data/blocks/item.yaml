@@ -116,6 +116,7 @@ parameters:
       - radio
     type: array
     arrayType: string
+    separator: ";"
     values:
       - Apron
       - ShirtNoSleeves

@@ -950,6 +950,7 @@
         ],
         "type": "array",
         "arrayType": "string",
+        "separator": ";",
         "values": [
           "Apron",
           "ShirtNoSleeves",

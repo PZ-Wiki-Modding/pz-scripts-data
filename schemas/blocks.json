@@ -138,6 +138,10 @@
             "description": "If the parameter is of type 'array', this specifies the data type of the items in the array.",
             "enum": ["string", "float", "boolean", "object", "integer"]
           },
+          "separator": {
+            "type": "string",
+            "description": "If the parameter is of type 'array', this specifies the separator used to split the string into array items."
+          },
           "values": {
             "type": "array",
             "description": "A list of allowed values for the parameter.",
