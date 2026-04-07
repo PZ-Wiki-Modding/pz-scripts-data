@@ -665,6 +665,9 @@ parameters:
       - normal
       - weapon
   - name: IconsForTexture
+    type: array
+    arrayType: string
+    separator: ";"
     itemTypes:
       - clothing
       - container
@@ -1185,6 +1188,9 @@ parameters:
       - normal
       - weapon
   - name: Researchablerecipes
+    type: array
+    arrayType: string
+    separator: ";"
     itemTypes:
       - clothing
       - container
@@ -1305,6 +1311,9 @@ parameters:
       - radio
       - weaponpart
   - name: StaticModelsByIndex
+    type: array
+    arrayType: string
+    separator: ";"
     itemTypes:
       - food
       - literature
@@ -1360,6 +1369,9 @@ parameters:
     type: float
     default: 1.0
   - name: Tags
+    type: array
+    arrayType: string
+    separator: ";"
     itemTypes:
       - alarmclock
       - alarmclockclothing
@@ -1375,7 +1387,6 @@ parameters:
       - radio
       - weapon
       - weaponpart
-    type: array
   - name: ThirstChange
     itemTypes:
       - food
@@ -1555,6 +1566,9 @@ parameters:
       - radio
   - name: WorldStaticModel
   - name: WorldStaticModelsByIndex
+    type: array
+    arrayType: string
+    separator: ";"
     itemTypes:
       - container
       - food

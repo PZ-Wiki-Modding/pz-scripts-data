@@ -1505,7 +1505,7 @@ Parameters
 .. _iconsfortexture:
 
 **IconsForTexture**
-   Type: ``Any``
+   Type: ``array``
 
    No description
 
@@ -2710,7 +2710,7 @@ Parameters
 .. _researchablerecipes:
 
 **Researchablerecipes**
-   Type: ``Any``
+   Type: ``array``
 
    No description
 
@@ -2942,7 +2942,7 @@ Parameters
 .. _staticmodelsbyindex:
 
 **StaticModelsByIndex**
-   Type: ``Any``
+   Type: ``array``
 
    No description
 
@@ -3494,7 +3494,7 @@ Parameters
 .. _worldstaticmodelsbyindex:
 
 **WorldStaticModelsByIndex**
-   Type: ``Any``
+   Type: ``array``
 
    No description
 
