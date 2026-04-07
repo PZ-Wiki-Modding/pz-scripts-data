@@ -217,6 +217,20 @@
           "isUseless": {
             "type": "boolean",
             "description": "Indicates whether the parameter is considered useless or not. This can be used to flag parameters that are no longer functional or have no effect in the game, but are still present for compatibility reasons."
+          },
+          "blockType": {
+            "type": "object",
+            "description": "Specifies how this parameter's value references a block type.",
+            "properties": {
+              "block": {
+                "type": "string",
+                "description": "The name of the block type that this parameter references to."
+              },
+              "fullType": {
+                "type": "boolean",
+                "description": "Indicates whether the parameter's value can match the module and block name, for example 'module.block'."
+              }
+            }
           }
         }
       }

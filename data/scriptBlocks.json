@@ -3389,7 +3389,11 @@
         ]
       },
       "worldstaticmodel": {
-        "name": "WorldStaticModel"
+        "name": "WorldStaticModel",
+        "blockType": {
+          "fullType": true,
+          "block": "model"
+        }
       },
       "worldstaticmodelsbyindex": {
         "name": "WorldStaticModelsByIndex",

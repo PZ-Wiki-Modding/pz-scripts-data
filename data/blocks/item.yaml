@@ -1565,6 +1565,9 @@ parameters:
       - normal
       - radio
   - name: WorldStaticModel
+    blockType:
+      fullType: true
+      block: model
   - name: WorldStaticModelsByIndex
     type: array
     arrayType: string
