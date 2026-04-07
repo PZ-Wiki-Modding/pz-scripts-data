@@ -30,12 +30,16 @@ Parameters
 
    No description
 
+   Can be duplicated: ✓
+
 .. _animationprefix:
 
 **animationPrefix**
    Type: ``Any``
 
    No description
+
+   Can be duplicated: ✓
 
 .. _keepmeshanimations:
 

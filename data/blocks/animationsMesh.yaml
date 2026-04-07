@@ -7,7 +7,9 @@ parents:
 ID: {}
 parameters:
   - name: animationDirectory
+    allowedDuplicate: true
   - name: animationPrefix
+    allowedDuplicate: true
   - name: keepMeshAnimations
   - name: meshFile
   - name: postProcess
