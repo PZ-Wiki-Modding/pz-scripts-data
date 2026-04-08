@@ -19,6 +19,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/categories.rst
    blocks/character_trait_definition.rst
    blocks/clip.rst
+   blocks/clock.rst
    blocks/component.rst
    blocks/components.rst
    blocks/container.rst
@@ -37,6 +38,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/fluid.rst
    blocks/fluids.rst
    blocks/group.rst
+   blocks/hand.rst
    blocks/imports.rst
    blocks/inputs.rst
    blocks/isbasecomponentpanel.rst

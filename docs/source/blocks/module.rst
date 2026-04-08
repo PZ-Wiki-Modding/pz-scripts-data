@@ -18,6 +18,7 @@ Hierarchy
 - :ref:`animation`
 - :ref:`animationsmesh`
 - :ref:`character_trait_definition`
+- :ref:`clock`
 - :ref:`craftrecipe`
 - :ref:`energy`
 - :ref:`entity`

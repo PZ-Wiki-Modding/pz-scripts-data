@@ -375,6 +375,16 @@
       }
     }
   },
+  "clock": {
+    "name": "clock",
+    "description": "",
+    "shouldHaveParent": true,
+    "parents": [
+      "module"
+    ],
+    "ID": {},
+    "parameters": {}
+  },
   "Poison": {
     "name": "Poison",
     "description": "Defines poison properties for a fluid script.",
@@ -5090,6 +5100,16 @@
     ],
     "ID": {},
     "softOverride": true,
+    "parameters": {}
+  },
+  "hand": {
+    "name": "hand",
+    "description": "",
+    "shouldHaveParent": true,
+    "parents": [
+      "clock"
+    ],
+    "ID": {},
     "parameters": {}
   },
   "face": {
