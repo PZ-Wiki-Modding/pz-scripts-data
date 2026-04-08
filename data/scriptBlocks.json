@@ -5155,6 +5155,20 @@
       }
     }
   },
+  "ISTableLayoutCell": {
+    "name": "ISTableLayoutCell",
+    "description": "",
+    "shouldHaveParent": true,
+    "parents": [
+      "xuiSkin"
+    ],
+    "ID": {
+      "optional": [
+        "xuiSkin"
+      ]
+    },
+    "parameters": {}
+  },
   "component SpriteConfig": {
     "name": "component SpriteConfig",
     "description": "",

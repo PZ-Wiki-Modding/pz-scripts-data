@@ -42,6 +42,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/imports.rst
    blocks/inputs.rst
    blocks/isbasecomponentpanel.rst
+   blocks/istablelayoutcell.rst
    blocks/item.rst
    blocks/itemmapper.rst
    blocks/layer.rst

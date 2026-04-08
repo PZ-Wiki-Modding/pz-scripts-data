@@ -21,6 +21,7 @@ Hierarchy
 
 - :ref:`entity`
 - :ref:`isbasecomponentpanel`
+- :ref:`istablelayoutcell`
 
 
 ID Properties
