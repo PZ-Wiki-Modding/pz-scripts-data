@@ -20,6 +20,7 @@ Hierarchy
 **Possible Child Blocks:**
 
 - :ref:`entity`
+- :ref:`isbasecomponentpanel`
 
 
 ID Properties

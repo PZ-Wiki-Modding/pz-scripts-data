@@ -1,0 +1,7 @@
+version: 1
+name: ISBaseComponentPanel
+description: ""
+shouldHaveParent: true
+parents:
+  - xuiSkin
+parameters: []
