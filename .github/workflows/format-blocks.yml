@@ -9,9 +9,6 @@ on:
   pull_request:
     branches: [main, dev]
 
-permissions:
-  contents: write
-
 jobs:
   format:
     runs-on: ubuntu-latest
@@ -28,13 +25,18 @@ jobs:
       - name: Install dependencies
         run: |
           pip install pyyaml
+          pip install m2r
           
       - name: Run formatBlocks
         run: python chores/formatBlocks.py
+
+      - name: Run generateDocs
+        run: python chores/generateDocs.py
         
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add out/scriptBlocks.json
+          git add docs
           git diff --quiet && git diff --staged --quiet || (git commit -m "CHORE: format scriptBlocks.json" && git push)
