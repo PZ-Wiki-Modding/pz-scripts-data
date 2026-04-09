@@ -288,17 +288,23 @@ parameters:
     itemTypes:
       - container
   - name: ClothingExtraSubmenu
+    "#ref": ClothingItem
     itemTypes:
       - alarmclockclothing
       - clothing
       - container
   - name: ClothingItem
+    description: |-
+      `ClothingItem` references the clothing defined inside the [clothing.xml](https://pzwiki.net/wiki/Clothing.xml) file. `ClothingExtraSubmenu` will define the name of the context menu option to equip the clothing item.
+      
+      `ClothingItemExtra` and `ClothingItemExtraOption` are used to define additional clothing equip options, they reference another item script block.
     itemTypes:
       - alarmclockclothing
       - clothing
       - container
       - radio
   - name: ClothingItemExtra
+    "#ref": ClothingItem
     itemTypes:
       - alarmclockclothing
       - clothing
@@ -306,6 +312,7 @@ parameters:
     needs:
       - name: ClothingItemExtraOption
   - name: ClothingItemExtraOption
+    "#ref": ClothingItem
     itemTypes:
       - alarmclockclothing
       - clothing
