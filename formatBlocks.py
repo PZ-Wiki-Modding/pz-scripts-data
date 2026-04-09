@@ -3,7 +3,7 @@ import os, json, yaml
 SCRIPT_DIR = os.path.join(os.path.dirname(__file__))
 
 BLOCKS_DIR = os.path.join(SCRIPT_DIR, 'data', 'blocks')
-OUTPUT_FILE = os.path.join(SCRIPT_DIR, 'data', 'scriptBlocks.json')
+OUTPUT_FILE = os.path.join(SCRIPT_DIR, 'out', 'scriptBlocks.json')
 
 def prepare_parameters(data: dict) -> dict:
     # remove unnecessary fields
