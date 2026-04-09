@@ -43,6 +43,7 @@ for block_key, block_data in blocks.items():
         if '#ref' in param_data:
             ref_key = param_data['#ref']
             path = ref_key.split('/')
+            assert len(path) == 2, f"Invalid #ref format for '{ref_key}' in block '{block_key}' parameter '{param_key}'. Needs to be in format 'BlockName/ParameterName'."
             origin_block = path[0]
             origin_param = path[1].lower()
 

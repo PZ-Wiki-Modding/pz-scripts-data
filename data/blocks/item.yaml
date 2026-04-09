@@ -288,7 +288,7 @@ parameters:
     itemTypes:
       - container
   - name: ClothingExtraSubmenu
-    "#ref": ClothingItem
+    "#ref": item/ClothingItem
     itemTypes:
       - alarmclockclothing
       - clothing
@@ -304,7 +304,7 @@ parameters:
       - container
       - radio
   - name: ClothingItemExtra
-    "#ref": ClothingItem
+    "#ref": item/ClothingItem
     itemTypes:
       - alarmclockclothing
       - clothing
@@ -312,7 +312,7 @@ parameters:
     needs:
       - name: ClothingItemExtraOption
   - name: ClothingItemExtraOption
-    "#ref": ClothingItem
+    "#ref": item/ClothingItem
     itemTypes:
       - alarmclockclothing
       - clothing
