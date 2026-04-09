@@ -92,6 +92,7 @@ parameters:
     itemTypes:
       - food
   - name: BadInMicrowave
+    description: Used to set whether this item can cause a fire when put in a microwave, if set to true it will explode.
     itemTypes:
       - food
   - name: BandagePower
