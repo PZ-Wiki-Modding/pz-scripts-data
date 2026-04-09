@@ -303,11 +303,15 @@ parameters:
       - alarmclockclothing
       - clothing
       - container
+    needs:
+      - name: ClothingItemExtraOption
   - name: ClothingItemExtraOption
     itemTypes:
       - alarmclockclothing
       - clothing
       - container
+    needs:
+      - name: ClothingItemExtra
   - name: ColorBlue
     itemTypes:
       - clothing
