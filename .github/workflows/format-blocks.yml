@@ -1,0 +1,37 @@
+name: Format Script Blocks
+
+on:
+  push:
+    branches: [main, dev]
+    paths:
+      - 'data/blocks/**'
+      - 'chores/formatBlocks.py'
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.14'
+          
+      - name: Install dependencies
+        run: |
+          pip install pyyaml
+          
+      - name: Run formatBlocks
+        run: python chores/formatBlocks.py
+        
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/scriptBlocks.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "CHORE: format scriptBlocks.json" && git push)
