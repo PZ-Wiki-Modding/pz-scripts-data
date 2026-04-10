@@ -23,14 +23,14 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _sign:
+.. _component_wallcoveringconfig_sign:
 
 **sign**
    Type: ``Any``
 
    No description
 
-.. _type:
+.. _component_wallcoveringconfig_type:
 
 **type**
    Type: ``Any``

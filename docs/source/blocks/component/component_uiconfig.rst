@@ -23,21 +23,21 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _entitystyle:
+.. _component_uiconfig_entitystyle:
 
 **entityStyle**
    Type: ``Any``
 
    No description
 
-.. _uienabled:
+.. _component_uiconfig_uienabled:
 
 **uiEnabled**
    Type: ``Any``
 
    No description
 
-.. _xuiskin:
+.. _component_uiconfig_xuiskin:
 
 **xuiSkin**
    Type: ``Any``

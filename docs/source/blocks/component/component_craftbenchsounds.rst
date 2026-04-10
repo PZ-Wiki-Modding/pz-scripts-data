@@ -23,42 +23,42 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _addfuel:
+.. _component_craftbenchsounds_addfuel:
 
 **AddFuel**
    Type: ``Any``
 
    No description
 
-.. _addinput:
+.. _component_craftbenchsounds_addinput:
 
 **AddInput**
    Type: ``Any``
 
    No description
 
-.. _lightfire:
+.. _component_craftbenchsounds_lightfire:
 
 **LightFire**
    Type: ``Any``
 
    No description
 
-.. _removeinput:
+.. _component_craftbenchsounds_removeinput:
 
 **RemoveInput**
    Type: ``Any``
 
    No description
 
-.. _running:
+.. _component_craftbenchsounds_running:
 
 **Running**
    Type: ``Any``
 
    No description
 
-.. _startcraft:
+.. _component_craftbenchsounds_startcraft:
 
 **StartCraft**
    Type: ``Any``

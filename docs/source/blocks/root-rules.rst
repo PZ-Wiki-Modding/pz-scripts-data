@@ -26,7 +26,7 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _version:
+.. _root-rules_version:
 
 **version**
    Type: ``integer``

@@ -40,21 +40,21 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _displayname:
+.. _entity_displayname:
 
 **DisplayName**
    Type: ``Any``
 
    No description
 
-.. _icon:
+.. _entity_icon:
 
 **Icon**
    Type: ``Any``
 
    No description
 
-.. _luawindowclass:
+.. _entity_luawindowclass:
 
 **LuaWindowClass**
    Type: ``Any``

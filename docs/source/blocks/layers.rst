@@ -23,7 +23,7 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _object:
+.. _layers_object:
 
 **object**
    Type: ``string``
@@ -32,7 +32,7 @@ Parameters
 
    Only for parents: ROOT-MapBaseXML
 
-.. _tile:
+.. _layers_tile:
 
 **tile**
    Type: ``string``

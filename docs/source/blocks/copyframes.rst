@@ -23,28 +23,28 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _frame:
+.. _copyframes_frame:
 
 **frame**
    Type: ``Any``
 
    No description
 
-.. _source:
+.. _copyframes_source:
 
 **source**
    Type: ``Any``
 
    No description
 
-.. _sourceframe1:
+.. _copyframes_sourceframe1:
 
 **sourceFrame1**
    Type: ``Any``
 
    No description
 
-.. _sourceframe2:
+.. _copyframes_sourceframe2:
 
 **sourceFrame2**
    Type: ``Any``

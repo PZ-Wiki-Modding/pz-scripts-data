@@ -24,7 +24,7 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _xywh:
+.. _area_xywh:
 
 **xywh**
    Type: ``Any``

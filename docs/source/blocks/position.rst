@@ -23,21 +23,21 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _area:
+.. _position_area:
 
 **area**
    Type: ``Any``
 
    No description
 
-.. _offset:
+.. _position_offset:
 
 **offset**
    Type: ``Any``
 
    No description
 
-.. _rotate:
+.. _position_rotate:
 
 **rotate**
    Type: ``Any``

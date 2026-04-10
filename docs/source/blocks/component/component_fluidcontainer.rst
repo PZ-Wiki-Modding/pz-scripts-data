@@ -28,7 +28,7 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _capacity:
+.. _component_fluidcontainer_capacity:
 
 **Capacity**
    Type: ``float``
@@ -37,7 +37,7 @@ Parameters
 
    Default: ``1.0``
 
-.. _containername:
+.. _component_fluidcontainer_containername:
 
 **ContainerName**
    Type: ``string``
@@ -46,7 +46,7 @@ Parameters
 
    Default: ``FluidContainer``
 
-.. _customdrinksound:
+.. _component_fluidcontainer_customdrinksound:
 
 **CustomDrinkSound**
    Type: ``string``
@@ -55,7 +55,7 @@ Parameters
 
    Default: ``DrinkingFromGeneric``
 
-.. _fillswithcleanwater:
+.. _component_fluidcontainer_fillswithcleanwater:
 
 **FillsWithCleanWater**
    Type: ``boolean``
@@ -64,7 +64,7 @@ Parameters
 
    Default: ``False``
 
-.. _hiddenamount:
+.. _component_fluidcontainer_hiddenamount:
 
 **HiddenAmount**
    Type: ``boolean``
@@ -73,14 +73,14 @@ Parameters
 
    Default: ``False``
 
-.. _initialpercent:
+.. _component_fluidcontainer_initialpercent:
 
 **InitialPercent**
    Type: ``float``
 
    No description
 
-.. _initialpercentmax:
+.. _component_fluidcontainer_initialpercentmax:
 
 **InitialPercentMax**
    Type: ``float``
@@ -89,7 +89,7 @@ Parameters
 
    Default: ``1.0``
 
-.. _initialpercentmin:
+.. _component_fluidcontainer_initialpercentmin:
 
 **InitialPercentMin**
    Type: ``float``
@@ -98,7 +98,7 @@ Parameters
 
    Default: ``0.0``
 
-.. _inputlocked:
+.. _component_fluidcontainer_inputlocked:
 
 **InputLocked**
    Type: ``boolean``
@@ -107,7 +107,7 @@ Parameters
 
    Default: ``False``
 
-.. _opened:
+.. _component_fluidcontainer_opened:
 
 **Opened**
    Type: ``boolean``
@@ -116,7 +116,7 @@ Parameters
 
    Default: ``True``
 
-.. _pickrandomfluid:
+.. _component_fluidcontainer_pickrandomfluid:
 
 **PickRandomFluid**
    Type: ``boolean``
@@ -125,7 +125,7 @@ Parameters
 
    Default: ``False``
 
-.. _rainfactor:
+.. _component_fluidcontainer_rainfactor:
 
 **RainFactor**
    Type: ``float``

@@ -23,14 +23,14 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _aftergearchange:
+.. _data_aftergearchange:
 
 **afterGearChange**
    Type: ``float``
 
    No description
 
-.. _gearchange:
+.. _data_gearchange:
 
 **gearChange**
    Type: ``float``

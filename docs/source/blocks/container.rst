@@ -23,21 +23,21 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _capacity:
+.. _container_capacity:
 
 **capacity**
    Type: ``Any``
 
    No description
 
-.. _conditionaffectscapacity:
+.. _container_conditionaffectscapacity:
 
 **conditionAffectsCapacity**
    Type: ``Any``
 
    No description
 
-.. _test:
+.. _container_test:
 
 **test**
    Type: ``Any``

@@ -32,7 +32,7 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _acceptitemfunction:
+.. _item_acceptitemfunction:
 
 **AcceptItemFunction**
    Type: ``Any``
@@ -41,7 +41,7 @@ Parameters
 
    Item types: container
 
-.. _acceptmediatype:
+.. _item_acceptmediatype:
 
 **AcceptMediaType**
    Type: ``integer``
@@ -52,7 +52,7 @@ Parameters
 
    Item types: radio
 
-.. _activateditem:
+.. _item_activateditem:
 
 **ActivatedItem**
    Type: ``Any``
@@ -61,7 +61,7 @@ Parameters
 
    Item types: clothing, drainable, weaponpart
 
-.. _aimingmod:
+.. _item_aimingmod:
 
 **AimingMod**
    Type: ``Any``
@@ -70,7 +70,7 @@ Parameters
 
    Item types: weapon
 
-.. _aimingperkcritmodifier:
+.. _item_aimingperkcritmodifier:
 
 **AimingPerkCritModifier**
    Type: ``Any``
@@ -79,7 +79,7 @@ Parameters
 
    Item types: weapon
 
-.. _aimingperkhitchancemodifier:
+.. _item_aimingperkhitchancemodifier:
 
 **AimingPerkHitChanceModifier**
    Type: ``Any``
@@ -88,7 +88,7 @@ Parameters
 
    Item types: weapon
 
-.. _aimingperkminanglemodifier:
+.. _item_aimingperkminanglemodifier:
 
 **AimingPerkMinAngleModifier**
    Type: ``Any``
@@ -97,7 +97,7 @@ Parameters
 
    Item types: weapon
 
-.. _aimingperkrangemodifier:
+.. _item_aimingperkrangemodifier:
 
 **AimingPerkRangeModifier**
    Type: ``Any``
@@ -106,7 +106,7 @@ Parameters
 
    Item types: weapon
 
-.. _aimingtime:
+.. _item_aimingtime:
 
 **Aimingtime**
    Type: ``Any``
@@ -115,7 +115,7 @@ Parameters
 
    Item types: weapon
 
-.. _aimingtimemodifier:
+.. _item_aimingtimemodifier:
 
 **AimingTimeModifier**
    Type: ``Any``
@@ -124,7 +124,7 @@ Parameters
 
    Item types: weaponpart
 
-.. _aimreleasesound:
+.. _item_aimreleasesound:
 
 **AimReleaseSound**
    Type: ``Any``
@@ -133,7 +133,7 @@ Parameters
 
    Item types: weapon
 
-.. _alarmsound:
+.. _item_alarmsound:
 
 **AlarmSound**
    Type: ``Any``
@@ -142,7 +142,7 @@ Parameters
 
    Item types: alarmclock, alarmclockclothing
 
-.. _alcoholic:
+.. _item_alcoholic:
 
 **Alcoholic**
    Type: ``Any``
@@ -151,7 +151,7 @@ Parameters
 
    Item types: normal
 
-.. _alcoholpower:
+.. _item_alcoholpower:
 
 **AlcoholPower**
    Type: ``Any``
@@ -160,7 +160,7 @@ Parameters
 
    Item types: drainable
 
-.. _alwaysknockdown:
+.. _item_alwaysknockdown:
 
 **AlwaysKnockdown**
    Type: ``Any``
@@ -169,7 +169,7 @@ Parameters
 
    Item types: weapon
 
-.. _alwayswelcomegift:
+.. _item_alwayswelcomegift:
 
 **AlwaysWelcomeGift**
    Type: ``Any``
@@ -178,7 +178,7 @@ Parameters
 
    Item types: normal
 
-.. _ammobox:
+.. _item_ammobox:
 
 **AmmoBox**
    Type: ``Any``
@@ -187,7 +187,7 @@ Parameters
 
    Item types: weapon
 
-.. _ammotype:
+.. _item_ammotype:
 
 **AmmoType**
    Type: ``Any``
@@ -196,7 +196,7 @@ Parameters
 
    Item types: normal, weapon
 
-.. _anglefalloff:
+.. _item_anglefalloff:
 
 **AngleFalloff**
    Type: ``Any``
@@ -205,7 +205,7 @@ Parameters
 
    Item types: weapon
 
-.. _animalfeedtype:
+.. _item_animalfeedtype:
 
 **AnimalFeedType**
    Type: ``Any``
@@ -214,7 +214,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _attachmentreplacement:
+.. _item_attachmentreplacement:
 
 **AttachmentReplacement**
    Type: ``Any``
@@ -223,7 +223,7 @@ Parameters
 
    Item types: container, radio
 
-.. _attachmentsprovided:
+.. _item_attachmentsprovided:
 
 **AttachmentsProvided**
    Type: ``Any``
@@ -232,7 +232,7 @@ Parameters
 
    Item types: clothing, container
 
-.. _attachmenttype:
+.. _item_attachmenttype:
 
 **AttachmentType**
    Type: ``Any``
@@ -241,7 +241,7 @@ Parameters
 
    Item types: drainable, normal, radio, weapon
 
-.. _badcold:
+.. _item_badcold:
 
 **BadCold**
    Type: ``Any``
@@ -250,7 +250,7 @@ Parameters
 
    Item types: food
 
-.. _badinmicrowave:
+.. _item_badinmicrowave:
 
 **BadInMicrowave**
    Type: ``Any``
@@ -259,7 +259,7 @@ Parameters
 
    Item types: food
 
-.. _bandagepower:
+.. _item_bandagepower:
 
 **BandagePower**
    Type: ``Any``
@@ -268,7 +268,7 @@ Parameters
 
    Item types: normal
 
-.. _basespeed:
+.. _item_basespeed:
 
 **BaseSpeed**
    Type: ``float``
@@ -279,7 +279,7 @@ Parameters
 
    Item types: weapon
 
-.. _basevolumerange:
+.. _item_basevolumerange:
 
 **BaseVolumeRange**
    Type: ``Any``
@@ -288,7 +288,7 @@ Parameters
 
    Item types: radio
 
-.. _bitedefense:
+.. _item_bitedefense:
 
 **BiteDefense**
    Type: ``Any``
@@ -297,7 +297,7 @@ Parameters
 
    Item types: clothing
 
-.. _bloodlocation:
+.. _item_bloodlocation:
 
 **BloodLocation**
    Type: ``array``
@@ -344,7 +344,7 @@ Parameters
    - ``Foot_L``
    - ``Foot_R``
 
-.. _bodylocation:
+.. _item_bodylocation:
 
 **BodyLocation**
    Type: ``Any``
@@ -353,7 +353,7 @@ Parameters
 
    Item types: alarmclockclothing, clothing, container, normal
 
-.. _book_subject:
+.. _item_book_subject:
 
 **book_subject**
    Type: ``Any``
@@ -362,7 +362,7 @@ Parameters
 
    Item types: container, literature
 
-.. _boredomchange:
+.. _item_boredomchange:
 
 **BoredomChange**
    Type: ``Any``
@@ -371,7 +371,7 @@ Parameters
 
    Item types: food, literature
 
-.. _brakeforce:
+.. _item_brakeforce:
 
 **brakeForce**
    Type: ``Any``
@@ -380,7 +380,7 @@ Parameters
 
    Item types: normal
 
-.. _breaksound:
+.. _item_breaksound:
 
 **BreakSound**
    Type: ``Any``
@@ -389,7 +389,7 @@ Parameters
 
    Item types: clothing, normal, weapon
 
-.. _bringtobearsound:
+.. _item_bringtobearsound:
 
 **BringToBearSound**
    Type: ``Any``
@@ -398,7 +398,7 @@ Parameters
 
    Item types: weapon
 
-.. _bulletdefense:
+.. _item_bulletdefense:
 
 **BulletDefense**
    Type: ``Any``
@@ -407,7 +407,7 @@ Parameters
 
    Item types: clothing
 
-.. _bullethitarmoursound:
+.. _item_bullethitarmoursound:
 
 **BulletHitArmourSound**
    Type: ``Any``
@@ -416,7 +416,7 @@ Parameters
 
    Item types: clothing
 
-.. _calories:
+.. _item_calories:
 
 **Calories**
    Type: ``Any``
@@ -425,7 +425,7 @@ Parameters
 
    Item types: drainable, food, normal
 
-.. _canattach:
+.. _item_canattach:
 
 **CanAttach**
    Type: ``Any``
@@ -434,7 +434,7 @@ Parameters
 
    Item types: weaponpart
 
-.. _canbandage:
+.. _item_canbandage:
 
 **CanBandage**
    Type: ``Any``
@@ -443,7 +443,7 @@ Parameters
 
    Item types: normal
 
-.. _canbarricade:
+.. _item_canbarricade:
 
 **CanBarricade**
    Type: ``Any``
@@ -452,7 +452,7 @@ Parameters
 
    Item types: weapon
 
-.. _canbeequipped:
+.. _item_canbeequipped:
 
 **CanBeEquipped**
    Type: ``Any``
@@ -461,7 +461,7 @@ Parameters
 
    Item types: container, radio
 
-.. _canbeplaced:
+.. _item_canbeplaced:
 
 **CanBePlaced**
    Type: ``Any``
@@ -470,7 +470,7 @@ Parameters
 
    Item types: weapon
 
-.. _canberemote:
+.. _item_canberemote:
 
 **CanBeRemote**
    Type: ``Any``
@@ -479,7 +479,7 @@ Parameters
 
    Item types: weapon
 
-.. _canbereused:
+.. _item_canbereused:
 
 **CanBeReused**
    Type: ``Any``
@@ -488,7 +488,7 @@ Parameters
 
    Item types: weapon
 
-.. _canbewrite:
+.. _item_canbewrite:
 
 **CanBeWrite**
    Type: ``Any``
@@ -497,7 +497,7 @@ Parameters
 
    Item types: literature
 
-.. _candetach:
+.. _item_candetach:
 
 **CanDetach**
    Type: ``Any``
@@ -506,7 +506,7 @@ Parameters
 
    Item types: weaponpart
 
-.. _canhaveholes:
+.. _item_canhaveholes:
 
 **CanHaveHoles**
    Type: ``boolean``
@@ -517,7 +517,7 @@ Parameters
 
    Item types: clothing, container, normal
 
-.. _cannedfood:
+.. _item_cannedfood:
 
 **CannedFood**
    Type: ``Any``
@@ -526,7 +526,7 @@ Parameters
 
    Item types: food
 
-.. _canstack:
+.. _item_canstack:
 
 **CanStack**
    Type: ``Any``
@@ -535,7 +535,7 @@ Parameters
 
    Item types: normal
 
-.. _canstorewater:
+.. _item_canstorewater:
 
 **CanStoreWater**
    Type: ``Any``
@@ -544,7 +544,7 @@ Parameters
 
    Item types: drainable, normal, weapon
 
-.. _cantattackwithlowestendurance:
+.. _item_cantattackwithlowestendurance:
 
 **CantAttackWithLowestEndurance**
    Type: ``Any``
@@ -553,7 +553,7 @@ Parameters
 
    Item types: weapon
 
-.. _cantbeconsolided:
+.. _item_cantbeconsolided:
 
 **cantBeConsolided**
    Type: ``Any``
@@ -562,7 +562,7 @@ Parameters
 
    Item types: drainable
 
-.. _cantbefrozen:
+.. _item_cantbefrozen:
 
 **CantBeFrozen**
    Type: ``Any``
@@ -571,7 +571,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _canteat:
+.. _item_canteat:
 
 **CantEat**
    Type: ``Any``
@@ -580,7 +580,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _capacity:
+.. _item_capacity:
 
 **Capacity**
    Type: ``integer``
@@ -591,7 +591,7 @@ Parameters
 
    Item types: container
 
-.. _carbohydrates:
+.. _item_carbohydrates:
 
 **Carbohydrates**
    Type: ``Any``
@@ -600,7 +600,7 @@ Parameters
 
    Item types: drainable, food, normal
 
-.. _categories:
+.. _item_categories:
 
 **Categories**
    Type: ``Any``
@@ -609,7 +609,7 @@ Parameters
 
    Item types: weapon
 
-.. _chancetofall:
+.. _item_chancetofall:
 
 **ChanceToFall**
    Type: ``Any``
@@ -618,7 +618,7 @@ Parameters
 
    Item types: clothing, normal
 
-.. _chancetospawndamaged:
+.. _item_chancetospawndamaged:
 
 **ChanceToSpawnDamaged**
    Type: ``Any``
@@ -627,7 +627,7 @@ Parameters
 
    Item types: drainable, normal
 
-.. _clicksound:
+.. _item_clicksound:
 
 **ClickSound**
    Type: ``string``
@@ -638,7 +638,7 @@ Parameters
 
    Item types: weapon
 
-.. _clipsize:
+.. _item_clipsize:
 
 **ClipSize**
    Type: ``Any``
@@ -647,7 +647,7 @@ Parameters
 
    Item types: weapon
 
-.. _closekillmove:
+.. _item_closekillmove:
 
 **CloseKillMove**
    Type: ``Any``
@@ -656,7 +656,7 @@ Parameters
 
    Item types: weapon
 
-.. _closesound:
+.. _item_closesound:
 
 **CloseSound**
    Type: ``Any``
@@ -665,16 +665,18 @@ Parameters
 
    Item types: container
 
-.. _clothingextrasubmenu:
+.. _item_clothingextrasubmenu:
 
 **ClothingExtraSubmenu**
    Type: ``Any``
 
-   No description
+   ``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
+   
+   ``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
 
    Item types: alarmclockclothing, clothing, container
 
-.. _clothingitem:
+.. _item_clothingitem:
 
 **ClothingItem**
    Type: ``Any``
@@ -685,25 +687,29 @@ Parameters
 
    Item types: alarmclockclothing, clothing, container, radio
 
-.. _clothingitemextra:
+.. _item_clothingitemextra:
 
 **ClothingItemExtra**
    Type: ``Any``
 
-   No description
+   ``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
+   
+   ``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
 
    Item types: alarmclockclothing, clothing, container
 
-.. _clothingitemextraoption:
+.. _item_clothingitemextraoption:
 
 **ClothingItemExtraOption**
    Type: ``Any``
 
-   No description
+   ``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
+   
+   ``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
 
    Item types: alarmclockclothing, clothing, container
 
-.. _colorblue:
+.. _item_colorblue:
 
 **ColorBlue**
    Type: ``integer``
@@ -714,7 +720,7 @@ Parameters
 
    Item types: clothing, food, literature, normal, weapon
 
-.. _colorgreen:
+.. _item_colorgreen:
 
 **ColorGreen**
    Type: ``integer``
@@ -725,7 +731,7 @@ Parameters
 
    Item types: clothing, food, literature, normal, weapon
 
-.. _colorred:
+.. _item_colorred:
 
 **ColorRed**
    Type: ``integer``
@@ -736,7 +742,7 @@ Parameters
 
    Item types: clothing, food, literature, normal, weapon
 
-.. _combatspeedmodifier:
+.. _item_combatspeedmodifier:
 
 **CombatSpeedModifier**
    Type: ``float``
@@ -747,7 +753,7 @@ Parameters
 
    Item types: clothing, container
 
-.. _conditionaffectscapacity:
+.. _item_conditionaffectscapacity:
 
 **ConditionAffectsCapacity**
    Type: ``Any``
@@ -756,7 +762,7 @@ Parameters
 
    Item types: normal
 
-.. _conditionlowerchanceonein:
+.. _item_conditionlowerchanceonein:
 
 **ConditionLowerChanceOneIn**
    Type: ``integer``
@@ -767,7 +773,7 @@ Parameters
 
    Item types: clothing, normal, weapon
 
-.. _conditionloweroffroad:
+.. _item_conditionloweroffroad:
 
 **ConditionLowerOffroad**
    Type: ``Any``
@@ -776,7 +782,7 @@ Parameters
 
    Item types: normal
 
-.. _conditionlowerstandard:
+.. _item_conditionlowerstandard:
 
 **ConditionLowerStandard**
    Type: ``Any``
@@ -785,7 +791,7 @@ Parameters
 
    Item types: drainable, normal
 
-.. _conditionmax:
+.. _item_conditionmax:
 
 **ConditionMax**
    Type: ``integer``
@@ -796,7 +802,7 @@ Parameters
 
    Item types: clothing, container, drainable, food, normal, radio, weapon
 
-.. _consolidateoption:
+.. _item_consolidateoption:
 
 **ConsolidateOption**
    Type: ``Any``
@@ -805,7 +811,7 @@ Parameters
 
    Item types: drainable
 
-.. _cookingsound:
+.. _item_cookingsound:
 
 **CookingSound**
    Type: ``Any``
@@ -814,7 +820,7 @@ Parameters
 
    Item types: drainable, food, normal
 
-.. _corpsesicknessdefense:
+.. _item_corpsesicknessdefense:
 
 **CorpseSicknessDefense**
    Type: ``Any``
@@ -823,7 +829,7 @@ Parameters
 
    Item types: clothing
 
-.. _cosmetic:
+.. _item_cosmetic:
 
 **Cosmetic**
    Type: ``Any``
@@ -832,7 +838,7 @@ Parameters
 
    Item types: alarmclockclothing, clothing
 
-.. _count:
+.. _item_count:
 
 **count**
    Type: ``integer``
@@ -843,7 +849,7 @@ Parameters
 
    Item types: normal
 
-.. _critdmgmultiplier:
+.. _item_critdmgmultiplier:
 
 **CritDmgMultiplier**
    Type: ``Any``
@@ -852,7 +858,7 @@ Parameters
 
    Item types: weapon
 
-.. _criticalchance:
+.. _item_criticalchance:
 
 **CriticalChance**
    Type: ``float``
@@ -863,7 +869,7 @@ Parameters
 
    Item types: weapon
 
-.. _customcontextmenu:
+.. _item_customcontextmenu:
 
 **CustomContextMenu**
    Type: ``Any``
@@ -872,7 +878,7 @@ Parameters
 
    Item types: drainable, food, normal
 
-.. _customeatsound:
+.. _item_customeatsound:
 
 **CustomEatSound**
    Type: ``Any``
@@ -883,7 +889,7 @@ Parameters
 
    Item types: drainable, food, normal
 
-.. _cyclicratemultiplier:
+.. _item_cyclicratemultiplier:
 
 **CyclicRateMultiplier**
    Type: ``Any``
@@ -892,7 +898,7 @@ Parameters
 
    Item types: weapon
 
-.. _damagecategory:
+.. _item_damagecategory:
 
 **DamageCategory**
    Type: ``Any``
@@ -901,7 +907,7 @@ Parameters
 
    Item types: weapon
 
-.. _damagemakehole:
+.. _item_damagemakehole:
 
 **DamageMakeHole**
    Type: ``Any``
@@ -910,7 +916,7 @@ Parameters
 
    Item types: weapon
 
-.. _dangerousuncooked:
+.. _item_dangerousuncooked:
 
 **DangerousUncooked**
    Type: ``Any``
@@ -919,7 +925,7 @@ Parameters
 
    Item types: food
 
-.. _daysfresh:
+.. _item_daysfresh:
 
 **DaysFresh**
    Type: ``Any``
@@ -928,7 +934,7 @@ Parameters
 
    Item types: food
 
-.. _daystotallyrotten:
+.. _item_daystotallyrotten:
 
 **DaysTotallyRotten**
    Type: ``Any``
@@ -937,7 +943,7 @@ Parameters
 
    Item types: food
 
-.. _digitalpadlock:
+.. _item_digitalpadlock:
 
 **DigitalPadlock**
    Type: ``Any``
@@ -946,7 +952,7 @@ Parameters
 
    Item types: key
 
-.. _digtype:
+.. _item_digtype:
 
 **DigType**
    Type: ``Any``
@@ -955,7 +961,7 @@ Parameters
 
    Item types: normal, weapon
 
-.. _disappearonuse:
+.. _item_disappearonuse:
 
 **DisappearOnUse**
    Type: ``boolean``
@@ -966,7 +972,7 @@ Parameters
 
    Item types: drainable, radio, weaponpart
 
-.. _discomfortmodifier:
+.. _item_discomfortmodifier:
 
 **DiscomfortModifier**
    Type: ``Any``
@@ -975,14 +981,14 @@ Parameters
 
    Item types: clothing, container
 
-.. _displaycategory:
+.. _item_displaycategory:
 
 **DisplayCategory**
    Type: ``Any``
 
    No description
 
-.. _displayname:
+.. _item_displayname:
 
 **DisplayName**
    Type: ``Any``
@@ -995,7 +1001,7 @@ Parameters
 
       Naming an item should be done with a translation entry. See the `wiki <https://pzwiki.net/wiki/DisplayName>`_ page for more information.
 
-.. _doordamage:
+.. _item_doordamage:
 
 **DoorDamage**
    Type: ``integer``
@@ -1006,7 +1012,7 @@ Parameters
 
    Item types: weapon
 
-.. _doorhitsound:
+.. _item_doorhitsound:
 
 **DoorHitSound**
    Type: ``string``
@@ -1017,7 +1023,7 @@ Parameters
 
    Item types: weapon
 
-.. _doubleclickrecipe:
+.. _item_doubleclickrecipe:
 
 **DoubleClickRecipe**
    Type: ``Any``
@@ -1026,7 +1032,7 @@ Parameters
 
    Item types: drainable, food, literature, normal
 
-.. _dropsound:
+.. _item_dropsound:
 
 **DropSound**
    Type: ``Any``
@@ -1035,7 +1041,7 @@ Parameters
 
    Item types: normal, weapon
 
-.. _eattime:
+.. _item_eattime:
 
 **Eattime**
    Type: ``Any``
@@ -1044,7 +1050,7 @@ Parameters
 
    Item types: drainable, food, normal
 
-.. _eattype:
+.. _item_eattype:
 
 **EatType**
    Type: ``Any``
@@ -1053,7 +1059,7 @@ Parameters
 
    Item types: clothing, drainable, food, normal, weapon
 
-.. _ejectammosound:
+.. _item_ejectammosound:
 
 **EjectAmmoSound**
    Type: ``Any``
@@ -1062,7 +1068,7 @@ Parameters
 
    Item types: weapon
 
-.. _ejectammostartsound:
+.. _item_ejectammostartsound:
 
 **EjectAmmoStartSound**
    Type: ``Any``
@@ -1071,7 +1077,7 @@ Parameters
 
    Item types: weapon
 
-.. _ejectammostopsound:
+.. _item_ejectammostopsound:
 
 **EjectAmmoStopSound**
    Type: ``Any``
@@ -1080,7 +1086,7 @@ Parameters
 
    Item types: weapon
 
-.. _endurancechange:
+.. _item_endurancechange:
 
 **enduranceChange**
    Type: ``Any``
@@ -1089,7 +1095,7 @@ Parameters
 
    Item types: food
 
-.. _endurancemod:
+.. _item_endurancemod:
 
 **EnduranceMod**
    Type: ``float``
@@ -1100,7 +1106,7 @@ Parameters
 
    Item types: weapon
 
-.. _engineloudness:
+.. _item_engineloudness:
 
 **engineLoudness**
    Type: ``Any``
@@ -1109,7 +1115,7 @@ Parameters
 
    Item types: normal
 
-.. _equippednosprint:
+.. _item_equippednosprint:
 
 **EquippedNoSprint**
    Type: ``Any``
@@ -1118,7 +1124,7 @@ Parameters
 
    Item types: normal
 
-.. _equipsound:
+.. _item_equipsound:
 
 **EquipSound**
    Type: ``Any``
@@ -1127,7 +1133,7 @@ Parameters
 
    Item types: container, drainable, weapon
 
-.. _evolvedrecipe:
+.. _item_evolvedrecipe:
 
 **EvolvedRecipe**
    Type: ``Any``
@@ -1136,7 +1142,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _evolvedrecipename:
+.. _item_evolvedrecipename:
 
 **EvolvedRecipeName**
    Type: ``Any``
@@ -1145,7 +1151,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _explosionduration:
+.. _item_explosionduration:
 
 **ExplosionDuration**
    Type: ``Any``
@@ -1154,7 +1160,7 @@ Parameters
 
    Item types: weapon
 
-.. _explosionpower:
+.. _item_explosionpower:
 
 **ExplosionPower**
    Type: ``Any``
@@ -1163,7 +1169,7 @@ Parameters
 
    Item types: weapon
 
-.. _explosionrange:
+.. _item_explosionrange:
 
 **ExplosionRange**
    Type: ``Any``
@@ -1172,7 +1178,7 @@ Parameters
 
    Item types: weapon
 
-.. _explosionsound:
+.. _item_explosionsound:
 
 **ExplosionSound**
    Type: ``Any``
@@ -1181,7 +1187,7 @@ Parameters
 
    Item types: weapon
 
-.. _explosiontimer:
+.. _item_explosiontimer:
 
 **ExplosionTimer**
    Type: ``Any``
@@ -1190,7 +1196,7 @@ Parameters
 
    Item types: weapon
 
-.. _fabrictype:
+.. _item_fabrictype:
 
 **FabricType**
    Type: ``Any``
@@ -1199,7 +1205,7 @@ Parameters
 
    Item types: clothing, normal
 
-.. _fatiguechange:
+.. _item_fatiguechange:
 
 **fatigueChange**
    Type: ``Any``
@@ -1208,7 +1214,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _fillfromdispensersound:
+.. _item_fillfromdispensersound:
 
 **FillFromDispenserSound**
    Type: ``Any``
@@ -1217,7 +1223,7 @@ Parameters
 
    Item types: drainable, normal
 
-.. _fillfromlakesound:
+.. _item_fillfromlakesound:
 
 **FillFromLakeSound**
    Type: ``Any``
@@ -1226,7 +1232,7 @@ Parameters
 
    Item types: normal
 
-.. _fillfromtapsound:
+.. _item_fillfromtapsound:
 
 **FillFromTapSound**
    Type: ``Any``
@@ -1235,7 +1241,7 @@ Parameters
 
    Item types: drainable, normal
 
-.. _fillfromtoiletsound:
+.. _item_fillfromtoiletsound:
 
 **FillFromToiletSound**
    Type: ``Any``
@@ -1244,7 +1250,7 @@ Parameters
 
    Item types: normal
 
-.. _firefuelratio:
+.. _item_firefuelratio:
 
 **FireFuelRatio**
    Type: ``Any``
@@ -1253,7 +1259,7 @@ Parameters
 
    Item types: drainable, moveable, normal, weapon
 
-.. _firemode:
+.. _item_firemode:
 
 **FireMode**
    Type: ``Any``
@@ -1262,7 +1268,7 @@ Parameters
 
    Item types: weapon
 
-.. _firemodepossibilities:
+.. _item_firemodepossibilities:
 
 **FireModePossibilities**
    Type: ``Any``
@@ -1271,7 +1277,7 @@ Parameters
 
    Item types: weapon
 
-.. _firerange:
+.. _item_firerange:
 
 **FireRange**
    Type: ``Any``
@@ -1280,7 +1286,7 @@ Parameters
 
    Item types: weapon
 
-.. _firestartingchance:
+.. _item_firestartingchance:
 
 **FireStartingChance**
    Type: ``Any``
@@ -1289,7 +1295,7 @@ Parameters
 
    Item types: weapon
 
-.. _firestartingenergy:
+.. _item_firestartingenergy:
 
 **FireStartingEnergy**
    Type: ``Any``
@@ -1298,7 +1304,7 @@ Parameters
 
    Item types: weapon
 
-.. _fishinglure:
+.. _item_fishinglure:
 
 **FishingLure**
    Type: ``Any``
@@ -1307,7 +1313,7 @@ Parameters
 
    Item types: food, normal
 
-.. _flureduction:
+.. _item_flureduction:
 
 **fluReduction**
    Type: ``Any``
@@ -1316,7 +1322,7 @@ Parameters
 
    Item types: food
 
-.. _foodsicknesschange:
+.. _item_foodsicknesschange:
 
 **FoodSicknessChange**
    Type: ``Any``
@@ -1325,7 +1331,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _foodtype:
+.. _item_foodtype:
 
 **FoodType**
    Type: ``Any``
@@ -1334,7 +1340,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _goodhot:
+.. _item_goodhot:
 
 **GoodHot**
    Type: ``Any``
@@ -1343,7 +1349,7 @@ Parameters
 
    Item types: food
 
-.. _guntype:
+.. _item_guntype:
 
 **GunType**
    Type: ``Any``
@@ -1352,7 +1358,7 @@ Parameters
 
    Item types: normal
 
-.. _havechamber:
+.. _item_havechamber:
 
 **HaveChamber**
    Type: ``boolean``
@@ -1363,7 +1369,7 @@ Parameters
 
    Item types: weapon
 
-.. _headcondition:
+.. _item_headcondition:
 
 **HeadCondition**
    Type: ``Any``
@@ -1372,7 +1378,7 @@ Parameters
 
    Item types: normal, weapon
 
-.. _headconditionlowerchancemultiplier:
+.. _item_headconditionlowerchancemultiplier:
 
 **HeadConditionLowerChanceMultiplier**
    Type: ``float``
@@ -1383,7 +1389,7 @@ Parameters
 
    Item types: normal, weapon
 
-.. _headconditionmax:
+.. _item_headconditionmax:
 
 **HeadConditionMax**
    Type: ``Any``
@@ -1392,7 +1398,7 @@ Parameters
 
    Item types: weapon
 
-.. _hearingmodifier:
+.. _item_hearingmodifier:
 
 **HearingModifier**
    Type: ``float``
@@ -1403,7 +1409,7 @@ Parameters
 
    Item types: clothing
 
-.. _herbalisttype:
+.. _item_herbalisttype:
 
 **HerbalistType**
    Type: ``Any``
@@ -1412,14 +1418,14 @@ Parameters
 
    Item types: food
 
-.. _hidden:
+.. _item_hidden:
 
 **Hidden**
    Type: ``Any``
 
    No description
 
-.. _hitanglemod:
+.. _item_hitanglemod:
 
 **HitAngleMod**
    Type: ``Any``
@@ -1428,7 +1434,7 @@ Parameters
 
    Item types: weapon
 
-.. _hitchance:
+.. _item_hitchance:
 
 **HitChance**
    Type: ``Any``
@@ -1437,7 +1443,7 @@ Parameters
 
    Item types: weapon
 
-.. _hitchancemodifier:
+.. _item_hitchancemodifier:
 
 **HitChanceModifier**
    Type: ``Any``
@@ -1446,7 +1452,7 @@ Parameters
 
    Item types: weaponpart
 
-.. _hitfloorsound:
+.. _item_hitfloorsound:
 
 **HitFloorSound**
    Type: ``string``
@@ -1457,7 +1463,7 @@ Parameters
 
    Item types: weapon
 
-.. _hitsound:
+.. _item_hitsound:
 
 **HitSound**
    Type: ``string``
@@ -1468,7 +1474,7 @@ Parameters
 
    Item types: weapon
 
-.. _hungerchange:
+.. _item_hungerchange:
 
 **HungerChange**
    Type: ``Any``
@@ -1477,7 +1483,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _icon:
+.. _item_icon:
 
 **Icon**
    Type: ``string``
@@ -1486,7 +1492,7 @@ Parameters
 
    Default: ``None``
 
-.. _iconcolormask:
+.. _item_iconcolormask:
 
 **IconColorMask**
    Type: ``Any``
@@ -1495,7 +1501,7 @@ Parameters
 
    Item types: drainable, literature, normal, weapon
 
-.. _iconfluidmask:
+.. _item_iconfluidmask:
 
 **IconFluidMask**
    Type: ``Any``
@@ -1504,7 +1510,7 @@ Parameters
 
    Item types: normal, weapon
 
-.. _iconsfortexture:
+.. _item_iconsfortexture:
 
 **IconsForTexture**
    Type: ``array``
@@ -1513,7 +1519,7 @@ Parameters
 
    Item types: clothing, container, food, key, literature, normal, weapon
 
-.. _idleanim:
+.. _item_idleanim:
 
 **IdleAnim**
    Type: ``string``
@@ -1524,7 +1530,7 @@ Parameters
 
    Item types: weapon
 
-.. _impactsound:
+.. _item_impactsound:
 
 **ImpactSound**
    Type: ``string``
@@ -1535,7 +1541,7 @@ Parameters
 
    Item types: weapon
 
-.. _insertallbulletsreload:
+.. _item_insertallbulletsreload:
 
 **InsertAllBulletsReload**
    Type: ``Any``
@@ -1544,7 +1550,7 @@ Parameters
 
    Item types: weapon
 
-.. _insertammosound:
+.. _item_insertammosound:
 
 **InsertAmmoSound**
    Type: ``Any``
@@ -1553,7 +1559,7 @@ Parameters
 
    Item types: weapon
 
-.. _insertammostartsound:
+.. _item_insertammostartsound:
 
 **InsertAmmoStartSound**
    Type: ``Any``
@@ -1562,7 +1568,7 @@ Parameters
 
    Item types: weapon
 
-.. _insertammostopsound:
+.. _item_insertammostopsound:
 
 **InsertAmmoStopSound**
    Type: ``Any``
@@ -1571,7 +1577,7 @@ Parameters
 
    Item types: weapon
 
-.. _insulation:
+.. _item_insulation:
 
 **Insulation**
    Type: ``Any``
@@ -1580,7 +1586,7 @@ Parameters
 
    Item types: clothing, normal
 
-.. _inversecoughprobability:
+.. _item_inversecoughprobability:
 
 **InverseCoughProbability**
    Type: ``Any``
@@ -1589,7 +1595,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _inversecoughprobabilitysmoker:
+.. _item_inversecoughprobabilitysmoker:
 
 **InverseCoughProbabilitySmoker**
    Type: ``Any``
@@ -1598,7 +1604,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _isaimedfirearm:
+.. _item_isaimedfirearm:
 
 **IsAimedFirearm**
    Type: ``Any``
@@ -1607,7 +1613,7 @@ Parameters
 
    Item types: weapon
 
-.. _isaimedhandweapon:
+.. _item_isaimedhandweapon:
 
 **IsAimedHandWeapon**
    Type: ``Any``
@@ -1616,7 +1622,7 @@ Parameters
 
    Item types: weapon
 
-.. _iscookable:
+.. _item_iscookable:
 
 **IsCookable**
    Type: ``Any``
@@ -1625,7 +1631,7 @@ Parameters
 
    Item types: drainable, food, normal, weapon
 
-.. _isdung:
+.. _item_isdung:
 
 **IsDung**
    Type: ``Any``
@@ -1634,7 +1640,7 @@ Parameters
 
    Item types: food
 
-.. _ishightier:
+.. _item_ishightier:
 
 **IsHighTier**
    Type: ``Any``
@@ -1643,7 +1649,7 @@ Parameters
 
    Item types: radio
 
-.. _isportable:
+.. _item_isportable:
 
 **IsPortable**
    Type: ``Any``
@@ -1652,7 +1658,7 @@ Parameters
 
    Item types: radio
 
-.. _istelevision:
+.. _item_istelevision:
 
 **IsTelevision**
    Type: ``Any``
@@ -1661,7 +1667,7 @@ Parameters
 
    Item types: radio
 
-.. _iswatersource:
+.. _item_iswatersource:
 
 **IsWaterSource**
    Type: ``Any``
@@ -1670,7 +1676,7 @@ Parameters
 
    Item types: drainable
 
-.. _itemaftercleaning:
+.. _item_itemaftercleaning:
 
 **ItemAfterCleaning**
    Type: ``Any``
@@ -1679,7 +1685,7 @@ Parameters
 
    Item types: normal
 
-.. _itemtype:
+.. _item_itemtype:
 
 **ItemType**
    Type: ``string`` *(required)*
@@ -1704,7 +1710,7 @@ Parameters
    - ``base:weapon``
    - ``base:weaponpart``
 
-.. _itemwhendry:
+.. _item_itemwhendry:
 
 **ItemWhenDry**
    Type: ``Any``
@@ -1713,7 +1719,7 @@ Parameters
 
    Item types: normal
 
-.. _jamgunchance:
+.. _item_jamgunchance:
 
 **JamGunChance**
    Type: ``float``
@@ -1724,7 +1730,7 @@ Parameters
 
    Item types: weapon
 
-.. _keepondeplete:
+.. _item_keepondeplete:
 
 **KeepOnDeplete**
    Type: ``Any``
@@ -1733,7 +1739,7 @@ Parameters
 
    Item types: clothing, drainable
 
-.. _knockbackonnodeath:
+.. _item_knockbackonnodeath:
 
 **KnockBackOnNoDeath**
    Type: ``Any``
@@ -1742,7 +1748,7 @@ Parameters
 
    Item types: weapon
 
-.. _knockdownmod:
+.. _item_knockdownmod:
 
 **KnockdownMod**
    Type: ``float``
@@ -1753,7 +1759,7 @@ Parameters
 
    Item types: weapon
 
-.. _learnedrecipes:
+.. _item_learnedrecipes:
 
 **LearnedRecipes**
    Type: ``Any``
@@ -1762,7 +1768,7 @@ Parameters
 
    Item types: literature
 
-.. _lightdistance:
+.. _item_lightdistance:
 
 **LightDistance**
    Type: ``Any``
@@ -1771,7 +1777,7 @@ Parameters
 
    Item types: drainable, weaponpart
 
-.. _lightstrength:
+.. _item_lightstrength:
 
 **LightStrength**
    Type: ``Any``
@@ -1780,7 +1786,7 @@ Parameters
 
    Item types: drainable, weaponpart
 
-.. _lipids:
+.. _item_lipids:
 
 **Lipids**
    Type: ``Any``
@@ -1789,7 +1795,7 @@ Parameters
 
    Item types: drainable, food, normal
 
-.. _lowlightbonus:
+.. _item_lowlightbonus:
 
 **LowLightBonus**
    Type: ``Any``
@@ -1798,7 +1804,7 @@ Parameters
 
    Item types: weaponpart
 
-.. _lvlskilltrained:
+.. _item_lvlskilltrained:
 
 **LvlSkillTrained**
    Type: ``integer``
@@ -1809,7 +1815,7 @@ Parameters
 
    Item types: literature
 
-.. _magazine_subject:
+.. _item_magazine_subject:
 
 **magazine_subject**
    Type: ``Any``
@@ -1818,7 +1824,7 @@ Parameters
 
    Item types: literature
 
-.. _magazinetype:
+.. _item_magazinetype:
 
 **MagazineType**
    Type: ``Any``
@@ -1827,7 +1833,7 @@ Parameters
 
    Item types: weapon
 
-.. _makeuptype:
+.. _item_makeuptype:
 
 **MakeUpType**
    Type: ``Any``
@@ -1836,7 +1842,7 @@ Parameters
 
    Item types: drainable
 
-.. _manuallyremovespentrounds:
+.. _item_manuallyremovespentrounds:
 
 **ManuallyRemoveSpentRounds**
    Type: ``Any``
@@ -1845,7 +1851,7 @@ Parameters
 
    Item types: weapon
 
-.. _map:
+.. _item_map:
 
 **Map**
    Type: ``Any``
@@ -1854,7 +1860,7 @@ Parameters
 
    Item types: map
 
-.. _maxammo:
+.. _item_maxammo:
 
 **MaxAmmo**
    Type: ``Any``
@@ -1863,7 +1869,7 @@ Parameters
 
    Item types: normal, weapon
 
-.. _maxcapacity:
+.. _item_maxcapacity:
 
 **MaxCapacity**
    Type: ``integer``
@@ -1874,7 +1880,7 @@ Parameters
 
    Item types: normal
 
-.. _maxchannel:
+.. _item_maxchannel:
 
 **MaxChannel**
    Type: ``integer``
@@ -1885,7 +1891,7 @@ Parameters
 
    Item types: radio
 
-.. _maxdamage:
+.. _item_maxdamage:
 
 **MaxDamage**
    Type: ``float``
@@ -1896,7 +1902,7 @@ Parameters
 
    Item types: weapon
 
-.. _maxhitcount:
+.. _item_maxhitcount:
 
 **MaxHitcount**
    Type: ``integer``
@@ -1907,7 +1913,7 @@ Parameters
 
    Item types: weapon
 
-.. _maxitemsize:
+.. _item_maxitemsize:
 
 **MaxItemSize**
    Type: ``Any``
@@ -1916,7 +1922,7 @@ Parameters
 
    Item types: container
 
-.. _maxrange:
+.. _item_maxrange:
 
 **MaxRange**
    Type: ``float``
@@ -1927,7 +1933,7 @@ Parameters
 
    Item types: weapon
 
-.. _maxrangemodifier:
+.. _item_maxrangemodifier:
 
 **MaxRangeModifier**
    Type: ``Any``
@@ -1936,7 +1942,7 @@ Parameters
 
    Item types: weaponpart
 
-.. _maxsightrange:
+.. _item_maxsightrange:
 
 **MaxSightRange**
    Type: ``Any``
@@ -1945,7 +1951,7 @@ Parameters
 
    Item types: weapon, weaponpart
 
-.. _mechanicsitem:
+.. _item_mechanicsitem:
 
 **MechanicsItem**
    Type: ``Any``
@@ -1954,7 +1960,7 @@ Parameters
 
    Item types: drainable, normal
 
-.. _mediacategory:
+.. _item_mediacategory:
 
 **MediaCategory**
    Type: ``Any``
@@ -1963,7 +1969,7 @@ Parameters
 
    Item types: normal
 
-.. _medical:
+.. _item_medical:
 
 **Medical**
    Type: ``Any``
@@ -1972,7 +1978,7 @@ Parameters
 
    Item types: container, drainable, food, normal
 
-.. _metalvalue:
+.. _item_metalvalue:
 
 **MetalValue**
    Type: ``Any``
@@ -1981,7 +1987,7 @@ Parameters
 
    Item types: alarmclock, alarmclockclothing, clothing, container, drainable, key, normal, weapon, weaponpart
 
-.. _micrange:
+.. _item_micrange:
 
 **MicRange**
    Type: ``Any``
@@ -1990,7 +1996,7 @@ Parameters
 
    Item types: radio
 
-.. _minangle:
+.. _item_minangle:
 
 **MinAngle**
    Type: ``float``
@@ -2001,7 +2007,7 @@ Parameters
 
    Item types: weapon
 
-.. _minchannel:
+.. _item_minchannel:
 
 **MinChannel**
    Type: ``integer``
@@ -2012,7 +2018,7 @@ Parameters
 
    Item types: radio
 
-.. _mindamage:
+.. _item_mindamage:
 
 **MinDamage**
    Type: ``Any``
@@ -2021,7 +2027,7 @@ Parameters
 
    Item types: weapon
 
-.. _minimumswingtime:
+.. _item_minimumswingtime:
 
 **MinimumSwingtime**
    Type: ``Any``
@@ -2030,7 +2036,7 @@ Parameters
 
    Item types: weapon
 
-.. _minrange:
+.. _item_minrange:
 
 **MinRange**
    Type: ``Any``
@@ -2039,7 +2045,7 @@ Parameters
 
    Item types: weapon
 
-.. _minsightrange:
+.. _item_minsightrange:
 
 **MinSightRange**
    Type: ``Any``
@@ -2048,7 +2054,7 @@ Parameters
 
    Item types: weapon, weaponpart
 
-.. _minutestoburn:
+.. _item_minutestoburn:
 
 **MinutesToBurn**
    Type: ``float``
@@ -2059,7 +2065,7 @@ Parameters
 
    Item types: food
 
-.. _minutestocook:
+.. _item_minutestocook:
 
 **MinutesToCook**
    Type: ``float``
@@ -2070,7 +2076,7 @@ Parameters
 
    Item types: food
 
-.. _modelweaponpart:
+.. _item_modelweaponpart:
 
 **ModelWeaponPart**
    Type: ``Any``
@@ -2081,7 +2087,7 @@ Parameters
 
    Item types: weapon
 
-.. _mounton:
+.. _item_mounton:
 
 **MountOn**
    Type: ``Any``
@@ -2090,7 +2096,7 @@ Parameters
 
    Item types: weaponpart
 
-.. _multiplehitconditionaffected:
+.. _item_multiplehitconditionaffected:
 
 **MultipleHitConditionAffected**
    Type: ``boolean``
@@ -2101,7 +2107,7 @@ Parameters
 
    Item types: weapon
 
-.. _muzzleflashmodelkey:
+.. _item_muzzleflashmodelkey:
 
 **MuzzleFlashModelKey**
    Type: ``Any``
@@ -2110,7 +2116,7 @@ Parameters
 
    Item types: weapon
 
-.. _neckprotectionmodifier:
+.. _item_neckprotectionmodifier:
 
 **NeckProtectionModifier**
    Type: ``float``
@@ -2121,7 +2127,7 @@ Parameters
 
    Item types: clothing
 
-.. _needtobeclosedoncereload:
+.. _item_needtobeclosedoncereload:
 
 **needtobeclosedoncereload**
    Type: ``Any``
@@ -2130,7 +2136,7 @@ Parameters
 
    Item types: weapon
 
-.. _noiseduration:
+.. _item_noiseduration:
 
 **NoiseDuration**
    Type: ``Any``
@@ -2139,7 +2145,7 @@ Parameters
 
    Item types: weapon
 
-.. _noiserange:
+.. _item_noiserange:
 
 **NoiseRange**
    Type: ``Any``
@@ -2148,7 +2154,7 @@ Parameters
 
    Item types: weapon
 
-.. _notransmit:
+.. _item_notransmit:
 
 **NoTransmit**
    Type: ``Any``
@@ -2157,7 +2163,7 @@ Parameters
 
    Item types: radio
 
-.. _npcsoundboost:
+.. _item_npcsoundboost:
 
 **NPCSoundBoost**
    Type: ``float``
@@ -2168,7 +2174,7 @@ Parameters
 
    Item types: weapon
 
-.. _numberofpages:
+.. _item_numberofpages:
 
 **NumberOfPages**
    Type: ``integer``
@@ -2179,7 +2185,7 @@ Parameters
 
    Item types: literature
 
-.. _numlevelstrained:
+.. _item_numlevelstrained:
 
 **NumLevelsTrained**
    Type: ``integer``
@@ -2190,7 +2196,7 @@ Parameters
 
    Item types: literature
 
-.. _onbreak:
+.. _item_onbreak:
 
 **OnBreak**
    Type: ``Any``
@@ -2199,7 +2205,7 @@ Parameters
 
    Item types: weapon
 
-.. _oncooked:
+.. _item_oncooked:
 
 **OnCooked**
    Type: ``Any``
@@ -2208,7 +2214,7 @@ Parameters
 
    Item types: food
 
-.. _oncreate:
+.. _item_oncreate:
 
 **OnCreate**
    Type: ``Any``
@@ -2217,7 +2223,7 @@ Parameters
 
    Item types: clothing, container, drainable, food, literature, moveable, normal, weapon
 
-.. _oneat:
+.. _item_oneat:
 
 **OnEat**
    Type: ``Any``
@@ -2226,7 +2232,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _openingrecipe:
+.. _item_openingrecipe:
 
 **OpeningRecipe**
    Type: ``Any``
@@ -2235,7 +2241,7 @@ Parameters
 
    Item types: food, normal
 
-.. _opensound:
+.. _item_opensound:
 
 **OpenSound**
    Type: ``Any``
@@ -2244,7 +2250,7 @@ Parameters
 
    Item types: container
 
-.. _originx:
+.. _item_originx:
 
 **OriginX**
    Type: ``Any``
@@ -2253,7 +2259,7 @@ Parameters
 
    Item types: key
 
-.. _originy:
+.. _item_originy:
 
 **OriginY**
    Type: ``Any``
@@ -2262,7 +2268,7 @@ Parameters
 
    Item types: key
 
-.. _originz:
+.. _item_originz:
 
 **originZ**
    Type: ``Any``
@@ -2271,7 +2277,7 @@ Parameters
 
    Item types: key
 
-.. _otherhandrequire:
+.. _item_otherhandrequire:
 
 **OtherHandRequire**
    Type: ``Any``
@@ -2280,7 +2286,7 @@ Parameters
 
    Item types: weapon
 
-.. _otherhanduse:
+.. _item_otherhanduse:
 
 **OtherHandUse**
    Type: ``Any``
@@ -2289,7 +2295,7 @@ Parameters
 
    Item types: weapon
 
-.. _packaged:
+.. _item_packaged:
 
 **Packaged**
    Type: ``Any``
@@ -2298,7 +2304,7 @@ Parameters
 
    Item types: drainable, food, normal
 
-.. _padlock:
+.. _item_padlock:
 
 **Padlock**
    Type: ``Any``
@@ -2307,7 +2313,7 @@ Parameters
 
    Item types: key
 
-.. _pagetowrite:
+.. _item_pagetowrite:
 
 **PageToWrite**
    Type: ``Any``
@@ -2316,7 +2322,7 @@ Parameters
 
    Item types: literature
 
-.. _painreduction:
+.. _item_painreduction:
 
 **painReduction**
    Type: ``Any``
@@ -2325,7 +2331,7 @@ Parameters
 
    Item types: food
 
-.. _parttype:
+.. _item_parttype:
 
 **PartType**
    Type: ``Any``
@@ -2334,7 +2340,7 @@ Parameters
 
    Item types: weaponpart
 
-.. _physicsobject:
+.. _item_physicsobject:
 
 **PhysicsObject**
    Type: ``Any``
@@ -2343,7 +2349,7 @@ Parameters
 
    Item types: weapon
 
-.. _piercingbullets:
+.. _item_piercingbullets:
 
 **PiercingBullets**
    Type: ``Any``
@@ -2352,7 +2358,7 @@ Parameters
 
    Item types: weapon
 
-.. _placedsprite:
+.. _item_placedsprite:
 
 **PlacedSprite**
    Type: ``Any``
@@ -2361,7 +2367,7 @@ Parameters
 
    Item types: weapon
 
-.. _placemultiplesound:
+.. _item_placemultiplesound:
 
 **PlaceMultipleSound**
    Type: ``Any``
@@ -2370,7 +2376,7 @@ Parameters
 
    Item types: normal
 
-.. _placeonesound:
+.. _item_placeonesound:
 
 **PlaceOneSound**
    Type: ``Any``
@@ -2379,7 +2385,7 @@ Parameters
 
    Item types: normal
 
-.. _poisonpower:
+.. _item_poisonpower:
 
 **PoisonPower**
    Type: ``Any``
@@ -2388,7 +2394,7 @@ Parameters
 
    Item types: food
 
-.. _pourtype:
+.. _item_pourtype:
 
 **PourType**
    Type: ``Any``
@@ -2397,7 +2403,7 @@ Parameters
 
    Item types: drainable, food, normal
 
-.. _primaryanimmask:
+.. _item_primaryanimmask:
 
 **primaryAnimMask**
    Type: ``Any``
@@ -2406,7 +2412,7 @@ Parameters
 
    Item types: drainable, normal, weaponpart
 
-.. _projectilecount:
+.. _item_projectilecount:
 
 **Projectilecount**
    Type: ``Any``
@@ -2415,7 +2421,7 @@ Parameters
 
    Item types: weapon
 
-.. _projectilespread:
+.. _item_projectilespread:
 
 **ProjectileSpread**
    Type: ``Any``
@@ -2424,7 +2430,7 @@ Parameters
 
    Item types: weapon
 
-.. _projectilespreadmodifier:
+.. _item_projectilespreadmodifier:
 
 **ProjectileSpreadModifier**
    Type: ``Any``
@@ -2433,7 +2439,7 @@ Parameters
 
    Item types: weaponpart
 
-.. _projectileweightcenter:
+.. _item_projectileweightcenter:
 
 **ProjectileWeightCenter**
    Type: ``float``
@@ -2444,7 +2450,7 @@ Parameters
 
    Item types: weapon
 
-.. _protectfromrainwhenequipped:
+.. _item_protectfromrainwhenequipped:
 
 **ProtectFromRainWhenEquipped**
    Type: ``Any``
@@ -2453,7 +2459,7 @@ Parameters
 
    Item types: normal
 
-.. _proteins:
+.. _item_proteins:
 
 **Proteins**
    Type: ``Any``
@@ -2462,7 +2468,7 @@ Parameters
 
    Item types: drainable, food, normal
 
-.. _pushbackmod:
+.. _item_pushbackmod:
 
 **PushBackMod**
    Type: ``float``
@@ -2473,7 +2479,7 @@ Parameters
 
    Item types: weapon
 
-.. _putinsound:
+.. _item_putinsound:
 
 **PutInSound**
    Type: ``Any``
@@ -2482,7 +2488,7 @@ Parameters
 
    Item types: container
 
-.. _rackaftershoot:
+.. _item_rackaftershoot:
 
 **RackAfterShoot**
    Type: ``Any``
@@ -2491,7 +2497,7 @@ Parameters
 
    Item types: weapon
 
-.. _racksound:
+.. _item_racksound:
 
 **RackSound**
    Type: ``Any``
@@ -2500,7 +2506,7 @@ Parameters
 
    Item types: weapon
 
-.. _rainfactor:
+.. _item_rainfactor:
 
 **RainFactor**
    Type: ``Any``
@@ -2509,7 +2515,7 @@ Parameters
 
    Item types: drainable, normal, weapon
 
-.. _ranged:
+.. _item_ranged:
 
 **Ranged**
    Type: ``Any``
@@ -2518,7 +2524,7 @@ Parameters
 
    Item types: weapon
 
-.. _rangefalloff:
+.. _item_rangefalloff:
 
 **RangeFalloff**
    Type: ``Any``
@@ -2527,7 +2533,7 @@ Parameters
 
    Item types: weapon
 
-.. _readtype:
+.. _item_readtype:
 
 **ReadType**
    Type: ``Any``
@@ -2536,7 +2542,7 @@ Parameters
 
    Item types: literature
 
-.. _recoildelay:
+.. _item_recoildelay:
 
 **RecoilDelay**
    Type: ``Any``
@@ -2545,7 +2551,7 @@ Parameters
 
    Item types: weapon
 
-.. _recoildelaymodifier:
+.. _item_recoildelaymodifier:
 
 **RecoilDelayModifier**
    Type: ``Any``
@@ -2554,7 +2560,7 @@ Parameters
 
    Item types: weaponpart
 
-.. _reduceinfectionpower:
+.. _item_reduceinfectionpower:
 
 **ReduceInfectionPower**
    Type: ``Any``
@@ -2563,7 +2569,7 @@ Parameters
 
    Item types: food
 
-.. _reloadtime:
+.. _item_reloadtime:
 
 **Reloadtime**
    Type: ``Any``
@@ -2572,7 +2578,7 @@ Parameters
 
    Item types: weapon
 
-.. _reloadtimemodifier:
+.. _item_reloadtimemodifier:
 
 **ReloadTimeModifier**
    Type: ``Any``
@@ -2581,7 +2587,7 @@ Parameters
 
    Item types: weaponpart
 
-.. _remotecontroller:
+.. _item_remotecontroller:
 
 **RemoteController**
    Type: ``Any``
@@ -2590,7 +2596,7 @@ Parameters
 
    Item types: normal
 
-.. _remoterange:
+.. _item_remoterange:
 
 **RemoteRange**
    Type: ``Any``
@@ -2599,7 +2605,7 @@ Parameters
 
    Item types: normal
 
-.. _removenegativeeffectoncooked:
+.. _item_removenegativeeffectoncooked:
 
 **RemoveNegativeEffectOnCooked**
    Type: ``Any``
@@ -2608,7 +2614,7 @@ Parameters
 
    Item types: food
 
-.. _removeonbroken:
+.. _item_removeonbroken:
 
 **RemoveOnBroken**
    Type: ``boolean``
@@ -2619,7 +2625,7 @@ Parameters
 
    Item types: clothing
 
-.. _removeunhappinesswhencooked:
+.. _item_removeunhappinesswhencooked:
 
 **RemoveUnhappinessWhenCooked**
    Type: ``Any``
@@ -2628,7 +2634,7 @@ Parameters
 
    Item types: food
 
-.. _replaceinprimaryhand:
+.. _item_replaceinprimaryhand:
 
 **ReplaceInPrimaryHand**
    Type: ``Any``
@@ -2637,7 +2643,7 @@ Parameters
 
    Item types: clothing, container, drainable, normal, radio
 
-.. _replaceinsecondhand:
+.. _item_replaceinsecondhand:
 
 **ReplaceInSecondHand**
    Type: ``Any``
@@ -2646,7 +2652,7 @@ Parameters
 
    Item types: clothing, container, drainable, normal, radio
 
-.. _replaceoncooked:
+.. _item_replaceoncooked:
 
 **ReplaceOnCooked**
    Type: ``Any``
@@ -2655,7 +2661,7 @@ Parameters
 
    Item types: food
 
-.. _replaceondeplete:
+.. _item_replaceondeplete:
 
 **ReplaceOnDeplete**
    Type: ``Any``
@@ -2664,7 +2670,7 @@ Parameters
 
    Item types: drainable
 
-.. _replaceonextinguish:
+.. _item_replaceonextinguish:
 
 **ReplaceOnExtinguish**
    Type: ``Any``
@@ -2673,7 +2679,7 @@ Parameters
 
    Item types: drainable
 
-.. _replaceonrotten:
+.. _item_replaceonrotten:
 
 **ReplaceOnRotten**
    Type: ``Any``
@@ -2682,7 +2688,7 @@ Parameters
 
    Item types: food
 
-.. _replaceonuse:
+.. _item_replaceonuse:
 
 **ReplaceOnUse**
    Type: ``Any``
@@ -2691,7 +2697,7 @@ Parameters
 
    Item types: food, normal
 
-.. _requireinhandorinventory:
+.. _item_requireinhandorinventory:
 
 **RequireInHandOrInventory**
    Type: ``Any``
@@ -2700,7 +2706,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _requiresequippedbothhands:
+.. _item_requiresequippedbothhands:
 
 **RequiresEquippedBothHands**
    Type: ``Any``
@@ -2709,7 +2715,7 @@ Parameters
 
    Item types: moveable, normal, weapon
 
-.. _researchablerecipes:
+.. _item_researchablerecipes:
 
 **Researchablerecipes**
    Type: ``array``
@@ -2718,7 +2724,7 @@ Parameters
 
    Item types: clothing, container, drainable, food, moveable, normal, radio, weapon
 
-.. _runanim:
+.. _item_runanim:
 
 **RunAnim**
    Type: ``string``
@@ -2729,7 +2735,7 @@ Parameters
 
    Item types: weapon
 
-.. _runspeedmodifier:
+.. _item_runspeedmodifier:
 
 **RunSpeedModifier**
    Type: ``float``
@@ -2740,7 +2746,7 @@ Parameters
 
    Item types: clothing, container, radio
 
-.. _scaleworldicon:
+.. _item_scaleworldicon:
 
 **ScaleWorldIcon**
    Type: ``float``
@@ -2751,7 +2757,7 @@ Parameters
 
    Item types: drainable
 
-.. _scratchdefense:
+.. _item_scratchdefense:
 
 **ScratchDefense**
    Type: ``Any``
@@ -2760,7 +2766,7 @@ Parameters
 
    Item types: clothing
 
-.. _secondaryanimmask:
+.. _item_secondaryanimmask:
 
 **secondaryAnimMask**
    Type: ``Any``
@@ -2769,7 +2775,7 @@ Parameters
 
    Item types: drainable, normal, weaponpart
 
-.. _sensorrange:
+.. _item_sensorrange:
 
 **SensorRange**
    Type: ``Any``
@@ -2778,7 +2784,7 @@ Parameters
 
    Item types: weapon
 
-.. _sharpness:
+.. _item_sharpness:
 
 **Sharpness**
    Type: ``Any``
@@ -2787,7 +2793,7 @@ Parameters
 
    Item types: normal, weapon
 
-.. _shellfallsound:
+.. _item_shellfallsound:
 
 **ShellFallSound**
    Type: ``Any``
@@ -2796,7 +2802,7 @@ Parameters
 
    Item types: weapon
 
-.. _shoutmultiplier:
+.. _item_shoutmultiplier:
 
 **ShoutMultiplier**
    Type: ``float``
@@ -2807,7 +2813,7 @@ Parameters
 
    Item types: clothing, normal
 
-.. _shouttype:
+.. _item_shouttype:
 
 **ShoutType**
    Type: ``Any``
@@ -2816,7 +2822,7 @@ Parameters
 
    Item types: clothing, normal
 
-.. _skilltrained:
+.. _item_skilltrained:
 
 **SkillTrained**
    Type: ``string``
@@ -2825,7 +2831,7 @@ Parameters
 
    Item types: literature
 
-.. _smokerange:
+.. _item_smokerange:
 
 **SmokeRange**
    Type: ``Any``
@@ -2834,7 +2840,7 @@ Parameters
 
    Item types: weapon
 
-.. _soundgain:
+.. _item_soundgain:
 
 **SoundGain**
    Type: ``float``
@@ -2845,7 +2851,7 @@ Parameters
 
    Item types: weapon
 
-.. _soundmap:
+.. _item_soundmap:
 
 **SoundMap**
    Type: ``Any``
@@ -2856,7 +2862,7 @@ Parameters
 
    Item types: drainable, food, weapon, weaponpart
 
-.. _soundparameter:
+.. _item_soundparameter:
 
 **SoundParameter**
    Type: ``Any``
@@ -2865,7 +2871,7 @@ Parameters
 
    Item types: container
 
-.. _soundradius:
+.. _item_soundradius:
 
 **SoundRadius**
    Type: ``Any``
@@ -2874,7 +2880,7 @@ Parameters
 
    Item types: alarmclock, alarmclockclothing, normal, weapon
 
-.. _soundvolume:
+.. _item_soundvolume:
 
 **SoundVolume**
    Type: ``Any``
@@ -2883,7 +2889,7 @@ Parameters
 
    Item types: normal, weapon
 
-.. _spawnwith:
+.. _item_spawnwith:
 
 **SpawnWith**
    Type: ``Any``
@@ -2892,7 +2898,7 @@ Parameters
 
    Item types: clothing
 
-.. _spice:
+.. _item_spice:
 
 **Spice**
    Type: ``Any``
@@ -2901,7 +2907,7 @@ Parameters
 
    Item types: drainable, food
 
-.. _splatbloodonnodeath:
+.. _item_splatbloodonnodeath:
 
 **SplatBloodOnNoDeath**
    Type: ``Any``
@@ -2910,7 +2916,7 @@ Parameters
 
    Item types: weapon
 
-.. _splatnumber:
+.. _item_splatnumber:
 
 **SplatNumber**
    Type: ``integer``
@@ -2921,7 +2927,7 @@ Parameters
 
    Item types: weapon
 
-.. _splatsize:
+.. _item_splatsize:
 
 **SplatSize**
    Type: ``float``
@@ -2932,7 +2938,7 @@ Parameters
 
    Item types: weapon
 
-.. _staticmodel:
+.. _item_staticmodel:
 
 **StaticModel**
    Type: ``Any``
@@ -2941,7 +2947,7 @@ Parameters
 
    Item types: clothing, container, drainable, food, literature, map, moveable, normal, radio, weaponpart
 
-.. _staticmodelsbyindex:
+.. _item_staticmodelsbyindex:
 
 **StaticModelsByIndex**
    Type: ``array``
@@ -2950,7 +2956,7 @@ Parameters
 
    Item types: food, literature, normal
 
-.. _stomppower:
+.. _item_stomppower:
 
 **StompPower**
    Type: ``float``
@@ -2961,7 +2967,7 @@ Parameters
 
    Item types: clothing
 
-.. _stoppower:
+.. _item_stoppower:
 
 **StopPower**
    Type: ``float``
@@ -2972,7 +2978,7 @@ Parameters
 
    Item types: weapon
 
-.. _stresschange:
+.. _item_stresschange:
 
 **StressChange**
    Type: ``Any``
@@ -2981,7 +2987,7 @@ Parameters
 
    Item types: drainable, food, literature
 
-.. _subcategory:
+.. _item_subcategory:
 
 **SubCategory**
    Type: ``string``
@@ -2990,7 +2996,7 @@ Parameters
 
    Item types: weapon
 
-.. _survivalgear:
+.. _item_survivalgear:
 
 **SurvivalGear**
    Type: ``Any``
@@ -2999,7 +3005,7 @@ Parameters
 
    Item types: container, drainable, food, map, normal, weapon
 
-.. _suspensioncompression:
+.. _item_suspensioncompression:
 
 **suspensionCompression**
    Type: ``Any``
@@ -3008,7 +3014,7 @@ Parameters
 
    Item types: normal
 
-.. _suspensiondamping:
+.. _item_suspensiondamping:
 
 **suspensionDamping**
    Type: ``Any``
@@ -3017,7 +3023,7 @@ Parameters
 
    Item types: normal
 
-.. _swingamountbeforeimpact:
+.. _item_swingamountbeforeimpact:
 
 **SwingAmountBeforeImpact**
    Type: ``Any``
@@ -3026,7 +3032,7 @@ Parameters
 
    Item types: weapon
 
-.. _swinganim:
+.. _item_swinganim:
 
 **SwingAnim**
    Type: ``string``
@@ -3037,7 +3043,7 @@ Parameters
 
    Item types: weapon
 
-.. _swingsound:
+.. _item_swingsound:
 
 **SwingSound**
    Type: ``Any``
@@ -3046,7 +3052,7 @@ Parameters
 
    Item types: weapon
 
-.. _swingtime:
+.. _item_swingtime:
 
 **Swingtime**
    Type: ``float``
@@ -3057,7 +3063,7 @@ Parameters
 
    Item types: weapon
 
-.. _tags:
+.. _item_tags:
 
 **Tags**
    Type: ``array``
@@ -3066,7 +3072,7 @@ Parameters
 
    Item types: alarmclock, alarmclockclothing, clothing, container, drainable, food, key, literature, map, moveable, normal, radio, weapon, weaponpart
 
-.. _thirstchange:
+.. _item_thirstchange:
 
 **ThirstChange**
    Type: ``Any``
@@ -3075,7 +3081,7 @@ Parameters
 
    Item types: food
 
-.. _ticksperequipuse:
+.. _item_ticksperequipuse:
 
 **ticksPerEquipUse**
    Type: ``integer``
@@ -3086,7 +3092,7 @@ Parameters
 
    Item types: drainable
 
-.. _tohitmodifier:
+.. _item_tohitmodifier:
 
 **ToHitModifier**
    Type: ``float``
@@ -3097,7 +3103,7 @@ Parameters
 
    Item types: weapon
 
-.. _tooltip:
+.. _item_tooltip:
 
 **Tooltip**
    Type: ``Any``
@@ -3106,7 +3112,7 @@ Parameters
 
    Item types: clothing, container, drainable, food, key, literature, moveable, normal, radio, weapon, weaponpart
 
-.. _torchcone:
+.. _item_torchcone:
 
 **TorchCone**
    Type: ``Any``
@@ -3115,7 +3121,7 @@ Parameters
 
    Item types: drainable, weaponpart
 
-.. _torchdot:
+.. _item_torchdot:
 
 **TorchDot**
    Type: ``float``
@@ -3126,7 +3132,7 @@ Parameters
 
    Item types: drainable, weaponpart
 
-.. _transmitrange:
+.. _item_transmitrange:
 
 **TransmitRange**
    Type: ``Any``
@@ -3135,7 +3141,7 @@ Parameters
 
    Item types: radio
 
-.. _trap:
+.. _item_trap:
 
 **Trap**
    Type: ``boolean``
@@ -3146,7 +3152,7 @@ Parameters
 
    Item types: normal
 
-.. _treedamage:
+.. _item_treedamage:
 
 **TreeDamage**
    Type: ``Any``
@@ -3155,7 +3161,7 @@ Parameters
 
    Item types: weapon
 
-.. _triggerexplosiontimer:
+.. _item_triggerexplosiontimer:
 
 **triggerExplosionTimer**
    Type: ``Any``
@@ -3164,7 +3170,7 @@ Parameters
 
    Item types: weapon
 
-.. _twohandweapon:
+.. _item_twohandweapon:
 
 **TwoHandWeapon**
    Type: ``Any``
@@ -3173,7 +3179,7 @@ Parameters
 
    Item types: weapon
 
-.. _twoway:
+.. _item_twoway:
 
 **TwoWay**
    Type: ``Any``
@@ -3182,7 +3188,7 @@ Parameters
 
    Item types: radio
 
-.. _type:
+.. _item_type:
 
 **Type**
    Type: ``Any``
@@ -3195,7 +3201,7 @@ Parameters
 
       Use :ref:`itemtype` instead.
 
-.. _unequipsound:
+.. _item_unequipsound:
 
 **UnequipSound**
    Type: ``Any``
@@ -3204,7 +3210,7 @@ Parameters
 
    Item types: drainable, normal, weapon
 
-.. _unhappychange:
+.. _item_unhappychange:
 
 **UnhappyChange**
    Type: ``Any``
@@ -3213,7 +3219,7 @@ Parameters
 
    Item types: drainable, food, literature
 
-.. _usedelta:
+.. _item_usedelta:
 
 **UseDelta**
    Type: ``float``
@@ -3224,7 +3230,7 @@ Parameters
 
    Item types: drainable, food, radio, weaponpart
 
-.. _useendurance:
+.. _item_useendurance:
 
 **UseEndurance**
    Type: ``boolean``
@@ -3235,7 +3241,7 @@ Parameters
 
    Item types: weapon
 
-.. _usesbattery:
+.. _item_usesbattery:
 
 **UsesBattery**
    Type: ``Any``
@@ -3244,7 +3250,7 @@ Parameters
 
    Item types: radio
 
-.. _useself:
+.. _item_useself:
 
 **UseSelf**
    Type: ``Any``
@@ -3253,7 +3259,7 @@ Parameters
 
    Item types: weapon
 
-.. _usewhileequipped:
+.. _item_usewhileequipped:
 
 **UseWhileEquipped**
    Type: ``boolean``
@@ -3264,7 +3270,7 @@ Parameters
 
    Item types: drainable, food, normal, radio
 
-.. _usewhileunequipped:
+.. _item_usewhileunequipped:
 
 **UseWhileUnequipped**
    Type: ``Any``
@@ -3273,7 +3279,7 @@ Parameters
 
    Item types: drainable
 
-.. _useworlditem:
+.. _item_useworlditem:
 
 **UseWorldItem**
    Type: ``Any``
@@ -3282,7 +3288,7 @@ Parameters
 
    Item types: drainable
 
-.. _vehiclepartmodel:
+.. _item_vehiclepartmodel:
 
 **VehiclePartModel**
    Type: ``Any``
@@ -3291,7 +3297,7 @@ Parameters
 
    Item types: normal
 
-.. _vehicletype:
+.. _item_vehicletype:
 
 **VehicleType**
    Type: ``Any``
@@ -3300,7 +3306,7 @@ Parameters
 
    Item types: drainable, normal
 
-.. _visionmodifier:
+.. _item_visionmodifier:
 
 **VisionModifier**
    Type: ``float``
@@ -3311,7 +3317,7 @@ Parameters
 
    Item types: clothing
 
-.. _visualaid:
+.. _item_visualaid:
 
 **VisualAid**
    Type: ``Any``
@@ -3320,7 +3326,7 @@ Parameters
 
    Item types: clothing
 
-.. _waterresistance:
+.. _item_waterresistance:
 
 **WaterResistance**
    Type: ``Any``
@@ -3329,7 +3335,7 @@ Parameters
 
    Item types: clothing
 
-.. _weaponhitarmoursound:
+.. _item_weaponhitarmoursound:
 
 **WeaponHitArmourSound**
    Type: ``Any``
@@ -3338,7 +3344,7 @@ Parameters
 
    Item types: clothing
 
-.. _weaponlength:
+.. _item_weaponlength:
 
 **WeaponLength**
    Type: ``float``
@@ -3349,7 +3355,7 @@ Parameters
 
    Item types: weapon
 
-.. _weaponreloadtype:
+.. _item_weaponreloadtype:
 
 **WeaponReloadType**
    Type: ``Any``
@@ -3358,7 +3364,7 @@ Parameters
 
    Item types: weapon
 
-.. _weaponsprite:
+.. _item_weaponsprite:
 
 **WeaponSprite**
    Type: ``Any``
@@ -3367,7 +3373,7 @@ Parameters
 
    Item types: weapon
 
-.. _weaponspritesbyindex:
+.. _item_weaponspritesbyindex:
 
 **WeaponSpritesByIndex**
    Type: ``Any``
@@ -3376,7 +3382,7 @@ Parameters
 
    Item types: weapon
 
-.. _weaponweight:
+.. _item_weaponweight:
 
 **WeaponWeight**
    Type: ``float``
@@ -3387,7 +3393,7 @@ Parameters
 
    Item types: weapon
 
-.. _weight:
+.. _item_weight:
 
 **Weight**
    Type: ``float``
@@ -3396,7 +3402,7 @@ Parameters
 
    Default: ``1.0``
 
-.. _weightempty:
+.. _item_weightempty:
 
 **WeightEmpty**
    Type: ``Any``
@@ -3405,7 +3411,7 @@ Parameters
 
    Item types: drainable, food, normal
 
-.. _weightmodifier:
+.. _item_weightmodifier:
 
 **WeightModifier**
    Type: ``Any``
@@ -3414,7 +3420,7 @@ Parameters
 
    Item types: weaponpart
 
-.. _weightreduction:
+.. _item_weightreduction:
 
 **WeightReduction**
    Type: ``Any``
@@ -3423,7 +3429,7 @@ Parameters
 
    Item types: container
 
-.. _wet:
+.. _item_wet:
 
 **Wet**
    Type: ``Any``
@@ -3432,7 +3438,7 @@ Parameters
 
    Item types: normal
 
-.. _wetcooldown:
+.. _item_wetcooldown:
 
 **WetCooldown**
    Type: ``Any``
@@ -3441,7 +3447,7 @@ Parameters
 
    Item types: normal
 
-.. _wheelfriction:
+.. _item_wheelfriction:
 
 **wheelFriction**
    Type: ``Any``
@@ -3450,7 +3456,7 @@ Parameters
 
    Item types: normal
 
-.. _windresistance:
+.. _item_windresistance:
 
 **WindResistance**
    Type: ``Any``
@@ -3459,7 +3465,7 @@ Parameters
 
    Item types: clothing, normal
 
-.. _withdrainable:
+.. _item_withdrainable:
 
 **WithDrainable**
    Type: ``Any``
@@ -3468,7 +3474,7 @@ Parameters
 
    Item types: clothing
 
-.. _withoutdrainable:
+.. _item_withoutdrainable:
 
 **WithoutDrainable**
    Type: ``Any``
@@ -3477,7 +3483,7 @@ Parameters
 
    Item types: clothing
 
-.. _worldobjectsprite:
+.. _item_worldobjectsprite:
 
 **WorldObjectSprite**
    Type: ``Any``
@@ -3486,14 +3492,14 @@ Parameters
 
    Item types: moveable, normal, radio
 
-.. _worldstaticmodel:
+.. _item_worldstaticmodel:
 
 **WorldStaticModel**
    Type: ``Any``
 
    No description
 
-.. _worldstaticmodelsbyindex:
+.. _item_worldstaticmodelsbyindex:
 
 **WorldStaticModelsByIndex**
    Type: ``array``

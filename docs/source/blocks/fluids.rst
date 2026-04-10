@@ -23,7 +23,7 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _fluid:
+.. _fluids_fluid:
 
 **fluid**
    Type: ``Any``

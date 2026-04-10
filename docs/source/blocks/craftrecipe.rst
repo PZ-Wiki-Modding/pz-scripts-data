@@ -36,7 +36,7 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _allowbatchcraft:
+.. _craftrecipe_allowbatchcraft:
 
 **AllowBatchCraft**
    Type: ``boolean``
@@ -45,7 +45,7 @@ Parameters
 
    Default: ``True``
 
-.. _autolearnall:
+.. _craftrecipe_autolearnall:
 
 **AutoLearnAll**
    Type: ``Any``
@@ -68,7 +68,7 @@ Parameters
    
       autoLearnAll = Carving:3;Maintenance:2,
 
-.. _autolearnany:
+.. _craftrecipe_autolearnany:
 
 **AutoLearnAny**
    Type: ``Any``
@@ -91,14 +91,14 @@ Parameters
    
       autoLearnAny = Carving:3;Maintenance:2,
 
-.. _category:
+.. _craftrecipe_category:
 
 **category**
    Type: ``Any``
 
    The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in the crafting menu. Currently doesn't support translations (confirmed last 42.15).
 
-.. _icon:
+.. _craftrecipe_icon:
 
 **Icon**
    Type: ``Any``
@@ -107,21 +107,21 @@ Parameters
    
    This seems to be used only once in the vanilla recipes with the entry Icon = "Item_WaterDrop", as the icon usually defaults to the items that will be crafted.
 
-.. _metarecipe:
+.. _craftrecipe_metarecipe:
 
 **MetaRecipe**
    Type: ``Any``
 
    A meta recipe is used to link two recipes so that if the meta recipe is known then this recipe will be known.
 
-.. _needtobelearn:
+.. _craftrecipe_needtobelearn:
 
 **NeedToBeLearn**
    Type: ``Any``
 
    Whether the recipe needs to be learned before it can be crafted.
 
-.. _oncreate:
+.. _craftrecipe_oncreate:
 
 **OnCreate**
    Type: ``Any``
@@ -138,7 +138,7 @@ Parameters
    
    The ``craftRecipeData`` is a `java object <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/entity/components/crafting/recipe/CraftRecipeData.html>`_ that contains the data of the crafting recipe. The ``character`` is the player character who is crafting the recipe.
 
-.. _ontest:
+.. _craftrecipe_ontest:
 
 **OnTest**
    Type: ``Any``
@@ -156,35 +156,35 @@ Parameters
    
    ``item`` is an InventoryItem while ``character`` is the player trying to craft this recipe.
 
-.. _overlaystyle:
+.. _craftrecipe_overlaystyle:
 
 **overlayStyle**
    Type: ``Any``
 
    No description
 
-.. _recipegroup:
+.. _craftrecipe_recipegroup:
 
 **recipeGroup**
    Type: ``Any``
 
    No description
 
-.. _researchany:
+.. _craftrecipe_researchany:
 
 **ResearchAny**
    Type: ``Any``
 
    No description
 
-.. _researchskilllevel:
+.. _craftrecipe_researchskilllevel:
 
 **ResearchSkillLevel**
    Type: ``Any``
 
    No description
 
-.. _skillrequired:
+.. _craftrecipe_skillrequired:
 
 **SkillRequired**
    Type: ``Any``
@@ -207,7 +207,7 @@ Parameters
    
       skillRequired = Blacksmith:3;Tailoring:2,
 
-.. _tags:
+.. _craftrecipe_tags:
 
 **tags**
    Type: ``array`` *(required)*
@@ -228,7 +228,7 @@ Parameters
    
       Tags = InHandCraft;CanAlwaysBeResearched,
 
-.. _time:
+.. _craftrecipe_time:
 
 **time**
    Type: ``Any``
@@ -237,21 +237,21 @@ Parameters
 
    Default: ``50``
 
-.. _timedaction:
+.. _craftrecipe_timedaction:
 
 **timedAction**
    Type: ``Any``
 
    Refers to a timed action script block, used to trigger during the crafting process, for animations and/or sounds but also the calories burned and body heat generation.
 
-.. _tooltip:
+.. _craftrecipe_tooltip:
 
 **Tooltip**
    Type: ``Any``
 
    Description of the crafting which is shown in the crafting menu.
 
-.. _xpaward:
+.. _craftrecipe_xpaward:
 
 **xpAward**
    Type: ``Any``

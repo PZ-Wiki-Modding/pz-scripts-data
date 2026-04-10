@@ -17,16 +17,5 @@ Hierarchy
 ID Properties
 -------------
 
-This block should not have an ID.
-
-
-Parameters
-----------
-
-.. _openable:
-
-**openable**
-   Type: ``boolean``
-
-   No description
+This block should have an ID.
 

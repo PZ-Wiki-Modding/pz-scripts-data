@@ -21,42 +21,42 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _author:
+.. _root-modinfo_author:
 
 **author**
    Type: ``string``
 
    Name of the author(s) of the mod. Multiple authors are often separated by commas but no convention exists.
 
-.. _category:
+.. _root-modinfo_category:
 
 **category**
    Type: ``string``
 
    Category is used for filtering mods in the in-game ModManager. Known categories are "map", "vehicle", "features", "modpack". Using other terms will not generate a new filter category.
 
-.. _description:
+.. _root-modinfo_description:
 
 **description**
    Type: ``string``
 
    Description of your mod, which shows up in the mod manager. The description supports `ISRichTextPanel <https://pzwiki.net/wiki/ISRichTextPanel>`_ tags. A translation can be provided in the `Mod.json translation file <https://pzwiki.net/wiki/Translation>`_.
 
-.. _icon:
+.. _root-modinfo_icon:
 
 **icon**
    Type: ``string``
 
    Image which will be used in the mod manager to put next to the name of the mod in the list of available mods. This image will be small and while you can use a full image size, you do not need it. You can set your poster as the icon too to not ship two images if desired.
 
-.. _id:
+.. _root-modinfo_id:
 
 **id**
    Type: ``string``
 
    The unique identifier of the mod, used in a mod list of the user or servers to activate the mod. Make sure to use something unique which isn't shared between mods. **Note:** This is not the same as the `Workshop ID <https://pzwiki.net/wiki/Workshop_ID>`_.
 
-.. _incompatible:
+.. _root-modinfo_incompatible:
 
 **incompatible**
    Type: ``string``
@@ -69,7 +69,7 @@ Parameters
    
       incompatible=theUnwantedMod,theOtherOne
 
-.. _loadmodafter:
+.. _root-modinfo_loadmodafter:
 
 **loadModAfter**
    Type: ``string``
@@ -82,7 +82,7 @@ Parameters
    
       loadModAfter=someMod,anotherMod
 
-.. _loadmodbefore:
+.. _root-modinfo_loadmodbefore:
 
 **loadModBefore**
    Type: ``string``
@@ -95,28 +95,28 @@ Parameters
    
       loadModBefore=someMod,anotherMod
 
-.. _modversion:
+.. _root-modinfo_modversion:
 
 **modversion**
    Type: ``string``
 
    Version of the mod.
 
-.. _name:
+.. _root-modinfo_name:
 
 **name**
    Type: ``string``
 
    The displayed name for your mod in the game's mod manager. A translation can be provided in the `Mod.json translation file <https://pzwiki.net/wiki/Translation>`_.
 
-.. _pack:
+.. _root-modinfo_pack:
 
 **pack**
    Type: ``string``
 
    Name of pack files that need to be loaded by the game. Notably used for `Texture pack <https://pzwiki.net/wiki/Texture_pack>`_ and `Tile pack <https://pzwiki.net/wiki/Mapping>`_.
 
-.. _poster:
+.. _root-modinfo_poster:
 
 **poster**
    Type: ``string``
@@ -143,7 +143,7 @@ Parameters
 
    Can be duplicated: ✓
 
-.. _require:
+.. _root-modinfo_require:
 
 **require**
    Type: ``string``
@@ -156,7 +156,7 @@ Parameters
    
       require=theNeededMod,theOtherOne
 
-.. _tiledef:
+.. _root-modinfo_tiledef:
 
 **tiledef**
    Type: ``string``
@@ -171,21 +171,21 @@ Parameters
    
    If you upload your mod with a new tiledef ID, you can update the list to reduce the chance of incompatibility with other mods adding tile packs.
 
-.. _url:
+.. _root-modinfo_url:
 
 **url**
    Type: ``string``
 
    Shows a URL link in the mod manager on the page of your mod for users to click on to open in their internet browser. The parameter appears as "Homepage" in the mod manager. For a list of valid links, see `URL <https://pzwiki.net/wiki/URL>`_.
 
-.. _versionmax:
+.. _root-modinfo_versionmax:
 
 **versionMax**
    Type: ``string``
 
    The maximum version of the game the mod can be used on. This number needs to be in the format ``build.major`` at the very least, and not just ``build`` or it won't work. Example ``42.12``.
 
-.. _versionmin:
+.. _root-modinfo_versionmin:
 
 **versionMin**
    Type: ``string``

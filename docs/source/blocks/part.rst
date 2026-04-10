@@ -33,21 +33,21 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _extents:
+.. _part_extents:
 
 **extents**
    Type: ``Any``
 
    No description
 
-.. _offset:
+.. _part_offset:
 
 **offset**
    Type: ``Any``
 
    No description
 
-.. _rotate:
+.. _part_rotate:
 
 **rotate**
    Type: ``Any``

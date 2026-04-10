@@ -35,392 +35,392 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _animaltrailersize:
+.. _vehicle_animaltrailersize:
 
 **animalTrailerSize**
    Type: ``Any``
 
    No description
 
-.. _area:
+.. _vehicle_area:
 
 **area**
    Type: ``Any``
 
    No description
 
-.. _attachment:
+.. _vehicle_attachment:
 
 **attachment**
    Type: ``Any``
 
    No description
 
-.. _brakingforce:
+.. _vehicle_brakingforce:
 
 **brakingForce**
    Type: ``Any``
 
    No description
 
-.. _carmechanicsoverlay:
+.. _vehicle_carmechanicsoverlay:
 
 **carMechanicsOverlay**
    Type: ``Any``
 
    No description
 
-.. _carmodelname:
+.. _vehicle_carmodelname:
 
 **carModelName**
    Type: ``Any``
 
    No description
 
-.. _centerofmassoffset:
+.. _vehicle_centerofmassoffset:
 
 **centerOfMassOffset**
    Type: ``Any``
 
    No description
 
-.. _engineforce:
+.. _vehicle_engineforce:
 
 **engineForce**
    Type: ``Any``
 
    No description
 
-.. _engineloudness:
+.. _vehicle_engineloudness:
 
 **engineLoudness**
    Type: ``Any``
 
    No description
 
-.. _enginequality:
+.. _vehicle_enginequality:
 
 **engineQuality**
    Type: ``Any``
 
    No description
 
-.. _enginerepairlevel:
+.. _vehicle_enginerepairlevel:
 
 **engineRepairLevel**
    Type: ``Any``
 
    No description
 
-.. _enginerpmtype:
+.. _vehicle_enginerpmtype:
 
 **engineRPMType**
    Type: ``Any``
 
    No description
 
-.. _extents:
+.. _vehicle_extents:
 
 **extents**
    Type: ``Any``
 
    No description
 
-.. _extentsoffset:
+.. _vehicle_extentsoffset:
 
 **extentsOffset**
    Type: ``Any``
 
    No description
 
-.. _frontendhealth:
+.. _vehicle_frontendhealth:
 
 **frontEndHealth**
    Type: ``Any``
 
    No description
 
-.. _gearratio1:
+.. _vehicle_gearratio1:
 
 **gearRatio1**
    Type: ``Any``
 
    No description
 
-.. _gearratio2:
+.. _vehicle_gearratio2:
 
 **gearRatio2**
    Type: ``Any``
 
    No description
 
-.. _gearratio3:
+.. _vehicle_gearratio3:
 
 **gearRatio3**
    Type: ``Any``
 
    No description
 
-.. _gearratio4:
+.. _vehicle_gearratio4:
 
 **gearRatio4**
    Type: ``Any``
 
    No description
 
-.. _gearratio5:
+.. _vehicle_gearratio5:
 
 **gearRatio5**
    Type: ``Any``
 
    No description
 
-.. _gearratiocount:
+.. _vehicle_gearratiocount:
 
 **gearRatioCount**
    Type: ``Any``
 
    No description
 
-.. _gearratior:
+.. _vehicle_gearratior:
 
 **gearRatioR**
    Type: ``Any``
 
    No description
 
-.. _issmallvehicle:
+.. _vehicle_issmallvehicle:
 
 **isSmallVehicle**
    Type: ``Any``
 
    No description
 
-.. _lightbar:
+.. _vehicle_lightbar:
 
 **lightbar**
    Type: ``Any``
 
    No description
 
-.. _mass:
+.. _vehicle_mass:
 
 **mass**
    Type: ``Any``
 
    No description
 
-.. _maxspeed:
+.. _vehicle_maxspeed:
 
 **maxSpeed**
    Type: ``Any``
 
    No description
 
-.. _maxsuspensiontravelcm:
+.. _vehicle_maxsuspensiontravelcm:
 
 **maxSuspensionTravelCm**
    Type: ``Any``
 
    No description
 
-.. _mechanictype:
+.. _vehicle_mechanictype:
 
 **mechanicType**
    Type: ``Any``
 
    No description
 
-.. _model:
+.. _vehicle_model:
 
 **model**
    Type: ``Any``
 
    No description
 
-.. _neverspawnkey:
+.. _vehicle_neverspawnkey:
 
 **neverSpawnKey**
    Type: ``Any``
 
    No description
 
-.. _offroadefficiency:
+.. _vehicle_offroadefficiency:
 
 **offRoadEfficiency**
    Type: ``Any``
 
    No description
 
-.. _part:
+.. _vehicle_part:
 
 **part**
    Type: ``Any``
 
    No description
 
-.. _passenger:
+.. _vehicle_passenger:
 
 **passenger**
    Type: ``Any``
 
    No description
 
-.. _physics:
+.. _vehicle_physics:
 
 **physics**
    Type: ``Any``
 
    No description
 
-.. _physicschassisshape:
+.. _vehicle_physicschassisshape:
 
 **physicsChassisShape**
    Type: ``Any``
 
    No description
 
-.. _playerdamageprotection:
+.. _vehicle_playerdamageprotection:
 
 **playerDamageProtection**
    Type: ``Any``
 
    No description
 
-.. _rearendhealth:
+.. _vehicle_rearendhealth:
 
 **rearEndHealth**
    Type: ``Any``
 
    No description
 
-.. _rollinfluence:
+.. _vehicle_rollinfluence:
 
 **rollInfluence**
    Type: ``Any``
 
    No description
 
-.. _seatnumber:
+.. _vehicle_seatnumber:
 
 **seatNumber**
    Type: ``Any``
 
    No description
 
-.. _seats:
+.. _vehicle_seats:
 
 **seats**
    Type: ``Any``
 
    No description
 
-.. _shadowextents:
+.. _vehicle_shadowextents:
 
 **shadowExtents**
    Type: ``Any``
 
    No description
 
-.. _shadowoffset:
+.. _vehicle_shadowoffset:
 
 **shadowOffset**
    Type: ``Any``
 
    No description
 
-.. _skin:
+.. _vehicle_skin:
 
 **skin**
    Type: ``Any``
 
    No description
 
-.. _sound:
+.. _vehicle_sound:
 
 **sound**
    Type: ``Any``
 
    No description
 
-.. _spawnoffsety:
+.. _vehicle_spawnoffsety:
 
 **spawnOffsetY**
    Type: ``Any``
 
    No description
 
-.. _specialkeyring:
+.. _vehicle_specialkeyring:
 
 **specialKeyRing**
    Type: ``Any``
 
    No description
 
-.. _specialkeyringchance:
+.. _vehicle_specialkeyringchance:
 
 **specialKeyRingChance**
    Type: ``Any``
 
    No description
 
-.. _speciallootchance:
+.. _vehicle_speciallootchance:
 
 **specialLootChance**
    Type: ``Any``
 
    No description
 
-.. _steeringclamp:
+.. _vehicle_steeringclamp:
 
 **steeringClamp**
    Type: ``Any``
 
    No description
 
-.. _steeringincrement:
+.. _vehicle_steeringincrement:
 
 **steeringIncrement**
    Type: ``Any``
 
    No description
 
-.. _stoppingmovementforce:
+.. _vehicle_stoppingmovementforce:
 
 **stoppingMovementForce**
    Type: ``Any``
 
    No description
 
-.. _suspensioncompression:
+.. _vehicle_suspensioncompression:
 
 **suspensionCompression**
    Type: ``Any``
 
    No description
 
-.. _suspensiondamping:
+.. _vehicle_suspensiondamping:
 
 **suspensionDamping**
    Type: ``Any``
 
    No description
 
-.. _suspensionrestlength:
+.. _vehicle_suspensionrestlength:
 
 **suspensionRestLength**
    Type: ``Any``
 
    No description
 
-.. _suspensionstiffness:
+.. _vehicle_suspensionstiffness:
 
 **suspensionStiffness**
    Type: ``Any``
 
    No description
 
-.. _template:
+.. _vehicle_template:
 
 **template**
    Type: ``Any``
@@ -429,7 +429,7 @@ Parameters
 
    Can be duplicated: ✓
 
-.. _template!:
+.. _vehicle_template!:
 
 **template!**
    Type: ``Any``
@@ -438,77 +438,77 @@ Parameters
 
    Can be duplicated: ✓
 
-.. _texturedamage1overlay:
+.. _vehicle_texturedamage1overlay:
 
 **textureDamage1Overlay**
    Type: ``Any``
 
    No description
 
-.. _texturedamage1shell:
+.. _vehicle_texturedamage1shell:
 
 **textureDamage1Shell**
    Type: ``Any``
 
    No description
 
-.. _texturedamage2overlay:
+.. _vehicle_texturedamage2overlay:
 
 **textureDamage2Overlay**
    Type: ``Any``
 
    No description
 
-.. _texturedamage2shell:
+.. _vehicle_texturedamage2shell:
 
 **textureDamage2Shell**
    Type: ``Any``
 
    No description
 
-.. _texturelights:
+.. _vehicle_texturelights:
 
 **textureLights**
    Type: ``Any``
 
    No description
 
-.. _texturemask:
+.. _vehicle_texturemask:
 
 **textureMask**
    Type: ``Any``
 
    No description
 
-.. _texturerust:
+.. _vehicle_texturerust:
 
 **textureRust**
    Type: ``Any``
 
    No description
 
-.. _usechassisphysicscollision:
+.. _vehicle_usechassisphysicscollision:
 
 **useChassisPhysicsCollision**
    Type: ``Any``
 
    No description
 
-.. _wheel:
+.. _vehicle_wheel:
 
 **wheel**
    Type: ``Any``
 
    No description
 
-.. _wheelfriction:
+.. _vehicle_wheelfriction:
 
 **wheelFriction**
    Type: ``Any``
 
    No description
 
-.. _zombietype:
+.. _vehicle_zombietype:
 
 **zombieType**
    Type: ``Any``

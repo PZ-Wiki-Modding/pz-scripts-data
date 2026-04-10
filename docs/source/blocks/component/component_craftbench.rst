@@ -23,7 +23,7 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _recipes:
+.. _component_craftbench_recipes:
 
 **Recipes**
    Type: ``array``

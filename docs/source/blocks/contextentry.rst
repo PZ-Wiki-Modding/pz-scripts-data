@@ -23,14 +23,14 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _customfunction:
+.. _contextentry_customfunction:
 
 **customFunction**
    Type: ``Any``
 
    No description
 
-.. _menu:
+.. _contextentry_menu:
 
 **menu**
    Type: ``Any``

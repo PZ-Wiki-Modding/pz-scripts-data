@@ -23,7 +23,7 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _blendtile:
+.. _blend_blendtile:
 
 **blendTile**
    Type: ``Any``
@@ -74,7 +74,7 @@ Parameters
         treez1
       ]
 
-.. _dir:
+.. _blend_dir:
 
 **dir**
    Type: ``Any``
@@ -92,7 +92,7 @@ Parameters
    - ``w``
    - ``nw``
 
-.. _exclude:
+.. _blend_exclude:
 
 **exclude**
    Type: ``Any``
@@ -107,21 +107,21 @@ Parameters
    
    Where each entries separated by a space are an alias.
 
-.. _exclude2:
+.. _blend_exclude2:
 
 **exclude2**
    Type: ``Any``
 
    No description
 
-.. _layer:
+.. _blend_layer:
 
 **layer**
    Type: ``Any``
 
    The layer the blend rule applies to. Should be one of the layers defined in the ``TMXconfig.txt`` file.
 
-.. _maintile:
+.. _blend_maintile:
 
 **mainTile**
    Type: ``Any``

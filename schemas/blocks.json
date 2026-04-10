@@ -98,6 +98,10 @@
             "type": "string",
             "description": "A reference to another block parameter."
           },
+          "#desc": {
+            "type": "string",
+            "description": "A reference to the description of another block parameter. This allows sharing the same description between multiple parameters without using #ref, which would also share other properties."
+          },
           "description": {
             "type": "string",
             "description": "A brief description of what the parameter does."
@@ -112,7 +116,7 @@
           },
           "itemTypes": {
             "type": "array",
-            "description": "Specifies the type of item the parameter is associated with (e.g., 'vehicle', 'item', etc.). Only for item scripts.",
+            "description": "DEPRECATED: Specifies the type of item the parameter is associated with (e.g., 'vehicle', 'item', etc.). Only for item scripts.",
             "items": { "type": "string" }
           },
           "parentsOnly": {

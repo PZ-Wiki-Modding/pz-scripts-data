@@ -23,63 +23,63 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _charactertrait:
+.. _character_trait_definition_charactertrait:
 
 **CharacterTrait**
    Type: ``string`` *(required)*
 
    The registries trait definition ID to link to. see the wiki page about `registries <https://pzwiki.net/wiki/Registries>`_ for more information.
 
-.. _cost:
+.. _character_trait_definition_cost:
 
 **Cost**
    Type: ``integer`` *(required)*
 
    The cost of the trait when selecting a character. Negative values give points, positive values take points.
 
-.. _disabledinmultiplayer:
+.. _character_trait_definition_disabledinmultiplayer:
 
 **DisabledInMultiplayer**
    Type: ``boolean`` *(required)*
 
    If true, this trait will be disabled in multiplayer games.
 
-.. _grantedrecipes:
+.. _character_trait_definition_grantedrecipes:
 
 **GrantedRecipes**
    Type: ``array``
 
    A list of `craftRecipe <https://pzwiki.net/wiki/CraftRecipe>`_ IDs that are granted to the character when this trait is selected.
 
-.. _isprofessiontrait:
+.. _character_trait_definition_isprofessiontrait:
 
 **IsProfessionTrait**
    Type: ``boolean`` *(required)*
 
    Defines whenever the trait is a profession trait or not, meaning it will only be available when selecting a profession.
 
-.. _mutuallyexclusivetraits:
+.. _character_trait_definition_mutuallyexclusivetraits:
 
 **MutuallyExclusiveTraits**
    Type: ``array``
 
    A list of trait IDs that are mutually exclusive with this trait. If one is selected, the others cannot be selected.
 
-.. _uidescription:
+.. _character_trait_definition_uidescription:
 
 **UIDescription**
    Type: ``string`` *(required)*
 
    The translation key for the trait's description. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
 
-.. _uiname:
+.. _character_trait_definition_uiname:
 
 **UIName**
    Type: ``string`` *(required)*
 
    The translation key for the trait's name. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
 
-.. _xpboosts:
+.. _character_trait_definition_xpboosts:
 
 **XPBoosts**
    Type: ``array``

@@ -41,6 +41,7 @@ for block_key, block_data in blocks.items():
     parameter = block_data.get('parameters', {})
     for param_key, param_data in parameter.items():
         if '#ref' in param_data:
+            original_name = param_data['name']
             ref_key = param_data['#ref']
             path = ref_key.split('/')
             assert len(path) == 2, f"Invalid #ref format for '{ref_key}' in block '{block_key}' parameter '{param_key}'. Needs to be in format 'BlockName/ParameterName'."
@@ -50,7 +51,22 @@ for block_key, block_data in blocks.items():
             new_param_data = blocks[origin_block]['parameters'][origin_param].copy()
             parameter[param_key] = new_param_data
 
-            param_data.pop('#ref')
+            # restore original name and #ref
+            parameter[param_key]['name'] = original_name
+            parameter[param_key]['#ref'] = ref_key
+
+            # param_data.pop('#ref')
+
+        if '#desc' in param_data:
+            original_name = param_data['name']
+            desc_key = param_data['#desc']
+            path = desc_key.split('/')
+            assert len(path) == 2, f"Invalid #desc format for '{desc_key}' in block '{block_key}' parameter '{param_key}'. Needs to be in format 'BlockName/ParameterName'."
+            origin_block = path[0]
+            origin_param = path[1].lower()
+
+            # only copy description
+            param_data['description'] = blocks[origin_block]['parameters'][origin_param]['description']
 
 os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
 with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:

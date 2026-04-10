@@ -33,147 +33,147 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _animationsmesh:
+.. _model_animationsmesh:
 
 **animationsMesh**
    Type: ``Any``
 
    No description
 
-.. _attachmentparent:
+.. _model_attachmentparent:
 
 **attachmentParent**
    Type: ``Any``
 
    No description
 
-.. _attachmentself:
+.. _model_attachmentself:
 
 **attachmentSelf**
    Type: ``Any``
 
    No description
 
-.. _boneweight:
+.. _model_boneweight:
 
 **boneWeight**
    Type: ``Any``
 
    No description
 
-.. _colorblue:
+.. _model_colorblue:
 
 **ColorBlue**
    Type: ``Any``
 
    No description
 
-.. _colorgreen:
+.. _model_colorgreen:
 
 **ColorGreen**
    Type: ``Any``
 
    No description
 
-.. _colorred:
+.. _model_colorred:
 
 **ColorRed**
    Type: ``Any``
 
    No description
 
-.. _cullface:
+.. _model_cullface:
 
 **cullFace**
    Type: ``Any``
 
    No description
 
-.. _file:
+.. _model_file:
 
 **file**
    Type: ``Any``
 
    No description
 
-.. _ignorevehiclescale:
+.. _model_ignorevehiclescale:
 
 **ignoreVehicleScale**
    Type: ``Any``
 
    No description
 
-.. _invertx:
+.. _model_invertx:
 
 **invertX**
    Type: ``Any``
 
    No description
 
-.. _mesh:
+.. _model_mesh:
 
 **mesh**
    Type: ``Any``
 
    No description
 
-.. _offset:
+.. _model_offset:
 
 **offset**
    Type: ``Any``
 
    No description
 
-.. _postprocess:
+.. _model_postprocess:
 
 **postProcess**
    Type: ``Any``
 
    No description
 
-.. _rotate:
+.. _model_rotate:
 
 **rotate**
    Type: ``Any``
 
    No description
 
-.. _scale:
+.. _model_scale:
 
 **scale**
    Type: ``float``
 
    Used to scale the model up or down.
 
-.. _shader:
+.. _model_shader:
 
 **shader**
    Type: ``Any``
 
    No description
 
-.. _specialkeyring:
+.. _model_specialkeyring:
 
 **specialKeyRing**
    Type: ``Any``
 
    No description
 
-.. _static:
+.. _model_static:
 
 **static**
    Type: ``Any``
 
    No description
 
-.. _texture:
+.. _model_texture:
 
 **texture**
    Type: ``Any``
 
    No description
 
-.. _undocorescale:
+.. _model_undocorescale:
 
 **undoCoreScale**
    Type: ``Any``

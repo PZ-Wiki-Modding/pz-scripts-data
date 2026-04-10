@@ -30,14 +30,14 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _colorreference:
+.. _fluid_colorreference:
 
 **ColorReference**
    Type: ``Any``
 
    No description
 
-.. _displayname:
+.. _fluid_displayname:
 
 **DisplayName**
    Type: ``Any``

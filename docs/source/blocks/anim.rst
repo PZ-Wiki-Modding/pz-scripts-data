@@ -24,42 +24,42 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _angle:
+.. _anim_angle:
 
 **angle**
    Type: ``Any``
 
    No description
 
-.. _anim:
+.. _anim_anim:
 
 **anim**
    Type: ``Any``
 
    No description
 
-.. _animate:
+.. _anim_animate:
 
 **animate**
    Type: ``Any``
 
    No description
 
-.. _rate:
+.. _anim_rate:
 
 **rate**
    Type: ``Any``
 
    No description
 
-.. _reverse:
+.. _anim_reverse:
 
 **reverse**
    Type: ``Any``
 
    No description
 
-.. _sound:
+.. _anim_sound:
 
 **sound**
    Type: ``Any``

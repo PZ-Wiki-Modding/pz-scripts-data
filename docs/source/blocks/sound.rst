@@ -51,98 +51,98 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _alarm:
+.. _sound_alarm:
 
 **alarm**
    Type: ``array``
 
    No description
 
-.. _alarmloop:
+.. _sound_alarmloop:
 
 **alarmLoop**
    Type: ``Any``
 
    No description
 
-.. _backsignal:
+.. _sound_backsignal:
 
 **backSignal**
    Type: ``string``
 
    No description
 
-.. _category:
+.. _sound_category:
 
 **category**
    Type: ``string``
 
    No description
 
-.. _engine:
+.. _sound_engine:
 
 **engine**
    Type: ``string``
 
    No description
 
-.. _enginestart:
+.. _sound_enginestart:
 
 **engineStart**
    Type: ``string``
 
    No description
 
-.. _engineturnoff:
+.. _sound_engineturnoff:
 
 **engineTurnOff**
    Type: ``string``
 
    No description
 
-.. _handbrake:
+.. _sound_handbrake:
 
 **handBrake**
    Type: ``string``
 
    No description
 
-.. _horn:
+.. _sound_horn:
 
 **horn**
    Type: ``string``
 
    No description
 
-.. _ignitionfail:
+.. _sound_ignitionfail:
 
 **ignitionFail**
    Type: ``Any``
 
    No description
 
-.. _ignitionfailnopower:
+.. _sound_ignitionfailnopower:
 
 **ignitionFailNoPower**
    Type: ``string``
 
    No description
 
-.. _is3d:
+.. _sound_is3d:
 
 **is3D**
    Type: ``string``
 
    This parameter looks unused.
 
-.. _loop:
+.. _sound_loop:
 
 **loop**
    Type: ``boolean``
 
    Whether the sound should loop or not. The sound plays until turned off or the emitter is destroyed.
 
-.. _master:
+.. _sound_master:
 
 **master**
    Type: ``string``
@@ -156,7 +156,7 @@ Parameters
    - ``Music``
    - ``VehicleEngine``
 
-.. _maxinstancesperemitter:
+.. _sound_maxinstancesperemitter:
 
 **maxInstancesPerEmitter**
    Type: ``integer``

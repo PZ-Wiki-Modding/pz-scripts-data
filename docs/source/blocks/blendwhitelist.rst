@@ -27,7 +27,7 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _whitelist:
+.. _blendwhitelist_whitelist:
 
 **whitelist**
    Type: ``boolean``

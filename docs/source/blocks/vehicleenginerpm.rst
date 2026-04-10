@@ -27,7 +27,7 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _version:
+.. _vehicleenginerpm_version:
 
 **VERSION**
    Type: ``integer``

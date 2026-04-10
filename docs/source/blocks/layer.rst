@@ -23,7 +23,7 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _row:
+.. _layer_row:
 
 **row**
    Type: ``Any``

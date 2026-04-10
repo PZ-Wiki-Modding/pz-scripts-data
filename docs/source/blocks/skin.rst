@@ -24,7 +24,7 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _texture:
+.. _skin_texture:
 
 **texture**
    Type: ``Any``

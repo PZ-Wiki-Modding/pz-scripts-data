@@ -31,49 +31,49 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _health:
+.. _component_spriteconfig_health:
 
 **health**
    Type: ``integer``
 
    No description
 
-.. _isprop:
+.. _component_spriteconfig_isprop:
 
 **isProp**
    Type: ``Any``
 
    No description
 
-.. _isthumpable:
+.. _component_spriteconfig_isthumpable:
 
 **isThumpable**
    Type: ``Any``
 
    No description
 
-.. _oncreate:
+.. _component_spriteconfig_oncreate:
 
 **OnCreate**
    Type: ``Any``
 
    No description
 
-.. _onisvalid:
+.. _component_spriteconfig_onisvalid:
 
 **OnIsValid**
    Type: ``Any``
 
    No description
 
-.. _skillbasehealth:
+.. _component_spriteconfig_skillbasehealth:
 
 **skillBaseHealth**
    Type: ``integer``
 
    No description
 
-.. _timedactiononisvalid:
+.. _component_spriteconfig_timedactiononisvalid:
 
 **TimedActionOnIsValid**
    Type: ``Any``

@@ -3,7 +3,7 @@
 Auto-generates Sphinx documentation from YAML block definitions.
 """
 
-import os, sys, yaml, shutil
+import os, sys, yaml, shutil, json
 from m2r import convert
 from pathlib import Path
 from typing import Dict, List, Any, Optional
@@ -146,7 +146,7 @@ class ScriptBlock:
         rst = "\nParameters\n----------\n\n"
 
         # sort parameters by their lowcase name
-        parameters = sorted(parameters, key=lambda p: p.get('name', '').lower())
+        parameters = sorted(parameters.values(), key=lambda p: p.get('name', '').lower())
         
         for param in parameters:
             name = param.get('name', 'Unknown')
@@ -156,11 +156,18 @@ class ScriptBlock:
             default = param.get('default')
             
             # Add RST reference label for anchor linking
-            label = name.replace(' ', '-').lower()
+            label = f"{_get_block_link(self.name)}_{name.replace(' ', '-').lower()}"
             rst += f".. _{label}:\n\n"
             
             # Parameter name as definition
             rst += f"**{name}**\n"
+
+            ref = param.get('#ref', None)
+            isRef = ref is not None
+            if isRef:
+                block_name, param_name = ref.split('/')
+                rst += f" (see :ref:`{_get_block_link(block_name)}_{param_name.replace(' ', '-').lower()}`)\n"
+
             
             # Type and required status
             type_info = f"Type: ``{param_type}``"
@@ -290,32 +297,45 @@ class ScriptBlock:
 class BlockDocumentationGenerator:
     """Generates RST documentation from YAML block definitions."""
     
-    def __init__(self, blocks_dir: Path, output_dir: Path):
+    def __init__(self, blocks_file: Path, output_dir: Path):
         """
         Initialize the generator.
         
         Args:
-            blocks_dir: Path to the blocks directory
+            blocks_file: Path to the blocks JSON file
             output_dir: Path to output documentation directory
         """
-        self.blocks_dir = blocks_dir
+        self.blocks_file = blocks_file
         self.output_dir = output_dir
         # blocks_map: Dict[str, ScriptBlock] = {}
 
     def load_blocks(self) -> None:
-        """Load all block definitions from YAML files."""
-        yaml_files = sorted(self.blocks_dir.glob('*.yaml'))
-        
-        for yaml_file in yaml_files:
-            try:
-                with open(yaml_file, 'r') as f:
-                    block_data: dict = yaml.safe_load(f)
+        """Load all block definitions from the JSON file."""
+        try:
+            with open(self.blocks_file, 'r') as f:
+                blocks_data = json.load(f)
+                blocks = sorted(blocks_data.values(), key=lambda b: b.get('name', '').lower())
+                for block_data in blocks:
                     if block_data and 'name' in block_data and not 'deprecated' in block_data:
                         # if block_data['name'].startswith('_'):
                         #     continue
                         blocks_map[block_data['name']] = ScriptBlock(block_data['name'], block_data, self.output_dir)
-            except Exception as e:
-                print(f"Warning: Failed to load {yaml_file}: {e}")
+        except Exception as e:
+            print(f"Error: Failed to load blocks from {self.blocks_file}: {e}")
+            sys.exit(1)
+
+        # yaml_files = sorted(self.blocks_file.glob('*.yaml'))
+        
+        # for yaml_file in yaml_files:
+        #     try:
+        #         with open(yaml_file, 'r') as f:
+        #             block_data: dict = yaml.safe_load(f)
+        #             if block_data and 'name' in block_data and not 'deprecated' in block_data:
+        #                 # if block_data['name'].startswith('_'):
+        #                 #     continue
+        #                 blocks_map[block_data['name']] = ScriptBlock(block_data['name'], block_data, self.output_dir)
+        #     except Exception as e:
+        #         print(f"Warning: Failed to load {yaml_file}: {e}")
         
         # Build children map after all blocks are loaded
         self._build_children_map()
@@ -396,7 +416,7 @@ def main():
     # Determine paths
     script_dir = Path(__file__).parent
     root_dir = script_dir.parent  # Go up from scripts to root
-    blocks_dir = root_dir / 'data' / 'blocks'
+    blocks_file = root_dir / 'out' / 'scriptBlocks.json'
     output_dir = root_dir / 'docs' / 'source'
 
     # Remove the output_dir / 'blocks' folder if it exists
@@ -407,8 +427,8 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
     
     # Verify paths exist
-    if not blocks_dir.exists():
-        print(f"Error: Blocks directory not found: {blocks_dir}")
+    if not blocks_file.exists():
+        print(f"Error: Blocks file not found: {blocks_file}")
         sys.exit(1)
     
     if not output_dir.exists():
@@ -416,7 +436,7 @@ def main():
         sys.exit(1)
     
     # Generate documentation
-    generator = BlockDocumentationGenerator(blocks_dir, output_dir)
+    generator = BlockDocumentationGenerator(blocks_file, output_dir)
     files = generator.run()
 
     # git add generated files

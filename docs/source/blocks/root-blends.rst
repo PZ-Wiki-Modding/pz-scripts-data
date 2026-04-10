@@ -25,7 +25,7 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _name:
+.. _root-blends_name:
 
 **name**
    Type: ``Any``

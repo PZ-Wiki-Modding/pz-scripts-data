@@ -23,14 +23,14 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _diluteratio:
+.. _poison_diluteratio:
 
 **diluteRatio**
    Type: ``float``
 
    The ratio at which the poison is diluted when mixed with other fluids.
 
-.. _maxeffect:
+.. _poison_maxeffect:
 
 **maxEffect**
    Type: ``string``
@@ -42,7 +42,7 @@ Parameters
    - ``Deadly``
    - ``Medium``
 
-.. _minamount:
+.. _poison_minamount:
 
 **minAmount**
    Type: ``float``
