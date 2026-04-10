@@ -17,6 +17,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/blend.rst
    blocks/blendwhitelist.rst
    blocks/categories.rst
+   blocks/character_profession_definition.rst
    blocks/character_trait_definition.rst
    blocks/clip.rst
    blocks/clock.rst
@@ -58,6 +59,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/part.rst
    blocks/passenger.rst
    blocks/physicshitreaction.rst
+   blocks/physicsshape.rst
    blocks/poison.rst
    blocks/position.rst
    blocks/progress.rst
@@ -85,4 +87,5 @@ This section provides detailed documentation for all available script blocks.
    blocks/vehicle.rst
    blocks/vehicleenginerpm.rst
    blocks/wheel.rst
+   blocks/whitelist.rst
    blocks/xuiskin.rst

@@ -17,6 +17,7 @@ Hierarchy
 **Possible Child Blocks:**
 
 - :ref:`fluids`
+- :ref:`whitelist`
 
 
 ID Properties

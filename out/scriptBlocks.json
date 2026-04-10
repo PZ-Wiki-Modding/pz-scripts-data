@@ -3726,6 +3726,34 @@
       }
     }
   },
+  "physicsShape": {
+    "name": "physicsShape",
+    "description": "Defines a 3D object's physical shape to be used as a world object.",
+    "shouldHaveParent": true,
+    "parents": [
+      "module"
+    ],
+    "ID": {},
+    "parameters": {
+      "mesh": {
+        "name": "mesh",
+        "type": "string",
+        "description": "The path to the model's mesh file, relative to the folder `media/models_X`."
+      },
+      "translate": {
+        "name": "translate",
+        "type": "array",
+        "separator": " ",
+        "description": "The position offset of the model, in the format `x y z`."
+      },
+      "rotate": {
+        "name": "rotate",
+        "type": "array",
+        "separator": " ",
+        "description": "The rotation of the model, in the format `x y z`."
+      }
+    }
+  },
   "template": {
     "name": "template",
     "description": "",
@@ -4070,6 +4098,59 @@
       }
     }
   },
+  "character_profession_definition": {
+    "name": "character_profession_definition",
+    "description": "Defines a character profession.\n\n```cpp\ncharacter_profession_definition yourmod:example_profession\n{\n    CharacterProfession = yourmod:example_profession,\n    Cost = -6,\n    UIName = UI_prof_MetalWorker,\n    UIDescription = UI_profdesc_metalworker,\n    IconPathName = profession_metalworker,\n    XPBoosts = MetalWelding=4,\n    GrantedRecipes = Advanced_Forge;Blast_Furnace,\n}\n```",
+    "shouldHaveParent": true,
+    "parents": [
+      "module"
+    ],
+    "ID": {},
+    "parameters": {
+      "characterprofession": {
+        "name": "CharacterProfession",
+        "type": "string",
+        "description": "The [registries](https://pzwiki.net/wiki/Registries) profession ID to link to."
+      },
+      "cost": {
+        "name": "Cost",
+        "type": "integer",
+        "description": "The cost of the profession when selecting a character. Negative values remove points, positive values add points."
+      },
+      "uiname": {
+        "name": "UIName",
+        "type": "string",
+        "description": "The translation key for the profession's name. The translation key needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations) for more information."
+      },
+      "uidescription": {
+        "name": "UIDescription",
+        "type": "string",
+        "description": "The translation key for the profession's description. The translation key needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations) for more information."
+      },
+      "iconpathname": {
+        "name": "IconPathName",
+        "type": "string"
+      },
+      "grantedtraits": {
+        "name": "GrantedTraits",
+        "type": "array",
+        "separator": ";",
+        "description": "A list of character trait IDs that are granted to the character when this profession is selected."
+      },
+      "xpboosts": {
+        "name": "XPBoosts",
+        "description": "A list of experience boosts granted by this profession. Each entry should contain a skill name and the corresponding boost amount.\n\nFor example:\n```cpp\nXPBoosts = Axe=1;Blunt=1,\n```",
+        "type": "object",
+        "separator": ";"
+      },
+      "grantedrecipes": {
+        "name": "GrantedRecipes",
+        "type": "array",
+        "separator": ";",
+        "description": "A list of [craftRecipe](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/craftrecipe.html) IDs that are granted to the character when this profession is selected."
+      }
+    }
+  },
   "evolvedrecipe": {
     "name": "evolvedrecipe",
     "description": "Defines a dynamic recipe.",
@@ -4327,6 +4408,23 @@
       "contextEntry"
     ],
     "parameters": {}
+  },
+  "whitelist": {
+    "name": "whitelist",
+    "description": "Whitelists a fluid to be allowed to put inside a [fluid container](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/component/component_fluidcontainer.html).",
+    "shouldHaveParent": true,
+    "parents": [
+      "component FluidContainer"
+    ],
+    "ID": {},
+    "parameters": {
+      "fluid": {
+        "name": "fluid",
+        "type": "string",
+        "allowedDuplicate": true,
+        "description": "A fluid which is allowed to be put inside this fluid container."
+      }
+    }
   },
   "timedAction": {
     "name": "timedAction",
