@@ -40,65 +40,65 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _clip_distancemax:
+.. _clip-distancemax:
 
-**distanceMax**
+**distanceMax** `🔗 <#clip-distancemax>`_
    Type: ``integer``
 
    No description
 
-.. _clip_distancemin:
+.. _clip-distancemin:
 
-**distanceMin**
+**distanceMin** `🔗 <#clip-distancemin>`_
    Type: ``integer``
 
    No description
 
-.. _clip_event:
+.. _clip-event:
 
-**event**
+**event** `🔗 <#clip-event>`_
    Type: ``string``
 
    No description
 
-.. _clip_file:
+.. _clip-file:
 
-**file**
+**file** `🔗 <#clip-file>`_
    Type: ``string``
 
    No description
 
-.. _clip_pitch:
+.. _clip-pitch:
 
-**pitch**
+**pitch** `🔗 <#clip-pitch>`_
    Type: ``float``
 
    No description
 
-.. _clip_reverbfactor:
+.. _clip-reverbfactor:
 
-**reverbFactor**
+**reverbFactor** `🔗 <#clip-reverbfactor>`_
    Type: ``float``
 
    No description
 
-.. _clip_reverbmaxrange:
+.. _clip-reverbmaxrange:
 
-**reverbMaxRange**
+**reverbMaxRange** `🔗 <#clip-reverbmaxrange>`_
    Type: ``float``
 
    No description
 
-.. _clip_stopimmediate:
+.. _clip-stopimmediate:
 
-**stopImmediate**
+**stopImmediate** `🔗 <#clip-stopimmediate>`_
    Type: ``Any``
 
    No description
 
-.. _clip_volume:
+.. _clip-volume:
 
-**volume**
+**volume** `🔗 <#clip-volume>`_
    Type: ``float``
 
    No description

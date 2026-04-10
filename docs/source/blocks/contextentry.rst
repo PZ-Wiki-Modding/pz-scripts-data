@@ -11,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :ref:`component_contextmenuconfig`
+- :ref:`component-contextmenuconfig`
 
 
 ID Properties
@@ -23,16 +23,16 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _contextentry_customfunction:
+.. _contextentry-customfunction:
 
-**customFunction**
+**customFunction** `🔗 <#contextentry-customfunction>`_
    Type: ``Any``
 
    No description
 
-.. _contextentry_menu:
+.. _contextentry-menu:
 
-**menu**
+**menu** `🔗 <#contextentry-menu>`_
    Type: ``Any``
 
    No description

@@ -25,9 +25,9 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _root-blends_name:
+.. _root-blends-name:
 
-**name**
+**name** `🔗 <#root-blends-name>`_
    Type: ``Any``
 
    No description

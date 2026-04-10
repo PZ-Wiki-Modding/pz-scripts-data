@@ -15,7 +15,13 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 def _get_block_link(block_name: str) -> str:
     """Get the documentation page name for a block."""
     l = block_name.lower()
-    return l.replace(' ', '_')
+    return l.replace(' ', '-')
+
+def _get_param_label(block_name: str, param_name: str) -> str:
+    """Get the documentation label for a parameter."""
+    block_link = _get_block_link(block_name)
+    param_link = param_name.replace(' ', '-').lower()
+    return f"{block_link}-{param_link}"
 
 
 def _dict_to_rst_csv(data: Dict[str, Any]) -> str:
@@ -156,17 +162,17 @@ class ScriptBlock:
             default = param.get('default')
             
             # Add RST reference label for anchor linking
-            label = f"{_get_block_link(self.name)}_{name.replace(' ', '-').lower()}"
+            label = _get_param_label(self.name, name)
             rst += f".. _{label}:\n\n"
             
-            # Parameter name as definition
-            rst += f"**{name}**\n"
+            # Parameter name as definition with clickable permalink icon
+            rst += f"**{name}** `🔗 <#{label}>`_\n"
 
             ref = param.get('#ref', None)
             isRef = ref is not None
             if isRef:
                 block_name, param_name = ref.split('/')
-                rst += f" (see :ref:`{_get_block_link(block_name)}_{param_name.replace(' ', '-').lower()}`)\n"
+                rst += f" (see :ref:`{_get_param_label(block_name, param_name)}`)\n"
 
             
             # Type and required status
@@ -353,10 +359,6 @@ class BlockDocumentationGenerator:
                 if isVariant not in variant_map:
                     variant_map[isVariant] = []
                 variant_map[isVariant].append(block)
-
-    def _get_block_link(self, block_name: str) -> str:
-        """Get the documentation link for a block."""
-        return block_name.lower().replace(' ', '_')
     
     def generate_blocks_index(self) -> str:
         """Generate the blocks index RST file."""

@@ -23,100 +23,100 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _properties_alcohol:
+.. _properties-alcohol:
 
-**alcohol**
+**alcohol** `🔗 <#properties-alcohol>`_
    Type: ``float``
 
    No description
 
-.. _properties_calories:
+.. _properties-calories:
 
-**Calories**
+**Calories** `🔗 <#properties-calories>`_
    Type: ``float``
 
    The number of calories this fluid provides when consumed.
 
-.. _properties_carbohydrates:
+.. _properties-carbohydrates:
 
-**Carbohydrates**
+**Carbohydrates** `🔗 <#properties-carbohydrates>`_
    Type: ``float``
 
    The amount of carbohydrates this fluid provides when consumed.
 
-.. _properties_endurancechange:
+.. _properties-endurancechange:
 
-**enduranceChange**
+**enduranceChange** `🔗 <#properties-endurancechange>`_
    Type: ``float``
 
    The amount of endurance given back.
 
-.. _properties_fatiguechange:
+.. _properties-fatiguechange:
 
-**fatigueChange**
+**fatigueChange** `🔗 <#properties-fatiguechange>`_
    Type: ``float``
 
    The amount of fatigue this fluid changes when consumed. Positive values increase fatigue, negative values decrease it.
 
-.. _properties_flureduction:
+.. _properties-flureduction:
 
-**fluReduction**
+**fluReduction** `🔗 <#properties-flureduction>`_
    Type: ``float``
 
    No description
 
-.. _properties_foodsicknesschange:
+.. _properties-foodsicknesschange:
 
-**foodSicknessChange**
+**foodSicknessChange** `🔗 <#properties-foodsicknesschange>`_
    Type: ``float``
 
    The amount of food sickness provides.
 
-.. _properties_hungerchange:
+.. _properties-hungerchange:
 
-**HungerChange**
+**HungerChange** `🔗 <#properties-hungerchange>`_
    Type: ``float``
 
    The amount of hunger this fluid changes when consumed. Positive values increase hunger, negative values decrease it.
 
-.. _properties_lipids:
+.. _properties-lipids:
 
-**Lipids**
+**Lipids** `🔗 <#properties-lipids>`_
    Type: ``float``
 
    The amount of lipids (fats) this fluid provides when consumed.
 
-.. _properties_painreduction:
+.. _properties-painreduction:
 
-**painReduction**
+**painReduction** `🔗 <#properties-painreduction>`_
    Type: ``float``
 
    The amount of pain this fluid reduces when consumed.
 
-.. _properties_proteins:
+.. _properties-proteins:
 
-**Proteins**
+**Proteins** `🔗 <#properties-proteins>`_
    Type: ``float``
 
    The amount of proteins this fluid provides when consumed.
 
-.. _properties_stresschange:
+.. _properties-stresschange:
 
-**StressChange**
+**StressChange** `🔗 <#properties-stresschange>`_
    Type: ``float``
 
    The amount of stress this fluid changes when consumed. Positive values increase stress, negative values decrease it.
 
-.. _properties_thirstchange:
+.. _properties-thirstchange:
 
-**ThirstChange**
+**ThirstChange** `🔗 <#properties-thirstchange>`_
    Type: ``float``
 
    The amount of thirst this fluid changes when consumed. Positive values increase thirst, negative values decrease it.
 
-.. _properties_unhappychange:
+.. _properties-unhappychange:
 
-**UnhappyChange**
+**UnhappyChange** `🔗 <#properties-unhappychange>`_
    Type: ``float``
 
    The amount of unhappiness this fluid changes when consumed. Positive values increase unhappiness, negative values decrease it.

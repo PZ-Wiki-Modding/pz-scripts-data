@@ -25,37 +25,37 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _attachment_bone:
+.. _attachment-bone:
 
-**bone**
+**bone** `🔗 <#attachment-bone>`_
    Type: ``Any``
 
    No description
 
-.. _attachment_offset:
+.. _attachment-offset:
 
-**offset**
+**offset** `🔗 <#attachment-offset>`_
    Type: ``Any``
 
    No description
 
-.. _attachment_rotate:
+.. _attachment-rotate:
 
-**rotate**
+**rotate** `🔗 <#attachment-rotate>`_
    Type: ``Any``
 
    No description
 
-.. _attachment_scale:
+.. _attachment-scale:
 
-**scale**
+**scale** `🔗 <#attachment-scale>`_
    Type: ``Any``
 
    No description
 
-.. _attachment_zoffset:
+.. _attachment-zoffset:
 
-**zoffset**
+**zoffset** `🔗 <#attachment-zoffset>`_
    Type: ``Any``
 
    No description

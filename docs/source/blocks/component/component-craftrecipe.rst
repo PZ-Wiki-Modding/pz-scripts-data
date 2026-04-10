@@ -1,4 +1,4 @@
-.. _component_craftrecipe:
+.. _component-craftrecipe:
 
 component CraftRecipe
 =====================
@@ -31,33 +31,33 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _component_craftrecipe_category:
+.. _component-craftrecipe-category:
 
-**category**
- (see :ref:`craftrecipe_category`)
+**category** `🔗 <#component-craftrecipe-category>`_
+ (see :ref:`craftrecipe-category`)
    Type: ``Any``
 
    The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in the crafting menu. Currently doesn't support translations (confirmed last 42.15).
 
-.. _component_craftrecipe_needtobelearn:
+.. _component-craftrecipe-needtobelearn:
 
-**NeedToBeLearn**
- (see :ref:`craftrecipe_needtobelearn`)
+**NeedToBeLearn** `🔗 <#component-craftrecipe-needtobelearn>`_
+ (see :ref:`craftrecipe-needtobelearn`)
    Type: ``Any``
 
    Whether the recipe needs to be learned before it can be crafted.
 
-.. _component_craftrecipe_onaddtomenu:
+.. _component-craftrecipe-onaddtomenu:
 
-**OnAddToMenu**
+**OnAddToMenu** `🔗 <#component-craftrecipe-onaddtomenu>`_
    Type: ``Any``
 
    No description
 
-.. _component_craftrecipe_oncreate:
+.. _component-craftrecipe-oncreate:
 
-**OnCreate**
- (see :ref:`craftrecipe_oncreate`)
+**OnCreate** `🔗 <#component-craftrecipe-oncreate>`_
+ (see :ref:`craftrecipe-oncreate`)
    Type: ``Any``
 
    The OnCreate parameter allows the referencing of a Lua function that will be called when the crafting recipe is finished. This can be used to add custom behavior to the crafting recipe when it gets finished. The Lua function needs to be a `global function <https://pzwiki.net/wiki/Lua_(language>`_\ #Local_and_global), it can also be in a global table. The vanilla game OnCreate's are stored in the `Java <https://pzwiki.net/wiki/Java>`_.
@@ -72,10 +72,10 @@ Parameters
    
    The ``craftRecipeData`` is a `java object <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/entity/components/crafting/recipe/CraftRecipeData.html>`_ that contains the data of the crafting recipe. The ``character`` is the player character who is crafting the recipe.
 
-.. _component_craftrecipe_skillrequired:
+.. _component-craftrecipe-skillrequired:
 
-**SkillRequired**
- (see :ref:`craftrecipe_skillrequired`)
+**SkillRequired** `🔗 <#component-craftrecipe-skillrequired>`_
+ (see :ref:`craftrecipe-skillrequired`)
    Type: ``Any``
 
    Specifies the skill level required to perform this crafting action. It should be formated this way:
@@ -96,10 +96,10 @@ Parameters
    
       skillRequired = Blacksmith:3;Tailoring:2,
 
-.. _component_craftrecipe_tags:
+.. _component-craftrecipe-tags:
 
-**tags**
- (see :ref:`craftrecipe_tags`)
+**tags** `🔗 <#component-craftrecipe-tags>`_
+ (see :ref:`craftrecipe-tags`)
    Type: ``array`` *(required)*
 
    Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as ``AnySurfaceCraft``. The syntax is as follows:
@@ -118,36 +118,36 @@ Parameters
    
       Tags = InHandCraft;CanAlwaysBeResearched,
 
-.. _component_craftrecipe_time:
+.. _component-craftrecipe-time:
 
-**time**
- (see :ref:`craftrecipe_time`)
+**time** `🔗 <#component-craftrecipe-time>`_
+ (see :ref:`craftrecipe-time`)
    Type: ``Any``
 
    The time it takes to craft the item, not using a specific unit of time.
 
    Default: ``50``
 
-.. _component_craftrecipe_timedaction:
+.. _component-craftrecipe-timedaction:
 
-**timedAction**
- (see :ref:`craftrecipe_timedaction`)
+**timedAction** `🔗 <#component-craftrecipe-timedaction>`_
+ (see :ref:`craftrecipe-timedaction`)
    Type: ``Any``
 
    Refers to a timed action script block, used to trigger during the crafting process, for animations and/or sounds but also the calories burned and body heat generation.
 
-.. _component_craftrecipe_tooltip:
+.. _component-craftrecipe-tooltip:
 
-**Tooltip**
- (see :ref:`craftrecipe_tooltip`)
+**Tooltip** `🔗 <#component-craftrecipe-tooltip>`_
+ (see :ref:`craftrecipe-tooltip`)
    Type: ``Any``
 
    Description of the crafting which is shown in the crafting menu.
 
-.. _component_craftrecipe_xpaward:
+.. _component-craftrecipe-xpaward:
 
-**xpAward**
- (see :ref:`craftrecipe_xpaward`)
+**xpAward** `🔗 <#component-craftrecipe-xpaward>`_
+ (see :ref:`craftrecipe-xpaward`)
    Type: ``Any``
 
    Specifies the experience points awarded for crafting this item. The parameter should be formated this way:

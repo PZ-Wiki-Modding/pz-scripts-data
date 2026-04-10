@@ -26,9 +26,9 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _root-rules_version:
+.. _root-rules-version:
 
-**version**
+**version** `🔗 <#root-rules-version>`_
    Type: ``integer``
 
    Version of the rules file. Should be 1 for now.

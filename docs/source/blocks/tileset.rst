@@ -27,9 +27,9 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _tileset_name:
+.. _tileset-name:
 
-**name**
+**name** `🔗 <#tileset-name>`_
    Type: ``Any``
 
    No description

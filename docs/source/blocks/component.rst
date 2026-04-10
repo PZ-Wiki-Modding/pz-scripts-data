@@ -10,18 +10,18 @@ A component is a block which can be added as a child to a specific block type li
    :titlesonly:
    :caption: Variants
 
-   component/component_contextmenuconfig.rst
-   component/component_craftbench.rst
-   component/component_craftbenchsounds.rst
-   component/component_craftrecipe.rst
-   component/component_dryingcraftlogic.rst
-   component/component_durability.rst
-   component/component_fluidcontainer.rst
-   component/component_resources.rst
-   component/component_spriteconfig.rst
-   component/component_spriteoverlayconfig.rst
-   component/component_uiconfig.rst
-   component/component_wallcoveringconfig.rst
+   component/component-contextmenuconfig.rst
+   component/component-craftbench.rst
+   component/component-craftbenchsounds.rst
+   component/component-craftrecipe.rst
+   component/component-dryingcraftlogic.rst
+   component/component-durability.rst
+   component/component-fluidcontainer.rst
+   component/component-resources.rst
+   component/component-spriteconfig.rst
+   component/component-spriteoverlayconfig.rst
+   component/component-uiconfig.rst
+   component/component-wallcoveringconfig.rst
 
 Hierarchy
 ---------
@@ -41,16 +41,16 @@ Using a specific ID will make this block have different properties.
 
 **Allowed ID Values:**
 
-- :ref:`CraftRecipe <component_craftrecipe>`
-- :ref:`SpriteConfig <component_spriteconfig>`
-- :ref:`UiConfig <component_uiconfig>`
-- :ref:`CraftBench <component_craftbench>`
-- :ref:`CraftBenchSounds <component_craftbenchsounds>`
-- :ref:`Resources <component_resources>`
-- :ref:`DryingCraftLogic <component_dryingcraftlogic>`
-- :ref:`SpriteOverlayConfig <component_spriteoverlayconfig>`
-- :ref:`Durability <component_durability>`
-- :ref:`FluidContainer <component_fluidcontainer>`
-- :ref:`ContextMenuConfig <component_contextmenuconfig>`
-- :ref:`WallCoveringConfig <component_wallcoveringconfig>`
+- :ref:`CraftRecipe <component-craftrecipe>`
+- :ref:`SpriteConfig <component-spriteconfig>`
+- :ref:`UiConfig <component-uiconfig>`
+- :ref:`CraftBench <component-craftbench>`
+- :ref:`CraftBenchSounds <component-craftbenchsounds>`
+- :ref:`Resources <component-resources>`
+- :ref:`DryingCraftLogic <component-dryingcraftlogic>`
+- :ref:`SpriteOverlayConfig <component-spriteoverlayconfig>`
+- :ref:`Durability <component-durability>`
+- :ref:`FluidContainer <component-fluidcontainer>`
+- :ref:`ContextMenuConfig <component-contextmenuconfig>`
+- :ref:`WallCoveringConfig <component-wallcoveringconfig>`
 

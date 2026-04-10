@@ -27,9 +27,9 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _spritemodel_version:
+.. _spritemodel-version:
 
-**VERSION**
+**VERSION** `🔗 <#spritemodel-version>`_
    Type: ``integer``
 
    No description

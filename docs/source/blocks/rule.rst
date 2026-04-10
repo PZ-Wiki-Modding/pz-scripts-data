@@ -36,37 +36,37 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _rule_bitmap:
+.. _rule-bitmap:
 
-**bitmap**
+**bitmap** `🔗 <#rule-bitmap>`_
    Type: ``integer``
 
    A value of ``1`` will have this rule used for the vegetation image, while a value of ``0`` will have it used for the main tiles image. Trees will for example use ``1`` while ground tiles will use ``0``.
 
-.. _rule_color:
+.. _rule-color:
 
-**color**
+**color** `🔗 <#rule-color>`_
    Type: ``array``
 
    The RGB color to replace with the tiles in the ``tiles`` parameter. This is the color you painted in your image file to associate to this rule.
 
-.. _rule_label:
+.. _rule-label:
 
-**label**
+**label** `🔗 <#rule-label>`_
    Type: ``string``
 
    No description
 
-.. _rule_layer:
+.. _rule-layer:
 
-**layer**
+**layer** `🔗 <#rule-layer>`_
    Type: ``string``
 
    The layer to apply the tiles on.
 
-.. _rule_tiles:
+.. _rule-tiles:
 
-**tiles**
+**tiles** `🔗 <#rule-tiles>`_
    Type: ``Any``
 
    A list of tiles to apply randomly for this color. You can also use an alias block here to reference a list of tiles.

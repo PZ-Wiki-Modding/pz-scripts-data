@@ -23,16 +23,16 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _poison_diluteratio:
+.. _poison-diluteratio:
 
-**diluteRatio**
+**diluteRatio** `🔗 <#poison-diluteratio>`_
    Type: ``float``
 
    The ratio at which the poison is diluted when mixed with other fluids.
 
-.. _poison_maxeffect:
+.. _poison-maxeffect:
 
-**maxEffect**
+**maxEffect** `🔗 <#poison-maxeffect>`_
    Type: ``string``
 
    Defines the strength of the poison.
@@ -42,9 +42,9 @@ Parameters
    - ``Deadly``
    - ``Medium``
 
-.. _poison_minamount:
+.. _poison-minamount:
 
-**minAmount**
+**minAmount** `🔗 <#poison-minamount>`_
    Type: ``float``
 
    The minimum amount required to consume to poison the player.

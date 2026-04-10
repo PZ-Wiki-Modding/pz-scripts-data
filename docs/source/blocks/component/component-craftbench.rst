@@ -1,4 +1,4 @@
-.. _component_craftbench:
+.. _component-craftbench:
 
 component CraftBench
 ====================
@@ -23,9 +23,9 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _component_craftbench_recipes:
+.. _component-craftbench-recipes:
 
-**Recipes**
+**Recipes** `🔗 <#component-craftbench-recipes>`_
    Type: ``array``
 
    No description

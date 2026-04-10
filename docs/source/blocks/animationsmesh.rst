@@ -23,41 +23,41 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _animationsmesh_animationdirectory:
+.. _animationsmesh-animationdirectory:
 
-**animationDirectory**
+**animationDirectory** `🔗 <#animationsmesh-animationdirectory>`_
    Type: ``Any``
 
    No description
 
    Can be duplicated: ✓
 
-.. _animationsmesh_animationprefix:
+.. _animationsmesh-animationprefix:
 
-**animationPrefix**
+**animationPrefix** `🔗 <#animationsmesh-animationprefix>`_
    Type: ``Any``
 
    No description
 
    Can be duplicated: ✓
 
-.. _animationsmesh_keepmeshanimations:
+.. _animationsmesh-keepmeshanimations:
 
-**keepMeshAnimations**
+**keepMeshAnimations** `🔗 <#animationsmesh-keepmeshanimations>`_
    Type: ``Any``
 
    No description
 
-.. _animationsmesh_meshfile:
+.. _animationsmesh-meshfile:
 
-**meshFile**
+**meshFile** `🔗 <#animationsmesh-meshfile>`_
    Type: ``Any``
 
    No description
 
-.. _animationsmesh_postprocess:
+.. _animationsmesh-postprocess:
 
-**postProcess**
+**postProcess** `🔗 <#animationsmesh-postprocess>`_
    Type: ``Any``
 
    No description

@@ -12,7 +12,7 @@ Hierarchy
 **Valid Parent Blocks:**
 
 - :ref:`craftrecipe`
-- :ref:`component_craftrecipe`
+- :ref:`component-craftrecipe`
 
 
 ID Properties

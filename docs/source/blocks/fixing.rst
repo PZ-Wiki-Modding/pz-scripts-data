@@ -23,32 +23,32 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _fixing_conditionmodifier:
+.. _fixing-conditionmodifier:
 
-**ConditionModifier**
+**ConditionModifier** `🔗 <#fixing-conditionmodifier>`_
    Type: ``Any``
 
    No description
 
-.. _fixing_fixer:
+.. _fixing-fixer:
 
-**Fixer**
+**Fixer** `🔗 <#fixing-fixer>`_
    Type: ``Any``
 
    No description
 
    Can be duplicated: ✓
 
-.. _fixing_globalitem:
+.. _fixing-globalitem:
 
-**GlobalItem**
+**GlobalItem** `🔗 <#fixing-globalitem>`_
    Type: ``Any``
 
    No description
 
-.. _fixing_require:
+.. _fixing-require:
 
-**Require**
+**Require** `🔗 <#fixing-require>`_
    Type: ``Any``
 
    No description

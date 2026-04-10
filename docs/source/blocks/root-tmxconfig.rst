@@ -25,16 +25,16 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _root-tmxconfig_revision:
+.. _root-tmxconfig-revision:
 
-**revision**
+**revision** `🔗 <#root-tmxconfig-revision>`_
    Type: ``integer``
 
    Revision of the TMXconfig file. Keep it to 11 for now.
 
-.. _root-tmxconfig_version:
+.. _root-tmxconfig-version:
 
-**version**
+**version** `🔗 <#root-tmxconfig-version>`_
    Type: ``integer``
 
    Version of the TMXconfig file. Should be 1 for now.

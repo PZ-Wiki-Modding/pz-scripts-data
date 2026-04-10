@@ -1,4 +1,4 @@
-.. _component_durability:
+.. _component-durability:
 
 component Durability
 ====================

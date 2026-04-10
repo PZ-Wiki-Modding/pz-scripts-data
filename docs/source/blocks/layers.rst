@@ -23,18 +23,18 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _layers_object:
+.. _layers-object:
 
-**object**
+**object** `🔗 <#layers-object>`_
    Type: ``string``
 
    No description
 
    Only for parents: ROOT-MapBaseXML
 
-.. _layers_tile:
+.. _layers-tile:
 
-**tile**
+**tile** `🔗 <#layers-tile>`_
    Type: ``string``
 
    No description

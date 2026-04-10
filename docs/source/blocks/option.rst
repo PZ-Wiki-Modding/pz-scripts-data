@@ -23,44 +23,44 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _option_default:
+.. _option-default:
 
-**default**
+**default** `🔗 <#option-default>`_
    Type: ``Any``
 
    No description
 
-.. _option_max:
+.. _option-max:
 
-**max**
+**max** `🔗 <#option-max>`_
    Type: ``float``
 
    The maximum value the option can have. Only for integer and double types.
 
-.. _option_min:
+.. _option-min:
 
-**min**
+**min** `🔗 <#option-min>`_
    Type: ``float``
 
    The minimum value the option can have. Only for integer and double types.
 
-.. _option_page:
+.. _option-page:
 
-**page**
+**page** `🔗 <#option-page>`_
    Type: ``string``
 
    The sandbox option to add the option to. Can be a custom page.
 
-.. _option_translation:
+.. _option-translation:
 
-**translation**
+**translation** `🔗 <#option-translation>`_
    Type: ``string``
 
    The translation key for the option's name.
 
-.. _option_type:
+.. _option-type:
 
-**type**
+**type** `🔗 <#option-type>`_
    Type: ``string`` *(required)*
 
    The type of the option.
