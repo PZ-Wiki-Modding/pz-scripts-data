@@ -255,7 +255,7 @@ Parameters
 **BadInMicrowave**
    Type: ``Any``
 
-   No description
+   Used to set whether this item can cause a fire when put in a microwave, if set to true it will explode.
 
    Item types: food
 
@@ -679,7 +679,9 @@ Parameters
 **ClothingItem**
    Type: ``Any``
 
-   No description
+   ``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
+   
+   ``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
 
    Item types: alarmclockclothing, clothing, container, radio
 
