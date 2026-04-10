@@ -1,0 +1,54 @@
+version: 1
+name: character_profession_definition
+description: |-
+  Defines a character profession.
+
+  ```cpp
+  character_profession_definition yourmod:example_profession
+  {
+      CharacterProfession = yourmod:example_profession,
+      Cost = -6,
+      UIName = UI_prof_MetalWorker,
+      UIDescription = UI_profdesc_metalworker,
+      IconPathName = profession_metalworker,
+      XPBoosts = MetalWelding=4,
+      GrantedRecipes = Advanced_Forge;Blast_Furnace,
+  }
+  ```
+shouldHaveParent: true
+parents:
+  - module
+ID: {}
+parameters:
+  - name: CharacterProfession
+    type: string
+    description: The [registries](https://pzwiki.net/wiki/Registries) profession ID to link to.
+  - name: Cost
+    type: integer
+    description: The cost of the profession when selecting a character. Negative values remove points, positive values add points.
+  - name: UIName
+    type: string
+    description: The translation key for the profession's name. The translation key needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations) for more information.
+  - name: UIDescription
+    type: string
+    description: The translation key for the profession's description. The translation key needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations) for more information.
+  - name: IconPathName
+    type: string
+  - name: GrantedTraits
+    type: array
+    separator: ';'
+    description: A list of character trait IDs that are granted to the character when this profession is selected.
+  - name: XPBoosts
+    description: |-
+      A list of experience boosts granted by this profession. Each entry should contain a skill name and the corresponding boost amount.
+
+      For example:
+      ```cpp
+      XPBoosts = Axe=1;Blunt=1,
+      ```
+    type: object
+    separator: ';'
+  - name: GrantedRecipes
+    type: array
+    separator: ';'
+    description: A list of [craftRecipe](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/craftrecipe.html) IDs that are granted to the character when this profession is selected.

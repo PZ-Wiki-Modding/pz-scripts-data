@@ -2,9 +2,8 @@ version: 1
 name: character_trait_definition
 description: Defines a character trait.
 shouldHaveParent: true
-parents: [
-  module
-]
+parents:
+  - module
 ID: {}
 parameters:
   - name: IsProfessionTrait
