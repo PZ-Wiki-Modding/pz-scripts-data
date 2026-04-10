@@ -8,6 +8,7 @@ on:
       - 'chores/formatBlocks.py'
   pull_request:
     branches: [main, dev]
+  workflow_dispatch:
 
 jobs:
   format:

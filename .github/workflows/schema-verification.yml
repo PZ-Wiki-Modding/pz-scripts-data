@@ -8,6 +8,7 @@ on:
       - 'chores/validateBlocks.py'
   pull_request:
     branches: [main, dev]
+  workflow_dispatch:
 
 jobs:
   validate:
