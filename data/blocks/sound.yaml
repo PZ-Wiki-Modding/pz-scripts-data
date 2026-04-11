@@ -70,7 +70,7 @@ parameters:
       - parents: [vehicle, template]
     type: string
   - name: is3D
-    type: string
+    type: boolean
     description: This parameter looks unused.
     isUseless: true
   - name: loop
