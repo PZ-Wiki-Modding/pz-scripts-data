@@ -4,7 +4,6 @@ description: Whitelists a fluid to be allowed to put inside a [fluid container](
 shouldHaveParent: true
 parents:
   - component FluidContainer
-ID: {}
 parameters:
   - name: fluid
     type: string
