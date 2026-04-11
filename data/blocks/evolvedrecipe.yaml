@@ -4,7 +4,8 @@ description: Defines a dynamic recipe.
 shouldHaveParent: true
 parents:
   - module
-ID: {}
+ID:
+  canHaveSpace: true
 parameters:
   - name: AddIngredientIfCooked
   - name: AddIngredientSound
