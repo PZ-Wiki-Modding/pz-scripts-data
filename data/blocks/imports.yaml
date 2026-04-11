@@ -5,4 +5,5 @@ description: |-
 shouldHaveParent: true
 parents:
   - module
+  - xuiSkin
 parameters: []
