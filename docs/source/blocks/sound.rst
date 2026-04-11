@@ -131,7 +131,7 @@ Parameters
 .. _sound-is3d:
 
 **is3D** `🔗 <#sound-is3d>`_
-   Type: ``string``
+   Type: ``boolean``
 
    This parameter looks unused.
 
