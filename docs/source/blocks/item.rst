@@ -3492,6 +3492,13 @@ Parameters
 
    Item types: moveable, normal, radio
 
+.. _item-worldrender:
+
+**WorldRender** `🔗 <#item-worldrender>`_
+   Type: ``Any``
+
+   No description
+
 .. _item-worldstaticmodel:
 
 **WorldStaticModel** `🔗 <#item-worldstaticmodel>`_
