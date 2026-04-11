@@ -36,10 +36,6 @@ ID Properties
 
 This block should have an ID.
 
-**Incompatible Parents:**
-
-- xuiSkin
-
 
 Parameters
 ----------
