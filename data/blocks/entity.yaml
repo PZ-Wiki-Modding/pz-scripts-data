@@ -6,7 +6,7 @@ parents:
   - module
   - xuiSkin
 ID:
-  parentsWithout:
+  optional:
     - xuiSkin
 parameters:
   - name: LuaWindowClass
