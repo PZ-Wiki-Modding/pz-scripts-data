@@ -3705,6 +3705,8 @@
         "type": "object",
         "separator": ";",
         "keyValueSeparator": "="
+        "separator": ";",
+        "keyValueSeparator": "="
       },
       "grantedrecipes": {
         "name": "GrantedRecipes",
