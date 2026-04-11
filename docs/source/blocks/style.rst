@@ -11,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :ref:`component_spriteoverlayconfig`
+- :ref:`component-spriteoverlayconfig`
 
 **Possible Child Blocks:**
 

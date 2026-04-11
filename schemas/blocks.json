@@ -34,6 +34,10 @@
           "type": "array",
           "items": { "type": "string" },
           "description": "Indicates whether the ID is optional for this block type. If false or not specified, the block must have an ID when the ID field is provided."
+        },
+        "canHaveSpace": {
+          "type": "boolean",
+          "description": "Indicates whether the ID of the block can contain spaces. If false or not specified, the ID cannot contain spaces."
         }
       }
     },
@@ -98,6 +102,10 @@
             "type": "string",
             "description": "A reference to another block parameter."
           },
+          "#desc": {
+            "type": "string",
+            "description": "A reference to the description of another block parameter. This allows sharing the same description between multiple parameters without using #ref, which would also share other properties."
+          },
           "description": {
             "type": "string",
             "description": "A brief description of what the parameter does."
@@ -112,7 +120,7 @@
           },
           "itemTypes": {
             "type": "array",
-            "description": "Specifies the type of item the parameter is associated with (e.g., 'vehicle', 'item', etc.). Only for item scripts.",
+            "description": "DEPRECATED: Specifies the type of item the parameter is associated with (e.g., 'vehicle', 'item', etc.). Only for item scripts.",
             "items": { "type": "string" }
           },
           "parentsOnly": {
@@ -146,6 +154,26 @@
             "type": "array",
             "description": "A list of allowed values for the parameter.",
             "items": { "type": ["string", "number"] }
+          },
+          "object": {
+            "type": "object",
+            "properties": {
+              "separator": {
+                "type": "string",
+                "description": "Specifies the separator used to split the key-value pairs. The parameter 'keyValueSeparator' is used to split the keys and values."
+              },
+              "keyType": {
+                "type": "string",
+                "description": "Specifies the data type of the keys in the object.",
+                "enum": ["string", "float", "boolean", "integer"]
+              },
+              "valueType": {
+                "type": "string",
+                "description": "Specifies the data type of the values in the object.",
+                "enum": ["string", "float", "boolean", "integer"]
+              }
+            },
+            "description": "If the parameter is of type 'object', this can be used to provide a description of the expected format of the object."
           },
           "deprecated": {
             "type": "object",
@@ -217,6 +245,20 @@
           "isUseless": {
             "type": "boolean",
             "description": "Indicates whether the parameter is considered useless or not. This can be used to flag parameters that are no longer functional or have no effect in the game, but are still present for compatibility reasons."
+          },
+          "blockType": {
+            "type": "object",
+            "description": "Specifies how this parameter's value references a block type.",
+            "properties": {
+              "block": {
+                "type": "string",
+                "description": "The name of the block type that this parameter references to."
+              },
+              "fullType": {
+                "type": "boolean",
+                "description": "Indicates whether the parameter's value can match the module and block name, for example 'module.block'."
+              }
+            }
           }
         }
       }

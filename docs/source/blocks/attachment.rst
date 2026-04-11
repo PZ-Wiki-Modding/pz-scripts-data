@@ -126,9 +126,9 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _bone:
+.. _attachment-bone:
 
-**bone**
+**bone** `🔗 <#attachment-bone>`_
    Type: ``Any``
 
    .. code-block::
@@ -140,9 +140,9 @@ Parameters
    
        bone = Bip01_L_Hand,
 
-.. _offset:
+.. _attachment-offset:
 
-**offset**
+**offset** `🔗 <#attachment-offset>`_
    Type: ``array``
 
    The position offset of the model relative to the bone. This is a vector in the format ``x y z``. 
@@ -151,9 +151,9 @@ Parameters
    
       offset = -0.0300 -0.1020 0.1210,
 
-.. _rotate:
+.. _attachment-rotate:
 
-**rotate**
+**rotate** `🔗 <#attachment-rotate>`_
    Type: ``array``
 
    The rotation of the model relative to the bone. This is a vector in the format ``x y z``. The values are degrees.
@@ -162,9 +162,9 @@ Parameters
    
       rotate = -60.0000 -49.0000 -3.0000,
 
-.. _scale:
+.. _attachment-scale:
 
-**scale**
+**scale** `🔗 <#attachment-scale>`_
    Type: ``float``
 
    The scale multiplier applied to the model attached to this attachment point.
@@ -173,9 +173,9 @@ Parameters
    
       scale = 0.5,
 
-.. _zoffset:
+.. _attachment-zoffset:
 
-**zoffset**
+**zoffset** `🔗 <#attachment-zoffset>`_
    Type: ``Any``
 
    No description

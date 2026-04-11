@@ -24,9 +24,9 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _xywh:
+.. _area-xywh:
 
-**xywh**
+**xywh** `🔗 <#area-xywh>`_
    Type: ``Any``
 
    No description

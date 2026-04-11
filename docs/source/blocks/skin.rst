@@ -24,9 +24,9 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _texture:
+.. _skin-texture:
 
-**texture**
+**texture** `🔗 <#skin-texture>`_
    Type: ``Any``
 
    No description

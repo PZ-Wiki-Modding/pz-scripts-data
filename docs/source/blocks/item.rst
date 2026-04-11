@@ -18,9 +18,9 @@ Hierarchy
 **Possible Child Blocks:**
 
 - :ref:`component`
-- :ref:`component_contextmenuconfig`
-- :ref:`component_durability`
-- :ref:`component_fluidcontainer`
+- :ref:`component-contextmenuconfig`
+- :ref:`component-durability`
+- :ref:`component-fluidcontainer`
 
 
 ID Properties
@@ -32,18 +32,18 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _acceptitemfunction:
+.. _item-acceptitemfunction:
 
-**AcceptItemFunction**
+**AcceptItemFunction** `🔗 <#item-acceptitemfunction>`_
    Type: ``Any``
 
    No description
 
    Item types: container
 
-.. _acceptmediatype:
+.. _item-acceptmediatype:
 
-**AcceptMediaType**
+**AcceptMediaType** `🔗 <#item-acceptmediatype>`_
    Type: ``integer``
 
    No description
@@ -52,225 +52,225 @@ Parameters
 
    Item types: radio
 
-.. _activateditem:
+.. _item-activateditem:
 
-**ActivatedItem**
+**ActivatedItem** `🔗 <#item-activateditem>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, drainable, weaponpart
 
-.. _aimingmod:
+.. _item-aimingmod:
 
-**AimingMod**
+**AimingMod** `🔗 <#item-aimingmod>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _aimingperkcritmodifier:
+.. _item-aimingperkcritmodifier:
 
-**AimingPerkCritModifier**
+**AimingPerkCritModifier** `🔗 <#item-aimingperkcritmodifier>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _aimingperkhitchancemodifier:
+.. _item-aimingperkhitchancemodifier:
 
-**AimingPerkHitChanceModifier**
+**AimingPerkHitChanceModifier** `🔗 <#item-aimingperkhitchancemodifier>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _aimingperkminanglemodifier:
+.. _item-aimingperkminanglemodifier:
 
-**AimingPerkMinAngleModifier**
+**AimingPerkMinAngleModifier** `🔗 <#item-aimingperkminanglemodifier>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _aimingperkrangemodifier:
+.. _item-aimingperkrangemodifier:
 
-**AimingPerkRangeModifier**
+**AimingPerkRangeModifier** `🔗 <#item-aimingperkrangemodifier>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _aimingtime:
+.. _item-aimingtime:
 
-**Aimingtime**
+**Aimingtime** `🔗 <#item-aimingtime>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _aimingtimemodifier:
+.. _item-aimingtimemodifier:
 
-**AimingTimeModifier**
+**AimingTimeModifier** `🔗 <#item-aimingtimemodifier>`_
    Type: ``Any``
 
    No description
 
    Item types: weaponpart
 
-.. _aimreleasesound:
+.. _item-aimreleasesound:
 
-**AimReleaseSound**
+**AimReleaseSound** `🔗 <#item-aimreleasesound>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _alarmsound:
+.. _item-alarmsound:
 
-**AlarmSound**
+**AlarmSound** `🔗 <#item-alarmsound>`_
    Type: ``Any``
 
    No description
 
    Item types: alarmclock, alarmclockclothing
 
-.. _alcoholic:
+.. _item-alcoholic:
 
-**Alcoholic**
+**Alcoholic** `🔗 <#item-alcoholic>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _alcoholpower:
+.. _item-alcoholpower:
 
-**AlcoholPower**
+**AlcoholPower** `🔗 <#item-alcoholpower>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable
 
-.. _alwaysknockdown:
+.. _item-alwaysknockdown:
 
-**AlwaysKnockdown**
+**AlwaysKnockdown** `🔗 <#item-alwaysknockdown>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _alwayswelcomegift:
+.. _item-alwayswelcomegift:
 
-**AlwaysWelcomeGift**
+**AlwaysWelcomeGift** `🔗 <#item-alwayswelcomegift>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _ammobox:
+.. _item-ammobox:
 
-**AmmoBox**
+**AmmoBox** `🔗 <#item-ammobox>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _ammotype:
+.. _item-ammotype:
 
-**AmmoType**
+**AmmoType** `🔗 <#item-ammotype>`_
    Type: ``Any``
 
    No description
 
    Item types: normal, weapon
 
-.. _anglefalloff:
+.. _item-anglefalloff:
 
-**AngleFalloff**
+**AngleFalloff** `🔗 <#item-anglefalloff>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _animalfeedtype:
+.. _item-animalfeedtype:
 
-**AnimalFeedType**
+**AnimalFeedType** `🔗 <#item-animalfeedtype>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _attachmentreplacement:
+.. _item-attachmentreplacement:
 
-**AttachmentReplacement**
+**AttachmentReplacement** `🔗 <#item-attachmentreplacement>`_
    Type: ``Any``
 
    No description
 
    Item types: container, radio
 
-.. _attachmentsprovided:
+.. _item-attachmentsprovided:
 
-**AttachmentsProvided**
+**AttachmentsProvided** `🔗 <#item-attachmentsprovided>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, container
 
-.. _attachmenttype:
+.. _item-attachmenttype:
 
-**AttachmentType**
+**AttachmentType** `🔗 <#item-attachmenttype>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, normal, radio, weapon
 
-.. _badcold:
+.. _item-badcold:
 
-**BadCold**
+**BadCold** `🔗 <#item-badcold>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _badinmicrowave:
+.. _item-badinmicrowave:
 
-**BadInMicrowave**
+**BadInMicrowave** `🔗 <#item-badinmicrowave>`_
    Type: ``Any``
 
-   No description
+   Used to set whether this item can cause a fire when put in a microwave, if set to true it will explode.
 
    Item types: food
 
-.. _bandagepower:
+.. _item-bandagepower:
 
-**BandagePower**
+**BandagePower** `🔗 <#item-bandagepower>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _basespeed:
+.. _item-basespeed:
 
-**BaseSpeed**
+**BaseSpeed** `🔗 <#item-basespeed>`_
    Type: ``float``
 
    No description
@@ -279,27 +279,27 @@ Parameters
 
    Item types: weapon
 
-.. _basevolumerange:
+.. _item-basevolumerange:
 
-**BaseVolumeRange**
+**BaseVolumeRange** `🔗 <#item-basevolumerange>`_
    Type: ``Any``
 
    No description
 
    Item types: radio
 
-.. _bitedefense:
+.. _item-bitedefense:
 
-**BiteDefense**
+**BiteDefense** `🔗 <#item-bitedefense>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing
 
-.. _bloodlocation:
+.. _item-bloodlocation:
 
-**BloodLocation**
+**BloodLocation** `🔗 <#item-bloodlocation>`_
    Type: ``array``
 
    No description
@@ -344,171 +344,171 @@ Parameters
    - ``Foot_L``
    - ``Foot_R``
 
-.. _bodylocation:
+.. _item-bodylocation:
 
-**BodyLocation**
+**BodyLocation** `🔗 <#item-bodylocation>`_
    Type: ``Any``
 
    Used to define which location on the human character this clothing item can be worn.
 
    Item types: alarmclockclothing, clothing, container, normal
 
-.. _book_subject:
+.. _item-book_subject:
 
-**book_subject**
+**book_subject** `🔗 <#item-book_subject>`_
    Type: ``Any``
 
    No description
 
    Item types: container, literature
 
-.. _boredomchange:
+.. _item-boredomchange:
 
-**BoredomChange**
+**BoredomChange** `🔗 <#item-boredomchange>`_
    Type: ``Any``
 
    No description
 
    Item types: food, literature
 
-.. _brakeforce:
+.. _item-brakeforce:
 
-**brakeForce**
+**brakeForce** `🔗 <#item-brakeforce>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _breaksound:
+.. _item-breaksound:
 
-**BreakSound**
+**BreakSound** `🔗 <#item-breaksound>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, normal, weapon
 
-.. _bringtobearsound:
+.. _item-bringtobearsound:
 
-**BringToBearSound**
+**BringToBearSound** `🔗 <#item-bringtobearsound>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _bulletdefense:
+.. _item-bulletdefense:
 
-**BulletDefense**
+**BulletDefense** `🔗 <#item-bulletdefense>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing
 
-.. _bullethitarmoursound:
+.. _item-bullethitarmoursound:
 
-**BulletHitArmourSound**
+**BulletHitArmourSound** `🔗 <#item-bullethitarmoursound>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing
 
-.. _calories:
+.. _item-calories:
 
-**Calories**
+**Calories** `🔗 <#item-calories>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, normal
 
-.. _canattach:
+.. _item-canattach:
 
-**CanAttach**
+**CanAttach** `🔗 <#item-canattach>`_
    Type: ``Any``
 
    No description
 
    Item types: weaponpart
 
-.. _canbandage:
+.. _item-canbandage:
 
-**CanBandage**
+**CanBandage** `🔗 <#item-canbandage>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _canbarricade:
+.. _item-canbarricade:
 
-**CanBarricade**
+**CanBarricade** `🔗 <#item-canbarricade>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _canbeequipped:
+.. _item-canbeequipped:
 
-**CanBeEquipped**
+**CanBeEquipped** `🔗 <#item-canbeequipped>`_
    Type: ``Any``
 
    No description
 
    Item types: container, radio
 
-.. _canbeplaced:
+.. _item-canbeplaced:
 
-**CanBePlaced**
+**CanBePlaced** `🔗 <#item-canbeplaced>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _canberemote:
+.. _item-canberemote:
 
-**CanBeRemote**
+**CanBeRemote** `🔗 <#item-canberemote>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _canbereused:
+.. _item-canbereused:
 
-**CanBeReused**
+**CanBeReused** `🔗 <#item-canbereused>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _canbewrite:
+.. _item-canbewrite:
 
-**CanBeWrite**
+**CanBeWrite** `🔗 <#item-canbewrite>`_
    Type: ``Any``
 
    No description
 
    Item types: literature
 
-.. _candetach:
+.. _item-candetach:
 
-**CanDetach**
+**CanDetach** `🔗 <#item-candetach>`_
    Type: ``Any``
 
    No description
 
    Item types: weaponpart
 
-.. _canhaveholes:
+.. _item-canhaveholes:
 
-**CanHaveHoles**
+**CanHaveHoles** `🔗 <#item-canhaveholes>`_
    Type: ``boolean``
 
    Used to define whenever this item can get holes in it.
@@ -517,72 +517,72 @@ Parameters
 
    Item types: clothing, container, normal
 
-.. _cannedfood:
+.. _item-cannedfood:
 
-**CannedFood**
+**CannedFood** `🔗 <#item-cannedfood>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _canstack:
+.. _item-canstack:
 
-**CanStack**
+**CanStack** `🔗 <#item-canstack>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _canstorewater:
+.. _item-canstorewater:
 
-**CanStoreWater**
+**CanStoreWater** `🔗 <#item-canstorewater>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, normal, weapon
 
-.. _cantattackwithlowestendurance:
+.. _item-cantattackwithlowestendurance:
 
-**CantAttackWithLowestEndurance**
+**CantAttackWithLowestEndurance** `🔗 <#item-cantattackwithlowestendurance>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _cantbeconsolided:
+.. _item-cantbeconsolided:
 
-**cantBeConsolided**
+**cantBeConsolided** `🔗 <#item-cantbeconsolided>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable
 
-.. _cantbefrozen:
+.. _item-cantbefrozen:
 
-**CantBeFrozen**
+**CantBeFrozen** `🔗 <#item-cantbefrozen>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _canteat:
+.. _item-canteat:
 
-**CantEat**
+**CantEat** `🔗 <#item-canteat>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _capacity:
+.. _item-capacity:
 
-**Capacity**
+**Capacity** `🔗 <#item-capacity>`_
    Type: ``integer``
 
    No description
@@ -591,45 +591,45 @@ Parameters
 
    Item types: container
 
-.. _carbohydrates:
+.. _item-carbohydrates:
 
-**Carbohydrates**
+**Carbohydrates** `🔗 <#item-carbohydrates>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, normal
 
-.. _categories:
+.. _item-categories:
 
-**Categories**
+**Categories** `🔗 <#item-categories>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _chancetofall:
+.. _item-chancetofall:
 
-**ChanceToFall**
+**ChanceToFall** `🔗 <#item-chancetofall>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, normal
 
-.. _chancetospawndamaged:
+.. _item-chancetospawndamaged:
 
-**ChanceToSpawnDamaged**
+**ChanceToSpawnDamaged** `🔗 <#item-chancetospawndamaged>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, normal
 
-.. _clicksound:
+.. _item-clicksound:
 
-**ClickSound**
+**ClickSound** `🔗 <#item-clicksound>`_
    Type: ``string``
 
    No description
@@ -638,72 +638,80 @@ Parameters
 
    Item types: weapon
 
-.. _clipsize:
+.. _item-clipsize:
 
-**ClipSize**
+**ClipSize** `🔗 <#item-clipsize>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _closekillmove:
+.. _item-closekillmove:
 
-**CloseKillMove**
+**CloseKillMove** `🔗 <#item-closekillmove>`_
    Type: ``Any``
 
    Used to whenever this weapon can be used to do a close kill move, like knives to assassinate in the back.
 
    Item types: weapon
 
-.. _closesound:
+.. _item-closesound:
 
-**CloseSound**
+**CloseSound** `🔗 <#item-closesound>`_
    Type: ``Any``
 
    No description
 
    Item types: container
 
-.. _clothingextrasubmenu:
+.. _item-clothingextrasubmenu:
 
-**ClothingExtraSubmenu**
+**ClothingExtraSubmenu** `🔗 <#item-clothingextrasubmenu>`_
    Type: ``Any``
 
-   No description
+   ``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
+   
+   ``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
 
    Item types: alarmclockclothing, clothing, container
 
-.. _clothingitem:
+.. _item-clothingitem:
 
-**ClothingItem**
+**ClothingItem** `🔗 <#item-clothingitem>`_
    Type: ``Any``
 
-   No description
+   ``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
+   
+   ``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
 
    Item types: alarmclockclothing, clothing, container, radio
 
-.. _clothingitemextra:
+.. _item-clothingitemextra:
 
-**ClothingItemExtra**
+**ClothingItemExtra** `🔗 <#item-clothingitemextra>`_
    Type: ``Any``
 
-   No description
+   ``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
+   
+   ``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
 
    Item types: alarmclockclothing, clothing, container
 
-.. _clothingitemextraoption:
+.. _item-clothingitemextraoption:
 
-**ClothingItemExtraOption**
+**ClothingItemExtraOption** `🔗 <#item-clothingitemextraoption>`_
    Type: ``Any``
 
-   No description
+   ``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
+   
+   ``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
 
    Item types: alarmclockclothing, clothing, container
 
-.. _colorblue:
+.. _item-colorblue:
 
-**ColorBlue**
+**ColorBlue** `🔗 <#item-colorblue>`_
    Type: ``integer``
 
    No description
@@ -712,9 +720,9 @@ Parameters
 
    Item types: clothing, food, literature, normal, weapon
 
-.. _colorgreen:
+.. _item-colorgreen:
 
-**ColorGreen**
+**ColorGreen** `🔗 <#item-colorgreen>`_
    Type: ``integer``
 
    No description
@@ -723,9 +731,9 @@ Parameters
 
    Item types: clothing, food, literature, normal, weapon
 
-.. _colorred:
+.. _item-colorred:
 
-**ColorRed**
+**ColorRed** `🔗 <#item-colorred>`_
    Type: ``integer``
 
    No description
@@ -734,9 +742,9 @@ Parameters
 
    Item types: clothing, food, literature, normal, weapon
 
-.. _combatspeedmodifier:
+.. _item-combatspeedmodifier:
 
-**CombatSpeedModifier**
+**CombatSpeedModifier** `🔗 <#item-combatspeedmodifier>`_
    Type: ``float``
 
    No description
@@ -745,18 +753,18 @@ Parameters
 
    Item types: clothing, container
 
-.. _conditionaffectscapacity:
+.. _item-conditionaffectscapacity:
 
-**ConditionAffectsCapacity**
+**ConditionAffectsCapacity** `🔗 <#item-conditionaffectscapacity>`_
    Type: ``Any``
 
    Set whenever condition of the item can impact the capacity value of the container.
 
    Item types: normal
 
-.. _conditionlowerchanceonein:
+.. _item-conditionlowerchanceonein:
 
-**ConditionLowerChanceOneIn**
+**ConditionLowerChanceOneIn** `🔗 <#item-conditionlowerchanceonein>`_
    Type: ``integer``
 
    The chance impact to reduce the durability of the item, the value is used to calculate the chance by doing $chance = 1/ConditionLowerChanceOneIn$, which means increasing this parameter value will reduce the chance to damage the item.
@@ -765,27 +773,27 @@ Parameters
 
    Item types: clothing, normal, weapon
 
-.. _conditionloweroffroad:
+.. _item-conditionloweroffroad:
 
-**ConditionLowerOffroad**
+**ConditionLowerOffroad** `🔗 <#item-conditionloweroffroad>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _conditionlowerstandard:
+.. _item-conditionlowerstandard:
 
-**ConditionLowerStandard**
+**ConditionLowerStandard** `🔗 <#item-conditionlowerstandard>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, normal
 
-.. _conditionmax:
+.. _item-conditionmax:
 
-**ConditionMax**
+**ConditionMax** `🔗 <#item-conditionmax>`_
    Type: ``integer``
 
    No description
@@ -794,45 +802,45 @@ Parameters
 
    Item types: clothing, container, drainable, food, normal, radio, weapon
 
-.. _consolidateoption:
+.. _item-consolidateoption:
 
-**ConsolidateOption**
+**ConsolidateOption** `🔗 <#item-consolidateoption>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable
 
-.. _cookingsound:
+.. _item-cookingsound:
 
-**CookingSound**
+**CookingSound** `🔗 <#item-cookingsound>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, normal
 
-.. _corpsesicknessdefense:
+.. _item-corpsesicknessdefense:
 
-**CorpseSicknessDefense**
+**CorpseSicknessDefense** `🔗 <#item-corpsesicknessdefense>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing
 
-.. _cosmetic:
+.. _item-cosmetic:
 
-**Cosmetic**
+**Cosmetic** `🔗 <#item-cosmetic>`_
    Type: ``Any``
 
    No description
 
    Item types: alarmclockclothing, clothing
 
-.. _count:
+.. _item-count:
 
-**count**
+**count** `🔗 <#item-count>`_
    Type: ``integer``
 
    No description
@@ -841,18 +849,18 @@ Parameters
 
    Item types: normal
 
-.. _critdmgmultiplier:
+.. _item-critdmgmultiplier:
 
-**CritDmgMultiplier**
+**CritDmgMultiplier** `🔗 <#item-critdmgmultiplier>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _criticalchance:
+.. _item-criticalchance:
 
-**CriticalChance**
+**CriticalChance** `🔗 <#item-criticalchance>`_
    Type: ``float``
 
    No description
@@ -861,18 +869,18 @@ Parameters
 
    Item types: weapon
 
-.. _customcontextmenu:
+.. _item-customcontextmenu:
 
-**CustomContextMenu**
+**CustomContextMenu** `🔗 <#item-customcontextmenu>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, normal
 
-.. _customeatsound:
+.. _item-customeatsound:
 
-**CustomEatSound**
+**CustomEatSound** `🔗 <#item-customeatsound>`_
    Type: ``Any``
 
    Custom sound to play when eating or drinking this item, refers to the ID of a sound script. Set to an empty string to disable any sound from playing.
@@ -881,81 +889,81 @@ Parameters
 
    Item types: drainable, food, normal
 
-.. _cyclicratemultiplier:
+.. _item-cyclicratemultiplier:
 
-**CyclicRateMultiplier**
+**CyclicRateMultiplier** `🔗 <#item-cyclicratemultiplier>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _damagecategory:
+.. _item-damagecategory:
 
-**DamageCategory**
+**DamageCategory** `🔗 <#item-damagecategory>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _damagemakehole:
+.. _item-damagemakehole:
 
-**DamageMakeHole**
+**DamageMakeHole** `🔗 <#item-damagemakehole>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _dangerousuncooked:
+.. _item-dangerousuncooked:
 
-**DangerousUncooked**
+**DangerousUncooked** `🔗 <#item-dangerousuncooked>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _daysfresh:
+.. _item-daysfresh:
 
-**DaysFresh**
+**DaysFresh** `🔗 <#item-daysfresh>`_
    Type: ``Any``
 
    How many days this food item will stay fresh with default sandbox settings.
 
    Item types: food
 
-.. _daystotallyrotten:
+.. _item-daystotallyrotten:
 
-**DaysTotallyRotten**
+**DaysTotallyRotten** `🔗 <#item-daystotallyrotten>`_
    Type: ``Any``
 
    How many days this food item will take to rot.
 
    Item types: food
 
-.. _digitalpadlock:
+.. _item-digitalpadlock:
 
-**DigitalPadlock**
+**DigitalPadlock** `🔗 <#item-digitalpadlock>`_
    Type: ``Any``
 
    No description
 
    Item types: key
 
-.. _digtype:
+.. _item-digtype:
 
-**DigType**
+**DigType** `🔗 <#item-digtype>`_
    Type: ``Any``
 
    No description
 
    Item types: normal, weapon
 
-.. _disappearonuse:
+.. _item-disappearonuse:
 
-**DisappearOnUse**
+**DisappearOnUse** `🔗 <#item-disappearonuse>`_
    Type: ``boolean``
 
    No description
@@ -964,25 +972,25 @@ Parameters
 
    Item types: drainable, radio, weaponpart
 
-.. _discomfortmodifier:
+.. _item-discomfortmodifier:
 
-**DiscomfortModifier**
+**DiscomfortModifier** `🔗 <#item-discomfortmodifier>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, container
 
-.. _displaycategory:
+.. _item-displaycategory:
 
-**DisplayCategory**
+**DisplayCategory** `🔗 <#item-displaycategory>`_
    Type: ``Any``
 
    No description
 
-.. _displayname:
+.. _item-displayname:
 
-**DisplayName**
+**DisplayName** `🔗 <#item-displayname>`_
    Type: ``Any``
 
    Sets the name of the item which will be displayed in-game. It's recommended to use a translation entry for this parameter to allow localization of the item name.
@@ -993,9 +1001,9 @@ Parameters
 
       Naming an item should be done with a translation entry. See the `wiki <https://pzwiki.net/wiki/DisplayName>`_ page for more information.
 
-.. _doordamage:
+.. _item-doordamage:
 
-**DoorDamage**
+**DoorDamage** `🔗 <#item-doordamage>`_
    Type: ``integer``
 
    No description
@@ -1004,9 +1012,9 @@ Parameters
 
    Item types: weapon
 
-.. _doorhitsound:
+.. _item-doorhitsound:
 
-**DoorHitSound**
+**DoorHitSound** `🔗 <#item-doorhitsound>`_
    Type: ``string``
 
    No description
@@ -1015,81 +1023,81 @@ Parameters
 
    Item types: weapon
 
-.. _doubleclickrecipe:
+.. _item-doubleclickrecipe:
 
-**DoubleClickRecipe**
+**DoubleClickRecipe** `🔗 <#item-doubleclickrecipe>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, literature, normal
 
-.. _dropsound:
+.. _item-dropsound:
 
-**DropSound**
+**DropSound** `🔗 <#item-dropsound>`_
    Type: ``Any``
 
    No description
 
    Item types: normal, weapon
 
-.. _eattime:
+.. _item-eattime:
 
-**Eattime**
+**Eattime** `🔗 <#item-eattime>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, normal
 
-.. _eattype:
+.. _item-eattype:
 
-**EatType**
+**EatType** `🔗 <#item-eattype>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, drainable, food, normal, weapon
 
-.. _ejectammosound:
+.. _item-ejectammosound:
 
-**EjectAmmoSound**
+**EjectAmmoSound** `🔗 <#item-ejectammosound>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _ejectammostartsound:
+.. _item-ejectammostartsound:
 
-**EjectAmmoStartSound**
+**EjectAmmoStartSound** `🔗 <#item-ejectammostartsound>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _ejectammostopsound:
+.. _item-ejectammostopsound:
 
-**EjectAmmoStopSound**
+**EjectAmmoStopSound** `🔗 <#item-ejectammostopsound>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _endurancechange:
+.. _item-endurancechange:
 
-**enduranceChange**
+**enduranceChange** `🔗 <#item-endurancechange>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _endurancemod:
+.. _item-endurancemod:
 
-**EnduranceMod**
+**EnduranceMod** `🔗 <#item-endurancemod>`_
    Type: ``float``
 
    No description
@@ -1098,261 +1106,261 @@ Parameters
 
    Item types: weapon
 
-.. _engineloudness:
+.. _item-engineloudness:
 
-**engineLoudness**
+**engineLoudness** `🔗 <#item-engineloudness>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _equippednosprint:
+.. _item-equippednosprint:
 
-**EquippedNoSprint**
+**EquippedNoSprint** `🔗 <#item-equippednosprint>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _equipsound:
+.. _item-equipsound:
 
-**EquipSound**
+**EquipSound** `🔗 <#item-equipsound>`_
    Type: ``Any``
 
    No description
 
    Item types: container, drainable, weapon
 
-.. _evolvedrecipe:
+.. _item-evolvedrecipe:
 
-**EvolvedRecipe**
+**EvolvedRecipe** `🔗 <#item-evolvedrecipe>`_
    Type: ``Any``
 
    List of evolved recipes this item can be used in.
 
    Item types: drainable, food
 
-.. _evolvedrecipename:
+.. _item-evolvedrecipename:
 
-**EvolvedRecipeName**
+**EvolvedRecipeName** `🔗 <#item-evolvedrecipename>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _explosionduration:
+.. _item-explosionduration:
 
-**ExplosionDuration**
+**ExplosionDuration** `🔗 <#item-explosionduration>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _explosionpower:
+.. _item-explosionpower:
 
-**ExplosionPower**
+**ExplosionPower** `🔗 <#item-explosionpower>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _explosionrange:
+.. _item-explosionrange:
 
-**ExplosionRange**
+**ExplosionRange** `🔗 <#item-explosionrange>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _explosionsound:
+.. _item-explosionsound:
 
-**ExplosionSound**
+**ExplosionSound** `🔗 <#item-explosionsound>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _explosiontimer:
+.. _item-explosiontimer:
 
-**ExplosionTimer**
+**ExplosionTimer** `🔗 <#item-explosiontimer>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _fabrictype:
+.. _item-fabrictype:
 
-**FabricType**
+**FabricType** `🔗 <#item-fabrictype>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, normal
 
-.. _fatiguechange:
+.. _item-fatiguechange:
 
-**fatigueChange**
+**fatigueChange** `🔗 <#item-fatiguechange>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _fillfromdispensersound:
+.. _item-fillfromdispensersound:
 
-**FillFromDispenserSound**
+**FillFromDispenserSound** `🔗 <#item-fillfromdispensersound>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, normal
 
-.. _fillfromlakesound:
+.. _item-fillfromlakesound:
 
-**FillFromLakeSound**
+**FillFromLakeSound** `🔗 <#item-fillfromlakesound>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _fillfromtapsound:
+.. _item-fillfromtapsound:
 
-**FillFromTapSound**
+**FillFromTapSound** `🔗 <#item-fillfromtapsound>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, normal
 
-.. _fillfromtoiletsound:
+.. _item-fillfromtoiletsound:
 
-**FillFromToiletSound**
+**FillFromToiletSound** `🔗 <#item-fillfromtoiletsound>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _firefuelratio:
+.. _item-firefuelratio:
 
-**FireFuelRatio**
+**FireFuelRatio** `🔗 <#item-firefuelratio>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, moveable, normal, weapon
 
-.. _firemode:
+.. _item-firemode:
 
-**FireMode**
+**FireMode** `🔗 <#item-firemode>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _firemodepossibilities:
+.. _item-firemodepossibilities:
 
-**FireModePossibilities**
+**FireModePossibilities** `🔗 <#item-firemodepossibilities>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _firerange:
+.. _item-firerange:
 
-**FireRange**
+**FireRange** `🔗 <#item-firerange>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _firestartingchance:
+.. _item-firestartingchance:
 
-**FireStartingChance**
+**FireStartingChance** `🔗 <#item-firestartingchance>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _firestartingenergy:
+.. _item-firestartingenergy:
 
-**FireStartingEnergy**
+**FireStartingEnergy** `🔗 <#item-firestartingenergy>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _fishinglure:
+.. _item-fishinglure:
 
-**FishingLure**
+**FishingLure** `🔗 <#item-fishinglure>`_
    Type: ``Any``
 
    No description
 
    Item types: food, normal
 
-.. _flureduction:
+.. _item-flureduction:
 
-**fluReduction**
+**fluReduction** `🔗 <#item-flureduction>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _foodsicknesschange:
+.. _item-foodsicknesschange:
 
-**FoodSicknessChange**
+**FoodSicknessChange** `🔗 <#item-foodsicknesschange>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _foodtype:
+.. _item-foodtype:
 
-**FoodType**
+**FoodType** `🔗 <#item-foodtype>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _goodhot:
+.. _item-goodhot:
 
-**GoodHot**
+**GoodHot** `🔗 <#item-goodhot>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _guntype:
+.. _item-guntype:
 
-**GunType**
+**GunType** `🔗 <#item-guntype>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _havechamber:
+.. _item-havechamber:
 
-**HaveChamber**
+**HaveChamber** `🔗 <#item-havechamber>`_
    Type: ``boolean``
 
    Whether the weapon has a chamber that can hold a round in addition to its magazine.
@@ -1361,18 +1369,18 @@ Parameters
 
    Item types: weapon
 
-.. _headcondition:
+.. _item-headcondition:
 
-**HeadCondition**
+**HeadCondition** `🔗 <#item-headcondition>`_
    Type: ``Any``
 
    No description
 
    Item types: normal, weapon
 
-.. _headconditionlowerchancemultiplier:
+.. _item-headconditionlowerchancemultiplier:
 
-**HeadConditionLowerChanceMultiplier**
+**HeadConditionLowerChanceMultiplier** `🔗 <#item-headconditionlowerchancemultiplier>`_
    Type: ``float``
 
    No description
@@ -1381,18 +1389,18 @@ Parameters
 
    Item types: normal, weapon
 
-.. _headconditionmax:
+.. _item-headconditionmax:
 
-**HeadConditionMax**
+**HeadConditionMax** `🔗 <#item-headconditionmax>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _hearingmodifier:
+.. _item-hearingmodifier:
 
-**HearingModifier**
+**HearingModifier** `🔗 <#item-hearingmodifier>`_
    Type: ``float``
 
    No description
@@ -1401,52 +1409,52 @@ Parameters
 
    Item types: clothing
 
-.. _herbalisttype:
+.. _item-herbalisttype:
 
-**HerbalistType**
+**HerbalistType** `🔗 <#item-herbalisttype>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _hidden:
+.. _item-hidden:
 
-**Hidden**
+**Hidden** `🔗 <#item-hidden>`_
    Type: ``Any``
 
    No description
 
-.. _hitanglemod:
+.. _item-hitanglemod:
 
-**HitAngleMod**
-   Type: ``Any``
-
-   No description
-
-   Item types: weapon
-
-.. _hitchance:
-
-**HitChance**
+**HitAngleMod** `🔗 <#item-hitanglemod>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _hitchancemodifier:
+.. _item-hitchance:
 
-**HitChanceModifier**
+**HitChance** `🔗 <#item-hitchance>`_
+   Type: ``Any``
+
+   No description
+
+   Item types: weapon
+
+.. _item-hitchancemodifier:
+
+**HitChanceModifier** `🔗 <#item-hitchancemodifier>`_
    Type: ``Any``
 
    No description
 
    Item types: weaponpart
 
-.. _hitfloorsound:
+.. _item-hitfloorsound:
 
-**HitFloorSound**
+**HitFloorSound** `🔗 <#item-hitfloorsound>`_
    Type: ``string``
 
    No description
@@ -1455,9 +1463,9 @@ Parameters
 
    Item types: weapon
 
-.. _hitsound:
+.. _item-hitsound:
 
-**HitSound**
+**HitSound** `🔗 <#item-hitsound>`_
    Type: ``string``
 
    No description
@@ -1466,54 +1474,54 @@ Parameters
 
    Item types: weapon
 
-.. _hungerchange:
+.. _item-hungerchange:
 
-**HungerChange**
+**HungerChange** `🔗 <#item-hungerchange>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _icon:
+.. _item-icon:
 
-**Icon**
+**Icon** `🔗 <#item-icon>`_
    Type: ``string``
 
    No description
 
    Default: ``None``
 
-.. _iconcolormask:
+.. _item-iconcolormask:
 
-**IconColorMask**
+**IconColorMask** `🔗 <#item-iconcolormask>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, literature, normal, weapon
 
-.. _iconfluidmask:
+.. _item-iconfluidmask:
 
-**IconFluidMask**
+**IconFluidMask** `🔗 <#item-iconfluidmask>`_
    Type: ``Any``
 
    No description
 
    Item types: normal, weapon
 
-.. _iconsfortexture:
+.. _item-iconsfortexture:
 
-**IconsForTexture**
+**IconsForTexture** `🔗 <#item-iconsfortexture>`_
    Type: ``array``
 
    No description
 
    Item types: clothing, container, food, key, literature, normal, weapon
 
-.. _idleanim:
+.. _item-idleanim:
 
-**IdleAnim**
+**IdleAnim** `🔗 <#item-idleanim>`_
    Type: ``string``
 
    No description
@@ -1522,9 +1530,9 @@ Parameters
 
    Item types: weapon
 
-.. _impactsound:
+.. _item-impactsound:
 
-**ImpactSound**
+**ImpactSound** `🔗 <#item-impactsound>`_
    Type: ``string``
 
    No description
@@ -1533,153 +1541,153 @@ Parameters
 
    Item types: weapon
 
-.. _insertallbulletsreload:
+.. _item-insertallbulletsreload:
 
-**InsertAllBulletsReload**
+**InsertAllBulletsReload** `🔗 <#item-insertallbulletsreload>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _insertammosound:
+.. _item-insertammosound:
 
-**InsertAmmoSound**
+**InsertAmmoSound** `🔗 <#item-insertammosound>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _insertammostartsound:
+.. _item-insertammostartsound:
 
-**InsertAmmoStartSound**
+**InsertAmmoStartSound** `🔗 <#item-insertammostartsound>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _insertammostopsound:
+.. _item-insertammostopsound:
 
-**InsertAmmoStopSound**
+**InsertAmmoStopSound** `🔗 <#item-insertammostopsound>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _insulation:
+.. _item-insulation:
 
-**Insulation**
+**Insulation** `🔗 <#item-insulation>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, normal
 
-.. _inversecoughprobability:
+.. _item-inversecoughprobability:
 
-**InverseCoughProbability**
+**InverseCoughProbability** `🔗 <#item-inversecoughprobability>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _inversecoughprobabilitysmoker:
+.. _item-inversecoughprobabilitysmoker:
 
-**InverseCoughProbabilitySmoker**
+**InverseCoughProbabilitySmoker** `🔗 <#item-inversecoughprobabilitysmoker>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _isaimedfirearm:
+.. _item-isaimedfirearm:
 
-**IsAimedFirearm**
+**IsAimedFirearm** `🔗 <#item-isaimedfirearm>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _isaimedhandweapon:
+.. _item-isaimedhandweapon:
 
-**IsAimedHandWeapon**
+**IsAimedHandWeapon** `🔗 <#item-isaimedhandweapon>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _iscookable:
+.. _item-iscookable:
 
-**IsCookable**
+**IsCookable** `🔗 <#item-iscookable>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, normal, weapon
 
-.. _isdung:
+.. _item-isdung:
 
-**IsDung**
+**IsDung** `🔗 <#item-isdung>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _ishightier:
+.. _item-ishightier:
 
-**IsHighTier**
+**IsHighTier** `🔗 <#item-ishightier>`_
    Type: ``Any``
 
    No description
 
    Item types: radio
 
-.. _isportable:
+.. _item-isportable:
 
-**IsPortable**
+**IsPortable** `🔗 <#item-isportable>`_
    Type: ``Any``
 
    No description
 
    Item types: radio
 
-.. _istelevision:
+.. _item-istelevision:
 
-**IsTelevision**
+**IsTelevision** `🔗 <#item-istelevision>`_
    Type: ``Any``
 
    No description
 
    Item types: radio
 
-.. _iswatersource:
+.. _item-iswatersource:
 
-**IsWaterSource**
+**IsWaterSource** `🔗 <#item-iswatersource>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable
 
-.. _itemaftercleaning:
+.. _item-itemaftercleaning:
 
-**ItemAfterCleaning**
+**ItemAfterCleaning** `🔗 <#item-itemaftercleaning>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _itemtype:
+.. _item-itemtype:
 
-**ItemType**
+**ItemType** `🔗 <#item-itemtype>`_
    Type: ``string`` *(required)*
 
    Defines the class of the item which will impact which parameters the item can take and its properties as well as how it is used by the player. Clothing for instance will handle differently their texture and model in comparison to the other type of items, containers can hold items and weapons can be used by the player to attack and deal damage. You cannot use a custom class of item and only the ones accepted by the game.
@@ -1702,18 +1710,18 @@ Parameters
    - ``base:weapon``
    - ``base:weaponpart``
 
-.. _itemwhendry:
+.. _item-itemwhendry:
 
-**ItemWhenDry**
+**ItemWhenDry** `🔗 <#item-itemwhendry>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _jamgunchance:
+.. _item-jamgunchance:
 
-**JamGunChance**
+**JamGunChance** `🔗 <#item-jamgunchance>`_
    Type: ``float``
 
    No description
@@ -1722,27 +1730,27 @@ Parameters
 
    Item types: weapon
 
-.. _keepondeplete:
+.. _item-keepondeplete:
 
-**KeepOnDeplete**
+**KeepOnDeplete** `🔗 <#item-keepondeplete>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, drainable
 
-.. _knockbackonnodeath:
+.. _item-knockbackonnodeath:
 
-**KnockBackOnNoDeath**
+**KnockBackOnNoDeath** `🔗 <#item-knockbackonnodeath>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _knockdownmod:
+.. _item-knockdownmod:
 
-**KnockdownMod**
+**KnockdownMod** `🔗 <#item-knockdownmod>`_
    Type: ``float``
 
    No description
@@ -1751,54 +1759,54 @@ Parameters
 
    Item types: weapon
 
-.. _learnedrecipes:
+.. _item-learnedrecipes:
 
-**LearnedRecipes**
+**LearnedRecipes** `🔗 <#item-learnedrecipes>`_
    Type: ``Any``
 
    No description
 
    Item types: literature
 
-.. _lightdistance:
+.. _item-lightdistance:
 
-**LightDistance**
+**LightDistance** `🔗 <#item-lightdistance>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, weaponpart
 
-.. _lightstrength:
+.. _item-lightstrength:
 
-**LightStrength**
+**LightStrength** `🔗 <#item-lightstrength>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, weaponpart
 
-.. _lipids:
+.. _item-lipids:
 
-**Lipids**
+**Lipids** `🔗 <#item-lipids>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, normal
 
-.. _lowlightbonus:
+.. _item-lowlightbonus:
 
-**LowLightBonus**
+**LowLightBonus** `🔗 <#item-lowlightbonus>`_
    Type: ``Any``
 
    No description
 
    Item types: weaponpart
 
-.. _lvlskilltrained:
+.. _item-lvlskilltrained:
 
-**LvlSkillTrained**
+**LvlSkillTrained** `🔗 <#item-lvlskilltrained>`_
    Type: ``integer``
 
    No description
@@ -1807,63 +1815,63 @@ Parameters
 
    Item types: literature
 
-.. _magazine_subject:
+.. _item-magazine_subject:
 
-**magazine_subject**
+**magazine_subject** `🔗 <#item-magazine_subject>`_
    Type: ``Any``
 
    No description
 
    Item types: literature
 
-.. _magazinetype:
+.. _item-magazinetype:
 
-**MagazineType**
+**MagazineType** `🔗 <#item-magazinetype>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _makeuptype:
+.. _item-makeuptype:
 
-**MakeUpType**
+**MakeUpType** `🔗 <#item-makeuptype>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable
 
-.. _manuallyremovespentrounds:
+.. _item-manuallyremovespentrounds:
 
-**ManuallyRemoveSpentRounds**
+**ManuallyRemoveSpentRounds** `🔗 <#item-manuallyremovespentrounds>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _map:
+.. _item-map:
 
-**Map**
+**Map** `🔗 <#item-map>`_
    Type: ``Any``
 
    No description
 
    Item types: map
 
-.. _maxammo:
+.. _item-maxammo:
 
-**MaxAmmo**
+**MaxAmmo** `🔗 <#item-maxammo>`_
    Type: ``Any``
 
    No description
 
    Item types: normal, weapon
 
-.. _maxcapacity:
+.. _item-maxcapacity:
 
-**MaxCapacity**
+**MaxCapacity** `🔗 <#item-maxcapacity>`_
    Type: ``integer``
 
    No description
@@ -1872,9 +1880,9 @@ Parameters
 
    Item types: normal
 
-.. _maxchannel:
+.. _item-maxchannel:
 
-**MaxChannel**
+**MaxChannel** `🔗 <#item-maxchannel>`_
    Type: ``integer``
 
    No description
@@ -1883,9 +1891,9 @@ Parameters
 
    Item types: radio
 
-.. _maxdamage:
+.. _item-maxdamage:
 
-**MaxDamage**
+**MaxDamage** `🔗 <#item-maxdamage>`_
    Type: ``float``
 
    No description
@@ -1894,9 +1902,9 @@ Parameters
 
    Item types: weapon
 
-.. _maxhitcount:
+.. _item-maxhitcount:
 
-**MaxHitcount**
+**MaxHitcount** `🔗 <#item-maxhitcount>`_
    Type: ``integer``
 
    No description
@@ -1905,18 +1913,18 @@ Parameters
 
    Item types: weapon
 
-.. _maxitemsize:
+.. _item-maxitemsize:
 
-**MaxItemSize**
+**MaxItemSize** `🔗 <#item-maxitemsize>`_
    Type: ``Any``
 
    No description
 
    Item types: container
 
-.. _maxrange:
+.. _item-maxrange:
 
-**MaxRange**
+**MaxRange** `🔗 <#item-maxrange>`_
    Type: ``float``
 
    No description
@@ -1925,72 +1933,72 @@ Parameters
 
    Item types: weapon
 
-.. _maxrangemodifier:
+.. _item-maxrangemodifier:
 
-**MaxRangeModifier**
+**MaxRangeModifier** `🔗 <#item-maxrangemodifier>`_
    Type: ``Any``
 
    No description
 
    Item types: weaponpart
 
-.. _maxsightrange:
+.. _item-maxsightrange:
 
-**MaxSightRange**
+**MaxSightRange** `🔗 <#item-maxsightrange>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon, weaponpart
 
-.. _mechanicsitem:
+.. _item-mechanicsitem:
 
-**MechanicsItem**
+**MechanicsItem** `🔗 <#item-mechanicsitem>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, normal
 
-.. _mediacategory:
+.. _item-mediacategory:
 
-**MediaCategory**
+**MediaCategory** `🔗 <#item-mediacategory>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _medical:
+.. _item-medical:
 
-**Medical**
+**Medical** `🔗 <#item-medical>`_
    Type: ``Any``
 
    No description
 
    Item types: container, drainable, food, normal
 
-.. _metalvalue:
+.. _item-metalvalue:
 
-**MetalValue**
+**MetalValue** `🔗 <#item-metalvalue>`_
    Type: ``Any``
 
    No description
 
    Item types: alarmclock, alarmclockclothing, clothing, container, drainable, key, normal, weapon, weaponpart
 
-.. _micrange:
+.. _item-micrange:
 
-**MicRange**
+**MicRange** `🔗 <#item-micrange>`_
    Type: ``Any``
 
    No description
 
    Item types: radio
 
-.. _minangle:
+.. _item-minangle:
 
-**MinAngle**
+**MinAngle** `🔗 <#item-minangle>`_
    Type: ``float``
 
    No description
@@ -1999,9 +2007,9 @@ Parameters
 
    Item types: weapon
 
-.. _minchannel:
+.. _item-minchannel:
 
-**MinChannel**
+**MinChannel** `🔗 <#item-minchannel>`_
    Type: ``integer``
 
    No description
@@ -2010,45 +2018,45 @@ Parameters
 
    Item types: radio
 
-.. _mindamage:
+.. _item-mindamage:
 
-**MinDamage**
+**MinDamage** `🔗 <#item-mindamage>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _minimumswingtime:
+.. _item-minimumswingtime:
 
-**MinimumSwingtime**
+**MinimumSwingtime** `🔗 <#item-minimumswingtime>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _minrange:
+.. _item-minrange:
 
-**MinRange**
+**MinRange** `🔗 <#item-minrange>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _minsightrange:
+.. _item-minsightrange:
 
-**MinSightRange**
+**MinSightRange** `🔗 <#item-minsightrange>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon, weaponpart
 
-.. _minutestoburn:
+.. _item-minutestoburn:
 
-**MinutesToBurn**
+**MinutesToBurn** `🔗 <#item-minutestoburn>`_
    Type: ``float``
 
    How many in-game minutes it takes to burn the food. This value must be higher than ``MinutesToCook``.
@@ -2057,9 +2065,9 @@ Parameters
 
    Item types: food
 
-.. _minutestocook:
+.. _item-minutestocook:
 
-**MinutesToCook**
+**MinutesToCook** `🔗 <#item-minutestocook>`_
    Type: ``float``
 
    How many in-game minutes it takes to cook the food. This value must be smaller than ``MinutesToBurn``.
@@ -2068,9 +2076,9 @@ Parameters
 
    Item types: food
 
-.. _modelweaponpart:
+.. _item-modelweaponpart:
 
-**ModelWeaponPart**
+**ModelWeaponPart** `🔗 <#item-modelweaponpart>`_
    Type: ``Any``
 
    No description
@@ -2079,18 +2087,18 @@ Parameters
 
    Item types: weapon
 
-.. _mounton:
+.. _item-mounton:
 
-**MountOn**
+**MountOn** `🔗 <#item-mounton>`_
    Type: ``Any``
 
    No description
 
    Item types: weaponpart
 
-.. _multiplehitconditionaffected:
+.. _item-multiplehitconditionaffected:
 
-**MultipleHitConditionAffected**
+**MultipleHitConditionAffected** `🔗 <#item-multiplehitconditionaffected>`_
    Type: ``boolean``
 
    No description
@@ -2099,18 +2107,18 @@ Parameters
 
    Item types: weapon
 
-.. _muzzleflashmodelkey:
+.. _item-muzzleflashmodelkey:
 
-**MuzzleFlashModelKey**
+**MuzzleFlashModelKey** `🔗 <#item-muzzleflashmodelkey>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _neckprotectionmodifier:
+.. _item-neckprotectionmodifier:
 
-**NeckProtectionModifier**
+**NeckProtectionModifier** `🔗 <#item-neckprotectionmodifier>`_
    Type: ``float``
 
    No description
@@ -2119,45 +2127,45 @@ Parameters
 
    Item types: clothing
 
-.. _needtobeclosedoncereload:
+.. _item-needtobeclosedoncereload:
 
-**needtobeclosedoncereload**
+**needtobeclosedoncereload** `🔗 <#item-needtobeclosedoncereload>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _noiseduration:
+.. _item-noiseduration:
 
-**NoiseDuration**
+**NoiseDuration** `🔗 <#item-noiseduration>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _noiserange:
+.. _item-noiserange:
 
-**NoiseRange**
+**NoiseRange** `🔗 <#item-noiserange>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _notransmit:
+.. _item-notransmit:
 
-**NoTransmit**
+**NoTransmit** `🔗 <#item-notransmit>`_
    Type: ``Any``
 
    No description
 
    Item types: radio
 
-.. _npcsoundboost:
+.. _item-npcsoundboost:
 
-**NPCSoundBoost**
+**NPCSoundBoost** `🔗 <#item-npcsoundboost>`_
    Type: ``float``
 
    No description
@@ -2166,9 +2174,9 @@ Parameters
 
    Item types: weapon
 
-.. _numberofpages:
+.. _item-numberofpages:
 
-**NumberOfPages**
+**NumberOfPages** `🔗 <#item-numberofpages>`_
    Type: ``integer``
 
    No description
@@ -2177,9 +2185,9 @@ Parameters
 
    Item types: literature
 
-.. _numlevelstrained:
+.. _item-numlevelstrained:
 
-**NumLevelsTrained**
+**NumLevelsTrained** `🔗 <#item-numlevelstrained>`_
    Type: ``integer``
 
    No description
@@ -2188,252 +2196,252 @@ Parameters
 
    Item types: literature
 
-.. _onbreak:
+.. _item-onbreak:
 
-**OnBreak**
+**OnBreak** `🔗 <#item-onbreak>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _oncooked:
+.. _item-oncooked:
 
-**OnCooked**
+**OnCooked** `🔗 <#item-oncooked>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _oncreate:
+.. _item-oncreate:
 
-**OnCreate**
+**OnCreate** `🔗 <#item-oncreate>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, container, drainable, food, literature, moveable, normal, weapon
 
-.. _oneat:
+.. _item-oneat:
 
-**OnEat**
+**OnEat** `🔗 <#item-oneat>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _openingrecipe:
+.. _item-openingrecipe:
 
-**OpeningRecipe**
+**OpeningRecipe** `🔗 <#item-openingrecipe>`_
    Type: ``Any``
 
    No description
 
    Item types: food, normal
 
-.. _opensound:
+.. _item-opensound:
 
-**OpenSound**
+**OpenSound** `🔗 <#item-opensound>`_
    Type: ``Any``
 
    No description
 
    Item types: container
 
-.. _originx:
+.. _item-originx:
 
-**OriginX**
+**OriginX** `🔗 <#item-originx>`_
    Type: ``Any``
 
    No description
 
    Item types: key
 
-.. _originy:
+.. _item-originy:
 
-**OriginY**
+**OriginY** `🔗 <#item-originy>`_
    Type: ``Any``
 
    No description
 
    Item types: key
 
-.. _originz:
+.. _item-originz:
 
-**originZ**
+**originZ** `🔗 <#item-originz>`_
    Type: ``Any``
 
    No description
 
    Item types: key
 
-.. _otherhandrequire:
+.. _item-otherhandrequire:
 
-**OtherHandRequire**
+**OtherHandRequire** `🔗 <#item-otherhandrequire>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _otherhanduse:
+.. _item-otherhanduse:
 
-**OtherHandUse**
+**OtherHandUse** `🔗 <#item-otherhanduse>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _packaged:
+.. _item-packaged:
 
-**Packaged**
+**Packaged** `🔗 <#item-packaged>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, normal
 
-.. _padlock:
+.. _item-padlock:
 
-**Padlock**
+**Padlock** `🔗 <#item-padlock>`_
    Type: ``Any``
 
    No description
 
    Item types: key
 
-.. _pagetowrite:
+.. _item-pagetowrite:
 
-**PageToWrite**
+**PageToWrite** `🔗 <#item-pagetowrite>`_
    Type: ``Any``
 
    No description
 
    Item types: literature
 
-.. _painreduction:
+.. _item-painreduction:
 
-**painReduction**
+**painReduction** `🔗 <#item-painreduction>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _parttype:
+.. _item-parttype:
 
-**PartType**
+**PartType** `🔗 <#item-parttype>`_
    Type: ``Any``
 
    No description
 
    Item types: weaponpart
 
-.. _physicsobject:
+.. _item-physicsobject:
 
-**PhysicsObject**
+**PhysicsObject** `🔗 <#item-physicsobject>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _piercingbullets:
+.. _item-piercingbullets:
 
-**PiercingBullets**
+**PiercingBullets** `🔗 <#item-piercingbullets>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _placedsprite:
+.. _item-placedsprite:
 
-**PlacedSprite**
+**PlacedSprite** `🔗 <#item-placedsprite>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _placemultiplesound:
+.. _item-placemultiplesound:
 
-**PlaceMultipleSound**
+**PlaceMultipleSound** `🔗 <#item-placemultiplesound>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _placeonesound:
+.. _item-placeonesound:
 
-**PlaceOneSound**
+**PlaceOneSound** `🔗 <#item-placeonesound>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _poisonpower:
+.. _item-poisonpower:
 
-**PoisonPower**
+**PoisonPower** `🔗 <#item-poisonpower>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _pourtype:
+.. _item-pourtype:
 
-**PourType**
+**PourType** `🔗 <#item-pourtype>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, normal
 
-.. _primaryanimmask:
+.. _item-primaryanimmask:
 
-**primaryAnimMask**
+**primaryAnimMask** `🔗 <#item-primaryanimmask>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, normal, weaponpart
 
-.. _projectilecount:
+.. _item-projectilecount:
 
-**Projectilecount**
+**Projectilecount** `🔗 <#item-projectilecount>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _projectilespread:
+.. _item-projectilespread:
 
-**ProjectileSpread**
+**ProjectileSpread** `🔗 <#item-projectilespread>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _projectilespreadmodifier:
+.. _item-projectilespreadmodifier:
 
-**ProjectileSpreadModifier**
+**ProjectileSpreadModifier** `🔗 <#item-projectilespreadmodifier>`_
    Type: ``Any``
 
    No description
 
    Item types: weaponpart
 
-.. _projectileweightcenter:
+.. _item-projectileweightcenter:
 
-**ProjectileWeightCenter**
+**ProjectileWeightCenter** `🔗 <#item-projectileweightcenter>`_
    Type: ``float``
 
    No description
@@ -2442,27 +2450,27 @@ Parameters
 
    Item types: weapon
 
-.. _protectfromrainwhenequipped:
+.. _item-protectfromrainwhenequipped:
 
-**ProtectFromRainWhenEquipped**
+**ProtectFromRainWhenEquipped** `🔗 <#item-protectfromrainwhenequipped>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _proteins:
+.. _item-proteins:
 
-**Proteins**
+**Proteins** `🔗 <#item-proteins>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, normal
 
-.. _pushbackmod:
+.. _item-pushbackmod:
 
-**PushBackMod**
+**PushBackMod** `🔗 <#item-pushbackmod>`_
    Type: ``float``
 
    No description
@@ -2471,144 +2479,144 @@ Parameters
 
    Item types: weapon
 
-.. _putinsound:
+.. _item-putinsound:
 
-**PutInSound**
+**PutInSound** `🔗 <#item-putinsound>`_
    Type: ``Any``
 
    No description
 
    Item types: container
 
-.. _rackaftershoot:
+.. _item-rackaftershoot:
 
-**RackAfterShoot**
+**RackAfterShoot** `🔗 <#item-rackaftershoot>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _racksound:
+.. _item-racksound:
 
-**RackSound**
+**RackSound** `🔗 <#item-racksound>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _rainfactor:
+.. _item-rainfactor:
 
-**RainFactor**
+**RainFactor** `🔗 <#item-rainfactor>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, normal, weapon
 
-.. _ranged:
+.. _item-ranged:
 
-**Ranged**
+**Ranged** `🔗 <#item-ranged>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _rangefalloff:
+.. _item-rangefalloff:
 
-**RangeFalloff**
+**RangeFalloff** `🔗 <#item-rangefalloff>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _readtype:
+.. _item-readtype:
 
-**ReadType**
+**ReadType** `🔗 <#item-readtype>`_
    Type: ``Any``
 
    No description
 
    Item types: literature
 
-.. _recoildelay:
+.. _item-recoildelay:
 
-**RecoilDelay**
+**RecoilDelay** `🔗 <#item-recoildelay>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _recoildelaymodifier:
+.. _item-recoildelaymodifier:
 
-**RecoilDelayModifier**
+**RecoilDelayModifier** `🔗 <#item-recoildelaymodifier>`_
    Type: ``Any``
 
    No description
 
    Item types: weaponpart
 
-.. _reduceinfectionpower:
+.. _item-reduceinfectionpower:
 
-**ReduceInfectionPower**
+**ReduceInfectionPower** `🔗 <#item-reduceinfectionpower>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _reloadtime:
+.. _item-reloadtime:
 
-**Reloadtime**
+**Reloadtime** `🔗 <#item-reloadtime>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _reloadtimemodifier:
+.. _item-reloadtimemodifier:
 
-**ReloadTimeModifier**
+**ReloadTimeModifier** `🔗 <#item-reloadtimemodifier>`_
    Type: ``Any``
 
    No description
 
    Item types: weaponpart
 
-.. _remotecontroller:
+.. _item-remotecontroller:
 
-**RemoteController**
+**RemoteController** `🔗 <#item-remotecontroller>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _remoterange:
+.. _item-remoterange:
 
-**RemoteRange**
+**RemoteRange** `🔗 <#item-remoterange>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _removenegativeeffectoncooked:
+.. _item-removenegativeeffectoncooked:
 
-**RemoveNegativeEffectOnCooked**
+**RemoveNegativeEffectOnCooked** `🔗 <#item-removenegativeeffectoncooked>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _removeonbroken:
+.. _item-removeonbroken:
 
-**RemoveOnBroken**
+**RemoveOnBroken** `🔗 <#item-removeonbroken>`_
    Type: ``boolean``
 
    No description
@@ -2617,108 +2625,108 @@ Parameters
 
    Item types: clothing
 
-.. _removeunhappinesswhencooked:
+.. _item-removeunhappinesswhencooked:
 
-**RemoveUnhappinessWhenCooked**
+**RemoveUnhappinessWhenCooked** `🔗 <#item-removeunhappinesswhencooked>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _replaceinprimaryhand:
+.. _item-replaceinprimaryhand:
 
-**ReplaceInPrimaryHand**
+**ReplaceInPrimaryHand** `🔗 <#item-replaceinprimaryhand>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, container, drainable, normal, radio
 
-.. _replaceinsecondhand:
+.. _item-replaceinsecondhand:
 
-**ReplaceInSecondHand**
+**ReplaceInSecondHand** `🔗 <#item-replaceinsecondhand>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, container, drainable, normal, radio
 
-.. _replaceoncooked:
+.. _item-replaceoncooked:
 
-**ReplaceOnCooked**
+**ReplaceOnCooked** `🔗 <#item-replaceoncooked>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _replaceondeplete:
+.. _item-replaceondeplete:
 
-**ReplaceOnDeplete**
+**ReplaceOnDeplete** `🔗 <#item-replaceondeplete>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable
 
-.. _replaceonextinguish:
+.. _item-replaceonextinguish:
 
-**ReplaceOnExtinguish**
+**ReplaceOnExtinguish** `🔗 <#item-replaceonextinguish>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable
 
-.. _replaceonrotten:
+.. _item-replaceonrotten:
 
-**ReplaceOnRotten**
+**ReplaceOnRotten** `🔗 <#item-replaceonrotten>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _replaceonuse:
+.. _item-replaceonuse:
 
-**ReplaceOnUse**
+**ReplaceOnUse** `🔗 <#item-replaceonuse>`_
    Type: ``Any``
 
    No description
 
    Item types: food, normal
 
-.. _requireinhandorinventory:
+.. _item-requireinhandorinventory:
 
-**RequireInHandOrInventory**
+**RequireInHandOrInventory** `🔗 <#item-requireinhandorinventory>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _requiresequippedbothhands:
+.. _item-requiresequippedbothhands:
 
-**RequiresEquippedBothHands**
+**RequiresEquippedBothHands** `🔗 <#item-requiresequippedbothhands>`_
    Type: ``Any``
 
    No description
 
    Item types: moveable, normal, weapon
 
-.. _researchablerecipes:
+.. _item-researchablerecipes:
 
-**Researchablerecipes**
+**Researchablerecipes** `🔗 <#item-researchablerecipes>`_
    Type: ``array``
 
    No description
 
    Item types: clothing, container, drainable, food, moveable, normal, radio, weapon
 
-.. _runanim:
+.. _item-runanim:
 
-**RunAnim**
+**RunAnim** `🔗 <#item-runanim>`_
    Type: ``string``
 
    No description
@@ -2727,9 +2735,9 @@ Parameters
 
    Item types: weapon
 
-.. _runspeedmodifier:
+.. _item-runspeedmodifier:
 
-**RunSpeedModifier**
+**RunSpeedModifier** `🔗 <#item-runspeedmodifier>`_
    Type: ``float``
 
    No description
@@ -2738,9 +2746,9 @@ Parameters
 
    Item types: clothing, container, radio
 
-.. _scaleworldicon:
+.. _item-scaleworldicon:
 
-**ScaleWorldIcon**
+**ScaleWorldIcon** `🔗 <#item-scaleworldicon>`_
    Type: ``float``
 
    No description
@@ -2749,54 +2757,54 @@ Parameters
 
    Item types: drainable
 
-.. _scratchdefense:
+.. _item-scratchdefense:
 
-**ScratchDefense**
+**ScratchDefense** `🔗 <#item-scratchdefense>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing
 
-.. _secondaryanimmask:
+.. _item-secondaryanimmask:
 
-**secondaryAnimMask**
+**secondaryAnimMask** `🔗 <#item-secondaryanimmask>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, normal, weaponpart
 
-.. _sensorrange:
+.. _item-sensorrange:
 
-**SensorRange**
+**SensorRange** `🔗 <#item-sensorrange>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _sharpness:
+.. _item-sharpness:
 
-**Sharpness**
+**Sharpness** `🔗 <#item-sharpness>`_
    Type: ``Any``
 
    No description
 
    Item types: normal, weapon
 
-.. _shellfallsound:
+.. _item-shellfallsound:
 
-**ShellFallSound**
+**ShellFallSound** `🔗 <#item-shellfallsound>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _shoutmultiplier:
+.. _item-shoutmultiplier:
 
-**ShoutMultiplier**
+**ShoutMultiplier** `🔗 <#item-shoutmultiplier>`_
    Type: ``float``
 
    No description
@@ -2805,36 +2813,36 @@ Parameters
 
    Item types: clothing, normal
 
-.. _shouttype:
+.. _item-shouttype:
 
-**ShoutType**
+**ShoutType** `🔗 <#item-shouttype>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, normal
 
-.. _skilltrained:
+.. _item-skilltrained:
 
-**SkillTrained**
+**SkillTrained** `🔗 <#item-skilltrained>`_
    Type: ``string``
 
    No description
 
    Item types: literature
 
-.. _smokerange:
+.. _item-smokerange:
 
-**SmokeRange**
+**SmokeRange** `🔗 <#item-smokerange>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _soundgain:
+.. _item-soundgain:
 
-**SoundGain**
+**SoundGain** `🔗 <#item-soundgain>`_
    Type: ``float``
 
    No description
@@ -2843,9 +2851,9 @@ Parameters
 
    Item types: weapon
 
-.. _soundmap:
+.. _item-soundmap:
 
-**SoundMap**
+**SoundMap** `🔗 <#item-soundmap>`_
    Type: ``Any``
 
    No description
@@ -2854,63 +2862,63 @@ Parameters
 
    Item types: drainable, food, weapon, weaponpart
 
-.. _soundparameter:
+.. _item-soundparameter:
 
-**SoundParameter**
+**SoundParameter** `🔗 <#item-soundparameter>`_
    Type: ``Any``
 
    No description
 
    Item types: container
 
-.. _soundradius:
+.. _item-soundradius:
 
-**SoundRadius**
+**SoundRadius** `🔗 <#item-soundradius>`_
    Type: ``Any``
 
    No description
 
    Item types: alarmclock, alarmclockclothing, normal, weapon
 
-.. _soundvolume:
+.. _item-soundvolume:
 
-**SoundVolume**
+**SoundVolume** `🔗 <#item-soundvolume>`_
    Type: ``Any``
 
    No description
 
    Item types: normal, weapon
 
-.. _spawnwith:
+.. _item-spawnwith:
 
-**SpawnWith**
+**SpawnWith** `🔗 <#item-spawnwith>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing
 
-.. _spice:
+.. _item-spice:
 
-**Spice**
+**Spice** `🔗 <#item-spice>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food
 
-.. _splatbloodonnodeath:
+.. _item-splatbloodonnodeath:
 
-**SplatBloodOnNoDeath**
+**SplatBloodOnNoDeath** `🔗 <#item-splatbloodonnodeath>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _splatnumber:
+.. _item-splatnumber:
 
-**SplatNumber**
+**SplatNumber** `🔗 <#item-splatnumber>`_
    Type: ``integer``
 
    No description
@@ -2919,9 +2927,9 @@ Parameters
 
    Item types: weapon
 
-.. _splatsize:
+.. _item-splatsize:
 
-**SplatSize**
+**SplatSize** `🔗 <#item-splatsize>`_
    Type: ``float``
 
    No description
@@ -2930,27 +2938,27 @@ Parameters
 
    Item types: weapon
 
-.. _staticmodel:
+.. _item-staticmodel:
 
-**StaticModel**
+**StaticModel** `🔗 <#item-staticmodel>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, container, drainable, food, literature, map, moveable, normal, radio, weaponpart
 
-.. _staticmodelsbyindex:
+.. _item-staticmodelsbyindex:
 
-**StaticModelsByIndex**
+**StaticModelsByIndex** `🔗 <#item-staticmodelsbyindex>`_
    Type: ``array``
 
    No description
 
    Item types: food, literature, normal
 
-.. _stomppower:
+.. _item-stomppower:
 
-**StompPower**
+**StompPower** `🔗 <#item-stomppower>`_
    Type: ``float``
 
    No description
@@ -2959,9 +2967,9 @@ Parameters
 
    Item types: clothing
 
-.. _stoppower:
+.. _item-stoppower:
 
-**StopPower**
+**StopPower** `🔗 <#item-stoppower>`_
    Type: ``float``
 
    No description
@@ -2970,63 +2978,63 @@ Parameters
 
    Item types: weapon
 
-.. _stresschange:
+.. _item-stresschange:
 
-**StressChange**
+**StressChange** `🔗 <#item-stresschange>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, literature
 
-.. _subcategory:
+.. _item-subcategory:
 
-**SubCategory**
+**SubCategory** `🔗 <#item-subcategory>`_
    Type: ``string``
 
    No description
 
    Item types: weapon
 
-.. _survivalgear:
+.. _item-survivalgear:
 
-**SurvivalGear**
+**SurvivalGear** `🔗 <#item-survivalgear>`_
    Type: ``Any``
 
    No description
 
    Item types: container, drainable, food, map, normal, weapon
 
-.. _suspensioncompression:
+.. _item-suspensioncompression:
 
-**suspensionCompression**
+**suspensionCompression** `🔗 <#item-suspensioncompression>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _suspensiondamping:
+.. _item-suspensiondamping:
 
-**suspensionDamping**
+**suspensionDamping** `🔗 <#item-suspensiondamping>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _swingamountbeforeimpact:
+.. _item-swingamountbeforeimpact:
 
-**SwingAmountBeforeImpact**
+**SwingAmountBeforeImpact** `🔗 <#item-swingamountbeforeimpact>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _swinganim:
+.. _item-swinganim:
 
-**SwingAnim**
+**SwingAnim** `🔗 <#item-swinganim>`_
    Type: ``string``
 
    No description
@@ -3035,18 +3043,18 @@ Parameters
 
    Item types: weapon
 
-.. _swingsound:
+.. _item-swingsound:
 
-**SwingSound**
+**SwingSound** `🔗 <#item-swingsound>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _swingtime:
+.. _item-swingtime:
 
-**Swingtime**
+**Swingtime** `🔗 <#item-swingtime>`_
    Type: ``float``
 
    No description
@@ -3055,27 +3063,27 @@ Parameters
 
    Item types: weapon
 
-.. _tags:
+.. _item-tags:
 
-**Tags**
+**Tags** `🔗 <#item-tags>`_
    Type: ``array``
 
    No description
 
    Item types: alarmclock, alarmclockclothing, clothing, container, drainable, food, key, literature, map, moveable, normal, radio, weapon, weaponpart
 
-.. _thirstchange:
+.. _item-thirstchange:
 
-**ThirstChange**
+**ThirstChange** `🔗 <#item-thirstchange>`_
    Type: ``Any``
 
    No description
 
    Item types: food
 
-.. _ticksperequipuse:
+.. _item-ticksperequipuse:
 
-**ticksPerEquipUse**
+**ticksPerEquipUse** `🔗 <#item-ticksperequipuse>`_
    Type: ``integer``
 
    No description
@@ -3084,9 +3092,9 @@ Parameters
 
    Item types: drainable
 
-.. _tohitmodifier:
+.. _item-tohitmodifier:
 
-**ToHitModifier**
+**ToHitModifier** `🔗 <#item-tohitmodifier>`_
    Type: ``float``
 
    No description
@@ -3095,27 +3103,27 @@ Parameters
 
    Item types: weapon
 
-.. _tooltip:
+.. _item-tooltip:
 
-**Tooltip**
+**Tooltip** `🔗 <#item-tooltip>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, container, drainable, food, key, literature, moveable, normal, radio, weapon, weaponpart
 
-.. _torchcone:
+.. _item-torchcone:
 
-**TorchCone**
+**TorchCone** `🔗 <#item-torchcone>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, weaponpart
 
-.. _torchdot:
+.. _item-torchdot:
 
-**TorchDot**
+**TorchDot** `🔗 <#item-torchdot>`_
    Type: ``float``
 
    No description
@@ -3124,18 +3132,18 @@ Parameters
 
    Item types: drainable, weaponpart
 
-.. _transmitrange:
+.. _item-transmitrange:
 
-**TransmitRange**
+**TransmitRange** `🔗 <#item-transmitrange>`_
    Type: ``Any``
 
    No description
 
    Item types: radio
 
-.. _trap:
+.. _item-trap:
 
-**Trap**
+**Trap** `🔗 <#item-trap>`_
    Type: ``boolean``
 
    No description
@@ -3144,45 +3152,45 @@ Parameters
 
    Item types: normal
 
-.. _treedamage:
+.. _item-treedamage:
 
-**TreeDamage**
+**TreeDamage** `🔗 <#item-treedamage>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _triggerexplosiontimer:
+.. _item-triggerexplosiontimer:
 
-**triggerExplosionTimer**
+**triggerExplosionTimer** `🔗 <#item-triggerexplosiontimer>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _twohandweapon:
+.. _item-twohandweapon:
 
-**TwoHandWeapon**
+**TwoHandWeapon** `🔗 <#item-twohandweapon>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _twoway:
+.. _item-twoway:
 
-**TwoWay**
+**TwoWay** `🔗 <#item-twoway>`_
    Type: ``Any``
 
    No description
 
    Item types: radio
 
-.. _type:
+.. _item-type:
 
-**Type**
+**Type** `🔗 <#item-type>`_
    Type: ``Any``
 
    Used to set the class of the item, which will influence parameters available.
@@ -3193,27 +3201,27 @@ Parameters
 
       Use :ref:`itemtype` instead.
 
-.. _unequipsound:
+.. _item-unequipsound:
 
-**UnequipSound**
+**UnequipSound** `🔗 <#item-unequipsound>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, normal, weapon
 
-.. _unhappychange:
+.. _item-unhappychange:
 
-**UnhappyChange**
+**UnhappyChange** `🔗 <#item-unhappychange>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, literature
 
-.. _usedelta:
+.. _item-usedelta:
 
-**UseDelta**
+**UseDelta** `🔗 <#item-usedelta>`_
    Type: ``float``
 
    No description
@@ -3222,9 +3230,9 @@ Parameters
 
    Item types: drainable, food, radio, weaponpart
 
-.. _useendurance:
+.. _item-useendurance:
 
-**UseEndurance**
+**UseEndurance** `🔗 <#item-useendurance>`_
    Type: ``boolean``
 
    No description
@@ -3233,27 +3241,27 @@ Parameters
 
    Item types: weapon
 
-.. _usesbattery:
+.. _item-usesbattery:
 
-**UsesBattery**
+**UsesBattery** `🔗 <#item-usesbattery>`_
    Type: ``Any``
 
    No description
 
    Item types: radio
 
-.. _useself:
+.. _item-useself:
 
-**UseSelf**
+**UseSelf** `🔗 <#item-useself>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _usewhileequipped:
+.. _item-usewhileequipped:
 
-**UseWhileEquipped**
+**UseWhileEquipped** `🔗 <#item-usewhileequipped>`_
    Type: ``boolean``
 
    No description
@@ -3262,45 +3270,45 @@ Parameters
 
    Item types: drainable, food, normal, radio
 
-.. _usewhileunequipped:
+.. _item-usewhileunequipped:
 
-**UseWhileUnequipped**
+**UseWhileUnequipped** `🔗 <#item-usewhileunequipped>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable
 
-.. _useworlditem:
+.. _item-useworlditem:
 
-**UseWorldItem**
+**UseWorldItem** `🔗 <#item-useworlditem>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable
 
-.. _vehiclepartmodel:
+.. _item-vehiclepartmodel:
 
-**VehiclePartModel**
+**VehiclePartModel** `🔗 <#item-vehiclepartmodel>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _vehicletype:
+.. _item-vehicletype:
 
-**VehicleType**
+**VehicleType** `🔗 <#item-vehicletype>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, normal
 
-.. _visionmodifier:
+.. _item-visionmodifier:
 
-**VisionModifier**
+**VisionModifier** `🔗 <#item-visionmodifier>`_
    Type: ``float``
 
    No description
@@ -3309,36 +3317,36 @@ Parameters
 
    Item types: clothing
 
-.. _visualaid:
+.. _item-visualaid:
 
-**VisualAid**
+**VisualAid** `🔗 <#item-visualaid>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing
 
-.. _waterresistance:
+.. _item-waterresistance:
 
-**WaterResistance**
+**WaterResistance** `🔗 <#item-waterresistance>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing
 
-.. _weaponhitarmoursound:
+.. _item-weaponhitarmoursound:
 
-**WeaponHitArmourSound**
+**WeaponHitArmourSound** `🔗 <#item-weaponhitarmoursound>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing
 
-.. _weaponlength:
+.. _item-weaponlength:
 
-**WeaponLength**
+**WeaponLength** `🔗 <#item-weaponlength>`_
    Type: ``float``
 
    No description
@@ -3347,36 +3355,36 @@ Parameters
 
    Item types: weapon
 
-.. _weaponreloadtype:
+.. _item-weaponreloadtype:
 
-**WeaponReloadType**
+**WeaponReloadType** `🔗 <#item-weaponreloadtype>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _weaponsprite:
+.. _item-weaponsprite:
 
-**WeaponSprite**
+**WeaponSprite** `🔗 <#item-weaponsprite>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _weaponspritesbyindex:
+.. _item-weaponspritesbyindex:
 
-**WeaponSpritesByIndex**
+**WeaponSpritesByIndex** `🔗 <#item-weaponspritesbyindex>`_
    Type: ``Any``
 
    No description
 
    Item types: weapon
 
-.. _weaponweight:
+.. _item-weaponweight:
 
-**WeaponWeight**
+**WeaponWeight** `🔗 <#item-weaponweight>`_
    Type: ``float``
 
    No description
@@ -3385,115 +3393,122 @@ Parameters
 
    Item types: weapon
 
-.. _weight:
+.. _item-weight:
 
-**Weight**
+**Weight** `🔗 <#item-weight>`_
    Type: ``float``
 
    No description
 
    Default: ``1.0``
 
-.. _weightempty:
+.. _item-weightempty:
 
-**WeightEmpty**
+**WeightEmpty** `🔗 <#item-weightempty>`_
    Type: ``Any``
 
    No description
 
    Item types: drainable, food, normal
 
-.. _weightmodifier:
+.. _item-weightmodifier:
 
-**WeightModifier**
+**WeightModifier** `🔗 <#item-weightmodifier>`_
    Type: ``Any``
 
    No description
 
    Item types: weaponpart
 
-.. _weightreduction:
+.. _item-weightreduction:
 
-**WeightReduction**
+**WeightReduction** `🔗 <#item-weightreduction>`_
    Type: ``Any``
 
    No description
 
    Item types: container
 
-.. _wet:
+.. _item-wet:
 
-**Wet**
+**Wet** `🔗 <#item-wet>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _wetcooldown:
+.. _item-wetcooldown:
 
-**WetCooldown**
+**WetCooldown** `🔗 <#item-wetcooldown>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _wheelfriction:
+.. _item-wheelfriction:
 
-**wheelFriction**
+**wheelFriction** `🔗 <#item-wheelfriction>`_
    Type: ``Any``
 
    No description
 
    Item types: normal
 
-.. _windresistance:
+.. _item-windresistance:
 
-**WindResistance**
+**WindResistance** `🔗 <#item-windresistance>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing, normal
 
-.. _withdrainable:
+.. _item-withdrainable:
 
-**WithDrainable**
+**WithDrainable** `🔗 <#item-withdrainable>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing
 
-.. _withoutdrainable:
+.. _item-withoutdrainable:
 
-**WithoutDrainable**
+**WithoutDrainable** `🔗 <#item-withoutdrainable>`_
    Type: ``Any``
 
    No description
 
    Item types: clothing
 
-.. _worldobjectsprite:
+.. _item-worldobjectsprite:
 
-**WorldObjectSprite**
+**WorldObjectSprite** `🔗 <#item-worldobjectsprite>`_
    Type: ``Any``
 
    No description
 
    Item types: moveable, normal, radio
 
-.. _worldstaticmodel:
+.. _item-worldrender:
 
-**WorldStaticModel**
+**WorldRender** `🔗 <#item-worldrender>`_
    Type: ``Any``
 
    No description
 
-.. _worldstaticmodelsbyindex:
+.. _item-worldstaticmodel:
 
-**WorldStaticModelsByIndex**
+**WorldStaticModel** `🔗 <#item-worldstaticmodel>`_
+   Type: ``Any``
+
+   No description
+
+.. _item-worldstaticmodelsbyindex:
+
+**WorldStaticModelsByIndex** `🔗 <#item-worldstaticmodelsbyindex>`_
    Type: ``array``
 
    No description

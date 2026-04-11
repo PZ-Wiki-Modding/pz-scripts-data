@@ -11,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :ref:`component_fluidcontainer`
+- :ref:`component-fluidcontainer`
 
 
 ID Properties
@@ -23,9 +23,9 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _fluid:
+.. _fluids-fluid:
 
-**fluid**
+**fluid** `🔗 <#fluids-fluid>`_
    Type: ``Any``
 
    Refers to a fluid script

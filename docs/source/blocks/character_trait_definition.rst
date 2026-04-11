@@ -23,65 +23,65 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _charactertrait:
+.. _character_trait_definition-charactertrait:
 
-**CharacterTrait**
+**CharacterTrait** `🔗 <#character_trait_definition-charactertrait>`_
    Type: ``string`` *(required)*
 
    The registries trait definition ID to link to. see the wiki page about `registries <https://pzwiki.net/wiki/Registries>`_ for more information.
 
-.. _cost:
+.. _character_trait_definition-cost:
 
-**Cost**
+**Cost** `🔗 <#character_trait_definition-cost>`_
    Type: ``integer`` *(required)*
 
    The cost of the trait when selecting a character. Negative values give points, positive values take points.
 
-.. _disabledinmultiplayer:
+.. _character_trait_definition-disabledinmultiplayer:
 
-**DisabledInMultiplayer**
+**DisabledInMultiplayer** `🔗 <#character_trait_definition-disabledinmultiplayer>`_
    Type: ``boolean`` *(required)*
 
    If true, this trait will be disabled in multiplayer games.
 
-.. _grantedrecipes:
+.. _character_trait_definition-grantedrecipes:
 
-**GrantedRecipes**
+**GrantedRecipes** `🔗 <#character_trait_definition-grantedrecipes>`_
    Type: ``array``
 
    A list of `craftRecipe <https://pzwiki.net/wiki/CraftRecipe>`_ IDs that are granted to the character when this trait is selected.
 
-.. _isprofessiontrait:
+.. _character_trait_definition-isprofessiontrait:
 
-**IsProfessionTrait**
+**IsProfessionTrait** `🔗 <#character_trait_definition-isprofessiontrait>`_
    Type: ``boolean`` *(required)*
 
    Defines whenever the trait is a profession trait or not, meaning it will only be available when selecting a profession.
 
-.. _mutuallyexclusivetraits:
+.. _character_trait_definition-mutuallyexclusivetraits:
 
-**MutuallyExclusiveTraits**
+**MutuallyExclusiveTraits** `🔗 <#character_trait_definition-mutuallyexclusivetraits>`_
    Type: ``array``
 
    A list of trait IDs that are mutually exclusive with this trait. If one is selected, the others cannot be selected.
 
-.. _uidescription:
+.. _character_trait_definition-uidescription:
 
-**UIDescription**
+**UIDescription** `🔗 <#character_trait_definition-uidescription>`_
    Type: ``string`` *(required)*
 
    The translation key for the trait's description. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
 
-.. _uiname:
+.. _character_trait_definition-uiname:
 
-**UIName**
+**UIName** `🔗 <#character_trait_definition-uiname>`_
    Type: ``string`` *(required)*
 
    The translation key for the trait's name. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
 
-.. _xpboosts:
+.. _character_trait_definition-xpboosts:
 
-**XPBoosts**
+**XPBoosts** `🔗 <#character_trait_definition-xpboosts>`_
    Type: ``array``
 
    A list of experience boosts granted by this trait. Each entry should contain a skill name and the corresponding boost amount.

@@ -29,16 +29,16 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _area:
+.. _passenger-area:
 
-**area**
+**area** `🔗 <#passenger-area>`_
    Type: ``Any``
 
    No description
 
-.. _door:
+.. _passenger-door:
 
-**door**
+**door** `🔗 <#passenger-door>`_
    Type: ``Any``
 
    No description

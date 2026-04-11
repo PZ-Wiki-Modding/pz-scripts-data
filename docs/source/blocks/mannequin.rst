@@ -23,51 +23,51 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _animset:
+.. _mannequin-animset:
 
-**animSet**
+**animSet** `🔗 <#mannequin-animset>`_
    Type: ``Any``
 
    No description
 
-.. _animstate:
+.. _mannequin-animstate:
 
-**animState**
+**animState** `🔗 <#mannequin-animstate>`_
    Type: ``Any``
 
    No description
 
-.. _female:
+.. _mannequin-female:
 
-**female**
+**female** `🔗 <#mannequin-female>`_
    Type: ``Any``
 
    No description
 
-.. _model:
+.. _mannequin-model:
 
-**model**
+**model** `🔗 <#mannequin-model>`_
    Type: ``Any``
 
    No description
 
-.. _outfit:
+.. _mannequin-outfit:
 
-**outfit**
+**outfit** `🔗 <#mannequin-outfit>`_
    Type: ``Any``
 
    No description
 
-.. _pose:
+.. _mannequin-pose:
 
-**pose**
+**pose** `🔗 <#mannequin-pose>`_
    Type: ``Any``
 
    No description
 
-.. _texture:
+.. _mannequin-texture:
 
-**texture**
+**texture** `🔗 <#mannequin-texture>`_
    Type: ``Any``
 
    No description

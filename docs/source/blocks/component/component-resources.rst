@@ -1,7 +1,7 @@
-.. _component_spriteoverlayconfig:
+.. _component-resources:
 
-component SpriteOverlayConfig
-=============================
+component Resources
+===================
 
 
 
@@ -15,7 +15,7 @@ Hierarchy
 
 **Possible Child Blocks:**
 
-- :ref:`style`
+- :ref:`group`
 
 
 ID Properties

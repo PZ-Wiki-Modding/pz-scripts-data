@@ -17,17 +17,17 @@ Hierarchy
 **Possible Child Blocks:**
 
 - :ref:`component`
-- :ref:`component_contextmenuconfig`
-- :ref:`component_craftbench`
-- :ref:`component_craftbenchsounds`
-- :ref:`component_craftrecipe`
-- :ref:`component_dryingcraftlogic`
-- :ref:`component_fluidcontainer`
-- :ref:`component_resources`
-- :ref:`component_spriteconfig`
-- :ref:`component_spriteoverlayconfig`
-- :ref:`component_uiconfig`
-- :ref:`component_wallcoveringconfig`
+- :ref:`component-contextmenuconfig`
+- :ref:`component-craftbench`
+- :ref:`component-craftbenchsounds`
+- :ref:`component-craftrecipe`
+- :ref:`component-dryingcraftlogic`
+- :ref:`component-fluidcontainer`
+- :ref:`component-resources`
+- :ref:`component-spriteconfig`
+- :ref:`component-spriteoverlayconfig`
+- :ref:`component-uiconfig`
+- :ref:`component-wallcoveringconfig`
 - :ref:`components`
 
 
@@ -40,23 +40,23 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _displayname:
+.. _entity-displayname:
 
-**DisplayName**
+**DisplayName** `🔗 <#entity-displayname>`_
    Type: ``Any``
 
    No description
 
-.. _icon:
+.. _entity-icon:
 
-**Icon**
+**Icon** `🔗 <#entity-icon>`_
    Type: ``Any``
 
    No description
 
-.. _luawindowclass:
+.. _entity-luawindowclass:
 
-**LuaWindowClass**
+**LuaWindowClass** `🔗 <#entity-luawindowclass>`_
    Type: ``Any``
 
    No description

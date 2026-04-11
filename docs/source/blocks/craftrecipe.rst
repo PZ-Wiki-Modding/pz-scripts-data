@@ -36,18 +36,18 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _allowbatchcraft:
+.. _craftrecipe-allowbatchcraft:
 
-**AllowBatchCraft**
+**AllowBatchCraft** `🔗 <#craftrecipe-allowbatchcraft>`_
    Type: ``boolean``
 
    The AllowBatchCraft parameter is used to allow the recipe to be crafted in batches. This will make a slider appear on the crafting to craft multiple ones at once. Needs to be a boolean and default is true, set to false to disable batch craft.
 
    Default: ``True``
 
-.. _autolearnall:
+.. _craftrecipe-autolearnall:
 
-**AutoLearnAll**
+**AutoLearnAll** `🔗 <#craftrecipe-autolearnall>`_
    Type: ``Any``
 
    The ``autoLearnAll`` parameter specifies that all the provided skills and their associated level need to be reached to learn the recipe. The parameter should be formated this way:
@@ -68,9 +68,9 @@ Parameters
    
       autoLearnAll = Carving:3;Maintenance:2,
 
-.. _autolearnany:
+.. _craftrecipe-autolearnany:
 
-**AutoLearnAny**
+**AutoLearnAny** `🔗 <#craftrecipe-autolearnany>`_
    Type: ``Any``
 
    The autoLearnAny parameter specifies that at least one of the skills and its associated level need to be reached to learn the recipe. The parameter should be formated this way:
@@ -91,39 +91,39 @@ Parameters
    
       autoLearnAny = Carving:3;Maintenance:2,
 
-.. _category:
+.. _craftrecipe-category:
 
-**category**
+**category** `🔗 <#craftrecipe-category>`_
    Type: ``Any``
 
    The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in the crafting menu. Currently doesn't support translations (confirmed last 42.15).
 
-.. _icon:
+.. _craftrecipe-icon:
 
-**Icon**
+**Icon** `🔗 <#craftrecipe-icon>`_
    Type: ``Any``
 
    Specifies the icon associated with this crafting recipe. The icon needs to be located in ``media/textures``\ , for example ``media/textures/myIcon.png`` will be refered to as ``Icon = myIcon,``.
    
    This seems to be used only once in the vanilla recipes with the entry Icon = "Item_WaterDrop", as the icon usually defaults to the items that will be crafted.
 
-.. _metarecipe:
+.. _craftrecipe-metarecipe:
 
-**MetaRecipe**
+**MetaRecipe** `🔗 <#craftrecipe-metarecipe>`_
    Type: ``Any``
 
    A meta recipe is used to link two recipes so that if the meta recipe is known then this recipe will be known.
 
-.. _needtobelearn:
+.. _craftrecipe-needtobelearn:
 
-**NeedToBeLearn**
+**NeedToBeLearn** `🔗 <#craftrecipe-needtobelearn>`_
    Type: ``Any``
 
    Whether the recipe needs to be learned before it can be crafted.
 
-.. _oncreate:
+.. _craftrecipe-oncreate:
 
-**OnCreate**
+**OnCreate** `🔗 <#craftrecipe-oncreate>`_
    Type: ``Any``
 
    The OnCreate parameter allows the referencing of a Lua function that will be called when the crafting recipe is finished. This can be used to add custom behavior to the crafting recipe when it gets finished. The Lua function needs to be a `global function <https://pzwiki.net/wiki/Lua_(language>`_\ #Local_and_global), it can also be in a global table. The vanilla game OnCreate's are stored in the `Java <https://pzwiki.net/wiki/Java>`_.
@@ -138,9 +138,9 @@ Parameters
    
    The ``craftRecipeData`` is a `java object <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/entity/components/crafting/recipe/CraftRecipeData.html>`_ that contains the data of the crafting recipe. The ``character`` is the player character who is crafting the recipe.
 
-.. _ontest:
+.. _craftrecipe-ontest:
 
-**OnTest**
+**OnTest** `🔗 <#craftrecipe-ontest>`_
    Type: ``Any``
 
    The OnTest parameter is used to define a Lua function that will be called to verify if the recipe can be crafted. If the function returns true, the recipe can be crafted but if the function returns false, the recipe cannot be crafted. The Lua function needs to be a `global function <https://pzwiki.net/wiki/Lua_(language>`_\ #Local_and_global), it can also be in a global table. The vanilla game OnTest's are stored in the `Java <https://pzwiki.net/wiki/Java>`_.
@@ -156,37 +156,37 @@ Parameters
    
    ``item`` is an InventoryItem while ``character`` is the player trying to craft this recipe.
 
-.. _overlaystyle:
+.. _craftrecipe-overlaystyle:
 
-**overlayStyle**
+**overlayStyle** `🔗 <#craftrecipe-overlaystyle>`_
    Type: ``Any``
 
    No description
 
-.. _recipegroup:
+.. _craftrecipe-recipegroup:
 
-**recipeGroup**
+**recipeGroup** `🔗 <#craftrecipe-recipegroup>`_
    Type: ``Any``
 
    No description
 
-.. _researchany:
+.. _craftrecipe-researchany:
 
-**ResearchAny**
+**ResearchAny** `🔗 <#craftrecipe-researchany>`_
    Type: ``Any``
 
    No description
 
-.. _researchskilllevel:
+.. _craftrecipe-researchskilllevel:
 
-**ResearchSkillLevel**
+**ResearchSkillLevel** `🔗 <#craftrecipe-researchskilllevel>`_
    Type: ``Any``
 
    No description
 
-.. _skillrequired:
+.. _craftrecipe-skillrequired:
 
-**SkillRequired**
+**SkillRequired** `🔗 <#craftrecipe-skillrequired>`_
    Type: ``Any``
 
    Specifies the skill level required to perform this crafting action. It should be formated this way:
@@ -207,9 +207,9 @@ Parameters
    
       skillRequired = Blacksmith:3;Tailoring:2,
 
-.. _tags:
+.. _craftrecipe-tags:
 
-**tags**
+**tags** `🔗 <#craftrecipe-tags>`_
    Type: ``array`` *(required)*
 
    Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as ``AnySurfaceCraft``. The syntax is as follows:
@@ -228,32 +228,32 @@ Parameters
    
       Tags = InHandCraft;CanAlwaysBeResearched,
 
-.. _time:
+.. _craftrecipe-time:
 
-**time**
+**time** `🔗 <#craftrecipe-time>`_
    Type: ``Any``
 
    The time it takes to craft the item, not using a specific unit of time.
 
    Default: ``50``
 
-.. _timedaction:
+.. _craftrecipe-timedaction:
 
-**timedAction**
+**timedAction** `🔗 <#craftrecipe-timedaction>`_
    Type: ``Any``
 
    Refers to a timed action script block, used to trigger during the crafting process, for animations and/or sounds but also the calories burned and body heat generation.
 
-.. _tooltip:
+.. _craftrecipe-tooltip:
 
-**Tooltip**
+**Tooltip** `🔗 <#craftrecipe-tooltip>`_
    Type: ``Any``
 
    Description of the crafting which is shown in the crafting menu.
 
-.. _xpaward:
+.. _craftrecipe-xpaward:
 
-**xpAward**
+**xpAward** `🔗 <#craftrecipe-xpaward>`_
    Type: ``Any``
 
    Specifies the experience points awarded for crafting this item. The parameter should be formated this way:

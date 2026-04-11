@@ -23,86 +23,86 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _actionanim:
+.. _timedaction-actionanim:
 
-**actionAnim**
+**actionAnim** `🔗 <#timedaction-actionanim>`_
    Type: ``Any``
 
    No description
 
-.. _animvarkey:
+.. _timedaction-animvarkey:
 
-**animVarKey**
+**animVarKey** `🔗 <#timedaction-animvarkey>`_
    Type: ``Any``
 
    No description
 
-.. _animvarval:
+.. _timedaction-animvarval:
 
-**animVarVal**
+**animVarVal** `🔗 <#timedaction-animvarval>`_
    Type: ``Any``
 
    No description
 
-.. _completionsound:
+.. _timedaction-completionsound:
 
-**completionSound**
+**completionSound** `🔗 <#timedaction-completionsound>`_
    Type: ``Any``
 
    No description
 
-.. _metabolics:
+.. _timedaction-metabolics:
 
-**metabolics**
+**metabolics** `🔗 <#timedaction-metabolics>`_
    Type: ``Any``
 
    No description
 
-.. _musclestrainfactor:
+.. _timedaction-musclestrainfactor:
 
-**muscleStrainFactor**
+**muscleStrainFactor** `🔗 <#timedaction-musclestrainfactor>`_
    Type: ``Any``
 
    No description
 
-.. _musclestrainparts:
+.. _timedaction-musclestrainparts:
 
-**muscleStrainParts**
+**muscleStrainParts** `🔗 <#timedaction-musclestrainparts>`_
    Type: ``Any``
 
    No description
 
-.. _musclestrainskill:
+.. _timedaction-musclestrainskill:
 
-**muscleStrainSkill**
+**muscleStrainSkill** `🔗 <#timedaction-musclestrainskill>`_
    Type: ``Any``
 
    No description
 
-.. _prop1:
+.. _timedaction-prop1:
 
-**prop1**
+**prop1** `🔗 <#timedaction-prop1>`_
    Type: ``Any``
 
    No description
 
-.. _prop2:
+.. _timedaction-prop2:
 
-**prop2**
+**prop2** `🔗 <#timedaction-prop2>`_
    Type: ``Any``
 
    No description
 
-.. _sound:
+.. _timedaction-sound:
 
-**sound**
+**sound** `🔗 <#timedaction-sound>`_
    Type: ``Any``
 
    No description
 
-.. _soundtime:
+.. _timedaction-soundtime:
 
-**soundTime**
+**soundTime** `🔗 <#timedaction-soundtime>`_
    Type: ``Any``
 
    No description

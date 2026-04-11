@@ -2,10 +2,10 @@ version: 1
 name: character_trait_definition
 description: Defines a character trait.
 shouldHaveParent: true
-parents: [
-  module
-]
-ID: {}
+parents:
+  - module
+ID:
+  canHaveSpace: true
 parameters:
   - name: IsProfessionTrait
     description: Defines whenever the trait is a profession trait or not, meaning it will only be available when selecting a profession.

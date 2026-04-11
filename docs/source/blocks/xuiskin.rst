@@ -20,6 +20,9 @@ Hierarchy
 **Possible Child Blocks:**
 
 - :ref:`entity`
+- :ref:`imports`
+- :ref:`isbasecomponentpanel`
+- :ref:`istablelayoutcell`
 
 
 ID Properties

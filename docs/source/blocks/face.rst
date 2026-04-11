@@ -11,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :ref:`component_spriteconfig`
+- :ref:`component-spriteconfig`
 - :ref:`style`
 - :ref:`progress`
 

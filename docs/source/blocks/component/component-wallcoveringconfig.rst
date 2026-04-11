@@ -1,4 +1,4 @@
-.. _component_wallcoveringconfig:
+.. _component-wallcoveringconfig:
 
 component WallCoveringConfig
 ============================
@@ -23,16 +23,16 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _sign:
+.. _component-wallcoveringconfig-sign:
 
-**sign**
+**sign** `🔗 <#component-wallcoveringconfig-sign>`_
    Type: ``Any``
 
    No description
 
-.. _type:
+.. _component-wallcoveringconfig-type:
 
-**type**
+**type** `🔗 <#component-wallcoveringconfig-type>`_
    Type: ``Any``
 
    No description

@@ -1,4 +1,4 @@
-.. _component_uiconfig:
+.. _component-uiconfig:
 
 component UiConfig
 ==================
@@ -23,23 +23,23 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _entitystyle:
+.. _component-uiconfig-entitystyle:
 
-**entityStyle**
+**entityStyle** `🔗 <#component-uiconfig-entitystyle>`_
    Type: ``Any``
 
    No description
 
-.. _uienabled:
+.. _component-uiconfig-uienabled:
 
-**uiEnabled**
+**uiEnabled** `🔗 <#component-uiconfig-uienabled>`_
    Type: ``Any``
 
    No description
 
-.. _xuiskin:
+.. _component-uiconfig-xuiskin:
 
-**xuiSkin**
+**xuiSkin** `🔗 <#component-uiconfig-xuiskin>`_
    Type: ``Any``
 
    No description

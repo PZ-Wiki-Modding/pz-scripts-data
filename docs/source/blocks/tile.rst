@@ -23,65 +23,65 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _animation:
+.. _tile-animation:
 
-**animation**
+**animation** `🔗 <#tile-animation>`_
    Type: ``Any``
 
    No description
 
-.. _animationtime:
+.. _tile-animationtime:
 
-**animationTime**
+**animationTime** `🔗 <#tile-animationtime>`_
    Type: ``Any``
 
    No description
 
-.. _isprofessiontrait:
+.. _tile-isprofessiontrait:
 
-**IsProfessionTrait**
+**IsProfessionTrait** `🔗 <#tile-isprofessiontrait>`_
    Type: ``Any``
 
    No description
 
-.. _modelscript:
+.. _tile-modelscript:
 
-**modelScript**
+**modelScript** `🔗 <#tile-modelscript>`_
    Type: ``Any``
 
    No description
 
-.. _rotate:
+.. _tile-rotate:
 
-**rotate**
+**rotate** `🔗 <#tile-rotate>`_
    Type: ``Any``
 
    No description
 
-.. _runtime:
+.. _tile-runtime:
 
-**runtime**
+**runtime** `🔗 <#tile-runtime>`_
    Type: ``Any``
 
    No description
 
-.. _scale:
+.. _tile-scale:
 
-**scale**
+**scale** `🔗 <#tile-scale>`_
    Type: ``Any``
 
    No description
 
-.. _translate:
+.. _tile-translate:
 
-**translate**
+**translate** `🔗 <#tile-translate>`_
    Type: ``Any``
 
    No description
 
-.. _xy:
+.. _tile-xy:
 
-**xy**
+**xy** `🔗 <#tile-xy>`_
    Type: ``Any``
 
    No description

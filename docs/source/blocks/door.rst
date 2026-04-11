@@ -23,9 +23,9 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _openable:
+.. _door-openable:
 
-**openable**
+**openable** `🔗 <#door-openable>`_
    Type: ``boolean``
 
    No description

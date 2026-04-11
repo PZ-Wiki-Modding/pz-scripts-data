@@ -51,100 +51,100 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _alarm:
+.. _sound-alarm:
 
-**alarm**
+**alarm** `🔗 <#sound-alarm>`_
    Type: ``array``
 
    No description
 
-.. _alarmloop:
+.. _sound-alarmloop:
 
-**alarmLoop**
+**alarmLoop** `🔗 <#sound-alarmloop>`_
    Type: ``Any``
 
    No description
 
-.. _backsignal:
+.. _sound-backsignal:
 
-**backSignal**
+**backSignal** `🔗 <#sound-backsignal>`_
    Type: ``string``
 
    No description
 
-.. _category:
+.. _sound-category:
 
-**category**
+**category** `🔗 <#sound-category>`_
    Type: ``string``
 
    No description
 
-.. _engine:
+.. _sound-engine:
 
-**engine**
+**engine** `🔗 <#sound-engine>`_
    Type: ``string``
 
    No description
 
-.. _enginestart:
+.. _sound-enginestart:
 
-**engineStart**
+**engineStart** `🔗 <#sound-enginestart>`_
    Type: ``string``
 
    No description
 
-.. _engineturnoff:
+.. _sound-engineturnoff:
 
-**engineTurnOff**
+**engineTurnOff** `🔗 <#sound-engineturnoff>`_
    Type: ``string``
 
    No description
 
-.. _handbrake:
+.. _sound-handbrake:
 
-**handBrake**
+**handBrake** `🔗 <#sound-handbrake>`_
    Type: ``string``
 
    No description
 
-.. _horn:
+.. _sound-horn:
 
-**horn**
+**horn** `🔗 <#sound-horn>`_
    Type: ``string``
 
    No description
 
-.. _ignitionfail:
+.. _sound-ignitionfail:
 
-**ignitionFail**
+**ignitionFail** `🔗 <#sound-ignitionfail>`_
    Type: ``Any``
 
    No description
 
-.. _ignitionfailnopower:
+.. _sound-ignitionfailnopower:
 
-**ignitionFailNoPower**
+**ignitionFailNoPower** `🔗 <#sound-ignitionfailnopower>`_
    Type: ``string``
 
    No description
 
-.. _is3d:
+.. _sound-is3d:
 
-**is3D**
-   Type: ``string``
+**is3D** `🔗 <#sound-is3d>`_
+   Type: ``boolean``
 
    This parameter looks unused.
 
-.. _loop:
+.. _sound-loop:
 
-**loop**
+**loop** `🔗 <#sound-loop>`_
    Type: ``boolean``
 
    Whether the sound should loop or not. The sound plays until turned off or the emitter is destroyed.
 
-.. _master:
+.. _sound-master:
 
-**master**
+**master** `🔗 <#sound-master>`_
    Type: ``string``
 
    Links the sound to a master sound category, which controls the volume of all sounds linked to it.
@@ -156,9 +156,9 @@ Parameters
    - ``Music``
    - ``VehicleEngine``
 
-.. _maxinstancesperemitter:
+.. _sound-maxinstancesperemitter:
 
-**maxInstancesPerEmitter**
+**maxInstancesPerEmitter** `🔗 <#sound-maxinstancesperemitter>`_
    Type: ``integer``
 
    No description

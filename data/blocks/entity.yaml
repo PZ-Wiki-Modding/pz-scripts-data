@@ -5,7 +5,9 @@ shouldHaveParent: true
 parents:
   - module
   - xuiSkin
-ID: {}
+ID:
+  optional:
+    - xuiSkin
 parameters:
   - name: LuaWindowClass
   - name: DisplayName

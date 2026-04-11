@@ -24,30 +24,30 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _leftcol:
+.. _lightbar-leftcol:
 
-**leftCol**
+**leftCol** `🔗 <#lightbar-leftcol>`_
    Type: ``Any``
 
    No description
 
-.. _rightcol:
+.. _lightbar-rightcol:
 
-**rightCol**
+**rightCol** `🔗 <#lightbar-rightcol>`_
    Type: ``Any``
 
    No description
 
-.. _soundsiren:
+.. _lightbar-soundsiren:
 
-**soundSiren**
+**soundSiren** `🔗 <#lightbar-soundsiren>`_
    Type: ``Any``
 
    No description
 
-.. _texture:
+.. _lightbar-texture:
 
-**texture**
+**texture** `🔗 <#lightbar-texture>`_
    Type: ``Any``
 
    No description

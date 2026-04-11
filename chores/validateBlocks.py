@@ -9,13 +9,10 @@ Usage:
     python validateBlocks.py --help              # Show this help message
 """
 
-import json
-import yaml
-import sys
-import os
+import json, yaml, sys, os
 from pathlib import Path
-from jsonschema import validate, ValidationError, Draft7Validator
-from typing import Any, List, Tuple
+from jsonschema import Draft7Validator
+from typing import List, Tuple
 
 # Default paths
 DEFAULT_BLOCKS_DIR = "data/blocks"

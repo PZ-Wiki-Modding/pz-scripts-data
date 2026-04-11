@@ -23,9 +23,9 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _blendtile:
+.. _blend-blendtile:
 
-**blendTile**
+**blendTile** `🔗 <#blend-blendtile>`_
    Type: ``Any``
 
    Used to define the tiles which will be used for the blend around the ``mainTile``. This can be a single tile or an array of tiles, and it supports ``alias`` blocks.
@@ -74,9 +74,9 @@ Parameters
         treez1
       ]
 
-.. _dir:
+.. _blend-dir:
 
-**dir**
+**dir** `🔗 <#blend-dir>`_
    Type: ``Any``
 
    The direction the blend applies to.
@@ -92,9 +92,9 @@ Parameters
    - ``w``
    - ``nw``
 
-.. _exclude:
+.. _blend-exclude:
 
-**exclude**
+**exclude** `🔗 <#blend-exclude>`_
    Type: ``Any``
 
    A list of tiles which will be excluded from being blended. This can be a single tile or an array of tiles, and it supports ``alias`` blocks.
@@ -107,23 +107,23 @@ Parameters
    
    Where each entries separated by a space are an alias.
 
-.. _exclude2:
+.. _blend-exclude2:
 
-**exclude2**
+**exclude2** `🔗 <#blend-exclude2>`_
    Type: ``Any``
 
    No description
 
-.. _layer:
+.. _blend-layer:
 
-**layer**
+**layer** `🔗 <#blend-layer>`_
    Type: ``Any``
 
    The layer the blend rule applies to. Should be one of the layers defined in the ``TMXconfig.txt`` file.
 
-.. _maintile:
+.. _blend-maintile:
 
-**mainTile**
+**mainTile** `🔗 <#blend-maintile>`_
    Type: ``Any``
 
    Used to identify which tiles will trigger the blend. This can be a single tile or an array of tiles, and it supports ``alias`` blocks.

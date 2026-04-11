@@ -23,72 +23,72 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _addingredientifcooked:
+.. _evolvedrecipe-addingredientifcooked:
 
-**AddIngredientIfCooked**
+**AddIngredientIfCooked** `🔗 <#evolvedrecipe-addingredientifcooked>`_
    Type: ``Any``
 
    No description
 
-.. _addingredientsound:
+.. _evolvedrecipe-addingredientsound:
 
-**AddIngredientSound**
+**AddIngredientSound** `🔗 <#evolvedrecipe-addingredientsound>`_
    Type: ``Any``
 
    No description
 
-.. _baseitem:
+.. _evolvedrecipe-baseitem:
 
-**BaseItem**
+**BaseItem** `🔗 <#evolvedrecipe-baseitem>`_
    Type: ``Any``
 
    No description
 
-.. _canaddspicesempty:
+.. _evolvedrecipe-canaddspicesempty:
 
-**CanAddSpicesEmpty**
+**CanAddSpicesEmpty** `🔗 <#evolvedrecipe-canaddspicesempty>`_
    Type: ``Any``
 
    No description
 
-.. _cookable:
+.. _evolvedrecipe-cookable:
 
-**Cookable**
+**Cookable** `🔗 <#evolvedrecipe-cookable>`_
    Type: ``Any``
 
    No description
 
-.. _maxitems:
+.. _evolvedrecipe-maxitems:
 
-**MaxItems**
+**MaxItems** `🔗 <#evolvedrecipe-maxitems>`_
    Type: ``Any``
 
    No description
 
-.. _minimumwater:
+.. _evolvedrecipe-minimumwater:
 
-**MinimumWater**
+**MinimumWater** `🔗 <#evolvedrecipe-minimumwater>`_
    Type: ``Any``
 
    No description
 
-.. _name:
+.. _evolvedrecipe-name:
 
-**Name**
+**Name** `🔗 <#evolvedrecipe-name>`_
    Type: ``Any``
 
    No description
 
-.. _resultitem:
+.. _evolvedrecipe-resultitem:
 
-**ResultItem**
+**ResultItem** `🔗 <#evolvedrecipe-resultitem>`_
    Type: ``Any``
 
    No description
 
-.. _template:
+.. _evolvedrecipe-template:
 
-**Template**
+**Template** `🔗 <#evolvedrecipe-template>`_
    Type: ``Any``
 
    No description

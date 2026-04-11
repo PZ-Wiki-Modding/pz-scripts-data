@@ -1,6 +1,6 @@
-.. _component_durability:
+.. _isbasecomponentpanel:
 
-component Durability
+ISBaseComponentPanel
 ====================
 
 
@@ -11,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :ref:`item`
+- :ref:`xuiskin`
 
 
 ID Properties

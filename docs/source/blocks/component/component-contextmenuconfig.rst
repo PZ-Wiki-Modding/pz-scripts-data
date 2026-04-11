@@ -1,4 +1,4 @@
-.. _component_contextmenuconfig:
+.. _component-contextmenuconfig:
 
 component ContextMenuConfig
 ===========================

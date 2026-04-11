@@ -11,7 +11,7 @@ Hierarchy
 
 **Valid Parent Blocks:**
 
-- :ref:`component_resources`
+- :ref:`component-resources`
 
 
 ID Properties

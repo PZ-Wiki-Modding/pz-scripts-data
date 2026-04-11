@@ -1,0 +1,8 @@
+version: 1
+name: clock
+description: ""
+shouldHaveParent: true
+parents:
+  - module
+ID: {}
+parameters: []

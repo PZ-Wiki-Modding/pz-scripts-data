@@ -24,30 +24,30 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _front:
+.. _wheel-front:
 
-**front**
+**front** `🔗 <#wheel-front>`_
    Type: ``Any``
 
    No description
 
-.. _offset:
+.. _wheel-offset:
 
-**offset**
+**offset** `🔗 <#wheel-offset>`_
    Type: ``Any``
 
    No description
 
-.. _radius:
+.. _wheel-radius:
 
-**radius**
+**radius** `🔗 <#wheel-radius>`_
    Type: ``Any``
 
    No description
 
-.. _width:
+.. _wheel-width:
 
-**width**
+**width** `🔗 <#wheel-width>`_
    Type: ``Any``
 
    No description

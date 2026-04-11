@@ -23,23 +23,23 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _displayname:
+.. _craftlogic-displayname:
 
-**DisplayName**
+**DisplayName** `🔗 <#craftlogic-displayname>`_
    Type: ``Any``
 
    No description
 
-.. _icon:
+.. _craftlogic-icon:
 
-**Icon**
+**Icon** `🔗 <#craftlogic-icon>`_
    Type: ``Any``
 
    No description
 
-.. _luapanelclass:
+.. _craftlogic-luapanelclass:
 
-**LuaPanelClass**
+**LuaPanelClass** `🔗 <#craftlogic-luapanelclass>`_
    Type: ``Any``
 
    No description

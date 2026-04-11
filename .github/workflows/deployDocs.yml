@@ -6,7 +6,6 @@ on:
       - 'main'
     paths:
       - 'docs/**'
-      - '*.lua'
   pull_request:
   workflow_dispatch:
 

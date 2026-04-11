@@ -92,6 +92,7 @@ parameters:
     itemTypes:
       - food
   - name: BadInMicrowave
+    description: Used to set whether this item can cause a fire when put in a microwave, if set to true it will explode.
     itemTypes:
       - food
   - name: BandagePower
@@ -288,26 +289,37 @@ parameters:
     itemTypes:
       - container
   - name: ClothingExtraSubmenu
+    "#desc": item/ClothingItem
     itemTypes:
       - alarmclockclothing
       - clothing
       - container
   - name: ClothingItem
+    description: |-
+      `ClothingItem` references the clothing defined inside the [clothing.xml](https://pzwiki.net/wiki/Clothing.xml) file. `ClothingExtraSubmenu` will define the name of the context menu option to equip the clothing item.
+      
+      `ClothingItemExtra` and `ClothingItemExtraOption` are used to define additional clothing equip options, they reference another item script block.
     itemTypes:
       - alarmclockclothing
       - clothing
       - container
       - radio
   - name: ClothingItemExtra
+    "#desc": item/ClothingItem
     itemTypes:
       - alarmclockclothing
       - clothing
       - container
+    needs:
+      - name: ClothingItemExtraOption
   - name: ClothingItemExtraOption
+    "#desc": item/ClothingItem
     itemTypes:
       - alarmclockclothing
       - clothing
       - container
+    needs:
+      - name: ClothingItemExtra
   - name: ColorBlue
     itemTypes:
       - clothing
@@ -1564,7 +1576,11 @@ parameters:
       - moveable
       - normal
       - radio
+  - name: WorldRender
   - name: WorldStaticModel
+    blockType:
+      fullType: true
+      block: model
   - name: WorldStaticModelsByIndex
     type: array
     arrayType: string

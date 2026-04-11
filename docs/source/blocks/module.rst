@@ -17,7 +17,9 @@ Hierarchy
 
 - :ref:`animation`
 - :ref:`animationsmesh`
+- :ref:`character_profession_definition`
 - :ref:`character_trait_definition`
+- :ref:`clock`
 - :ref:`craftrecipe`
 - :ref:`energy`
 - :ref:`entity`
@@ -29,6 +31,7 @@ Hierarchy
 - :ref:`mannequin`
 - :ref:`model`
 - :ref:`physicshitreaction`
+- :ref:`physicsshape`
 - :ref:`ragdoll`
 - :ref:`sound`
 - :ref:`template`

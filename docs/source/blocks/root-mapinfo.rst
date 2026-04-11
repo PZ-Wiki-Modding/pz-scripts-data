@@ -29,58 +29,58 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _demovideo:
+.. _root-mapinfo-demovideo:
 
-**demoVideo**
+**demoVideo** `🔗 <#root-mapinfo-demovideo>`_
    Type: ``Any``
 
    `Video file <https://pzwiki.net/wiki/File_formats#Video_format>`_ used to showcase the map when selecting it.
 
-.. _description:
+.. _root-mapinfo-description:
 
-**description**
+**description** `🔗 <#root-mapinfo-description>`_
    Type: ``Any``
 
    Description of the map.
 
-.. _fixed2x:
+.. _root-mapinfo-fixed2x:
 
-**fixed2x**
+**fixed2x** `🔗 <#root-mapinfo-fixed2x>`_
    Type: ``Any``
 
    Boolean which fixes rendering issues. Leave it as ``true`` if you are not sure.
 
-.. _lots:
+.. _root-mapinfo-lots:
 
-**lots**
+**lots** `🔗 <#root-mapinfo-lots>`_
    Type: ``Any``
 
    Refers to the world map the map will be loaded into. For a map which is inside the vanilla world map, use ``lots=Muldraugh, KY``.
 
-.. _title:
+.. _root-mapinfo-title:
 
-**title**
+**title** `🔗 <#root-mapinfo-title>`_
    Type: ``Any``
 
    Title of the map.
 
-.. _zooms:
+.. _root-mapinfo-zooms:
 
-**zoomS**
+**zoomS** `🔗 <#root-mapinfo-zooms>`_
    Type: ``Any``
 
    Zoom parameter used to define the position of the camera on the world map when chosing the map to spawn in.
 
-.. _zoomx:
+.. _root-mapinfo-zoomx:
 
-**zoomX**
+**zoomX** `🔗 <#root-mapinfo-zoomx>`_
    Type: ``Any``
 
    Position parameter used to define the position of the camera on the world map when chosing the map to spawn in.
 
-.. _zoomy:
+.. _root-mapinfo-zoomy:
 
-**zoomY**
+**zoomY** `🔗 <#root-mapinfo-zoomy>`_
    Type: ``Any``
 
    Position parameter used to define the position of the camera on the world map when chosing the map to spawn in.

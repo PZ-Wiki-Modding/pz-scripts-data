@@ -72,16 +72,16 @@ This block should not have an ID.
 Parameters
 ----------
 
-.. _name:
+.. _alias-name:
 
-**name**
+**name** `🔗 <#alias-name>`_
    Type: ``string``
 
    No description
 
-.. _tiles:
+.. _alias-tiles:
 
-**tiles**
+**tiles** `🔗 <#alias-tiles>`_
    Type: ``Any``
 
    No description

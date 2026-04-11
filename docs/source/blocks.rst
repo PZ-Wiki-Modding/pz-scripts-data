@@ -17,8 +17,10 @@ This section provides detailed documentation for all available script blocks.
    blocks/blend.rst
    blocks/blendwhitelist.rst
    blocks/categories.rst
+   blocks/character_profession_definition.rst
    blocks/character_trait_definition.rst
    blocks/clip.rst
+   blocks/clock.rst
    blocks/component.rst
    blocks/components.rst
    blocks/container.rst
@@ -37,8 +39,11 @@ This section provides detailed documentation for all available script blocks.
    blocks/fluid.rst
    blocks/fluids.rst
    blocks/group.rst
+   blocks/hand.rst
    blocks/imports.rst
    blocks/inputs.rst
+   blocks/isbasecomponentpanel.rst
+   blocks/istablelayoutcell.rst
    blocks/item.rst
    blocks/itemmapper.rst
    blocks/layer.rst
@@ -54,6 +59,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/part.rst
    blocks/passenger.rst
    blocks/physicshitreaction.rst
+   blocks/physicsshape.rst
    blocks/poison.rst
    blocks/position.rst
    blocks/progress.rst
@@ -81,4 +87,5 @@ This section provides detailed documentation for all available script blocks.
    blocks/vehicle.rst
    blocks/vehicleenginerpm.rst
    blocks/wheel.rst
+   blocks/whitelist.rst
    blocks/xuiskin.rst

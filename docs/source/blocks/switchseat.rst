@@ -23,23 +23,23 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _anim:
+.. _switchseat-anim:
 
-**anim**
+**anim** `🔗 <#switchseat-anim>`_
    Type: ``Any``
 
    No description
 
-.. _rate:
+.. _switchseat-rate:
 
-**rate**
+**rate** `🔗 <#switchseat-rate>`_
    Type: ``Any``
 
    No description
 
-.. _sound:
+.. _switchseat-sound:
 
-**sound**
+**sound** `🔗 <#switchseat-sound>`_
    Type: ``Any``
 
    No description

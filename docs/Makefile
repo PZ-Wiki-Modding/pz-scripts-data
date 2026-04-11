@@ -16,7 +16,7 @@ clean:
 	rm -rf source/blocks
 
 generate:
-	python3 ../scripts/generateDocs.py
+	python3 ../chores/generateDocs.py
 
 html: generate
 	sphinx-build -b html source build/html

@@ -27,9 +27,9 @@ This block should have an ID.
 Parameters
 ----------
 
-.. _version:
+.. _vehicleenginerpm-version:
 
-**VERSION**
+**VERSION** `🔗 <#vehicleenginerpm-version>`_
    Type: ``integer``
 
    Unclear what this does, preferably keep it at 1.
