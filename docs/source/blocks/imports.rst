@@ -12,6 +12,7 @@ Hierarchy
 **Valid Parent Blocks:**
 
 - :ref:`module`
+- :ref:`xuiskin`
 
 
 ID Properties
