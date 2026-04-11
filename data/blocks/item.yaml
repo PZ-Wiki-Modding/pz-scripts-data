@@ -1576,6 +1576,7 @@ parameters:
       - moveable
       - normal
       - radio
+  - name: WorldRender
   - name: WorldStaticModel
     blockType:
       fullType: true
