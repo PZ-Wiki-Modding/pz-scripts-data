@@ -48,6 +48,7 @@ parameters:
       ```
     type: object
     separator: ';'
+    keyValueSeparator: '='
   - name: GrantedRecipes
     type: array
     separator: ';'

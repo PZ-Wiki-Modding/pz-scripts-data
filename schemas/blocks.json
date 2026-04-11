@@ -151,6 +151,10 @@
             "description": "A list of allowed values for the parameter.",
             "items": { "type": ["string", "number"] }
           },
+          "keyValueSeparator": {
+            "type": "string",
+            "description": "If the parameter is of type 'object', this specifies the separator used to split the key-value pairs. The parameter 'separator' is used to split the pairs."
+          },
           "deprecated": {
             "type": "object",
             "additionalProperties": false,
