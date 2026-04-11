@@ -48,7 +48,10 @@ parameters:
       ```
     type: object
     separator: ';'
-    keyValueSeparator: '='
+    object:
+      keyValueSeparator: '='
+      keyType: string
+      valueType: integer
   - name: GrantedRecipes
     type: array
     separator: ';'

@@ -155,9 +155,25 @@
             "description": "A list of allowed values for the parameter.",
             "items": { "type": ["string", "number"] }
           },
-          "keyValueSeparator": {
-            "type": "string",
-            "description": "If the parameter is of type 'object', this specifies the separator used to split the key-value pairs. The parameter 'separator' is used to split the pairs."
+          "object": {
+            "type": "object",
+            "properties": {
+              "separator": {
+                "type": "string",
+                "description": "Specifies the separator used to split the key-value pairs. The parameter 'keyValueSeparator' is used to split the keys and values."
+              },
+              "keyType": {
+                "type": "string",
+                "description": "Specifies the data type of the keys in the object.",
+                "enum": ["string", "float", "boolean", "integer"]
+              },
+              "valueType": {
+                "type": "string",
+                "description": "Specifies the data type of the values in the object.",
+                "enum": ["string", "float", "boolean", "integer"]
+              }
+            },
+            "description": "If the parameter is of type 'object', this can be used to provide a description of the expected format of the object."
           },
           "deprecated": {
             "type": "object",
