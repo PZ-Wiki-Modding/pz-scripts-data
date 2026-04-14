@@ -72,6 +72,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/root-rules.rst
    blocks/root-sandboxoptions.rst
    blocks/root-scripts.rst
+   blocks/root-tilegeometry.rst
    blocks/root-tmxconfig.rst
    blocks/rule.rst
    blocks/skin.rst
