@@ -1311,6 +1311,9 @@ parameters:
     type: float
     default: 1.0
   - name: StaticModel
+    blockType:
+      fullType: true
+      block: model
     itemTypes:
       - clothing
       - container
