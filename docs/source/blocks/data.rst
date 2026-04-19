@@ -26,7 +26,7 @@ Parameters
 .. _data-aftergearchange:
 
 **afterGearChange** `🔗 <#data-aftergearchange>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -35,7 +35,7 @@ Parameters
 .. _data-gearchange:
 
 **gearChange** `🔗 <#data-gearchange>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 

@@ -39,28 +39,28 @@ Parameters
 .. _rule-bitmap:
 
 **bitmap** `🔗 <#rule-bitmap>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    A value of ``1`` will have this rule used for the vegetation image, while a value of ``0`` will have it used for the main tiles image. Trees will for example use ``1`` while ground tiles will use ``0``.
 
 .. _rule-color:
 
 **color** `🔗 <#rule-color>`_
-   Type: ``array``
+   Type: ``{'main': 'array'}``
 
    The RGB color to replace with the tiles in the ``tiles`` parameter. This is the color you painted in your image file to associate to this rule.
 
 .. _rule-label:
 
 **label** `🔗 <#rule-label>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _rule-layer:
 
 **layer** `🔗 <#rule-layer>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    The layer to apply the tiles on.
 

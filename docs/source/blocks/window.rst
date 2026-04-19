@@ -26,7 +26,7 @@ Parameters
 .. _window-openable:
 
 **openable** `🔗 <#window-openable>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    No description
 

@@ -26,7 +26,7 @@ Parameters
 .. _layers-object:
 
 **object** `🔗 <#layers-object>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -35,7 +35,7 @@ Parameters
 .. _layers-tile:
 
 **tile** `🔗 <#layers-tile>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 

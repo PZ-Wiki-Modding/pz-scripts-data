@@ -26,7 +26,7 @@ Parameters
 .. _whitelist-fluid:
 
 **fluid** `🔗 <#whitelist-fluid>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    A fluid which is allowed to be put inside this fluid container.
 

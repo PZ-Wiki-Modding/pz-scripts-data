@@ -39,7 +39,7 @@ Parameters
 .. _vehicle-animaltrailersize:
 
 **animalTrailerSize** `🔗 <#vehicle-animaltrailersize>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    Sets the maximum total encumbrance from animals in the animal trailer. The horsebox and livestock trailers both use 500.
 
@@ -53,14 +53,14 @@ Parameters
 .. _vehicle-carmechanicsoverlay:
 
 **carMechanicsOverlay** `🔗 <#vehicle-carmechanicsoverlay>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _vehicle-carmodelname:
 
 **carModelName** `🔗 <#vehicle-carmodelname>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    Set the `translation <https://pzwiki.net/wiki/Translation>`_ key for the car name. The translation entry needs to be stored inside the IG_UI translation file and have ``IGUI_VehicleName`` as a prefix. 
    
@@ -88,7 +88,7 @@ Parameters
 .. _vehicle-engineforce:
 
 **engineForce** `🔗 <#vehicle-engineforce>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    engineForce is 10x what is displayed in the mechanics menu for horsepower.
 
@@ -97,7 +97,7 @@ Parameters
 .. _vehicle-engineidlespeed:
 
 **engineIdleSpeed** `🔗 <#vehicle-engineidlespeed>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -106,7 +106,7 @@ Parameters
 .. _vehicle-engineloudness:
 
 **engineLoudness** `🔗 <#vehicle-engineloudness>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -115,7 +115,7 @@ Parameters
 .. _vehicle-enginequality:
 
 **engineQuality** `🔗 <#vehicle-enginequality>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -124,14 +124,14 @@ Parameters
 .. _vehicle-enginerepairlevel:
 
 **engineRepairLevel** `🔗 <#vehicle-enginerepairlevel>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    Required `mechanics skill <https://pzwiki.net/wiki/Mechanics>`_ level for repearing the vehicle's engine.
 
 .. _vehicle-enginerpmtype:
 
 **engineRPMType** `🔗 <#vehicle-enginerpmtype>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    Sets the engine to a RPM type (\ `See vehicleEngineRPM block <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicleenginerpm.html>`_\ ).
 
@@ -140,21 +140,21 @@ Parameters
 .. _vehicle-extents:
 
 **extents** `🔗 <#vehicle-extents>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'float', 'separator': ' '}}``
 
    No description
 
 .. _vehicle-extentsoffset:
 
 **extentsOffset** `🔗 <#vehicle-extentsoffset>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'float', 'separator': ' '}}``
 
    No description
 
 .. _vehicle-forcedcolor:
 
 **forcedColor** `🔗 <#vehicle-forcedcolor>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'float', 'separator': ' '}}``
 
    Sets a forced HSV color on the vehicle. The value needs to be of format ``hue sat val``.
 
@@ -163,7 +163,7 @@ Parameters
 .. _vehicle-frontenddurability:
 
 **frontEndDurability** `🔗 <#vehicle-frontenddurability>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    It is unclear what that parameter does but as of 42.16.3, the game uses ``frontEndHealth`` which is a mistake.
 
@@ -187,7 +187,7 @@ Parameters
 .. _vehicle-gearratio1:
 
 **gearRatio1** `🔗 <#vehicle-gearratio1>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    `gearRatioCount <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount>`_ will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. 
    
@@ -373,7 +373,7 @@ Parameters
 .. _vehicle-gearratiocount:
 
 **gearRatioCount** `🔗 <#vehicle-gearratiocount>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    `gearRatioCount <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount>`_ will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. 
    
@@ -397,7 +397,7 @@ Parameters
 .. _vehicle-gearratior:
 
 **gearRatioR** `🔗 <#vehicle-gearratior>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    `gearRatioCount <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount>`_ will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. 
    
@@ -421,7 +421,7 @@ Parameters
 .. _vehicle-haslighter:
 
 **hasLighter** `🔗 <#vehicle-haslighter>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    Sets whenever this car has a lighter to light a cigarette.
 
@@ -430,14 +430,14 @@ Parameters
 .. _vehicle-hassiren:
 
 **hasSiren** `🔗 <#vehicle-hassiren>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    No description
 
 .. _vehicle-issmallvehicle:
 
 **isSmallVehicle** `🔗 <#vehicle-issmallvehicle>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    No description
 
@@ -446,7 +446,7 @@ Parameters
 .. _vehicle-mass:
 
 **mass** `🔗 <#vehicle-mass>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    Sets the mass of the vehicle which will notably be used for various physic calculations. 
    
@@ -457,7 +457,7 @@ Parameters
 .. _vehicle-maxspeed:
 
 **maxSpeed** `🔗 <#vehicle-maxspeed>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -466,7 +466,7 @@ Parameters
 .. _vehicle-maxspeedreverse:
 
 **maxSpeedReverse** `🔗 <#vehicle-maxspeedreverse>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -475,7 +475,7 @@ Parameters
 .. _vehicle-maxsuspensiontravelcm:
 
 **maxSuspensionTravelCm** `🔗 <#vehicle-maxsuspensiontravelcm>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -484,7 +484,7 @@ Parameters
 .. _vehicle-mechanictype:
 
 **mechanicType** `🔗 <#vehicle-mechanictype>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    Defines what class the vehicle is, that is 1 for standard, 2 for heavy-duty and 3 for performance.
 
@@ -497,21 +497,21 @@ Parameters
 .. _vehicle-neverspawnkey:
 
 **neverSpawnKey** `🔗 <#vehicle-neverspawnkey>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    Sets whenever this vehicle will never have a key spawning in buildings or on zombies spawning around the vehicle.
 
 .. _vehicle-notkillcrops:
 
 **notKillCrops** `🔗 <#vehicle-notkillcrops>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    Sets whenever the vehicle will destroy crops it is driving on.
 
 .. _vehicle-offroadefficiency:
 
 **offRoadEfficiency** `🔗 <#vehicle-offroadefficiency>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    Affects horsepower reduction when offroad (Higher = less horsepower reduction when offroad.)
 
@@ -520,7 +520,7 @@ Parameters
 .. _vehicle-physicschassisshape:
 
 **physicsChassisShape** `🔗 <#vehicle-physicschassisshape>`_
-   Type: ``array``
+   Type: ``{'main': 'array'}``
 
    Defines the hitbox of the vehicle. The value should be three numbers defining the dimensions of a box:
    
@@ -539,14 +539,14 @@ Parameters
 .. _vehicle-playerdamageprotection:
 
 **playerDamageProtection** `🔗 <#vehicle-playerdamageprotection>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    Multiplier applied to the amount of damage the player takes when crashing in the car. A value of 1 doesn't change the damage, but a lower value reduces it and a higher value increases it.
 
 .. _vehicle-rearenddurability:
 
 **rearEndDurability** `🔗 <#vehicle-rearenddurability>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    It is unclear what that parameter does but as of 42.16.3, the game uses ``rearEndHealth`` which is a mistake.
 
@@ -570,7 +570,7 @@ Parameters
 .. _vehicle-rollinfluence:
 
 **rollInfluence** `🔗 <#vehicle-rollinfluence>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -579,7 +579,7 @@ Parameters
 .. _vehicle-seats:
 
 **seats** `🔗 <#vehicle-seats>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    Sets the number of seats this vehicle can have. A seat `part <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/part.html>`_ needs to be created which will hold a `container <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container>`_ block with a parameter `seat <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container-seat>`_
 
@@ -588,35 +588,35 @@ Parameters
 .. _vehicle-shadowextents:
 
 **shadowExtents** `🔗 <#vehicle-shadowextents>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'float', 'separator': ' '}}``
 
    No description
 
 .. _vehicle-shadowoffset:
 
 **shadowOffset** `🔗 <#vehicle-shadowoffset>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'float', 'separator': ' '}}``
 
    No description
 
 .. _vehicle-specialkeyring:
 
 **specialKeyRing** `🔗 <#vehicle-specialkeyring>`_
-   Type: ``array``
+   Type: ``{'main': 'array'}``
 
    ``specialKeyRing`` needs to reference a keyring item to spawn. ``specialKeyRingChance`` is used to set the chance to spawn this keyring.
 
 .. _vehicle-specialkeyringchance:
 
 **specialKeyRingChance** `🔗 <#vehicle-specialkeyringchance>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    ``specialKeyRing`` needs to reference a keyring item to spawn. ``specialKeyRingChance`` is used to set the chance to spawn this keyring.
 
 .. _vehicle-speciallootchance:
 
 **specialLootChance** `🔗 <#vehicle-speciallootchance>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -625,7 +625,7 @@ Parameters
 .. _vehicle-steeringclamp:
 
 **steeringClamp** `🔗 <#vehicle-steeringclamp>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    Maximum angle you can turn the front wheels left/right
 
@@ -634,7 +634,7 @@ Parameters
 .. _vehicle-steeringincrement:
 
 **steeringIncrement** `🔗 <#vehicle-steeringincrement>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -643,7 +643,7 @@ Parameters
 .. _vehicle-stoppingmovementforce:
 
 **stoppingMovementForce** `🔗 <#vehicle-stoppingmovementforce>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    A drag factor applied to the vehicle at all times
 
@@ -652,7 +652,7 @@ Parameters
 .. _vehicle-storagecapacity:
 
 **storageCapacity** `🔗 <#vehicle-storagecapacity>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -661,7 +661,7 @@ Parameters
 .. _vehicle-suspensioncompression:
 
 **suspensionCompression** `🔗 <#vehicle-suspensioncompression>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -670,7 +670,7 @@ Parameters
 .. _vehicle-suspensiondamping:
 
 **suspensionDamping** `🔗 <#vehicle-suspensiondamping>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -679,7 +679,7 @@ Parameters
 .. _vehicle-suspensionrestlength:
 
 **suspensionRestLength** `🔗 <#vehicle-suspensionrestlength>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -688,7 +688,7 @@ Parameters
 .. _vehicle-suspensionstiffness:
 
 **suspensionStiffness** `🔗 <#vehicle-suspensionstiffness>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -715,70 +715,70 @@ Parameters
 .. _vehicle-texturedamage1overlay:
 
 **textureDamage1Overlay** `🔗 <#vehicle-texturedamage1overlay>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _vehicle-texturedamage1shell:
 
 **textureDamage1Shell** `🔗 <#vehicle-texturedamage1shell>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _vehicle-texturedamage2overlay:
 
 **textureDamage2Overlay** `🔗 <#vehicle-texturedamage2overlay>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _vehicle-texturedamage2shell:
 
 **textureDamage2Shell** `🔗 <#vehicle-texturedamage2shell>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _vehicle-texturelights:
 
 **textureLights** `🔗 <#vehicle-texturelights>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _vehicle-texturemask:
 
 **textureMask** `🔗 <#vehicle-texturemask>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _vehicle-texturemaskenable:
 
 **textureMaskEnable** `🔗 <#vehicle-texturemaskenable>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    No description
 
 .. _vehicle-texturerust:
 
 **textureRust** `🔗 <#vehicle-texturerust>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _vehicle-textureshadow:
 
 **textureShadow** `🔗 <#vehicle-textureshadow>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _vehicle-usechassisphysicscollision:
 
 **useChassisPhysicsCollision** `🔗 <#vehicle-usechassisphysicscollision>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    By default ``true`` which makes the vehicle use the `physicsChassisShape <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-physicschassisshape>`_ for its hitbox. If set to false, it will instead use the `physics <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/physics.html>`_ blocks as the hitbox of the vehicle.
 
@@ -787,7 +787,7 @@ Parameters
 .. _vehicle-wheelfriction:
 
 **wheelFriction** `🔗 <#vehicle-wheelfriction>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    It is 1.2 to 1.9 for all vanilla vehicles and controls turning and stopping (but not acceleration) tire friction limits, with 1.4 being the most common. Values over 1.8 can cause vehicles to flip in sharp turns. (Likely depends somewhat on center of mass)
 
@@ -796,7 +796,7 @@ Parameters
 .. _vehicle-zombietype:
 
 **zombieType** `🔗 <#vehicle-zombietype>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
    Used to chose what zombie may spawn around the vehicle and is likely to have the key of the vehicle.
 

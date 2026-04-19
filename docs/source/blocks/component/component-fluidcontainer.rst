@@ -32,7 +32,7 @@ Parameters
 .. _component-fluidcontainer-capacity:
 
 **Capacity** `🔗 <#component-fluidcontainer-capacity>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    The fluid capacity of the container, the minimum value is ``0.05``.
 
@@ -41,7 +41,7 @@ Parameters
 .. _component-fluidcontainer-containername:
 
 **ContainerName** `🔗 <#component-fluidcontainer-containername>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    The name of the fluid container, seems to be unused. The name cannot have whitespaces, the game will sanitize it to remove them and show an error in the console about it.
 
@@ -50,7 +50,7 @@ Parameters
 .. _component-fluidcontainer-customdrinksound:
 
 **CustomDrinkSound** `🔗 <#component-fluidcontainer-customdrinksound>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    Refers to a `sound block <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/sound.html>`_ to trigger when drinking.
 
@@ -59,7 +59,7 @@ Parameters
 .. _component-fluidcontainer-fillswithcleanwater:
 
 **FillsWithCleanWater** `🔗 <#component-fluidcontainer-fillswithcleanwater>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    When set to true, the container will fill with clean water instead of tainted water when left outside in the rain.
 
@@ -68,7 +68,7 @@ Parameters
 .. _component-fluidcontainer-hiddenamount:
 
 **HiddenAmount** `🔗 <#component-fluidcontainer-hiddenamount>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    When true, will hide the fluid quantity from the UI.
 
@@ -77,14 +77,14 @@ Parameters
 .. _component-fluidcontainer-initialpercent:
 
 **InitialPercent** `🔗 <#component-fluidcontainer-initialpercent>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
 .. _component-fluidcontainer-initialpercentmax:
 
 **InitialPercentMax** `🔗 <#component-fluidcontainer-initialpercentmax>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    The minimum amount of fluid which will appear in this container.
 
@@ -93,7 +93,7 @@ Parameters
 .. _component-fluidcontainer-initialpercentmin:
 
 **InitialPercentMin** `🔗 <#component-fluidcontainer-initialpercentmin>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    The maximum amount of fluid which will appear in this container.
 
@@ -102,7 +102,7 @@ Parameters
 .. _component-fluidcontainer-inputlocked:
 
 **InputLocked** `🔗 <#component-fluidcontainer-inputlocked>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    Unused.
 
@@ -111,7 +111,7 @@ Parameters
 .. _component-fluidcontainer-opened:
 
 **Opened** `🔗 <#component-fluidcontainer-opened>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    Unused.
 
@@ -120,7 +120,7 @@ Parameters
 .. _component-fluidcontainer-pickrandomfluid:
 
 **PickRandomFluid** `🔗 <#component-fluidcontainer-pickrandomfluid>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    When set to true, the container will pick one of the available fluids in the `Fluids <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/fluids.html>`_ child block at random when filling. If set to false, it will make every fluids appear.
 
@@ -129,7 +129,7 @@ Parameters
 .. _component-fluidcontainer-rainfactor:
 
 **RainFactor** `🔗 <#component-fluidcontainer-rainfactor>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    Defines how much rain contributes to filling the container. A high value increases the rate of filling. A value of ``0.0`` means that rain will not fill the container, which is the default value of the parameter.
    

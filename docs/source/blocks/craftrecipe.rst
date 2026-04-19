@@ -39,7 +39,7 @@ Parameters
 .. _craftrecipe-allowbatchcraft:
 
 **AllowBatchCraft** `🔗 <#craftrecipe-allowbatchcraft>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    The AllowBatchCraft parameter is used to allow the recipe to be crafted in batches. This will make a slider appear on the crafting to craft multiple ones at once. Needs to be a boolean and default is true, set to false to disable batch craft.
 
@@ -210,7 +210,7 @@ Parameters
 .. _craftrecipe-tags:
 
 **tags** `🔗 <#craftrecipe-tags>`_
-   Type: ``array`` *(required)*
+   Type: ``{'main': 'array'}`` *(required)*
 
    Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as ``AnySurfaceCraft``. The syntax is as follows:
    

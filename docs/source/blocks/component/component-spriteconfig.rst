@@ -34,7 +34,7 @@ Parameters
 .. _component-spriteconfig-health:
 
 **health** `🔗 <#component-spriteconfig-health>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -69,7 +69,7 @@ Parameters
 .. _component-spriteconfig-skillbasehealth:
 
 **skillBaseHealth** `🔗 <#component-spriteconfig-skillbasehealth>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 

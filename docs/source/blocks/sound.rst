@@ -54,7 +54,7 @@ Parameters
 .. _sound-alarm:
 
 **alarm** `🔗 <#sound-alarm>`_
-   Type: ``array``
+   Type: ``{'main': 'array'}``
 
    No description
 
@@ -68,49 +68,49 @@ Parameters
 .. _sound-backsignal:
 
 **backSignal** `🔗 <#sound-backsignal>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _sound-category:
 
 **category** `🔗 <#sound-category>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _sound-engine:
 
 **engine** `🔗 <#sound-engine>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _sound-enginestart:
 
 **engineStart** `🔗 <#sound-enginestart>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _sound-engineturnoff:
 
 **engineTurnOff** `🔗 <#sound-engineturnoff>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _sound-handbrake:
 
 **handBrake** `🔗 <#sound-handbrake>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _sound-horn:
 
 **horn** `🔗 <#sound-horn>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -124,28 +124,28 @@ Parameters
 .. _sound-ignitionfailnopower:
 
 **ignitionFailNoPower** `🔗 <#sound-ignitionfailnopower>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
 .. _sound-is3d:
 
 **is3D** `🔗 <#sound-is3d>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    This parameter looks unused.
 
 .. _sound-loop:
 
 **loop** `🔗 <#sound-loop>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    Whether the sound should loop or not. The sound plays until turned off or the emitter is destroyed.
 
 .. _sound-master:
 
 **master** `🔗 <#sound-master>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    Links the sound to a master sound category, which controls the volume of all sounds linked to it.
 
@@ -159,7 +159,7 @@ Parameters
 .. _sound-maxinstancesperemitter:
 
 **maxInstancesPerEmitter** `🔗 <#sound-maxinstancesperemitter>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 

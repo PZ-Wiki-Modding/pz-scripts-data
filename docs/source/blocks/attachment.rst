@@ -143,7 +143,7 @@ Parameters
 .. _attachment-offset:
 
 **offset** `🔗 <#attachment-offset>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'float', 'separator': ' '}}``
 
    The position offset of the model relative to the bone. This is a vector in the format ``x y z``. 
    
@@ -154,7 +154,7 @@ Parameters
 .. _attachment-rotate:
 
 **rotate** `🔗 <#attachment-rotate>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'float', 'separator': ' '}}``
 
    The rotation of the model relative to the bone. This is a vector in the format ``x y z``. The values are degrees.
    
@@ -165,7 +165,7 @@ Parameters
 .. _attachment-scale:
 
 **scale** `🔗 <#attachment-scale>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    The scale multiplier applied to the model attached to this attachment point.
    

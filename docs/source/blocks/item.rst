@@ -44,7 +44,7 @@ Parameters
 .. _item-acceptmediatype:
 
 **AcceptMediaType** `🔗 <#item-acceptmediatype>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -271,7 +271,7 @@ Parameters
 .. _item-basespeed:
 
 **BaseSpeed** `🔗 <#item-basespeed>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -300,7 +300,7 @@ Parameters
 .. _item-bloodlocation:
 
 **BloodLocation** `🔗 <#item-bloodlocation>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
    No description
 
@@ -509,7 +509,7 @@ Parameters
 .. _item-canhaveholes:
 
 **CanHaveHoles** `🔗 <#item-canhaveholes>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    Used to define whenever this item can get holes in it.
 
@@ -583,7 +583,7 @@ Parameters
 .. _item-capacity:
 
 **Capacity** `🔗 <#item-capacity>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -630,7 +630,7 @@ Parameters
 .. _item-clicksound:
 
 **ClickSound** `🔗 <#item-clicksound>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -712,7 +712,7 @@ Parameters
 .. _item-colorblue:
 
 **ColorBlue** `🔗 <#item-colorblue>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -723,7 +723,7 @@ Parameters
 .. _item-colorgreen:
 
 **ColorGreen** `🔗 <#item-colorgreen>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -734,7 +734,7 @@ Parameters
 .. _item-colorred:
 
 **ColorRed** `🔗 <#item-colorred>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -745,7 +745,7 @@ Parameters
 .. _item-combatspeedmodifier:
 
 **CombatSpeedModifier** `🔗 <#item-combatspeedmodifier>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -765,7 +765,7 @@ Parameters
 .. _item-conditionlowerchanceonein:
 
 **ConditionLowerChanceOneIn** `🔗 <#item-conditionlowerchanceonein>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    The chance impact to reduce the durability of the item, the value is used to calculate the chance by doing $chance = 1/ConditionLowerChanceOneIn$, which means increasing this parameter value will reduce the chance to damage the item.
 
@@ -794,7 +794,7 @@ Parameters
 .. _item-conditionmax:
 
 **ConditionMax** `🔗 <#item-conditionmax>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -841,7 +841,7 @@ Parameters
 .. _item-count:
 
 **count** `🔗 <#item-count>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -861,7 +861,7 @@ Parameters
 .. _item-criticalchance:
 
 **CriticalChance** `🔗 <#item-criticalchance>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -964,7 +964,7 @@ Parameters
 .. _item-disappearonuse:
 
 **DisappearOnUse** `🔗 <#item-disappearonuse>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    No description
 
@@ -1004,7 +1004,7 @@ Parameters
 .. _item-doordamage:
 
 **DoorDamage** `🔗 <#item-doordamage>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -1015,7 +1015,7 @@ Parameters
 .. _item-doorhitsound:
 
 **DoorHitSound** `🔗 <#item-doorhitsound>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -1098,7 +1098,7 @@ Parameters
 .. _item-endurancemod:
 
 **EnduranceMod** `🔗 <#item-endurancemod>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -1361,7 +1361,7 @@ Parameters
 .. _item-havechamber:
 
 **HaveChamber** `🔗 <#item-havechamber>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    Whether the weapon has a chamber that can hold a round in addition to its magazine.
 
@@ -1381,7 +1381,7 @@ Parameters
 .. _item-headconditionlowerchancemultiplier:
 
 **HeadConditionLowerChanceMultiplier** `🔗 <#item-headconditionlowerchancemultiplier>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -1401,7 +1401,7 @@ Parameters
 .. _item-hearingmodifier:
 
 **HearingModifier** `🔗 <#item-hearingmodifier>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -1455,7 +1455,7 @@ Parameters
 .. _item-hitfloorsound:
 
 **HitFloorSound** `🔗 <#item-hitfloorsound>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -1466,7 +1466,7 @@ Parameters
 .. _item-hitsound:
 
 **HitSound** `🔗 <#item-hitsound>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -1486,7 +1486,7 @@ Parameters
 .. _item-icon:
 
 **Icon** `🔗 <#item-icon>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -1513,7 +1513,7 @@ Parameters
 .. _item-iconsfortexture:
 
 **IconsForTexture** `🔗 <#item-iconsfortexture>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
    No description
 
@@ -1522,7 +1522,7 @@ Parameters
 .. _item-idleanim:
 
 **IdleAnim** `🔗 <#item-idleanim>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -1533,7 +1533,7 @@ Parameters
 .. _item-impactsound:
 
 **ImpactSound** `🔗 <#item-impactsound>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -1688,7 +1688,7 @@ Parameters
 .. _item-itemtype:
 
 **ItemType** `🔗 <#item-itemtype>`_
-   Type: ``string`` *(required)*
+   Type: ``{'main': 'string'}`` *(required)*
 
    Defines the class of the item which will impact which parameters the item can take and its properties as well as how it is used by the player. Clothing for instance will handle differently their texture and model in comparison to the other type of items, containers can hold items and weapons can be used by the player to attack and deal damage. You cannot use a custom class of item and only the ones accepted by the game.
 
@@ -1722,7 +1722,7 @@ Parameters
 .. _item-jamgunchance:
 
 **JamGunChance** `🔗 <#item-jamgunchance>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -1751,7 +1751,7 @@ Parameters
 .. _item-knockdownmod:
 
 **KnockdownMod** `🔗 <#item-knockdownmod>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -1807,7 +1807,7 @@ Parameters
 .. _item-lvlskilltrained:
 
 **LvlSkillTrained** `🔗 <#item-lvlskilltrained>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -1872,7 +1872,7 @@ Parameters
 .. _item-maxcapacity:
 
 **MaxCapacity** `🔗 <#item-maxcapacity>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -1883,7 +1883,7 @@ Parameters
 .. _item-maxchannel:
 
 **MaxChannel** `🔗 <#item-maxchannel>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -1894,7 +1894,7 @@ Parameters
 .. _item-maxdamage:
 
 **MaxDamage** `🔗 <#item-maxdamage>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -1905,7 +1905,7 @@ Parameters
 .. _item-maxhitcount:
 
 **MaxHitcount** `🔗 <#item-maxhitcount>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -1925,7 +1925,7 @@ Parameters
 .. _item-maxrange:
 
 **MaxRange** `🔗 <#item-maxrange>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -1999,7 +1999,7 @@ Parameters
 .. _item-minangle:
 
 **MinAngle** `🔗 <#item-minangle>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -2010,7 +2010,7 @@ Parameters
 .. _item-minchannel:
 
 **MinChannel** `🔗 <#item-minchannel>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -2057,7 +2057,7 @@ Parameters
 .. _item-minutestoburn:
 
 **MinutesToBurn** `🔗 <#item-minutestoburn>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    How many in-game minutes it takes to burn the food. This value must be higher than ``MinutesToCook``.
 
@@ -2068,7 +2068,7 @@ Parameters
 .. _item-minutestocook:
 
 **MinutesToCook** `🔗 <#item-minutestocook>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    How many in-game minutes it takes to cook the food. This value must be smaller than ``MinutesToBurn``.
 
@@ -2099,7 +2099,7 @@ Parameters
 .. _item-multiplehitconditionaffected:
 
 **MultipleHitConditionAffected** `🔗 <#item-multiplehitconditionaffected>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    No description
 
@@ -2119,7 +2119,7 @@ Parameters
 .. _item-neckprotectionmodifier:
 
 **NeckProtectionModifier** `🔗 <#item-neckprotectionmodifier>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -2166,7 +2166,7 @@ Parameters
 .. _item-npcsoundboost:
 
 **NPCSoundBoost** `🔗 <#item-npcsoundboost>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -2177,7 +2177,7 @@ Parameters
 .. _item-numberofpages:
 
 **NumberOfPages** `🔗 <#item-numberofpages>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -2188,7 +2188,7 @@ Parameters
 .. _item-numlevelstrained:
 
 **NumLevelsTrained** `🔗 <#item-numlevelstrained>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -2442,7 +2442,7 @@ Parameters
 .. _item-projectileweightcenter:
 
 **ProjectileWeightCenter** `🔗 <#item-projectileweightcenter>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -2471,7 +2471,7 @@ Parameters
 .. _item-pushbackmod:
 
 **PushBackMod** `🔗 <#item-pushbackmod>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -2617,7 +2617,7 @@ Parameters
 .. _item-removeonbroken:
 
 **RemoveOnBroken** `🔗 <#item-removeonbroken>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    No description
 
@@ -2718,7 +2718,7 @@ Parameters
 .. _item-researchablerecipes:
 
 **Researchablerecipes** `🔗 <#item-researchablerecipes>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
    No description
 
@@ -2727,7 +2727,7 @@ Parameters
 .. _item-runanim:
 
 **RunAnim** `🔗 <#item-runanim>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -2738,7 +2738,7 @@ Parameters
 .. _item-runspeedmodifier:
 
 **RunSpeedModifier** `🔗 <#item-runspeedmodifier>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -2749,7 +2749,7 @@ Parameters
 .. _item-scaleworldicon:
 
 **ScaleWorldIcon** `🔗 <#item-scaleworldicon>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -2805,7 +2805,7 @@ Parameters
 .. _item-shoutmultiplier:
 
 **ShoutMultiplier** `🔗 <#item-shoutmultiplier>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -2825,7 +2825,7 @@ Parameters
 .. _item-skilltrained:
 
 **SkillTrained** `🔗 <#item-skilltrained>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -2843,7 +2843,7 @@ Parameters
 .. _item-soundgain:
 
 **SoundGain** `🔗 <#item-soundgain>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -2919,7 +2919,7 @@ Parameters
 .. _item-splatnumber:
 
 **SplatNumber** `🔗 <#item-splatnumber>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -2930,7 +2930,7 @@ Parameters
 .. _item-splatsize:
 
 **SplatSize** `🔗 <#item-splatsize>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -2950,7 +2950,7 @@ Parameters
 .. _item-staticmodelsbyindex:
 
 **StaticModelsByIndex** `🔗 <#item-staticmodelsbyindex>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
    No description
 
@@ -2959,7 +2959,7 @@ Parameters
 .. _item-stomppower:
 
 **StompPower** `🔗 <#item-stomppower>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -2970,7 +2970,7 @@ Parameters
 .. _item-stoppower:
 
 **StopPower** `🔗 <#item-stoppower>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -2990,7 +2990,7 @@ Parameters
 .. _item-subcategory:
 
 **SubCategory** `🔗 <#item-subcategory>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -3035,7 +3035,7 @@ Parameters
 .. _item-swinganim:
 
 **SwingAnim** `🔗 <#item-swinganim>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
@@ -3055,7 +3055,7 @@ Parameters
 .. _item-swingtime:
 
 **Swingtime** `🔗 <#item-swingtime>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -3066,7 +3066,7 @@ Parameters
 .. _item-tags:
 
 **Tags** `🔗 <#item-tags>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
    No description
 
@@ -3084,7 +3084,7 @@ Parameters
 .. _item-ticksperequipuse:
 
 **ticksPerEquipUse** `🔗 <#item-ticksperequipuse>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
@@ -3095,7 +3095,7 @@ Parameters
 .. _item-tohitmodifier:
 
 **ToHitModifier** `🔗 <#item-tohitmodifier>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -3124,7 +3124,7 @@ Parameters
 .. _item-torchdot:
 
 **TorchDot** `🔗 <#item-torchdot>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -3144,7 +3144,7 @@ Parameters
 .. _item-trap:
 
 **Trap** `🔗 <#item-trap>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    No description
 
@@ -3222,7 +3222,7 @@ Parameters
 .. _item-usedelta:
 
 **UseDelta** `🔗 <#item-usedelta>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -3233,7 +3233,7 @@ Parameters
 .. _item-useendurance:
 
 **UseEndurance** `🔗 <#item-useendurance>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    No description
 
@@ -3262,7 +3262,7 @@ Parameters
 .. _item-usewhileequipped:
 
 **UseWhileEquipped** `🔗 <#item-usewhileequipped>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    No description
 
@@ -3309,7 +3309,7 @@ Parameters
 .. _item-visionmodifier:
 
 **VisionModifier** `🔗 <#item-visionmodifier>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -3347,7 +3347,7 @@ Parameters
 .. _item-weaponlength:
 
 **WeaponLength** `🔗 <#item-weaponlength>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -3385,7 +3385,7 @@ Parameters
 .. _item-weaponweight:
 
 **WeaponWeight** `🔗 <#item-weaponweight>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -3396,7 +3396,7 @@ Parameters
 .. _item-weight:
 
 **Weight** `🔗 <#item-weight>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    No description
 
@@ -3509,7 +3509,7 @@ Parameters
 .. _item-worldstaticmodelsbyindex:
 
 **WorldStaticModelsByIndex** `🔗 <#item-worldstaticmodelsbyindex>`_
-   Type: ``array``
+   Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
    No description
 

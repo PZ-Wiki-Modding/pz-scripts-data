@@ -33,35 +33,35 @@ Parameters
 .. _option-max:
 
 **max** `🔗 <#option-max>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    The maximum value the option can have. Only for integer and double types.
 
 .. _option-min:
 
 **min** `🔗 <#option-min>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    The minimum value the option can have. Only for integer and double types.
 
 .. _option-page:
 
 **page** `🔗 <#option-page>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    The sandbox option to add the option to. Can be a custom page.
 
 .. _option-translation:
 
 **translation** `🔗 <#option-translation>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    The translation key for the option's name.
 
 .. _option-type:
 
 **type** `🔗 <#option-type>`_
-   Type: ``string`` *(required)*
+   Type: ``{'main': 'string'}`` *(required)*
 
    The type of the option.
 

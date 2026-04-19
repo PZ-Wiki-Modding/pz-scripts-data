@@ -26,35 +26,35 @@ Parameters
 .. _container-capacity:
 
 **capacity** `🔗 <#container-capacity>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 
 .. _container-conditionaffectscapacity:
 
 **conditionAffectsCapacity** `🔗 <#container-conditionaffectscapacity>`_
-   Type: ``boolean``
+   Type: ``{'main': 'boolean'}``
 
    Sets whenever the condition of the part will impact the `capacity <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container-capacity>`_. A lower condition will negatively impact the container's capacity.
 
 .. _container-contenttype:
 
 **contentType** `🔗 <#container-contenttype>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    Unclear how this parameter works exactly. The game uses it to define the "content" of tires and gas tanks by providing the string keys ``Gasoline`` or ``Air``. It seems to simply remove any item container being used as the container for this part.
 
 .. _container-seat:
 
 **seat** `🔗 <#container-seat>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    The seat ID of this container. When present, this container can be used as a seat for a vehicle.
 
 .. _container-test:
 
 **test** `🔗 <#container-test>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    Refers to a Lua global function returning a boolean which is used to determine whether an item can be put in this container when trying to transfer items.
    

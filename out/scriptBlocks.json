@@ -108,7 +108,9 @@
     "parameters": {
       "animaltrailersize": {
         "name": "animalTrailerSize",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "Sets the maximum total encumbrance from animals in the animal trailer. The horsebox and livestock trailers both use 500."
       },
       "brakingforce": {
@@ -116,11 +118,15 @@
       },
       "carmechanicsoverlay": {
         "name": "carMechanicsOverlay",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "carmodelname": {
         "name": "carModelName",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Set the [translation](https://pzwiki.net/wiki/Translation) key for the car name. The translation entry needs to be stored inside the IG_UI translation file and have `IGUI_VehicleName` as a prefix. \n\nFor example:\n```cpp\ncarModelName = YourCar,\n```\n\nWith the translation entry inside `IG_UI.json`:\n```json\n{\n  \"IGUI_VehicleNameYourCar\": \"Your car model\"\n}\n```"
       },
       "centerofmassoffset": {
@@ -128,62 +134,85 @@
       },
       "engineforce": {
         "name": "engineForce",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 3000,
         "description": "engineForce is 10x what is displayed in the mechanics menu for horsepower."
       },
       "engineidlespeed": {
         "name": "engineIdleSpeed",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 750.0
       },
       "engineloudness": {
         "name": "engineLoudness",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 100
       },
       "enginequality": {
         "name": "engineQuality",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 100
       },
       "enginerepairlevel": {
         "name": "engineRepairLevel",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "description": "Required [mechanics skill](https://pzwiki.net/wiki/Mechanics) level for repearing the vehicle's engine."
       },
       "enginerpmtype": {
         "name": "engineRPMType",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": "jeep",
-        "description": "Sets the engine to a RPM type ([See vehicleEngineRPM block](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicleenginerpm.html)).",
-        "blockType": {
-          "block": "vehicleEngineRPM"
-        }
+        "description": "Sets the engine to a RPM type ([See vehicleEngineRPM block](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicleenginerpm.html))."
       },
       "extents": {
         "name": "extents",
-        "type": "array",
-        "arrayType": "float",
-        "separator": " "
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "float",
+            "separator": " "
+          }
+        }
       },
       "extentsoffset": {
         "name": "extentsOffset",
-        "type": "array",
-        "arrayType": "float",
-        "separator": " "
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "float",
+            "separator": " "
+          }
+        }
       },
       "forcedcolor": {
         "name": "forcedColor",
-        "type": "array",
-        "separator": " ",
-        "arrayType": "float",
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "float",
+            "separator": " "
+          }
+        },
         "description": "Sets a forced HSV color on the vehicle. The value needs to be of format `hue sat val`.",
         "default": "-1 -1 -1"
       },
       "frontenddurability": {
         "name": "frontEndDurability",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 100,
         "description": "It is unclear what that parameter does but as of 42.16.3, the game uses `frontEndHealth` which is a mistake."
       },
@@ -197,14 +226,18 @@
       "gearratior": {
         "name": "gearRatioR",
         "#desc": "vehicle/gearRatioCount",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 7.09,
         "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
       },
       "gearratio1": {
         "name": "gearRatio1",
         "#desc": "vehicle/gearRatioCount",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 6.44,
         "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
       },
@@ -250,49 +283,67 @@
       "gearratiocount": {
         "name": "gearRatioCount",
         "default": 4,
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
       },
       "haslighter": {
         "name": "hasLighter",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": true,
         "description": "Sets whenever this car has a lighter to light a cigarette."
       },
       "hassiren": {
         "name": "hasSiren",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "isUseless": true
       },
       "issmallvehicle": {
         "name": "isSmallVehicle",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": true
       },
       "mass": {
         "name": "mass",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 800,
         "description": "Sets the mass of the vehicle which will notably be used for various physic calculations. \n\nBy default is equal to 800. As a reference, a car has a mass of around 800, pickup trucks have around 1100, a simple trailer around 200, a burnt vehicle 400 or 500. See the game scripts for more examples. Values in excess of 1400 can cause vehicle wheels to start sinking into the ground and be unable to move."
       },
       "maxspeed": {
         "name": "maxSpeed",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 20.0
       },
       "maxspeedreverse": {
         "name": "maxSpeedReverse",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 40.0
       },
       "maxsuspensiontravelcm": {
         "name": "maxSuspensionTravelCm",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 500.0
       },
       "mechanictype": {
         "name": "mechanicType",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "description": "Defines what class the vehicle is, that is 1 for standard, 2 for heavy-duty and 3 for performance.",
         "values": [
           1,
@@ -302,34 +353,45 @@
       },
       "neverspawnkey": {
         "name": "neverSpawnKey",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "description": "Sets whenever this vehicle will never have a key spawning in buildings or on zombies spawning around the vehicle."
       },
       "notkillcrops": {
         "name": "notKillCrops",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "description": "Sets whenever the vehicle will destroy crops it is driving on."
       },
       "offroadefficiency": {
         "name": "offRoadEfficiency",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0,
         "description": "Affects horsepower reduction when offroad (Higher = less horsepower reduction when offroad.)"
       },
       "physicschassisshape": {
         "name": "physicsChassisShape",
-        "type": "array",
-        "separator": " ",
+        "type": {
+          "main": "array"
+        },
         "description": "Defines the hitbox of the vehicle. The value should be three numbers defining the dimensions of a box:\n```\nphysicsChassisShape = height width length,\n```\n\nFor example:\n```\nphysicsChassisShape = height width length,\n```\n\nWhen setting [useChassisPhysicsCollision](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-usechassisphysicscollision) to `false`, it will instead use [physics](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/physics.html) for the hitbox of the vehicle."
       },
       "playerdamageprotection": {
         "name": "playerDamageProtection",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "Multiplier applied to the amount of damage the player takes when crashing in the car. A value of 1 doesn't change the damage, but a lower value reduces it and a higher value increases it."
       },
       "rearenddurability": {
         "name": "rearEndDurability",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 100,
         "description": "It is unclear what that parameter does but as of 42.16.3, the game uses `rearEndHealth` which is a mistake."
       },
@@ -342,89 +404,118 @@
       },
       "rollinfluence": {
         "name": "rollInfluence",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 0.1
       },
       "seats": {
         "name": "seats",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 2,
         "description": "Sets the number of seats this vehicle can have. A seat [part](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/part.html) needs to be created which will hold a [container](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container) block with a parameter [seat](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container-seat)"
       },
       "shadowextents": {
         "name": "shadowExtents",
-        "type": "array",
-        "arrayType": "float",
-        "separator": " "
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "float",
+            "separator": " "
+          }
+        }
       },
       "shadowoffset": {
         "name": "shadowOffset",
-        "type": "array",
-        "arrayType": "float",
-        "separator": " "
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "float",
+            "separator": " "
+          }
+        }
       },
       "specialkeyring": {
         "name": "specialKeyRing",
-        "type": "array",
-        "separator": ";",
-        "description": "`specialKeyRing` needs to reference a keyring item to spawn. `specialKeyRingChance` is used to set the chance to spawn this keyring.",
-        "blockType": {
-          "block": "item",
-          "fullType": true
-        }
+        "type": {
+          "main": "array"
+        },
+        "description": "`specialKeyRing` needs to reference a keyring item to spawn. `specialKeyRingChance` is used to set the chance to spawn this keyring."
       },
       "specialkeyringchance": {
         "name": "specialKeyRingChance",
         "#desc": "vehicle/specialKeyRing",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "description": "`specialKeyRing` needs to reference a keyring item to spawn. `specialKeyRingChance` is used to set the chance to spawn this keyring."
       },
       "speciallootchance": {
         "name": "specialLootChance",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 8
       },
       "steeringclamp": {
         "name": "steeringClamp",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 0.4,
         "description": "Maximum angle you can turn the front wheels left/right"
       },
       "steeringincrement": {
         "name": "steeringIncrement",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 0.04
       },
       "stoppingmovementforce": {
         "name": "stoppingMovementForce",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0,
         "description": "A drag factor applied to the vehicle at all times"
       },
       "storagecapacity": {
         "name": "storageCapacity",
         "isUseless": true,
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 100
       },
       "suspensioncompression": {
         "name": "suspensionCompression",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 4.4
       },
       "suspensiondamping": {
         "name": "suspensionDamping",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 2.3
       },
       "suspensionrestlength": {
         "name": "suspensionRestLength",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 0.6
       },
       "suspensionstiffness": {
         "name": "suspensionStiffness",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 20.0
       },
       "template": {
@@ -438,58 +529,84 @@
       },
       "texturedamage1overlay": {
         "name": "textureDamage1Overlay",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "texturedamage1shell": {
         "name": "textureDamage1Shell",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "texturedamage2overlay": {
         "name": "textureDamage2Overlay",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "texturedamage2shell": {
         "name": "textureDamage2Shell",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "texturelights": {
         "name": "textureLights",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "texturemask": {
         "name": "textureMask",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "texturemaskenable": {
         "name": "textureMaskEnable",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "isUseless": true
       },
       "texturerust": {
         "name": "textureRust",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "textureshadow": {
         "name": "textureShadow",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "usechassisphysicscollision": {
         "name": "useChassisPhysicsCollision",
         "default": true,
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "description": "By default `true` which makes the vehicle use the [physicsChassisShape](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-physicschassisshape) for its hitbox. If set to false, it will instead use the [physics](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/physics.html) blocks as the hitbox of the vehicle."
       },
       "wheelfriction": {
         "name": "wheelFriction",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 800.0,
         "description": "It is 1.2 to 1.9 for all vanilla vehicles and controls turning and stopping (but not acceleration) tire friction limits, with 1.4 being the most common. Values over 1.8 can cause vehicles to flip in sharp turns. (Likely depends somewhat on center of mass) "
       },
       "zombietype": {
         "name": "zombieType",
-        "type": "array",
-        "separator": ";",
-        "arrayType": "string",
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "string",
+            "separator": ";"
+          }
+        },
         "description": "Used to chose what zombie may spawn around the vehicle and is likely to have the key of the vehicle."
       }
     }
@@ -546,12 +663,16 @@
     "parameters": {
       "version": {
         "name": "version",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "description": "Version of the TMXconfig file. Should be 1 for now."
       },
       "revision": {
         "name": "revision",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "description": "Revision of the TMXconfig file. Keep it to 11 for now."
       }
     }
@@ -569,16 +690,24 @@
     "parameters": {
       "offset": {
         "name": "offset",
-        "type": "array",
-        "arrayType": "float",
-        "separator": " ",
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "float",
+            "separator": " "
+          }
+        },
         "description": "The position offset of the model relative to the bone. This is a vector in the format `x y z`. \n\n```cpp\noffset = -0.0300 -0.1020 0.1210,\n```"
       },
       "rotate": {
         "name": "rotate",
-        "type": "array",
-        "arrayType": "float",
-        "separator": " ",
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "float",
+            "separator": " "
+          }
+        },
         "description": "The rotation of the model relative to the bone. This is a vector in the format `x y z`. The values are degrees.\n\n```cpp\nrotate = -60.0000 -49.0000 -3.0000,\n```"
       },
       "zoffset": {
@@ -586,7 +715,9 @@
       },
       "scale": {
         "name": "scale",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The scale multiplier applied to the model attached to this attachment point.\n\n```cpp\nscale = 0.5,\n```"
       },
       "bone": {
@@ -627,7 +758,9 @@
     "parameters": {
       "version": {
         "name": "version",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "description": "Version of the rules file. Should be 1 for now."
       }
     }
@@ -817,7 +950,9 @@
       "allowbatchcraft": {
         "name": "AllowBatchCraft",
         "description": "The AllowBatchCraft parameter is used to allow the recipe to be crafted in batches. This will make a slider appear on the crafting to craft multiple ones at once. Needs to be a boolean and default is true, set to false to disable batch craft.",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": true
       },
       "autolearnall": {
@@ -872,7 +1007,9 @@
         "name": "tags",
         "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:\n```cpp\n/* single tag */\nTags = tag1,\n\n/* multiple tags */\nTags = tag1;tag2;...,\n```\n\nFor example:\n```cpp\nTags = InHandCraft;CanAlwaysBeResearched,\n```",
         "required": true,
-        "type": "array"
+        "type": {
+          "main": "array"
+        }
       },
       "time": {
         "name": "time",
@@ -918,53 +1055,71 @@
       "isprofessiontrait": {
         "name": "IsProfessionTrait",
         "description": "Defines whenever the trait is a profession trait or not, meaning it will only be available when selecting a profession.",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "required": true
       },
       "disabledinmultiplayer": {
         "name": "DisabledInMultiplayer",
         "description": "If true, this trait will be disabled in multiplayer games.",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "required": true
       },
       "cost": {
         "name": "Cost",
         "description": "The cost of the trait when selecting a character. Negative values give points, positive values take points.",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "required": true
       },
       "charactertrait": {
         "name": "CharacterTrait",
         "description": "The registries trait definition ID to link to. see the wiki page about [registries](https://pzwiki.net/wiki/Registries) for more information.",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "required": true
       },
       "uiname": {
         "name": "UIName",
         "description": "The translation key for the trait's name. The translation key needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations) for more information.",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "required": true
       },
       "uidescription": {
         "name": "UIDescription",
         "description": "The translation key for the trait's description. The translation key needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations) for more information.",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "required": true
       },
       "mutuallyexclusivetraits": {
         "name": "MutuallyExclusiveTraits",
         "description": "A list of trait IDs that are mutually exclusive with this trait. If one is selected, the others cannot be selected.",
-        "type": "array"
+        "type": {
+          "main": "array"
+        }
       },
       "xpboosts": {
         "name": "XPBoosts",
         "description": "A list of experience boosts granted by this trait. Each entry should contain a skill name and the corresponding boost amount.\n\nFor example:\n```cpp\nXPBoosts = Axe=1;Blunt=1,\n```",
-        "type": "array"
+        "type": {
+          "main": "array"
+        }
       },
       "grantedrecipes": {
         "name": "GrantedRecipes",
         "description": "A list of [craftRecipe](https://pzwiki.net/wiki/CraftRecipe) IDs that are granted to the character when this trait is selected.",
-        "type": "array"
+        "type": {
+          "main": "array"
+        }
       }
     }
   },
@@ -1001,7 +1156,9 @@
     "parameters": {
       "whitelist": {
         "name": "whitelist",
-        "type": "boolean"
+        "type": {
+          "main": "boolean"
+        }
       }
     }
   },
@@ -1019,7 +1176,9 @@
     "parameters": {
       "type": {
         "name": "type",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "The type of the option.",
         "values": [
           "boolean",
@@ -1032,7 +1191,9 @@
       },
       "min": {
         "name": "min",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The minimum value the option can have. Only for integer and double types.",
         "needs": [
           {
@@ -1046,7 +1207,9 @@
       },
       "max": {
         "name": "max",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The maximum value the option can have. Only for integer and double types.",
         "needs": [
           {
@@ -1074,12 +1237,16 @@
       },
       "page": {
         "name": "page",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "The sandbox option to add the option to. Can be a custom page."
       },
       "translation": {
         "name": "translation",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "The translation key for the option's name."
       }
     }
@@ -1161,35 +1328,51 @@
     "parameters": {
       "event": {
         "name": "event",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "distancemax": {
         "name": "distanceMax",
-        "type": "integer"
+        "type": {
+          "main": "integer"
+        }
       },
       "file": {
         "name": "file",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "distancemin": {
         "name": "distanceMin",
-        "type": "integer"
+        "type": {
+          "main": "integer"
+        }
       },
       "volume": {
         "name": "volume",
-        "type": "float"
+        "type": {
+          "main": "float"
+        }
       },
       "reverbfactor": {
         "name": "reverbFactor",
-        "type": "float"
+        "type": {
+          "main": "float"
+        }
       },
       "pitch": {
         "name": "pitch",
-        "type": "float"
+        "type": {
+          "main": "float"
+        }
       },
       "reverbmaxrange": {
         "name": "reverbMaxRange",
-        "type": "float"
+        "type": {
+          "main": "float"
+        }
       },
       "stopimmediate": {
         "name": "stopImmediate"
@@ -1245,7 +1428,9 @@
         "itemTypes": [
           "radio"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": -1
       },
       "activateditem": {
@@ -1408,7 +1593,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "basevolumerange": {
@@ -1431,9 +1618,13 @@
           "normal",
           "radio"
         ],
-        "type": "array",
-        "arrayType": "string",
-        "separator": ";",
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "string",
+            "separator": ";"
+          }
+        },
         "values": [
           "Apron",
           "ShirtNoSleeves",
@@ -1598,7 +1789,9 @@
           "container",
           "normal"
         ],
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": true,
         "description": "Used to define whenever this item can get holes in it."
       },
@@ -1653,7 +1846,9 @@
         "itemTypes": [
           "container"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": -1
       },
       "carbohydrates": {
@@ -1689,7 +1884,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": "Stormy9mmClick"
       },
       "clipsize": {
@@ -1770,7 +1967,9 @@
           "normal",
           "weapon"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 255
       },
       "colorgreen": {
@@ -1782,7 +1981,9 @@
           "normal",
           "weapon"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 255
       },
       "colorred": {
@@ -1794,7 +1995,9 @@
           "normal",
           "weapon"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 255
       },
       "combatspeedmodifier": {
@@ -1803,7 +2006,9 @@
           "clothing",
           "container"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "conditionaffectscapacity": {
@@ -1820,7 +2025,9 @@
           "normal",
           "weapon"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 10,
         "description": "The chance impact to reduce the durability of the item, the value is used to calculate the chance by doing $chance = 1/ConditionLowerChanceOneIn$, which means increasing this parameter value will reduce the chance to damage the item."
       },
@@ -1848,7 +2055,9 @@
           "radio",
           "weapon"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 10
       },
       "consolidateoption": {
@@ -1883,7 +2092,9 @@
         "itemTypes": [
           "normal"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 1
       },
       "critdmgmultiplier": {
@@ -1897,7 +2108,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 20.0
       },
       "customcontextmenu": {
@@ -1976,7 +2189,9 @@
           "radio",
           "weaponpart"
         ],
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": true
       },
       "discomfortmodifier": {
@@ -1994,7 +2209,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 1
       },
       "doorhitsound": {
@@ -2002,7 +2219,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": "BaseballBatHit"
       },
       "doubleclickrecipe": {
@@ -2068,7 +2287,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "engineloudness": {
@@ -2259,7 +2480,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": true,
         "description": "Whether the weapon has a chamber that can hold a round in addition to its magazine."
       },
@@ -2276,7 +2499,9 @@
           "normal",
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "headconditionmax": {
@@ -2290,7 +2515,9 @@
         "itemTypes": [
           "clothing"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "herbalisttype": {
@@ -2325,7 +2552,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": "BatOnFloor"
       },
       "hitsound": {
@@ -2333,7 +2562,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": "BaseballBatHit"
       },
       "hungerchange": {
@@ -2345,7 +2576,9 @@
       },
       "icon": {
         "name": "Icon",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": "None"
       },
       "iconcolormask": {
@@ -2366,9 +2599,13 @@
       },
       "iconsfortexture": {
         "name": "IconsForTexture",
-        "type": "array",
-        "arrayType": "string",
-        "separator": ";",
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "string",
+            "separator": ";"
+          }
+        },
         "itemTypes": [
           "clothing",
           "container",
@@ -2384,7 +2621,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": "Idle"
       },
       "impactsound": {
@@ -2392,7 +2631,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": "BaseballBatHit"
       },
       "insertallbulletsreload": {
@@ -2517,7 +2758,9 @@
           "base:weaponpart"
         ],
         "required": true,
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Defines the class of the item which will impact which parameters the item can take and its properties as well as how it is used by the player. Clothing for instance will handle differently their texture and model in comparison to the other type of items, containers can hold items and weapons can be used by the player to attack and deal damage. You cannot use a custom class of item and only the ones accepted by the game."
       },
       "type": {
@@ -2547,7 +2790,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "keepondeplete": {
@@ -2568,7 +2813,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "learnedrecipes": {
@@ -2610,7 +2857,9 @@
         "itemTypes": [
           "literature"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": -1
       },
       "magazine_subject": {
@@ -2655,7 +2904,9 @@
         "itemTypes": [
           "normal"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": -1
       },
       "maxchannel": {
@@ -2663,7 +2914,9 @@
         "itemTypes": [
           "radio"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 108000
       },
       "maxdamage": {
@@ -2671,7 +2924,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.5
       },
       "maxhitcount": {
@@ -2679,7 +2934,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 1000
       },
       "maxitemsize": {
@@ -2693,7 +2950,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "maxrangemodifier": {
@@ -2756,7 +3015,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "minchannel": {
@@ -2764,7 +3025,9 @@
         "itemTypes": [
           "radio"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 88000
       },
       "mindamage": {
@@ -2797,7 +3060,9 @@
         "itemTypes": [
           "food"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 120.0,
         "description": "How many in-game minutes it takes to burn the food. This value must be higher than `MinutesToCook`."
       },
@@ -2806,7 +3071,9 @@
         "itemTypes": [
           "food"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 60.0,
         "description": "How many in-game minutes it takes to cook the food. This value must be smaller than `MinutesToBurn`."
       },
@@ -2828,7 +3095,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": true
       },
       "muzzleflashmodelkey": {
@@ -2842,7 +3111,9 @@
         "itemTypes": [
           "clothing"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "needtobeclosedoncereload": {
@@ -2874,7 +3145,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "numberofpages": {
@@ -2882,7 +3155,9 @@
         "itemTypes": [
           "literature"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": -1
       },
       "numlevelstrained": {
@@ -2890,7 +3165,9 @@
         "itemTypes": [
           "literature"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 1
       },
       "onbreak": {
@@ -3075,7 +3352,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "protectfromrainwhenequipped": {
@@ -3097,7 +3376,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "putinsound": {
@@ -3197,7 +3478,9 @@
         "itemTypes": [
           "clothing"
         ],
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": true
       },
       "removeunhappinesswhencooked": {
@@ -3274,9 +3557,13 @@
       },
       "researchablerecipes": {
         "name": "Researchablerecipes",
-        "type": "array",
-        "arrayType": "string",
-        "separator": ";",
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "string",
+            "separator": ";"
+          }
+        },
         "itemTypes": [
           "clothing",
           "container",
@@ -3293,7 +3580,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": "Run"
       },
       "runspeedmodifier": {
@@ -3303,7 +3592,9 @@
           "container",
           "radio"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "scaleworldicon": {
@@ -3311,7 +3602,9 @@
         "itemTypes": [
           "drainable"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "scratchdefense": {
@@ -3353,7 +3646,9 @@
           "clothing",
           "normal"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "shouttype": {
@@ -3368,7 +3663,9 @@
         "itemTypes": [
           "literature"
         ],
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": ""
       },
       "smokerange": {
@@ -3382,7 +3679,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "soundmap": {
@@ -3441,7 +3740,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 2
       },
       "splatsize": {
@@ -3449,7 +3750,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "staticmodel": {
@@ -3473,9 +3776,13 @@
       },
       "staticmodelsbyindex": {
         "name": "StaticModelsByIndex",
-        "type": "array",
-        "arrayType": "string",
-        "separator": ";",
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "string",
+            "separator": ";"
+          }
+        },
         "itemTypes": [
           "food",
           "literature",
@@ -3487,7 +3794,9 @@
         "itemTypes": [
           "clothing"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "stoppower": {
@@ -3495,7 +3804,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 5.0
       },
       "stresschange": {
@@ -3511,7 +3822,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": ""
       },
       "survivalgear": {
@@ -3548,7 +3861,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": "Rifle"
       },
       "swingsound": {
@@ -3562,14 +3877,20 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "tags": {
         "name": "Tags",
-        "type": "array",
-        "arrayType": "string",
-        "separator": ";",
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "string",
+            "separator": ";"
+          }
+        },
         "itemTypes": [
           "alarmclock",
           "alarmclockclothing",
@@ -3598,7 +3919,9 @@
         "itemTypes": [
           "drainable"
         ],
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "default": 30
       },
       "tohitmodifier": {
@@ -3606,7 +3929,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "tooltip": {
@@ -3638,7 +3963,9 @@
           "drainable",
           "weaponpart"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 0.96
       },
       "transmitrange": {
@@ -3652,7 +3979,9 @@
         "itemTypes": [
           "normal"
         ],
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": false
       },
       "treedamage": {
@@ -3703,7 +4032,9 @@
           "radio",
           "weaponpart"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 0.03125
       },
       "useendurance": {
@@ -3711,7 +4042,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": true
       },
       "usesbattery": {
@@ -3734,7 +4067,9 @@
           "normal",
           "radio"
         ],
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": true
       },
       "usewhileunequipped": {
@@ -3767,7 +4102,9 @@
         "itemTypes": [
           "clothing"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "visualaid": {
@@ -3793,7 +4130,9 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 0.4
       },
       "weaponreloadtype": {
@@ -3819,12 +4158,16 @@
         "itemTypes": [
           "weapon"
         ],
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "weight": {
         "name": "Weight",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0
       },
       "weightempty": {
@@ -3904,9 +4247,13 @@
       },
       "worldstaticmodelsbyindex": {
         "name": "WorldStaticModelsByIndex",
-        "type": "array",
-        "arrayType": "string",
-        "separator": ";",
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "string",
+            "separator": ";"
+          }
+        },
         "itemTypes": [
           "container",
           "food",
@@ -3929,19 +4276,23 @@
     "parameters": {
       "mesh": {
         "name": "mesh",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "The path to the model's mesh file, relative to the folder `media/models_X`."
       },
       "translate": {
         "name": "translate",
-        "type": "array",
-        "separator": " ",
+        "type": {
+          "main": "array"
+        },
         "description": "The position offset of the model, in the format `x y z`."
       },
       "rotate": {
         "name": "rotate",
-        "type": "array",
-        "separator": " ",
+        "type": {
+          "main": "array"
+        },
         "description": "The rotation of the model, in the format `x y z`."
       }
     }
@@ -4046,7 +4397,9 @@
     "parameters": {
       "maxeffect": {
         "name": "maxEffect",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Defines the strength of the poison.",
         "values": [
           "Deadly",
@@ -4055,12 +4408,16 @@
       },
       "minamount": {
         "name": "minAmount",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The minimum amount required to consume to poison the player."
       },
       "diluteratio": {
         "name": "diluteRatio",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The ratio at which the poison is diluted when mixed with other fluids."
       }
     }
@@ -4077,14 +4434,18 @@
       "tile": {
         "name": "tile",
         "allowedDuplicate": true,
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "object": {
         "name": "object",
         "parentsOnly": [
           "ROOT-MapBaseXML"
         ],
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       }
     }
   },
@@ -4144,7 +4505,9 @@
         "name": "tags",
         "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:\n```cpp\n/* single tag */\nTags = tag1,\n\n/* multiple tags */\nTags = tag1;tag2;...,\n```\n\nFor example:\n```cpp\nTags = InHandCraft;CanAlwaysBeResearched,\n```",
         "required": true,
-        "type": "array",
+        "type": {
+          "main": "array"
+        },
         "#ref": "craftRecipe/tags"
       },
       "time": {
@@ -4239,7 +4602,9 @@
     "parameters": {
       "name": {
         "name": "name",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "tiles": {
         "name": "tiles"
@@ -4301,12 +4666,16 @@
     "parameters": {
       "aftergearchange": {
         "name": "afterGearChange",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 0.0
       },
       "gearchange": {
         "name": "gearChange",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 0.0
       }
     }
@@ -4322,49 +4691,63 @@
     "parameters": {
       "characterprofession": {
         "name": "CharacterProfession",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "The [registries](https://pzwiki.net/wiki/Registries) profession ID to link to."
       },
       "cost": {
         "name": "Cost",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "description": "The cost of the profession when selecting a character. Negative values remove points, positive values add points."
       },
       "uiname": {
         "name": "UIName",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "The translation key for the profession's name. The translation key needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations) for more information."
       },
       "uidescription": {
         "name": "UIDescription",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "The translation key for the profession's description. The translation key needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations) for more information."
       },
       "iconpathname": {
         "name": "IconPathName",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "grantedtraits": {
         "name": "GrantedTraits",
-        "type": "array",
-        "separator": ";",
+        "type": {
+          "main": "array"
+        },
         "description": "A list of character trait IDs that are granted to the character when this profession is selected."
       },
       "xpboosts": {
         "name": "XPBoosts",
         "description": "A list of experience boosts granted by this profession. Each entry should contain a skill name and the corresponding boost amount.\n\nFor example:\n```cpp\nXPBoosts = Axe=1;Blunt=1,\n```",
-        "type": "object",
-        "separator": ";",
-        "object": {
-          "keyValueSeparator": "=",
-          "keyType": "string",
-          "valueType": "integer"
+        "type": {
+          "main": "object",
+          "object": {
+            "keyValueSeparator": ";",
+            "keyType": "string",
+            "valueType": "integer",
+            "pairsSeparator": ";"
+          }
         }
       },
       "grantedrecipes": {
         "name": "GrantedRecipes",
-        "type": "array",
-        "separator": ";",
+        "type": {
+          "main": "array"
+        },
         "description": "A list of [craftRecipe](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/craftrecipe.html) IDs that are granted to the character when this profession is selected."
       }
     }
@@ -4432,26 +4815,36 @@
     "parameters": {
       "capacity": {
         "name": "capacity",
-        "type": "integer"
+        "type": {
+          "main": "integer"
+        }
       },
       "conditionaffectscapacity": {
         "name": "conditionAffectsCapacity",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "description": "Sets whenever the condition of the part will impact the [capacity](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container-capacity). A lower condition will negatively impact the container's capacity."
       },
       "contenttype": {
         "name": "contentType",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Unclear how this parameter works exactly. The game uses it to define the \"content\" of tires and gas tanks by providing the string keys `Gasoline` or `Air`. It seems to simply remove any item container being used as the container for this part."
       },
       "seat": {
         "name": "seat",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "The seat ID of this container. When present, this container can be used as a seat for a vehicle."
       },
       "test": {
         "name": "test",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Refers to a Lua global function returning a boolean which is used to determine whether an item can be put in this container when trying to transfer items.\n\nHere's an example from the vanilla game, with the parmeter being set to:\n```cpp\ntest = Vehicles.ContainerAccess.GloveBox\n```\n\nWith the Lua function being defined as:\n```lua\nfunction Vehicles.ContainerAccess.GloveBox(vehicle, part, chr)\n  if chr:getVehicle() == vehicle then\n    local seat = vehicle:getSeat(chr)\n    -- Can the seated player reach the passenger seat?\n    -- Only character in front seat can access it\n    return seat == 1 or seat == 0;\n  elseif chr:getVehicle() then\n    -- Can't reach from inside a different vehicle.\n    return false\n  else\n    -- Standing outside the vehicle.\n    if not vehicle:isInArea(part:getArea(), chr) then return false end\n    local doorPart = vehicle:getPartById(\"DoorFrontRight\")\n    if doorPart and doorPart:getDoor() and not doorPart:getDoor():isOpen() then\n      return false\n    end\n    return true\n  end\nend\n```\n\nThe parameters are:\n- `vehicle` is a [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) class\n- `part` is a [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html)\n- `chr` is an [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html)"
       }
     }
@@ -4513,88 +4906,122 @@
     "parameters": {
       "name": {
         "name": "name",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "The displayed name for your mod in the game's mod manager. A translation can be provided in the [Mod.json translation file](https://pzwiki.net/wiki/Translation)."
       },
       "id": {
         "name": "id",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "The unique identifier of the mod, used in a mod list of the user or servers to activate the mod. Make sure to use something unique which isn't shared between mods. **Note:** This is not the same as the [Workshop ID](https://pzwiki.net/wiki/Workshop_ID)."
       },
       "author": {
         "name": "author",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Name of the author(s) of the mod. Multiple authors are often separated by commas but no convention exists."
       },
       "description": {
         "name": "description",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Description of your mod, which shows up in the mod manager. The description supports [ISRichTextPanel](https://pzwiki.net/wiki/ISRichTextPanel) tags. A translation can be provided in the [Mod.json translation file](https://pzwiki.net/wiki/Translation)."
       },
       "url": {
         "name": "url",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Shows a URL link in the mod manager on the page of your mod for users to click on to open in their internet browser. The parameter appears as \"Homepage\" in the mod manager. For a list of valid links, see [URL](https://pzwiki.net/wiki/URL)."
       },
       "poster": {
         "name": "poster",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "allowedDuplicate": true,
         "description": "Image which will show up in the mod manager as the mod image. Multiple posters can be used to show multiple images, but the first one will be used as the main poster in the mod manager. The rest will be in a list of images of the mod that users can click on to view.\n\nExample:\n```\nposter=poster.png\nposter=showcase.png\nposter=flying_chickens.png\nposter=credits.png\n```\n\nIf you have multiple versions of your mod (e.g., 42.12 and 42.13) and don't want to copy your images, you can leave them in the common folder and use the following (but use unique names for these images since it will use the pool of all mods and their images in the common folder):\n```\nposter=../common/mymodname_poster.png\nposter=../common/mymodname_showcase.png\nposter=../common/mymodname_flying_chickens.png\nposter=../common/mymodname_credits.png\n```\n"
       },
       "icon": {
         "name": "icon",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Image which will be used in the mod manager to put next to the name of the mod in the list of available mods. This image will be small and while you can use a full image size, you do not need it. You can set your poster as the icon too to not ship two images if desired."
       },
       "modversion": {
         "name": "modversion",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Version of the mod."
       },
       "require": {
         "name": "require",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Mods required to run this mod. Multiple mods can be specified separated by commas.\n\nExample:\n```\nrequire=theNeededMod,theOtherOne\n```\n"
       },
       "incompatible": {
         "name": "incompatible",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Mods that cannot be enabled at the same time as this mod. When enabled, the other mods will be unselectable. This mod will also become unselectable if any of the other mods are enabled.\n\nExample:\n```\nincompatible=theUnwantedMod,theOtherOne\n```\n"
       },
       "loadmodafter": {
         "name": "loadModAfter",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Loads the mod only after the set of mods listed.\n\nExample:\n```\nloadModAfter=someMod,anotherMod\n```\n"
       },
       "loadmodbefore": {
         "name": "loadModBefore",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Loads the mod before the set of mods listed.\n\nExample:\n```\nloadModBefore=someMod,anotherMod\n```\n"
       },
       "category": {
         "name": "category",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Category is used for filtering mods in the in-game ModManager. Known categories are \"map\", \"vehicle\", \"features\", \"modpack\". Using other terms will not generate a new filter category."
       },
       "pack": {
         "name": "pack",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Name of pack files that need to be loaded by the game. Notably used for [Texture pack](https://pzwiki.net/wiki/Texture_pack) and [Tile pack](https://pzwiki.net/wiki/Mapping)."
       },
       "tiledef": {
         "name": "tiledef",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Name of the tiledef with its ID that are added by the mod. You can find a community managed list of already used tiledef IDs in [Tiledefs used by mods](https://pzwiki.net/wiki/Tiledefs_used_by_mods).\n\nExample:\n```\ntiledef=Excavation 2112\n```\n\nIf you upload your mod with a new tiledef ID, you can update the list to reduce the chance of incompatibility with other mods adding tile packs.\n"
       },
       "versionmin": {
         "name": "versionMin",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "The minimum version of the game the mod can be used on. This number needs to be in the format `build.major` at the very least, and not just `build` or it won't work. Example `42.0`."
       },
       "versionmax": {
         "name": "versionMax",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "The maximum version of the game the mod can be used on. This number needs to be in the format `build.major` at the very least, and not just `build` or it won't work. Example `42.12`."
       }
     }
@@ -4610,7 +5037,9 @@
     "parameters": {
       "version": {
         "name": "VERSION",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "description": "Unclear what this does, preferably keep it at 1."
       }
     }
@@ -4626,7 +5055,9 @@
     "parameters": {
       "version": {
         "name": "VERSION",
-        "type": "integer"
+        "type": {
+          "main": "integer"
+        }
       }
     }
   },
@@ -4654,7 +5085,9 @@
     "parameters": {
       "fluid": {
         "name": "fluid",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "allowedDuplicate": true,
         "description": "A fluid which is allowed to be put inside this fluid container."
       }
@@ -4857,70 +5290,98 @@
     "parameters": {
       "thirstchange": {
         "name": "ThirstChange",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The amount of thirst this fluid changes when consumed. Positive values increase thirst, negative values decrease it."
       },
       "alcohol": {
         "name": "alcohol",
-        "type": "float"
+        "type": {
+          "main": "float"
+        }
       },
       "hungerchange": {
         "name": "HungerChange",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The amount of hunger this fluid changes when consumed. Positive values increase hunger, negative values decrease it."
       },
       "calories": {
         "name": "Calories",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The number of calories this fluid provides when consumed."
       },
       "carbohydrates": {
         "name": "Carbohydrates",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The amount of carbohydrates this fluid provides when consumed."
       },
       "lipids": {
         "name": "Lipids",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The amount of lipids (fats) this fluid provides when consumed."
       },
       "proteins": {
         "name": "Proteins",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The amount of proteins this fluid provides when consumed."
       },
       "flureduction": {
         "name": "fluReduction",
-        "type": "float"
+        "type": {
+          "main": "float"
+        }
       },
       "painreduction": {
         "name": "painReduction",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The amount of pain this fluid reduces when consumed."
       },
       "endurancechange": {
         "name": "enduranceChange",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The amount of endurance given back."
       },
       "foodsicknesschange": {
         "name": "foodSicknessChange",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The amount of food sickness provides."
       },
       "fatiguechange": {
         "name": "fatigueChange",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The amount of fatigue this fluid changes when consumed. Positive values increase fatigue, negative values decrease it."
       },
       "stresschange": {
         "name": "StressChange",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The amount of stress this fluid changes when consumed. Positive values increase stress, negative values decrease it."
       },
       "unhappychange": {
         "name": "UnhappyChange",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "description": "The amount of unhappiness this fluid changes when consumed. Positive values increase unhappiness, negative values decrease it."
       }
     }
@@ -4936,11 +5397,15 @@
     "parameters": {
       "label": {
         "name": "label",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "bitmap": {
         "name": "bitmap",
-        "type": "integer",
+        "type": {
+          "main": "integer"
+        },
         "description": "A value of `1` will have this rule used for the vegetation image, while a value of `0` will have it used for the main tiles image. Trees will for example use `1` while ground tiles will use `0`."
       },
       "tiles": {
@@ -4950,12 +5415,16 @@
       "color": {
         "name": "color",
         "description": "The RGB color to replace with the tiles in the `tiles` parameter. This is the color you painted in your image file to associate to this rule.",
-        "type": "array"
+        "type": {
+          "main": "array"
+        }
       },
       "layer": {
         "name": "layer",
         "description": "The layer to apply the tiles on.",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       }
     }
   },
@@ -5067,13 +5536,17 @@
     "parameters": {
       "capacity": {
         "name": "Capacity",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0,
         "description": "The fluid capacity of the container, the minimum value is `0.05`."
       },
       "containername": {
         "name": "ContainerName",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": "FluidContainer",
         "description": "The name of the fluid container, seems to be unused. The name cannot have whitespaces, the game will sanitize it to remove them and show an error in the console about it.",
         "isUseless": true
@@ -5081,18 +5554,24 @@
       "customdrinksound": {
         "name": "CustomDrinkSound",
         "description": "Refers to a [sound block](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/sound.html) to trigger when drinking.",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "default": "DrinkingFromGeneric"
       },
       "hiddenamount": {
         "name": "HiddenAmount",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": false,
         "description": "When true, will hide the fluid quantity from the UI."
       },
       "initialpercent": {
         "name": "InitialPercent",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "incompatibleWith": [
           "InitialPercentMin",
           "InitialPercentMax"
@@ -5100,7 +5579,9 @@
       },
       "initialpercentmax": {
         "name": "InitialPercentMax",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 1.0,
         "description": "The minimum amount of fluid which will appear in this container.",
         "incompatibleWith": [
@@ -5109,7 +5590,9 @@
       },
       "initialpercentmin": {
         "name": "InitialPercentMin",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 0.0,
         "description": "The maximum amount of fluid which will appear in this container.",
         "incompatibleWith": [
@@ -5118,19 +5601,25 @@
       },
       "inputlocked": {
         "name": "InputLocked",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": false,
         "description": "Unused."
       },
       "opened": {
         "name": "Opened",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": true,
         "description": "Unused."
       },
       "pickrandomfluid": {
         "name": "PickRandomFluid",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": false,
         "description": "When set to true, the container will pick one of the available fluids in the [Fluids](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/fluids.html) child block at random when filling. If set to false, it will make every fluids appear.",
         "needs": [
@@ -5143,13 +5632,17 @@
       },
       "rainfactor": {
         "name": "RainFactor",
-        "type": "float",
+        "type": {
+          "main": "float"
+        },
         "default": 0.0,
         "description": "Defines how much rain contributes to filling the container. A high value increases the rate of filling. A value of `0.0` means that rain will not fill the container, which is the default value of the parameter.\n\nIf the item is a weapon and `RainFactor` is set to a value above the default, when the player aims with the weapon it will empty it."
       },
       "fillswithcleanwater": {
         "name": "FillsWithCleanWater",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "default": false,
         "description": "When set to true, the container will fill with clean water instead of tainted water when left outside in the rain."
       }
@@ -5316,7 +5809,9 @@
     "parameters": {
       "openable": {
         "name": "openable",
-        "type": "boolean"
+        "type": {
+          "main": "boolean"
+        }
       }
     }
   },
@@ -5396,7 +5891,9 @@
       "scale": {
         "name": "scale",
         "description": "Used to scale the model up or down.",
-        "type": "float"
+        "type": {
+          "main": "float"
+        }
       },
       "shader": {
         "name": "shader"
@@ -5512,7 +6009,9 @@
             ]
           }
         ],
-        "type": "array"
+        "type": {
+          "main": "array"
+        }
       },
       "alarmloop": {
         "name": "alarmLoop",
@@ -5535,11 +6034,15 @@
             ]
           }
         ],
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "category": {
         "name": "category",
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "engine": {
         "name": "engine",
@@ -5551,7 +6054,9 @@
             ]
           }
         ],
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "enginestart": {
         "name": "engineStart",
@@ -5563,7 +6068,9 @@
             ]
           }
         ],
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "engineturnoff": {
         "name": "engineTurnOff",
@@ -5575,7 +6082,9 @@
             ]
           }
         ],
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "handbrake": {
         "name": "handBrake",
@@ -5587,7 +6096,9 @@
             ]
           }
         ],
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "horn": {
         "name": "horn",
@@ -5599,7 +6110,9 @@
             ]
           }
         ],
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "ignitionfail": {
         "name": "ignitionFail",
@@ -5622,22 +6135,30 @@
             ]
           }
         ],
-        "type": "string"
+        "type": {
+          "main": "string"
+        }
       },
       "is3d": {
         "name": "is3D",
-        "type": "boolean",
+        "type": {
+          "main": "boolean"
+        },
         "description": "This parameter looks unused.",
         "isUseless": true
       },
       "loop": {
         "name": "loop",
         "description": "Whether the sound should loop or not. The sound plays until turned off or the emitter is destroyed.",
-        "type": "boolean"
+        "type": {
+          "main": "boolean"
+        }
       },
       "master": {
         "name": "master",
-        "type": "string",
+        "type": {
+          "main": "string"
+        },
         "description": "Links the sound to a master sound category, which controls the volume of all sounds linked to it.",
         "values": [
           "Primary",
@@ -5648,7 +6169,9 @@
       },
       "maxinstancesperemitter": {
         "name": "maxInstancesPerEmitter",
-        "type": "integer"
+        "type": {
+          "main": "integer"
+        }
       }
     }
   },
@@ -5663,7 +6186,9 @@
     "parameters": {
       "recipes": {
         "name": "Recipes",
-        "type": "array"
+        "type": {
+          "main": "array"
+        }
       }
     }
   },
@@ -5713,11 +6238,15 @@
       },
       "health": {
         "name": "health",
-        "type": "integer"
+        "type": {
+          "main": "integer"
+        }
       },
       "skillbasehealth": {
         "name": "skillBaseHealth",
-        "type": "integer"
+        "type": {
+          "main": "integer"
+        }
       }
     }
   }

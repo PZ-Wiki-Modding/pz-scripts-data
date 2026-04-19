@@ -100,7 +100,7 @@ Parameters
 
 **tags** `🔗 <#component-craftrecipe-tags>`_
  (see :ref:`craftrecipe-tags`)
-   Type: ``array`` *(required)*
+   Type: ``{'main': 'array'}`` *(required)*
 
    Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as ``AnySurfaceCraft``. The syntax is as follows:
    

@@ -30,7 +30,7 @@ Parameters
 .. _spritemodel-version:
 
 **VERSION** `🔗 <#spritemodel-version>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    No description
 

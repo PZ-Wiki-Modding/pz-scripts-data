@@ -141,7 +141,7 @@ Parameters
 .. _model-scale:
 
 **scale** `🔗 <#model-scale>`_
-   Type: ``float``
+   Type: ``{'main': 'float'}``
 
    Used to scale the model up or down.
 

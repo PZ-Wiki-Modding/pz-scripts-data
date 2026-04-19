@@ -29,7 +29,7 @@ Parameters
 .. _root-rules-version:
 
 **version** `🔗 <#root-rules-version>`_
-   Type: ``integer``
+   Type: ``{'main': 'integer'}``
 
    Version of the rules file. Should be 1 for now.
 

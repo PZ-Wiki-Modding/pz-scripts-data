@@ -75,7 +75,7 @@ Parameters
 .. _alias-name:
 
 **name** `🔗 <#alias-name>`_
-   Type: ``string``
+   Type: ``{'main': 'string'}``
 
    No description
 
