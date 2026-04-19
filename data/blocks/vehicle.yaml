@@ -34,6 +34,8 @@ parameters:
   - name: engineForce
     type: float
     default: 3000
+    description: |-
+      engineForce is 10x what is displayed in the mechanics menu for horsepower.
   - name: engineIdleSpeed
     type: float
     default: 750.0
@@ -45,7 +47,8 @@ parameters:
     default: 100
   - name: engineRepairLevel
     type: integer
-    description: Required [mechanics skill](https://pzwiki.net/wiki/Mechanics) level for repearing the vehicle's engine.
+    description: |-
+      Required [mechanics skill](https://pzwiki.net/wiki/Mechanics) level for repearing the vehicle's engine.
   - name: engineRPMType
     type: string
     default: jeep
@@ -59,7 +62,8 @@ parameters:
     type: array
     separator: " "
     arrayType: float
-    description: Sets a forced HSV color on the vehicle. The value needs to be of format `hue sat val`.
+    description: |-
+      Sets a forced HSV color on the vehicle. The value needs to be of format `hue sat val`.
     default: -1 -1 -1
   - name: frontEndDurability
     type: integer
@@ -117,7 +121,8 @@ parameters:
   - name: hasLighter
     type: boolean
     default: true
-    description: Sets whenever this car has a lighter to light a cigarette.
+    description: |-
+      Sets whenever this car has a lighter to light a cigarette.
   - name: hasSiren
     type: boolean
     isUseless: true
@@ -131,7 +136,7 @@ parameters:
     description: |-
       Sets the mass of the vehicle which will notably be used for various physic calculations. 
       
-      By default is equal to 800. As a reference, a car has a mass of around 800, pickup trucks have around 1100, a simple trailer around 200, a burnt vehicle 400 or 500. See the game scripts for more examples.
+      By default is equal to 800. As a reference, a car has a mass of around 800, pickup trucks have around 1100, a simple trailer around 200, a burnt vehicle 400 or 500. See the game scripts for more examples. Values in excess of 1400 can cause vehicle wheels to start sinking into the ground and be unable to move.
   - name: maxSpeed
     type: float
     default: 20.0
@@ -143,7 +148,8 @@ parameters:
     default: 500.0
   - name: mechanicType
     type: integer
-    description: Defines what class the vehicle is, that is 1 for standard, 2 for heavy-duty and 3 for performance.
+    description: |-
+      Defines what class the vehicle is, that is 1 for standard, 2 for heavy-duty and 3 for performance.
     values:
       - 1
       - 2
@@ -151,13 +157,17 @@ parameters:
   - name: model
   - name: neverSpawnKey
     type: boolean
-    description: Sets whenever this vehicle will never have a key spawning in buildings or on zombies spawning around the vehicle.
+    description: |-
+      Sets whenever this vehicle will never have a key spawning in buildings or on zombies spawning around the vehicle.
   - name: notKillCrops
     type: boolean
-    description: Sets whenever the vehicle will destroy crops it is driving on.
+    description: |- 
+      Sets whenever the vehicle will destroy crops it is driving on.
   - name: offRoadEfficiency
     type: float
     default: 1.0
+    description: |- 
+      Affects horsepower reduction when offroad (Higher = less horsepower reduction when offroad.)
   - name: part
   - name: passenger
   - name: physics
@@ -219,12 +229,16 @@ parameters:
   - name: steeringClamp
     type: float
     default: 0.4
+    description: |-
+      Maximum angle you can turn the front wheels left/right
   - name: steeringIncrement
     type: float
     default: 0.04
   - name: stoppingMovementForce
     type: float
     default: 1.0
+    description: |-
+      A drag factor applied to the vehicle at all times
   - name: storageCapacity
     isUseless: true
     type: integer
@@ -242,7 +256,8 @@ parameters:
     type: float
     default: 20.0
   - name: template
-    description: Uses a template script data for this vehicle.
+    description: |-
+      Uses a template script data for this vehicle.
     allowedDuplicate: true
   - name: template!
     allowedDuplicate: true
@@ -274,8 +289,11 @@ parameters:
   - name: wheelFriction
     type: float
     default: 800.0
+    description: |- 
+      It is 1.2 to 1.9 for all vanilla vehicles and controls turning and stopping (but not acceleration) tire friction limits, with 1.4 being the most common. Values over 1.8 can cause vehicles to flip in sharp turns. (Likely depends somewhat on center of mass) 
   - name: zombieType
     type: array
     separator: ";"
     arrayType: string
-    description: Used to chose what zombie may spawn around the vehicle and is likely to have the key of the vehicle.
+    description: |- 
+      Used to chose what zombie may spawn around the vehicle and is likely to have the key of the vehicle.
