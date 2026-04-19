@@ -127,7 +127,7 @@
       "carmodelname": {
         "name": "carModelName",
         "type": "string",
-        "description": "Set the [translation](https://pzwiki.net/wiki/Translation) key for the car name. The translation entry needs to be stored inside the IG_UI translation file and have `IGUI_VehicleName` as a suffix. \n\nFor example:\n```cpp\ncarModelName = YourCar,\n```\n\nWith the translation entry inside `IG_UI.json`:\n```json\n{\n  \"IGUI_VehicleNameYourCar\": \"Your car model\",\n}\n```"
+        "description": "Set the [translation](https://pzwiki.net/wiki/Translation) key for the car name. The translation entry needs to be stored inside the IG_UI translation file and have `IGUI_VehicleName` as a prefix. \n\nFor example:\n```cpp\ncarModelName = YourCar,\n```\n\nWith the translation entry inside `IG_UI.json`:\n```json\n{\n  \"IGUI_VehicleNameYourCar\": \"Your car model\",\n}\n```"
       },
       "centerofmassoffset": {
         "name": "centerOfMassOffset"

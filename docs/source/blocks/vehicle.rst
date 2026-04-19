@@ -76,7 +76,7 @@ Parameters
 **carModelName** `🔗 <#vehicle-carmodelname>`_
    Type: ``string``
 
-   Set the `translation <https://pzwiki.net/wiki/Translation>`_ key for the car name. The translation entry needs to be stored inside the IG_UI translation file and have ``IGUI_VehicleName`` as a suffix. 
+   Set the `translation <https://pzwiki.net/wiki/Translation>`_ key for the car name. The translation entry needs to be stored inside the IG_UI translation file and have ``IGUI_VehicleName`` as a prefix. 
    
    For example:
    
