@@ -16,3 +16,4 @@ parameters:
   - name: repairMechanic
   - name: parent
   - name: specificItem
+  - name: wheel

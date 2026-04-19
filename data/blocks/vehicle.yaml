@@ -9,8 +9,6 @@ parameters:
   - name: animalTrailerSize
     type: float
     description: Sets the maximum total encumbrance from animals in the animal trailer. The horsebox and livestock trailers both use 500.
-  - name: area
-  - name: attachment
   - name: brakingForce
   - name: carMechanicsOverlay
     type: string
@@ -57,7 +55,13 @@ parameters:
     blockType:
       block: vehicleEngineRPM
   - name: extents
+    type: array
+    arrayType: float
+    separator: " "
   - name: extentsOffset
+    type: array
+    arrayType: float
+    separator: " "
   - name: forcedColor
     type: array
     separator: " "
@@ -129,7 +133,6 @@ parameters:
   - name: isSmallVehicle
     type: boolean
     default: true
-  - name: lightbar
   - name: mass
     type: float
     default: 800
@@ -154,7 +157,6 @@ parameters:
       - 1
       - 2
       - 3
-  - name: model
   - name: neverSpawnKey
     type: boolean
     description: |-
@@ -168,9 +170,6 @@ parameters:
     default: 1.0
     description: |- 
       Affects horsepower reduction when offroad (Higher = less horsepower reduction when offroad.)
-  - name: part
-  - name: passenger
-  - name: physics
   - name: physicsChassisShape
     type: array
     separator: " "
@@ -201,17 +200,19 @@ parameters:
   - name: rollInfluence
     type: float
     default: 0.1
-  - name: seatNumber
   - name: seats
     type: integer
     default: 2
     description: |-
       Sets the number of seats this vehicle can have. A seat [part](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/part.html) needs to be created which will hold a [container](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container) block with a parameter [seat](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container-seat)
   - name: shadowExtents
+    type: array
+    arrayType: float
+    separator: " "
   - name: shadowOffset
-  - name: skin
-  - name: sound
-  - name: spawnOffsetY
+    type: array
+    arrayType: float
+    separator: " "
   - name: specialKeyRing
     type: array
     separator: ";"
@@ -285,7 +286,6 @@ parameters:
     type: boolean
     description: |-
       By default `true` which makes the vehicle use the [physicsChassisShape](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-physicschassisshape) for its hitbox. If set to false, it will instead use the [physics](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/physics.html) blocks as the hitbox of the vehicle.
-  - name: wheel
   - name: wheelFriction
     type: float
     default: 800.0
