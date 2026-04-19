@@ -7,73 +7,275 @@ parents:
 ID: {}
 parameters:
   - name: animalTrailerSize
+    type: float
+    description: Sets the maximum total encumbrance from animals in the animal trailer. The horsebox and livestock trailers both use 500.
   - name: area
   - name: attachment
   - name: brakingForce
   - name: carMechanicsOverlay
+    type: string
   - name: carModelName
+    type: string
+    description: |-
+      Set the [translation](https://pzwiki.net/wiki/Translation) key for the car name. The translation entry needs to be stored inside the IG_UI translation file and have `IGUI_VehicleName` as a suffix. 
+      
+      For example:
+      ```cpp
+      carModelName = YourCar,
+      ```
+
+      With the translation entry inside `IG_UI.json`:
+      ```json
+      {
+        "IGUI_VehicleNameYourCar": "Your car model",
+      }
+      ```
   - name: centerOfMassOffset
   - name: engineForce
+    type: float
+    default: 3000
+  - name: engineIdleSpeed
+    type: float
+    default: 750.0
   - name: engineLoudness
+    type: integer
+    default: 100
   - name: engineQuality
+    type: integer
+    default: 100
   - name: engineRepairLevel
+    type: integer
+    description: Required [mechanics skill](https://pzwiki.net/wiki/Mechanics) level for repearing the vehicle's engine.
   - name: engineRPMType
+    type: string
+    default: jeep
+    description: |-
+      Sets the engine to a RPM type ([See vehicleEngineRPM block](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicleenginerpm.html)).
+    blockType:
+      block: vehicleEngineRPM
   - name: extents
   - name: extentsOffset
+  - name: forcedColor
+    type: array
+    separator: " "
+    arrayType: float
+    description: Sets a forced HSV color on the vehicle. The value needs to be of format `hue sat val`.
+    default: -1 -1 -1
+  - name: frontEndDurability
+    type: integer
+    default: 100
+    description: |-
+      It is unclear what that parameter does but as of 42.16.3, the game uses `frontEndHealth` which is a mistake.
   - name: frontEndHealth
-  - name: gearRatio1
-  - name: gearRatio2
-  - name: gearRatio3
-  - name: gearRatio4
-  - name: gearRatio5
-  - name: gearRatioCount
+    deprecated:
+      description: While that parameter is present in vanilla scripts as of 42.16.3, it actually does nothing because it is not parsed as `frontEndHealth` but as `frontEndDurability`.
+      replacedBy: frontEndDurability
   - name: gearRatioR
+    "#desc": vehicle/gearRatioCount
+    type: float
+    default: 7.09
+  - name: gearRatio1
+    "#desc": vehicle/gearRatioCount
+    type: float
+    default: 6.44
+  - name: gearRatio2
+    "#desc": vehicle/gearRatioCount
+    default: 4.1
+  - name: gearRatio3
+    "#desc": vehicle/gearRatioCount
+    default: 2.29
+  - name: gearRatio4
+    "#desc": vehicle/gearRatioCount
+    default: 1.47
+  - name: gearRatio5
+    "#desc": vehicle/gearRatioCount
+    default: 1.0
+  - name: gearRatio6
+    "#desc": vehicle/gearRatioCount
+  - name: gearRatio7
+    "#desc": vehicle/gearRatioCount
+  - name: gearRatio8
+    "#desc": vehicle/gearRatioCount
+  - name: gearRatioCount
+    default: 4
+    type: integer
+    description: |-
+      [gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. 
+      
+      A maximum of 9 ratios can be set with the parameters:
+      - [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)
+      - [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)
+      - [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)
+      - [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)
+      - [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)
+      - [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)
+      - [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)
+      - [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)
+      - [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)
+
+      Those ratios take floats
+  - name: hasLighter
+    type: boolean
+    default: true
+    description: Sets whenever this car has a lighter to light a cigarette.
+  - name: hasSiren
+    type: boolean
+    isUseless: true
   - name: isSmallVehicle
+    type: boolean
+    default: true
   - name: lightbar
   - name: mass
+    type: float
+    default: 800
+    description: |-
+      Sets the mass of the vehicle which will notably be used for various physic calculations. 
+      
+      By default is equal to 800. As a reference, a car has a mass of around 800, pickup trucks have around 1100, a simple trailer around 200, a burnt vehicle 400 or 500. See the game scripts for more examples.
   - name: maxSpeed
+    type: float
+    default: 20.0
+  - name: maxSpeedReverse
+    type: float
+    default: 40.0
   - name: maxSuspensionTravelCm
+    type: float
+    default: 500.0
   - name: mechanicType
+    type: integer
+    description: Defines what class the vehicle is, that is 1 for standard, 2 for heavy-duty and 3 for performance.
+    values:
+      - 1
+      - 2
+      - 3
   - name: model
   - name: neverSpawnKey
+    type: boolean
+    description: Sets whenever this vehicle will never have a key spawning in buildings or on zombies spawning around the vehicle.
+  - name: notKillCrops
+    type: boolean
+    description: Sets whenever the vehicle will destroy crops it is driving on.
   - name: offRoadEfficiency
+    type: float
+    default: 1.0
   - name: part
   - name: passenger
   - name: physics
   - name: physicsChassisShape
+    type: array
+    separator: " "
+    description: |-
+      Defines the hitbox of the vehicle. The value should be three numbers defining the dimensions of a box:
+      ```
+      physicsChassisShape = height width length,
+      ```
+
+      For example:
+      ```
+      physicsChassisShape = height width length,
+      ```
+
+      When setting [useChassisPhysicsCollision](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-usechassisphysicscollision) to `false`, it will instead use [physics](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/physics.html) for the hitbox of the vehicle.
   - name: playerDamageProtection
+    type: float
+    description: Multiplier applied to the amount of damage the player takes when crashing in the car. A value of 1 doesn't change the damage, but a lower value reduces it and a higher value increases it.
+  - name: rearEndDurability
+    type: integer
+    default: 100
+    description: |-
+      It is unclear what that parameter does but as of 42.16.3, the game uses `rearEndHealth` which is a mistake.
   - name: rearEndHealth
+    deprecated:
+      description: While that parameter is present in vanilla scripts as of 42.16.3, it actually does nothing because it is not parsed as `rearEndHealth` but as `rearEndDurability`.
+      replacedBy: rearEndDurability
   - name: rollInfluence
+    type: float
+    default: 0.1
   - name: seatNumber
   - name: seats
+    type: integer
+    default: 2
+    description: |-
+      Sets the number of seats this vehicle can have. A seat [part](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/part.html) needs to be created which will hold a [container](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container) block with a parameter [seat](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container-seat)
   - name: shadowExtents
   - name: shadowOffset
   - name: skin
   - name: sound
   - name: spawnOffsetY
   - name: specialKeyRing
+    type: array
+    separator: ";"
+    description: |-
+      `specialKeyRing` needs to reference a keyring item to spawn. `specialKeyRingChance` is used to set the chance to spawn this keyring.
+    blockType:
+      block: item
+      fullType: true
   - name: specialKeyRingChance
+    "#desc": vehicle/specialKeyRing
+    type: integer
   - name: specialLootChance
+    type: integer
+    default: 8
   - name: steeringClamp
+    type: float
+    default: 0.4
   - name: steeringIncrement
+    type: float
+    default: 0.04
   - name: stoppingMovementForce
+    type: float
+    default: 1.0
+  - name: storageCapacity
+    isUseless: true
+    type: integer
+    default: 100
   - name: suspensionCompression
+    type: float
+    default: 4.4
   - name: suspensionDamping
+    type: float
+    default: 2.3
   - name: suspensionRestLength
+    type: float
+    default: 0.6
   - name: suspensionStiffness
+    type: float
+    default: 20.0
   - name: template
     description: Uses a template script data for this vehicle.
     allowedDuplicate: true
   - name: template!
     allowedDuplicate: true
   - name: textureDamage1Overlay
+    type: string
   - name: textureDamage1Shell
+    type: string
   - name: textureDamage2Overlay
+    type: string
   - name: textureDamage2Shell
+    type: string
   - name: textureLights
+    type: string
   - name: textureMask
+    type: string
+  - name: textureMaskEnable
+    type: boolean
+    isUseless: true
   - name: textureRust
+    type: string
+  - name: textureShadow
+    type: string
   - name: useChassisPhysicsCollision
+    default: true
+    type: boolean
+    description: |-
+      By default `true` which makes the vehicle use the [physicsChassisShape](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-physicschassisshape) for its hitbox. If set to false, it will instead use the [physics](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/physics.html) blocks as the hitbox of the vehicle.
   - name: wheel
   - name: wheelFriction
+    type: float
+    default: 800.0
   - name: zombieType
+    type: array
+    separator: ";"
+    arrayType: string
+    description: Used to chose what zombie may spawn around the vehicle and is likely to have the key of the vehicle.
