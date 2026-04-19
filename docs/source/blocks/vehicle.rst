@@ -104,7 +104,7 @@ Parameters
 **engineForce** `🔗 <#vehicle-engineforce>`_
    Type: ``float``
 
-   No description
+   engineForce is 10x what is displayed in the mechanics menu for horsepower.
 
    Default: ``3000``
 
@@ -471,7 +471,7 @@ Parameters
 
    Sets the mass of the vehicle which will notably be used for various physic calculations. 
    
-   By default is equal to 800. As a reference, a car has a mass of around 800, pickup trucks have around 1100, a simple trailer around 200, a burnt vehicle 400 or 500. See the game scripts for more examples.
+   By default is equal to 800. As a reference, a car has a mass of around 800, pickup trucks have around 1100, a simple trailer around 200, a burnt vehicle 400 or 500. See the game scripts for more examples. Values in excess of 1400 can cause vehicle wheels to start sinking into the ground and be unable to move.
 
    Default: ``800``
 
@@ -541,7 +541,7 @@ Parameters
 **offRoadEfficiency** `🔗 <#vehicle-offroadefficiency>`_
    Type: ``float``
 
-   No description
+   Affects horsepower reduction when offroad (Higher = less horsepower reduction when offroad.)
 
    Default: ``1.0``
 
@@ -704,7 +704,7 @@ Parameters
 **steeringClamp** `🔗 <#vehicle-steeringclamp>`_
    Type: ``float``
 
-   No description
+   Maximum angle you can turn the front wheels left/right
 
    Default: ``0.4``
 
@@ -722,7 +722,7 @@ Parameters
 **stoppingMovementForce** `🔗 <#vehicle-stoppingmovementforce>`_
    Type: ``float``
 
-   No description
+   A drag factor applied to the vehicle at all times
 
    Default: ``1.0``
 
@@ -873,7 +873,7 @@ Parameters
 **wheelFriction** `🔗 <#vehicle-wheelfriction>`_
    Type: ``float``
 
-   No description
+   It is 1.2 to 1.9 for all vanilla vehicles and controls turning and stopping (but not acceleration) tire friction limits, with 1.4 being the most common. Values over 1.8 can cause vehicles to flip in sharp turns. (Likely depends somewhat on center of mass)
 
    Default: ``800.0``
 
