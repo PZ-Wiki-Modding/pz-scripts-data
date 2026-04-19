@@ -89,7 +89,7 @@ Parameters
    .. code-block:: json
    
       {
-        "IGUI_VehicleNameYourCar": "Your car model",
+        "IGUI_VehicleNameYourCar": "Your car model"
       }
 
 .. _vehicle-centerofmassoffset:
