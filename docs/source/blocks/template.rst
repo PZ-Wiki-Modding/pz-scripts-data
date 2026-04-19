@@ -19,6 +19,7 @@ Hierarchy
 - :ref:`attachment`
 - :ref:`lightbar`
 - :ref:`part`
+- :ref:`physics`
 - :ref:`skin`
 - :ref:`sound`
 - :ref:`wheel`

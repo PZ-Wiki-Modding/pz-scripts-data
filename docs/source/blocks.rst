@@ -58,6 +58,7 @@ This section provides detailed documentation for all available script blocks.
    blocks/overlaymapper.rst
    blocks/part.rst
    blocks/passenger.rst
+   blocks/physics.rst
    blocks/physicshitreaction.rst
    blocks/physicsshape.rst
    blocks/poison.rst
@@ -89,4 +90,5 @@ This section provides detailed documentation for all available script blocks.
    blocks/vehicleenginerpm.rst
    blocks/wheel.rst
    blocks/whitelist.rst
+   blocks/window.rst
    blocks/xuiskin.rst

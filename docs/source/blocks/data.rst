@@ -30,10 +30,14 @@ Parameters
 
    No description
 
+   Default: ``0.0``
+
 .. _data-gearchange:
 
 **gearChange** `🔗 <#data-gearchange>`_
    Type: ``float``
 
    No description
+
+   Default: ``0.0``
 

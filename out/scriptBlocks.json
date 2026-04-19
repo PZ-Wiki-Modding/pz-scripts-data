@@ -107,7 +107,9 @@
     "ID": {},
     "parameters": {
       "animaltrailersize": {
-        "name": "animalTrailerSize"
+        "name": "animalTrailerSize",
+        "type": "float",
+        "description": "Sets the maximum total encumbrance from animals in the animal trailer. The horsebox and livestock trailers both use 500."
       },
       "area": {
         "name": "area"
@@ -119,28 +121,50 @@
         "name": "brakingForce"
       },
       "carmechanicsoverlay": {
-        "name": "carMechanicsOverlay"
+        "name": "carMechanicsOverlay",
+        "type": "string"
       },
       "carmodelname": {
-        "name": "carModelName"
+        "name": "carModelName",
+        "type": "string",
+        "description": "Set the [translation](https://pzwiki.net/wiki/Translation) key for the car name. The translation entry needs to be stored inside the IG_UI translation file and have `IGUI_VehicleName` as a suffix. \n\nFor example:\n```cpp\ncarModelName = YourCar,\n```\n\nWith the translation entry inside `IG_UI.json`:\n```json\n{\n  \"IGUI_VehicleNameYourCar\": \"Your car model\",\n}\n```"
       },
       "centerofmassoffset": {
         "name": "centerOfMassOffset"
       },
       "engineforce": {
-        "name": "engineForce"
+        "name": "engineForce",
+        "type": "float",
+        "default": 3000
+      },
+      "engineidlespeed": {
+        "name": "engineIdleSpeed",
+        "type": "float",
+        "default": 750.0
       },
       "engineloudness": {
-        "name": "engineLoudness"
+        "name": "engineLoudness",
+        "type": "integer",
+        "default": 100
       },
       "enginequality": {
-        "name": "engineQuality"
+        "name": "engineQuality",
+        "type": "integer",
+        "default": 100
       },
       "enginerepairlevel": {
-        "name": "engineRepairLevel"
+        "name": "engineRepairLevel",
+        "type": "integer",
+        "description": "Required [mechanics skill](https://pzwiki.net/wiki/Mechanics) level for repearing the vehicle's engine."
       },
       "enginerpmtype": {
-        "name": "engineRPMType"
+        "name": "engineRPMType",
+        "type": "string",
+        "default": "jeep",
+        "description": "Sets the engine to a RPM type ([See vehicleEngineRPM block](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicleenginerpm.html)).",
+        "blockType": {
+          "block": "vehicleEngineRPM"
+        }
       },
       "extents": {
         "name": "extents"
@@ -148,56 +172,153 @@
       "extentsoffset": {
         "name": "extentsOffset"
       },
+      "forcedcolor": {
+        "name": "forcedColor",
+        "type": "array",
+        "separator": " ",
+        "arrayType": "float",
+        "description": "Sets a forced HSV color on the vehicle. The value needs to be of format `hue sat val`.",
+        "default": "-1 -1 -1"
+      },
+      "frontenddurability": {
+        "name": "frontEndDurability",
+        "type": "integer",
+        "default": 100,
+        "description": "It is unclear what that parameter does but as of 42.16.3, the game uses `frontEndHealth` which is a mistake."
+      },
       "frontendhealth": {
-        "name": "frontEndHealth"
-      },
-      "gearratio1": {
-        "name": "gearRatio1"
-      },
-      "gearratio2": {
-        "name": "gearRatio2"
-      },
-      "gearratio3": {
-        "name": "gearRatio3"
-      },
-      "gearratio4": {
-        "name": "gearRatio4"
-      },
-      "gearratio5": {
-        "name": "gearRatio5"
-      },
-      "gearratiocount": {
-        "name": "gearRatioCount"
+        "name": "frontEndHealth",
+        "deprecated": {
+          "description": "While that parameter is present in vanilla scripts as of 42.16.3, it actually does nothing because it is not parsed as `frontEndHealth` but as `frontEndDurability`.",
+          "replacedBy": "frontEndDurability"
+        }
       },
       "gearratior": {
-        "name": "gearRatioR"
+        "name": "gearRatioR",
+        "#desc": "vehicle/gearRatioCount",
+        "type": "float",
+        "default": 7.09,
+        "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
+      },
+      "gearratio1": {
+        "name": "gearRatio1",
+        "#desc": "vehicle/gearRatioCount",
+        "type": "float",
+        "default": 6.44,
+        "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
+      },
+      "gearratio2": {
+        "name": "gearRatio2",
+        "#desc": "vehicle/gearRatioCount",
+        "default": 4.1,
+        "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
+      },
+      "gearratio3": {
+        "name": "gearRatio3",
+        "#desc": "vehicle/gearRatioCount",
+        "default": 2.29,
+        "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
+      },
+      "gearratio4": {
+        "name": "gearRatio4",
+        "#desc": "vehicle/gearRatioCount",
+        "default": 1.47,
+        "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
+      },
+      "gearratio5": {
+        "name": "gearRatio5",
+        "#desc": "vehicle/gearRatioCount",
+        "default": 1.0,
+        "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
+      },
+      "gearratio6": {
+        "name": "gearRatio6",
+        "#desc": "vehicle/gearRatioCount",
+        "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
+      },
+      "gearratio7": {
+        "name": "gearRatio7",
+        "#desc": "vehicle/gearRatioCount",
+        "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
+      },
+      "gearratio8": {
+        "name": "gearRatio8",
+        "#desc": "vehicle/gearRatioCount",
+        "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
+      },
+      "gearratiocount": {
+        "name": "gearRatioCount",
+        "default": 4,
+        "type": "integer",
+        "description": "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n- [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n- [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n- [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n- [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n- [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n- [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n- [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n- [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\nThose ratios take floats"
+      },
+      "haslighter": {
+        "name": "hasLighter",
+        "type": "boolean",
+        "default": true,
+        "description": "Sets whenever this car has a lighter to light a cigarette."
+      },
+      "hassiren": {
+        "name": "hasSiren",
+        "type": "boolean",
+        "isUseless": true
       },
       "issmallvehicle": {
-        "name": "isSmallVehicle"
+        "name": "isSmallVehicle",
+        "type": "boolean",
+        "default": true
       },
       "lightbar": {
         "name": "lightbar"
       },
       "mass": {
-        "name": "mass"
+        "name": "mass",
+        "type": "float",
+        "default": 800,
+        "description": "Sets the mass of the vehicle which will notably be used for various physic calculations. \n\nBy default is equal to 800. As a reference, a car has a mass of around 800, pickup trucks have around 1100, a simple trailer around 200, a burnt vehicle 400 or 500. See the game scripts for more examples."
       },
       "maxspeed": {
-        "name": "maxSpeed"
+        "name": "maxSpeed",
+        "type": "float",
+        "default": 20.0
+      },
+      "maxspeedreverse": {
+        "name": "maxSpeedReverse",
+        "type": "float",
+        "default": 40.0
       },
       "maxsuspensiontravelcm": {
-        "name": "maxSuspensionTravelCm"
+        "name": "maxSuspensionTravelCm",
+        "type": "float",
+        "default": 500.0
       },
       "mechanictype": {
-        "name": "mechanicType"
+        "name": "mechanicType",
+        "type": "integer",
+        "description": "Defines what class the vehicle is, that is 1 for standard, 2 for heavy-duty and 3 for performance.",
+        "values": [
+          1,
+          2,
+          3
+        ]
       },
       "model": {
         "name": "model"
       },
       "neverspawnkey": {
-        "name": "neverSpawnKey"
+        "name": "neverSpawnKey",
+        "type": "boolean",
+        "description": "Sets whenever this vehicle will never have a key spawning in buildings or on zombies spawning around the vehicle."
+      },
+      "notkillcrops": {
+        "name": "notKillCrops",
+        "type": "boolean",
+        "description": "Sets whenever the vehicle will destroy crops it is driving on."
       },
       "offroadefficiency": {
-        "name": "offRoadEfficiency"
+        "name": "offRoadEfficiency",
+        "type": "float",
+        "default": 1.0
       },
       "part": {
         "name": "part"
@@ -209,22 +330,42 @@
         "name": "physics"
       },
       "physicschassisshape": {
-        "name": "physicsChassisShape"
+        "name": "physicsChassisShape",
+        "type": "array",
+        "separator": " ",
+        "description": "Defines the hitbox of the vehicle. The value should be three numbers defining the dimensions of a box:\n```\nphysicsChassisShape = height width length,\n```\n\nFor example:\n```\nphysicsChassisShape = height width length,\n```\n\nWhen setting [useChassisPhysicsCollision](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-usechassisphysicscollision) to `false`, it will instead use [physics](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/physics.html) for the hitbox of the vehicle."
       },
       "playerdamageprotection": {
-        "name": "playerDamageProtection"
+        "name": "playerDamageProtection",
+        "type": "float",
+        "description": "Multiplier applied to the amount of damage the player takes when crashing in the car. A value of 1 doesn't change the damage, but a lower value reduces it and a higher value increases it."
+      },
+      "rearenddurability": {
+        "name": "rearEndDurability",
+        "type": "integer",
+        "default": 100,
+        "description": "It is unclear what that parameter does but as of 42.16.3, the game uses `rearEndHealth` which is a mistake."
       },
       "rearendhealth": {
-        "name": "rearEndHealth"
+        "name": "rearEndHealth",
+        "deprecated": {
+          "description": "While that parameter is present in vanilla scripts as of 42.16.3, it actually does nothing because it is not parsed as `rearEndHealth` but as `rearEndDurability`.",
+          "replacedBy": "rearEndDurability"
+        }
       },
       "rollinfluence": {
-        "name": "rollInfluence"
+        "name": "rollInfluence",
+        "type": "float",
+        "default": 0.1
       },
       "seatnumber": {
         "name": "seatNumber"
       },
       "seats": {
-        "name": "seats"
+        "name": "seats",
+        "type": "integer",
+        "default": 2,
+        "description": "Sets the number of seats this vehicle can have. A seat [part](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/part.html) needs to be created which will hold a [container](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container) block with a parameter [seat](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container-seat)"
       },
       "shadowextents": {
         "name": "shadowExtents"
@@ -242,34 +383,66 @@
         "name": "spawnOffsetY"
       },
       "specialkeyring": {
-        "name": "specialKeyRing"
+        "name": "specialKeyRing",
+        "type": "array",
+        "separator": ";",
+        "description": "`specialKeyRing` needs to reference a keyring item to spawn. `specialKeyRingChance` is used to set the chance to spawn this keyring.",
+        "blockType": {
+          "block": "item",
+          "fullType": true
+        }
       },
       "specialkeyringchance": {
-        "name": "specialKeyRingChance"
+        "name": "specialKeyRingChance",
+        "#desc": "vehicle/specialKeyRing",
+        "type": "integer",
+        "description": "`specialKeyRing` needs to reference a keyring item to spawn. `specialKeyRingChance` is used to set the chance to spawn this keyring."
       },
       "speciallootchance": {
-        "name": "specialLootChance"
+        "name": "specialLootChance",
+        "type": "integer",
+        "default": 8
       },
       "steeringclamp": {
-        "name": "steeringClamp"
+        "name": "steeringClamp",
+        "type": "float",
+        "default": 0.4
       },
       "steeringincrement": {
-        "name": "steeringIncrement"
+        "name": "steeringIncrement",
+        "type": "float",
+        "default": 0.04
       },
       "stoppingmovementforce": {
-        "name": "stoppingMovementForce"
+        "name": "stoppingMovementForce",
+        "type": "float",
+        "default": 1.0
+      },
+      "storagecapacity": {
+        "name": "storageCapacity",
+        "isUseless": true,
+        "type": "integer",
+        "default": 100
       },
       "suspensioncompression": {
-        "name": "suspensionCompression"
+        "name": "suspensionCompression",
+        "type": "float",
+        "default": 4.4
       },
       "suspensiondamping": {
-        "name": "suspensionDamping"
+        "name": "suspensionDamping",
+        "type": "float",
+        "default": 2.3
       },
       "suspensionrestlength": {
-        "name": "suspensionRestLength"
+        "name": "suspensionRestLength",
+        "type": "float",
+        "default": 0.6
       },
       "suspensionstiffness": {
-        "name": "suspensionStiffness"
+        "name": "suspensionStiffness",
+        "type": "float",
+        "default": 20.0
       },
       "template": {
         "name": "template",
@@ -281,37 +454,62 @@
         "allowedDuplicate": true
       },
       "texturedamage1overlay": {
-        "name": "textureDamage1Overlay"
+        "name": "textureDamage1Overlay",
+        "type": "string"
       },
       "texturedamage1shell": {
-        "name": "textureDamage1Shell"
+        "name": "textureDamage1Shell",
+        "type": "string"
       },
       "texturedamage2overlay": {
-        "name": "textureDamage2Overlay"
+        "name": "textureDamage2Overlay",
+        "type": "string"
       },
       "texturedamage2shell": {
-        "name": "textureDamage2Shell"
+        "name": "textureDamage2Shell",
+        "type": "string"
       },
       "texturelights": {
-        "name": "textureLights"
+        "name": "textureLights",
+        "type": "string"
       },
       "texturemask": {
-        "name": "textureMask"
+        "name": "textureMask",
+        "type": "string"
+      },
+      "texturemaskenable": {
+        "name": "textureMaskEnable",
+        "type": "boolean",
+        "isUseless": true
       },
       "texturerust": {
-        "name": "textureRust"
+        "name": "textureRust",
+        "type": "string"
+      },
+      "textureshadow": {
+        "name": "textureShadow",
+        "type": "string"
       },
       "usechassisphysicscollision": {
-        "name": "useChassisPhysicsCollision"
+        "name": "useChassisPhysicsCollision",
+        "default": true,
+        "type": "boolean",
+        "description": "By default `true` which makes the vehicle use the [physicsChassisShape](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-physicschassisshape) for its hitbox. If set to false, it will instead use the [physics](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/physics.html) blocks as the hitbox of the vehicle."
       },
       "wheel": {
         "name": "wheel"
       },
       "wheelfriction": {
-        "name": "wheelFriction"
+        "name": "wheelFriction",
+        "type": "float",
+        "default": 800.0
       },
       "zombietype": {
-        "name": "zombieType"
+        "name": "zombieType",
+        "type": "array",
+        "separator": ";",
+        "arrayType": "string",
+        "description": "Used to chose what zombie may spawn around the vehicle and is likely to have the key of the vehicle."
       }
     }
   },
@@ -3751,7 +3949,7 @@
   },
   "physicsShape": {
     "name": "physicsShape",
-    "description": "Defines a 3D object's physical shape to be used as a world object.",
+    "description": "Defines a 3D object's physical shape to be used as a world object.\n\nFor example:\n```cpp\nmodule YourModule {\n  physicsShape ramp20segment5w {\n      mesh = physics/ramp20|Segment5,\n      translate = 4.0 0.0 0.0,\n      rotate = 0.0 270.0 0.0,\n  }\n}\n```",
     "shouldHaveParent": true,
     "parents": [
       "module"
@@ -4129,11 +4327,13 @@
     "parameters": {
       "aftergearchange": {
         "name": "afterGearChange",
-        "type": "float"
+        "type": "float",
+        "default": 0.0
       },
       "gearchange": {
         "name": "gearChange",
-        "type": "float"
+        "type": "float",
+        "default": 0.0
       }
     }
   },
@@ -4257,13 +4457,28 @@
     ],
     "parameters": {
       "capacity": {
-        "name": "capacity"
+        "name": "capacity",
+        "type": "integer"
       },
       "conditionaffectscapacity": {
-        "name": "conditionAffectsCapacity"
+        "name": "conditionAffectsCapacity",
+        "type": "boolean",
+        "description": "Sets whenever the condition of the part will impact the [capacity](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container-capacity). A lower condition will negatively impact the container's capacity."
+      },
+      "contenttype": {
+        "name": "contentType",
+        "type": "string",
+        "description": "Unclear how this parameter works exactly. The game uses it to define the \"content\" of tires and gas tanks by providing the string keys `Gasoline` or `Air`. It seems to simply remove any item container being used as the container for this part."
+      },
+      "seat": {
+        "name": "seat",
+        "type": "string",
+        "description": "The seat ID of this container. When present, this container can be used as a seat for a vehicle."
       },
       "test": {
-        "name": "test"
+        "name": "test",
+        "type": "string",
+        "description": "Refers to a Lua global function returning a boolean which is used to determine whether an item can be put in this container when trying to transfer items.\n\nHere's an example from the vanilla game, with the parmeter being set to:\n```cpp\ntest = Vehicles.ContainerAccess.GloveBox\n```\n\nWith the Lua function being defined as:\n```lua\nfunction Vehicles.ContainerAccess.GloveBox(vehicle, part, chr)\n  if chr:getVehicle() == vehicle then\n    local seat = vehicle:getSeat(chr)\n    -- Can the seated player reach the passenger seat?\n    -- Only character in front seat can access it\n    return seat == 1 or seat == 0;\n  elseif chr:getVehicle() then\n    -- Can't reach from inside a different vehicle.\n    return false\n  else\n    -- Standing outside the vehicle.\n    if not vehicle:isInArea(part:getArea(), chr) then return false end\n    local doorPart = vehicle:getPartById(\"DoorFrontRight\")\n    if doorPart and doorPart:getDoor() and not doorPart:getDoor():isOpen() then\n      return false\n    end\n    return true\n  end\nend\n```\n\nThe parameters are:\n- `vehicle` is a [BaseVehicle](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/BaseVehicle.html) class\n- `part` is a [VehiclePart](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/vehicles/VehiclePart.html)\n- `chr` is an [IsoGameCharacter](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html)"
       }
     }
   },
@@ -4412,7 +4627,7 @@
   },
   "vehicleEngineRPM": {
     "name": "vehicleEngineRPM",
-    "description": "",
+    "description": "Unclear how the definition of this block works.\n\nHere's the jeep example from the base game:\n```cpp\nmodule Base \n{\n  vehicleEngineRPM jeep\n  {\n      VERSION = 1,\n      data\n      {\n          gearChange = 3000,\n          afterGearChange = 2000,\n      }\n      data\n      {\n          gearChange = 3500,\n          afterGearChange = 2000,\n      }\n      data\n      {\n          gearChange = 4000,\n          afterGearChange = 2500,\n      }\n      data\n      {\n          gearChange = 4500,\n          afterGearChange = 2800,\n      }\n      data\n      {\n          gearChange = 6000,\n          afterGearChange = 4500,\n      }\n  }\n}\n```",
     "shouldHaveParent": true,
     "parents": [
       "module"
@@ -4813,14 +5028,20 @@
     }
   },
   "physics": {
-    "name": "part",
+    "name": "physics",
     "description": "",
     "shouldHaveParent": true,
     "parents": [
       "template",
       "vehicle"
     ],
-    "ID": {},
+    "ID": {
+      "values": [
+        "box",
+        "sphere",
+        "mesh"
+      ]
+    },
     "parameters": {
       "offset": {
         "name": "offset"
@@ -4830,6 +5051,13 @@
       },
       "rotate": {
         "name": "rotate"
+      },
+      "physicsshapescript": {
+        "name": "physicsShapeScript",
+        "blockType": {
+          "fullType": true,
+          "block": "physicsShape"
+        }
       }
     }
   },
@@ -5105,7 +5333,7 @@
     }
   },
   "window": {
-    "name": "door",
+    "name": "window",
     "description": "",
     "shouldHaveParent": true,
     "parents": [

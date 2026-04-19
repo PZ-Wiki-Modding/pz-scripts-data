@@ -5,6 +5,18 @@ physicsShape
 
 Defines a 3D object's physical shape to be used as a world object.
 
+For example:
+
+.. code-block:: cpp
+
+   module YourModule {
+     physicsShape ramp20segment5w {
+         mesh = physics/ramp20|Segment5,
+         translate = 4.0 0.0 0.0,
+         rotate = 0.0 270.0 0.0,
+     }
+   }
+
 
 Hierarchy
 ---------
