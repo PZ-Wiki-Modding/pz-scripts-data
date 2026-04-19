@@ -135,7 +135,8 @@
       "engineforce": {
         "name": "engineForce",
         "type": "float",
-        "default": 3000
+        "default": 3000,
+        "description": "engineForce is 10x what is displayed in the mechanics menu for horsepower."
       },
       "engineidlespeed": {
         "name": "engineIdleSpeed",
@@ -275,7 +276,7 @@
         "name": "mass",
         "type": "float",
         "default": 800,
-        "description": "Sets the mass of the vehicle which will notably be used for various physic calculations. \n\nBy default is equal to 800. As a reference, a car has a mass of around 800, pickup trucks have around 1100, a simple trailer around 200, a burnt vehicle 400 or 500. See the game scripts for more examples."
+        "description": "Sets the mass of the vehicle which will notably be used for various physic calculations. \n\nBy default is equal to 800. As a reference, a car has a mass of around 800, pickup trucks have around 1100, a simple trailer around 200, a burnt vehicle 400 or 500. See the game scripts for more examples. Values in excess of 1400 can cause vehicle wheels to start sinking into the ground and be unable to move."
       },
       "maxspeed": {
         "name": "maxSpeed",
@@ -318,7 +319,8 @@
       "offroadefficiency": {
         "name": "offRoadEfficiency",
         "type": "float",
-        "default": 1.0
+        "default": 1.0,
+        "description": "Affects horsepower reduction when offroad (Higher = less horsepower reduction when offroad.)"
       },
       "part": {
         "name": "part"
@@ -406,7 +408,8 @@
       "steeringclamp": {
         "name": "steeringClamp",
         "type": "float",
-        "default": 0.4
+        "default": 0.4,
+        "description": "Maximum angle you can turn the front wheels left/right"
       },
       "steeringincrement": {
         "name": "steeringIncrement",
@@ -416,7 +419,8 @@
       "stoppingmovementforce": {
         "name": "stoppingMovementForce",
         "type": "float",
-        "default": 1.0
+        "default": 1.0,
+        "description": "A drag factor applied to the vehicle at all times"
       },
       "storagecapacity": {
         "name": "storageCapacity",
@@ -502,7 +506,8 @@
       "wheelfriction": {
         "name": "wheelFriction",
         "type": "float",
-        "default": 800.0
+        "default": 800.0,
+        "description": "It is 1.2 to 1.9 for all vanilla vehicles and controls turning and stopping (but not acceleration) tire friction limits, with 1.4 being the most common. Values over 1.8 can cause vehicles to flip in sharp turns. (Likely depends somewhat on center of mass) "
       },
       "zombietype": {
         "name": "zombieType",
