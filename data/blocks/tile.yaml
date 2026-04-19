@@ -2,16 +2,15 @@ version: 1
 name: tile
 description: Defines some tile properties from a tileset.
 shouldHaveParent: true
-parents: [
-  tileset
-]
+parents:
+- tileset
 parameters:
-  - name: xy
-  - name: IsProfessionTrait
-  - name: runtime
-  - name: modelScript
-  - name: translate
-  - name: rotate
-  - name: scale
-  - name: animation
-  - name: animationTime
+- name: xy
+- name: IsProfessionTrait
+- name: runtime
+- name: modelScript
+- name: translate
+- name: rotate
+- name: scale
+- name: animation
+- name: animationTime

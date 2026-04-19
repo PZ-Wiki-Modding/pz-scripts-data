@@ -1,10 +1,11 @@
 version: 1
 name: CraftLogic
-description: While present in the vanilla files, there seems to be no reference to this block in the Java. It is likely they are not used, or even parsed.
+description: While present in the vanilla files, there seems to be no reference to
+  this block in the Java. It is likely they are not used, or even parsed.
 shouldHaveParent: true
 parents:
-  - components
+- components
 parameters:
-  - name: LuaPanelClass
-  - name: DisplayName
-  - name: Icon
+- name: LuaPanelClass
+- name: DisplayName
+- name: Icon

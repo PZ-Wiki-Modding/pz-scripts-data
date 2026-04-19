@@ -1,11 +1,11 @@
 version: 1
 name: component ContextMenuConfig
-description: ""
+description: ''
 shouldHaveParent: true
 isVariant: component
 parents:
-  - item
-  - entity
+- item
+- entity
 needsChildren:
-  - contextEntry
+- contextEntry
 parameters: []

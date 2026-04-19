@@ -2,7 +2,7 @@ version: 1
 name: attachment
 description: |-
   Defines an attachment point on a [model](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/model.html) or [vehicle](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html) block. The ID is the attachment name, it can be a custom ID or an existing one often used to define specific attachments. While manually modifying the attachment block is definitely possible, it is recommended to use the [attachment editor](https://pzwiki.net/wiki/Attachment_Editor) to create and edit those attachments.
-  
+
   The syntax of this block should be as follows:
   ```cpp
   model upperScriptDefinition
@@ -101,44 +101,41 @@ description: |-
   - wrench_right
 shouldHaveParent: true
 parents:
-  - vehicle
-  - model
-  - template
+- vehicle
+- model
+- template
 ID: {}
 parameters:
-  - name: offset
-    type: array
-    arrayType: float
-    separator: " "
-    description: |-
-      The position offset of the model relative to the bone. This is a vector in the format `x y z`. 
+- name: offset
+  type:
+    main: array
+    array:
+      type: float
+      separator: ' '
+  description: "The position offset of the model relative to the bone. This is a vector\
+    \ in the format `x y z`. \n\n```cpp\noffset = -0.0300 -0.1020 0.1210,\n```"
+- name: rotate
+  type:
+    main: array
+    array:
+      type: float
+      separator: ' '
+  description: |-
+    The rotation of the model relative to the bone. This is a vector in the format `x y z`. The values are degrees.
 
-      ```cpp
-      offset = -0.0300 -0.1020 0.1210,
-      ```
-  - name: rotate
-    type: array
-    arrayType: float
-    separator: " "
-    description: |-
-      The rotation of the model relative to the bone. This is a vector in the format `x y z`. The values are degrees.
+    ```cpp
+    rotate = -60.0000 -49.0000 -3.0000,
+    ```
+- name: zoffset
+- name: scale
+  type:
+    main: float
+  description: |-
+    The scale multiplier applied to the model attached to this attachment point.
 
-      ```cpp
-      rotate = -60.0000 -49.0000 -3.0000,
-      ```
-  - name: zoffset
-  - name: scale
-    type: float
-    description: |-
-      The scale multiplier applied to the model attached to this attachment point.
-
-      ```cpp
-      scale = 0.5,
-      ```
-  - name: bone
-    description: |-
-     	The name of the bone to which the model is attached to. 
-
-      ```cpp
-      bone = Bip01_L_Hand,
-      ```
+    ```cpp
+    scale = 0.5,
+    ```
+- name: bone
+  description: "\tThe name of the bone to which the model is attached to. \n\n ```cpp\n\
+    \ bone = Bip01_L_Hand,\n ```"

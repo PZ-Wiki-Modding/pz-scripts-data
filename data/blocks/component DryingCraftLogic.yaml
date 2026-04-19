@@ -1,13 +1,13 @@
 version: 1
 name: component DryingCraftLogic
-description: ""
+description: ''
 shouldHaveParent: true
 isVariant: component
 parents:
-  - entity
-parameters: 
-  - name: Recipes
-  - name: StartMode
-  - name: inputGroup
-  - name: outputGroup
-  - name: actionAnim
+- entity
+parameters:
+- name: Recipes
+- name: StartMode
+- name: inputGroup
+- name: outputGroup
+- name: actionAnim

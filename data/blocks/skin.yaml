@@ -1,9 +1,9 @@
 version: 1
 name: skin
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - template
-  - vehicle
+- template
+- vehicle
 parameters:
-  - name: texture
+- name: texture

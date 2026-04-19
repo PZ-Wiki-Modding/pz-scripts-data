@@ -4,12 +4,14 @@ description: Used to define the default layers of a new TMX file.
 shouldHaveParent: true
 noComma: true
 parents:
-  - ROOT-TMXconfig
+- ROOT-TMXconfig
 parameters:
-  - name: tile
-    allowedDuplicate: true
-    type: string
-  - name: object
-    parentsOnly:
-      - ROOT-MapBaseXML
-    type: string
+- name: tile
+  allowedDuplicate: true
+  type:
+    main: string
+- name: object
+  parentsOnly:
+  - ROOT-MapBaseXML
+  type:
+    main: string

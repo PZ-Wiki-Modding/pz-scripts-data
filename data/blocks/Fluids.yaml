@@ -3,8 +3,8 @@ name: Fluids
 description: Used to make a list of fluids to appear in a [FluidContainer component](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/component/component_fluidcontainer.html).
 shouldHaveParent: true
 parents:
-  - component FluidContainer
+- component FluidContainer
 parameters:
-  - name: fluid
-    allowedDuplicate: true
-    description: Refers to a fluid script
+- name: fluid
+  allowedDuplicate: true
+  description: Refers to a fluid script

@@ -1,8 +1,8 @@
 version: 1
 name: hand
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - clock
+- clock
 ID: {}
 parameters: []

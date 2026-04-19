@@ -1,8 +1,8 @@
 version: 1
 name: itemMapper
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - craftRecipe
+- craftRecipe
 ID: {}
 softOverride: true

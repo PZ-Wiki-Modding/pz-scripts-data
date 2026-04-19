@@ -1,8 +1,8 @@
 version: 1
 name: component Durability
-description: ""
+description: ''
 shouldHaveParent: true
 isVariant: component
 parents:
-  - item
+- item
 parameters: []

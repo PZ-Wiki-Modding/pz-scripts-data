@@ -1,23 +1,24 @@
 version: 1
 name: component
-description: "A component is a block which can be added as a child to a specific block type like an item, vehicle etc, to provide additional functionalities."
+description: A component is a block which can be added as a child to a specific block
+  type like an item, vehicle etc, to provide additional functionalities.
 shouldHaveParent: true
 parents:
-  - item
-  - entity
+- item
+- entity
 ID:
   values:
-    - CraftRecipe
-    - SpriteConfig
-    - UiConfig
-    - CraftBench
-    - CraftBenchSounds
-    - Resources
-    - DryingCraftLogic
-    - SpriteOverlayConfig
-    - Durability
-    - FluidContainer
-    - ContextMenuConfig
-    - WallCoveringConfig
+  - CraftRecipe
+  - SpriteConfig
+  - UiConfig
+  - CraftBench
+  - CraftBenchSounds
+  - Resources
+  - DryingCraftLogic
+  - SpriteOverlayConfig
+  - Durability
+  - FluidContainer
+  - ContextMenuConfig
+  - WallCoveringConfig
   asType: true
 parameters: []

@@ -1,10 +1,10 @@
 version: 1
 name: area
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - template
-  - vehicle
+- template
+- vehicle
 ID: {}
 parameters:
-  - name: xywh
+- name: xywh

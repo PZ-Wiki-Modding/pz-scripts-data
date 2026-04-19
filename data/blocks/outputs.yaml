@@ -27,4 +27,4 @@ description: |-
 shouldHaveParent: true
 softOverride: false
 parents:
-  - craftRecipe
+- craftRecipe

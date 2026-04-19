@@ -3,35 +3,36 @@ name: model
 description: Defines a 3D model properties.
 shouldHaveParent: true
 parents:
-  - module
-  - vehicle
-  - part
+- module
+- vehicle
+- part
 ID:
   parentsWithout:
-    - vehicle
+  - vehicle
   optional:
-    - part
+  - part
 parameters:
-  - name: animationsMesh
-  - name: boneWeight
-  - name: ColorBlue
-  - name: ColorGreen
-  - name: ColorRed
-  - name: cullFace
-  - name: file
-  - name: invertX
-  - name: mesh
-  - name: offset
-  - name: postProcess
-  - name: scale
-    description: Used to scale the model up or down.
-    type: float
-  - name: shader
-  - name: specialKeyRing
-  - name: static
-  - name: texture
-  - name: undoCoreScale
-  - name: attachmentParent
-  - name: attachmentSelf
-  - name: ignoreVehicleScale
-  - name: rotate
+- name: animationsMesh
+- name: boneWeight
+- name: ColorBlue
+- name: ColorGreen
+- name: ColorRed
+- name: cullFace
+- name: file
+- name: invertX
+- name: mesh
+- name: offset
+- name: postProcess
+- name: scale
+  description: Used to scale the model up or down.
+  type:
+    main: float
+- name: shader
+- name: specialKeyRing
+- name: static
+- name: texture
+- name: undoCoreScale
+- name: attachmentParent
+- name: attachmentSelf
+- name: ignoreVehicleScale
+- name: rotate

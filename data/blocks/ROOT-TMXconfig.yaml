@@ -1,17 +1,19 @@
 version: 1
 name: ROOT-TMXconfig
-description: |-
-  The `TMXconfig.txt` file is used to configure the default layers which will be created in the TMX file.
+description: The `TMXconfig.txt` file is used to configure the default layers which
+  will be created in the TMX file.
 shouldHaveParent: false
 parents: []
 isRoot: true
 noComma: true
 pattern:
-  - TMXconfig\.txt$
+- TMXconfig\.txt$
 parameters:
-  - name: version
-    type: integer
-    description: Version of the TMXconfig file. Should be 1 for now.
-  - name: revision
-    type: integer
-    description: Revision of the TMXconfig file. Keep it to 11 for now.
+- name: version
+  type:
+    main: integer
+  description: Version of the TMXconfig file. Should be 1 for now.
+- name: revision
+  type:
+    main: integer
+  description: Revision of the TMXconfig file. Keep it to 11 for now.

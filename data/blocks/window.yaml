@@ -1,9 +1,10 @@
 version: 1
 name: window
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - part
+- part
 parameters:
-  - name: openable
-    type: boolean
+- name: openable
+  type:
+    main: boolean

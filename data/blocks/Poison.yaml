@@ -3,17 +3,20 @@ name: Poison
 description: Defines poison properties for a fluid script.
 shouldHaveParent: true
 parents:
-  - fluid
+- fluid
 parameters:
-  - name: maxEffect
-    type: string
-    description: Defines the strength of the poison.
-    values:
-      - Deadly
-      - Medium
-  - name: minAmount
-    type: float
-    description: The minimum amount required to consume to poison the player.
-  - name: diluteRatio
-    type: float
-    description: The ratio at which the poison is diluted when mixed with other fluids.
+- name: maxEffect
+  type:
+    main: string
+  description: Defines the strength of the poison.
+  values:
+  - Deadly
+  - Medium
+- name: minAmount
+  type:
+    main: float
+  description: The minimum amount required to consume to poison the player.
+- name: diluteRatio
+  type:
+    main: float
+  description: The ratio at which the poison is diluted when mixed with other fluids.

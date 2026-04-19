@@ -137,9 +137,54 @@
             "description": "The default value for the parameter if not specified."
           },
           "type": {
-            "type": "string",
+            "type": "object",
             "description": "The data type of the parameter.",
-            "enum": ["string", "float", "boolean", "array", "object", "integer"]
+            "properties": {
+              "main": {
+                "type": "string",
+                "description": "The main data type of the parameter.",
+                "enum": ["string", "float", "boolean", "array", "object", "integer"]
+              },
+              "array": {
+                "type": "object",
+                "description": "If the parameter is of type 'array', this can be used to provide a description of the expected format of the array.",
+                "properties": {
+                  "separator": {
+                    "type": "string",
+                    "description": "Specifies the separator used to split the string into array items."
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "Specifies the data type of the items in the array.",
+                    "enum": ["string", "float", "boolean", "integer"]
+                  }
+                }
+              },
+              "object": {
+                "type": "object",
+                "description": "If the parameter is of type 'object', this can be used to provide a description of the expected format of the object.",
+                "properties": {
+                  "keyValueSeparator": {
+                    "type": "string",
+                    "description": "Specifies the separator used to split the key and the value in the key-value pairs. The parameter 'pairsSeparator' is used to split the pairs from each others."
+                  },
+                  "keyType": {
+                    "type": "string",
+                    "description": "Specifies the data type of the keys in the object.",
+                    "enum": ["string", "float", "boolean", "integer"]
+                  },
+                  "pairsSeparator": {
+                    "type": "string",
+                    "description": "Specifies the separator used to split the pairs from each others. The parameter 'keyValueSeparator' is used to split the keys and values."
+                  },
+                  "valueType": {
+                    "type": "string",
+                    "description": "Specifies the data type of the values in the object.",
+                    "enum": ["string", "float", "boolean", "integer"]
+                  }
+                }
+              }
+            }
           },
           "arrayType": {
             "type": "string",

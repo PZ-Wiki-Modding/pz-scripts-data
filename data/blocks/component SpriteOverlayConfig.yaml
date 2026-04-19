@@ -1,8 +1,8 @@
 version: 1
 name: component SpriteOverlayConfig
-description: ""
+description: ''
 shouldHaveParent: true
 isVariant: component
 parents:
-  - entity
+- entity
 parameters: []

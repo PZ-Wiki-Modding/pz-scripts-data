@@ -1,20 +1,20 @@
 version: 1
 name: face
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - component SpriteConfig
-  - style
-  - progress
+- component SpriteConfig
+- style
+- progress
 ID:
   values:
-    - SINGLE
-    - S
-    - E
-    - W
-    - N
-    - S_OPEN
-    - E_OPEN
-    - W_OPEN
-    - N_OPEN
+  - SINGLE
+  - S
+  - E
+  - W
+  - N
+  - S_OPEN
+  - E_OPEN
+  - W_OPEN
+  - N_OPEN
 parameters: []

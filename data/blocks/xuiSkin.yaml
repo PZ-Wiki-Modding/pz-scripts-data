@@ -3,8 +3,8 @@ name: xuiSkin
 description: Defines a XUI interface skin.
 shouldHaveParent: true
 parents:
-  - module
+- module
 needsChildren:
-  - entity
+- entity
 ID: {}
 parameters: []

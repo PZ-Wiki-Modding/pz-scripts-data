@@ -21,22 +21,30 @@ description: |-
   ```
 shouldHaveParent: true
 parents:
-  - sound
+- sound
 parameters:
-  - name: event
-    type: string
-  - name: distanceMax
-    type: integer
-  - name: file
-    type: string
-  - name: distanceMin
-    type: integer
-  - name: volume
-    type: float
-  - name: reverbFactor
-    type: float
-  - name: pitch
-    type: float
-  - name: reverbMaxRange
-    type: float
-  - name: stopImmediate
+- name: event
+  type:
+    main: string
+- name: distanceMax
+  type:
+    main: integer
+- name: file
+  type:
+    main: string
+- name: distanceMin
+  type:
+    main: integer
+- name: volume
+  type:
+    main: float
+- name: reverbFactor
+  type:
+    main: float
+- name: pitch
+  type:
+    main: float
+- name: reverbMaxRange
+  type:
+    main: float
+- name: stopImmediate

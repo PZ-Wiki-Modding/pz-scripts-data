@@ -1,19 +1,19 @@
 version: 1
 name: part
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - template
-  - vehicle
+- template
+- vehicle
 ID: {}
 parameters:
-  - name: itemType
-  - name: category
-  - name: durability
-  - name: mechanicArea
-  - name: area
-  - name: mechanicRequireKey
-  - name: repairMechanic
-  - name: parent
-  - name: specificItem
-  - name: wheel
+- name: itemType
+- name: category
+- name: durability
+- name: mechanicArea
+- name: area
+- name: mechanicRequireKey
+- name: repairMechanic
+- name: parent
+- name: specificItem
+- name: wheel

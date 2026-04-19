@@ -1,10 +1,10 @@
 version: 1
 name: component WallCoveringConfig
-description: ""
+description: ''
 shouldHaveParent: true
 isVariant: component
 parents:
-  - entity
+- entity
 parameters:
-  - name: sign
-  - name: type
+- name: sign
+- name: type

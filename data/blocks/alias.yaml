@@ -53,8 +53,9 @@ description: |-
 shouldHaveParent: true
 noComma: true
 parents:
-  - ROOT-Rules
+- ROOT-Rules
 parameters:
-  - name: name
-    type: string
-  - name: tiles
+- name: name
+  type:
+    main: string
+- name: tiles

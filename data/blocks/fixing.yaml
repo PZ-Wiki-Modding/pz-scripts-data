@@ -3,12 +3,12 @@ name: fixing
 description: Defines how an item can be repaired or fixed.
 shouldHaveParent: true
 parents:
-  - module
+- module
 ID:
   canHaveSpace: true
 parameters:
-  - name: Fixer
-    allowedDuplicate: true
-  - name: Require
-  - name: GlobalItem
-  - name: ConditionModifier
+- name: Fixer
+  allowedDuplicate: true
+- name: Require
+- name: GlobalItem
+- name: ConditionModifier

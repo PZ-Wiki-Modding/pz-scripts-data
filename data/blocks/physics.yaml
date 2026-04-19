@@ -1,20 +1,20 @@
 version: 1
 name: physics
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - template
-  - vehicle
+- template
+- vehicle
 ID:
   values:
-    - box
-    - sphere
-    - mesh
+  - box
+  - sphere
+  - mesh
 parameters:
-  - name: offset
-  - name: extents
-  - name: rotate
-  - name: physicsShapeScript
-    blockType:
-      fullType: true
-      block: physicsShape
+- name: offset
+- name: extents
+- name: rotate
+- name: physicsShapeScript
+  blockType:
+    fullType: true
+    block: physicsShape

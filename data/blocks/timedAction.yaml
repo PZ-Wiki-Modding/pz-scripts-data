@@ -1,20 +1,21 @@
 version: 1
 name: timedAction
-description: Defines a callable action sound and/or animation, including effects on calories burned and body heat generation.
+description: Defines a callable action sound and/or animation, including effects on
+  calories burned and body heat generation.
 shouldHaveParent: true
 parents:
-  - module
+- module
 ID: {}
 parameters:
-  - name: actionAnim
-  - name: animVarKey
-  - name: animVarVal
-  - name: completionSound
-  - name: metabolics
-  - name: muscleStrainFactor
-  - name: muscleStrainParts
-  - name: muscleStrainSkill
-  - name: prop1
-  - name: prop2
-  - name: sound
-  - name: soundTime
+- name: actionAnim
+- name: animVarKey
+- name: animVarVal
+- name: completionSound
+- name: metabolics
+- name: muscleStrainFactor
+- name: muscleStrainParts
+- name: muscleStrainSkill
+- name: prop1
+- name: prop2
+- name: sound
+- name: soundTime

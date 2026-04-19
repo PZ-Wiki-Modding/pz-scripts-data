@@ -3,8 +3,8 @@ name: CopyFrame
 description: It is unknown what this block does.
 shouldHaveParent: true
 parents:
-  - animation
+- animation
 parameters:
-  - name: frame
-  - name: source
-  - name: sourceFrame
+- name: frame
+- name: source
+- name: sourceFrame

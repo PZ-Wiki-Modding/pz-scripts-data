@@ -1,29 +1,29 @@
 version: 1
 name: component CraftRecipe
-description: ""
+description: ''
 shouldHaveParent: true
 isVariant: component
 parents:
-  - entity
+- entity
 needsChildren:
-  - inputs
+- inputs
 parameters:
-  - name: category
-    "#ref": craftRecipe/category
-  - name: NeedToBeLearn
-    "#ref": craftRecipe/NeedToBeLearn
-  - name: OnAddToMenu
-  - name: OnCreate
-    "#ref": craftRecipe/OnCreate
-  - name: SkillRequired
-    "#ref": craftRecipe/SkillRequired
-  - name: tags
-    "#ref": craftRecipe/tags
-  - name: time
-    "#ref": craftRecipe/time
-  - name: timedAction
-    "#ref": craftRecipe/timedAction
-  - name: Tooltip
-    "#ref": craftRecipe/Tooltip
-  - name: xpAward
-    "#ref": craftRecipe/xpAward
+- name: category
+  '#ref': craftRecipe/category
+- name: NeedToBeLearn
+  '#ref': craftRecipe/NeedToBeLearn
+- name: OnAddToMenu
+- name: OnCreate
+  '#ref': craftRecipe/OnCreate
+- name: SkillRequired
+  '#ref': craftRecipe/SkillRequired
+- name: tags
+  '#ref': craftRecipe/tags
+- name: time
+  '#ref': craftRecipe/time
+- name: timedAction
+  '#ref': craftRecipe/timedAction
+- name: Tooltip
+  '#ref': craftRecipe/Tooltip
+- name: xpAward
+  '#ref': craftRecipe/xpAward

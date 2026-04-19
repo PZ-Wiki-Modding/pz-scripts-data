@@ -1,12 +1,12 @@
 version: 1
 name: lightbar
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - template
-  - vehicle
+- template
+- vehicle
 parameters:
-  - name: texture
-  - name: soundSiren
-  - name: leftCol
-  - name: rightCol
+- name: texture
+- name: soundSiren
+- name: leftCol
+- name: rightCol

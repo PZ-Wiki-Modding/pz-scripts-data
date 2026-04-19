@@ -1,6 +1,6 @@
 version: 1
 name: components
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - entity
+- entity

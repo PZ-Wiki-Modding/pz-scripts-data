@@ -1,11 +1,11 @@
 version: 1
 name: position
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - passenger
+- passenger
 ID: {}
 parameters:
-  - name: offset
-  - name: rotate
-  - name: area
+- name: offset
+- name: rotate
+- name: area

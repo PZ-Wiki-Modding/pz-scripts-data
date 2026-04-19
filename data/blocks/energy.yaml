@@ -1,8 +1,8 @@
 version: 1
 name: energy
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - module
+- module
 ID: {}
 parameters: []

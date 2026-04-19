@@ -1,13 +1,15 @@
 version: 1
 name: data
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - vehicleEngineRPM
+- vehicleEngineRPM
 parameters:
-  - name: afterGearChange
-    type: float
-    default: 0.0
-  - name: gearChange
-    type: float
-    default: 0.0
+- name: afterGearChange
+  type:
+    main: float
+  default: 0.0
+- name: gearChange
+  type:
+    main: float
+  default: 0.0

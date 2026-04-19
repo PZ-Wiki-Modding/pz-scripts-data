@@ -15,17 +15,18 @@ description: |-
   ```
 shouldHaveParent: true
 parents:
-  - module
+- module
 ID: {}
 parameters:
-  - name: mesh
-    type: string
-    description: The path to the model's mesh file, relative to the folder `media/models_X`.
-  - name: translate
-    type: array
-    separator: ' '
-    description: The position offset of the model, in the format `x y z`.
-  - name: rotate
-    type: array
-    separator: ' '
-    description: The rotation of the model, in the format `x y z`.
+- name: mesh
+  type:
+    main: string
+  description: The path to the model's mesh file, relative to the folder `media/models_X`.
+- name: translate
+  type:
+    main: array
+  description: The position offset of the model, in the format `x y z`.
+- name: rotate
+  type:
+    main: array
+  description: The rotation of the model, in the format `x y z`.

@@ -1,10 +1,10 @@
 version: 1
 name: door
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - part
+- part
 ID:
   optional:
-    - part
+  - part
 parameters: []

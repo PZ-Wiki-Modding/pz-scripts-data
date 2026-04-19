@@ -3,8 +3,8 @@ name: fluid
 description: Defines a fluid.
 shouldHaveParent: true
 parents:
-  - module
+- module
 ID: {}
 parameters:
-  - name: ColorReference
-  - name: DisplayName
+- name: ColorReference
+- name: DisplayName

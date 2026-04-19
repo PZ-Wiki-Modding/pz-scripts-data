@@ -3,9 +3,9 @@ name: CopyFrames
 description: It is unknown what this block does.
 shouldHaveParent: true
 parents:
-  - animation
+- animation
 parameters:
-  - name: frame
-  - name: source
-  - name: sourceFrame1
-  - name: sourceFrame2
+- name: frame
+- name: source
+- name: sourceFrame1
+- name: sourceFrame2

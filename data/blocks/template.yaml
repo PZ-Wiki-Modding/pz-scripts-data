@@ -1,9 +1,9 @@
 version: 1
 name: template
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - module
+- module
 ID: {}
-"#ref_parameters": vehicle
+'#ref_parameters': vehicle
 parameters: []

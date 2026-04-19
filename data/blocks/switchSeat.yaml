@@ -1,11 +1,11 @@
 version: 1
 name: switchSeat
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - passenger
+- passenger
 ID: {}
 parameters:
-  - name: anim
-  - name: rate
-  - name: sound
+- name: anim
+- name: rate
+- name: sound

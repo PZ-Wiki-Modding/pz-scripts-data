@@ -3,6 +3,6 @@ name: ragdoll
 description: Defines the ragdoll properties of a bone.
 shouldHaveParent: true
 parents:
-  - module
+- module
 ID: {}
 parameters: []

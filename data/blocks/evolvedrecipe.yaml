@@ -3,17 +3,17 @@ name: evolvedrecipe
 description: Defines a dynamic recipe.
 shouldHaveParent: true
 parents:
-  - module
+- module
 ID:
   canHaveSpace: true
 parameters:
-  - name: AddIngredientIfCooked
-  - name: AddIngredientSound
-  - name: BaseItem
-  - name: CanAddSpicesEmpty
-  - name: Cookable
-  - name: MaxItems
-  - name: MinimumWater
-  - name: Name
-  - name: ResultItem
-  - name: Template
+- name: AddIngredientIfCooked
+- name: AddIngredientSound
+- name: BaseItem
+- name: CanAddSpicesEmpty
+- name: Cookable
+- name: MaxItems
+- name: MinimumWater
+- name: Name
+- name: ResultItem
+- name: Template

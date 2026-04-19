@@ -1,8 +1,8 @@
 version: 1
 name: progress
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - style
+- style
 ID: {}
 parameters: []

@@ -2,8 +2,7 @@ version: 1
 name: tileset
 description: Used to define properties of tiles of tilesets.
 shouldHaveParent: true
-parents: [
-  spriteModel
-]
+parents:
+- spriteModel
 parameters:
-  - name: name
+- name: name

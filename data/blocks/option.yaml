@@ -3,48 +3,55 @@ name: option
 description: Defines a custom sandbox option for a mod.
 shouldHaveParent: true
 parents:
-  - ROOT-SandboxOptions
+- ROOT-SandboxOptions
 ID: {}
 files:
-  - sandbox-options.txt
+- sandbox-options.txt
 parameters:
+- name: type
+  type:
+    main: string
+  description: The type of the option.
+  values:
+  - boolean
+  - integer
+  - double
+  - string
+  - enum
+  required: true
+- name: min
+  type:
+    main: float
+  description: The minimum value the option can have. Only for integer and double
+    types.
+  needs:
   - name: type
-    type: string
-    description: The type of the option.
     values:
-      - boolean
-      - integer
-      - double
-      - string
-      - enum
-    required: true
-  - name: min
-    type: float
-    description: The minimum value the option can have. Only for integer and double types.
-    needs:
-      - name: type
-        values:
-          - integer
-          - double
-  - name: max
-    type: float
-    description: The maximum value the option can have. Only for integer and double types.
-    needs:
-      - name: type
-        values:
-          - integer
-          - double
-  - name: default
-    needs:
-      - name: type
-        valueToType:
-          integer: float
-          double: float
-          boolean: boolean
-          string: string
-  - name: page
-    type: string
-    description: The sandbox option to add the option to. Can be a custom page.
-  - name: translation
-    type: string
-    description: The translation key for the option's name.
+    - integer
+    - double
+- name: max
+  type:
+    main: float
+  description: The maximum value the option can have. Only for integer and double
+    types.
+  needs:
+  - name: type
+    values:
+    - integer
+    - double
+- name: default
+  needs:
+  - name: type
+    valueToType:
+      integer: float
+      double: float
+      boolean: boolean
+      string: string
+- name: page
+  type:
+    main: string
+  description: The sandbox option to add the option to. Can be a custom page.
+- name: translation
+  type:
+    main: string
+  description: The translation key for the option's name.

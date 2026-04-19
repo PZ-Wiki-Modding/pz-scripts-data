@@ -1,11 +1,11 @@
 version: 1
 name: component UiConfig
-description: ""
+description: ''
 shouldHaveParent: true
 isVariant: component
 parents:
-  - entity
+- entity
 parameters:
-  - name: xuiSkin
-  - name: entityStyle
-  - name: uiEnabled
+- name: xuiSkin
+- name: entityStyle
+- name: uiEnabled

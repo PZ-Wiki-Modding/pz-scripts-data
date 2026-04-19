@@ -4,66 +4,85 @@ description: Adds a fluid container to an item
 shouldHaveParent: true
 isVariant: component
 parents:
-  - item
-  - entity
+- item
+- entity
 parameters:
-  - name: Capacity
-    type: float
-    default: 1.0
-    description: The fluid capacity of the container, the minimum value is `0.05`.
-  - name: ContainerName
-    type: string
-    default: FluidContainer
-    description: The name of the fluid container, seems to be unused. The name cannot have whitespaces, the game will sanitize it to remove them and show an error in the console about it.
-    isUseless: true
-  - name: CustomDrinkSound
-    description: Refers to a [sound block](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/sound.html) to trigger when drinking.
-    type: string
-    default: DrinkingFromGeneric
-  - name: HiddenAmount
-    type: boolean
-    default: false
-    description: When true, will hide the fluid quantity from the UI.
-  - name: InitialPercent
-    type: float
-    incompatibleWith:
-      - InitialPercentMin
-      - InitialPercentMax
-  - name: InitialPercentMax
-    type: float
-    default: 1.0
-    description: The minimum amount of fluid which will appear in this container.
-    incompatibleWith:
-      - InitialPercent
-  - name: InitialPercentMin
-    type: float
-    default: 0.0
-    description: The maximum amount of fluid which will appear in this container.
-    incompatibleWith:
-      - InitialPercent
-  - name: InputLocked
-    type: boolean
-    default: false
-    description: Unused.
-  - name: Opened
-    type: boolean
-    default: true
-    description: Unused.
-  - name: PickRandomFluid
-    type: boolean
-    default: false
-    description: When set to true, the container will pick one of the available fluids in the [Fluids](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/fluids.html) child block at random when filling. If set to false, it will make every fluids appear.
-    needs:
-      - children:
-          - Fluids
-  - name: RainFactor
-    type: float
-    default: 0.0
-    description: |-
-      Defines how much rain contributes to filling the container. A high value increases the rate of filling. A value of `0.0` means that rain will not fill the container, which is the default value of the parameter.
+- name: Capacity
+  type:
+    main: float
+  default: 1.0
+  description: The fluid capacity of the container, the minimum value is `0.05`.
+- name: ContainerName
+  type:
+    main: string
+  default: FluidContainer
+  description: The name of the fluid container, seems to be unused. The name cannot
+    have whitespaces, the game will sanitize it to remove them and show an error in
+    the console about it.
+  isUseless: true
+- name: CustomDrinkSound
+  description: Refers to a [sound block](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/sound.html)
+    to trigger when drinking.
+  type:
+    main: string
+  default: DrinkingFromGeneric
+- name: HiddenAmount
+  type:
+    main: boolean
+  default: false
+  description: When true, will hide the fluid quantity from the UI.
+- name: InitialPercent
+  type:
+    main: float
+  incompatibleWith:
+  - InitialPercentMin
+  - InitialPercentMax
+- name: InitialPercentMax
+  type:
+    main: float
+  default: 1.0
+  description: The minimum amount of fluid which will appear in this container.
+  incompatibleWith:
+  - InitialPercent
+- name: InitialPercentMin
+  type:
+    main: float
+  default: 0.0
+  description: The maximum amount of fluid which will appear in this container.
+  incompatibleWith:
+  - InitialPercent
+- name: InputLocked
+  type:
+    main: boolean
+  default: false
+  description: Unused.
+- name: Opened
+  type:
+    main: boolean
+  default: true
+  description: Unused.
+- name: PickRandomFluid
+  type:
+    main: boolean
+  default: false
+  description: When set to true, the container will pick one of the available fluids
+    in the [Fluids](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/fluids.html)
+    child block at random when filling. If set to false, it will make every fluids
+    appear.
+  needs:
+  - children:
+    - Fluids
+- name: RainFactor
+  type:
+    main: float
+  default: 0.0
+  description: |-
+    Defines how much rain contributes to filling the container. A high value increases the rate of filling. A value of `0.0` means that rain will not fill the container, which is the default value of the parameter.
 
-      If the item is a weapon and `RainFactor` is set to a value above the default, when the player aims with the weapon it will empty it.
-  - name: FillsWithCleanWater
-    type: boolean
-    default: false
-    description: When set to true, the container will fill with clean water instead of tainted water when left outside in the rain.
+    If the item is a weapon and `RainFactor` is set to a value above the default, when the player aims with the weapon it will empty it.
+- name: FillsWithCleanWater
+  type:
+    main: boolean
+  default: false
+  description: When set to true, the container will fill with clean water instead
+    of tainted water when left outside in the rain.

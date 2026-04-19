@@ -3,7 +3,8 @@ name: BlendWhiteList
 description: Seems to define blend properties with other fluids.
 shouldHaveParent: true
 parents:
-  - fluid
+- fluid
 parameters:
-  - name: whitelist
-    type: boolean
+- name: whitelist
+  type:
+    main: boolean

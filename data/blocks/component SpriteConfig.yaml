@@ -1,19 +1,21 @@
 version: 1
 name: component SpriteConfig
-description: ""
+description: ''
 shouldHaveParent: true
 isVariant: component
 parents:
-  - entity
+- entity
 needsChildren:
-  - face
+- face
 parameters:
-  - name: isThumpable
-  - name: OnCreate
-  - name: isProp
-  - name: OnIsValid
-  - name: TimedActionOnIsValid
-  - name: health
-    type: integer
-  - name: skillBaseHealth
-    type: integer
+- name: isThumpable
+- name: OnCreate
+- name: isProp
+- name: OnIsValid
+- name: TimedActionOnIsValid
+- name: health
+  type:
+    main: integer
+- name: skillBaseHealth
+  type:
+    main: integer

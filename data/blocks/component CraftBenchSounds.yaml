@@ -1,14 +1,14 @@
 version: 1
 name: component CraftBenchSounds
-description: ""
+description: ''
 shouldHaveParent: true
 isVariant: component
 parents:
-  - entity
+- entity
 parameters:
-  - name: AddFuel
-  - name: LightFire
-  - name: Running
-  - name: AddInput
-  - name: RemoveInput
-  - name: StartCraft
+- name: AddFuel
+- name: LightFire
+- name: Running
+- name: AddInput
+- name: RemoveInput
+- name: StartCraft

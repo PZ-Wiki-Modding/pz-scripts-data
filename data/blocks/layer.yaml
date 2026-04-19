@@ -1,9 +1,9 @@
 version: 1
 name: layer
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - face
+- face
 parameters:
-  - name: row
-    allowedDuplicate: true
+- name: row
+  allowedDuplicate: true

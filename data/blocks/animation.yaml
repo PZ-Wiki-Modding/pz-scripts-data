@@ -3,6 +3,6 @@ name: animation
 description: It is unknown what this block does.
 shouldHaveParent: true
 parents:
-  - module
+- module
 ID: {}
 parameters: []

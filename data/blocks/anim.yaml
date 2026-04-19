@@ -1,15 +1,15 @@
 version: 1
 name: anim
-description: ""
+description: ''
 shouldHaveParent: true
 parents:
-  - part
-  - passenger
+- part
+- passenger
 ID: {}
 parameters:
-  - name: anim
-  - name: rate
-  - name: angle
-  - name: sound
-  - name: reverse
-  - name: animate
+- name: anim
+- name: rate
+- name: angle
+- name: sound
+- name: reverse
+- name: animate

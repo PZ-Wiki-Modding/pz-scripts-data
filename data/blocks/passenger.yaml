@@ -3,8 +3,8 @@ name: passenger
 description: Defines a passenger position in a vehicle script.
 shouldHaveParent: true
 parents:
-  - vehicle
+- vehicle
 ID: {}
 parameters:
-  - name: door
-  - name: area
+- name: door
+- name: area
