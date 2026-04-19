@@ -27,7 +27,7 @@ parameters:
       With the translation entry inside `IG_UI.json`:
       ```json
       {
-        "IGUI_VehicleNameYourCar": "Your car model",
+        "IGUI_VehicleNameYourCar": "Your car model"
       }
       ```
   - name: centerOfMassOffset
