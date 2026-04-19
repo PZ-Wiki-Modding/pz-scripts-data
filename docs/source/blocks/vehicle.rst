@@ -43,20 +43,6 @@ Parameters
 
    Sets the maximum total encumbrance from animals in the animal trailer. The horsebox and livestock trailers both use 500.
 
-.. _vehicle-area:
-
-**area** `🔗 <#vehicle-area>`_
-   Type: ``Any``
-
-   No description
-
-.. _vehicle-attachment:
-
-**attachment** `🔗 <#vehicle-attachment>`_
-   Type: ``Any``
-
-   No description
-
 .. _vehicle-brakingforce:
 
 **brakingForce** `🔗 <#vehicle-brakingforce>`_
@@ -154,14 +140,14 @@ Parameters
 .. _vehicle-extents:
 
 **extents** `🔗 <#vehicle-extents>`_
-   Type: ``Any``
+   Type: ``array``
 
    No description
 
 .. _vehicle-extentsoffset:
 
 **extentsOffset** `🔗 <#vehicle-extentsoffset>`_
-   Type: ``Any``
+   Type: ``array``
 
    No description
 
@@ -457,13 +443,6 @@ Parameters
 
    Default: ``True``
 
-.. _vehicle-lightbar:
-
-**lightbar** `🔗 <#vehicle-lightbar>`_
-   Type: ``Any``
-
-   No description
-
 .. _vehicle-mass:
 
 **mass** `🔗 <#vehicle-mass>`_
@@ -515,13 +494,6 @@ Parameters
    - ``2``
    - ``3``
 
-.. _vehicle-model:
-
-**model** `🔗 <#vehicle-model>`_
-   Type: ``Any``
-
-   No description
-
 .. _vehicle-neverspawnkey:
 
 **neverSpawnKey** `🔗 <#vehicle-neverspawnkey>`_
@@ -544,27 +516,6 @@ Parameters
    Affects horsepower reduction when offroad (Higher = less horsepower reduction when offroad.)
 
    Default: ``1.0``
-
-.. _vehicle-part:
-
-**part** `🔗 <#vehicle-part>`_
-   Type: ``Any``
-
-   No description
-
-.. _vehicle-passenger:
-
-**passenger** `🔗 <#vehicle-passenger>`_
-   Type: ``Any``
-
-   No description
-
-.. _vehicle-physics:
-
-**physics** `🔗 <#vehicle-physics>`_
-   Type: ``Any``
-
-   No description
 
 .. _vehicle-physicschassisshape:
 
@@ -625,13 +576,6 @@ Parameters
 
    Default: ``0.1``
 
-.. _vehicle-seatnumber:
-
-**seatNumber** `🔗 <#vehicle-seatnumber>`_
-   Type: ``Any``
-
-   No description
-
 .. _vehicle-seats:
 
 **seats** `🔗 <#vehicle-seats>`_
@@ -644,35 +588,14 @@ Parameters
 .. _vehicle-shadowextents:
 
 **shadowExtents** `🔗 <#vehicle-shadowextents>`_
-   Type: ``Any``
+   Type: ``array``
 
    No description
 
 .. _vehicle-shadowoffset:
 
 **shadowOffset** `🔗 <#vehicle-shadowoffset>`_
-   Type: ``Any``
-
-   No description
-
-.. _vehicle-skin:
-
-**skin** `🔗 <#vehicle-skin>`_
-   Type: ``Any``
-
-   No description
-
-.. _vehicle-sound:
-
-**sound** `🔗 <#vehicle-sound>`_
-   Type: ``Any``
-
-   No description
-
-.. _vehicle-spawnoffsety:
-
-**spawnOffsetY** `🔗 <#vehicle-spawnoffsety>`_
-   Type: ``Any``
+   Type: ``array``
 
    No description
 
@@ -860,13 +783,6 @@ Parameters
    By default ``true`` which makes the vehicle use the `physicsChassisShape <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-physicschassisshape>`_ for its hitbox. If set to false, it will instead use the `physics <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/physics.html>`_ blocks as the hitbox of the vehicle.
 
    Default: ``True``
-
-.. _vehicle-wheel:
-
-**wheel** `🔗 <#vehicle-wheel>`_
-   Type: ``Any``
-
-   No description
 
 .. _vehicle-wheelfriction:
 

@@ -97,3 +97,10 @@ Parameters
 
    No description
 
+.. _part-wheel:
+
+**wheel** `🔗 <#part-wheel>`_
+   Type: ``Any``
+
+   No description
+

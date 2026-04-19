@@ -111,12 +111,6 @@
         "type": "float",
         "description": "Sets the maximum total encumbrance from animals in the animal trailer. The horsebox and livestock trailers both use 500."
       },
-      "area": {
-        "name": "area"
-      },
-      "attachment": {
-        "name": "attachment"
-      },
       "brakingforce": {
         "name": "brakingForce"
       },
@@ -168,10 +162,16 @@
         }
       },
       "extents": {
-        "name": "extents"
+        "name": "extents",
+        "type": "array",
+        "arrayType": "float",
+        "separator": " "
       },
       "extentsoffset": {
-        "name": "extentsOffset"
+        "name": "extentsOffset",
+        "type": "array",
+        "arrayType": "float",
+        "separator": " "
       },
       "forcedcolor": {
         "name": "forcedColor",
@@ -269,9 +269,6 @@
         "type": "boolean",
         "default": true
       },
-      "lightbar": {
-        "name": "lightbar"
-      },
       "mass": {
         "name": "mass",
         "type": "float",
@@ -303,9 +300,6 @@
           3
         ]
       },
-      "model": {
-        "name": "model"
-      },
       "neverspawnkey": {
         "name": "neverSpawnKey",
         "type": "boolean",
@@ -321,15 +315,6 @@
         "type": "float",
         "default": 1.0,
         "description": "Affects horsepower reduction when offroad (Higher = less horsepower reduction when offroad.)"
-      },
-      "part": {
-        "name": "part"
-      },
-      "passenger": {
-        "name": "passenger"
-      },
-      "physics": {
-        "name": "physics"
       },
       "physicschassisshape": {
         "name": "physicsChassisShape",
@@ -360,9 +345,6 @@
         "type": "float",
         "default": 0.1
       },
-      "seatnumber": {
-        "name": "seatNumber"
-      },
       "seats": {
         "name": "seats",
         "type": "integer",
@@ -370,19 +352,16 @@
         "description": "Sets the number of seats this vehicle can have. A seat [part](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/part.html) needs to be created which will hold a [container](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container) block with a parameter [seat](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container-seat)"
       },
       "shadowextents": {
-        "name": "shadowExtents"
+        "name": "shadowExtents",
+        "type": "array",
+        "arrayType": "float",
+        "separator": " "
       },
       "shadowoffset": {
-        "name": "shadowOffset"
-      },
-      "skin": {
-        "name": "skin"
-      },
-      "sound": {
-        "name": "sound"
-      },
-      "spawnoffsety": {
-        "name": "spawnOffsetY"
+        "name": "shadowOffset",
+        "type": "array",
+        "arrayType": "float",
+        "separator": " "
       },
       "specialkeyring": {
         "name": "specialKeyRing",
@@ -499,9 +478,6 @@
         "default": true,
         "type": "boolean",
         "description": "By default `true` which makes the vehicle use the [physicsChassisShape](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-physicschassisshape) for its hitbox. If set to false, it will instead use the [physics](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/physics.html) blocks as the hitbox of the vehicle."
-      },
-      "wheel": {
-        "name": "wheel"
       },
       "wheelfriction": {
         "name": "wheelFriction",
@@ -4027,6 +4003,9 @@
       },
       "specificitem": {
         "name": "specificItem"
+      },
+      "wheel": {
+        "name": "wheel"
       }
     }
   },
