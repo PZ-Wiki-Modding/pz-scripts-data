@@ -8,6 +8,9 @@ on:
       - 'chores/formatBlocks.py'
   pull_request:
     branches: [main, dev]
+    paths:
+      - 'data/blocks/**'
+      - 'chores/formatBlocks.py'
   workflow_dispatch:
 
 permissions:
