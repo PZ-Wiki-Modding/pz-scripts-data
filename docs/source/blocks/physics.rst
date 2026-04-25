@@ -47,7 +47,7 @@ Parameters
 .. _physics-physicsshapescript:
 
 **physicsShapeScript** `🔗 <#physics-physicsshapescript>`_
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'physicsShape', 'fullType': True}}``
 
    No description
 

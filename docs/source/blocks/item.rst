@@ -3051,7 +3051,7 @@ Parameters
 .. _item-staticmodel:
 
 **StaticModel** `🔗 <#item-staticmodel>`_
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'model', 'fullType': True}}``
 
    No description
 
@@ -3612,7 +3612,7 @@ Parameters
 .. _item-worldstaticmodel:
 
 **WorldStaticModel** `🔗 <#item-worldstaticmodel>`_
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'model', 'fullType': True}}``
 
    No description
 
