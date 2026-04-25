@@ -181,6 +181,7 @@
               "object": {
                 "type": "object",
                 "description": "If the parameter is of type 'object', this can be used to provide a description of the expected format of the object.",
+                "required": ["keyValueSeparator", "pairsSeparator", "keyType", "valueType"],
                 "additionalProperties": false,
                 "properties": {
                   "keyValueSeparator": {
@@ -205,40 +206,10 @@
               }
             }
           },
-          "arrayType": {
-            "type": "string",
-            "description": "If the parameter is of type 'array', this specifies the data type of the items in the array.",
-            "enum": ["string", "float", "boolean", "object", "integer"]
-          },
-          "separator": {
-            "type": "string",
-            "description": "If the parameter is of type 'array', this specifies the separator used to split the string into array items."
-          },
           "values": {
             "type": "array",
             "description": "A list of allowed values for the parameter.",
             "items": { "type": ["string", "number"] }
-          },
-          "object": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "separator": {
-                "type": "string",
-                "description": "Specifies the separator used to split the key-value pairs. The parameter 'keyValueSeparator' is used to split the keys and values."
-              },
-              "keyType": {
-                "type": "string",
-                "description": "Specifies the data type of the keys in the object.",
-                "enum": ["string", "float", "boolean", "integer"]
-              },
-              "valueType": {
-                "type": "string",
-                "description": "Specifies the data type of the values in the object.",
-                "enum": ["string", "float", "boolean", "integer"]
-              }
-            },
-            "description": "If the parameter is of type 'object', this can be used to provide a description of the expected format of the object."
           },
           "deprecated": {
             "type": "object",
