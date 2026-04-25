@@ -1448,9 +1448,11 @@ parameters:
     main: float
   default: 1.0
 - name: StaticModel
-  blockType:
-    fullType: true
-    block: model
+  type:
+    main: string
+    block:
+      name: model
+      fullType: true
   itemTypes:
   - clothing
   - container
@@ -1738,9 +1740,11 @@ parameters:
   - radio
 - name: WorldRender
 - name: WorldStaticModel
-  blockType:
-    fullType: true
-    block: model
+  type:
+    main: string
+    block:
+      name: model
+      fullType: true
 - name: WorldStaticModelsByIndex
   type:
     main: array

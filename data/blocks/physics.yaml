@@ -15,6 +15,8 @@ parameters:
 - name: extents
 - name: rotate
 - name: physicsShapeScript
-  blockType:
-    fullType: true
-    block: physicsShape
+  type:
+    main: string
+    block:
+      name: physicsShape
+      fullType: true
