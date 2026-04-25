@@ -1449,9 +1449,14 @@
       },
       "aimingperkcritmodifier": {
         "name": "AimingPerkCritModifier",
+        "type": {
+          "main": "integer"
+        },
         "itemTypes": [
           "weapon"
-        ]
+        ],
+        "#desc": "item/CriticalChance",
+        "description": "[CriticalChance](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-criticalchance) sets the base critical hit chance of the weapon. The final `CriticalChance` value after all applied bonuses and penalties have been applied is compared on a 0-100 roll.\n\nBelow is a table listing the different elements which can influence the critical hit chance of a weapon:\n| Element | Type | Description | Formula |\n|---|---|---|---|\n| [AimingPerkCritModifier](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkcritmodifier) and [aiming skill](https://pzwiki.net/wiki/Aiming) of the character | Weapon parameter | The aiming level of the character impacts the player's critical hit chance by adding the following to the `CriticalChance` value. | `CriticalChance += AimingPerkCritModifier * Aiming level` |\n| Sight bonus / penalty | Weapon parameter | In the formula, `sightWindowBonus` refers to the bonus from [MinSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange) and [MaxSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange). `sightlessBonus` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result. | CriticalChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty) |\n| Moodles penalty | Player condition | Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the `CriticalChance`. | `CriticalChance -= moodlesPenalty` |\n| Weather penalty | Environment | Wind, rain, fog, low-light will all negatively impact the `CriticalChance`. | `CriticalChance -= weatherPenalty` |\n| Movement penalty | Player condition | The shooter speed and the distance will negatively impact the `CriticalChance`. | `CriticalChance -= movementPenalty` |\n| [Marksman trait](https://pzwiki.net/wiki/Marksman) | Player condition |  | CriticalChance += 10 |\n\nFor PvP targets, the entire formula is bypassed and [StopPower](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-stoppower) is used instead.\n\n`CriticalChance` sets the floor for unskilled players while `AimingPerkCritModifier` rewards more or less the character ability to aim. High modified and low base chance means the weapon is a skill-gated crit machine, making the weapon a sort of \"experts\" weapon."
       },
       "aimingperkhitchancemodifier": {
         "name": "AimingPerkHitChanceModifier",
@@ -2111,7 +2116,16 @@
         "type": {
           "main": "float"
         },
-        "default": 20.0
+        "default": 20.0,
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ],
+        "description": "[CriticalChance](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-criticalchance) sets the base critical hit chance of the weapon. The final `CriticalChance` value after all applied bonuses and penalties have been applied is compared on a 0-100 roll.\n\nBelow is a table listing the different elements which can influence the critical hit chance of a weapon:\n| Element | Type | Description | Formula |\n|---|---|---|---|\n| [AimingPerkCritModifier](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkcritmodifier) and [aiming skill](https://pzwiki.net/wiki/Aiming) of the character | Weapon parameter | The aiming level of the character impacts the player's critical hit chance by adding the following to the `CriticalChance` value. | `CriticalChance += AimingPerkCritModifier * Aiming level` |\n| Sight bonus / penalty | Weapon parameter | In the formula, `sightWindowBonus` refers to the bonus from [MinSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange) and [MaxSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange). `sightlessBonus` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result. | CriticalChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty) |\n| Moodles penalty | Player condition | Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the `CriticalChance`. | `CriticalChance -= moodlesPenalty` |\n| Weather penalty | Environment | Wind, rain, fog, low-light will all negatively impact the `CriticalChance`. | `CriticalChance -= weatherPenalty` |\n| Movement penalty | Player condition | The shooter speed and the distance will negatively impact the `CriticalChance`. | `CriticalChance -= movementPenalty` |\n| [Marksman trait](https://pzwiki.net/wiki/Marksman) | Player condition |  | CriticalChance += 10 |\n\nFor PvP targets, the entire formula is bypassed and [StopPower](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-stoppower) is used instead.\n\n`CriticalChance` sets the floor for unskilled players while `AimingPerkCritModifier` rewards more or less the character ability to aim. High modified and low base chance means the weapon is a skill-gated crit machine, making the weapon a sort of \"experts\" weapon."
       },
       "customcontextmenu": {
         "name": "CustomContextMenu",
@@ -2212,7 +2226,8 @@
         "type": {
           "main": "integer"
         },
-        "default": 1
+        "default": 1,
+        "description": "Damage dealt to doors, windows, barricades and some vehicle/object hits."
       },
       "doorhitsound": {
         "name": "DoorHitSound",
@@ -2927,7 +2942,8 @@
         "type": {
           "main": "float"
         },
-        "default": 1.5
+        "default": 1.5,
+        "description": "Rolls the hit damage of the weapon between `MinDamage` and `MaxDamage`."
       },
       "maxhitcount": {
         "name": "MaxHitcount",
@@ -2966,7 +2982,20 @@
         "itemTypes": [
           "weapon",
           "weaponpart"
-        ]
+        ],
+        "type": {
+          "main": "float"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon",
+              "base:weaponpart"
+            ]
+          }
+        ],
+        "description": "[MinSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange) and [MaxSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange) define the optimal sight window, to be more specific, the distance band where hits and critical hits bonuses peak.\n\nThe [aiming skill](https://pzwiki.net/wiki/Aiming) and [eagle eyed](https://pzwiki.net/wiki/Eagle_Eyed) will impact these values:\n```\neffectiveMin = MinSightRange x (1 - AimingLevel / 30)\neffectiveMax = MaxSightRange x (1 + AimingLevel / 30) x (EagleEyed ? 1.2 : 1.0)\n```\n\nAt aiming 10, the minimum shrinks by 33% and the max grows by 33%, which widens the window significantly. When the trait [Short Sighted](https://pzwiki.net/wiki/Short_Sighted) is present and the character doesn't wear glasses, the `effectiveMax` equals `effectiveMin`, making the entire bonus window disappear.\n\nInside the the `effectiveMin` and `effectiveMax` window, the bonus follows a [Gaussian](https://en.wikipedia.org/wiki/Bell-shaped_function) with the bonus peaking at the midpoint. Aim-delay penalty is also reduced inside the window.\n\nBelow `effectiveMin`, a small linear penalty is applied as the gun is not suited for point-blank. Above `effectiveMax`, a growing quadratic penalty is applied, the bonus degrades rapidly past the edge.\n\nA CQC gun should have a low [MaxSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange) while a marksman riffle should have a high [MinSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange) with a wide window."
       },
       "mechanicsitem": {
         "name": "MechanicsItem",
@@ -3034,7 +3063,12 @@
         "name": "MinDamage",
         "itemTypes": [
           "weapon"
-        ]
+        ],
+        "#desc": "item/MaxDamage",
+        "type": {
+          "main": "float"
+        },
+        "description": "Rolls the hit damage of the weapon between `MinDamage` and `MaxDamage`."
       },
       "minimumswingtime": {
         "name": "MinimumSwingtime",
@@ -3046,14 +3080,23 @@
         "name": "MinRange",
         "itemTypes": [
           "weapon"
-        ]
+        ],
+        "type": {
+          "main": "float"
+        },
+        "description": "Hard minimum attack distance. If the target is closer than `MinRange`, the ballistics controller does not register the shot and the game may force a melee swap. This is a binary threshold, not a penalty band. Separate from [MinSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange).\n\nLong rifles should be hard to use in tight spaces. `0.2` to `0.35` is a small gap but `0.61` is noticeably limiting indoors."
       },
       "minsightrange": {
         "name": "MinSightRange",
+        "type": {
+          "main": "float"
+        },
         "itemTypes": [
           "weapon",
           "weaponpart"
-        ]
+        ],
+        "#desc": "item/MaxSightRange",
+        "description": "[MinSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange) and [MaxSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange) define the optimal sight window, to be more specific, the distance band where hits and critical hits bonuses peak.\n\nThe [aiming skill](https://pzwiki.net/wiki/Aiming) and [eagle eyed](https://pzwiki.net/wiki/Eagle_Eyed) will impact these values:\n```\neffectiveMin = MinSightRange x (1 - AimingLevel / 30)\neffectiveMax = MaxSightRange x (1 + AimingLevel / 30) x (EagleEyed ? 1.2 : 1.0)\n```\n\nAt aiming 10, the minimum shrinks by 33% and the max grows by 33%, which widens the window significantly. When the trait [Short Sighted](https://pzwiki.net/wiki/Short_Sighted) is present and the character doesn't wear glasses, the `effectiveMax` equals `effectiveMin`, making the entire bonus window disappear.\n\nInside the the `effectiveMin` and `effectiveMax` window, the bonus follows a [Gaussian](https://en.wikipedia.org/wiki/Bell-shaped_function) with the bonus peaking at the midpoint. Aim-delay penalty is also reduced inside the window.\n\nBelow `effectiveMin`, a small linear penalty is applied as the gun is not suited for point-blank. Above `effectiveMax`, a growing quadratic penalty is applied, the bonus degrades rapidly past the edge.\n\nA CQC gun should have a low [MaxSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange) while a marksman riffle should have a high [MinSightRange](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange) with a wide window."
       },
       "minutestoburn": {
         "name": "MinutesToBurn",
