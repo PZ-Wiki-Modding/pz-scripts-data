@@ -3800,9 +3800,12 @@
       },
       "staticmodel": {
         "name": "StaticModel",
-        "blockType": {
-          "fullType": true,
-          "block": "model"
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "model",
+            "fullType": true
+          }
         },
         "itemTypes": [
           "clothing",
@@ -4283,9 +4286,12 @@
       },
       "worldstaticmodel": {
         "name": "WorldStaticModel",
-        "blockType": {
-          "fullType": true,
-          "block": "model"
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "model",
+            "fullType": true
+          }
         }
       },
       "worldstaticmodelsbyindex": {
@@ -5540,9 +5546,12 @@
       },
       "physicsshapescript": {
         "name": "physicsShapeScript",
-        "blockType": {
-          "fullType": true,
-          "block": "physicsShape"
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "physicsShape",
+            "fullType": true
+          }
         }
       }
     }
