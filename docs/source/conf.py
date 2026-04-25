@@ -2,6 +2,8 @@
 
 import os
 import sys
+import re
+from pathlib import Path
 
 # Add parent directory and docs directory to path
 sys.path.insert(0, os.path.abspath('../../'))
@@ -55,8 +57,46 @@ latex_elements = {
     'pointsize': '10pt',
 }
 
+latex_engine = 'xelatex'
+
 # Output for man pages
 man_pages = [
     ('index', 'scripts-api', 'Project Zomboid Scripts API Reference',
      ['Scripts-Data Contributors'], 1)
 ]
+
+
+def remove_emojis_from_latex(app, exception):
+    """Remove emoji characters from LaTeX output files for PDF generation."""
+    if app.builder.name != 'latex' or exception is not None:
+        return
+    
+    # Pattern to match emoji and other problematic Unicode characters
+    # This includes most emoji ranges
+    emoji_pattern = re.compile(
+        r'[\U0001F300-\U0001F9FF]|'  # Emojis and symbols
+        r'[\u2600-\u27BF]|'  # Miscellaneous Symbols
+        r'[\U0001F600-\U0001F64F]',  # Emoticons
+        flags=re.UNICODE
+    )
+    
+    latex_dir = Path(app.outdir)
+    if not latex_dir.exists():
+        return
+    
+    # Process all .tex files
+    for tex_file in latex_dir.glob('*.tex'):
+        try:
+            content = tex_file.read_text(encoding='utf-8')
+            # Remove emoji characters
+            cleaned_content = emoji_pattern.sub('', content)
+            if cleaned_content != content:
+                tex_file.write_text(cleaned_content, encoding='utf-8')
+                print(f"Removed emojis from {tex_file.name}")
+        except Exception as e:
+            print(f"Error processing {tex_file.name}: {e}")
+
+
+def setup(app):
+    """Setup event handlers."""
+    app.connect('build-finished', remove_emojis_from_latex)
