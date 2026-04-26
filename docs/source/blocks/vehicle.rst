@@ -208,13 +208,13 @@ frontEndHealth
 
 No description
 
-   .. warning::
+.. warning::
 
-      **Deprecated**
+   **Deprecated**
 
-      Use :ref:`frontenddurability` instead.
+   Use :ref:`vehicle-frontenddurability` instead.
 
-      While that parameter is present in vanilla scripts as of 42.16.3, it actually does nothing because it is not parsed as ``frontEndHealth`` but as ``frontEndDurability``.
+   While that parameter is present in vanilla scripts as of 42.16.3, it actually does nothing because it is not parsed as ``frontEndHealth`` but as ``frontEndDurability``.
 
 .. _vehicle-gearratio1:
 
@@ -506,13 +506,13 @@ rearEndHealth
 
 No description
 
-   .. warning::
+.. warning::
 
-      **Deprecated**
+   **Deprecated**
 
-      Use :ref:`rearenddurability` instead.
+   Use :ref:`vehicle-rearenddurability` instead.
 
-      While that parameter is present in vanilla scripts as of 42.16.3, it actually does nothing because it is not parsed as ``rearEndHealth`` but as ``rearEndDurability``.
+   While that parameter is present in vanilla scripts as of 42.16.3, it actually does nothing because it is not parsed as ``rearEndHealth`` but as ``rearEndDurability``.
 
 .. _vehicle-rollinfluence:
 

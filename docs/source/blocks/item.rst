@@ -1064,11 +1064,11 @@ DisplayName
 
 Sets the name of the item which will be displayed in-game. It's recommended to use a translation entry for this parameter to allow localization of the item name.
 
-   .. warning::
+.. warning::
 
-      **Deprecated** (since version 42.13.0)
+   **Deprecated** (since version 42.13.0)
 
-      Naming an item should be done with a translation entry. See the `wiki <https://pzwiki.net/wiki/DisplayName>`_ page for more information.
+   Naming an item should be done with a translation entry. See the `wiki <https://pzwiki.net/wiki/DisplayName>`_ page for more information.
 
 .. _item-doordamage:
 
@@ -3351,11 +3351,11 @@ Type
 
 Used to set the class of the item, which will influence parameters available.
 
-   .. warning::
+.. warning::
 
-      **Deprecated** (since version 42.13.0)
+   **Deprecated** (since version 42.13.0)
 
-      Use :ref:`itemtype` instead.
+   Use :ref:`item-itemtype` instead.
 
 .. _item-unequipsound:
 

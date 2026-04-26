@@ -28,6 +28,9 @@ html_static_path = ['_static']
 html_title = 'Project Zomboid Scripts API Reference'
 html_logo = None
 html_favicon = None
+html_css_files = [
+    'custom.css',
+]
 
 html_theme_options = {
     'collapse_navigation': False,
@@ -99,4 +102,5 @@ def remove_emojis_from_latex(app, exception):
 
 def setup(app):
     """Setup event handlers."""
+    # app.add_css_file('custom.css')
     app.connect('build-finished', remove_emojis_from_latex)
