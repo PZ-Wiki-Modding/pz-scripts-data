@@ -29,8 +29,10 @@ Parameters
 
 .. _blendwhitelist-whitelist:
 
-**whitelist** `🔗 <#blendwhitelist-whitelist>`_
+whitelist
+^^^^^^^^^
+
    Type: ``{'main': 'boolean'}``
 
-   No description
+No description
 

@@ -66,8 +66,10 @@ Parameters
 
 .. _vehicleenginerpm-version:
 
-**VERSION** `🔗 <#vehicleenginerpm-version>`_
+VERSION
+^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   Unclear what this does, preferably keep it at 1.
+Unclear what this does, preferably keep it at 1.
 

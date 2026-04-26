@@ -25,17 +25,21 @@ Parameters
 
 .. _poison-diluteratio:
 
-**diluteRatio** `🔗 <#poison-diluteratio>`_
+diluteRatio
+^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The ratio at which the poison is diluted when mixed with other fluids.
+The ratio at which the poison is diluted when mixed with other fluids.
 
 .. _poison-maxeffect:
 
-**maxEffect** `🔗 <#poison-maxeffect>`_
+maxEffect
+^^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   Defines the strength of the poison.
+Defines the strength of the poison.
 
    Allowed values:
 
@@ -44,8 +48,10 @@ Parameters
 
 .. _poison-minamount:
 
-**minAmount** `🔗 <#poison-minamount>`_
+minAmount
+^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The minimum amount required to consume to poison the player.
+The minimum amount required to consume to poison the player.
 

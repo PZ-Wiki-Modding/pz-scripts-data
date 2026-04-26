@@ -37,22 +37,28 @@ Parameters
 
 .. _physicsshape-mesh:
 
-**mesh** `🔗 <#physicsshape-mesh>`_
+mesh
+^^^^
+
    Type: ``{'main': 'string'}``
 
-   The path to the model's mesh file, relative to the folder ``media/models_X``.
+The path to the model's mesh file, relative to the folder ``media/models_X``.
 
 .. _physicsshape-rotate:
 
-**rotate** `🔗 <#physicsshape-rotate>`_
+rotate
+^^^^^^
+
    Type: ``{'main': 'array'}``
 
-   The rotation of the model, in the format ``x y z``.
+The rotation of the model, in the format ``x y z``.
 
 .. _physicsshape-translate:
 
-**translate** `🔗 <#physicsshape-translate>`_
+translate
+^^^^^^^^^
+
    Type: ``{'main': 'array'}``
 
-   The position offset of the model, in the format ``x y z``.
+The position offset of the model, in the format ``x y z``.
 

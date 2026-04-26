@@ -32,15 +32,19 @@ Parameters
 
 .. _fluid-colorreference:
 
-**ColorReference** `🔗 <#fluid-colorreference>`_
+ColorReference
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _fluid-displayname:
 
-**DisplayName** `🔗 <#fluid-displayname>`_
+DisplayName
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

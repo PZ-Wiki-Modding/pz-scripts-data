@@ -35,148 +35,190 @@ Parameters
 
 .. _model-animationsmesh:
 
-**animationsMesh** `🔗 <#model-animationsmesh>`_
+animationsMesh
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-attachmentparent:
 
-**attachmentParent** `🔗 <#model-attachmentparent>`_
+attachmentParent
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-attachmentself:
 
-**attachmentSelf** `🔗 <#model-attachmentself>`_
+attachmentSelf
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-boneweight:
 
-**boneWeight** `🔗 <#model-boneweight>`_
+boneWeight
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-colorblue:
 
-**ColorBlue** `🔗 <#model-colorblue>`_
+ColorBlue
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-colorgreen:
 
-**ColorGreen** `🔗 <#model-colorgreen>`_
+ColorGreen
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-colorred:
 
-**ColorRed** `🔗 <#model-colorred>`_
+ColorRed
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-cullface:
 
-**cullFace** `🔗 <#model-cullface>`_
+cullFace
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-file:
 
-**file** `🔗 <#model-file>`_
+file
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-ignorevehiclescale:
 
-**ignoreVehicleScale** `🔗 <#model-ignorevehiclescale>`_
+ignoreVehicleScale
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-invertx:
 
-**invertX** `🔗 <#model-invertx>`_
+invertX
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-mesh:
 
-**mesh** `🔗 <#model-mesh>`_
+mesh
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-offset:
 
-**offset** `🔗 <#model-offset>`_
+offset
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-postprocess:
 
-**postProcess** `🔗 <#model-postprocess>`_
+postProcess
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-rotate:
 
-**rotate** `🔗 <#model-rotate>`_
+rotate
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-scale:
 
-**scale** `🔗 <#model-scale>`_
+scale
+^^^^^
+
    Type: ``{'main': 'float'}``
 
-   Used to scale the model up or down.
+Used to scale the model up or down.
 
 .. _model-shader:
 
-**shader** `🔗 <#model-shader>`_
+shader
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-specialkeyring:
 
-**specialKeyRing** `🔗 <#model-specialkeyring>`_
+specialKeyRing
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-static:
 
-**static** `🔗 <#model-static>`_
+static
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-texture:
 
-**texture** `🔗 <#model-texture>`_
+texture
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _model-undocorescale:
 
-**undoCoreScale** `🔗 <#model-undocorescale>`_
+undoCoreScale
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

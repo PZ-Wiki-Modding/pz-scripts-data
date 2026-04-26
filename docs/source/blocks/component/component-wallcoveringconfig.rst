@@ -25,15 +25,19 @@ Parameters
 
 .. _component-wallcoveringconfig-sign:
 
-**sign** `🔗 <#component-wallcoveringconfig-sign>`_
+sign
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-wallcoveringconfig-type:
 
-**type** `🔗 <#component-wallcoveringconfig-type>`_
+type
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

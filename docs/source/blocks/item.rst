@@ -34,411 +34,301 @@ Parameters
 
 .. _item-acceptitemfunction:
 
-**AcceptItemFunction** `🔗 <#item-acceptitemfunction>`_
+AcceptItemFunction
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container
+No description
 
 .. _item-acceptmediatype:
 
-**AcceptMediaType** `🔗 <#item-acceptmediatype>`_
+AcceptMediaType
+^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``-1``
 
-   Item types: radio
-
 .. _item-activateditem:
 
-**ActivatedItem** `🔗 <#item-activateditem>`_
+ActivatedItem
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, drainable, weaponpart
+No description
 
 .. _item-aimingmod:
 
-**AimingMod** `🔗 <#item-aimingmod>`_
+AimingMod
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-aimingperkcritmodifier:
 
-**AimingPerkCritModifier** `🔗 <#item-aimingperkcritmodifier>`_
+AimingPerkCritModifier
+^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   `CriticalChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-criticalchance>`_ sets the base critical hit chance of the weapon. The final ``CriticalChance`` value after all applied bonuses and penalties have been applied is compared on a 0-100 roll.
-   
-   Below is a table listing the different elements which can influence the critical hit chance of a weapon:
-   
-   .. list-table::
-      :header-rows: 1
-   
-      * - Element
-        - Type
-        - Description
-        - Formula
-      * - `AimingPerkCritModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkcritmodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
-        - Weapon parameter
-        - The aiming level of the character impacts the player's critical hit chance by adding the following to the ``CriticalChance`` value.
-        - ``CriticalChance += AimingPerkCritModifier * Aiming level``
-      * - Sight bonus / penalty
-        - Weapon parameter
-        - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result. The aim delay penalty depends on `Aimingtime <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_
-        - ``CriticalChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
-      * - Moodles penalty
-        - Player condition
-        - Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the ``CriticalChance``.
-        - ``CriticalChance -= moodlesPenalty``
-      * - Weather penalty
-        - Environment
-        - Wind, rain, fog, low-light will all negatively impact the ``CriticalChance``.
-        - ``CriticalChance -= weatherPenalty``
-      * - Movement penalty
-        - Player condition
-        - The shooter speed and the distance will negatively impact the ``CriticalChance``.
-        - ``CriticalChance -= movementPenalty``
-      * - `Marksman trait <https://pzwiki.net/wiki/Marksman>`_
-        - Player condition
-        - This condition can never be reached as the Marksman trait no longer exists.
-        - ``CriticalChance += 10``
-   
-   
-   For PvP targets, the entire formula is bypassed and `StopPower <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-stoppower>`_ is used instead.
-   
-   ``CriticalChance`` sets the floor for unskilled players while ``AimingPerkCritModifier`` rewards more or less the character ability to aim. High modified and low base chance means the weapon is a skill-gated crit machine, making the weapon a sort of "experts" weapon.
-
-   Item types: weapon
+See :ref:`item-criticalchance` for more details.
 
 .. _item-aimingperkhitchancemodifier:
 
-**AimingPerkHitChanceModifier** `🔗 <#item-aimingperkhitchancemodifier>`_
+AimingPerkHitChanceModifier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `HitChanceModified <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchancemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_.
-   
-   The initial hitchance is determined by the following configuration:
-   
-   .. code-block::
-   
-      HitChance = min(HitChance, CombatConfigKey.MAXIMUM_START_TO_HIT_CHANCE)
-   
-   `MAXIMUM_START_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_START_TO_HIT_CHANCE>`_ is a configuration of the combat system of Project Zomboid. In this case, the default value is ``95.0``\ , which means the initial HitChance cannot be above ``95.0``.
-   
-   Below is a table listing the different elements which can influence the hit chance of a weapon:
-   
-   .. list-table::
-      :header-rows: 1
-   
-      * - Element
-        - Type
-        - Description
-        - Formula
-      * - `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
-        - Weapon parameter
-        - The aiming level of the character impacts the player's hit chance.
-        - ``HitChance += AimingPerkHitChanceModifier * Aiming level``
-      * - Sight bonus / penalty
-        - Weapon parameter
-        - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result.
-        - ``HitChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
-      * - Moodles penalty
-        - Player condition
-        - Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the ``HitChance``.
-        - ``HitChance -= moodlesPenalty``
-      * - Weather penalty
-        - Environment
-        - Wind, rain, fog, low-light will all negatively impact the ``HitChance``.
-        - ``HitChance -= weatherPenalty``
-      * - Movement penalty
-        - Player condition
-        - The shooter speed and the distance will negatively impact the ``HitChance``.
-        - ``HitChance -= movementPenalty``
-      * - Arm pain penalty
-        - Player condition
-        - The character's level of `pain <https://pzwiki.net/wiki/Pain>`_ will impact its aiming.
-        - ``HitChance -= armPainPenalty``
-      * - Headgear vision penalty
-        - Player condition
-        - Headgear will impact aiming, if the relevant sandbox option is enabled.
-        - ``HitChance -= headgearVisionPenalty``
-   
-   
-   The final obtained value of ``HitChance`` is clamped against the `MINIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MINIMUM_TO_HIT_CHANCE>`_ and `MAXIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_TO_HIT_CHANCE>`_\ , both respectively equal to ``5.0`` and ``100.0`` by default.
-   
-   At point-blank range, all combined penalties are scaled toward zero, so close shots are always more forgiving. The `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ parameter will set the floor for all players while `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ will increase accuracy with the level of aiming of the player. Low base and high modifier makes the gun terrible while unskilled but excellent with investment in aiming.
-
-   Item types: weapon
+See :ref:`item-hitchance` for more details.
 
 .. _item-aimingperkminanglemodifier:
 
-**AimingPerkMinAngleModifier** `🔗 <#item-aimingperkminanglemodifier>`_
+AimingPerkMinAngleModifier
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-aimingperkrangemodifier:
 
-**AimingPerkRangeModifier** `🔗 <#item-aimingperkrangemodifier>`_
+AimingPerkRangeModifier
+^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-aimingtime:
 
-**Aimingtime** `🔗 <#item-aimingtime>`_
+Aimingtime
+^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   `Aimingtime <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. The attachments directly add or subtract their `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ to the aiming delay.
-   
-   It controls the aim-settling delay, the aiming delay counter that must tick down to 0 before the weapon is "settled". Lower values means faster target reacquisition after each shots. The primary "how snappy does this gun feel" lever for semi-automatic guns. It tick down the aiming via the following formula:
-   
-   .. code-block:: java
-   
-      rate = 0.625 x gameSpeed x (1 + 0.05 x AimingLevel + (Marksman ? 0.1 : 0))
-   
-   The `marksman <https://pzwiki.net/wiki/Marksman>`_ trait being no longer accessible in the recent versions of the game, the condition involving it will never be reached.
-   
-   ..
-   
-      Note:
-      This formula might not be fully accurate as `time deltas <https://github.com/demiurgeQuantified/PZModdingGuides/blob/main/guides/GameTime.md>`_ don't appear in the formula.
-   
-   
-   While ``aimingDelay > 0``\ , both `hit chance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ and `critical chance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-criticalchance>`_ take an aim-delay penalty proportional to the remaining delay. The countdown only starts after ``recoilDelay`` has recovered, so high `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly delays when ``AimingTime`` begins ticking.
-   
-   On each shots or equip, the aiming delay will be increased or reduced, being impacted by aiming while in a `vehicle <https://pzwiki.net/wiki/Vehicle>`_\ , being reduced by the trait `Dextrous <https://pzwiki.net/wiki/Dextrous>`_ or increased by `All Thumbs <https://pzwiki.net/wiki/All_Thumbs>`_. The following formula is used:
-   
-   .. code-block:: java
-   
-      aimingDelay = AimingTime
-              * (Dextrous ? 0.8 : AllThumbs ? 1.2 : 1.0)
-              * (in vehicle ? 1.5 : 1.0)
+`Aimingtime <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. The attachments directly add or subtract their `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ to the aiming delay.
+
+It controls the aim-settling delay, the aiming delay counter that must tick down to 0 before the weapon is "settled". Lower values means faster target reacquisition after each shots. The primary "how snappy does this gun feel" lever for semi-automatic guns. It tick down the aiming via the following formula:
+
+.. code-block:: java
+
+   rate = 0.625 x gameSpeed x (1 + 0.05 x AimingLevel + (Marksman ? 0.1 : 0))
+
+The `marksman <https://pzwiki.net/wiki/Marksman>`_ trait being no longer accessible in the recent versions of the game, the condition involving it will never be reached.
+
+..
+
+   Note:
+   This formula might not be fully accurate as `time deltas <https://github.com/demiurgeQuantified/PZModdingGuides/blob/main/guides/GameTime.md>`_ don't appear in the formula.
+
+
+While ``aimingDelay > 0``\ , both `hit chance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ and `critical chance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-criticalchance>`_ take an aim-delay penalty proportional to the remaining delay. The countdown only starts after ``recoilDelay`` has recovered, so high `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly delays when ``AimingTime`` begins ticking.
+
+On each shots or equip, the aiming delay will be increased or reduced, being impacted by aiming while in a `vehicle <https://pzwiki.net/wiki/Vehicle>`_\ , being reduced by the trait `Dextrous <https://pzwiki.net/wiki/Dextrous>`_ or increased by `All Thumbs <https://pzwiki.net/wiki/All_Thumbs>`_. The following formula is used:
+
+.. code-block:: java
+
+   aimingDelay = AimingTime
+           * (Dextrous ? 0.8 : AllThumbs ? 1.2 : 1.0)
+           * (in vehicle ? 1.5 : 1.0)
 
 .. _item-aimingtimemodifier:
 
-**AimingTimeModifier** `🔗 <#item-aimingtimemodifier>`_
+AimingTimeModifier
+^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   `Aimingtime <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. The attachments directly add or subtract their `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ to the aiming delay.
-   
-   It controls the aim-settling delay, the aiming delay counter that must tick down to 0 before the weapon is "settled". Lower values means faster target reacquisition after each shots. The primary "how snappy does this gun feel" lever for semi-automatic guns. It tick down the aiming via the following formula:
-   
-   .. code-block:: java
-   
-      rate = 0.625 x gameSpeed x (1 + 0.05 x AimingLevel + (Marksman ? 0.1 : 0))
-   
-   The `marksman <https://pzwiki.net/wiki/Marksman>`_ trait being no longer accessible in the recent versions of the game, the condition involving it will never be reached.
-   
-   ..
-   
-      Note:
-      This formula might not be fully accurate as `time deltas <https://github.com/demiurgeQuantified/PZModdingGuides/blob/main/guides/GameTime.md>`_ don't appear in the formula.
-   
-   
-   While ``aimingDelay > 0``\ , both `hit chance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ and `critical chance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-criticalchance>`_ take an aim-delay penalty proportional to the remaining delay. The countdown only starts after ``recoilDelay`` has recovered, so high `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly delays when ``AimingTime`` begins ticking.
-   
-   On each shots or equip, the aiming delay will be increased or reduced, being impacted by aiming while in a `vehicle <https://pzwiki.net/wiki/Vehicle>`_\ , being reduced by the trait `Dextrous <https://pzwiki.net/wiki/Dextrous>`_ or increased by `All Thumbs <https://pzwiki.net/wiki/All_Thumbs>`_. The following formula is used:
-   
-   .. code-block:: java
-   
-      aimingDelay = AimingTime
-              * (Dextrous ? 0.8 : AllThumbs ? 1.2 : 1.0)
-              * (in vehicle ? 1.5 : 1.0)
+See :ref:`item-aimingtime` for more details.
 
 .. _item-aimreleasesound:
 
-**AimReleaseSound** `🔗 <#item-aimreleasesound>`_
+AimReleaseSound
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-alarmsound:
 
-**AlarmSound** `🔗 <#item-alarmsound>`_
+AlarmSound
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: alarmclock, alarmclockclothing
+No description
 
 .. _item-alcoholic:
 
-**Alcoholic** `🔗 <#item-alcoholic>`_
+Alcoholic
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-alcoholpower:
 
-**AlcoholPower** `🔗 <#item-alcoholpower>`_
+AlcoholPower
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable
+No description
 
 .. _item-alwaysknockdown:
 
-**AlwaysKnockdown** `🔗 <#item-alwaysknockdown>`_
+AlwaysKnockdown
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-alwayswelcomegift:
 
-**AlwaysWelcomeGift** `🔗 <#item-alwayswelcomegift>`_
+AlwaysWelcomeGift
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-ammobox:
 
-**AmmoBox** `🔗 <#item-ammobox>`_
+AmmoBox
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-ammotype:
 
-**AmmoType** `🔗 <#item-ammotype>`_
+AmmoType
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal, weapon
+No description
 
 .. _item-anglefalloff:
 
-**AngleFalloff** `🔗 <#item-anglefalloff>`_
+AngleFalloff
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-animalfeedtype:
 
-**AnimalFeedType** `🔗 <#item-animalfeedtype>`_
+AnimalFeedType
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-attachmentreplacement:
 
-**AttachmentReplacement** `🔗 <#item-attachmentreplacement>`_
+AttachmentReplacement
+^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container, radio
+No description
 
 .. _item-attachmentsprovided:
 
-**AttachmentsProvided** `🔗 <#item-attachmentsprovided>`_
+AttachmentsProvided
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, container
+No description
 
 .. _item-attachmenttype:
 
-**AttachmentType** `🔗 <#item-attachmenttype>`_
+AttachmentType
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, normal, radio, weapon
+No description
 
 .. _item-badcold:
 
-**BadCold** `🔗 <#item-badcold>`_
+BadCold
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-badinmicrowave:
 
-**BadInMicrowave** `🔗 <#item-badinmicrowave>`_
+BadInMicrowave
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   Used to set whether this item can cause a fire when put in a microwave, if set to true it will explode.
-
-   Item types: food
+Used to set whether this item can cause a fire when put in a microwave, if set to true it will explode.
 
 .. _item-bandagepower:
 
-**BandagePower** `🔗 <#item-bandagepower>`_
+BandagePower
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-basespeed:
 
-**BaseSpeed** `🔗 <#item-basespeed>`_
+BaseSpeed
+^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
 
-   Item types: weapon
-
 .. _item-basevolumerange:
 
-**BaseVolumeRange** `🔗 <#item-basevolumerange>`_
+BaseVolumeRange
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: radio
+No description
 
 .. _item-bitedefense:
 
-**BiteDefense** `🔗 <#item-bitedefense>`_
+BiteDefense
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing
+No description
 
 .. _item-bloodlocation:
 
-**BloodLocation** `🔗 <#item-bloodlocation>`_
+BloodLocation
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
-   No description
-
-   Item types: clothing, container, normal, radio
+No description
 
    Allowed values:
 
@@ -480,701 +370,699 @@ Parameters
 
 .. _item-bodylocation:
 
-**BodyLocation** `🔗 <#item-bodylocation>`_
+BodyLocation
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   Used to define which location on the human character this clothing item can be worn.
-
-   Item types: alarmclockclothing, clothing, container, normal
+Used to define which location on the human character this clothing item can be worn.
 
 .. _item-book_subject:
 
-**book_subject** `🔗 <#item-book_subject>`_
+book_subject
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container, literature
+No description
 
 .. _item-boredomchange:
 
-**BoredomChange** `🔗 <#item-boredomchange>`_
+BoredomChange
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food, literature
+No description
 
 .. _item-brakeforce:
 
-**brakeForce** `🔗 <#item-brakeforce>`_
+brakeForce
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-breaksound:
 
-**BreakSound** `🔗 <#item-breaksound>`_
+BreakSound
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, normal, weapon
+No description
 
 .. _item-bringtobearsound:
 
-**BringToBearSound** `🔗 <#item-bringtobearsound>`_
+BringToBearSound
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-bulletdefense:
 
-**BulletDefense** `🔗 <#item-bulletdefense>`_
+BulletDefense
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing
+No description
 
 .. _item-bullethitarmoursound:
 
-**BulletHitArmourSound** `🔗 <#item-bullethitarmoursound>`_
+BulletHitArmourSound
+^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing
+No description
 
 .. _item-calories:
 
-**Calories** `🔗 <#item-calories>`_
+Calories
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, normal
+No description
 
 .. _item-canattach:
 
-**CanAttach** `🔗 <#item-canattach>`_
+CanAttach
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weaponpart
+No description
 
 .. _item-canbandage:
 
-**CanBandage** `🔗 <#item-canbandage>`_
+CanBandage
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-canbarricade:
 
-**CanBarricade** `🔗 <#item-canbarricade>`_
+CanBarricade
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-canbeequipped:
 
-**CanBeEquipped** `🔗 <#item-canbeequipped>`_
+CanBeEquipped
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container, radio
+No description
 
 .. _item-canbeplaced:
 
-**CanBePlaced** `🔗 <#item-canbeplaced>`_
+CanBePlaced
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-canberemote:
 
-**CanBeRemote** `🔗 <#item-canberemote>`_
+CanBeRemote
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-canbereused:
 
-**CanBeReused** `🔗 <#item-canbereused>`_
+CanBeReused
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-canbewrite:
 
-**CanBeWrite** `🔗 <#item-canbewrite>`_
+CanBeWrite
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: literature
+No description
 
 .. _item-candetach:
 
-**CanDetach** `🔗 <#item-candetach>`_
+CanDetach
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weaponpart
+No description
 
 .. _item-canhaveholes:
 
-**CanHaveHoles** `🔗 <#item-canhaveholes>`_
+CanHaveHoles
+^^^^^^^^^^^^
+
    Type: ``{'main': 'boolean'}``
 
-   Used to define whenever this item can get holes in it.
+Used to define whenever this item can get holes in it.
 
    Default: ``True``
-
-   Item types: clothing, container, normal
 
 .. _item-cannedfood:
 
-**CannedFood** `🔗 <#item-cannedfood>`_
+CannedFood
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-canstack:
 
-**CanStack** `🔗 <#item-canstack>`_
+CanStack
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-canstorewater:
 
-**CanStoreWater** `🔗 <#item-canstorewater>`_
+CanStoreWater
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, normal, weapon
+No description
 
 .. _item-cantattackwithlowestendurance:
 
-**CantAttackWithLowestEndurance** `🔗 <#item-cantattackwithlowestendurance>`_
+CantAttackWithLowestEndurance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-cantbeconsolided:
 
-**cantBeConsolided** `🔗 <#item-cantbeconsolided>`_
+cantBeConsolided
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable
+No description
 
 .. _item-cantbefrozen:
 
-**CantBeFrozen** `🔗 <#item-cantbefrozen>`_
+CantBeFrozen
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-canteat:
 
-**CantEat** `🔗 <#item-canteat>`_
+CantEat
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-capacity:
 
-**Capacity** `🔗 <#item-capacity>`_
+Capacity
+^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``-1``
 
-   Item types: container
-
 .. _item-carbohydrates:
 
-**Carbohydrates** `🔗 <#item-carbohydrates>`_
+Carbohydrates
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, normal
+No description
 
 .. _item-categories:
 
-**Categories** `🔗 <#item-categories>`_
+Categories
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-chancetofall:
 
-**ChanceToFall** `🔗 <#item-chancetofall>`_
+ChanceToFall
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, normal
+No description
 
 .. _item-chancetospawndamaged:
 
-**ChanceToSpawnDamaged** `🔗 <#item-chancetospawndamaged>`_
+ChanceToSpawnDamaged
+^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, normal
+No description
 
 .. _item-clicksound:
 
-**ClickSound** `🔗 <#item-clicksound>`_
+ClickSound
+^^^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
    Default: ``Stormy9mmClick``
 
-   Item types: weapon
-
 .. _item-clipsize:
 
-**ClipSize** `🔗 <#item-clipsize>`_
+ClipSize
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-closekillmove:
 
-**CloseKillMove** `🔗 <#item-closekillmove>`_
+CloseKillMove
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   Used to whenever this weapon can be used to do a close kill move, like knives to assassinate in the back.
-
-   Item types: weapon
+Used to whenever this weapon can be used to do a close kill move, like knives to assassinate in the back.
 
 .. _item-closesound:
 
-**CloseSound** `🔗 <#item-closesound>`_
+CloseSound
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container
+No description
 
 .. _item-clothingextrasubmenu:
 
-**ClothingExtraSubmenu** `🔗 <#item-clothingextrasubmenu>`_
+ClothingExtraSubmenu
+^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   ``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
-   
-   ``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
-
-   Item types: alarmclockclothing, clothing, container
+See :ref:`item-clothingitem` for more details.
 
 .. _item-clothingitem:
 
-**ClothingItem** `🔗 <#item-clothingitem>`_
+ClothingItem
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   ``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
-   
-   ``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
+``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
 
-   Item types: alarmclockclothing, clothing, container, radio
+``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
 
 .. _item-clothingitemextra:
 
-**ClothingItemExtra** `🔗 <#item-clothingitemextra>`_
+ClothingItemExtra
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   ``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
-   
-   ``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
-
-   Item types: alarmclockclothing, clothing, container
+See :ref:`item-clothingitem` for more details.
 
 .. _item-clothingitemextraoption:
 
-**ClothingItemExtraOption** `🔗 <#item-clothingitemextraoption>`_
+ClothingItemExtraOption
+^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   ``ClothingItem`` references the clothing defined inside the `clothing.xml <https://pzwiki.net/wiki/Clothing.xml>`_ file. ``ClothingExtraSubmenu`` will define the name of the context menu option to equip the clothing item.
-   
-   ``ClothingItemExtra`` and ``ClothingItemExtraOption`` are used to define additional clothing equip options, they reference another item script block.
-
-   Item types: alarmclockclothing, clothing, container
+See :ref:`item-clothingitem` for more details.
 
 .. _item-colorblue:
 
-**ColorBlue** `🔗 <#item-colorblue>`_
+ColorBlue
+^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``255``
-
-   Item types: clothing, food, literature, normal, weapon
 
 .. _item-colorgreen:
 
-**ColorGreen** `🔗 <#item-colorgreen>`_
+ColorGreen
+^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``255``
-
-   Item types: clothing, food, literature, normal, weapon
 
 .. _item-colorred:
 
-**ColorRed** `🔗 <#item-colorred>`_
+ColorRed
+^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``255``
 
-   Item types: clothing, food, literature, normal, weapon
-
 .. _item-combatspeedmodifier:
 
-**CombatSpeedModifier** `🔗 <#item-combatspeedmodifier>`_
+CombatSpeedModifier
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
 
-   Item types: clothing, container
-
 .. _item-conditionaffectscapacity:
 
-**ConditionAffectsCapacity** `🔗 <#item-conditionaffectscapacity>`_
+ConditionAffectsCapacity
+^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   Set whenever condition of the item can impact the capacity value of the container.
-
-   Item types: normal
+Set whenever condition of the item can impact the capacity value of the container.
 
 .. _item-conditionlowerchanceonein:
 
-**ConditionLowerChanceOneIn** `🔗 <#item-conditionlowerchanceonein>`_
+ConditionLowerChanceOneIn
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   The chance impact to reduce the durability of the item, the value is used to calculate the chance by doing $chance = 1/ConditionLowerChanceOneIn$, which means increasing this parameter value will reduce the chance to damage the item.
+The chance impact to reduce the durability of the item, the value is used to calculate the chance by doing $chance = 1/ConditionLowerChanceOneIn$, which means increasing this parameter value will reduce the chance to damage the item.
 
    Default: ``10``
-
-   Item types: clothing, normal, weapon
 
 .. _item-conditionloweroffroad:
 
-**ConditionLowerOffroad** `🔗 <#item-conditionloweroffroad>`_
+ConditionLowerOffroad
+^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-conditionlowerstandard:
 
-**ConditionLowerStandard** `🔗 <#item-conditionlowerstandard>`_
+ConditionLowerStandard
+^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, normal
+No description
 
 .. _item-conditionmax:
 
-**ConditionMax** `🔗 <#item-conditionmax>`_
+ConditionMax
+^^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``10``
 
-   Item types: clothing, container, drainable, food, normal, radio, weapon
-
 .. _item-consolidateoption:
 
-**ConsolidateOption** `🔗 <#item-consolidateoption>`_
+ConsolidateOption
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable
+No description
 
 .. _item-cookingsound:
 
-**CookingSound** `🔗 <#item-cookingsound>`_
+CookingSound
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, normal
+No description
 
 .. _item-corpsesicknessdefense:
 
-**CorpseSicknessDefense** `🔗 <#item-corpsesicknessdefense>`_
+CorpseSicknessDefense
+^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing
+No description
 
 .. _item-cosmetic:
 
-**Cosmetic** `🔗 <#item-cosmetic>`_
+Cosmetic
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: alarmclockclothing, clothing
+No description
 
 .. _item-count:
 
-**count** `🔗 <#item-count>`_
+count
+^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``1``
 
-   Item types: normal
-
 .. _item-critdmgmultiplier:
 
-**CritDmgMultiplier** `🔗 <#item-critdmgmultiplier>`_
+CritDmgMultiplier
+^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   Multiplier applied to the damage of a hit if it is a critical hit, applied inside `IsoGameCharacter.Hit() <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html#Hit(zombie.inventory.types.HandWeapon,zombie.characters.IsoGameCharacter,float,boolean,float,boolean>`_\ ). Two types of crits can trigger:
-   
-   
-   * A normal crit: ``damage *= max(2.0, CritDmgMultiplier)``
-   * Aim-at-floor stomp (melee only): ``damage *= max(5.0, CritDmgMultiplier)``
-   
-   The default value of the ``HandWeapon`` class is ``2.0``. Values of ``3.0`` to ``5.0`` visibly spike crit damage while values above ``5.0`` also start boosting stomps.
+Multiplier applied to the damage of a hit if it is a critical hit, applied inside `IsoGameCharacter.Hit() <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html#Hit(zombie.inventory.types.HandWeapon,zombie.characters.IsoGameCharacter,float,boolean,float,boolean>`_\ ). Two types of crits can trigger:
+
+
+* A normal crit: ``damage *= max(2.0, CritDmgMultiplier)``
+* Aim-at-floor stomp (melee only): ``damage *= max(5.0, CritDmgMultiplier)``
+
+The default value of the ``HandWeapon`` class is ``2.0``. Values of ``3.0`` to ``5.0`` visibly spike crit damage while values above ``5.0`` also start boosting stomps.
 
    Default: ``2.0``
 
-   Item types: weapon
-
 .. _item-criticalchance:
 
-**CriticalChance** `🔗 <#item-criticalchance>`_
+CriticalChance
+^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   `CriticalChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-criticalchance>`_ sets the base critical hit chance of the weapon. The final ``CriticalChance`` value after all applied bonuses and penalties have been applied is compared on a 0-100 roll.
-   
-   Below is a table listing the different elements which can influence the critical hit chance of a weapon:
-   
-   .. list-table::
-      :header-rows: 1
-   
-      * - Element
-        - Type
-        - Description
-        - Formula
-      * - `AimingPerkCritModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkcritmodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
-        - Weapon parameter
-        - The aiming level of the character impacts the player's critical hit chance by adding the following to the ``CriticalChance`` value.
-        - ``CriticalChance += AimingPerkCritModifier * Aiming level``
-      * - Sight bonus / penalty
-        - Weapon parameter
-        - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result. The aim delay penalty depends on `Aimingtime <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_
-        - ``CriticalChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
-      * - Moodles penalty
-        - Player condition
-        - Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the ``CriticalChance``.
-        - ``CriticalChance -= moodlesPenalty``
-      * - Weather penalty
-        - Environment
-        - Wind, rain, fog, low-light will all negatively impact the ``CriticalChance``.
-        - ``CriticalChance -= weatherPenalty``
-      * - Movement penalty
-        - Player condition
-        - The shooter speed and the distance will negatively impact the ``CriticalChance``.
-        - ``CriticalChance -= movementPenalty``
-      * - `Marksman trait <https://pzwiki.net/wiki/Marksman>`_
-        - Player condition
-        - This condition can never be reached as the Marksman trait no longer exists.
-        - ``CriticalChance += 10``
-   
-   
-   For PvP targets, the entire formula is bypassed and `StopPower <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-stoppower>`_ is used instead.
-   
-   ``CriticalChance`` sets the floor for unskilled players while ``AimingPerkCritModifier`` rewards more or less the character ability to aim. High modified and low base chance means the weapon is a skill-gated crit machine, making the weapon a sort of "experts" weapon.
+`CriticalChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-criticalchance>`_ sets the base critical hit chance of the weapon. The final ``CriticalChance`` value after all applied bonuses and penalties have been applied is compared on a 0-100 roll.
+
+Below is a table listing the different elements which can influence the critical hit chance of a weapon:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Element
+     - Type
+     - Description
+     - Formula
+   * - `AimingPerkCritModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkcritmodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
+     - Weapon parameter
+     - The aiming level of the character impacts the player's critical hit chance by adding the following to the ``CriticalChance`` value.
+     - ``CriticalChance += AimingPerkCritModifier * Aiming level``
+   * - Sight bonus / penalty
+     - Weapon parameter
+     - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result. The aim delay penalty depends on `Aimingtime <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_
+     - ``CriticalChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
+   * - Moodles penalty
+     - Player condition
+     - Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the ``CriticalChance``.
+     - ``CriticalChance -= moodlesPenalty``
+   * - Weather penalty
+     - Environment
+     - Wind, rain, fog, low-light will all negatively impact the ``CriticalChance``.
+     - ``CriticalChance -= weatherPenalty``
+   * - Movement penalty
+     - Player condition
+     - The shooter speed and the distance will negatively impact the ``CriticalChance``.
+     - ``CriticalChance -= movementPenalty``
+   * - `Marksman trait <https://pzwiki.net/wiki/Marksman>`_
+     - Player condition
+     - This condition can never be reached as the Marksman trait no longer exists.
+     - ``CriticalChance += 10``
+
+
+For PvP targets, the entire formula is bypassed and `StopPower <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-stoppower>`_ is used instead.
+
+``CriticalChance`` sets the floor for unskilled players while ``AimingPerkCritModifier`` rewards more or less the character ability to aim. High modified and low base chance means the weapon is a skill-gated crit machine, making the weapon a sort of "experts" weapon.
 
    Default: ``20.0``
 
-   Item types: weapon
-
 .. _item-customcontextmenu:
 
-**CustomContextMenu** `🔗 <#item-customcontextmenu>`_
+CustomContextMenu
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, normal
+No description
 
 .. _item-customeatsound:
 
-**CustomEatSound** `🔗 <#item-customeatsound>`_
+CustomEatSound
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   Custom sound to play when eating or drinking this item, refers to the ID of a sound script. Set to an empty string to disable any sound from playing.
+Custom sound to play when eating or drinking this item, refers to the ID of a sound script. Set to an empty string to disable any sound from playing.
 
    Can be empty: ✓
 
-   Item types: drainable, food, normal
-
 .. _item-cyclicratemultiplier:
 
-**CyclicRateMultiplier** `🔗 <#item-cyclicratemultiplier>`_
+CyclicRateMultiplier
+^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-damagecategory:
 
-**DamageCategory** `🔗 <#item-damagecategory>`_
+DamageCategory
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-damagemakehole:
 
-**DamageMakeHole** `🔗 <#item-damagemakehole>`_
+DamageMakeHole
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-dangerousuncooked:
 
-**DangerousUncooked** `🔗 <#item-dangerousuncooked>`_
+DangerousUncooked
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-daysfresh:
 
-**DaysFresh** `🔗 <#item-daysfresh>`_
+DaysFresh
+^^^^^^^^^
+
    Type: ``Any``
 
-   How many days this food item will stay fresh with default sandbox settings.
-
-   Item types: food
+How many days this food item will stay fresh with default sandbox settings.
 
 .. _item-daystotallyrotten:
 
-**DaysTotallyRotten** `🔗 <#item-daystotallyrotten>`_
+DaysTotallyRotten
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   How many days this food item will take to rot.
-
-   Item types: food
+How many days this food item will take to rot.
 
 .. _item-digitalpadlock:
 
-**DigitalPadlock** `🔗 <#item-digitalpadlock>`_
+DigitalPadlock
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: key
+No description
 
 .. _item-digtype:
 
-**DigType** `🔗 <#item-digtype>`_
+DigType
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal, weapon
+No description
 
 .. _item-disappearonuse:
 
-**DisappearOnUse** `🔗 <#item-disappearonuse>`_
+DisappearOnUse
+^^^^^^^^^^^^^^
+
    Type: ``{'main': 'boolean'}``
 
-   No description
+No description
 
    Default: ``True``
 
-   Item types: drainable, radio, weaponpart
-
 .. _item-discomfortmodifier:
 
-**DiscomfortModifier** `🔗 <#item-discomfortmodifier>`_
+DiscomfortModifier
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, container
+No description
 
 .. _item-displaycategory:
 
-**DisplayCategory** `🔗 <#item-displaycategory>`_
+DisplayCategory
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _item-displayname:
 
-**DisplayName** `🔗 <#item-displayname>`_
+DisplayName
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   Sets the name of the item which will be displayed in-game. It's recommended to use a translation entry for this parameter to allow localization of the item name.
+Sets the name of the item which will be displayed in-game. It's recommended to use a translation entry for this parameter to allow localization of the item name.
 
    .. warning::
 
@@ -1184,792 +1072,751 @@ Parameters
 
 .. _item-doordamage:
 
-**DoorDamage** `🔗 <#item-doordamage>`_
+DoorDamage
+^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   Damage dealt to doors, windows, barricades and some vehicle/object hits.
+Damage dealt to doors, windows, barricades and some vehicle/object hits.
 
    Default: ``1``
 
-   Item types: weapon
-
 .. _item-doorhitsound:
 
-**DoorHitSound** `🔗 <#item-doorhitsound>`_
+DoorHitSound
+^^^^^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
    Default: ``BaseballBatHit``
-
-   Item types: weapon
 
 .. _item-doubleclickrecipe:
 
-**DoubleClickRecipe** `🔗 <#item-doubleclickrecipe>`_
+DoubleClickRecipe
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, literature, normal
+No description
 
 .. _item-dropsound:
 
-**DropSound** `🔗 <#item-dropsound>`_
+DropSound
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal, weapon
+No description
 
 .. _item-eattime:
 
-**Eattime** `🔗 <#item-eattime>`_
+Eattime
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, normal
+No description
 
 .. _item-eattype:
 
-**EatType** `🔗 <#item-eattype>`_
+EatType
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, drainable, food, normal, weapon
+No description
 
 .. _item-ejectammosound:
 
-**EjectAmmoSound** `🔗 <#item-ejectammosound>`_
+EjectAmmoSound
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-ejectammostartsound:
 
-**EjectAmmoStartSound** `🔗 <#item-ejectammostartsound>`_
+EjectAmmoStartSound
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-ejectammostopsound:
 
-**EjectAmmoStopSound** `🔗 <#item-ejectammostopsound>`_
+EjectAmmoStopSound
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-endurancechange:
 
-**enduranceChange** `🔗 <#item-endurancechange>`_
+enduranceChange
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-endurancemod:
 
-**EnduranceMod** `🔗 <#item-endurancemod>`_
+EnduranceMod
+^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: weapon
 
 .. _item-engineloudness:
 
-**engineLoudness** `🔗 <#item-engineloudness>`_
+engineLoudness
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-equippednosprint:
 
-**EquippedNoSprint** `🔗 <#item-equippednosprint>`_
+EquippedNoSprint
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-equipsound:
 
-**EquipSound** `🔗 <#item-equipsound>`_
+EquipSound
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container, drainable, weapon
+No description
 
 .. _item-evolvedrecipe:
 
-**EvolvedRecipe** `🔗 <#item-evolvedrecipe>`_
+EvolvedRecipe
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   List of evolved recipes this item can be used in.
-
-   Item types: drainable, food
+List of evolved recipes this item can be used in.
 
 .. _item-evolvedrecipename:
 
-**EvolvedRecipeName** `🔗 <#item-evolvedrecipename>`_
+EvolvedRecipeName
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-explosionduration:
 
-**ExplosionDuration** `🔗 <#item-explosionduration>`_
+ExplosionDuration
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-explosionpower:
 
-**ExplosionPower** `🔗 <#item-explosionpower>`_
+ExplosionPower
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-explosionrange:
 
-**ExplosionRange** `🔗 <#item-explosionrange>`_
+ExplosionRange
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-explosionsound:
 
-**ExplosionSound** `🔗 <#item-explosionsound>`_
+ExplosionSound
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-explosiontimer:
 
-**ExplosionTimer** `🔗 <#item-explosiontimer>`_
+ExplosionTimer
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-fabrictype:
 
-**FabricType** `🔗 <#item-fabrictype>`_
+FabricType
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, normal
+No description
 
 .. _item-fatiguechange:
 
-**fatigueChange** `🔗 <#item-fatiguechange>`_
+fatigueChange
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-fillfromdispensersound:
 
-**FillFromDispenserSound** `🔗 <#item-fillfromdispensersound>`_
+FillFromDispenserSound
+^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, normal
+No description
 
 .. _item-fillfromlakesound:
 
-**FillFromLakeSound** `🔗 <#item-fillfromlakesound>`_
+FillFromLakeSound
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-fillfromtapsound:
 
-**FillFromTapSound** `🔗 <#item-fillfromtapsound>`_
+FillFromTapSound
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, normal
+No description
 
 .. _item-fillfromtoiletsound:
 
-**FillFromToiletSound** `🔗 <#item-fillfromtoiletsound>`_
+FillFromToiletSound
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-firefuelratio:
 
-**FireFuelRatio** `🔗 <#item-firefuelratio>`_
+FireFuelRatio
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, moveable, normal, weapon
+No description
 
 .. _item-firemode:
 
-**FireMode** `🔗 <#item-firemode>`_
+FireMode
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-firemodepossibilities:
 
-**FireModePossibilities** `🔗 <#item-firemodepossibilities>`_
+FireModePossibilities
+^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-firerange:
 
-**FireRange** `🔗 <#item-firerange>`_
+FireRange
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-firestartingchance:
 
-**FireStartingChance** `🔗 <#item-firestartingchance>`_
+FireStartingChance
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-firestartingenergy:
 
-**FireStartingEnergy** `🔗 <#item-firestartingenergy>`_
+FireStartingEnergy
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-fishinglure:
 
-**FishingLure** `🔗 <#item-fishinglure>`_
+FishingLure
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food, normal
+No description
 
 .. _item-flureduction:
 
-**fluReduction** `🔗 <#item-flureduction>`_
+fluReduction
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-foodsicknesschange:
 
-**FoodSicknessChange** `🔗 <#item-foodsicknesschange>`_
+FoodSicknessChange
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-foodtype:
 
-**FoodType** `🔗 <#item-foodtype>`_
+FoodType
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-goodhot:
 
-**GoodHot** `🔗 <#item-goodhot>`_
+GoodHot
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-guntype:
 
-**GunType** `🔗 <#item-guntype>`_
+GunType
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-havechamber:
 
-**HaveChamber** `🔗 <#item-havechamber>`_
+HaveChamber
+^^^^^^^^^^^
+
    Type: ``{'main': 'boolean'}``
 
-   Whether the weapon has a chamber that can hold a round in addition to its magazine.
+Whether the weapon has a chamber that can hold a round in addition to its magazine.
 
    Default: ``True``
 
-   Item types: weapon
-
 .. _item-headcondition:
 
-**HeadCondition** `🔗 <#item-headcondition>`_
+HeadCondition
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal, weapon
+No description
 
 .. _item-headconditionlowerchancemultiplier:
 
-**HeadConditionLowerChanceMultiplier** `🔗 <#item-headconditionlowerchancemultiplier>`_
+HeadConditionLowerChanceMultiplier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: normal, weapon
 
 .. _item-headconditionmax:
 
-**HeadConditionMax** `🔗 <#item-headconditionmax>`_
+HeadConditionMax
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-hearingmodifier:
 
-**HearingModifier** `🔗 <#item-hearingmodifier>`_
+HearingModifier
+^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
 
-   Item types: clothing
-
 .. _item-herbalisttype:
 
-**HerbalistType** `🔗 <#item-herbalisttype>`_
+HerbalistType
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-hidden:
 
-**Hidden** `🔗 <#item-hidden>`_
+Hidden
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _item-hitanglemod:
 
-**HitAngleMod** `🔗 <#item-hitanglemod>`_
+HitAngleMod
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-hitchance:
 
-**HitChance** `🔗 <#item-hitchance>`_
+HitChance
+^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `HitChanceModified <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchancemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_.
-   
-   The initial hitchance is determined by the following configuration:
-   
-   .. code-block::
-   
-      HitChance = min(HitChance, CombatConfigKey.MAXIMUM_START_TO_HIT_CHANCE)
-   
-   `MAXIMUM_START_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_START_TO_HIT_CHANCE>`_ is a configuration of the combat system of Project Zomboid. In this case, the default value is ``95.0``\ , which means the initial HitChance cannot be above ``95.0``.
-   
-   Below is a table listing the different elements which can influence the hit chance of a weapon:
-   
-   .. list-table::
-      :header-rows: 1
-   
-      * - Element
-        - Type
-        - Description
-        - Formula
-      * - `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
-        - Weapon parameter
-        - The aiming level of the character impacts the player's hit chance.
-        - ``HitChance += AimingPerkHitChanceModifier * Aiming level``
-      * - Sight bonus / penalty
-        - Weapon parameter
-        - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result.
-        - ``HitChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
-      * - Moodles penalty
-        - Player condition
-        - Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the ``HitChance``.
-        - ``HitChance -= moodlesPenalty``
-      * - Weather penalty
-        - Environment
-        - Wind, rain, fog, low-light will all negatively impact the ``HitChance``.
-        - ``HitChance -= weatherPenalty``
-      * - Movement penalty
-        - Player condition
-        - The shooter speed and the distance will negatively impact the ``HitChance``.
-        - ``HitChance -= movementPenalty``
-      * - Arm pain penalty
-        - Player condition
-        - The character's level of `pain <https://pzwiki.net/wiki/Pain>`_ will impact its aiming.
-        - ``HitChance -= armPainPenalty``
-      * - Headgear vision penalty
-        - Player condition
-        - Headgear will impact aiming, if the relevant sandbox option is enabled.
-        - ``HitChance -= headgearVisionPenalty``
-   
-   
-   The final obtained value of ``HitChance`` is clamped against the `MINIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MINIMUM_TO_HIT_CHANCE>`_ and `MAXIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_TO_HIT_CHANCE>`_\ , both respectively equal to ``5.0`` and ``100.0`` by default.
-   
-   At point-blank range, all combined penalties are scaled toward zero, so close shots are always more forgiving. The `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ parameter will set the floor for all players while `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ will increase accuracy with the level of aiming of the player. Low base and high modifier makes the gun terrible while unskilled but excellent with investment in aiming.
+`HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `HitChanceModified <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchancemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_.
+
+The initial hitchance is determined by the following configuration:
+
+.. code-block::
+
+   HitChance = min(HitChance, CombatConfigKey.MAXIMUM_START_TO_HIT_CHANCE)
+
+`MAXIMUM_START_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_START_TO_HIT_CHANCE>`_ is a configuration of the combat system of Project Zomboid. In this case, the default value is ``95.0``\ , which means the initial HitChance cannot be above ``95.0``.
+
+Below is a table listing the different elements which can influence the hit chance of a weapon:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Element
+     - Type
+     - Description
+     - Formula
+   * - `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
+     - Weapon parameter
+     - The aiming level of the character impacts the player's hit chance.
+     - ``HitChance += AimingPerkHitChanceModifier * Aiming level``
+   * - Sight bonus / penalty
+     - Weapon parameter
+     - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result.
+     - ``HitChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
+   * - Moodles penalty
+     - Player condition
+     - Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the ``HitChance``.
+     - ``HitChance -= moodlesPenalty``
+   * - Weather penalty
+     - Environment
+     - Wind, rain, fog, low-light will all negatively impact the ``HitChance``.
+     - ``HitChance -= weatherPenalty``
+   * - Movement penalty
+     - Player condition
+     - The shooter speed and the distance will negatively impact the ``HitChance``.
+     - ``HitChance -= movementPenalty``
+   * - Arm pain penalty
+     - Player condition
+     - The character's level of `pain <https://pzwiki.net/wiki/Pain>`_ will impact its aiming.
+     - ``HitChance -= armPainPenalty``
+   * - Headgear vision penalty
+     - Player condition
+     - Headgear will impact aiming, if the relevant sandbox option is enabled.
+     - ``HitChance -= headgearVisionPenalty``
+
+
+The final obtained value of ``HitChance`` is clamped against the `MINIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MINIMUM_TO_HIT_CHANCE>`_ and `MAXIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_TO_HIT_CHANCE>`_\ , both respectively equal to ``5.0`` and ``100.0`` by default.
+
+At point-blank range, all combined penalties are scaled toward zero, so close shots are always more forgiving. The `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ parameter will set the floor for all players while `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ will increase accuracy with the level of aiming of the player. Low base and high modifier makes the gun terrible while unskilled but excellent with investment in aiming.
 
 .. _item-hitchancemodifier:
 
-**HitChanceModifier** `🔗 <#item-hitchancemodifier>`_
+HitChanceModifier
+^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `HitChanceModified <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchancemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_.
-   
-   The initial hitchance is determined by the following configuration:
-   
-   .. code-block::
-   
-      HitChance = min(HitChance, CombatConfigKey.MAXIMUM_START_TO_HIT_CHANCE)
-   
-   `MAXIMUM_START_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_START_TO_HIT_CHANCE>`_ is a configuration of the combat system of Project Zomboid. In this case, the default value is ``95.0``\ , which means the initial HitChance cannot be above ``95.0``.
-   
-   Below is a table listing the different elements which can influence the hit chance of a weapon:
-   
-   .. list-table::
-      :header-rows: 1
-   
-      * - Element
-        - Type
-        - Description
-        - Formula
-      * - `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
-        - Weapon parameter
-        - The aiming level of the character impacts the player's hit chance.
-        - ``HitChance += AimingPerkHitChanceModifier * Aiming level``
-      * - Sight bonus / penalty
-        - Weapon parameter
-        - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result.
-        - ``HitChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
-      * - Moodles penalty
-        - Player condition
-        - Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the ``HitChance``.
-        - ``HitChance -= moodlesPenalty``
-      * - Weather penalty
-        - Environment
-        - Wind, rain, fog, low-light will all negatively impact the ``HitChance``.
-        - ``HitChance -= weatherPenalty``
-      * - Movement penalty
-        - Player condition
-        - The shooter speed and the distance will negatively impact the ``HitChance``.
-        - ``HitChance -= movementPenalty``
-      * - Arm pain penalty
-        - Player condition
-        - The character's level of `pain <https://pzwiki.net/wiki/Pain>`_ will impact its aiming.
-        - ``HitChance -= armPainPenalty``
-      * - Headgear vision penalty
-        - Player condition
-        - Headgear will impact aiming, if the relevant sandbox option is enabled.
-        - ``HitChance -= headgearVisionPenalty``
-   
-   
-   The final obtained value of ``HitChance`` is clamped against the `MINIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MINIMUM_TO_HIT_CHANCE>`_ and `MAXIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_TO_HIT_CHANCE>`_\ , both respectively equal to ``5.0`` and ``100.0`` by default.
-   
-   At point-blank range, all combined penalties are scaled toward zero, so close shots are always more forgiving. The `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ parameter will set the floor for all players while `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ will increase accuracy with the level of aiming of the player. Low base and high modifier makes the gun terrible while unskilled but excellent with investment in aiming.
+See :ref:`item-hitchance` for more details.
 
 .. _item-hitfloorsound:
 
-**HitFloorSound** `🔗 <#item-hitfloorsound>`_
+HitFloorSound
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
    Default: ``BatOnFloor``
 
-   Item types: weapon
-
 .. _item-hitsound:
 
-**HitSound** `🔗 <#item-hitsound>`_
+HitSound
+^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
    Default: ``BaseballBatHit``
 
-   Item types: weapon
-
 .. _item-hungerchange:
 
-**HungerChange** `🔗 <#item-hungerchange>`_
+HungerChange
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-icon:
 
-**Icon** `🔗 <#item-icon>`_
+Icon
+^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
    Default: ``None``
 
 .. _item-iconcolormask:
 
-**IconColorMask** `🔗 <#item-iconcolormask>`_
+IconColorMask
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, literature, normal, weapon
+No description
 
 .. _item-iconfluidmask:
 
-**IconFluidMask** `🔗 <#item-iconfluidmask>`_
+IconFluidMask
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal, weapon
+No description
 
 .. _item-iconsfortexture:
 
-**IconsForTexture** `🔗 <#item-iconsfortexture>`_
+IconsForTexture
+^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
-   No description
-
-   Item types: clothing, container, food, key, literature, normal, weapon
+No description
 
 .. _item-idleanim:
 
-**IdleAnim** `🔗 <#item-idleanim>`_
+IdleAnim
+^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
    Default: ``Idle``
 
-   Item types: weapon
-
 .. _item-impactsound:
 
-**ImpactSound** `🔗 <#item-impactsound>`_
+ImpactSound
+^^^^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
    Default: ``BaseballBatHit``
 
-   Item types: weapon
-
 .. _item-insertallbulletsreload:
 
-**InsertAllBulletsReload** `🔗 <#item-insertallbulletsreload>`_
+InsertAllBulletsReload
+^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-insertammosound:
 
-**InsertAmmoSound** `🔗 <#item-insertammosound>`_
+InsertAmmoSound
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-insertammostartsound:
 
-**InsertAmmoStartSound** `🔗 <#item-insertammostartsound>`_
+InsertAmmoStartSound
+^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-insertammostopsound:
 
-**InsertAmmoStopSound** `🔗 <#item-insertammostopsound>`_
+InsertAmmoStopSound
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-insulation:
 
-**Insulation** `🔗 <#item-insulation>`_
+Insulation
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, normal
+No description
 
 .. _item-inversecoughprobability:
 
-**InverseCoughProbability** `🔗 <#item-inversecoughprobability>`_
+InverseCoughProbability
+^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-inversecoughprobabilitysmoker:
 
-**InverseCoughProbabilitySmoker** `🔗 <#item-inversecoughprobabilitysmoker>`_
+InverseCoughProbabilitySmoker
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-isaimedfirearm:
 
-**IsAimedFirearm** `🔗 <#item-isaimedfirearm>`_
+IsAimedFirearm
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-isaimedhandweapon:
 
-**IsAimedHandWeapon** `🔗 <#item-isaimedhandweapon>`_
+IsAimedHandWeapon
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-iscookable:
 
-**IsCookable** `🔗 <#item-iscookable>`_
+IsCookable
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, normal, weapon
+No description
 
 .. _item-isdung:
 
-**IsDung** `🔗 <#item-isdung>`_
+IsDung
+^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-ishightier:
 
-**IsHighTier** `🔗 <#item-ishightier>`_
+IsHighTier
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: radio
+No description
 
 .. _item-isportable:
 
-**IsPortable** `🔗 <#item-isportable>`_
+IsPortable
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: radio
+No description
 
 .. _item-istelevision:
 
-**IsTelevision** `🔗 <#item-istelevision>`_
+IsTelevision
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: radio
+No description
 
 .. _item-iswatersource:
 
-**IsWaterSource** `🔗 <#item-iswatersource>`_
+IsWaterSource
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable
+No description
 
 .. _item-itemaftercleaning:
 
-**ItemAfterCleaning** `🔗 <#item-itemaftercleaning>`_
+ItemAfterCleaning
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-itemtype:
 
-**ItemType** `🔗 <#item-itemtype>`_
+ItemType
+^^^^^^^^
+
    Type: ``{'main': 'string'}`` *(required)*
 
-   Defines the class of the item which will impact which parameters the item can take and its properties as well as how it is used by the player. Clothing for instance will handle differently their texture and model in comparison to the other type of items, containers can hold items and weapons can be used by the player to attack and deal damage. You cannot use a custom class of item and only the ones accepted by the game.
+Defines the class of the item which will impact which parameters the item can take and its properties as well as how it is used by the player. Clothing for instance will handle differently their texture and model in comparison to the other type of items, containers can hold items and weapons can be used by the player to attack and deal damage. You cannot use a custom class of item and only the ones accepted by the game.
 
    Allowed values:
 
@@ -1991,1538 +1838,1518 @@ Parameters
 
 .. _item-itemwhendry:
 
-**ItemWhenDry** `🔗 <#item-itemwhendry>`_
+ItemWhenDry
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-jamgunchance:
 
-**JamGunChance** `🔗 <#item-jamgunchance>`_
+JamGunChance
+^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: weapon
 
 .. _item-keepondeplete:
 
-**KeepOnDeplete** `🔗 <#item-keepondeplete>`_
+KeepOnDeplete
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, drainable
+No description
 
 .. _item-knockbackonnodeath:
 
-**KnockBackOnNoDeath** `🔗 <#item-knockbackonnodeath>`_
+KnockBackOnNoDeath
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-knockdownmod:
 
-**KnockdownMod** `🔗 <#item-knockdownmod>`_
+KnockdownMod
+^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: weapon
 
 .. _item-learnedrecipes:
 
-**LearnedRecipes** `🔗 <#item-learnedrecipes>`_
+LearnedRecipes
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: literature
+No description
 
 .. _item-lightdistance:
 
-**LightDistance** `🔗 <#item-lightdistance>`_
+LightDistance
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, weaponpart
+No description
 
 .. _item-lightstrength:
 
-**LightStrength** `🔗 <#item-lightstrength>`_
+LightStrength
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, weaponpart
+No description
 
 .. _item-lipids:
 
-**Lipids** `🔗 <#item-lipids>`_
+Lipids
+^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, normal
+No description
 
 .. _item-lowlightbonus:
 
-**LowLightBonus** `🔗 <#item-lowlightbonus>`_
+LowLightBonus
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weaponpart
+No description
 
 .. _item-lvlskilltrained:
 
-**LvlSkillTrained** `🔗 <#item-lvlskilltrained>`_
+LvlSkillTrained
+^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``-1``
-
-   Item types: literature
 
 .. _item-magazine_subject:
 
-**magazine_subject** `🔗 <#item-magazine_subject>`_
+magazine_subject
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: literature
+No description
 
 .. _item-magazinetype:
 
-**MagazineType** `🔗 <#item-magazinetype>`_
+MagazineType
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-makeuptype:
 
-**MakeUpType** `🔗 <#item-makeuptype>`_
+MakeUpType
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable
+No description
 
 .. _item-manuallyremovespentrounds:
 
-**ManuallyRemoveSpentRounds** `🔗 <#item-manuallyremovespentrounds>`_
+ManuallyRemoveSpentRounds
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-map:
 
-**Map** `🔗 <#item-map>`_
+Map
+^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: map
+No description
 
 .. _item-maxammo:
 
-**MaxAmmo** `🔗 <#item-maxammo>`_
+MaxAmmo
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal, weapon
+No description
 
 .. _item-maxcapacity:
 
-**MaxCapacity** `🔗 <#item-maxcapacity>`_
+MaxCapacity
+^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``-1``
-
-   Item types: normal
 
 .. _item-maxchannel:
 
-**MaxChannel** `🔗 <#item-maxchannel>`_
+MaxChannel
+^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``108000``
 
-   Item types: radio
-
 .. _item-maxdamage:
 
-**MaxDamage** `🔗 <#item-maxdamage>`_
+MaxDamage
+^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   Rolls the hit damage of the weapon between ``MinDamage`` and ``MaxDamage``.
+Rolls the hit damage of the weapon between ``MinDamage`` and ``MaxDamage``.
 
    Default: ``1.5``
 
-   Item types: weapon
-
 .. _item-maxhitcount:
 
-**MaxHitcount** `🔗 <#item-maxhitcount>`_
+MaxHitcount
+^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``1000``
 
-   Item types: weapon
-
 .. _item-maxitemsize:
 
-**MaxItemSize** `🔗 <#item-maxitemsize>`_
+MaxItemSize
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container
+No description
 
 .. _item-maxrange:
 
-**MaxRange** `🔗 <#item-maxrange>`_
+MaxRange
+^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: weapon
 
 .. _item-maxrangemodifier:
 
-**MaxRangeModifier** `🔗 <#item-maxrangemodifier>`_
+MaxRangeModifier
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weaponpart
+No description
 
 .. _item-maxsightrange:
 
-**MaxSightRange** `🔗 <#item-maxsightrange>`_
+MaxSightRange
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_ define the optimal sight window, to be more specific, the distance band where hits and critical hits bonuses peak.
-   
-   The `aiming skill <https://pzwiki.net/wiki/Aiming>`_ and `eagle eyed <https://pzwiki.net/wiki/Eagle_Eyed>`_ will impact these values:
-   
-   .. code-block::
-   
-      effectiveMin = MinSightRange x (1 - AimingLevel / 30)
-      effectiveMax = MaxSightRange x (1 + AimingLevel / 30) x (EagleEyed ? 1.2 : 1.0)
-   
-   At aiming 10, the minimum shrinks by 33% and the max grows by 33%, which widens the window significantly. When the trait `Short Sighted <https://pzwiki.net/wiki/Short_Sighted>`_ is present and the character doesn't wear glasses, the ``effectiveMax`` equals ``effectiveMin``\ , making the entire bonus window disappear.
-   
-   Inside the the ``effectiveMin`` and ``effectiveMax`` window, the bonus follows a `Gaussian <https://en.wikipedia.org/wiki/Bell-shaped_function>`_ with the bonus peaking at the midpoint. Aim-delay penalty is also reduced inside the window.
-   
-   Below ``effectiveMin``\ , a small linear penalty is applied as the gun is not suited for point-blank. Above ``effectiveMax``\ , a growing quadratic penalty is applied, the bonus degrades rapidly past the edge.
-   
-   A CQC gun should have a low `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_ while a marksman riffle should have a high `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ with a wide window.
+`MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_ define the optimal sight window, to be more specific, the distance band where hits and critical hits bonuses peak.
 
-   Item types: weapon, weaponpart
+The `aiming skill <https://pzwiki.net/wiki/Aiming>`_ and `eagle eyed <https://pzwiki.net/wiki/Eagle_Eyed>`_ will impact these values:
+
+.. code-block::
+
+   effectiveMin = MinSightRange x (1 - AimingLevel / 30)
+   effectiveMax = MaxSightRange x (1 + AimingLevel / 30) x (EagleEyed ? 1.2 : 1.0)
+
+At aiming 10, the minimum shrinks by 33% and the max grows by 33%, which widens the window significantly. When the trait `Short Sighted <https://pzwiki.net/wiki/Short_Sighted>`_ is present and the character doesn't wear glasses, the ``effectiveMax`` equals ``effectiveMin``\ , making the entire bonus window disappear.
+
+Inside the the ``effectiveMin`` and ``effectiveMax`` window, the bonus follows a `Gaussian <https://en.wikipedia.org/wiki/Bell-shaped_function>`_ with the bonus peaking at the midpoint. Aim-delay penalty is also reduced inside the window.
+
+Below ``effectiveMin``\ , a small linear penalty is applied as the gun is not suited for point-blank. Above ``effectiveMax``\ , a growing quadratic penalty is applied, the bonus degrades rapidly past the edge.
+
+A CQC gun should have a low `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_ while a marksman riffle should have a high `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ with a wide window.
 
 .. _item-mechanicsitem:
 
-**MechanicsItem** `🔗 <#item-mechanicsitem>`_
+MechanicsItem
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, normal
+No description
 
 .. _item-mediacategory:
 
-**MediaCategory** `🔗 <#item-mediacategory>`_
+MediaCategory
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-medical:
 
-**Medical** `🔗 <#item-medical>`_
+Medical
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container, drainable, food, normal
+No description
 
 .. _item-metalvalue:
 
-**MetalValue** `🔗 <#item-metalvalue>`_
+MetalValue
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: alarmclock, alarmclockclothing, clothing, container, drainable, key, normal, weapon, weaponpart
+No description
 
 .. _item-micrange:
 
-**MicRange** `🔗 <#item-micrange>`_
+MicRange
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: radio
+No description
 
 .. _item-minangle:
 
-**MinAngle** `🔗 <#item-minangle>`_
+MinAngle
+^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: weapon
 
 .. _item-minchannel:
 
-**MinChannel** `🔗 <#item-minchannel>`_
+MinChannel
+^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``88000``
 
-   Item types: radio
-
 .. _item-mindamage:
 
-**MinDamage** `🔗 <#item-mindamage>`_
+MinDamage
+^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   Rolls the hit damage of the weapon between ``MinDamage`` and ``MaxDamage``.
-
-   Item types: weapon
+See :ref:`item-maxdamage` for more details.
 
 .. _item-minimumswingtime:
 
-**MinimumSwingtime** `🔗 <#item-minimumswingtime>`_
+MinimumSwingtime
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-minrange:
 
-**MinRange** `🔗 <#item-minrange>`_
+MinRange
+^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   Hard minimum attack distance. If the target is closer than ``MinRange``\ , the ballistics controller does not register the shot and the game may force a melee swap. This is a binary threshold, not a penalty band. Separate from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_.
-   
-   Long rifles should be hard to use in tight spaces. ``0.2`` to ``0.35`` is a small gap but ``0.61`` is noticeably limiting indoors.
+Hard minimum attack distance. If the target is closer than ``MinRange``\ , the ballistics controller does not register the shot and the game may force a melee swap. This is a binary threshold, not a penalty band. Separate from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_.
 
-   Item types: weapon
+Long rifles should be hard to use in tight spaces. ``0.2`` to ``0.35`` is a small gap but ``0.61`` is noticeably limiting indoors.
 
 .. _item-minsightrange:
 
-**MinSightRange** `🔗 <#item-minsightrange>`_
+MinSightRange
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_ define the optimal sight window, to be more specific, the distance band where hits and critical hits bonuses peak.
-   
-   The `aiming skill <https://pzwiki.net/wiki/Aiming>`_ and `eagle eyed <https://pzwiki.net/wiki/Eagle_Eyed>`_ will impact these values:
-   
-   .. code-block::
-   
-      effectiveMin = MinSightRange x (1 - AimingLevel / 30)
-      effectiveMax = MaxSightRange x (1 + AimingLevel / 30) x (EagleEyed ? 1.2 : 1.0)
-   
-   At aiming 10, the minimum shrinks by 33% and the max grows by 33%, which widens the window significantly. When the trait `Short Sighted <https://pzwiki.net/wiki/Short_Sighted>`_ is present and the character doesn't wear glasses, the ``effectiveMax`` equals ``effectiveMin``\ , making the entire bonus window disappear.
-   
-   Inside the the ``effectiveMin`` and ``effectiveMax`` window, the bonus follows a `Gaussian <https://en.wikipedia.org/wiki/Bell-shaped_function>`_ with the bonus peaking at the midpoint. Aim-delay penalty is also reduced inside the window.
-   
-   Below ``effectiveMin``\ , a small linear penalty is applied as the gun is not suited for point-blank. Above ``effectiveMax``\ , a growing quadratic penalty is applied, the bonus degrades rapidly past the edge.
-   
-   A CQC gun should have a low `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_ while a marksman riffle should have a high `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ with a wide window.
-
-   Item types: weapon, weaponpart
+See :ref:`item-maxsightrange` for more details.
 
 .. _item-minutestoburn:
 
-**MinutesToBurn** `🔗 <#item-minutestoburn>`_
+MinutesToBurn
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   How many in-game minutes it takes to burn the food. This value must be higher than ``MinutesToCook``.
+How many in-game minutes it takes to burn the food. This value must be higher than ``MinutesToCook``.
 
    Default: ``120.0``
 
-   Item types: food
-
 .. _item-minutestocook:
 
-**MinutesToCook** `🔗 <#item-minutestocook>`_
+MinutesToCook
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   How many in-game minutes it takes to cook the food. This value must be smaller than ``MinutesToBurn``.
+How many in-game minutes it takes to cook the food. This value must be smaller than ``MinutesToBurn``.
 
    Default: ``60.0``
 
-   Item types: food
-
 .. _item-modelweaponpart:
 
-**ModelWeaponPart** `🔗 <#item-modelweaponpart>`_
+ModelWeaponPart
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
    Can be duplicated: ✓
-
-   Item types: weapon
 
 .. _item-mounton:
 
-**MountOn** `🔗 <#item-mounton>`_
+MountOn
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weaponpart
+No description
 
 .. _item-multiplehitconditionaffected:
 
-**MultipleHitConditionAffected** `🔗 <#item-multiplehitconditionaffected>`_
+MultipleHitConditionAffected
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'boolean'}``
 
-   No description
+No description
 
    Default: ``True``
-
-   Item types: weapon
 
 .. _item-muzzleflashmodelkey:
 
-**MuzzleFlashModelKey** `🔗 <#item-muzzleflashmodelkey>`_
+MuzzleFlashModelKey
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-neckprotectionmodifier:
 
-**NeckProtectionModifier** `🔗 <#item-neckprotectionmodifier>`_
+NeckProtectionModifier
+^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: clothing
 
 .. _item-needtobeclosedoncereload:
 
-**needtobeclosedoncereload** `🔗 <#item-needtobeclosedoncereload>`_
+needtobeclosedoncereload
+^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-noiseduration:
 
-**NoiseDuration** `🔗 <#item-noiseduration>`_
+NoiseDuration
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-noiserange:
 
-**NoiseRange** `🔗 <#item-noiserange>`_
+NoiseRange
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-notransmit:
 
-**NoTransmit** `🔗 <#item-notransmit>`_
+NoTransmit
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: radio
+No description
 
 .. _item-npcsoundboost:
 
-**NPCSoundBoost** `🔗 <#item-npcsoundboost>`_
+NPCSoundBoost
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: weapon
 
 .. _item-numberofpages:
 
-**NumberOfPages** `🔗 <#item-numberofpages>`_
+NumberOfPages
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``-1``
 
-   Item types: literature
-
 .. _item-numlevelstrained:
 
-**NumLevelsTrained** `🔗 <#item-numlevelstrained>`_
+NumLevelsTrained
+^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``1``
 
-   Item types: literature
-
 .. _item-onbreak:
 
-**OnBreak** `🔗 <#item-onbreak>`_
+OnBreak
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-oncooked:
 
-**OnCooked** `🔗 <#item-oncooked>`_
+OnCooked
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-oncreate:
 
-**OnCreate** `🔗 <#item-oncreate>`_
+OnCreate
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, container, drainable, food, literature, moveable, normal, weapon
+No description
 
 .. _item-oneat:
 
-**OnEat** `🔗 <#item-oneat>`_
+OnEat
+^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-openingrecipe:
 
-**OpeningRecipe** `🔗 <#item-openingrecipe>`_
+OpeningRecipe
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food, normal
+No description
 
 .. _item-opensound:
 
-**OpenSound** `🔗 <#item-opensound>`_
+OpenSound
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container
+No description
 
 .. _item-originx:
 
-**OriginX** `🔗 <#item-originx>`_
+OriginX
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: key
+No description
 
 .. _item-originy:
 
-**OriginY** `🔗 <#item-originy>`_
+OriginY
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: key
+No description
 
 .. _item-originz:
 
-**originZ** `🔗 <#item-originz>`_
+originZ
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: key
+No description
 
 .. _item-otherhandrequire:
 
-**OtherHandRequire** `🔗 <#item-otherhandrequire>`_
+OtherHandRequire
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-otherhanduse:
 
-**OtherHandUse** `🔗 <#item-otherhanduse>`_
+OtherHandUse
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-packaged:
 
-**Packaged** `🔗 <#item-packaged>`_
+Packaged
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, normal
+No description
 
 .. _item-padlock:
 
-**Padlock** `🔗 <#item-padlock>`_
+Padlock
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: key
+No description
 
 .. _item-pagetowrite:
 
-**PageToWrite** `🔗 <#item-pagetowrite>`_
+PageToWrite
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: literature
+No description
 
 .. _item-painreduction:
 
-**painReduction** `🔗 <#item-painreduction>`_
+painReduction
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-parttype:
 
-**PartType** `🔗 <#item-parttype>`_
+PartType
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weaponpart
+No description
 
 .. _item-physicsobject:
 
-**PhysicsObject** `🔗 <#item-physicsobject>`_
+PhysicsObject
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-piercingbullets:
 
-**PiercingBullets** `🔗 <#item-piercingbullets>`_
+PiercingBullets
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-placedsprite:
 
-**PlacedSprite** `🔗 <#item-placedsprite>`_
+PlacedSprite
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-placemultiplesound:
 
-**PlaceMultipleSound** `🔗 <#item-placemultiplesound>`_
+PlaceMultipleSound
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-placeonesound:
 
-**PlaceOneSound** `🔗 <#item-placeonesound>`_
+PlaceOneSound
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-poisonpower:
 
-**PoisonPower** `🔗 <#item-poisonpower>`_
+PoisonPower
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-pourtype:
 
-**PourType** `🔗 <#item-pourtype>`_
+PourType
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, normal
+No description
 
 .. _item-primaryanimmask:
 
-**primaryAnimMask** `🔗 <#item-primaryanimmask>`_
+primaryAnimMask
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, normal, weaponpart
+No description
 
 .. _item-projectilecount:
 
-**Projectilecount** `🔗 <#item-projectilecount>`_
+Projectilecount
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-projectilespread:
 
-**ProjectileSpread** `🔗 <#item-projectilespread>`_
+ProjectileSpread
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-projectilespreadmodifier:
 
-**ProjectileSpreadModifier** `🔗 <#item-projectilespreadmodifier>`_
+ProjectileSpreadModifier
+^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weaponpart
+No description
 
 .. _item-projectileweightcenter:
 
-**ProjectileWeightCenter** `🔗 <#item-projectileweightcenter>`_
+ProjectileWeightCenter
+^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: weapon
 
 .. _item-protectfromrainwhenequipped:
 
-**ProtectFromRainWhenEquipped** `🔗 <#item-protectfromrainwhenequipped>`_
+ProtectFromRainWhenEquipped
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-proteins:
 
-**Proteins** `🔗 <#item-proteins>`_
+Proteins
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, normal
+No description
 
 .. _item-pushbackmod:
 
-**PushBackMod** `🔗 <#item-pushbackmod>`_
+PushBackMod
+^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: weapon
 
 .. _item-putinsound:
 
-**PutInSound** `🔗 <#item-putinsound>`_
+PutInSound
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container
+No description
 
 .. _item-rackaftershoot:
 
-**RackAfterShoot** `🔗 <#item-rackaftershoot>`_
+RackAfterShoot
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-racksound:
 
-**RackSound** `🔗 <#item-racksound>`_
+RackSound
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-rainfactor:
 
-**RainFactor** `🔗 <#item-rainfactor>`_
+RainFactor
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, normal, weapon
+No description
 
 .. _item-ranged:
 
-**Ranged** `🔗 <#item-ranged>`_
+Ranged
+^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-rangefalloff:
 
-**RangeFalloff** `🔗 <#item-rangefalloff>`_
+RangeFalloff
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-readtype:
 
-**ReadType** `🔗 <#item-readtype>`_
+ReadType
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: literature
+No description
 
 .. _item-recoildelay:
 
-**RecoilDelay** `🔗 <#item-recoildelay>`_
+RecoilDelay
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelaymodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. Weapon attachments will add or subtract from `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly.
-   
-   Controls how long post-shot recovery takes before aim settling can begin. High values means the gun has a huge kick and forces a pause. Lower values is a flat, fast and snappy gun. `Strength <https://pzwiki.net/wiki/Strength>`_ and `aiming <https://pzwiki.net/wiki/Aiming>`_ will both reduce the recoil delay. Holding the gun one-handed will negatively impact the recoil handling. The following formula is used:
-   
-   .. code-block:: java
-   
-      effectiveDelay = RecoilDelay
-                    * (1 - AimingLevel / 40)
-                    * (1 - (StrengthLevel * 2 - 10) / 40)
-                    * (one-handed penalty: * 1.3 if primary hand only, secondary empty)
-   
-   Aim countdown starts when the recoil delay counter is less than ``effectiveDelay * AimingLevel / 30``. Higher aiming also lets aim recovery start earlier in the recoil window.
+`RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelaymodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. Weapon attachments will add or subtract from `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly.
+
+Controls how long post-shot recovery takes before aim settling can begin. High values means the gun has a huge kick and forces a pause. Lower values is a flat, fast and snappy gun. `Strength <https://pzwiki.net/wiki/Strength>`_ and `aiming <https://pzwiki.net/wiki/Aiming>`_ will both reduce the recoil delay. Holding the gun one-handed will negatively impact the recoil handling. The following formula is used:
+
+.. code-block:: java
+
+   effectiveDelay = RecoilDelay
+                 * (1 - AimingLevel / 40)
+                 * (1 - (StrengthLevel * 2 - 10) / 40)
+                 * (one-handed penalty: * 1.3 if primary hand only, secondary empty)
+
+Aim countdown starts when the recoil delay counter is less than ``effectiveDelay * AimingLevel / 30``. Higher aiming also lets aim recovery start earlier in the recoil window.
 
 .. _item-recoildelaymodifier:
 
-**RecoilDelayModifier** `🔗 <#item-recoildelaymodifier>`_
+RecoilDelayModifier
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelaymodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. Weapon attachments will add or subtract from `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly.
-   
-   Controls how long post-shot recovery takes before aim settling can begin. High values means the gun has a huge kick and forces a pause. Lower values is a flat, fast and snappy gun. `Strength <https://pzwiki.net/wiki/Strength>`_ and `aiming <https://pzwiki.net/wiki/Aiming>`_ will both reduce the recoil delay. Holding the gun one-handed will negatively impact the recoil handling. The following formula is used:
-   
-   .. code-block:: java
-   
-      effectiveDelay = RecoilDelay
-                    * (1 - AimingLevel / 40)
-                    * (1 - (StrengthLevel * 2 - 10) / 40)
-                    * (one-handed penalty: * 1.3 if primary hand only, secondary empty)
-   
-   Aim countdown starts when the recoil delay counter is less than ``effectiveDelay * AimingLevel / 30``. Higher aiming also lets aim recovery start earlier in the recoil window.
+See :ref:`item-recoildelay` for more details.
 
 .. _item-reduceinfectionpower:
 
-**ReduceInfectionPower** `🔗 <#item-reduceinfectionpower>`_
+ReduceInfectionPower
+^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-reloadtime:
 
-**Reloadtime** `🔗 <#item-reloadtime>`_
+Reloadtime
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-reloadtimemodifier:
 
-**ReloadTimeModifier** `🔗 <#item-reloadtimemodifier>`_
+ReloadTimeModifier
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weaponpart
+No description
 
 .. _item-remotecontroller:
 
-**RemoteController** `🔗 <#item-remotecontroller>`_
+RemoteController
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-remoterange:
 
-**RemoteRange** `🔗 <#item-remoterange>`_
+RemoteRange
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-removenegativeeffectoncooked:
 
-**RemoveNegativeEffectOnCooked** `🔗 <#item-removenegativeeffectoncooked>`_
+RemoveNegativeEffectOnCooked
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-removeonbroken:
 
-**RemoveOnBroken** `🔗 <#item-removeonbroken>`_
+RemoveOnBroken
+^^^^^^^^^^^^^^
+
    Type: ``{'main': 'boolean'}``
 
-   No description
+No description
 
    Default: ``True``
 
-   Item types: clothing
-
 .. _item-removeunhappinesswhencooked:
 
-**RemoveUnhappinessWhenCooked** `🔗 <#item-removeunhappinesswhencooked>`_
+RemoveUnhappinessWhenCooked
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-replaceinprimaryhand:
 
-**ReplaceInPrimaryHand** `🔗 <#item-replaceinprimaryhand>`_
+ReplaceInPrimaryHand
+^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, container, drainable, normal, radio
+No description
 
 .. _item-replaceinsecondhand:
 
-**ReplaceInSecondHand** `🔗 <#item-replaceinsecondhand>`_
+ReplaceInSecondHand
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, container, drainable, normal, radio
+No description
 
 .. _item-replaceoncooked:
 
-**ReplaceOnCooked** `🔗 <#item-replaceoncooked>`_
+ReplaceOnCooked
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-replaceondeplete:
 
-**ReplaceOnDeplete** `🔗 <#item-replaceondeplete>`_
+ReplaceOnDeplete
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable
+No description
 
 .. _item-replaceonextinguish:
 
-**ReplaceOnExtinguish** `🔗 <#item-replaceonextinguish>`_
+ReplaceOnExtinguish
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable
+No description
 
 .. _item-replaceonrotten:
 
-**ReplaceOnRotten** `🔗 <#item-replaceonrotten>`_
+ReplaceOnRotten
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-replaceonuse:
 
-**ReplaceOnUse** `🔗 <#item-replaceonuse>`_
+ReplaceOnUse
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food, normal
+No description
 
 .. _item-requireinhandorinventory:
 
-**RequireInHandOrInventory** `🔗 <#item-requireinhandorinventory>`_
+RequireInHandOrInventory
+^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-requiresequippedbothhands:
 
-**RequiresEquippedBothHands** `🔗 <#item-requiresequippedbothhands>`_
+RequiresEquippedBothHands
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: moveable, normal, weapon
+No description
 
 .. _item-researchablerecipes:
 
-**Researchablerecipes** `🔗 <#item-researchablerecipes>`_
+Researchablerecipes
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
-   No description
-
-   Item types: clothing, container, drainable, food, moveable, normal, radio, weapon
+No description
 
 .. _item-runanim:
 
-**RunAnim** `🔗 <#item-runanim>`_
+RunAnim
+^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
    Default: ``Run``
 
-   Item types: weapon
-
 .. _item-runspeedmodifier:
 
-**RunSpeedModifier** `🔗 <#item-runspeedmodifier>`_
+RunSpeedModifier
+^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: clothing, container, radio
 
 .. _item-scaleworldicon:
 
-**ScaleWorldIcon** `🔗 <#item-scaleworldicon>`_
+ScaleWorldIcon
+^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: drainable
 
 .. _item-scratchdefense:
 
-**ScratchDefense** `🔗 <#item-scratchdefense>`_
+ScratchDefense
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing
+No description
 
 .. _item-secondaryanimmask:
 
-**secondaryAnimMask** `🔗 <#item-secondaryanimmask>`_
+secondaryAnimMask
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, normal, weaponpart
+No description
 
 .. _item-sensorrange:
 
-**SensorRange** `🔗 <#item-sensorrange>`_
+SensorRange
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-sharpness:
 
-**Sharpness** `🔗 <#item-sharpness>`_
+Sharpness
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal, weapon
+No description
 
 .. _item-shellfallsound:
 
-**ShellFallSound** `🔗 <#item-shellfallsound>`_
+ShellFallSound
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-shoutmultiplier:
 
-**ShoutMultiplier** `🔗 <#item-shoutmultiplier>`_
+ShoutMultiplier
+^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: clothing, normal
 
 .. _item-shouttype:
 
-**ShoutType** `🔗 <#item-shouttype>`_
+ShoutType
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, normal
+No description
 
 .. _item-skilltrained:
 
-**SkillTrained** `🔗 <#item-skilltrained>`_
+SkillTrained
+^^^^^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
-
-   Item types: literature
+No description
 
 .. _item-smokerange:
 
-**SmokeRange** `🔗 <#item-smokerange>`_
+SmokeRange
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-soundgain:
 
-**SoundGain** `🔗 <#item-soundgain>`_
+SoundGain
+^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: weapon
 
 .. _item-soundmap:
 
-**SoundMap** `🔗 <#item-soundmap>`_
+SoundMap
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
    Can be duplicated: ✓
 
-   Item types: drainable, food, weapon, weaponpart
-
 .. _item-soundparameter:
 
-**SoundParameter** `🔗 <#item-soundparameter>`_
+SoundParameter
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container
+No description
 
 .. _item-soundradius:
 
-**SoundRadius** `🔗 <#item-soundradius>`_
+SoundRadius
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: alarmclock, alarmclockclothing, normal, weapon
+No description
 
 .. _item-soundvolume:
 
-**SoundVolume** `🔗 <#item-soundvolume>`_
+SoundVolume
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal, weapon
+No description
 
 .. _item-spawnwith:
 
-**SpawnWith** `🔗 <#item-spawnwith>`_
+SpawnWith
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing
+No description
 
 .. _item-spice:
 
-**Spice** `🔗 <#item-spice>`_
+Spice
+^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food
+No description
 
 .. _item-splatbloodonnodeath:
 
-**SplatBloodOnNoDeath** `🔗 <#item-splatbloodonnodeath>`_
+SplatBloodOnNoDeath
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-splatnumber:
 
-**SplatNumber** `🔗 <#item-splatnumber>`_
+SplatNumber
+^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``2``
 
-   Item types: weapon
-
 .. _item-splatsize:
 
-**SplatSize** `🔗 <#item-splatsize>`_
+SplatSize
+^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: weapon
 
 .. _item-staticmodel:
 
-**StaticModel** `🔗 <#item-staticmodel>`_
+StaticModel
+^^^^^^^^^^^
+
    Type: ``{'main': 'string', 'block': {'name': 'model', 'fullType': True}}``
 
-   No description
-
-   Item types: clothing, container, drainable, food, literature, map, moveable, normal, radio, weaponpart
+No description
 
 .. _item-staticmodelsbyindex:
 
-**StaticModelsByIndex** `🔗 <#item-staticmodelsbyindex>`_
+StaticModelsByIndex
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
-   No description
-
-   Item types: food, literature, normal
+No description
 
 .. _item-stomppower:
 
-**StompPower** `🔗 <#item-stomppower>`_
+StompPower
+^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: clothing
 
 .. _item-stoppower:
 
-**StopPower** `🔗 <#item-stoppower>`_
+StopPower
+^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``5.0``
 
-   Item types: weapon
-
 .. _item-stresschange:
 
-**StressChange** `🔗 <#item-stresschange>`_
+StressChange
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, literature
+No description
 
 .. _item-subcategory:
 
-**SubCategory** `🔗 <#item-subcategory>`_
+SubCategory
+^^^^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-survivalgear:
 
-**SurvivalGear** `🔗 <#item-survivalgear>`_
+SurvivalGear
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container, drainable, food, map, normal, weapon
+No description
 
 .. _item-suspensioncompression:
 
-**suspensionCompression** `🔗 <#item-suspensioncompression>`_
+suspensionCompression
+^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-suspensiondamping:
 
-**suspensionDamping** `🔗 <#item-suspensiondamping>`_
+suspensionDamping
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-swingamountbeforeimpact:
 
-**SwingAmountBeforeImpact** `🔗 <#item-swingamountbeforeimpact>`_
+SwingAmountBeforeImpact
+^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-swinganim:
 
-**SwingAnim** `🔗 <#item-swinganim>`_
+SwingAnim
+^^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
    Default: ``Rifle``
 
-   Item types: weapon
-
 .. _item-swingsound:
 
-**SwingSound** `🔗 <#item-swingsound>`_
+SwingSound
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-swingtime:
 
-**Swingtime** `🔗 <#item-swingtime>`_
+Swingtime
+^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: weapon
 
 .. _item-tags:
 
-**Tags** `🔗 <#item-tags>`_
+Tags
+^^^^
+
    Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
-   No description
-
-   Item types: alarmclock, alarmclockclothing, clothing, container, drainable, food, key, literature, map, moveable, normal, radio, weapon, weaponpart
+No description
 
 .. _item-thirstchange:
 
-**ThirstChange** `🔗 <#item-thirstchange>`_
+ThirstChange
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: food
+No description
 
 .. _item-ticksperequipuse:
 
-**ticksPerEquipUse** `🔗 <#item-ticksperequipuse>`_
+ticksPerEquipUse
+^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
    Default: ``30``
 
-   Item types: drainable
-
 .. _item-tohitmodifier:
 
-**ToHitModifier** `🔗 <#item-tohitmodifier>`_
+ToHitModifier
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
 
-   Item types: weapon
-
 .. _item-tooltip:
 
-**Tooltip** `🔗 <#item-tooltip>`_
+Tooltip
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, container, drainable, food, key, literature, moveable, normal, radio, weapon, weaponpart
+No description
 
 .. _item-torchcone:
 
-**TorchCone** `🔗 <#item-torchcone>`_
+TorchCone
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, weaponpart
+No description
 
 .. _item-torchdot:
 
-**TorchDot** `🔗 <#item-torchdot>`_
+TorchDot
+^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``0.96``
 
-   Item types: drainable, weaponpart
-
 .. _item-transmitrange:
 
-**TransmitRange** `🔗 <#item-transmitrange>`_
+TransmitRange
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: radio
+No description
 
 .. _item-trap:
 
-**Trap** `🔗 <#item-trap>`_
+Trap
+^^^^
+
    Type: ``{'main': 'boolean'}``
 
-   No description
+No description
 
    Default: ``False``
 
-   Item types: normal
-
 .. _item-treedamage:
 
-**TreeDamage** `🔗 <#item-treedamage>`_
+TreeDamage
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-triggerexplosiontimer:
 
-**triggerExplosionTimer** `🔗 <#item-triggerexplosiontimer>`_
+triggerExplosionTimer
+^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-twohandweapon:
 
-**TwoHandWeapon** `🔗 <#item-twohandweapon>`_
+TwoHandWeapon
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-twoway:
 
-**TwoWay** `🔗 <#item-twoway>`_
+TwoWay
+^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: radio
+No description
 
 .. _item-type:
 
-**Type** `🔗 <#item-type>`_
+Type
+^^^^
+
    Type: ``Any``
 
-   Used to set the class of the item, which will influence parameters available.
+Used to set the class of the item, which will influence parameters available.
 
    .. warning::
 
@@ -3532,315 +3359,321 @@ Parameters
 
 .. _item-unequipsound:
 
-**UnequipSound** `🔗 <#item-unequipsound>`_
+UnequipSound
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, normal, weapon
+No description
 
 .. _item-unhappychange:
 
-**UnhappyChange** `🔗 <#item-unhappychange>`_
+UnhappyChange
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, literature
+No description
 
 .. _item-usedelta:
 
-**UseDelta** `🔗 <#item-usedelta>`_
+UseDelta
+^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``0.03125``
 
-   Item types: drainable, food, radio, weaponpart
-
 .. _item-useendurance:
 
-**UseEndurance** `🔗 <#item-useendurance>`_
+UseEndurance
+^^^^^^^^^^^^
+
    Type: ``{'main': 'boolean'}``
 
-   No description
+No description
 
    Default: ``True``
-
-   Item types: weapon
 
 .. _item-usesbattery:
 
-**UsesBattery** `🔗 <#item-usesbattery>`_
+UsesBattery
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: radio
+No description
 
 .. _item-useself:
 
-**UseSelf** `🔗 <#item-useself>`_
+UseSelf
+^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-usewhileequipped:
 
-**UseWhileEquipped** `🔗 <#item-usewhileequipped>`_
+UseWhileEquipped
+^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'boolean'}``
 
-   No description
+No description
 
    Default: ``True``
 
-   Item types: drainable, food, normal, radio
-
 .. _item-usewhileunequipped:
 
-**UseWhileUnequipped** `🔗 <#item-usewhileunequipped>`_
+UseWhileUnequipped
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable
+No description
 
 .. _item-useworlditem:
 
-**UseWorldItem** `🔗 <#item-useworlditem>`_
+UseWorldItem
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable
+No description
 
 .. _item-vehiclepartmodel:
 
-**VehiclePartModel** `🔗 <#item-vehiclepartmodel>`_
+VehiclePartModel
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-vehicletype:
 
-**VehicleType** `🔗 <#item-vehicletype>`_
+VehicleType
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, normal
+No description
 
 .. _item-visionmodifier:
 
-**VisionModifier** `🔗 <#item-visionmodifier>`_
+VisionModifier
+^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
-
-   Item types: clothing
 
 .. _item-visualaid:
 
-**VisualAid** `🔗 <#item-visualaid>`_
+VisualAid
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing
+No description
 
 .. _item-waterresistance:
 
-**WaterResistance** `🔗 <#item-waterresistance>`_
+WaterResistance
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing
+No description
 
 .. _item-weaponhitarmoursound:
 
-**WeaponHitArmourSound** `🔗 <#item-weaponhitarmoursound>`_
+WeaponHitArmourSound
+^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing
+No description
 
 .. _item-weaponlength:
 
-**WeaponLength** `🔗 <#item-weaponlength>`_
+WeaponLength
+^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``0.4``
 
-   Item types: weapon
-
 .. _item-weaponreloadtype:
 
-**WeaponReloadType** `🔗 <#item-weaponreloadtype>`_
+WeaponReloadType
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-weaponsprite:
 
-**WeaponSprite** `🔗 <#item-weaponsprite>`_
+WeaponSprite
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-weaponspritesbyindex:
 
-**WeaponSpritesByIndex** `🔗 <#item-weaponspritesbyindex>`_
+WeaponSpritesByIndex
+^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+No description
 
 .. _item-weaponweight:
 
-**WeaponWeight** `🔗 <#item-weaponweight>`_
+WeaponWeight
+^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
 
-   Item types: weapon
-
 .. _item-weight:
 
-**Weight** `🔗 <#item-weight>`_
+Weight
+^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
    Default: ``1.0``
 
 .. _item-weightempty:
 
-**WeightEmpty** `🔗 <#item-weightempty>`_
+WeightEmpty
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: drainable, food, normal
+No description
 
 .. _item-weightmodifier:
 
-**WeightModifier** `🔗 <#item-weightmodifier>`_
+WeightModifier
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: weaponpart
+No description
 
 .. _item-weightreduction:
 
-**WeightReduction** `🔗 <#item-weightreduction>`_
+WeightReduction
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: container
+No description
 
 .. _item-wet:
 
-**Wet** `🔗 <#item-wet>`_
+Wet
+^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-wetcooldown:
 
-**WetCooldown** `🔗 <#item-wetcooldown>`_
+WetCooldown
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-wheelfriction:
 
-**wheelFriction** `🔗 <#item-wheelfriction>`_
+wheelFriction
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: normal
+No description
 
 .. _item-windresistance:
 
-**WindResistance** `🔗 <#item-windresistance>`_
+WindResistance
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing, normal
+No description
 
 .. _item-withdrainable:
 
-**WithDrainable** `🔗 <#item-withdrainable>`_
+WithDrainable
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing
+No description
 
 .. _item-withoutdrainable:
 
-**WithoutDrainable** `🔗 <#item-withoutdrainable>`_
+WithoutDrainable
+^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: clothing
+No description
 
 .. _item-worldobjectsprite:
 
-**WorldObjectSprite** `🔗 <#item-worldobjectsprite>`_
+WorldObjectSprite
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
-
-   Item types: moveable, normal, radio
+No description
 
 .. _item-worldrender:
 
-**WorldRender** `🔗 <#item-worldrender>`_
+WorldRender
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _item-worldstaticmodel:
 
-**WorldStaticModel** `🔗 <#item-worldstaticmodel>`_
+WorldStaticModel
+^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'string', 'block': {'name': 'model', 'fullType': True}}``
 
-   No description
+No description
 
 .. _item-worldstaticmodelsbyindex:
 
-**WorldStaticModelsByIndex** `🔗 <#item-worldstaticmodelsbyindex>`_
+WorldStaticModelsByIndex
+^^^^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
-   No description
-
-   Item types: container, food, key, literature, normal, weapon
+No description
 

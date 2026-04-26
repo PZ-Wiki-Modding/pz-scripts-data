@@ -25,8 +25,10 @@ Parameters
 
 .. _component-craftbench-recipes:
 
-**Recipes** `🔗 <#component-craftbench-recipes>`_
+Recipes
+^^^^^^^
+
    Type: ``{'main': 'array'}``
 
-   No description
+No description
 

@@ -26,8 +26,10 @@ Parameters
 
 .. _area-xywh:
 
-**xywh** `🔗 <#area-xywh>`_
+xywh
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

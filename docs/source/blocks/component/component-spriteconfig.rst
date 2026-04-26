@@ -33,50 +33,64 @@ Parameters
 
 .. _component-spriteconfig-health:
 
-**health** `🔗 <#component-spriteconfig-health>`_
+health
+^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
 .. _component-spriteconfig-isprop:
 
-**isProp** `🔗 <#component-spriteconfig-isprop>`_
+isProp
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-spriteconfig-isthumpable:
 
-**isThumpable** `🔗 <#component-spriteconfig-isthumpable>`_
+isThumpable
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-spriteconfig-oncreate:
 
-**OnCreate** `🔗 <#component-spriteconfig-oncreate>`_
+OnCreate
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-spriteconfig-onisvalid:
 
-**OnIsValid** `🔗 <#component-spriteconfig-onisvalid>`_
+OnIsValid
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-spriteconfig-skillbasehealth:
 
-**skillBaseHealth** `🔗 <#component-spriteconfig-skillbasehealth>`_
+skillBaseHealth
+^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
 .. _component-spriteconfig-timedactiononisvalid:
 
-**TimedActionOnIsValid** `🔗 <#component-spriteconfig-timedactiononisvalid>`_
+TimedActionOnIsValid
+^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

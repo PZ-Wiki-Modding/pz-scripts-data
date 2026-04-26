@@ -25,99 +25,127 @@ Parameters
 
 .. _properties-alcohol:
 
-**alcohol** `🔗 <#properties-alcohol>`_
+alcohol
+^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
 .. _properties-calories:
 
-**Calories** `🔗 <#properties-calories>`_
+Calories
+^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The number of calories this fluid provides when consumed.
+The number of calories this fluid provides when consumed.
 
 .. _properties-carbohydrates:
 
-**Carbohydrates** `🔗 <#properties-carbohydrates>`_
+Carbohydrates
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The amount of carbohydrates this fluid provides when consumed.
+The amount of carbohydrates this fluid provides when consumed.
 
 .. _properties-endurancechange:
 
-**enduranceChange** `🔗 <#properties-endurancechange>`_
+enduranceChange
+^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The amount of endurance given back.
+The amount of endurance given back.
 
 .. _properties-fatiguechange:
 
-**fatigueChange** `🔗 <#properties-fatiguechange>`_
+fatigueChange
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The amount of fatigue this fluid changes when consumed. Positive values increase fatigue, negative values decrease it.
+The amount of fatigue this fluid changes when consumed. Positive values increase fatigue, negative values decrease it.
 
 .. _properties-flureduction:
 
-**fluReduction** `🔗 <#properties-flureduction>`_
+fluReduction
+^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
 .. _properties-foodsicknesschange:
 
-**foodSicknessChange** `🔗 <#properties-foodsicknesschange>`_
+foodSicknessChange
+^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The amount of food sickness provides.
+The amount of food sickness provides.
 
 .. _properties-hungerchange:
 
-**HungerChange** `🔗 <#properties-hungerchange>`_
+HungerChange
+^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The amount of hunger this fluid changes when consumed. Positive values increase hunger, negative values decrease it.
+The amount of hunger this fluid changes when consumed. Positive values increase hunger, negative values decrease it.
 
 .. _properties-lipids:
 
-**Lipids** `🔗 <#properties-lipids>`_
+Lipids
+^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The amount of lipids (fats) this fluid provides when consumed.
+The amount of lipids (fats) this fluid provides when consumed.
 
 .. _properties-painreduction:
 
-**painReduction** `🔗 <#properties-painreduction>`_
+painReduction
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The amount of pain this fluid reduces when consumed.
+The amount of pain this fluid reduces when consumed.
 
 .. _properties-proteins:
 
-**Proteins** `🔗 <#properties-proteins>`_
+Proteins
+^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The amount of proteins this fluid provides when consumed.
+The amount of proteins this fluid provides when consumed.
 
 .. _properties-stresschange:
 
-**StressChange** `🔗 <#properties-stresschange>`_
+StressChange
+^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The amount of stress this fluid changes when consumed. Positive values increase stress, negative values decrease it.
+The amount of stress this fluid changes when consumed. Positive values increase stress, negative values decrease it.
 
 .. _properties-thirstchange:
 
-**ThirstChange** `🔗 <#properties-thirstchange>`_
+ThirstChange
+^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The amount of thirst this fluid changes when consumed. Positive values increase thirst, negative values decrease it.
+The amount of thirst this fluid changes when consumed. Positive values increase thirst, negative values decrease it.
 
 .. _properties-unhappychange:
 
-**UnhappyChange** `🔗 <#properties-unhappychange>`_
+UnhappyChange
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The amount of unhappiness this fluid changes when consumed. Positive values increase unhappiness, negative values decrease it.
+The amount of unhappiness this fluid changes when consumed. Positive values increase unhappiness, negative values decrease it.
 

@@ -25,22 +25,28 @@ Parameters
 
 .. _position-area:
 
-**area** `🔗 <#position-area>`_
+area
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _position-offset:
 
-**offset** `🔗 <#position-offset>`_
+offset
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _position-rotate:
 
-**rotate** `🔗 <#position-rotate>`_
+rotate
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

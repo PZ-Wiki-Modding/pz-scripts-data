@@ -26,8 +26,10 @@ Parameters
 
 .. _skin-texture:
 
-**texture** `🔗 <#skin-texture>`_
+texture
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

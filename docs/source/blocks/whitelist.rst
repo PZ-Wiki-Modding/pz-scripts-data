@@ -25,10 +25,12 @@ Parameters
 
 .. _whitelist-fluid:
 
-**fluid** `🔗 <#whitelist-fluid>`_
+fluid
+^^^^^
+
    Type: ``{'main': 'string'}``
 
-   A fluid which is allowed to be put inside this fluid container.
+A fluid which is allowed to be put inside this fluid container.
 
    Can be duplicated: ✓
 

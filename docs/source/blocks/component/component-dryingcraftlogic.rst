@@ -25,36 +25,46 @@ Parameters
 
 .. _component-dryingcraftlogic-actionanim:
 
-**actionAnim** `🔗 <#component-dryingcraftlogic-actionanim>`_
+actionAnim
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-dryingcraftlogic-inputgroup:
 
-**inputGroup** `🔗 <#component-dryingcraftlogic-inputgroup>`_
+inputGroup
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-dryingcraftlogic-outputgroup:
 
-**outputGroup** `🔗 <#component-dryingcraftlogic-outputgroup>`_
+outputGroup
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-dryingcraftlogic-recipes:
 
-**Recipes** `🔗 <#component-dryingcraftlogic-recipes>`_
+Recipes
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-dryingcraftlogic-startmode:
 
-**StartMode** `🔗 <#component-dryingcraftlogic-startmode>`_
+StartMode
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

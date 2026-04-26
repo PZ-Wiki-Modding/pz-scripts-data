@@ -27,8 +27,10 @@ Parameters
 
 .. _root-blends-name:
 
-**name** `🔗 <#root-blends-name>`_
+name
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

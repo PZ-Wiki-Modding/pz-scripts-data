@@ -25,22 +25,28 @@ Parameters
 
 .. _copyframe-frame:
 
-**frame** `🔗 <#copyframe-frame>`_
+frame
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _copyframe-source:
 
-**source** `🔗 <#copyframe-source>`_
+source
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _copyframe-sourceframe:
 
-**sourceFrame** `🔗 <#copyframe-sourceframe>`_
+sourceFrame
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

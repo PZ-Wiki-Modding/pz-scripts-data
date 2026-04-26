@@ -31,15 +31,19 @@ Parameters
 
 .. _passenger-area:
 
-**area** `🔗 <#passenger-area>`_
+area
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _passenger-door:
 
-**door** `🔗 <#passenger-door>`_
+door
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

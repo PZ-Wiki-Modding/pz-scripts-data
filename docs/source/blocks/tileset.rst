@@ -29,8 +29,10 @@ Parameters
 
 .. _tileset-name:
 
-**name** `🔗 <#tileset-name>`_
+name
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

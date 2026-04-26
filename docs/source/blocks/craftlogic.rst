@@ -25,22 +25,28 @@ Parameters
 
 .. _craftlogic-displayname:
 
-**DisplayName** `🔗 <#craftlogic-displayname>`_
+DisplayName
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _craftlogic-icon:
 
-**Icon** `🔗 <#craftlogic-icon>`_
+Icon
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _craftlogic-luapanelclass:
 
-**LuaPanelClass** `🔗 <#craftlogic-luapanelclass>`_
+LuaPanelClass
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

@@ -25,40 +25,50 @@ Parameters
 
 .. _animationsmesh-animationdirectory:
 
-**animationDirectory** `🔗 <#animationsmesh-animationdirectory>`_
+animationDirectory
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
    Can be duplicated: ✓
 
 .. _animationsmesh-animationprefix:
 
-**animationPrefix** `🔗 <#animationsmesh-animationprefix>`_
+animationPrefix
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
    Can be duplicated: ✓
 
 .. _animationsmesh-keepmeshanimations:
 
-**keepMeshAnimations** `🔗 <#animationsmesh-keepmeshanimations>`_
+keepMeshAnimations
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _animationsmesh-meshfile:
 
-**meshFile** `🔗 <#animationsmesh-meshfile>`_
+meshFile
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _animationsmesh-postprocess:
 
-**postProcess** `🔗 <#animationsmesh-postprocess>`_
+postProcess
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

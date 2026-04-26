@@ -25,15 +25,19 @@ Parameters
 
 .. _contextentry-customfunction:
 
-**customFunction** `🔗 <#contextentry-customfunction>`_
+customFunction
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _contextentry-menu:
 
-**menu** `🔗 <#contextentry-menu>`_
+menu
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

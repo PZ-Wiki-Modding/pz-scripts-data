@@ -32,29 +32,37 @@ Parameters
 
 .. _physics-extents:
 
-**extents** `🔗 <#physics-extents>`_
+extents
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _physics-offset:
 
-**offset** `🔗 <#physics-offset>`_
+offset
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _physics-physicsshapescript:
 
-**physicsShapeScript** `🔗 <#physics-physicsshapescript>`_
+physicsShapeScript
+^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'string', 'block': {'name': 'physicsShape', 'fullType': True}}``
 
-   No description
+No description
 
 .. _physics-rotate:
 
-**rotate** `🔗 <#physics-rotate>`_
+rotate
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

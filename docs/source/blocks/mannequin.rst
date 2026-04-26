@@ -25,50 +25,64 @@ Parameters
 
 .. _mannequin-animset:
 
-**animSet** `🔗 <#mannequin-animset>`_
+animSet
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _mannequin-animstate:
 
-**animState** `🔗 <#mannequin-animstate>`_
+animState
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _mannequin-female:
 
-**female** `🔗 <#mannequin-female>`_
+female
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _mannequin-model:
 
-**model** `🔗 <#mannequin-model>`_
+model
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _mannequin-outfit:
 
-**outfit** `🔗 <#mannequin-outfit>`_
+outfit
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _mannequin-pose:
 
-**pose** `🔗 <#mannequin-pose>`_
+pose
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _mannequin-texture:
 
-**texture** `🔗 <#mannequin-texture>`_
+texture
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

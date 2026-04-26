@@ -26,43 +26,55 @@ Parameters
 
 .. _anim-angle:
 
-**angle** `🔗 <#anim-angle>`_
+angle
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _anim-anim:
 
-**anim** `🔗 <#anim-anim>`_
+anim
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _anim-animate:
 
-**animate** `🔗 <#anim-animate>`_
+animate
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _anim-rate:
 
-**rate** `🔗 <#anim-rate>`_
+rate
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _anim-reverse:
 
-**reverse** `🔗 <#anim-reverse>`_
+reverse
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _anim-sound:
 
-**sound** `🔗 <#anim-sound>`_
+sound
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

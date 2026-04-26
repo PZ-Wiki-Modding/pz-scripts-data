@@ -42,64 +42,82 @@ Parameters
 
 .. _clip-distancemax:
 
-**distanceMax** `🔗 <#clip-distancemax>`_
+distanceMax
+^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
 .. _clip-distancemin:
 
-**distanceMin** `🔗 <#clip-distancemin>`_
+distanceMin
+^^^^^^^^^^^
+
    Type: ``{'main': 'integer'}``
 
-   No description
+No description
 
 .. _clip-event:
 
-**event** `🔗 <#clip-event>`_
+event
+^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
 .. _clip-file:
 
-**file** `🔗 <#clip-file>`_
+file
+^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
 .. _clip-pitch:
 
-**pitch** `🔗 <#clip-pitch>`_
+pitch
+^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
 .. _clip-reverbfactor:
 
-**reverbFactor** `🔗 <#clip-reverbfactor>`_
+reverbFactor
+^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
 .. _clip-reverbmaxrange:
 
-**reverbMaxRange** `🔗 <#clip-reverbmaxrange>`_
+reverbMaxRange
+^^^^^^^^^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 
 .. _clip-stopimmediate:
 
-**stopImmediate** `🔗 <#clip-stopimmediate>`_
+stopImmediate
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _clip-volume:
 
-**volume** `🔗 <#clip-volume>`_
+volume
+^^^^^^
+
    Type: ``{'main': 'float'}``
 
-   No description
+No description
 

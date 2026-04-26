@@ -38,63 +38,79 @@ Parameters
 
 .. _character_profession_definition-characterprofession:
 
-**CharacterProfession** `🔗 <#character_profession_definition-characterprofession>`_
+CharacterProfession
+^^^^^^^^^^^^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   The `registries <https://pzwiki.net/wiki/Registries>`_ profession ID to link to.
+The `registries <https://pzwiki.net/wiki/Registries>`_ profession ID to link to.
 
 .. _character_profession_definition-cost:
 
-**Cost** `🔗 <#character_profession_definition-cost>`_
+Cost
+^^^^
+
    Type: ``{'main': 'integer'}``
 
-   The cost of the profession when selecting a character. Negative values remove points, positive values add points.
+The cost of the profession when selecting a character. Negative values remove points, positive values add points.
 
 .. _character_profession_definition-grantedrecipes:
 
-**GrantedRecipes** `🔗 <#character_profession_definition-grantedrecipes>`_
+GrantedRecipes
+^^^^^^^^^^^^^^
+
    Type: ``{'main': 'array'}``
 
-   A list of `craftRecipe <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/craftrecipe.html>`_ IDs that are granted to the character when this profession is selected.
+A list of `craftRecipe <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/craftrecipe.html>`_ IDs that are granted to the character when this profession is selected.
 
 .. _character_profession_definition-grantedtraits:
 
-**GrantedTraits** `🔗 <#character_profession_definition-grantedtraits>`_
+GrantedTraits
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'array'}``
 
-   A list of character trait IDs that are granted to the character when this profession is selected.
+A list of character trait IDs that are granted to the character when this profession is selected.
 
 .. _character_profession_definition-iconpathname:
 
-**IconPathName** `🔗 <#character_profession_definition-iconpathname>`_
+IconPathName
+^^^^^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
 .. _character_profession_definition-uidescription:
 
-**UIDescription** `🔗 <#character_profession_definition-uidescription>`_
+UIDescription
+^^^^^^^^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   The translation key for the profession's description. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
+The translation key for the profession's description. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
 
 .. _character_profession_definition-uiname:
 
-**UIName** `🔗 <#character_profession_definition-uiname>`_
+UIName
+^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   The translation key for the profession's name. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
+The translation key for the profession's name. The translation key needs to be in the UI translation file. See the wiki page about `translations <https://pzwiki.net/wiki/Translations>`_ for more information.
 
 .. _character_profession_definition-xpboosts:
 
-**XPBoosts** `🔗 <#character_profession_definition-xpboosts>`_
+XPBoosts
+^^^^^^^^
+
    Type: ``{'main': 'object', 'object': {'keyValueSeparator': ';', 'keyType': 'string', 'valueType': 'integer', 'pairsSeparator': ';'}}``
 
-   A list of experience boosts granted by this profession. Each entry should contain a skill name and the corresponding boost amount.
-   
-   For example:
-   
-   .. code-block:: cpp
-   
-      XPBoosts = Axe=1;Blunt=1,
+A list of experience boosts granted by this profession. Each entry should contain a skill name and the corresponding boost amount.
+
+For example:
+
+.. code-block:: cpp
+
+   XPBoosts = Axe=1;Blunt=1,
 

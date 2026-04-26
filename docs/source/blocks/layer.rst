@@ -25,10 +25,12 @@ Parameters
 
 .. _layer-row:
 
-**row** `🔗 <#layer-row>`_
+row
+^^^
+
    Type: ``Any``
 
-   No description
+No description
 
    Can be duplicated: ✓
 

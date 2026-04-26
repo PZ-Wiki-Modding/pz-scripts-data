@@ -36,71 +36,91 @@ Parameters
 
 .. _part-area:
 
-**area** `🔗 <#part-area>`_
+area
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _part-category:
 
-**category** `🔗 <#part-category>`_
+category
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _part-durability:
 
-**durability** `🔗 <#part-durability>`_
+durability
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _part-itemtype:
 
-**itemType** `🔗 <#part-itemtype>`_
+itemType
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _part-mechanicarea:
 
-**mechanicArea** `🔗 <#part-mechanicarea>`_
+mechanicArea
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _part-mechanicrequirekey:
 
-**mechanicRequireKey** `🔗 <#part-mechanicrequirekey>`_
+mechanicRequireKey
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _part-parent:
 
-**parent** `🔗 <#part-parent>`_
+parent
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _part-repairmechanic:
 
-**repairMechanic** `🔗 <#part-repairmechanic>`_
+repairMechanic
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _part-specificitem:
 
-**specificItem** `🔗 <#part-specificitem>`_
+specificItem
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _part-wheel:
 
-**wheel** `🔗 <#part-wheel>`_
+wheel
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

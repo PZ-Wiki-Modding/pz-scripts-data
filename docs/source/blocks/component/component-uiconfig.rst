@@ -25,22 +25,28 @@ Parameters
 
 .. _component-uiconfig-entitystyle:
 
-**entityStyle** `🔗 <#component-uiconfig-entitystyle>`_
+entityStyle
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-uiconfig-uienabled:
 
-**uiEnabled** `🔗 <#component-uiconfig-uienabled>`_
+uiEnabled
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-uiconfig-xuiskin:
 
-**xuiSkin** `🔗 <#component-uiconfig-xuiskin>`_
+xuiSkin
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

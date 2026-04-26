@@ -74,15 +74,19 @@ Parameters
 
 .. _alias-name:
 
-**name** `🔗 <#alias-name>`_
+name
+^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
 .. _alias-tiles:
 
-**tiles** `🔗 <#alias-tiles>`_
+tiles
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

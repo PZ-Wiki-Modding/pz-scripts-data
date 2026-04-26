@@ -25,64 +25,82 @@ Parameters
 
 .. _tile-animation:
 
-**animation** `🔗 <#tile-animation>`_
+animation
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _tile-animationtime:
 
-**animationTime** `🔗 <#tile-animationtime>`_
+animationTime
+^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _tile-isprofessiontrait:
 
-**IsProfessionTrait** `🔗 <#tile-isprofessiontrait>`_
+IsProfessionTrait
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _tile-modelscript:
 
-**modelScript** `🔗 <#tile-modelscript>`_
+modelScript
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _tile-rotate:
 
-**rotate** `🔗 <#tile-rotate>`_
+rotate
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _tile-runtime:
 
-**runtime** `🔗 <#tile-runtime>`_
+runtime
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _tile-scale:
 
-**scale** `🔗 <#tile-scale>`_
+scale
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _tile-translate:
 
-**translate** `🔗 <#tile-translate>`_
+translate
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _tile-xy:
 
-**xy** `🔗 <#tile-xy>`_
+xy
+^^
+
    Type: ``Any``
 
-   No description
+No description
 

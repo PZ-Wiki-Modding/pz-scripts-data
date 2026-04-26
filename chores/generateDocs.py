@@ -166,7 +166,8 @@ class ScriptBlock:
             rst += f".. _{label}:\n\n"
             
             # Parameter name as definition with clickable permalink icon
-            rst += f"**{name}** `🔗 <#{label}>`_\n"
+            rst += f"{name}\n"
+            rst += "^" * len(name) + "\n\n"
 
             ref = param.get('#ref', None)
             isRef = ref is not None
@@ -182,9 +183,14 @@ class ScriptBlock:
             rst += f"   {type_info}\n\n"
             
             # Description
-            if description:
-                indented_description = "\n   ".join(description.split("\n"))
-                rst += f"   {indented_description}\n\n"
+            if "#desc" in param:
+                desc_ref = param["#desc"]
+                block_name, param_name = desc_ref.split('/')
+                description = f"See :ref:`{_get_param_label(block_name, param_name)}` for more details."
+                rst += f"{description}\n\n"
+            elif description:
+                indented_description = "\n".join(description.split("\n"))
+                rst += f"{indented_description}\n\n"
             
             # Default value if present
             if default is not None and default != "":
@@ -200,11 +206,6 @@ class ScriptBlock:
                 rst += "   Can be duplicated: ✓\n\n"
             if param.get('canBeEmpty'):
                 rst += "   Can be empty: ✓\n\n"
-            
-            item_types = param.get('itemTypes', [])
-            if item_types:
-                types_str = ", ".join(item_types)
-                rst += f"   Item types: {types_str}\n\n"
             
             parents_only = param.get('parentsOnly', [])
             if parents_only:

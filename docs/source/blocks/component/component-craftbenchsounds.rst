@@ -25,43 +25,55 @@ Parameters
 
 .. _component-craftbenchsounds-addfuel:
 
-**AddFuel** `🔗 <#component-craftbenchsounds-addfuel>`_
+AddFuel
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-craftbenchsounds-addinput:
 
-**AddInput** `🔗 <#component-craftbenchsounds-addinput>`_
+AddInput
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-craftbenchsounds-lightfire:
 
-**LightFire** `🔗 <#component-craftbenchsounds-lightfire>`_
+LightFire
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-craftbenchsounds-removeinput:
 
-**RemoveInput** `🔗 <#component-craftbenchsounds-removeinput>`_
+RemoveInput
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-craftbenchsounds-running:
 
-**Running** `🔗 <#component-craftbenchsounds-running>`_
+Running
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _component-craftbenchsounds-startcraft:
 
-**StartCraft** `🔗 <#component-craftbenchsounds-startcraft>`_
+StartCraft
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

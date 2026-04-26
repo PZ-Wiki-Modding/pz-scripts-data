@@ -25,19 +25,23 @@ Parameters
 
 .. _layers-object:
 
-**object** `🔗 <#layers-object>`_
+object
+^^^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
    Only for parents: ROOT-MapBaseXML
 
 .. _layers-tile:
 
-**tile** `🔗 <#layers-tile>`_
+tile
+^^^^
+
    Type: ``{'main': 'string'}``
 
-   No description
+No description
 
    Can be duplicated: ✓
 

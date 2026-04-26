@@ -25,31 +25,39 @@ Parameters
 
 .. _fixing-conditionmodifier:
 
-**ConditionModifier** `🔗 <#fixing-conditionmodifier>`_
+ConditionModifier
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _fixing-fixer:
 
-**Fixer** `🔗 <#fixing-fixer>`_
+Fixer
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
    Can be duplicated: ✓
 
 .. _fixing-globalitem:
 
-**GlobalItem** `🔗 <#fixing-globalitem>`_
+GlobalItem
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _fixing-require:
 
-**Require** `🔗 <#fixing-require>`_
+Require
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

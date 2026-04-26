@@ -42,22 +42,28 @@ Parameters
 
 .. _entity-displayname:
 
-**DisplayName** `🔗 <#entity-displayname>`_
+DisplayName
+^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _entity-icon:
 
-**Icon** `🔗 <#entity-icon>`_
+Icon
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _entity-luawindowclass:
 
-**LuaWindowClass** `🔗 <#entity-luawindowclass>`_
+LuaWindowClass
+^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

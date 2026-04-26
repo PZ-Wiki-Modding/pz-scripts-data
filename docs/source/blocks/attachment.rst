@@ -128,55 +128,65 @@ Parameters
 
 .. _attachment-bone:
 
-**bone** `🔗 <#attachment-bone>`_
+bone
+^^^^
+
    Type: ``Any``
 
-   .. code-block::
-   
-      The name of the bone to which the model is attached to. 
-   
-   
-   .. code-block:: cpp
-   
-       bone = Bip01_L_Hand,
+.. code-block::
+
+   The name of the bone to which the model is attached to. 
+
+
+.. code-block:: cpp
+
+    bone = Bip01_L_Hand,
 
 .. _attachment-offset:
 
-**offset** `🔗 <#attachment-offset>`_
+offset
+^^^^^^
+
    Type: ``{'main': 'array', 'array': {'type': 'float', 'separator': ' '}}``
 
-   The position offset of the model relative to the bone. This is a vector in the format ``x y z``. 
-   
-   .. code-block:: cpp
-   
-      offset = -0.0300 -0.1020 0.1210,
+The position offset of the model relative to the bone. This is a vector in the format ``x y z``. 
+
+.. code-block:: cpp
+
+   offset = -0.0300 -0.1020 0.1210,
 
 .. _attachment-rotate:
 
-**rotate** `🔗 <#attachment-rotate>`_
+rotate
+^^^^^^
+
    Type: ``{'main': 'array', 'array': {'type': 'float', 'separator': ' '}}``
 
-   The rotation of the model relative to the bone. This is a vector in the format ``x y z``. The values are degrees.
-   
-   .. code-block:: cpp
-   
-      rotate = -60.0000 -49.0000 -3.0000,
+The rotation of the model relative to the bone. This is a vector in the format ``x y z``. The values are degrees.
+
+.. code-block:: cpp
+
+   rotate = -60.0000 -49.0000 -3.0000,
 
 .. _attachment-scale:
 
-**scale** `🔗 <#attachment-scale>`_
+scale
+^^^^^
+
    Type: ``{'main': 'float'}``
 
-   The scale multiplier applied to the model attached to this attachment point.
-   
-   .. code-block:: cpp
-   
-      scale = 0.5,
+The scale multiplier applied to the model attached to this attachment point.
+
+.. code-block:: cpp
+
+   scale = 0.5,
 
 .. _attachment-zoffset:
 
-**zoffset** `🔗 <#attachment-zoffset>`_
+zoffset
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

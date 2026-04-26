@@ -26,29 +26,37 @@ Parameters
 
 .. _wheel-front:
 
-**front** `🔗 <#wheel-front>`_
+front
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _wheel-offset:
 
-**offset** `🔗 <#wheel-offset>`_
+offset
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _wheel-radius:
 
-**radius** `🔗 <#wheel-radius>`_
+radius
+^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _wheel-width:
 
-**width** `🔗 <#wheel-width>`_
+width
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

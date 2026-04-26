@@ -25,22 +25,28 @@ Parameters
 
 .. _switchseat-anim:
 
-**anim** `🔗 <#switchseat-anim>`_
+anim
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _switchseat-rate:
 
-**rate** `🔗 <#switchseat-rate>`_
+rate
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _switchseat-sound:
 
-**sound** `🔗 <#switchseat-sound>`_
+sound
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

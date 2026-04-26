@@ -25,10 +25,12 @@ Parameters
 
 .. _fluids-fluid:
 
-**fluid** `🔗 <#fluids-fluid>`_
+fluid
+^^^^^
+
    Type: ``Any``
 
-   Refers to a fluid script
+Refers to a fluid script
 
    Can be duplicated: ✓
 

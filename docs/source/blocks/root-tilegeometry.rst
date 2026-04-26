@@ -23,8 +23,10 @@ Parameters
 
 .. _root-tilegeometry-version:
 
-**VERSION** `🔗 <#root-tilegeometry-version>`_
+VERSION
+^^^^^^^
+
    Type: ``Any``
 
-   The version of the tile geometry file format. Keep it at 2 for now.
+The version of the tile geometry file format. Keep it at 2 for now.
 

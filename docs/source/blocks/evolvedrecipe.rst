@@ -25,71 +25,91 @@ Parameters
 
 .. _evolvedrecipe-addingredientifcooked:
 
-**AddIngredientIfCooked** `🔗 <#evolvedrecipe-addingredientifcooked>`_
+AddIngredientIfCooked
+^^^^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _evolvedrecipe-addingredientsound:
 
-**AddIngredientSound** `🔗 <#evolvedrecipe-addingredientsound>`_
+AddIngredientSound
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _evolvedrecipe-baseitem:
 
-**BaseItem** `🔗 <#evolvedrecipe-baseitem>`_
+BaseItem
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _evolvedrecipe-canaddspicesempty:
 
-**CanAddSpicesEmpty** `🔗 <#evolvedrecipe-canaddspicesempty>`_
+CanAddSpicesEmpty
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _evolvedrecipe-cookable:
 
-**Cookable** `🔗 <#evolvedrecipe-cookable>`_
+Cookable
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _evolvedrecipe-maxitems:
 
-**MaxItems** `🔗 <#evolvedrecipe-maxitems>`_
+MaxItems
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _evolvedrecipe-minimumwater:
 
-**MinimumWater** `🔗 <#evolvedrecipe-minimumwater>`_
+MinimumWater
+^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _evolvedrecipe-name:
 
-**Name** `🔗 <#evolvedrecipe-name>`_
+Name
+^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _evolvedrecipe-resultitem:
 
-**ResultItem** `🔗 <#evolvedrecipe-resultitem>`_
+ResultItem
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _evolvedrecipe-template:
 
-**Template** `🔗 <#evolvedrecipe-template>`_
+Template
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

@@ -25,85 +25,109 @@ Parameters
 
 .. _timedaction-actionanim:
 
-**actionAnim** `🔗 <#timedaction-actionanim>`_
+actionAnim
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _timedaction-animvarkey:
 
-**animVarKey** `🔗 <#timedaction-animvarkey>`_
+animVarKey
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _timedaction-animvarval:
 
-**animVarVal** `🔗 <#timedaction-animvarval>`_
+animVarVal
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _timedaction-completionsound:
 
-**completionSound** `🔗 <#timedaction-completionsound>`_
+completionSound
+^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _timedaction-metabolics:
 
-**metabolics** `🔗 <#timedaction-metabolics>`_
+metabolics
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _timedaction-musclestrainfactor:
 
-**muscleStrainFactor** `🔗 <#timedaction-musclestrainfactor>`_
+muscleStrainFactor
+^^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _timedaction-musclestrainparts:
 
-**muscleStrainParts** `🔗 <#timedaction-musclestrainparts>`_
+muscleStrainParts
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _timedaction-musclestrainskill:
 
-**muscleStrainSkill** `🔗 <#timedaction-musclestrainskill>`_
+muscleStrainSkill
+^^^^^^^^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _timedaction-prop1:
 
-**prop1** `🔗 <#timedaction-prop1>`_
+prop1
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _timedaction-prop2:
 
-**prop2** `🔗 <#timedaction-prop2>`_
+prop2
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _timedaction-sound:
 
-**sound** `🔗 <#timedaction-sound>`_
+sound
+^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _timedaction-soundtime:
 
-**soundTime** `🔗 <#timedaction-soundtime>`_
+soundTime
+^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 

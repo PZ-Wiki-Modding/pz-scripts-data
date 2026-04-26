@@ -26,29 +26,37 @@ Parameters
 
 .. _lightbar-leftcol:
 
-**leftCol** `🔗 <#lightbar-leftcol>`_
+leftCol
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _lightbar-rightcol:
 
-**rightCol** `🔗 <#lightbar-rightcol>`_
+rightCol
+^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _lightbar-soundsiren:
 
-**soundSiren** `🔗 <#lightbar-soundsiren>`_
+soundSiren
+^^^^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
 .. _lightbar-texture:
 
-**texture** `🔗 <#lightbar-texture>`_
+texture
+^^^^^^^
+
    Type: ``Any``
 
-   No description
+No description
 
