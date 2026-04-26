@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.insert(0, os.path.abspath('../../'))
 sys.path.insert(0, os.path.abspath('../'))
 
-project = 'Project Zomboid Scripts API Reference'
+project = 'ScriptsDocs'
 copyright = '2026, Scripts-Data Contributors'
 author = 'Scripts-Data Contributors'
 release = '1.0'
@@ -25,7 +25,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
-html_title = 'Project Zomboid Scripts API Reference'
+html_title = 'ScriptsDocs'
 html_logo = None
 html_favicon = None
 html_css_files = [
@@ -64,7 +64,7 @@ latex_engine = 'xelatex'
 
 # Output for man pages
 man_pages = [
-    ('index', 'scripts-api', 'Project Zomboid Scripts API Reference',
+    ('index', 'scripts-api', 'ScriptsDocs',
      ['Scripts-Data Contributors'], 1)
 ]
 
