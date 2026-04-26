@@ -92,7 +92,7 @@ Parameters
         - ``CriticalChance += AimingPerkCritModifier * Aiming level``
       * - Sight bonus / penalty
         - Weapon parameter
-        - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result.
+        - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result. The aim delay penalty depends on `Aimingtime <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_
         - ``CriticalChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
       * - Moodles penalty
         - Player condition
@@ -108,7 +108,7 @@ Parameters
         - ``CriticalChance -= movementPenalty``
       * - `Marksman trait <https://pzwiki.net/wiki/Marksman>`_
         - Player condition
-        - 
+        - This condition can never be reached as the Marksman trait no longer exists.
         - ``CriticalChance += 10``
    
    
@@ -121,9 +121,60 @@ Parameters
 .. _item-aimingperkhitchancemodifier:
 
 **AimingPerkHitChanceModifier** `🔗 <#item-aimingperkhitchancemodifier>`_
-   Type: ``Any``
+   Type: ``{'main': 'float'}``
 
-   No description
+   `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `HitChanceModified <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchancemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_.
+   
+   The initial hitchance is determined by the following configuration:
+   
+   .. code-block::
+   
+      HitChance = min(HitChance, CombatConfigKey.MAXIMUM_START_TO_HIT_CHANCE)
+   
+   `MAXIMUM_START_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_START_TO_HIT_CHANCE>`_ is a configuration of the combat system of Project Zomboid. In this case, the default value is ``95.0``\ , which means the initial HitChance cannot be above ``95.0``.
+   
+   Below is a table listing the different elements which can influence the hit chance of a weapon:
+   
+   .. list-table::
+      :header-rows: 1
+   
+      * - Element
+        - Type
+        - Description
+        - Formula
+      * - `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
+        - Weapon parameter
+        - The aiming level of the character impacts the player's hit chance.
+        - ``HitChance += AimingPerkHitChanceModifier * Aiming level``
+      * - Sight bonus / penalty
+        - Weapon parameter
+        - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result.
+        - ``HitChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
+      * - Moodles penalty
+        - Player condition
+        - Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the ``HitChance``.
+        - ``HitChance -= moodlesPenalty``
+      * - Weather penalty
+        - Environment
+        - Wind, rain, fog, low-light will all negatively impact the ``HitChance``.
+        - ``HitChance -= weatherPenalty``
+      * - Movement penalty
+        - Player condition
+        - The shooter speed and the distance will negatively impact the ``HitChance``.
+        - ``HitChance -= movementPenalty``
+      * - Arm pain penalty
+        - Player condition
+        - The character's level of `pain <https://pzwiki.net/wiki/Pain>`_ will impact its aiming.
+        - ``HitChance -= armPainPenalty``
+      * - Headgear vision penalty
+        - Player condition
+        - Headgear will impact aiming, if the relevant sandbox option is enabled.
+        - ``HitChance -= headgearVisionPenalty``
+   
+   
+   The final obtained value of ``HitChance`` is clamped against the `MINIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MINIMUM_TO_HIT_CHANCE>`_ and `MAXIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_TO_HIT_CHANCE>`_\ , both respectively equal to ``5.0`` and ``100.0`` by default.
+   
+   At point-blank range, all combined penalties are scaled toward zero, so close shots are always more forgiving. The `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ parameter will set the floor for all players while `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ will increase accuracy with the level of aiming of the player. Low base and high modifier makes the gun terrible while unskilled but excellent with investment in aiming.
 
    Item types: weapon
 
@@ -148,20 +199,64 @@ Parameters
 .. _item-aimingtime:
 
 **Aimingtime** `🔗 <#item-aimingtime>`_
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
-   No description
-
-   Item types: weapon
+   `Aimingtime <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. The attachments directly add or subtract their `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ to the aiming delay.
+   
+   It controls the aim-settling delay, the aiming delay counter that must tick down to 0 before the weapon is "settled". Lower values means faster target reacquisition after each shots. The primary "how snappy does this gun feel" lever for semi-automatic guns. It tick down the aiming via the following formula:
+   
+   .. code-block:: java
+   
+      rate = 0.625 x gameSpeed x (1 + 0.05 x AimingLevel + (Marksman ? 0.1 : 0))
+   
+   The `marksman <https://pzwiki.net/wiki/Marksman>`_ trait being no longer accessible in the recent versions of the game, the condition involving it will never be reached.
+   
+   ..
+   
+      Note:
+      This formula might not be fully accurate as `time deltas <https://github.com/demiurgeQuantified/PZModdingGuides/blob/main/guides/GameTime.md>`_ don't appear in the formula.
+   
+   
+   While ``aimingDelay > 0``\ , both `hit chance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ and `critical chance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-criticalchance>`_ take an aim-delay penalty proportional to the remaining delay. The countdown only starts after ``recoilDelay`` has recovered, so high `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly delays when ``AimingTime`` begins ticking.
+   
+   On each shots or equip, the aiming delay will be increased or reduced, being impacted by aiming while in a `vehicle <https://pzwiki.net/wiki/Vehicle>`_\ , being reduced by the trait `Dextrous <https://pzwiki.net/wiki/Dextrous>`_ or increased by `All Thumbs <https://pzwiki.net/wiki/All_Thumbs>`_. The following formula is used:
+   
+   .. code-block:: java
+   
+      aimingDelay = AimingTime
+              * (Dextrous ? 0.8 : AllThumbs ? 1.2 : 1.0)
+              * (in vehicle ? 1.5 : 1.0)
 
 .. _item-aimingtimemodifier:
 
 **AimingTimeModifier** `🔗 <#item-aimingtimemodifier>`_
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
-   No description
-
-   Item types: weaponpart
+   `Aimingtime <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. The attachments directly add or subtract their `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ to the aiming delay.
+   
+   It controls the aim-settling delay, the aiming delay counter that must tick down to 0 before the weapon is "settled". Lower values means faster target reacquisition after each shots. The primary "how snappy does this gun feel" lever for semi-automatic guns. It tick down the aiming via the following formula:
+   
+   .. code-block:: java
+   
+      rate = 0.625 x gameSpeed x (1 + 0.05 x AimingLevel + (Marksman ? 0.1 : 0))
+   
+   The `marksman <https://pzwiki.net/wiki/Marksman>`_ trait being no longer accessible in the recent versions of the game, the condition involving it will never be reached.
+   
+   ..
+   
+      Note:
+      This formula might not be fully accurate as `time deltas <https://github.com/demiurgeQuantified/PZModdingGuides/blob/main/guides/GameTime.md>`_ don't appear in the formula.
+   
+   
+   While ``aimingDelay > 0``\ , both `hit chance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ and `critical chance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-criticalchance>`_ take an aim-delay penalty proportional to the remaining delay. The countdown only starts after ``recoilDelay`` has recovered, so high `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly delays when ``AimingTime`` begins ticking.
+   
+   On each shots or equip, the aiming delay will be increased or reduced, being impacted by aiming while in a `vehicle <https://pzwiki.net/wiki/Vehicle>`_\ , being reduced by the trait `Dextrous <https://pzwiki.net/wiki/Dextrous>`_ or increased by `All Thumbs <https://pzwiki.net/wiki/All_Thumbs>`_. The following formula is used:
+   
+   .. code-block:: java
+   
+      aimingDelay = AimingTime
+              * (Dextrous ? 0.8 : AllThumbs ? 1.2 : 1.0)
+              * (in vehicle ? 1.5 : 1.0)
 
 .. _item-aimreleasesound:
 
@@ -891,9 +986,17 @@ Parameters
 .. _item-critdmgmultiplier:
 
 **CritDmgMultiplier** `🔗 <#item-critdmgmultiplier>`_
-   Type: ``Any``
+   Type: ``{'main': 'float'}``
 
-   No description
+   Multiplier applied to the damage of a hit if it is a critical hit, applied inside `IsoGameCharacter.Hit() <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/IsoGameCharacter.html#Hit(zombie.inventory.types.HandWeapon,zombie.characters.IsoGameCharacter,float,boolean,float,boolean>`_\ ). Two types of crits can trigger:
+   
+   
+   * A normal crit: ``damage *= max(2.0, CritDmgMultiplier)``
+   * Aim-at-floor stomp (melee only): ``damage *= max(5.0, CritDmgMultiplier)``
+   
+   The default value of the ``HandWeapon`` class is ``2.0``. Values of ``3.0`` to ``5.0`` visibly spike crit damage while values above ``5.0`` also start boosting stomps.
+
+   Default: ``2.0``
 
    Item types: weapon
 
@@ -919,7 +1022,7 @@ Parameters
         - ``CriticalChance += AimingPerkCritModifier * Aiming level``
       * - Sight bonus / penalty
         - Weapon parameter
-        - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result.
+        - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result. The aim delay penalty depends on `Aimingtime <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_
         - ``CriticalChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
       * - Moodles penalty
         - Player condition
@@ -935,7 +1038,7 @@ Parameters
         - ``CriticalChance -= movementPenalty``
       * - `Marksman trait <https://pzwiki.net/wiki/Marksman>`_
         - Player condition
-        - 
+        - This condition can never be reached as the Marksman trait no longer exists.
         - ``CriticalChance += 10``
    
    
@@ -1515,20 +1618,118 @@ Parameters
 .. _item-hitchance:
 
 **HitChance** `🔗 <#item-hitchance>`_
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
-   No description
-
-   Item types: weapon
+   `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `HitChanceModified <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchancemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_.
+   
+   The initial hitchance is determined by the following configuration:
+   
+   .. code-block::
+   
+      HitChance = min(HitChance, CombatConfigKey.MAXIMUM_START_TO_HIT_CHANCE)
+   
+   `MAXIMUM_START_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_START_TO_HIT_CHANCE>`_ is a configuration of the combat system of Project Zomboid. In this case, the default value is ``95.0``\ , which means the initial HitChance cannot be above ``95.0``.
+   
+   Below is a table listing the different elements which can influence the hit chance of a weapon:
+   
+   .. list-table::
+      :header-rows: 1
+   
+      * - Element
+        - Type
+        - Description
+        - Formula
+      * - `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
+        - Weapon parameter
+        - The aiming level of the character impacts the player's hit chance.
+        - ``HitChance += AimingPerkHitChanceModifier * Aiming level``
+      * - Sight bonus / penalty
+        - Weapon parameter
+        - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result.
+        - ``HitChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
+      * - Moodles penalty
+        - Player condition
+        - Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the ``HitChance``.
+        - ``HitChance -= moodlesPenalty``
+      * - Weather penalty
+        - Environment
+        - Wind, rain, fog, low-light will all negatively impact the ``HitChance``.
+        - ``HitChance -= weatherPenalty``
+      * - Movement penalty
+        - Player condition
+        - The shooter speed and the distance will negatively impact the ``HitChance``.
+        - ``HitChance -= movementPenalty``
+      * - Arm pain penalty
+        - Player condition
+        - The character's level of `pain <https://pzwiki.net/wiki/Pain>`_ will impact its aiming.
+        - ``HitChance -= armPainPenalty``
+      * - Headgear vision penalty
+        - Player condition
+        - Headgear will impact aiming, if the relevant sandbox option is enabled.
+        - ``HitChance -= headgearVisionPenalty``
+   
+   
+   The final obtained value of ``HitChance`` is clamped against the `MINIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MINIMUM_TO_HIT_CHANCE>`_ and `MAXIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_TO_HIT_CHANCE>`_\ , both respectively equal to ``5.0`` and ``100.0`` by default.
+   
+   At point-blank range, all combined penalties are scaled toward zero, so close shots are always more forgiving. The `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ parameter will set the floor for all players while `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ will increase accuracy with the level of aiming of the player. Low base and high modifier makes the gun terrible while unskilled but excellent with investment in aiming.
 
 .. _item-hitchancemodifier:
 
 **HitChanceModifier** `🔗 <#item-hitchancemodifier>`_
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
-   No description
-
-   Item types: weaponpart
+   `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `HitChanceModified <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchancemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_.
+   
+   The initial hitchance is determined by the following configuration:
+   
+   .. code-block::
+   
+      HitChance = min(HitChance, CombatConfigKey.MAXIMUM_START_TO_HIT_CHANCE)
+   
+   `MAXIMUM_START_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_START_TO_HIT_CHANCE>`_ is a configuration of the combat system of Project Zomboid. In this case, the default value is ``95.0``\ , which means the initial HitChance cannot be above ``95.0``.
+   
+   Below is a table listing the different elements which can influence the hit chance of a weapon:
+   
+   .. list-table::
+      :header-rows: 1
+   
+      * - Element
+        - Type
+        - Description
+        - Formula
+      * - `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
+        - Weapon parameter
+        - The aiming level of the character impacts the player's hit chance.
+        - ``HitChance += AimingPerkHitChanceModifier * Aiming level``
+      * - Sight bonus / penalty
+        - Weapon parameter
+        - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result.
+        - ``HitChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
+      * - Moodles penalty
+        - Player condition
+        - Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the ``HitChance``.
+        - ``HitChance -= moodlesPenalty``
+      * - Weather penalty
+        - Environment
+        - Wind, rain, fog, low-light will all negatively impact the ``HitChance``.
+        - ``HitChance -= weatherPenalty``
+      * - Movement penalty
+        - Player condition
+        - The shooter speed and the distance will negatively impact the ``HitChance``.
+        - ``HitChance -= movementPenalty``
+      * - Arm pain penalty
+        - Player condition
+        - The character's level of `pain <https://pzwiki.net/wiki/Pain>`_ will impact its aiming.
+        - ``HitChance -= armPainPenalty``
+      * - Headgear vision penalty
+        - Player condition
+        - Headgear will impact aiming, if the relevant sandbox option is enabled.
+        - ``HitChance -= headgearVisionPenalty``
+   
+   
+   The final obtained value of ``HitChance`` is clamped against the `MINIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MINIMUM_TO_HIT_CHANCE>`_ and `MAXIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_TO_HIT_CHANCE>`_\ , both respectively equal to ``5.0`` and ``100.0`` by default.
+   
+   At point-blank range, all combined penalties are scaled toward zero, so close shots are always more forgiving. The `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ parameter will set the floor for all players while `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ will increase accuracy with the level of aiming of the player. Low base and high modifier makes the gun terrible while unskilled but excellent with investment in aiming.
 
 .. _item-hitfloorsound:
 
@@ -2657,18 +2858,36 @@ Parameters
 **RecoilDelay** `🔗 <#item-recoildelay>`_
    Type: ``Any``
 
-   No description
-
-   Item types: weapon
+   `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelaymodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. Weapon attachments will add or subtract from `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly.
+   
+   Controls how long post-shot recovery takes before aim settling can begin. High values means the gun has a huge kick and forces a pause. Lower values is a flat, fast and snappy gun. `Strength <https://pzwiki.net/wiki/Strength>`_ and `aiming <https://pzwiki.net/wiki/Aiming>`_ will both reduce the recoil delay. Holding the gun one-handed will negatively impact the recoil handling. The following formula is used:
+   
+   .. code-block:: java
+   
+      effectiveDelay = RecoilDelay
+                    * (1 - AimingLevel / 40)
+                    * (1 - (StrengthLevel * 2 - 10) / 40)
+                    * (one-handed penalty: * 1.3 if primary hand only, secondary empty)
+   
+   Aim countdown starts when the recoil delay counter is less than ``effectiveDelay * AimingLevel / 30``. Higher aiming also lets aim recovery start earlier in the recoil window.
 
 .. _item-recoildelaymodifier:
 
 **RecoilDelayModifier** `🔗 <#item-recoildelaymodifier>`_
    Type: ``Any``
 
-   No description
-
-   Item types: weaponpart
+   `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelaymodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. Weapon attachments will add or subtract from `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly.
+   
+   Controls how long post-shot recovery takes before aim settling can begin. High values means the gun has a huge kick and forces a pause. Lower values is a flat, fast and snappy gun. `Strength <https://pzwiki.net/wiki/Strength>`_ and `aiming <https://pzwiki.net/wiki/Aiming>`_ will both reduce the recoil delay. Holding the gun one-handed will negatively impact the recoil handling. The following formula is used:
+   
+   .. code-block:: java
+   
+      effectiveDelay = RecoilDelay
+                    * (1 - AimingLevel / 40)
+                    * (1 - (StrengthLevel * 2 - 10) / 40)
+                    * (one-handed penalty: * 1.3 if primary hand only, secondary empty)
+   
+   Aim countdown starts when the recoil delay counter is less than ``effectiveDelay * AimingLevel / 30``. Higher aiming also lets aim recovery start earlier in the recoil window.
 
 .. _item-reduceinfectionpower:
 
