@@ -21,7 +21,7 @@ parameters:
     the console about it.
   isUseless: true
 - name: CustomDrinkSound
-  description: Refers to a [sound block](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/sound.html)
+  description: Refers to a [sound block](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/sound.html)
     to trigger when drinking.
   type:
     main: string
@@ -66,7 +66,7 @@ parameters:
     main: boolean
   default: false
   description: When set to true, the container will pick one of the available fluids
-    in the [Fluids](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/fluids.html)
+    in the [Fluids](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/fluids.html)
     child block at random when filling. If set to false, it will make every fluids
     appear.
   needs:

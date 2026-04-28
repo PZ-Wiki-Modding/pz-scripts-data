@@ -50,7 +50,7 @@ parameters:
   type:
     main: string
   default: jeep
-  description: Sets the engine to a RPM type ([See vehicleEngineRPM block](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicleenginerpm.html)).
+  description: Sets the engine to a RPM type ([See vehicleEngineRPM block](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicleenginerpm.html)).
 - name: extents
   type:
     main: array
@@ -116,18 +116,18 @@ parameters:
   default: 4
   type:
     main: integer
-  description: "[gearRatioCount](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount)\
+  description: "[gearRatioCount](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount)\
     \ will set the number of gear ratios the car can have. The vanilla cars use 4,\
     \ while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n\
-    - [gearRatioR](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount)\
-    \ (the reverse gear ratio)\n- [gearRatio1](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n\
-    - [gearRatio2](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n\
-    - [gearRatio3](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n\
-    - [gearRatio4](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n\
-    - [gearRatio5](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n\
-    - [gearRatio6](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n\
-    - [gearRatio7](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n\
-    - [gearRatio8](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\
+    - [gearRatioR](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratiocount)\
+    \ (the reverse gear ratio)\n- [gearRatio1](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio1)\n\
+    - [gearRatio2](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio2)\n\
+    - [gearRatio3](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio3)\n\
+    - [gearRatio4](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio4)\n\
+    - [gearRatio5](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio5)\n\
+    - [gearRatio6](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio6)\n\
+    - [gearRatio7](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio7)\n\
+    - [gearRatio8](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-gearratio8)\n\
     \nThose ratios take floats"
 - name: hasLighter
   type:
@@ -202,7 +202,7 @@ parameters:
     physicsChassisShape = height width length,
     ```
 
-    When setting [useChassisPhysicsCollision](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-usechassisphysicscollision) to `false`, it will instead use [physics](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/physics.html) for the hitbox of the vehicle.
+    When setting [useChassisPhysicsCollision](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-usechassisphysicscollision) to `false`, it will instead use [physics](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/physics.html) for the hitbox of the vehicle.
 - name: playerDamageProtection
   type:
     main: float
@@ -229,9 +229,9 @@ parameters:
   type:
     main: integer
   default: 2
-  description: Sets the number of seats this vehicle can have. A seat [part](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/part.html)
-    needs to be created which will hold a [container](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container)
-    block with a parameter [seat](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/container.html#container-seat)
+  description: Sets the number of seats this vehicle can have. A seat [part](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/part.html)
+    needs to be created which will hold a [container](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/container.html#container)
+    block with a parameter [seat](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/container.html#container-seat)
 - name: shadowExtents
   type:
     main: array
@@ -329,8 +329,8 @@ parameters:
   default: true
   type:
     main: boolean
-  description: By default `true` which makes the vehicle use the [physicsChassisShape](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-physicschassisshape)
-    for its hitbox. If set to false, it will instead use the [physics](https://sirdoggyjvla.github.io/pz-scripts-data/blocks/physics.html)
+  description: By default `true` which makes the vehicle use the [physicsChassisShape](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/vehicle.html#vehicle-physicschassisshape)
+    for its hitbox. If set to false, it will instead use the [physics](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/physics.html)
     blocks as the hitbox of the vehicle.
 - name: wheelFriction
   type:

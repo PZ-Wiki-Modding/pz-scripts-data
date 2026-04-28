@@ -113,7 +113,7 @@ Aimingtime
 
    Type: ``{'main': 'integer'}``
 
-`Aimingtime <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. The attachments directly add or subtract their `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ to the aiming delay.
+`Aimingtime <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. The attachments directly add or subtract their `AimingTimeModifier <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-aimingtimemodifier>`_ to the aiming delay.
 
 It controls the aim-settling delay, the aiming delay counter that must tick down to 0 before the weapon is "settled". Lower values means faster target reacquisition after each shots. The primary "how snappy does this gun feel" lever for semi-automatic guns. It tick down the aiming via the following formula:
 
@@ -129,7 +129,7 @@ The `marksman <https://pzwiki.net/wiki/Marksman>`_ trait being no longer accessi
    This formula might not be fully accurate as `time deltas <https://github.com/demiurgeQuantified/PZModdingGuides/blob/main/guides/GameTime.md>`_ don't appear in the formula.
 
 
-While ``aimingDelay > 0``\ , both `hit chance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ and `critical chance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-criticalchance>`_ take an aim-delay penalty proportional to the remaining delay. The countdown only starts after ``recoilDelay`` has recovered, so high `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly delays when ``AimingTime`` begins ticking.
+While ``aimingDelay > 0``\ , both `hit chance <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ and `critical chance <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-criticalchance>`_ take an aim-delay penalty proportional to the remaining delay. The countdown only starts after ``recoilDelay`` has recovered, so high `RecoilDelay <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly delays when ``AimingTime`` begins ticking.
 
 On each shots or equip, the aiming delay will be increased or reduced, being impacted by aiming while in a `vehicle <https://pzwiki.net/wiki/Vehicle>`_\ , being reduced by the trait `Dextrous <https://pzwiki.net/wiki/Dextrous>`_ or increased by `All Thumbs <https://pzwiki.net/wiki/All_Thumbs>`_. The following formula is used:
 
@@ -891,7 +891,7 @@ CriticalChance
 
    Type: ``{'main': 'float'}``
 
-`CriticalChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-criticalchance>`_ sets the base critical hit chance of the weapon. The final ``CriticalChance`` value after all applied bonuses and penalties have been applied is compared on a 0-100 roll.
+`CriticalChance <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-criticalchance>`_ sets the base critical hit chance of the weapon. The final ``CriticalChance`` value after all applied bonuses and penalties have been applied is compared on a 0-100 roll.
 
 Below is a table listing the different elements which can influence the critical hit chance of a weapon:
 
@@ -902,13 +902,13 @@ Below is a table listing the different elements which can influence the critical
      - Type
      - Description
      - Formula
-   * - `AimingPerkCritModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkcritmodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
+   * - `AimingPerkCritModifier <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-aimingperkcritmodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
      - Weapon parameter
      - The aiming level of the character impacts the player's critical hit chance by adding the following to the ``CriticalChance`` value.
      - ``CriticalChance += AimingPerkCritModifier * Aiming level``
    * - Sight bonus / penalty
      - Weapon parameter
-     - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result. The aim delay penalty depends on `Aimingtime <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_
+     - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result. The aim delay penalty depends on `Aimingtime <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_
      - ``CriticalChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
    * - Moodles penalty
      - Player condition
@@ -928,7 +928,7 @@ Below is a table listing the different elements which can influence the critical
      - ``CriticalChance += 10``
 
 
-For PvP targets, the entire formula is bypassed and `StopPower <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-stoppower>`_ is used instead.
+For PvP targets, the entire formula is bypassed and `StopPower <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-stoppower>`_ is used instead.
 
 ``CriticalChance`` sets the floor for unskilled players while ``AimingPerkCritModifier`` rewards more or less the character ability to aim. High modified and low base chance means the weapon is a skill-gated crit machine, making the weapon a sort of "experts" weapon.
 
@@ -1512,7 +1512,7 @@ HitChance
 
    Type: ``{'main': 'integer'}``
 
-`HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `HitChanceModified <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchancemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_.
+`HitChance <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `HitChanceModified <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-hitchancemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_.
 
 The initial hitchance is determined by the following configuration:
 
@@ -1531,13 +1531,13 @@ Below is a table listing the different elements which can influence the hit chan
      - Type
      - Description
      - Formula
-   * - `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
+   * - `AimingPerkHitChanceModifier <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ and `aiming skill <https://pzwiki.net/wiki/Aiming>`_ of the character
      - Weapon parameter
      - The aiming level of the character impacts the player's hit chance.
      - ``HitChance += AimingPerkHitChanceModifier * Aiming level``
    * - Sight bonus / penalty
      - Weapon parameter
-     - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result.
+     - In the formula, ``sightWindowBonus`` refers to the bonus from `MinSightRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_. ``sightlessBonus`` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result.
      - ``HitChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)``
    * - Moodles penalty
      - Player condition
@@ -1563,7 +1563,7 @@ Below is a table listing the different elements which can influence the hit chan
 
 The final obtained value of ``HitChance`` is clamped against the `MINIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MINIMUM_TO_HIT_CHANCE>`_ and `MAXIMUM_TO_HIT_CHANCE <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_TO_HIT_CHANCE>`_\ , both respectively equal to ``5.0`` and ``100.0`` by default.
 
-At point-blank range, all combined penalties are scaled toward zero, so close shots are always more forgiving. The `HitChance <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ parameter will set the floor for all players while `AimingPerkHitChanceModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ will increase accuracy with the level of aiming of the player. Low base and high modifier makes the gun terrible while unskilled but excellent with investment in aiming.
+At point-blank range, all combined penalties are scaled toward zero, so close shots are always more forgiving. The `HitChance <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-hitchance>`_ parameter will set the floor for all players while `AimingPerkHitChanceModifier <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-aimingperkhitchancemodifier>`_ will increase accuracy with the level of aiming of the player. Low base and high modifier makes the gun terrible while unskilled but excellent with investment in aiming.
 
 .. _item-hitchancemodifier:
 
@@ -2075,7 +2075,7 @@ MaxSightRange
 
    Type: ``{'main': 'float'}``
 
-`MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_ define the optimal sight window, to be more specific, the distance band where hits and critical hits bonuses peak.
+`MinSightRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ and `MaxSightRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_ define the optimal sight window, to be more specific, the distance band where hits and critical hits bonuses peak.
 
 The `aiming skill <https://pzwiki.net/wiki/Aiming>`_ and `eagle eyed <https://pzwiki.net/wiki/Eagle_Eyed>`_ will impact these values:
 
@@ -2090,7 +2090,7 @@ Inside the the ``effectiveMin`` and ``effectiveMax`` window, the bonus follows a
 
 Below ``effectiveMin``\ , a small linear penalty is applied as the gun is not suited for point-blank. Above ``effectiveMax``\ , a growing quadratic penalty is applied, the bonus degrades rapidly past the edge.
 
-A CQC gun should have a low `MaxSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_ while a marksman riffle should have a high `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ with a wide window.
+A CQC gun should have a low `MaxSightRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange>`_ while a marksman riffle should have a high `MinSightRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_ with a wide window.
 
 .. _item-mechanicsitem:
 
@@ -2184,7 +2184,7 @@ MinRange
 
    Type: ``{'main': 'float'}``
 
-Hard minimum attack distance. If the target is closer than ``MinRange``\ , the ballistics controller does not register the shot and the game may force a melee swap. This is a binary threshold, not a penalty band. Separate from `MinSightRange <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_.
+Hard minimum attack distance. If the target is closer than ``MinRange``\ , the ballistics controller does not register the shot and the game may force a melee swap. This is a binary threshold, not a penalty band. Separate from `MinSightRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minsightrange>`_.
 
 Long rifles should be hard to use in tight spaces. ``0.2`` to ``0.35`` is a small gap but ``0.61`` is noticeably limiting indoors.
 
@@ -2692,7 +2692,7 @@ RecoilDelay
 
    Type: ``Any``
 
-`RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelaymodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. Weapon attachments will add or subtract from `RecoilDelay <https://sirdoggyjvla.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly.
+`RecoilDelay <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `AimingTimeModifier <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-recoildelaymodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_. Weapon attachments will add or subtract from `RecoilDelay <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ directly.
 
 Controls how long post-shot recovery takes before aim settling can begin. High values means the gun has a huge kick and forces a pause. Lower values is a flat, fast and snappy gun. `Strength <https://pzwiki.net/wiki/Strength>`_ and `aiming <https://pzwiki.net/wiki/Aiming>`_ will both reduce the recoil delay. Holding the gun one-handed will negatively impact the recoil handling. The following formula is used:
 
