@@ -137,6 +137,14 @@
             "type": ["string", "number", "boolean", "array", "object"],
             "description": "The default value for the parameter if not specified."
           },
+          "minimum": {
+            "type": "number",
+            "description": "The minimum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable."
+          },
+          "maximum": {
+            "type": "number",
+            "description": "The maximum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable."
+          },
           "type": {
             "type": "object",
             "description": "The data type of the parameter.",
@@ -259,6 +267,14 @@
                       }
                     }
                   ]
+                },
+                "minimum": {
+                  "type": "number",
+                  "description": "The minimum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'."
+                },
+                "maximum": {
+                  "type": "number",
+                  "description": "The maximum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'."
                 },
                 "children": {
                   "type": "array",
