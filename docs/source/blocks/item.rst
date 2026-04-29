@@ -93,18 +93,18 @@ See :ref:`item-hitchance` for more details.
 AimingPerkMinAngleModifier
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'float'}``
 
-No description
+See :ref:`item-minangle` for more details.
 
 .. _item-aimingperkrangemodifier:
 
 AimingPerkRangeModifier
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'float'}``
 
-No description
+See :ref:`item-maxrange` for more details.
 
 .. _item-aimingtime:
 
@@ -216,9 +216,24 @@ No description
 AmmoType
 ^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string'}``
 
-No description
+`AmmoType <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammotype>`_ indicates what item is consumed when shooting, but it also determines tracer and hit-reaction sound lookups.
+
+`MagazineType <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-magazinetype>`_ is used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. `MaxAmmo <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxammo>`_ is used to set the capacity of either the magazine item or the gun.
+
+`WeaponReloadType <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-weaponreloadtype>`_ is used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the `variable condition <https://pzwiki.net/wiki/Conditions>`_ ``WeaponReloadType`` in `AnimNodes <https://pzwiki.net/wiki/AnimNodes>`_. The game has the following values available by default:
+
+
+* handgun
+* shotgun
+* boltactionnomag
+* boltaction
+* revolver
+* doublebarrelshotgun
+* doublebarrelshotgunsawn
+
+A custom ``WeaponReloadType`` can be used if the relevant animations and condition logic are properly set up in a custom `AnimNode <https://pzwiki.net/wiki/AnimNodes>`_.
 
 .. _item-anglefalloff:
 
@@ -787,7 +802,12 @@ ConditionLowerChanceOneIn
 
    Type: ``{'main': 'integer'}``
 
-The chance impact to reduce the durability of the item, the value is used to calculate the chance by doing $chance = 1/ConditionLowerChanceOneIn$, which means increasing this parameter value will reduce the chance to damage the item.
+`ConditionLowerChanceOneIn <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-conditionlowerchanceonein>`_ impacts the durability of the item, reducing the value
+used to calculate the chance by doing ``chance = 1/ConditionLowerChanceOneIn``\ ,
+which means increasing this parameter value will reduce the chance to damage the
+item.
+
+`ConditionMax <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-conditionmax>`_ sets the total durability pool, starting condition and repair ceiling. Make these two parameters high for robust military rifles, and low for a cheap civilian gun.
 
    Default: ``10``
 
@@ -928,7 +948,11 @@ Below is a table listing the different elements which can influence the critical
      - ``CriticalChance += 10``
 
 
-For PvP targets, the entire formula is bypassed and `StopPower <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-stoppower>`_ is used instead.
+For PvP targets, the entire formula is bypassed and `StopPower <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-stoppower>`_ is used instead. ``StopPower`` is never used against non-player targets.
+
+.. code-block::
+
+   CriticalChance = StopPower * ( 1 + Aiming level / 15)
 
 ``CriticalChance`` sets the floor for unskilled players while ``AimingPerkCritModifier`` rewards more or less the character ability to aim. High modified and low base chance means the weapon is a skill-gated crit machine, making the weapon a sort of "experts" weapon.
 
@@ -959,9 +983,15 @@ Custom sound to play when eating or drinking this item, refers to the ID of a so
 CyclicRateMultiplier
 ^^^^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'float'}``
 
-No description
+Only in ``Auto`` `fire mode <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firemode>`_. Drives the full-auto animation cycle rate via the ``autoShootSpeed`` `animation variable <https://pzwiki.net/wiki/Conditions>`_.
+
+A higher value means more shots per second. In ``Single`` mode this field is ignored and shot speed comes from `RecoilDelay <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ and `Aimingtime <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-aimingtime>`_ instead.
+
+Increase for SMG feel and decrease for heavy LMG feel.
+
+   Default: ``1.0``
 
 .. _item-damagecategory:
 
@@ -1077,7 +1107,13 @@ DoorDamage
 
    Type: ``{'main': 'integer'}``
 
-Damage dealt to doors, windows, barricades and some vehicle/object hits.
+Damage dealt to doors, windows, barricades and some vehicle/object hits. The damage to doors cannot go lower than 1, even in the formulas it is clamped to a minimum of 1. The formula used to retrieve the damage to doors is:
+
+.. code-block::
+
+   damage = max(1, DoorDamage * sharpness multiplier)
+
+More parameters will impact the door damage based on where it is used.
 
    Default: ``1``
 
@@ -1171,7 +1207,7 @@ EnduranceMod
 
    Type: ``{'main': 'float'}``
 
-No description
+See :ref:`item-useendurance` for more details.
 
    Default: ``1.0``
 
@@ -1333,18 +1369,26 @@ No description
 FireMode
 ^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string'}``
 
-No description
+`FireModePossibilities <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firemodepossibilities>`_ lists the available fire modes of the weapon, and the player can automatically switch between them with the relevant keybind. `FireMode <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firemode>`_ sets the default fire mode of the weapon, which is the one it will spawn with.
+
+The vanilla fire modes are:
+
+
+* ``Single``
+* ``Auto``
+
+Other values are not supported by the game and will be considered as ``Single``.
 
 .. _item-firemodepossibilities:
 
 FireModePossibilities
 ^^^^^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': '/'}}``
 
-No description
+See :ref:`item-firemode` for more details.
 
 .. _item-firerange:
 
@@ -1733,16 +1777,18 @@ No description
 IsAimedFirearm
 ^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'boolean'}``
 
-No description
+`IsAimedFirearm <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-isaimedfirearm>`_ enables the entire aimed-firearm subsystem: ballistics controller, reticle, muzzle flash, firearm-specific condition handling and ballistics-base target detection. Without it the weapon falls back to melee sweep logic.
+
+Set to ``true`` for any normal gun. Distinct from `Ranged <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ranged>`_ which marks the item as a ranged weapon for the animations `conditions <https://pzwiki.net/wiki/Conditions>`_.
 
 .. _item-isaimedhandweapon:
 
 IsAimedHandWeapon
 ^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'boolean'}``
 
 No description
 
@@ -1751,7 +1797,7 @@ No description
 IsCookable
 ^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'boolean'}``
 
 No description
 
@@ -1760,7 +1806,7 @@ No description
 IsDung
 ^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'boolean'}``
 
 No description
 
@@ -1852,7 +1898,9 @@ JamGunChance
 
    Type: ``{'main': 'float'}``
 
-No description
+Base probability of a jam on each trigger pull. Final jam roml also scales with the sandbox jam multiplier, current gun condition (lower condition = higher jam chance), and low Aiming/Strength.
+
+``JamGunChance = 1`` is already low. Setting it to ``0`` basically disables jams from this weapon. Higher values makes the gun unreliable and punishes neglecting the gun or unskilled use.
 
    Default: ``1.0``
 
@@ -1955,9 +2003,9 @@ No description
 MagazineType
 ^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'item', 'fullType': True}}``
 
-No description
+See :ref:`item-ammotype` for more details.
 
 .. _item-makeuptype:
 
@@ -1991,7 +2039,7 @@ No description
 MaxAmmo
 ^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
 No description
 
@@ -2035,7 +2083,11 @@ MaxHitcount
 
    Type: ``{'main': 'integer'}``
 
-No description
+`MaxHitcount <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxhitcount>`_ sets the maximum number of targets the weapon can hit with one attack. For ranged weapons, it will determine how many targets a single shot can hit. For melee weapons, a single swing can hit multiple targets if the relevant sandbox option allows it (Weapon Multi-Hit).
+
+When `PiercingBullets <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-piercingbullets>`_ is ``true``\ , a shot continues past the first target and registers on collinear targets behind it. Each subsequent pierced target receives reduced damage (\ ``damage / PIERCING_BULLET_DAMAGE_REDUCTION``\ ). Targets must be within approximatively 1 degree of each other in angle to qualify.
+
+Keep ``MaxHitcount`` to 1 for a standard rifle, and set it to 2 with `PiercingBullets <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-piercingbullets>`_ to have AP rounds behavior (M16A2 for example).
 
    Default: ``1000``
 
@@ -2055,7 +2107,15 @@ MaxRange
 
    Type: ``{'main': 'float'}``
 
-No description
+`MaxRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxrange>`_ is a stat which is directly applied to a `HandWeapon <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html>`_ while `MaxRangeModifier <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxrangemodifier>`_ is applied to `weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_.
+
+The `MaxRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxrange>`_ of a weapon is used to determine the maximum distance the weapon can shoot. Targets beyond ``effectiveMaxRange`` calculated with the formula below simply can't be reached, the parameter is a hard cutoff, not a penalty in damage or anything like that.
+
+.. code-block::
+
+   effectiveMaxRange = MaxRange + AimingPerkRangeModifier x (AimingLevel / 2.0)
+
+All rifles from the base game have a ``AimingPerkRangeModifier`` of 0, so `aiming level <https://pzwiki.net/wiki/Aiming>`_ has no effect on the range of guns. Set it above 0 to give skilled players extra reach.
 
    Default: ``1.0``
 
@@ -2064,9 +2124,9 @@ No description
 MaxRangeModifier
 ^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'float'}``
 
-No description
+See :ref:`item-maxrange` for more details.
 
 .. _item-maxsightrange:
 
@@ -2144,7 +2204,15 @@ MinAngle
 
    Type: ``{'main': 'float'}``
 
-No description
+For `IsAimedFirearm <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-isaimedfirearm>`_ set to ``true``\ , the ballistics controller handles target detection and does not use `MinAngle <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minangle>`_ in the ranged hit-chance formula. These serve one narrow purpose: the ``isMeleeTargetTooCloseToShoot()`` check, detecting if a target is so close it should trigger a melee strike instead of a shot.
+
+``MinAngle`` is a dot-product threshold (-1 to 1). Values near 1.0 mean the target must be almost directly in front to trigger the melee-swap check, while lower values widen the angle.
+
+`AimingPerkMinAngleModifier <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-aimingperkminanglemodifier>`_ is parsed and stored and impacts the minimum angle with the following formula:
+
+.. code-block:: java
+
+   effectiveMinAngle = MinAngle - AimingPerkMinAngleModifier * Aiming level
 
    Default: ``1.0``
 
@@ -2497,9 +2565,9 @@ No description
 PiercingBullets
 ^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'boolean'}``
 
-No description
+See :ref:`item-maxhitcount` for more details.
 
 .. _item-placedsprite:
 
@@ -2560,9 +2628,13 @@ No description
 Projectilecount
 ^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
-No description
+Only active when the weapon is ranged and has `RangeFalloff <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-rangefalloff>`_ set to ``true``. In that mode, the ballistics controller generates multiple spread projectiles. The field is never read when `RangeFalloff <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-rangefalloff>`_ is ``false``.
+
+Inert for standard rifles. Required only for shotgun-style spread.
+
+   Default: ``1``
 
 .. _item-projectilespread:
 
@@ -2618,7 +2690,9 @@ PushBackMod
 
    Type: ``{'main': 'float'}``
 
-No description
+Scales the magnitude of the hit-reaction push applied to the target character. A higher value will increase the time the target is staggered. It will also impact the spread of blood.
+
+Higher gives a more weighty, impactful feel.
 
    Default: ``1.0``
 
@@ -2663,16 +2737,16 @@ No description
 Ranged
 ^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'boolean'}``
 
-No description
+See :ref:`item-isaimedfirearm` for more details.
 
 .. _item-rangefalloff:
 
 RangeFalloff
 ^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'boolean'}``
 
 No description
 
@@ -2865,7 +2939,7 @@ No description
 RequiresEquippedBothHands
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'boolean'}``
 
 No description
 
@@ -3128,7 +3202,7 @@ StopPower
 
    Type: ``{'main': 'float'}``
 
-No description
+See :ref:`item-criticalchance` for more details.
 
    Default: ``5.0``
 
@@ -3329,9 +3403,9 @@ No description
 TwoHandWeapon
 ^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'boolean'}``
 
-No description
+`TwoHandWeapon <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-twohandweapon>`_ marks the weapon as a two-handed weapon. `RecoilDelay <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-recoildelay>`_ gets a x1.3 penalty when the weapon is held one-handed instead of two handed. `RequiresEquippedBothHands <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-requiresequippedbothhands>`_ enforces the equip restriction in the context menu.
 
 .. _item-twoway:
 
@@ -3393,7 +3467,9 @@ UseEndurance
 
    Type: ``{'main': 'boolean'}``
 
-No description
+If ``true``\ , the weapon will consume stamina on use based on the weapon `weight <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-weight>`_\ , `EnduranceMod <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-endurancemod>`_\ , fatigue modifiers and traits.
+
+For guns, it is preferable to keep this as ``False``.
 
    Default: ``True``
 
@@ -3516,9 +3592,11 @@ No description
 WeaponReloadType
 ^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string'}``
 
-No description
+See :ref:`item-ammotype` for more details.
+
+   Default: ``handgun``
 
 .. _item-weaponsprite:
 
@@ -3556,7 +3634,7 @@ Weight
 
    Type: ``{'main': 'float'}``
 
-No description
+Sets the weight of the item, or more commonly refered to as a encumbrance. `Weapon parts <https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html>`_ will impact the weight of the weapon when attached. Will also impact stamina drain when `UseEndurance <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-useendurance>`_ is ``true``.
 
    Default: ``1.0``
 
