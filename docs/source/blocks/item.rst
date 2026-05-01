@@ -1162,7 +1162,7 @@ No description
 DropSound
 ^^^^^^^^^
 
-   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
+   Type: ``{'main': 'string'}``
 
 No description
 
@@ -2682,7 +2682,7 @@ No description
 PlaceOneSound
 ^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string'}``
 
 No description
 
@@ -3536,7 +3536,7 @@ Used to set the class of the item, which will influence parameters available.
 UnequipSound
 ^^^^^^^^^^^^
 
-   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
+   Type: ``{'main': 'string'}``
 
 No description
 

@@ -2251,12 +2251,6 @@
             "values": [
               true
             ]
-          },
-          {
-            "name": "FireModePossibilities",
-            "values": [
-              "Auto"
-            ]
           }
         ],
         "type": {
@@ -2394,10 +2388,7 @@
       "dropsound": {
         "name": "DropSound",
         "type": {
-          "main": "string",
-          "block": {
-            "name": "sound"
-          }
+          "main": "string"
         }
       },
       "eattime": {
@@ -3024,15 +3015,6 @@
       },
       "iscookable": {
         "name": "IsCookable",
-        "needs": [
-          {
-            "name": "ItemType",
-            "values": [
-              "base:food",
-              "base:drainable"
-            ]
-          }
-        ],
         "type": {
           "main": "boolean"
         }
@@ -3771,9 +3753,9 @@
       },
       "placeonesound": {
         "name": "PlaceOneSound",
-        "itemTypes": [
-          "normal"
-        ]
+        "type": {
+          "main": "string"
+        }
       },
       "poisonpower": {
         "name": "PoisonPower",
@@ -4563,10 +4545,7 @@
       "unequipsound": {
         "name": "UnequipSound",
         "type": {
-          "main": "string",
-          "block": {
-            "name": "sound"
-          }
+          "main": "string"
         }
       },
       "unhappychange": {
