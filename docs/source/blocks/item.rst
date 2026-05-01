@@ -207,7 +207,7 @@ No description
 AmmoBox
 ^^^^^^^
 
-   Type: ``{'main': 'string', 'block': {'name': 'item'}}``
+   Type: ``{'main': 'string', 'block': {'name': 'item', 'fullType': True}}``
 
 No description
 

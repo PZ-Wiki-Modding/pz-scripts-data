@@ -1588,7 +1588,8 @@
         "type": {
           "main": "string",
           "block": {
-            "name": "item"
+            "name": "item",
+            "fullType": true
           }
         }
       },
@@ -3000,10 +3001,7 @@
             ]
           },
           {
-            "name": "MaxAmmo",
-            "values": [
-              true
-            ]
+            "name": "MaxAmmo"
           }
         ],
         "type": {
