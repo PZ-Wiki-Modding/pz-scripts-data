@@ -108,11 +108,32 @@ parameters:
   itemTypes:
   - normal
 - name: AmmoBox
-  itemTypes:
-  - weapon
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+    - name: IsAimedFirearm
+      values:
+        - true
+  type:
+    main: string
+    block:
+      name: item
 - name: AmmoType
   description: |-
-    [AmmoType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammotype) indicates what item is consumed when shooting, but it also determines tracer and hit-reaction sound lookups.
+    [AmmoType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammotype) indicates what ammo is consumed when shooting, but it also determines tracer and hit-reaction sound lookups. The value needs to reference the [registries](https://pzwiki.net/wiki/Registries) entry of the ammo you want to use. The vanilla ammunition types which are available by default are:
+    - `base:bullets_3030`
+    - `base:bullets_308`
+    - `base:bullets_357`
+    - `base:bullets_38`
+    - `base:bullets_44`
+    - `base:bullets_45`
+    - `base:bullets_556`
+    - `base:bullets_9mm`
+    - `base:cap_gun_cap`
+    - `base:shotgun_shells`
+    
+    [AmmoBox](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammobox) is used to indicate the type of ammo box associated to the weapon. This is mostly used to spawn this type of ammo box alongside the gun.
 
     [MagazineType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-magazinetype) is used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. [MaxAmmo](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxammo) is used to set the capacity of either the magazine item or the gun.
 
@@ -158,8 +179,7 @@ parameters:
   itemTypes:
   - food
 - name: BadInMicrowave
-  description: Used to set whether this item can cause a fire when put in a microwave,
-    if set to true it will explode.
+  description: Used to set whether this item will cause a fire when put in a microwave.
   itemTypes:
   - food
 - name: BandagePower
@@ -244,13 +264,15 @@ parameters:
   itemTypes:
   - normal
 - name: BreakSound
-  itemTypes:
-  - clothing
-  - normal
-  - weapon
+  type:
+    main: string
+    block:
+      name: sound
 - name: BringToBearSound
-  itemTypes:
-  - weapon
+  type:
+    main: string
+    block:
+      name: sound
 - name: BulletDefense
   itemTypes:
   - clothing
@@ -347,10 +369,14 @@ parameters:
   - drainable
   - normal
 - name: ClickSound
-  itemTypes:
-  - weapon
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
   type:
     main: string
+    block:
+      name: sound
   default: Stormy9mmClick
 - name: ClipSize
   itemTypes:
@@ -475,10 +501,11 @@ parameters:
   itemTypes:
   - drainable
 - name: CookingSound
-  itemTypes:
-  - drainable
-  - food
-  - normal
+  description: Custom sound to play when cooking this item.
+  type:
+    main: string
+    block:
+      name: sound
 - name: CorpseSicknessDefense
   itemTypes:
   - clothing
@@ -486,7 +513,8 @@ parameters:
   itemTypes:
   - alarmclockclothing
   - clothing
-- name: count
+- name: Count
+  description: The parameter is unused in the game scripts, unclear what it is used for.
   itemTypes:
   - normal
   type:
@@ -575,16 +603,35 @@ parameters:
   itemTypes:
   - weapon
 - name: DangerousUncooked
-  itemTypes:
-  - food
+  description: |-
+    If true, the item will cause food poisoning when eaten raw. Used for example for raw meat. The [iron gut](https://pzwiki.net/wiki/Iron_Gut) trait will stop you from getting sick from eating a raw food with the [tag](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-tags) `Egg`. The severity of the food poisoning is not impacted by traits or other criteria, only by the quantity of food you eat.
+  needs:
+    - name: ItemType
+      values:
+        - base:food
+  type:
+    main: boolean
 - name: DaysFresh
-  itemTypes:
-  - food
-  description: How many days this food item will stay fresh with default sandbox settings.
+  needs:
+    - name: ItemType
+      values:
+        - base:food
+  description: |-
+    [DaysFresh](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-daysfresh) sets how many days this food item will stay fresh with default sandbox settings. [DaysTotallyRotten](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-daystotallyrotten) sets how many days this food item will take to rot.
+
+    [Icon](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-icon) provides the ability to set a different icon for the rotten and stale version of the food.
+  default: 1000000000
+  type:
+    main: integer
 - name: DaysTotallyRotten
-  itemTypes:
-  - food
-  description: How many days this food item will take to rot.
+  "#desc": item/DaysFresh
+  needs:
+    - name: ItemType
+      values:
+        - base:food
+  default: 1000000000
+  type:
+    main: integer
 - name: DigitalPadlock
   itemTypes:
   - key
@@ -632,9 +679,10 @@ parameters:
   - literature
   - normal
 - name: DropSound
-  itemTypes:
-  - normal
-  - weapon
+  type:
+    main: string
+    block:
+      name: sound
 - name: Eattime
   itemTypes:
   - drainable
@@ -648,14 +696,20 @@ parameters:
   - normal
   - weapon
 - name: EjectAmmoSound
-  itemTypes:
-  - weapon
+  type:
+    main: string
+    block:
+      name: sound
 - name: EjectAmmoStartSound
-  itemTypes:
-  - weapon
+  type:
+    main: string
+    block:
+      name: sound
 - name: EjectAmmoStopSound
-  itemTypes:
-  - weapon
+  type:
+    main: string
+    block:
+      name: sound
 - name: enduranceChange
   itemTypes:
   - food
@@ -675,10 +729,10 @@ parameters:
   itemTypes:
   - normal
 - name: EquipSound
-  itemTypes:
-  - container
-  - drainable
-  - weapon
+  type:
+    main: string
+    block:
+      name: sound
 - name: EvolvedRecipe
   description: List of evolved recipes this item can be used in.
   itemTypes:
@@ -689,17 +743,45 @@ parameters:
   - drainable
   - food
 - name: ExplosionDuration
-  itemTypes:
-  - weapon
+  "#desc": item/ExplosionRange
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  type:
+    main: integer
 - name: ExplosionPower
-  itemTypes:
-  - weapon
+  description: |-
+    If set above 0, the explosion will burn tiles and set fire to them based on the provided [fireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance)
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  type:
+    main: integer
 - name: ExplosionRange
-  itemTypes:
-  - weapon
+  description: |-
+    [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance) out of 100 is a chance of the explosion to set on fire tiles and burn characters in the [ExplosionRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionrange). A value above 100 means the explosion will always set on fire tiles and burn characters, while a value of 0 means it will never set on fire tiles nor burn characters. Each tiles in the explosion range will run the [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance) check independently, so a value of 50 means that on average half of the tiles in the explosion range will be set on fire.
+
+    [SmokeRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-smokerange) sets the range of the smoke effect. Squares in this range also can be set on fire individually based on [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance).
+
+    [FireRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firerange) will set every tiles in the provided range on fire.
+
+    [FireStartingEnergy](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingenergy) is an extra check added on top of all of these whenever a fire is attempted to be started. Will set the energy of the fire which impacts how strong is is. A value of 0 means no fire is started. Vegetation tiles provide a net bonus of 50 in energy to the fire being created. The created fire will have a life expectency between 300 and 600 (unclear on the units).
+
+    [ExplosionSound](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionsound) can be used to set the sound played when the explosion happens, while [ExplosionDuration](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionduration) can be used to set the duration of the explosion effect, which is especially useful for smoke bombs.
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  type:
+    main: integer
 - name: ExplosionSound
-  itemTypes:
-  - weapon
+  "#desc": item/ExplosionRange
+  type:
+    main: string
+    block:
+      name: sound
 - name: ExplosionTimer
   itemTypes:
   - weapon
@@ -726,11 +808,7 @@ parameters:
   itemTypes:
   - normal
 - name: FireFuelRatio
-  itemTypes:
-  - drainable
-  - moveable
-  - normal
-  - weapon
+  isUseless: true
 - name: FireMode
   description: |-
     [FireModePossibilities](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firemodepossibilities) lists the available fire modes of the weapon, and the player can automatically switch between them with the relevant keybind. [FireMode](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firemode) sets the default fire mode of the weapon, which is the one it will spawn with.
@@ -759,14 +837,26 @@ parameters:
       type: string
       separator: /
 - name: FireRange
-  itemTypes:
-  - weapon
+  "#desc": item/ExplosionRange
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
 - name: FireStartingChance
-  itemTypes:
-  - weapon
+  "#desc": item/ExplosionRange
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  type:
+    main: integer
 - name: FireStartingEnergy
-  itemTypes:
-  - weapon
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  type:
+    main: integer
 - name: FishingLure
   itemTypes:
   - food
@@ -864,16 +954,24 @@ parameters:
       values:
         - base:weaponpart
 - name: HitFloorSound
-  itemTypes:
-  - weapon
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
   type:
     main: string
+    block:
+      name: sound
   default: BatOnFloor
 - name: HitSound
-  itemTypes:
-  - weapon
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
   type:
     main: string
+    block:
+      name: sound
   default: BaseballBatHit
 - name: HungerChange
   itemTypes:
@@ -962,23 +1060,33 @@ parameters:
     main: string
   default: Idle
 - name: ImpactSound
-  itemTypes:
-  - weapon
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
   type:
     main: string
+    block:
+      name: sound
   default: BaseballBatHit
 - name: InsertAllBulletsReload
   itemTypes:
   - weapon
 - name: InsertAmmoSound
-  itemTypes:
-  - weapon
+  type:
+    main: string
+    block:
+      name: sound
 - name: InsertAmmoStartSound
-  itemTypes:
-  - weapon
+  type:
+    main: string
+    block:
+      name: sound
 - name: InsertAmmoStopSound
-  itemTypes:
-  - weapon
+  type:
+    main: string
+    block:
+      name: sound
 - name: Insulation
   itemTypes:
   - clothing
@@ -1220,9 +1328,6 @@ parameters:
   type:
     main: float
 - name: MaxSightRange
-  itemTypes:
-  - weapon
-  - weaponpart
   type:
     main: float
   needs:
@@ -1317,26 +1422,42 @@ parameters:
 - name: MinSightRange
   type:
     main: float
-  itemTypes:
-  - weapon
-  - weaponpart
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+        - base:weaponpart
   "#desc": item/MaxSightRange
 - name: MinutesToBurn
-  itemTypes:
-  - food
+  needs:
+    - name: ItemType
+      values:
+        - base:food
+    - name: IsCookable
+      values:
+        - true
   type:
     main: float
   default: 120.0
-  description: How many in-game minutes it takes to burn the food. This value must
-    be higher than `MinutesToCook`.
+  description: |-
+    How many in-game minutes it takes to burn the food. This value must
+    be higher than [MinutesToCook](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestocook).
+    
+    In comparison with [MinutesToCook](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestocook), this parameter is not available for `base:drainable` [ItemTypes](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-itemtype).
 - name: MinutesToCook
-  itemTypes:
-  - food
+  needs:
+    - name: ItemType
+      values:
+        - base:food
+        - base:drainable
+    - name: IsCookable
+      values:
+        - true
   type:
     main: float
   default: 60.0
   description: How many in-game minutes it takes to cook the food. This value must
-    be smaller than `MinutesToBurn`.
+    be smaller than [MinutesToBurn](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestoburn).
 - name: ModelWeaponPart
   itemTypes:
   - weapon
@@ -1449,8 +1570,17 @@ parameters:
   itemTypes:
   - weaponpart
 - name: PhysicsObject
-  itemTypes:
-  - weapon
+  description: |-
+    Provides another item (or itself) as a throwable object. When used, the item will be thrown instead of used as an actual in hands weapon.
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  type:
+    main: string
+    block:
+      name: item
+      fullType: true
 - name: PiercingBullets
   "#desc": item/MaxHitcount
   needs:
@@ -1706,8 +1836,14 @@ parameters:
   - normal
   - weapon
 - name: ShellFallSound
-  itemTypes:
-  - weapon
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  type:
+    main: string
+    block:
+      name: sound
 - name: ShoutMultiplier
   itemTypes:
   - clothing
@@ -1853,8 +1989,15 @@ parameters:
     main: string
   default: Rifle
 - name: SwingSound
-  itemTypes:
-  - weapon
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  type:
+    main: string
+    block:
+      name: sound
+  default: BaseballBatSwing
 - name: Swingtime
   itemTypes:
   - weapon
@@ -1862,26 +2005,20 @@ parameters:
     main: float
   default: 1.0
 - name: Tags
+  description: |-
+    A list of tags to assign to the item. Tags are used by the game to easily identify properties of the items. This can notably be used in [craftRecipes](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/craftrecipe.html).
+
+    For example:
+    ```cpp
+    Tags = base:egg;base:hasmetal,
+    ```
+
+    You can find a list of all tags on the [wiki](https://pzwiki.net/wiki/Item_tag).
   type:
     main: array
     array:
       type: string
       separator: ;
-  itemTypes:
-  - alarmclock
-  - alarmclockclothing
-  - clothing
-  - container
-  - drainable
-  - food
-  - key
-  - literature
-  - map
-  - moveable
-  - normal
-  - radio
-  - weapon
-  - weaponpart
 - name: ThirstChange
   itemTypes:
   - food
@@ -1949,10 +2086,10 @@ parameters:
   itemTypes:
   - radio
 - name: UnequipSound
-  itemTypes:
-  - drainable
-  - normal
-  - weapon
+  type:
+    main: string
+    block:
+      name: sound
 - name: UnhappyChange
   itemTypes:
   - drainable
