@@ -880,6 +880,54 @@ parameters:
   - drainable
   - food
 - name: Icon
+  description: |-
+    Used to specify the icon of the item, usually used in the inventory and crafting menus to easily recognize the item. The icon file needs to be located inside the `media/textures/` folder and the file name must start with `Item_`, and be of the extension `.png`.
+    ```
+    📁 media
+      📁 textures
+        📄 Item_iconName.png
+    ```
+
+    When referencing the icon in the item script, you should not include the `Item_` prefix and the `.png` extension. For example, to reference the icon file above in the item script:
+    ```
+    Icon = iconName,
+    ```
+
+    ##### Subfolders
+    Subfolders are not directly supported, but you can use some tricks to have them working. Here's a simple example:
+    ```
+    Icon = subFolder/iconName,
+    ```
+    Means your folder structure should be:
+    ```
+    📁 media
+      📁 textures
+        📁 Item_subFolder
+          📄 iconName.png
+    ```
+
+    Notice how the `Item_` prefix is not on the file but on the folder in this case.
+
+    ##### Food icons
+    Icons can be specified for rotten, cooked and burned food (`ItemType = base:food,`) by adding the following suffix to the icon files:
+    - `Rotten` or `Spoiled` for food that has rotten, meaning has passed the [DaysTotallyRotten](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-daystotallyrotten) value.
+    - `Cooked` for food that has been cooked, meaning has passed the [MinutesToCook](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestocook) value.
+    - `Overdone` or `Burnt` for food that has been cooked to the point of burning, meaning has passed the [MinutesToBurn](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestoburn) value.
+
+    For example, take a food item with the icon file defined as such:
+    ```
+    Icon = iconName,
+    ```
+
+    To add variants based on food condition, you would have the following file structure:
+    ```
+    📁 media
+      📁 textures
+        📄 Item_iconName.png
+        📄 Item_iconNameCooked.png
+        📄 Item_iconNameRotten.png
+        📄 Item_iconNameBurnt.png
+    ```
   type:
     main: string
   default: None
