@@ -119,6 +119,7 @@ parameters:
     main: string
     block:
       name: item
+      fullType: true
 - name: AmmoType
   description: |-
     [AmmoType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammotype) indicates what ammo is consumed when shooting, but it also determines tracer and hit-reaction sound lookups. The value needs to reference the [registries](https://pzwiki.net/wiki/Registries) entry of the ammo you want to use. The vanilla ammunition types which are available by default are:
@@ -1109,8 +1110,6 @@ parameters:
       values:
         - base:weapon
     - name: MaxAmmo
-      values:
-        - true
   type:
     main: boolean
 - name: IsAimedHandWeapon
