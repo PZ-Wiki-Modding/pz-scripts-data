@@ -207,7 +207,7 @@ No description
 AmmoBox
 ^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'item'}}``
 
 No description
 
@@ -218,7 +218,21 @@ AmmoType
 
    Type: ``{'main': 'string'}``
 
-`AmmoType <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammotype>`_ indicates what item is consumed when shooting, but it also determines tracer and hit-reaction sound lookups.
+`AmmoType <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammotype>`_ indicates what ammo is consumed when shooting, but it also determines tracer and hit-reaction sound lookups. The value needs to reference the `registries <https://pzwiki.net/wiki/Registries>`_ entry of the ammo you want to use. The vanilla ammunition types which are available by default are:
+
+
+* ``base:bullets_3030``
+* ``base:bullets_308``
+* ``base:bullets_357``
+* ``base:bullets_38``
+* ``base:bullets_44``
+* ``base:bullets_45``
+* ``base:bullets_556``
+* ``base:bullets_9mm``
+* ``base:cap_gun_cap``
+* ``base:shotgun_shells``
+
+`AmmoBox <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammobox>`_ is used to indicate the type of ammo box associated to the weapon. This is mostly used to spawn this type of ammo box alongside the gun.
 
 `MagazineType <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-magazinetype>`_ is used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. `MaxAmmo <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxammo>`_ is used to set the capacity of either the magazine item or the gun.
 
@@ -296,7 +310,7 @@ BadInMicrowave
 
    Type: ``Any``
 
-Used to set whether this item can cause a fire when put in a microwave, if set to true it will explode.
+Used to set whether this item will cause a fire when put in a microwave.
 
 .. _item-bandagepower:
 
@@ -424,7 +438,7 @@ No description
 BreakSound
 ^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -433,7 +447,7 @@ No description
 BringToBearSound
 ^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -671,7 +685,7 @@ No description
 ClickSound
 ^^^^^^^^^^
 
-   Type: ``{'main': 'string'}``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -854,9 +868,9 @@ No description
 CookingSound
 ^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
-No description
+Custom sound to play when cooking this item.
 
 .. _item-corpsesicknessdefense:
 
@@ -878,12 +892,12 @@ No description
 
 .. _item-count:
 
-count
+Count
 ^^^^^
 
    Type: ``{'main': 'integer'}``
 
-No description
+The parameter is unused in the game scripts, unclear what it is used for.
 
    Default: ``1``
 
@@ -1016,27 +1030,33 @@ No description
 DangerousUncooked
 ^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'boolean'}``
 
-No description
+If true, the item will cause food poisoning when eaten raw. Used for example for raw meat. The `iron gut <https://pzwiki.net/wiki/Iron_Gut>`_ trait will stop you from getting sick from eating a raw food with the `tag <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-tags>`_ ``Egg``. The severity of the food poisoning is not impacted by traits or other criteria, only by the quantity of food you eat.
 
 .. _item-daysfresh:
 
 DaysFresh
 ^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
-How many days this food item will stay fresh with default sandbox settings.
+`DaysFresh <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-daysfresh>`_ sets how many days this food item will stay fresh with default sandbox settings. `DaysTotallyRotten <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-daystotallyrotten>`_ sets how many days this food item will take to rot.
+
+`Icon <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-icon>`_ provides the ability to set a different icon for the rotten and stale version of the food.
+
+   Default: ``1000000000``
 
 .. _item-daystotallyrotten:
 
 DaysTotallyRotten
 ^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
-How many days this food item will take to rot.
+See :ref:`item-daysfresh` for more details.
+
+   Default: ``1000000000``
 
 .. _item-digitalpadlock:
 
@@ -1142,7 +1162,7 @@ No description
 DropSound
 ^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -1169,7 +1189,7 @@ No description
 EjectAmmoSound
 ^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -1178,7 +1198,7 @@ No description
 EjectAmmoStartSound
 ^^^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -1187,7 +1207,7 @@ No description
 EjectAmmoStopSound
 ^^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -1234,7 +1254,7 @@ No description
 EquipSound
 ^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -1261,36 +1281,44 @@ No description
 ExplosionDuration
 ^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
-No description
+See :ref:`item-explosionrange` for more details.
 
 .. _item-explosionpower:
 
 ExplosionPower
 ^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
-No description
+If set above 0, the explosion will burn tiles and set fire to them based on the provided `fireStartingChance <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance>`_
 
 .. _item-explosionrange:
 
 ExplosionRange
 ^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
-No description
+`FireStartingChance <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance>`_ out of 100 is a chance of the explosion to set on fire tiles and burn characters in the `ExplosionRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionrange>`_. A value above 100 means the explosion will always set on fire tiles and burn characters, while a value of 0 means it will never set on fire tiles nor burn characters. Each tiles in the explosion range will run the `FireStartingChance <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance>`_ check independently, so a value of 50 means that on average half of the tiles in the explosion range will be set on fire.
+
+`SmokeRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-smokerange>`_ sets the range of the smoke effect. Squares in this range also can be set on fire individually based on `FireStartingChance <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance>`_.
+
+`FireRange <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firerange>`_ will set every tiles in the provided range on fire.
+
+`FireStartingEnergy <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingenergy>`_ is an extra check added on top of all of these whenever a fire is attempted to be started. Will set the energy of the fire which impacts how strong is is. A value of 0 means no fire is started. Vegetation tiles provide a net bonus of 50 in energy to the fire being created. The created fire will have a life expectency between 300 and 600 (unclear on the units).
+
+`ExplosionSound <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionsound>`_ can be used to set the sound played when the explosion happens, while `ExplosionDuration <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionduration>`_ can be used to set the duration of the explosion effect, which is especially useful for smoke bombs.
 
 .. _item-explosionsound:
 
 ExplosionSound
 ^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
-No description
+See :ref:`item-explosionrange` for more details.
 
 .. _item-explosiontimer:
 
@@ -1397,23 +1425,23 @@ FireRange
 
    Type: ``Any``
 
-No description
+See :ref:`item-explosionrange` for more details.
 
 .. _item-firestartingchance:
 
 FireStartingChance
 ^^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
-No description
+See :ref:`item-explosionrange` for more details.
 
 .. _item-firestartingenergy:
 
 FireStartingEnergy
 ^^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'integer'}``
 
 No description
 
@@ -1623,7 +1651,7 @@ See :ref:`item-hitchance` for more details.
 HitFloorSound
 ^^^^^^^^^^^^^
 
-   Type: ``{'main': 'string'}``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -1634,7 +1662,7 @@ No description
 HitSound
 ^^^^^^^^
 
-   Type: ``{'main': 'string'}``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -1656,7 +1684,66 @@ Icon
 
    Type: ``{'main': 'string'}``
 
-No description
+Used to specify the icon of the item, usually used in the inventory and crafting menus to easily recognize the item. The icon file needs to be located inside the ``media/textures/`` folder and the file name must start with ``Item_``\ , and be of the extension ``.png``.
+
+.. code-block::
+
+   📁 media
+     📁 textures
+       📄 Item_iconName.png
+
+When referencing the icon in the item script, you should not include the ``Item_`` prefix and the ``.png`` extension. For example, to reference the icon file above in the item script:
+
+.. code-block::
+
+   Icon = iconName,
+
+Subfolders
+""""""""""
+
+Subfolders are not directly supported, but you can use some tricks to have them working. Here's a simple example:
+
+.. code-block::
+
+   Icon = subFolder/iconName,
+
+Means your folder structure should be:
+
+.. code-block::
+
+   📁 media
+     📁 textures
+       📁 Item_subFolder
+         📄 iconName.png
+
+Notice how the ``Item_`` prefix is not on the file but on the folder in this case.
+
+Food icons
+""""""""""
+
+Icons can be specified for rotten, cooked and burned food (\ ``ItemType = base:food,``\ ) by adding the following suffix to the icon files:
+
+
+* ``Rotten`` or ``Spoiled`` for food that has rotten, meaning has passed the `DaysTotallyRotten <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-daystotallyrotten>`_ value.
+* ``Cooked`` for food that has been cooked, meaning has passed the `MinutesToCook <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestocook>`_ value.
+* ``Overdone`` or ``Burnt`` for food that has been cooked to the point of burning, meaning has passed the `MinutesToBurn <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestoburn>`_ value.
+
+For example, take a food item with the icon file defined as such:
+
+.. code-block::
+
+   Icon = iconName,
+
+To add variants based on food condition, you would have the following file structure:
+
+.. code-block::
+
+   📁 media
+     📁 textures
+       📄 Item_iconName.png
+       📄 Item_iconNameCooked.png
+       📄 Item_iconNameRotten.png
+       📄 Item_iconNameBurnt.png
 
    Default: ``None``
 
@@ -1703,7 +1790,7 @@ No description
 ImpactSound
 ^^^^^^^^^^^
 
-   Type: ``{'main': 'string'}``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -1723,7 +1810,7 @@ No description
 InsertAmmoSound
 ^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -1732,7 +1819,7 @@ No description
 InsertAmmoStartSound
 ^^^^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -1741,7 +1828,7 @@ No description
 InsertAmmoStopSound
 ^^^^^^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -2272,7 +2359,10 @@ MinutesToBurn
 
    Type: ``{'main': 'float'}``
 
-How many in-game minutes it takes to burn the food. This value must be higher than ``MinutesToCook``.
+How many in-game minutes it takes to burn the food. This value must
+be higher than `MinutesToCook <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestocook>`_.
+
+In comparison with `MinutesToCook <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestocook>`_\ , this parameter is not available for ``base:drainable`` `ItemTypes <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-itemtype>`_.
 
    Default: ``120.0``
 
@@ -2283,7 +2373,7 @@ MinutesToCook
 
    Type: ``{'main': 'float'}``
 
-How many in-game minutes it takes to cook the food. This value must be smaller than ``MinutesToBurn``.
+How many in-game minutes it takes to cook the food. This value must be smaller than `MinutesToBurn <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestoburn>`_.
 
    Default: ``60.0``
 
@@ -2556,9 +2646,9 @@ No description
 PhysicsObject
 ^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'item', 'fullType': True}}``
 
-No description
+Provides another item (or itself) as a throwable object. When used, the item will be thrown instead of used as an actual in hands weapon.
 
 .. _item-piercingbullets:
 
@@ -3026,7 +3116,7 @@ No description
 ShellFallSound
 ^^^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 
@@ -3276,9 +3366,11 @@ No description
 SwingSound
 ^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
+
+   Default: ``BaseballBatSwing``
 
 .. _item-swingtime:
 
@@ -3298,7 +3390,15 @@ Tags
 
    Type: ``{'main': 'array', 'array': {'type': 'string', 'separator': ';'}}``
 
-No description
+A list of tags to assign to the item. Tags are used by the game to easily identify properties of the items. This can notably be used in `craftRecipes <https://pz-wiki-modding.github.io/pz-scripts-data/blocks/craftrecipe.html>`_.
+
+For example:
+
+.. code-block:: cpp
+
+   Tags = base:egg;base:hasmetal,
+
+You can find a list of all tags on the `wiki <https://pzwiki.net/wiki/Item_tag>`_.
 
 .. _item-thirstchange:
 
@@ -3436,7 +3536,7 @@ Used to set the class of the item, which will influence parameters available.
 UnequipSound
 ^^^^^^^^^^^^
 
-   Type: ``Any``
+   Type: ``{'main': 'string', 'block': {'name': 'sound'}}``
 
 No description
 

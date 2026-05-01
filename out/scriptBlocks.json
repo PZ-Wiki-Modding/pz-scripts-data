@@ -1571,13 +1571,30 @@
       },
       "ammobox": {
         "name": "AmmoBox",
-        "itemTypes": [
-          "weapon"
-        ]
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          },
+          {
+            "name": "IsAimedFirearm",
+            "values": [
+              true
+            ]
+          }
+        ],
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "item"
+          }
+        }
       },
       "ammotype": {
         "name": "AmmoType",
-        "description": "[AmmoType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammotype) indicates what item is consumed when shooting, but it also determines tracer and hit-reaction sound lookups.\n\n[MagazineType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-magazinetype) is used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. [MaxAmmo](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxammo) is used to set the capacity of either the magazine item or the gun.\n\n[WeaponReloadType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-weaponreloadtype) is used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pzwiki.net/wiki/Conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:\n- handgun\n- shotgun\n- boltactionnomag\n- boltaction\n- revolver\n- doublebarrelshotgun\n- doublebarrelshotgunsawn\n\nA custom `WeaponReloadType` can be used if the relevant animations and condition logic are properly set up in a custom [AnimNode](https://pzwiki.net/wiki/AnimNodes).",
+        "description": "[AmmoType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammotype) indicates what ammo is consumed when shooting, but it also determines tracer and hit-reaction sound lookups. The value needs to reference the [registries](https://pzwiki.net/wiki/Registries) entry of the ammo you want to use. The vanilla ammunition types which are available by default are:\n- `base:bullets_3030`\n- `base:bullets_308`\n- `base:bullets_357`\n- `base:bullets_38`\n- `base:bullets_44`\n- `base:bullets_45`\n- `base:bullets_556`\n- `base:bullets_9mm`\n- `base:cap_gun_cap`\n- `base:shotgun_shells`\n\n[AmmoBox](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammobox) is used to indicate the type of ammo box associated to the weapon. This is mostly used to spawn this type of ammo box alongside the gun.\n\n[MagazineType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-magazinetype) is used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. [MaxAmmo](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxammo) is used to set the capacity of either the magazine item or the gun.\n\n[WeaponReloadType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-weaponreloadtype) is used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pzwiki.net/wiki/Conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:\n- handgun\n- shotgun\n- boltactionnomag\n- boltaction\n- revolver\n- doublebarrelshotgun\n- doublebarrelshotgunsawn\n\nA custom `WeaponReloadType` can be used if the relevant animations and condition logic are properly set up in a custom [AnimNode](https://pzwiki.net/wiki/AnimNodes).",
         "needs": [
           {
             "name": "ItemType",
@@ -1635,7 +1652,7 @@
       },
       "badinmicrowave": {
         "name": "BadInMicrowave",
-        "description": "Used to set whether this item can cause a fire when put in a microwave, if set to true it will explode.",
+        "description": "Used to set whether this item will cause a fire when put in a microwave.",
         "itemTypes": [
           "food"
         ]
@@ -1753,17 +1770,21 @@
       },
       "breaksound": {
         "name": "BreakSound",
-        "itemTypes": [
-          "clothing",
-          "normal",
-          "weapon"
-        ]
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "bringtobearsound": {
         "name": "BringToBearSound",
-        "itemTypes": [
-          "weapon"
-        ]
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "bulletdefense": {
         "name": "BulletDefense",
@@ -1939,11 +1960,19 @@
       },
       "clicksound": {
         "name": "ClickSound",
-        "itemTypes": [
-          "weapon"
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
         ],
         "type": {
-          "main": "string"
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
         },
         "default": "Stormy9mmClick"
       },
@@ -2126,11 +2155,13 @@
       },
       "cookingsound": {
         "name": "CookingSound",
-        "itemTypes": [
-          "drainable",
-          "food",
-          "normal"
-        ]
+        "description": "Custom sound to play when cooking this item.",
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "corpsesicknessdefense": {
         "name": "CorpseSicknessDefense",
@@ -2146,7 +2177,8 @@
         ]
       },
       "count": {
-        "name": "count",
+        "name": "Count",
+        "description": "The parameter is unused in the game scripts, unclear what it is used for.",
         "itemTypes": [
           "normal"
         ],
@@ -2246,23 +2278,51 @@
       },
       "dangerousuncooked": {
         "name": "DangerousUncooked",
-        "itemTypes": [
-          "food"
-        ]
+        "description": "If true, the item will cause food poisoning when eaten raw. Used for example for raw meat. The [iron gut](https://pzwiki.net/wiki/Iron_Gut) trait will stop you from getting sick from eating a raw food with the [tag](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-tags) `Egg`. The severity of the food poisoning is not impacted by traits or other criteria, only by the quantity of food you eat.",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
+        ],
+        "type": {
+          "main": "boolean"
+        }
       },
       "daysfresh": {
         "name": "DaysFresh",
-        "itemTypes": [
-          "food"
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
         ],
-        "description": "How many days this food item will stay fresh with default sandbox settings."
+        "description": "[DaysFresh](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-daysfresh) sets how many days this food item will stay fresh with default sandbox settings. [DaysTotallyRotten](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-daystotallyrotten) sets how many days this food item will take to rot.\n\n[Icon](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-icon) provides the ability to set a different icon for the rotten and stale version of the food.",
+        "default": 1000000000,
+        "type": {
+          "main": "integer"
+        }
       },
       "daystotallyrotten": {
         "name": "DaysTotallyRotten",
-        "itemTypes": [
-          "food"
+        "#desc": "item/DaysFresh",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
         ],
-        "description": "How many days this food item will take to rot."
+        "default": 1000000000,
+        "type": {
+          "main": "integer"
+        },
+        "description": "[DaysFresh](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-daysfresh) sets how many days this food item will stay fresh with default sandbox settings. [DaysTotallyRotten](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-daystotallyrotten) sets how many days this food item will take to rot.\n\n[Icon](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-icon) provides the ability to set a different icon for the rotten and stale version of the food."
       },
       "digitalpadlock": {
         "name": "DigitalPadlock",
@@ -2332,10 +2392,12 @@
       },
       "dropsound": {
         "name": "DropSound",
-        "itemTypes": [
-          "normal",
-          "weapon"
-        ]
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "eattime": {
         "name": "Eattime",
@@ -2357,21 +2419,30 @@
       },
       "ejectammosound": {
         "name": "EjectAmmoSound",
-        "itemTypes": [
-          "weapon"
-        ]
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "ejectammostartsound": {
         "name": "EjectAmmoStartSound",
-        "itemTypes": [
-          "weapon"
-        ]
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "ejectammostopsound": {
         "name": "EjectAmmoStopSound",
-        "itemTypes": [
-          "weapon"
-        ]
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "endurancechange": {
         "name": "enduranceChange",
@@ -2410,11 +2481,12 @@
       },
       "equipsound": {
         "name": "EquipSound",
-        "itemTypes": [
-          "container",
-          "drainable",
-          "weapon"
-        ]
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "evolvedrecipe": {
         "name": "EvolvedRecipe",
@@ -2433,27 +2505,60 @@
       },
       "explosionduration": {
         "name": "ExplosionDuration",
-        "itemTypes": [
-          "weapon"
-        ]
+        "#desc": "item/ExplosionRange",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ],
+        "type": {
+          "main": "integer"
+        },
+        "description": "[FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance) out of 100 is a chance of the explosion to set on fire tiles and burn characters in the [ExplosionRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionrange). A value above 100 means the explosion will always set on fire tiles and burn characters, while a value of 0 means it will never set on fire tiles nor burn characters. Each tiles in the explosion range will run the [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance) check independently, so a value of 50 means that on average half of the tiles in the explosion range will be set on fire.\n\n[SmokeRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-smokerange) sets the range of the smoke effect. Squares in this range also can be set on fire individually based on [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance).\n\n[FireRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firerange) will set every tiles in the provided range on fire.\n\n[FireStartingEnergy](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingenergy) is an extra check added on top of all of these whenever a fire is attempted to be started. Will set the energy of the fire which impacts how strong is is. A value of 0 means no fire is started. Vegetation tiles provide a net bonus of 50 in energy to the fire being created. The created fire will have a life expectency between 300 and 600 (unclear on the units).\n\n[ExplosionSound](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionsound) can be used to set the sound played when the explosion happens, while [ExplosionDuration](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionduration) can be used to set the duration of the explosion effect, which is especially useful for smoke bombs."
       },
       "explosionpower": {
         "name": "ExplosionPower",
-        "itemTypes": [
-          "weapon"
-        ]
+        "description": "If set above 0, the explosion will burn tiles and set fire to them based on the provided [fireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance)",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ],
+        "type": {
+          "main": "integer"
+        }
       },
       "explosionrange": {
         "name": "ExplosionRange",
-        "itemTypes": [
-          "weapon"
-        ]
+        "description": "[FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance) out of 100 is a chance of the explosion to set on fire tiles and burn characters in the [ExplosionRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionrange). A value above 100 means the explosion will always set on fire tiles and burn characters, while a value of 0 means it will never set on fire tiles nor burn characters. Each tiles in the explosion range will run the [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance) check independently, so a value of 50 means that on average half of the tiles in the explosion range will be set on fire.\n\n[SmokeRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-smokerange) sets the range of the smoke effect. Squares in this range also can be set on fire individually based on [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance).\n\n[FireRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firerange) will set every tiles in the provided range on fire.\n\n[FireStartingEnergy](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingenergy) is an extra check added on top of all of these whenever a fire is attempted to be started. Will set the energy of the fire which impacts how strong is is. A value of 0 means no fire is started. Vegetation tiles provide a net bonus of 50 in energy to the fire being created. The created fire will have a life expectency between 300 and 600 (unclear on the units).\n\n[ExplosionSound](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionsound) can be used to set the sound played when the explosion happens, while [ExplosionDuration](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionduration) can be used to set the duration of the explosion effect, which is especially useful for smoke bombs.",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ],
+        "type": {
+          "main": "integer"
+        }
       },
       "explosionsound": {
         "name": "ExplosionSound",
-        "itemTypes": [
-          "weapon"
-        ]
+        "#desc": "item/ExplosionRange",
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        },
+        "description": "[FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance) out of 100 is a chance of the explosion to set on fire tiles and burn characters in the [ExplosionRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionrange). A value above 100 means the explosion will always set on fire tiles and burn characters, while a value of 0 means it will never set on fire tiles nor burn characters. Each tiles in the explosion range will run the [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance) check independently, so a value of 50 means that on average half of the tiles in the explosion range will be set on fire.\n\n[SmokeRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-smokerange) sets the range of the smoke effect. Squares in this range also can be set on fire individually based on [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance).\n\n[FireRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firerange) will set every tiles in the provided range on fire.\n\n[FireStartingEnergy](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingenergy) is an extra check added on top of all of these whenever a fire is attempted to be started. Will set the energy of the fire which impacts how strong is is. A value of 0 means no fire is started. Vegetation tiles provide a net bonus of 50 in energy to the fire being created. The created fire will have a life expectency between 300 and 600 (unclear on the units).\n\n[ExplosionSound](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionsound) can be used to set the sound played when the explosion happens, while [ExplosionDuration](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionduration) can be used to set the duration of the explosion effect, which is especially useful for smoke bombs."
       },
       "explosiontimer": {
         "name": "ExplosionTimer",
@@ -2503,12 +2608,7 @@
       },
       "firefuelratio": {
         "name": "FireFuelRatio",
-        "itemTypes": [
-          "drainable",
-          "moveable",
-          "normal",
-          "weapon"
-        ]
+        "isUseless": true
       },
       "firemode": {
         "name": "FireMode",
@@ -2550,21 +2650,46 @@
       },
       "firerange": {
         "name": "FireRange",
-        "itemTypes": [
-          "weapon"
-        ]
+        "#desc": "item/ExplosionRange",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ],
+        "description": "[FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance) out of 100 is a chance of the explosion to set on fire tiles and burn characters in the [ExplosionRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionrange). A value above 100 means the explosion will always set on fire tiles and burn characters, while a value of 0 means it will never set on fire tiles nor burn characters. Each tiles in the explosion range will run the [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance) check independently, so a value of 50 means that on average half of the tiles in the explosion range will be set on fire.\n\n[SmokeRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-smokerange) sets the range of the smoke effect. Squares in this range also can be set on fire individually based on [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance).\n\n[FireRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firerange) will set every tiles in the provided range on fire.\n\n[FireStartingEnergy](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingenergy) is an extra check added on top of all of these whenever a fire is attempted to be started. Will set the energy of the fire which impacts how strong is is. A value of 0 means no fire is started. Vegetation tiles provide a net bonus of 50 in energy to the fire being created. The created fire will have a life expectency between 300 and 600 (unclear on the units).\n\n[ExplosionSound](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionsound) can be used to set the sound played when the explosion happens, while [ExplosionDuration](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionduration) can be used to set the duration of the explosion effect, which is especially useful for smoke bombs."
       },
       "firestartingchance": {
         "name": "FireStartingChance",
-        "itemTypes": [
-          "weapon"
-        ]
+        "#desc": "item/ExplosionRange",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ],
+        "type": {
+          "main": "integer"
+        },
+        "description": "[FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance) out of 100 is a chance of the explosion to set on fire tiles and burn characters in the [ExplosionRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionrange). A value above 100 means the explosion will always set on fire tiles and burn characters, while a value of 0 means it will never set on fire tiles nor burn characters. Each tiles in the explosion range will run the [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance) check independently, so a value of 50 means that on average half of the tiles in the explosion range will be set on fire.\n\n[SmokeRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-smokerange) sets the range of the smoke effect. Squares in this range also can be set on fire individually based on [FireStartingChance](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingchance).\n\n[FireRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firerange) will set every tiles in the provided range on fire.\n\n[FireStartingEnergy](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-firestartingenergy) is an extra check added on top of all of these whenever a fire is attempted to be started. Will set the energy of the fire which impacts how strong is is. A value of 0 means no fire is started. Vegetation tiles provide a net bonus of 50 in energy to the fire being created. The created fire will have a life expectency between 300 and 600 (unclear on the units).\n\n[ExplosionSound](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionsound) can be used to set the sound played when the explosion happens, while [ExplosionDuration](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-explosionduration) can be used to set the duration of the explosion effect, which is especially useful for smoke bombs."
       },
       "firestartingenergy": {
         "name": "FireStartingEnergy",
-        "itemTypes": [
-          "weapon"
-        ]
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ],
+        "type": {
+          "main": "integer"
+        }
       },
       "fishinglure": {
         "name": "FishingLure",
@@ -2698,21 +2823,37 @@
       },
       "hitfloorsound": {
         "name": "HitFloorSound",
-        "itemTypes": [
-          "weapon"
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
         ],
         "type": {
-          "main": "string"
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
         },
         "default": "BatOnFloor"
       },
       "hitsound": {
         "name": "HitSound",
-        "itemTypes": [
-          "weapon"
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
         ],
         "type": {
-          "main": "string"
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
         },
         "default": "BaseballBatHit"
       },
@@ -2725,6 +2866,7 @@
       },
       "icon": {
         "name": "Icon",
+        "description": "Used to specify the icon of the item, usually used in the inventory and crafting menus to easily recognize the item. The icon file needs to be located inside the `media/textures/` folder and the file name must start with `Item_`, and be of the extension `.png`.\n```\n📁 media\n  📁 textures\n    📄 Item_iconName.png\n```\n\nWhen referencing the icon in the item script, you should not include the `Item_` prefix and the `.png` extension. For example, to reference the icon file above in the item script:\n```\nIcon = iconName,\n```\n\n##### Subfolders\nSubfolders are not directly supported, but you can use some tricks to have them working. Here's a simple example:\n```\nIcon = subFolder/iconName,\n```\nMeans your folder structure should be:\n```\n📁 media\n  📁 textures\n    📁 Item_subFolder\n      📄 iconName.png\n```\n\nNotice how the `Item_` prefix is not on the file but on the folder in this case.\n\n##### Food icons\nIcons can be specified for rotten, cooked and burned food (`ItemType = base:food,`) by adding the following suffix to the icon files:\n- `Rotten` or `Spoiled` for food that has rotten, meaning has passed the [DaysTotallyRotten](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-daystotallyrotten) value.\n- `Cooked` for food that has been cooked, meaning has passed the [MinutesToCook](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestocook) value.\n- `Overdone` or `Burnt` for food that has been cooked to the point of burning, meaning has passed the [MinutesToBurn](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestoburn) value.\n\nFor example, take a food item with the icon file defined as such:\n```\nIcon = iconName,\n```\n\nTo add variants based on food condition, you would have the following file structure:\n```\n📁 media\n  📁 textures\n    📄 Item_iconName.png\n    📄 Item_iconNameCooked.png\n    📄 Item_iconNameRotten.png\n    📄 Item_iconNameBurnt.png\n```",
         "type": {
           "main": "string"
         },
@@ -2777,11 +2919,19 @@
       },
       "impactsound": {
         "name": "ImpactSound",
-        "itemTypes": [
-          "weapon"
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
         ],
         "type": {
-          "main": "string"
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
         },
         "default": "BaseballBatHit"
       },
@@ -2793,21 +2943,30 @@
       },
       "insertammosound": {
         "name": "InsertAmmoSound",
-        "itemTypes": [
-          "weapon"
-        ]
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "insertammostartsound": {
         "name": "InsertAmmoStartSound",
-        "itemTypes": [
-          "weapon"
-        ]
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "insertammostopsound": {
         "name": "InsertAmmoStopSound",
-        "itemTypes": [
-          "weapon"
-        ]
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "insulation": {
         "name": "Insulation",
@@ -3076,7 +3235,7 @@
             "fullType": true
           }
         },
-        "description": "[AmmoType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammotype) indicates what item is consumed when shooting, but it also determines tracer and hit-reaction sound lookups.\n\n[MagazineType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-magazinetype) is used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. [MaxAmmo](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxammo) is used to set the capacity of either the magazine item or the gun.\n\n[WeaponReloadType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-weaponreloadtype) is used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pzwiki.net/wiki/Conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:\n- handgun\n- shotgun\n- boltactionnomag\n- boltaction\n- revolver\n- doublebarrelshotgun\n- doublebarrelshotgunsawn\n\nA custom `WeaponReloadType` can be used if the relevant animations and condition logic are properly set up in a custom [AnimNode](https://pzwiki.net/wiki/AnimNodes)."
+        "description": "[AmmoType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammotype) indicates what ammo is consumed when shooting, but it also determines tracer and hit-reaction sound lookups. The value needs to reference the [registries](https://pzwiki.net/wiki/Registries) entry of the ammo you want to use. The vanilla ammunition types which are available by default are:\n- `base:bullets_3030`\n- `base:bullets_308`\n- `base:bullets_357`\n- `base:bullets_38`\n- `base:bullets_44`\n- `base:bullets_45`\n- `base:bullets_556`\n- `base:bullets_9mm`\n- `base:cap_gun_cap`\n- `base:shotgun_shells`\n\n[AmmoBox](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammobox) is used to indicate the type of ammo box associated to the weapon. This is mostly used to spawn this type of ammo box alongside the gun.\n\n[MagazineType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-magazinetype) is used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. [MaxAmmo](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxammo) is used to set the capacity of either the magazine item or the gun.\n\n[WeaponReloadType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-weaponreloadtype) is used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pzwiki.net/wiki/Conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:\n- handgun\n- shotgun\n- boltactionnomag\n- boltaction\n- revolver\n- doublebarrelshotgun\n- doublebarrelshotgunsawn\n\nA custom `WeaponReloadType` can be used if the relevant animations and condition logic are properly set up in a custom [AnimNode](https://pzwiki.net/wiki/AnimNodes)."
       },
       "makeuptype": {
         "name": "MakeUpType",
@@ -3184,10 +3343,6 @@
       },
       "maxsightrange": {
         "name": "MaxSightRange",
-        "itemTypes": [
-          "weapon",
-          "weaponpart"
-        ],
         "type": {
           "main": "float"
         },
@@ -3302,34 +3457,62 @@
         "type": {
           "main": "float"
         },
-        "itemTypes": [
-          "weapon",
-          "weaponpart"
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon",
+              "base:weaponpart"
+            ]
+          }
         ],
         "#desc": "item/MaxSightRange",
         "description": "[MinSightRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minsightrange) and [MaxSightRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange) define the optimal sight window, to be more specific, the distance band where hits and critical hits bonuses peak.\n\nThe [aiming skill](https://pzwiki.net/wiki/Aiming) and [eagle eyed](https://pzwiki.net/wiki/Eagle_Eyed) will impact these values:\n```\neffectiveMin = MinSightRange x (1 - AimingLevel / 30)\neffectiveMax = MaxSightRange x (1 + AimingLevel / 30) x (EagleEyed ? 1.2 : 1.0)\n```\n\nAt aiming 10, the minimum shrinks by 33% and the max grows by 33%, which widens the window significantly. When the trait [Short Sighted](https://pzwiki.net/wiki/Short_Sighted) is present and the character doesn't wear glasses, the `effectiveMax` equals `effectiveMin`, making the entire bonus window disappear.\n\nInside the the `effectiveMin` and `effectiveMax` window, the bonus follows a [Gaussian](https://en.wikipedia.org/wiki/Bell-shaped_function) with the bonus peaking at the midpoint. Aim-delay penalty is also reduced inside the window.\n\nBelow `effectiveMin`, a small linear penalty is applied as the gun is not suited for point-blank. Above `effectiveMax`, a growing quadratic penalty is applied, the bonus degrades rapidly past the edge.\n\nA CQC gun should have a low [MaxSightRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxsightrange) while a marksman riffle should have a high [MinSightRange](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minsightrange) with a wide window."
       },
       "minutestoburn": {
         "name": "MinutesToBurn",
-        "itemTypes": [
-          "food"
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          },
+          {
+            "name": "IsCookable",
+            "values": [
+              true
+            ]
+          }
         ],
         "type": {
           "main": "float"
         },
         "default": 120.0,
-        "description": "How many in-game minutes it takes to burn the food. This value must be higher than `MinutesToCook`."
+        "description": "How many in-game minutes it takes to burn the food. This value must\nbe higher than [MinutesToCook](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestocook).\n\nIn comparison with [MinutesToCook](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestocook), this parameter is not available for `base:drainable` [ItemTypes](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-itemtype)."
       },
       "minutestocook": {
         "name": "MinutesToCook",
-        "itemTypes": [
-          "food"
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food",
+              "base:drainable"
+            ]
+          },
+          {
+            "name": "IsCookable",
+            "values": [
+              true
+            ]
+          }
         ],
         "type": {
           "main": "float"
         },
         "default": 60.0,
-        "description": "How many in-game minutes it takes to cook the food. This value must be smaller than `MinutesToBurn`."
+        "description": "How many in-game minutes it takes to cook the food. This value must be smaller than [MinutesToBurn](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-minutestoburn)."
       },
       "modelweaponpart": {
         "name": "ModelWeaponPart",
@@ -3533,9 +3716,22 @@
       },
       "physicsobject": {
         "name": "PhysicsObject",
-        "itemTypes": [
-          "weapon"
-        ]
+        "description": "Provides another item (or itself) as a throwable object. When used, the item will be thrown instead of used as an actual in hands weapon.",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ],
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "item",
+            "fullType": true
+          }
+        }
       },
       "piercingbullets": {
         "name": "PiercingBullets",
@@ -3967,9 +4163,20 @@
       },
       "shellfallsound": {
         "name": "ShellFallSound",
-        "itemTypes": [
-          "weapon"
-        ]
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ],
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "shoutmultiplier": {
         "name": "ShoutMultiplier",
@@ -4209,9 +4416,21 @@
       },
       "swingsound": {
         "name": "SwingSound",
-        "itemTypes": [
-          "weapon"
-        ]
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ],
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        },
+        "default": "BaseballBatSwing"
       },
       "swingtime": {
         "name": "Swingtime",
@@ -4225,29 +4444,14 @@
       },
       "tags": {
         "name": "Tags",
+        "description": "A list of tags to assign to the item. Tags are used by the game to easily identify properties of the items. This can notably be used in [craftRecipes](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/craftrecipe.html).\n\nFor example:\n```cpp\nTags = base:egg;base:hasmetal,\n```\n\nYou can find a list of all tags on the [wiki](https://pzwiki.net/wiki/Item_tag).",
         "type": {
           "main": "array",
           "array": {
             "type": "string",
             "separator": ";"
           }
-        },
-        "itemTypes": [
-          "alarmclock",
-          "alarmclockclothing",
-          "clothing",
-          "container",
-          "drainable",
-          "food",
-          "key",
-          "literature",
-          "map",
-          "moveable",
-          "normal",
-          "radio",
-          "weapon",
-          "weaponpart"
-        ]
+        }
       },
       "thirstchange": {
         "name": "ThirstChange",
@@ -4360,11 +4564,12 @@
       },
       "unequipsound": {
         "name": "UnequipSound",
-        "itemTypes": [
-          "drainable",
-          "normal",
-          "weapon"
-        ]
+        "type": {
+          "main": "string",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "unhappychange": {
         "name": "UnhappyChange",
@@ -4512,7 +4717,7 @@
           "main": "string"
         },
         "default": "handgun",
-        "description": "[AmmoType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammotype) indicates what item is consumed when shooting, but it also determines tracer and hit-reaction sound lookups.\n\n[MagazineType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-magazinetype) is used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. [MaxAmmo](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxammo) is used to set the capacity of either the magazine item or the gun.\n\n[WeaponReloadType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-weaponreloadtype) is used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pzwiki.net/wiki/Conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:\n- handgun\n- shotgun\n- boltactionnomag\n- boltaction\n- revolver\n- doublebarrelshotgun\n- doublebarrelshotgunsawn\n\nA custom `WeaponReloadType` can be used if the relevant animations and condition logic are properly set up in a custom [AnimNode](https://pzwiki.net/wiki/AnimNodes)."
+        "description": "[AmmoType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammotype) indicates what ammo is consumed when shooting, but it also determines tracer and hit-reaction sound lookups. The value needs to reference the [registries](https://pzwiki.net/wiki/Registries) entry of the ammo you want to use. The vanilla ammunition types which are available by default are:\n- `base:bullets_3030`\n- `base:bullets_308`\n- `base:bullets_357`\n- `base:bullets_38`\n- `base:bullets_44`\n- `base:bullets_45`\n- `base:bullets_556`\n- `base:bullets_9mm`\n- `base:cap_gun_cap`\n- `base:shotgun_shells`\n\n[AmmoBox](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-ammobox) is used to indicate the type of ammo box associated to the weapon. This is mostly used to spawn this type of ammo box alongside the gun.\n\n[MagazineType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-magazinetype) is used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. [MaxAmmo](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-maxammo) is used to set the capacity of either the magazine item or the gun.\n\n[WeaponReloadType](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/item.html#item-weaponreloadtype) is used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pzwiki.net/wiki/Conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:\n- handgun\n- shotgun\n- boltactionnomag\n- boltaction\n- revolver\n- doublebarrelshotgun\n- doublebarrelshotgunsawn\n\nA custom `WeaponReloadType` can be used if the relevant animations and condition logic are properly set up in a custom [AnimNode](https://pzwiki.net/wiki/AnimNodes)."
       },
       "weaponsprite": {
         "name": "WeaponSprite",
