@@ -590,9 +590,6 @@ parameters:
     - name: IsAimedFirearm
       values:
         - true
-    - name: FireModePossibilities
-      values:
-        - Auto
   type:
     main: float
   default: 1.0
@@ -682,8 +679,8 @@ parameters:
 - name: DropSound
   type:
     main: string
-    block:
-      name: sound
+    # block:
+    #   name: sound
 - name: Eattime
   itemTypes:
   - drainable
@@ -1120,11 +1117,11 @@ parameters:
   type:
     main: boolean
 - name: IsCookable
-  needs:
-    - name: ItemType
-      values:
-        - base:food
-        - base:drainable
+  # needs:
+  #   - name: ItemType
+  #     values:
+  #       - base:food
+  #       - base:drainable
   type:
     main: boolean
 - name: IsDung
@@ -1600,8 +1597,8 @@ parameters:
   itemTypes:
   - normal
 - name: PlaceOneSound
-  itemTypes:
-  - normal
+  type:
+    main: string
 - name: PoisonPower
   itemTypes:
   - food
@@ -2087,8 +2084,8 @@ parameters:
 - name: UnequipSound
   type:
     main: string
-    block:
-      name: sound
+    # block:
+    #   name: sound
 - name: UnhappyChange
   itemTypes:
   - drainable
