@@ -6,11 +6,13 @@ on:
     paths:
       - 'data/blocks/**'
       - 'chores/formatBlocks.py'
+      - '.github/workflows/format-blocks.yml'
   pull_request:
     branches: [main, dev]
     paths:
       - 'data/blocks/**'
       - 'chores/formatBlocks.py'
+      - '.github/workflows/format-blocks.yml'
   workflow_dispatch:
 
 permissions:
@@ -35,9 +37,6 @@ jobs:
       - name: Run formatBlocks
         run: python chores/formatBlocks.py
 
-      - name: Run generateDocs
-        run: python chores/generateDocs.py
-        
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
