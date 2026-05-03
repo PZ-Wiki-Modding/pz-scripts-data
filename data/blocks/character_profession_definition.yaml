@@ -68,5 +68,5 @@ parameters:
 - name: GrantedRecipes
   type:
     main: array
-  description: A list of [craftRecipe](https://pz-wiki-modding.github.io/pz-scripts-data/blocks/craftrecipe.html)
+  description: A list of [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html)
     IDs that are granted to the character when this profession is selected.
