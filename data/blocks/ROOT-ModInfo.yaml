@@ -16,9 +16,12 @@ parameters:
 - name: id
   type:
     main: string
-  description: The unique identifier of the mod, used in a mod list of the user or
+  description: |-
+    The unique identifier of the mod, used in a mod list of the user or
     servers to activate the mod. Make sure to use something unique which isn't shared
-    between mods. **Note:** This is not the same as the [Workshop ID](https://pzwiki.net/wiki/Workshop_ID).
+    between mods. 
+    
+    **Note:** This is not the same as the [Workshop ID](https://pzwiki.net/wiki/Workshop_ID).
 - name: author
   type:
     main: string
@@ -40,7 +43,7 @@ parameters:
   type:
     main: string
   allowedDuplicate: true
-  description: |
+  description: |-
     Image which will show up in the mod manager as the mod image. Multiple posters can be used to show multiple images, but the first one will be used as the main poster in the mod manager. The rest will be in a list of images of the mod that users can click on to view.
 
     Example:
@@ -72,7 +75,7 @@ parameters:
 - name: require
   type:
     main: string
-  description: |
+  description: |-
     Mods required to run this mod. Multiple mods can be specified separated by commas.
 
     Example:
@@ -82,7 +85,7 @@ parameters:
 - name: incompatible
   type:
     main: string
-  description: |
+  description: |-
     Mods that cannot be enabled at the same time as this mod. When enabled, the other mods will be unselectable. This mod will also become unselectable if any of the other mods are enabled.
 
     Example:
@@ -92,7 +95,7 @@ parameters:
 - name: loadModAfter
   type:
     main: string
-  description: |
+  description: |-
     Loads the mod only after the set of mods listed.
 
     Example:
@@ -102,7 +105,7 @@ parameters:
 - name: loadModBefore
   type:
     main: string
-  description: |
+  description: |-
     Loads the mod before the set of mods listed.
 
     Example:
@@ -123,7 +126,7 @@ parameters:
 - name: tiledef
   type:
     main: string
-  description: |
+  description: |-
     Name of the tiledef with its ID that are added by the mod. You can find a community managed list of already used tiledef IDs in [Tiledefs used by mods](https://pzwiki.net/wiki/Tiledefs_used_by_mods).
 
     Example:
