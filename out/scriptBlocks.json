@@ -1120,6 +1120,13 @@
         "type": {
           "main": "array"
         }
+      },
+      "texture": {
+        "name": "Texture",
+        "description": "The path to the trait's icon texture. This should be a .png file located in the textures folder of your mod.",
+        "type": {
+          "main": "string"
+        }
       }
     }
   },
