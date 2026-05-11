@@ -64,3 +64,7 @@ parameters:
     are granted to the character when this trait is selected.
   type:
     main: array
+- name: Texture
+  description: The path to the trait's icon texture. This should be a .png file located in the textures folder of your mod.
+  type:
+    main: string
