@@ -3,16 +3,24 @@ name: item
 description: |-
   The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype).
 
-  To get started, create a simple item structure by setting that parameter up correctly:
+  To get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:
   ```cpp
-  item
+  module yourModule
   {
-    ItemType = base:normal,
-    ...
+    item yourID
+    {
+      ItemType = base:normal,
+      ...
+    }
   }
   ```
 
-  And add the other parameters accordingly.
+  To add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:
+  ```json
+  {
+    "yourModule.yourID": "Your Item Name"
+  }
+  ```
 shouldHaveParent: true
 parents:
 - module
@@ -2014,7 +2022,7 @@ parameters:
   default: 1.0
 - name: Tags
   description: |-
-    A list of tags to assign to the item. Tags are used by the game to easily identify properties of the items. This can notably be used in [craftRecipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html).
+    A list of tags to assign to the item. Tags are used by the game to easily identify properties of the items from the Lua or Java. This can notably be used in [craftRecipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html).
 
     For example:
     ```cpp
@@ -2022,6 +2030,14 @@ parameters:
     ```
 
     You can find a list of all tags on the [wiki](https://pzwiki.net/wiki/Item_tag).
+
+    To create a custom tag, you have to first create its definition in your mod's [registries](https://pzwiki.net/wiki/Registries). In the `registries.lua` file, define the following by renaming the various elements to fit your mod name, id etc:
+    ```lua
+    YourModRegistry = {}
+    YourModRegistry.YOUR_TAG_NAME = ItemTag.register("yourmodid:yourtagname")
+    ```
+
+    You can then use that tag `yourmodid:yourtagname` in your item definition. And you can use the stored ItemTag reference `YourModRegistry.YOUR_TAG_NAME` in your Lua code.
   type:
     main: array
     array:
