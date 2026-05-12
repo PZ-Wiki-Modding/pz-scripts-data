@@ -936,7 +936,7 @@
   },
   "craftRecipe": {
     "name": "craftRecipe",
-    "description": "Defines a crafting recipe.",
+    "description": "The 'craftRecipe' script block is used to define a crafting recipe, which allows players to craft items or tiles in the game based on the parent script block. For example, a craftRecipe defined inside a [module](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/module.html) will be a recipe to craft an item usually, while when defined inside an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) it will be the building recipe for that entity.\n\nA craftRecipe will usually require an [inputs](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/inputs.html) and [outputs](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/outputs.html) block. Other parameters are used to define properties of this recipe, such as the [time](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#time) it takes to craft or the [XP awarded](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#xpaward) for crafting it.\n\nFor example:\n```cpp\nmodule yourModule /* or Base */\n{\n    craftRecipe yourRecipeID\n    {\n        ...\n    }\n}\n```\n\nTo define a translation for this recipe, you need to create an entry in the translation file [Recipes.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#recipes). The translation entry should be formatted like this:\n```json\n{\n  \"yourRecipeID\": \"Your recipe\"\n}\n```\n\nNotice how you shouldn't use the [module](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/module.html) in the translation file key and only the craftRecipe ID.\n\nHere's an example of a craftRecipe with some parameters defined:\n```cpp\ncraftRecipe SawLogs\n{\n    timedAction = SawLogs,\n    Time = 230,\n    Tags = InHandCraft;CanBeDoneFromFloor,\n    category = Carpentry,\n    xpAward = Woodwork:5,\n    inputs\n    {\n        item 1 [Base.Log] flags[Prop2],\n        item 1 tags[Saw] mode:keep flags[MayDegradeLight;Prop1],\n    }\n    outputs\n    {\n        item 3 Base.Plank,\n    }\n}\n```\n\nOr:\n```cpp\ncraftRecipe CarveWhistle\n{\n    time = 200,\n    tags = AnySurfaceCraft;Survivalist,\n    category = Carving,\n    xpAward = Carving:60,\n    SkillRequired = Carving:6,\n    needTobeLearn = true,\n    AutoLearnAny = Carving:8,\n    timedAction = SharpenStake,\n    inputs\n    {\n        item 1 tags[DrillWood;DrillMetal;DrillWoodPoor] mode:keep flags[MayDegradeLight],\n        item 1 tags[SharpKnife] mode:keep flags[MayDegradeLight],\n        item 1 [Base.SmallAnimalBone] flags[Prop2;AllowDestroyedItem],\n    }\n    outputs\n    {\n        item 1 Base.Whistle_Bone,\n    }\n}\n```\n\nAnd a more advanced one:\n```cpp\ncraftRecipe RefillHurricaneLantern\n{\n    timedAction = Making,\n    Time = 50,\n    OnCreate = Recipe.OnCreate.RefillHurricaneLantern,\n    /* OnTest = Recipe.OnTest.RefillHurricaneLantern, */\n    Tags = InHandCraft;CanBeDoneInDark,\n    category = Miscellaneous, /*category = Survival,*/\n    inputs\n    {\n        item 1 [Base.Lantern_Hurricane;Base.Lantern_Hurricane_Copper;Base.Lantern_Hurricane_Forged;Base.Lantern_Hurricane_Gold;Base.Lantern_Hurricane_Silver] mode:destroy flags[NotFull;AllowFavorite;InheritFavorite;ItemCount] mappers[LampMapper],\n        item 1 [*],\n        -fluid 1.0 [Petrol],\n    }\n    outputs\n    {\n        item 1 mapper:LampMapper,\n    }\n    itemMapper LampMapper\n    {\n        Base.Lantern_Hurricane = Base.Lantern_Hurricane,\n        Base.Lantern_Hurricane_Copper = Base.Lantern_Hurricane_Copper,\n        Base.Lantern_Hurricane_Forged = Base.Lantern_Hurricane_Forged,\n        Base.Lantern_Hurricane_Gold = Base.Lantern_Hurricane_Gold,\n        Base.Lantern_Hurricane_Silver = Base.Lantern_Hurricane_Silver,\n\n        default = Base.Lantern_Hurricane,\n    }\n}\n```",
     "shouldHaveParent": true,
     "parents": [
       "module"
@@ -969,7 +969,7 @@
       },
       "icon": {
         "name": "Icon",
-        "description": "Specifies the icon associated with this crafting recipe. The icon needs to be located in `media/textures`, for example `media/textures/myIcon.png` will be refered to as `Icon = myIcon,`.\n\nThis seems to be used only once in the vanilla recipes with the entry Icon = \"Item_WaterDrop\", as the icon usually defaults to the items that will be crafted. "
+        "description": "Specifies the icon associated with this crafting recipe. The icon needs to be located in `media/textures`, for example `media/textures/myIcon.png` will be refered to as `Icon = myIcon,`.\n\nThis seems to be used only once in the vanilla recipes with the entry `Icon = Item_WaterDrop,`, as the icon usually defaults to the items that will be crafted."
       },
       "metarecipe": {
         "name": "MetaRecipe",
@@ -1005,7 +1005,7 @@
       },
       "tags": {
         "name": "tags",
-        "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:\n```cpp\n/* single tag */\nTags = tag1,\n\n/* multiple tags */\nTags = tag1;tag2;...,\n```\n\nFor example:\n```cpp\nTags = InHandCraft;CanAlwaysBeResearched,\n```",
+        "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:\n```cpp\n/* single tag */\nTags = tag1,\n\n/* multiple tags */\nTags = tag1;tag2;...,\n```\n\nFor example:\n```cpp\nTags = InHandCraft;CanAlwaysBeResearched,\n```\n\nA crafting bench tag can be created by adding a [component CraftBench](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component-craftbench.html) to an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) script, which can then be used in this tags parameter.",
         "required": true,
         "type": {
           "main": "array"
@@ -1032,7 +1032,7 @@
   },
   "module": {
     "name": "module",
-    "description": "A module holds different types of script definitions.",
+    "description": "A module serves as a namespace for your scripts and is the barebone for most scripts you will create in your mod. The game's namespace is `Base`, and while you can insert in it, it is recommended to use your own module for your mod's scripts to avoid conflicts with the game and other mods.\n\nTo define a module, you need to create a block as follows, by changing the ID to a unique name for your mods:\n```cpp\nmodule yourID\n{\n  ...\n}\n```\n\nMost scripts that are defined in a module will need to be refered to by their 'full type', that is `module.id`, but this is a bit inconsistent as some places where a script block needs to be refered to require no module reference. For example, for an item, you can refer to it by its full type `yourModule.yourItemID`.",
     "shouldHaveParent": true,
     "parents": [
       "_DOCUMENT",
@@ -1425,7 +1425,7 @@
   },
   "item": {
     "name": "item",
-    "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly:\n```cpp\nitem\n{\n  ItemType = base:normal,\n  ...\n}\n```\n\nAnd add the other parameters accordingly.",
+    "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:\n```cpp\nmodule yourModule\n{\n  item yourID\n  {\n    ItemType = base:normal,\n    ...\n  }\n}\n```\n\nTo add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:\n```json\n{\n  \"yourModule.yourID\": \"Your Item Name\"\n}\n```",
     "shouldHaveParent": true,
     "parents": [
       "module"
@@ -4440,7 +4440,7 @@
       },
       "tags": {
         "name": "Tags",
-        "description": "A list of tags to assign to the item. Tags are used by the game to easily identify properties of the items. This can notably be used in [craftRecipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html).\n\nFor example:\n```cpp\nTags = base:egg;base:hasmetal,\n```\n\nYou can find a list of all tags on the [wiki](https://pzwiki.net/wiki/Item_tag).",
+        "description": "A list of tags to assign to the item. Tags are used by the game to easily identify properties of the items from the Lua or Java. This can notably be used in [craftRecipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html).\n\nFor example:\n```cpp\nTags = base:egg;base:hasmetal,\n```\n\nYou can find a list of all tags on the [wiki](https://pzwiki.net/wiki/Item_tag).\n\nTo create a custom tag, you have to first create its definition in your mod's [registries](https://pzwiki.net/wiki/Registries). In the `registries.lua` file, define the following by renaming the various elements to fit your mod name, id etc:\n```lua\nYourModRegistry = {}\nYourModRegistry.YOUR_TAG_NAME = ItemTag.register(\"yourmodid:yourtagname\")\n```\n\nYou can then use that tag `yourmodid:yourtagname` in your item definition. And you can use the stored ItemTag reference `YourModRegistry.YOUR_TAG_NAME` in your Lua code.",
         "type": {
           "main": "array",
           "array": {
@@ -5078,7 +5078,7 @@
       },
       "tags": {
         "name": "tags",
-        "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:\n```cpp\n/* single tag */\nTags = tag1,\n\n/* multiple tags */\nTags = tag1;tag2;...,\n```\n\nFor example:\n```cpp\nTags = InHandCraft;CanAlwaysBeResearched,\n```",
+        "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:\n```cpp\n/* single tag */\nTags = tag1,\n\n/* multiple tags */\nTags = tag1;tag2;...,\n```\n\nFor example:\n```cpp\nTags = InHandCraft;CanAlwaysBeResearched,\n```\n\nA crafting bench tag can be created by adding a [component CraftBench](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component-craftbench.html) to an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) script, which can then be used in this tags parameter.",
         "required": true,
         "type": {
           "main": "array"
@@ -6773,7 +6773,7 @@
   },
   "component CraftBench": {
     "name": "component CraftBench",
-    "description": "",
+    "description": "Used to add a crafting bench property to an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) script, which can then be used in the [tags](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#tags) parameter of a [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html) script to create a crafting bench tag.",
     "shouldHaveParent": true,
     "isVariant": "component",
     "parents": [
@@ -6782,8 +6782,13 @@
     "parameters": {
       "recipes": {
         "name": "Recipes",
+        "description": "The tag name for this crafting bench to be used in the [tags](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#tags) parameter of a [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html) script.",
         "type": {
-          "main": "array"
+          "main": "array",
+          "array": {
+            "type": "string",
+            "separator": ";"
+          }
         }
       }
     }
