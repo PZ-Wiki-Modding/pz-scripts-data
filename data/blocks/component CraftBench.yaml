@@ -1,11 +1,16 @@
 version: 1
 name: component CraftBench
-description: ''
+description: |-
+  Used to add a crafting bench property to an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) script, which can then be used in the [tags](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#tags) parameter of a [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html) script to create a crafting bench tag.
 shouldHaveParent: true
 isVariant: component
 parents:
 - entity
 parameters:
 - name: Recipes
+  description: The tag name for this crafting bench to be used in the [tags](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#tags) parameter of a [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html) script.
   type:
     main: array
+    array:
+      type: string
+      separator: ;
