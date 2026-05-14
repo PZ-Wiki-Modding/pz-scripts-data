@@ -191,6 +191,9 @@ parameters:
 - name: physicsChassisShape
   type:
     main: array
+    array:
+      separator: " "
+      type: float
   description: |-
     Defines the hitbox of the vehicle. The value should be three numbers defining the dimensions of a box:
     ```
@@ -247,6 +250,9 @@ parameters:
 - name: specialKeyRing
   type:
     main: array
+    array:
+      separator: ;
+      type: string
   description: '`specialKeyRing` needs to reference a keyring item to spawn. `specialKeyRingChance`
     is used to set the chance to spawn this keyring.'
 - name: specialKeyRingChance

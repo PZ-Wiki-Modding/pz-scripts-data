@@ -5,8 +5,6 @@ shouldHaveParent: true
 parents:
 - ROOT-SandboxOptions
 ID: {}
-files:
-- sandbox-options.txt
 parameters:
 - name: type
   type:

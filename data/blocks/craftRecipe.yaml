@@ -230,6 +230,9 @@ parameters:
   required: true
   type:
     main: array
+    array:
+      separator: ;
+      type: string
 - name: time
   description: The time it takes to craft the item, not using a specific unit of time.
   default: 50

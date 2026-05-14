@@ -5,5 +5,4 @@ shouldHaveParent: true
 parents:
 - module
 ID: {}
-'#ref_parameters': vehicle
 parameters: []

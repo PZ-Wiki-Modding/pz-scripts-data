@@ -36,6 +36,9 @@ parameters:
     - template
   type:
     main: array
+    array:
+      separator: ' '
+      type: string
 - name: alarmLoop
   needs:
   - parents:

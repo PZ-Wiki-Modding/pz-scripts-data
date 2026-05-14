@@ -49,6 +49,9 @@ parameters:
     one is selected, the others cannot be selected.
   type:
     main: array
+    array:
+      separator: ;
+      type: string
 - name: XPBoosts
   description: |-
     A list of experience boosts granted by this trait. Each entry should contain a skill name and the corresponding boost amount.
@@ -58,12 +61,20 @@ parameters:
     XPBoosts = Axe=1;Blunt=1,
     ```
   type:
-    main: array
+    main: object
+    object:
+      keyValueSeparator: '='
+      keyType: string
+      pairsSeparator: ;
+      valueType: integer
 - name: GrantedRecipes
   description: A list of [craftRecipe](https://pzwiki.net/wiki/CraftRecipe) IDs that
     are granted to the character when this trait is selected.
   type:
     main: array
+    array:
+      separator: ;
+      type: string
 - name: Texture
   description: The path to the trait's icon texture. This should be a .png file located in the textures folder of your mod.
   type:

@@ -48,6 +48,9 @@ parameters:
 - name: GrantedTraits
   type:
     main: array
+    array:
+      separator: ;
+      type: string
   description: A list of character trait IDs that are granted to the character when
     this profession is selected.
 - name: XPBoosts
@@ -68,5 +71,8 @@ parameters:
 - name: GrantedRecipes
   type:
     main: array
+    array:
+      separator: ;
+      type: string
   description: A list of [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html)
     IDs that are granted to the character when this profession is selected.

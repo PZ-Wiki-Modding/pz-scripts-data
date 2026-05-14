@@ -23,6 +23,7 @@ parameters:
     main: array
     array:
       separator: "/"
+      type: string
 - name: category
   description: |-
     Unclear what this is for since this is usually achieved with a [categories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/categories.html) child block.

@@ -2,6 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Blocks Folder General Schema",
   "type": "object",
+  "additionalProperties": false,
   "properties": {
     "version": { "type": ["number", "string"] },
     "#desc": { 
@@ -11,6 +12,10 @@
     "#ref": {
       "type": "string",
       "description": "A reference to another block type. This allows sharing the same properties between multiple block types."
+    },
+    "isVariant": {
+      "type": "string",
+      "description": "Indicates whether this block type is a variant of another block type. The value corresponds to the block type it is a variant of."
     },
     "name": { 
       "type": "string",
@@ -157,6 +162,13 @@
             "type": "object",
             "description": "The data type of the parameter.",
             "additionalProperties": false,
+            "oneOf": [
+              { "properties": { "main": { "enum": ["array"] } }, "required": ["array"] },
+              { "properties": { "main": { "enum": ["object"] } }, "required": ["object"] },
+              { "properties": { "main": { "enum": ["block"] } }, "required": ["block"] },
+              { "properties": { "main": { "enum": ["string", "float", "boolean", "integer"] } } }
+            ],
+            "required": ["main"],
             "properties": {
               "main": {
                 "type": "string",
@@ -182,6 +194,7 @@
                 "type": "object",
                 "description": "If the parameter is of type 'array', this can be used to provide a description of the expected format of the array.",
                 "additionalProperties": false,
+                "required": ["separator", "type"],
                 "properties": {
                   "separator": {
                     "type": "string",
@@ -308,6 +321,10 @@
           }
         }
       }
+    },
+    "properties": {
+      "type": "object",
+      "description": "Custom additional properties for the block type."
     }
   }
 }
