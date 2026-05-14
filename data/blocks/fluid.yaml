@@ -22,6 +22,7 @@ parameters:
       ColorReference = Azure,
       ...
     }
+    ```
 - name: DisplayName
   description: |-
     The name of the fluid that will be displayed in the game. The value corresponds to the key for the fluid's name in the [Fluids.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#fluids) translation file. The translation keys for the fluid usually have the prefix `Fluid_Name_` but this is technically not required.
