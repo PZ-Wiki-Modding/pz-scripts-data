@@ -4,6 +4,10 @@
   "type": "object",
   "properties": {
     "version": { "type": ["number", "string"] },
+    "#desc": { 
+      "type": "string",
+      "description": "A reference to the description of another block type. This allows sharing the same description between multiple block types without using #ref, which would also share other properties."
+    },
     "name": { 
       "type": "string",
       "description": "The name of the block type." 

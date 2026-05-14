@@ -36,9 +36,16 @@ for filename in os.listdir(BLOCKS_DIR):
         with open(file_path, 'r', encoding='utf-8') as f:
             blocks[key] = prepare_parameters(yaml.safe_load(f))
 
-# copy #ref of parameters
+# copy #ref and #desc
 for block_key, block_data in blocks.items():
     parameter = block_data.get('parameters', {})
+
+    # copy #desc of other block
+    if "#desc" in block_data:
+        desc_key = block_data['#desc']
+        block_data['description'] = blocks[desc_key]['description']
+
+    # copy #ref and #desc of parameters
     for param_key, param_data in parameter.items():
         if '#ref' in param_data:
             original_name = param_data['name']
