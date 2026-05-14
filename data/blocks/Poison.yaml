@@ -10,8 +10,12 @@ parameters:
     main: string
   description: Defines the strength of the poison.
   values:
-  - Deadly
+  - None
+  - Mild
   - Medium
+  - Severe
+  - Extreme
+  - Deadly
 - name: minAmount
   type:
     main: float
