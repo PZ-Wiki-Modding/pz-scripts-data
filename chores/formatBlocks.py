@@ -45,6 +45,14 @@ for block_key, block_data in blocks.items():
         desc_key = block_data['#desc']
         block_data['description'] = blocks[desc_key]['description']
 
+    # copy #ref of other block
+    if "#ref" in block_data:
+        ref_key = block_data['#ref']
+        ref_block = blocks[ref_key]
+        for key, value in ref_block.items():
+            if key not in block_data:
+                block_data[key] = value
+
     # copy #ref and #desc of parameters
     for param_key, param_data in parameter.items():
         if '#ref' in param_data:
