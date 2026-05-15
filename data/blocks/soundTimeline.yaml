@@ -1,0 +1,8 @@
+version: 1
+name: soundTimeline
+description: ''
+shouldHaveParent: true
+parents:
+- module
+ID: {}
+parameters: []
