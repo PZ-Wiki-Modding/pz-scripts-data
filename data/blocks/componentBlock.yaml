@@ -1,0 +1,29 @@
+version: 1
+name: _COMPONENT_BLOCK
+description: |-
+  Component blocks are used in the [components](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/components.html) block to provide a new component element for [xuiSkin](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/xuiskin.html).
+
+  Unclear what these are used for.
+shouldHaveParent: true
+anyName: true
+parents:
+- components
+parameters:
+- name: LuaPanelClass
+  type:
+    main: string
+- name: DisplayName
+  type:
+    main: string
+- name: Icon
+  type:
+    main: string
+- name: Enabled
+  type:
+    main: boolean
+- name: ListOrderZ
+  type:
+    main: integer
+- name: xuiStyle
+  type:
+    main: string

@@ -4,7 +4,5 @@ description: Defines a XUI interface skin.
 shouldHaveParent: true
 parents:
 - module
-needsChildren:
-- entity
 ID: {}
 parameters: []

@@ -1,0 +1,8 @@
+version: 1
+name: colors
+description: Used to create 
+shouldHaveParent: true
+parents:
+- xuiSkin
+ID: {}
+parameters: []
