@@ -121,6 +121,10 @@
             "type": "string",
             "description": "The name of the parameter. (required)"
           },
+          "anyName": {
+            "type": "boolean",
+            "description": "A parameter with `anyName` can have any name."
+          },
           "#ref": {
             "type": "string",
             "description": "A reference to another block parameter."
