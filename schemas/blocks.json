@@ -21,6 +21,10 @@
       "type": "string",
       "description": "The name of the block type." 
     },
+    "anyName": {
+      "type": "boolean",
+      "description": "A block with `anyName` can have any name. This requires strict placement in parent blocks to correctly validate the block parameters."
+    },
     "description": { 
       "type": "string",
       "description": "A brief description of the block type."
