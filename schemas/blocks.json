@@ -56,6 +56,11 @@
         "canHaveSpace": {
           "type": "boolean",
           "description": "Indicates whether the ID of the block can contain spaces. If false or not specified, the ID cannot contain spaces."
+        },
+        "forbidden": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "A list of forbidden ID values for this block. If not provided, no values are forbidden."
         }
       }
     },
