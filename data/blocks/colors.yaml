@@ -5,4 +5,11 @@ shouldHaveParent: true
 parents:
 - xuiSkin
 ID: {}
-parameters: []
+parameters:
+- name: _ANY
+  anyName: true
+  type:
+    main: array
+    array:
+      separator: ':'
+      type: float
