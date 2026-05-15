@@ -1933,7 +1933,11 @@
     "parents": [
       "module"
     ],
-    "ID": {},
+    "ID": {
+      "forbidden": [
+        "default"
+      ]
+    },
     "parameters": {}
   },
   "maps": {
