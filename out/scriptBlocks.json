@@ -1853,7 +1853,19 @@
       "xuiSkin"
     ],
     "ID": {},
-    "parameters": {}
+    "parameters": {
+      "_any": {
+        "name": "_ANY",
+        "anyName": true,
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": ":",
+            "type": "float"
+          }
+        }
+      }
+    }
   },
   "physicsShape": {
     "name": "physicsShape",
