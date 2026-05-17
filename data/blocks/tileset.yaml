@@ -4,5 +4,6 @@ description: Used to define properties of tiles of tilesets.
 shouldHaveParent: true
 parents:
 - spriteModel
+- tileGeometry
 parameters:
 - name: name
