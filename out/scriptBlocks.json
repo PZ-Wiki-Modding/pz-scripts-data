@@ -226,7 +226,8 @@
     "description": "Used to define properties of tiles of tilesets.",
     "shouldHaveParent": true,
     "parents": [
-      "spriteModel"
+      "spriteModel",
+      "tileGeometry"
     ],
     "parameters": {
       "name": {
@@ -1665,6 +1666,20 @@
       },
       "exclude2": {
         "name": "exclude2"
+      }
+    }
+  },
+  "tileGeometry": {
+    "name": "tileGeometry",
+    "description": "Used to define tile geometries.",
+    "shouldHaveParent": true,
+    "parents": [
+      "ROOT-TileGeometry"
+    ],
+    "parameters": {
+      "version": {
+        "name": "VERSION",
+        "description": "The version of the tile geometry file format. Keep it at 2 for now."
       }
     }
   },
