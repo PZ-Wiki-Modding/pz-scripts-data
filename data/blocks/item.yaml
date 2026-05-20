@@ -1231,6 +1231,20 @@ parameters:
     main: float
   default: 1.0
 - name: LearnedRecipes
+  description: |-
+    List of [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html) this item will teach the player when read.
+  needs:
+    - name: ItemType
+      values:
+        - base:literature
+  type:
+    main: array
+    array:
+      type: block
+      separator: ;
+      block:
+        name: craftRecipe
+        fullType: true
   itemTypes:
   - literature
 - name: LightDistance
