@@ -2245,6 +2245,13 @@
         },
         "default": true
       },
+      "animation": {
+        "name": "Animation",
+        "isUseless": true,
+        "type": {
+          "main": "string"
+        }
+      },
       "autolearnall": {
         "name": "AutoLearnAll",
         "description": "The `autoLearnAll` parameter specifies that all the provided skills and their associated level need to be reached to learn the recipe. The parameter should be formated this way:\n```cpp\n/* a single skill */\nautoLearnAll = <skill name>:<level amount>,\n\n/* multiple skills */\nautoLearnAll = <skill1 name>:<level amount>;<skill2 name>:<level amount>,format\n```\nFor the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nautoLearnAll = Carving:3;Maintenance:2,\n```"
@@ -2252,6 +2259,14 @@
       "autolearnany": {
         "name": "AutoLearnAny",
         "description": "The autoLearnAny parameter specifies that at least one of the skills and its associated level need to be reached to learn the recipe. The parameter should be formated this way:\n```cpp\n/* a single skill */\nautoLearnAny = <skill name>:<level amount>,\n\n/* multiple skills */\nautoLearnAny = <skill1 name>:<level amount>;<skill2 name>:<level amount>,format\n```\nFor the list of available skills, see [this](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nautoLearnAny = Carving:3;Maintenance:2,\n```"
+      },
+      "canwalk": {
+        "name": "CanWalk",
+        "description": "Whether the player can walk while crafting this recipe.",
+        "type": {
+          "main": "boolean"
+        },
+        "default": false
       },
       "category": {
         "name": "category",
@@ -2276,6 +2291,15 @@
       "ontest": {
         "name": "OnTest",
         "description": "The OnTest parameter is used to define a Lua function that will be called to verify if the recipe can be crafted. If the function returns true, the recipe can be crafted but if the function returns false, the recipe cannot be crafted. The Lua function needs to be a [global function](https://pzwiki.net/wiki/Lua_(language)#Local_and_global), it can also be in a global table. The vanilla game OnTest's are stored in the [Java](https://pzwiki.net/wiki/Java).\n\nThe function should have the following structure:\n```lua\nfunction MyOnTestFunction(item, character)\n    -- your custom code here\n    return logicTestResult  -- based on your logic test above\nend\n```\n\n`item` is an InventoryItem while `character` is the player trying to craft this recipe."
+      },
+      "onfailed": {
+        "name": "OnFailed"
+      },
+      "onupdate": {
+        "name": "OnUpdate"
+      },
+      "onaddtomenu": {
+        "name": "OnAddToMenu"
       },
       "overlaystyle": {
         "name": "overlayStyle"
@@ -4716,6 +4740,26 @@
       },
       "learnedrecipes": {
         "name": "LearnedRecipes",
+        "description": "List of [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html) this item will teach the player when read.",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:literature"
+            ]
+          }
+        ],
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "block",
+            "separator": ";",
+            "block": {
+              "name": "craftRecipe",
+              "fullType": true
+            }
+          }
+        },
         "itemTypes": [
           "literature"
         ]
