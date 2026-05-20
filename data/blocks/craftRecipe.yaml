@@ -119,6 +119,10 @@ parameters:
   type:
     main: boolean
   default: true
+- name: Animation
+  isUseless: true
+  type:
+    main: string
 - name: AutoLearnAll
   description: |-
     The `autoLearnAll` parameter specifies that all the provided skills and their associated level need to be reached to learn the recipe. The parameter should be formated this way:
@@ -151,6 +155,11 @@ parameters:
     ```cpp
     autoLearnAny = Carving:3;Maintenance:2,
     ```
+- name: CanWalk
+  description: Whether the player can walk while crafting this recipe.
+  type:
+    main: boolean
+  default: false
 - name: category
   description: The category under which the recipe will be listed in the crafting
     menu. Helps to organize and identify recipes in the crafting menu. Currently doesn't
@@ -161,8 +170,7 @@ parameters:
     
     This seems to be used only once in the vanilla recipes with the entry `Icon = Item_WaterDrop,`, as the icon usually defaults to the items that will be crafted.
 - name: MetaRecipe
-  description: A meta recipe is used to link two recipes so that if the meta recipe
-    is known then this recipe will be known.
+  description: A meta recipe is used to link two recipes so that if the meta recipe is known then this recipe will be known.
 - name: NeedToBeLearn
   description: Whether the recipe needs to be learned before it can be crafted.
 - name: OnCreate
@@ -190,6 +198,9 @@ parameters:
     ```
 
     `item` is an InventoryItem while `character` is the player trying to craft this recipe.
+- name: OnFailed
+- name: OnUpdate
+- name: OnAddToMenu
 - name: overlayStyle
 - name: recipeGroup
 - name: ResearchAny
