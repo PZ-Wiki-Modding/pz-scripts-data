@@ -3,6 +3,23 @@
   "title": "Blocks Folder General Schema",
   "type": "object",
   "additionalProperties": false,
+  "$defs": {
+    "blockType": {
+      "type": "object",
+      "description": "If the parameter is of type 'block', this can be used to provide a description of the expected format of the block.",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the block type that this parameter references to."
+        },
+        "fullType": {
+          "type": "boolean",
+          "description": "Indicates whether the parameter's value can match the module and block name, for example 'module.block'."
+        }
+      }
+    }
+  },
   "properties": {
     "version": { "type": ["number", "string"] },
     "#desc": { 
@@ -189,24 +206,16 @@
                 "enum": ["string", "float", "boolean", "array", "object", "integer"]
               },
               "block": {
-                "type": "object",
-                "description": "If the parameter is of type 'block', this can be used to provide a description of the expected format of the block.",
-                "additionalProperties": false,
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "description": "The name of the block type that this parameter references to."
-                  },
-                  "fullType": {
-                    "type": "boolean",
-                    "description": "Indicates whether the parameter's value can match the module and block name, for example 'module.block'."
-                  }
-                }
+                "$ref": "#/$defs/blockType"
               },
               "array": {
                 "type": "object",
                 "description": "If the parameter is of type 'array', this can be used to provide a description of the expected format of the array.",
                 "additionalProperties": false,
+                "oneOf": [
+                  { "properties": { "type": { "enum": ["string", "float", "boolean", "integer"] } }, "required": ["type"] },
+                  { "properties": { "type": { "enum": ["block"] } }, "required": ["type", "block"] }
+                ],
                 "required": ["separator", "type"],
                 "properties": {
                   "separator": {
@@ -216,7 +225,10 @@
                   "type": {
                     "type": "string",
                     "description": "Specifies the data type of the items in the array.",
-                    "enum": ["string", "float", "boolean", "integer"]
+                    "enum": ["string", "float", "boolean", "integer", "block"]
+                  },
+                  "block": {
+                    "$ref": "#/$defs/blockType"
                   }
                 }
               },
@@ -225,6 +237,12 @@
                 "description": "If the parameter is of type 'object', this can be used to provide a description of the expected format of the object.",
                 "required": ["keyValueSeparator", "pairsSeparator", "keyType", "valueType"],
                 "additionalProperties": false,
+                "oneOf": [
+                  { "properties": { "keyType": { "enum": ["string", "float", "boolean", "integer"] }, "valueType": { "enum": ["string", "float", "boolean", "integer"] } }, "required": ["keyType", "valueType"] },
+                  { "properties": { "keyType": { "enum": ["block"] }, "valueType": { "enum": ["block"] } }, "required": ["keyBlock", "valueBlock"] },
+                  { "properties": { "keyType": { "enum": ["block"] }, "valueType": { "enum": ["string", "float", "boolean", "integer"] } }, "required": ["keyBlock", "valueType"] },
+                  { "properties": { "keyType": { "enum": ["string", "float", "boolean", "integer"] }, "valueType": { "enum": ["block"] } }, "required": ["keyType", "valueBlock"] }
+                ],
                 "properties": {
                   "keyValueSeparator": {
                     "type": "string",
@@ -233,7 +251,10 @@
                   "keyType": {
                     "type": "string",
                     "description": "Specifies the data type of the keys in the object.",
-                    "enum": ["string", "float", "boolean", "integer"]
+                    "enum": ["string", "float", "boolean", "integer", "block"]
+                  },
+                  "keyBlock": {
+                    "$ref": "#/$defs/blockType"
                   },
                   "pairsSeparator": {
                     "type": "string",
@@ -242,7 +263,10 @@
                   "valueType": {
                     "type": "string",
                     "description": "Specifies the data type of the values in the object.",
-                    "enum": ["string", "float", "boolean", "integer"]
+                    "enum": ["string", "float", "boolean", "integer", "block"]
+                  },
+                  "valueBlock": {
+                    "$ref": "#/$defs/blockType"
                   }
                 }
               }
