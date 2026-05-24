@@ -1248,28 +1248,47 @@ parameters:
   itemTypes:
   - literature
 - name: LightDistance
-  itemTypes:
-  - drainable
-  - weaponpart
+  "#desc": item/LightStrength
+  type:
+    main: integer
 - name: LightStrength
-  itemTypes:
-  - drainable
-  - weaponpart
+  description: |-
+    [LightDistance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-lightdistance) is used to determine the radius of the light emitted by the item. It is compared to the [Manhattan distance](https://en.wikipedia.org/wiki/Taxicab_geometry) of the item to the square. The higher the value, the higher is the radius of the light.
+
+    [LightStrength](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-lightstrength) will boost the light emitted.
+
+    ```
+    new_light_level = current_light_level + 3 * LightStrength * (1 - clamp(dist / LightDistance, 0.0, 1.0))
+    ```
+
+    The `new_light_level` is limited to a maximum of `2.5`.
+  type:
+    main: float
 - name: Lipids
   itemTypes:
   - drainable
   - food
   - normal
 - name: LowLightBonus
-  itemTypes:
-  - weaponpart
+  type:
+    main: float
+  isUseless: true
 - name: LvlSkillTrained
-  itemTypes:
-  - literature
+  needs:
+    - name: ItemType
+      values:
+        - base:literature
   type:
     main: integer
   default: -1
 - name: magazine_subject
+  description: |-
+    You can find a list of subjects in the [MagazineSubject](https://pz-wiki-modding.github.io/PZ-API-Docs/java/magazine_subject.html).
+  type:
+    main: array
+    array:
+      separator: ;
+      type: string
   itemTypes:
   - literature
 - name: MagazineType
