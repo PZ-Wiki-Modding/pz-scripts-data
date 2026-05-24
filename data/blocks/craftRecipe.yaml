@@ -248,9 +248,12 @@ parameters:
   description: The time it takes to craft the item, not using a specific unit of time.
   default: 50
 - name: timedAction
-  description: Refers to a timed action script block, used to trigger during the crafting
-    process, for animations and/or sounds but also the calories burned and body heat
-    generation.
+  type:
+    main: string
+    block:
+      name: timedAction
+  description: |-
+    Refers to a timed action script block to trigger during the crafting process, for animations and/or sounds but also the calories burned and body heat generation.
 - name: Tooltip
   description: Description of the crafting which is shown in the crafting menu.
 - name: xpAward
