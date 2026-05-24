@@ -78,7 +78,7 @@ parameters:
     animVarVal      = Low,
     ```
 - name: animVarVal
-  "#desc": animVarKey
+  "#desc": timedAction/animVarKey
 - name: completionSound
   type:
     main: string
@@ -101,7 +101,7 @@ parameters:
     strain = deltaTime * muscleStrainFactor * (1 - skillLevel * 0.5)
     ```
 - name: muscleStrainParts
-  "#desc": muscleStrainFactor
+  "#desc": timedAction/muscleStrainFactor
   type:
     main: array
     array:
@@ -110,7 +110,7 @@ parameters:
   needs:
     - name: muscleStrainParts
 - name: muscleStrainSkill
-  "#desc": muscleStrainFactor
+  "#desc": timedAction/muscleStrainFactor
 - name: prop1
   type:
     main: string
