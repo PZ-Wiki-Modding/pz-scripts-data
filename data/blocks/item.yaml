@@ -1244,7 +1244,6 @@ parameters:
       separator: ;
       block:
         name: craftRecipe
-        fullType: true
   itemTypes:
   - literature
 - name: LightDistance
