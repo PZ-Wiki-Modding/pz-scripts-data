@@ -3,7 +3,7 @@ name: timedAction
 description: |-
   The timedAction script block is used to define an action which can be used in [craftRecipes](https://pz-wiki-modding.github.io/PZ-API-Docs/blocks/craftRecipe.html). You can specify the animation played, props in hands during the action, the sound played. Also define its impact on the player character, including effects on calories burned and body heat generation.
 
-  Below are a few examples of {{Code|timedAction}} blocks from the vanilla game:
+  Below are a few examples of `timedAction` blocks from the vanilla game:
 
   ```cpp
   timedAction UseLathe
