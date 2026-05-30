@@ -699,8 +699,8 @@ parameters:
 - name: DropSound
   type:
     main: string
-    # block:
-    #   name: sound
+    block:
+      name: sound
 - name: Eattime
   itemTypes:
   - drainable
@@ -1651,6 +1651,8 @@ parameters:
 - name: PlaceOneSound
   type:
     main: string
+    block:
+      name: sound
 - name: PoisonPower
   itemTypes:
   - food
@@ -2144,8 +2146,8 @@ parameters:
 - name: UnequipSound
   type:
     main: string
-    # block:
-    #   name: sound
+    block:
+      name: sound
 - name: UnhappyChange
   itemTypes:
   - drainable
