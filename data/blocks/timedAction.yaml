@@ -115,13 +115,13 @@ parameters:
   type:
     main: string
     block:
-      name: item
+      name: model
       fullType: true
 - name: prop2
   type:
     main: string
     block:
-      name: item
+      name: model
       fullType: true
 - name: sound
   type:
