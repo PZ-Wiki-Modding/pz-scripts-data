@@ -1507,6 +1507,11 @@ parameters:
   description: How many in-game minutes it takes to cook the food. This value must
     be smaller than [MinutesToBurn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestoburn).
 - name: ModelWeaponPart
+  type:
+    main: array
+    array:
+      separator: " "
+      type: string
   itemTypes:
   - weapon
   allowedDuplicate: true
@@ -1520,6 +1525,10 @@ parameters:
     main: boolean
   default: true
 - name: MuzzleFlashModelKey
+  type:
+    main: string
+    block:
+      name: model
   itemTypes:
   - weapon
 - name: NeckProtectionModifier
