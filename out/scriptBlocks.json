@@ -5532,7 +5532,7 @@
       },
       "tags": {
         "name": "Tags",
-        "description": "A list of tags to assign to the item. Tags are used by the game to easily identify properties of the items from the Lua or Java. This can notably be used in [craftRecipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html).\n\nFor example:\n```cpp\nTags = base:egg;base:hasmetal,\n```\n\nYou can find a list of all tags on the [wiki](https://pz-wiki-modding.github.io/PZ-API-Docs/java/item_tags.html). The wiki also provides a list of every items (per full type) associated to tags [here](https://pzwiki.net/wiki/Item_tag).\n\nTo create a custom tag, you have to first create its definition in your mod's [registries](https://pzwiki.net/wiki/Registries). In the `registries.lua` file, define the following by renaming the various elements to fit your mod name, id etc:\n```lua\nYourModRegistry = {}\nYourModRegistry.YOUR_TAG_NAME = ItemTag.register(\"yourmodid:yourtagname\")\n```\n\nYou can then use that tag `yourmodid:yourtagname` in your item definition. And you can use the stored ItemTag reference `YourModRegistry.YOUR_TAG_NAME` in your Lua code.",
+        "description": "A list of tags to assign to the item. Tags are used by the game to easily identify properties of the items from the Lua or Java. This can notably be used in [craftRecipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html).\n\nFor example:\n```cpp\nTags = base:egg;base:hasmetal,\n```\n\nYou can find a list of all tags on the [PZ API Doc](https://pz-wiki-modding.github.io/PZ-API-Docs/java/item_tags.html). The pzwiki also provides a list of every items (per full type) associated to tags [here](https://pzwiki.net/wiki/Item_tag).\n\nTo create a custom tag, you have to first create its definition in your mod's [registries](https://pzwiki.net/wiki/Registries). In the `registries.lua` file, define the following by renaming the various elements to fit your mod name, id etc:\n```lua\nYourModRegistry = {}\nYourModRegistry.YOUR_TAG_NAME = ItemTag.register(\"yourmodid:yourtagname\")\n```\n\nYou can then use that tag `yourmodid:yourtagname` in your item definition. And you can use the stored ItemTag reference `YourModRegistry.YOUR_TAG_NAME` in your Lua code.",
         "type": {
           "main": "array",
           "array": {
@@ -6603,7 +6603,7 @@
     "parameters": {
       "actionanim": {
         "name": "actionAnim",
-        "description": "The actionAnim parameter is used to define the animation played during a timed action. It links to a [PerformingAction](https://pzwiki.net/wiki/PerformingAction) define in the action [AnimSets](https://pzwiki.net/wiki/AnimSet).",
+        "description": "The actionAnim parameter is used to define the animation played during a timed action. It links to a [PerformingAction](https://pzwiki.net/wiki/PerformingAction) define in the action [AnimSets](https://pzwiki.net/wiki/AnimSet) of the player.",
         "type": {
           "main": "string"
         }
@@ -6619,6 +6619,7 @@
       },
       "completionsound": {
         "name": "completionSound",
+        "description": "Defines the sound played at the end of the action.",
         "type": {
           "main": "string",
           "block": {
@@ -6678,6 +6679,7 @@
       },
       "sound": {
         "name": "sound",
+        "description": "Defines the sound played during the action.",
         "type": {
           "main": "string",
           "block": {
