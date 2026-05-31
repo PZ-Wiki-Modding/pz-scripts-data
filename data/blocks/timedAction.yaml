@@ -46,7 +46,7 @@ ID: {}
 parameters:
 - name: actionAnim
   description: |-
-    The actionAnim parameter is used to define the animation played during a timed action. It links to a [PerformingAction](https://pzwiki.net/wiki/PerformingAction) define in the action [AnimSets](https://pzwiki.net/wiki/AnimSet).
+    The actionAnim parameter is used to define the animation played during a timed action. It links to a [PerformingAction](https://pzwiki.net/wiki/PerformingAction) define in the action [AnimSets](https://pzwiki.net/wiki/AnimSet) of the player.
   type:
     main: string
 - name: animVarKey
@@ -80,6 +80,8 @@ parameters:
 - name: animVarVal
   "#desc": timedAction/animVarKey
 - name: completionSound
+  description: |-
+    Defines the sound played at the end of the action.
   type:
     main: string
     block:
@@ -124,6 +126,8 @@ parameters:
       name: model
       fullType: true
 - name: sound
+  description: |-
+    Defines the sound played during the action.
   type:
     main: string
     block:
