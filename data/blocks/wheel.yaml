@@ -1,8 +1,7 @@
 version: 1
 name: wheel
-description: Defines the wheels of a vehicle. While the ID can technically be anything,
-  only the IDs 'FrontLeft', 'FrontRight', 'RearLeft', and 'RearRight' are recognized
-  by the game and will function properly.
+description: |-
+  Defines the wheels of a vehicle. While the ID can technically be anything, only the IDs 'FrontLeft', 'FrontRight', 'RearLeft', and 'RearRight' are recognized by the game and will function properly.
 shouldHaveParent: true
 parents:
 - template

@@ -1,0 +1,5 @@
+version: 1
+name: crawlThroughWheel
+description: |-
+  Similar implementation as a [wheel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/wheel.html), but unclear what it does exactly.
+"#ref": wheel
