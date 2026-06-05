@@ -1,0 +1,31 @@
+version: 1
+name: box
+description: ''
+shouldHaveParent: true
+parents:
+- tile
+parameters:
+- name: translate
+  type: 
+    main: array
+    array:
+      separator: x
+      type: integer
+- name: rotate
+  type: 
+    main: array
+    array:
+      separator: x
+      type: integer
+- name: min
+  type: 
+    main: array
+    array:
+      separator: x
+      type: integer
+- name: max
+  type: 
+    main: array
+    array:
+      separator: x
+      type: integer
