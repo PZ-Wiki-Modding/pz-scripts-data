@@ -347,6 +347,56 @@
       }
     }
   },
+  "box": {
+    "name": "box",
+    "description": "",
+    "shouldHaveParent": true,
+    "parents": [
+      "tile"
+    ],
+    "parameters": {
+      "translate": {
+        "name": "translate",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": "x",
+            "type": "integer"
+          }
+        }
+      },
+      "rotate": {
+        "name": "rotate",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": "x",
+            "type": "integer"
+          }
+        }
+      },
+      "min": {
+        "name": "min",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": "x",
+            "type": "integer"
+          }
+        }
+      },
+      "max": {
+        "name": "max",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": "x",
+            "type": "integer"
+          }
+        }
+      }
+    }
+  },
   "ISBaseComponentPanel": {
     "name": "ISBaseComponentPanel",
     "description": "",
