@@ -1,6 +1,7 @@
 version: 1
 name: box
-description: ''
+description: |-
+  [box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile.
 shouldHaveParent: true
 parents:
 - tile

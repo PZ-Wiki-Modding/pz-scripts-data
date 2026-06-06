@@ -1,0 +1,9 @@
+version: 1
+name: polygon
+"#desc": box
+shouldHaveParent: true
+parents:
+- tile
+parameters: []
+
+# TODO: document params
