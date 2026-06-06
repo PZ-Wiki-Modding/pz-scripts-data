@@ -349,7 +349,7 @@
   },
   "box": {
     "name": "box",
-    "description": "",
+    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile.",
     "shouldHaveParent": true,
     "parents": [
       "tile"
@@ -2539,6 +2539,16 @@
         "description": "The ratio at which the poison is diluted when mixed with other fluids."
       }
     }
+  },
+  "cylinder": {
+    "name": "cylinder",
+    "#desc": "box",
+    "shouldHaveParent": true,
+    "parents": [
+      "tile"
+    ],
+    "parameters": {},
+    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile."
   },
   "item": {
     "name": "item",
@@ -6160,6 +6170,16 @@
         "name": "animate"
       }
     }
+  },
+  "polygon": {
+    "name": "polygon",
+    "#desc": "box",
+    "shouldHaveParent": true,
+    "parents": [
+      "tile"
+    ],
+    "parameters": {},
+    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile."
   },
   "layers": {
     "name": "layers",
