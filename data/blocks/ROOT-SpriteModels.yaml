@@ -1,0 +1,10 @@
+version: 1
+name: ROOT-SpriteModels
+description: |-
+  The `spriteModels.txt` file is used to register [models](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html) and animations to tiles. This is notably used for radio items as well as doors and ramps.
+shouldHaveParent: false
+parents: []
+isRoot: true
+pattern:
+- media\/spriteModels\.txt$
+parameters: []

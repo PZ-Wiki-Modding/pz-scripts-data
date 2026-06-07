@@ -8,6 +8,4 @@ parents: []
 isRoot: true
 pattern:
 - media\/tileGeometry\.txt$
-parameters:
-- name: VERSION
-  description: The version of the tile geometry file format. Keep it at 2 for now.
+parameters: []
