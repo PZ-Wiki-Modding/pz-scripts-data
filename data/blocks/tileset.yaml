@@ -7,3 +7,7 @@ parents:
 - tileGeometry
 parameters:
 - name: name
+  type:
+    main: string
+  description: |-
+    The name of the tileset. For example `furniture_bedding_01`.

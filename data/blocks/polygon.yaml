@@ -4,6 +4,27 @@ name: polygon
 shouldHaveParent: true
 parents:
 - tile
-parameters: []
+parameters:
+- name: translate
+  "#ref": box/translate
+- name: rotate
+  "#ref": box/translate
+- name: plane
+  type:
+    main: string
+  values:
+    - "XY"
+    - "XZ"
+    - "YZ"
+- name: points
+  description: |-
+    Defines the points of the polygon. the format needs to be `X1xY1 X2xY2 X3xY3` and so on. The first point (X1, Y1) is connected to the second point (X2, Y2), the second point (X2, Y2) is connected to the third point (X3, Y3), and so on. The last point is connected to the first point, creating a closed shape.
 
-# TODO: document params
+    You can have as many points as you want.
+  type: 
+    main: object
+    object:
+      keyValueSeparator: x
+      keyType: integer
+      pairsSeparator: " "
+      valueType: integer

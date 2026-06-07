@@ -4,6 +4,17 @@ name: cylinder
 shouldHaveParent: true
 parents:
 - tile
-parameters: []
-
-# TODO: document params
+parameters:
+- name: translate
+  "#ref": box/translate
+- name: rotate
+  "#ref": box/translate
+- name: radius1
+  type:
+    main: integer
+- name: radius2
+  type:
+    main: integer
+- name: height
+  type:
+    main: integer

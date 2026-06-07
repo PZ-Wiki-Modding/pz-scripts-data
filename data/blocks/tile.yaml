@@ -1,16 +1,44 @@
 version: 1
 name: tile
-description: Defines some tile properties from a tileset.
+description: Defines some tile properties of a specific tile on a tileset.
 shouldHaveParent: true
 parents:
 - tileset
 parameters:
 - name: xy
+  description: |-
+    The position of the tile in the tileset.
+
+    If inside a [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) file, the separator is `x` but when inside a [spriteModels.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-spritemodels.html)
 - name: IsProfessionTrait
 - name: runtime
 - name: modelScript
+  type:
+    main: block
+    block:
+      name: model
+      fullType: true
 - name: translate
+  type:
+    main: array
+    array:
+      separator: " "
+      type: integer
+      min: 3
+      max: 3
 - name: rotate
+  type:
+    main: array
+    array:
+      separator: " "
+      type: integer
+      min: 3
+      max: 3
 - name: scale
+  type:
+    main: array
+    array:
+      separator: " "
+      type: float
 - name: animation
 - name: animationTime
