@@ -1,9 +1,21 @@
 version: 1
 name: tileGeometry
-description: Used to define tile geometries.
+description: Used to define tile geometries for each [tile](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/tile.html) in a [tileset](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/tileset.html).
 shouldHaveParent: true
 parents:
 - ROOT-TileGeometry
 parameters:
 - name: VERSION
-  description: The version of the tile geometry file format. Keep it at 2 for now.
+  description: |-
+    The version of the tile geometry file format. The vanilla files use version `2`.
+
+    If the value is `1`:
+    - coordinates will be parsed as is
+
+    If the value is `2`:
+    - coordinates will be divided by 10000
+  type:
+    main: integer
+  values:
+    - "1"
+    - "2"
