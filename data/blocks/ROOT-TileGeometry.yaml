@@ -7,7 +7,7 @@ shouldHaveParent: false
 parents: []
 isRoot: true
 pattern:
-- common\/media\/tileGeometry\.txt$
+- media\/tileGeometry\.txt$
 parameters:
 - name: VERSION
   description: The version of the tile geometry file format. Keep it at 2 for now.
