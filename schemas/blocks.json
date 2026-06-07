@@ -203,7 +203,7 @@
               "main": {
                 "type": "string",
                 "description": "The main data type of the parameter.",
-                "enum": ["string", "float", "boolean", "array", "object", "integer"]
+                "enum": ["string", "float", "boolean", "array", "object", "integer", "block"]
               },
               "block": {
                 "$ref": "#/$defs/blockType"
