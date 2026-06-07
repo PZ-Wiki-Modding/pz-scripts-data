@@ -256,6 +256,15 @@
       }
     }
   },
+  "properties": {
+    "name": "properties",
+    "description": "Provide properties for a [tile](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/tile.html).",
+    "shouldHaveParent": true,
+    "parents": [
+      "tile"
+    ],
+    "parameters": {}
+  },
   "component WallCoveringConfig": {
     "name": "component WallCoveringConfig",
     "description": "",
@@ -349,7 +358,7 @@
   },
   "box": {
     "name": "box",
-    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile.",
+    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile.\n\nYou can find more information [here](https://pzwiki.net/wiki/Tile_depth).",
     "shouldHaveParent": true,
     "parents": [
       "tile"
@@ -817,7 +826,7 @@
   },
   "tileGeometry": {
     "name": "tileGeometry",
-    "description": "Used to define tile geometries.",
+    "description": "Used to define tile geometries for each [tile](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/tile.html) in a [tileset](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/tileset.html).",
     "shouldHaveParent": true,
     "parents": [
       "ROOT-TileGeometry"
@@ -825,7 +834,14 @@
     "parameters": {
       "version": {
         "name": "VERSION",
-        "description": "The version of the tile geometry file format. Keep it at 2 for now."
+        "description": "The version of the tile geometry file format. The vanilla files use version `2`.\n\nIf the value is `1`:\n- coordinates will be parsed as is\n\nIf the value is `2`:\n- coordinates will be divided by 10000",
+        "type": {
+          "main": "integer"
+        },
+        "values": [
+          "1",
+          "2"
+        ]
       }
     }
   },
@@ -945,7 +961,11 @@
     ],
     "parameters": {
       "name": {
-        "name": "name"
+        "name": "name",
+        "type": {
+          "main": "string"
+        },
+        "description": "The name of the tileset. For example `furniture_bedding_01`."
       }
     }
   },
@@ -2314,14 +2334,15 @@
   },
   "tile": {
     "name": "tile",
-    "description": "Defines some tile properties from a tileset.",
+    "description": "Defines some tile properties of a specific tile on a tileset.",
     "shouldHaveParent": true,
     "parents": [
       "tileset"
     ],
     "parameters": {
       "xy": {
-        "name": "xy"
+        "name": "xy",
+        "description": "The position of the tile in the tileset.\n\nIf inside a [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) file, the separator is `x` but when inside a [spriteModels.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-spritemodels.html)"
       },
       "isprofessiontrait": {
         "name": "IsProfessionTrait"
@@ -2330,16 +2351,48 @@
         "name": "runtime"
       },
       "modelscript": {
-        "name": "modelScript"
+        "name": "modelScript",
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "model",
+            "fullType": true
+          }
+        }
       },
       "translate": {
-        "name": "translate"
+        "name": "translate",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": " ",
+            "type": "integer",
+            "min": 3,
+            "max": 3
+          }
+        }
       },
       "rotate": {
-        "name": "rotate"
+        "name": "rotate",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": " ",
+            "type": "integer",
+            "min": 3,
+            "max": 3
+          }
+        }
       },
       "scale": {
-        "name": "scale"
+        "name": "scale",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": " ",
+            "type": "float"
+          }
+        }
       },
       "animation": {
         "name": "animation"
@@ -2547,8 +2600,49 @@
     "parents": [
       "tile"
     ],
-    "parameters": {},
-    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile."
+    "parameters": {
+      "translate": {
+        "name": "translate",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": "x",
+            "type": "integer"
+          }
+        },
+        "#ref": "box/translate"
+      },
+      "rotate": {
+        "name": "rotate",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": "x",
+            "type": "integer"
+          }
+        },
+        "#ref": "box/translate"
+      },
+      "radius1": {
+        "name": "radius1",
+        "type": {
+          "main": "integer"
+        }
+      },
+      "radius2": {
+        "name": "radius2",
+        "type": {
+          "main": "integer"
+        }
+      },
+      "height": {
+        "name": "height",
+        "type": {
+          "main": "integer"
+        }
+      }
+    },
+    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile.\n\nYou can find more information [here](https://pzwiki.net/wiki/Tile_depth)."
   },
   "item": {
     "name": "item",
@@ -6023,6 +6117,17 @@
       }
     }
   },
+  "ROOT-SpriteModels": {
+    "name": "ROOT-SpriteModels",
+    "description": "The `spriteModels.txt` file is used to register [models](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html) and animations to tiles. This is notably used for radio items as well as doors and ramps.",
+    "shouldHaveParent": false,
+    "parents": [],
+    "isRoot": true,
+    "pattern": [
+      "media\\/spriteModels\\.txt$"
+    ],
+    "parameters": {}
+  },
   "mannequin": {
     "name": "mannequin",
     "description": "Defines a mannequin tile properties.",
@@ -6080,14 +6185,9 @@
     "parents": [],
     "isRoot": true,
     "pattern": [
-      "common\\/media\\/tileGeometry\\.txt$"
+      "media\\/tileGeometry\\.txt$"
     ],
-    "parameters": {
-      "version": {
-        "name": "VERSION",
-        "description": "The version of the tile geometry file format. Keep it at 2 for now."
-      }
-    }
+    "parameters": {}
   },
   "physics": {
     "name": "physics",
@@ -6178,8 +6278,55 @@
     "parents": [
       "tile"
     ],
-    "parameters": {},
-    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile."
+    "parameters": {
+      "translate": {
+        "name": "translate",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": "x",
+            "type": "integer"
+          }
+        },
+        "#ref": "box/translate"
+      },
+      "rotate": {
+        "name": "rotate",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": "x",
+            "type": "integer"
+          }
+        },
+        "#ref": "box/translate"
+      },
+      "plane": {
+        "name": "plane",
+        "type": {
+          "main": "string"
+        },
+        "values": [
+          "XY",
+          "XZ",
+          "YZ"
+        ]
+      },
+      "points": {
+        "name": "points",
+        "description": "Defines the points of the polygon. the format needs to be `X1xY1 X2xY2 X3xY3` and so on. The first point (X1, Y1) is connected to the second point (X2, Y2), the second point (X2, Y2) is connected to the third point (X3, Y3), and so on. The last point is connected to the first point, creating a closed shape.\n\nYou can have as many points as you want.",
+        "type": {
+          "main": "object",
+          "object": {
+            "keyValueSeparator": "x",
+            "keyType": "integer",
+            "pairsSeparator": " ",
+            "valueType": "integer"
+          }
+        }
+      }
+    },
+    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile.\n\nYou can find more information [here](https://pzwiki.net/wiki/Tile_depth)."
   },
   "layers": {
     "name": "layers",
