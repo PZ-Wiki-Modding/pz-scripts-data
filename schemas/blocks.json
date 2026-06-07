@@ -227,6 +227,14 @@
                     "description": "Specifies the data type of the items in the array.",
                     "enum": ["string", "float", "boolean", "integer", "block"]
                   },
+                  "min": {
+                    "type": "number",
+                    "description": "The minimum number of items required in the array."
+                  },
+                  "max": {
+                    "type": "number",
+                    "description": "The maximum number of items allowed in the array."
+                  },
                   "block": {
                     "$ref": "#/$defs/blockType"
                   }
