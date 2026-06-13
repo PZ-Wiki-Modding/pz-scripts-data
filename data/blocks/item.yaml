@@ -357,8 +357,13 @@ parameters:
   itemTypes:
   - weapon
 - name: cantBeConsolided
-  itemTypes:
-  - drainable
+  "#desc": item/ConsolidateOption
+  type:
+    main: boolean
+  needs:
+    - name: ItemType
+      values:
+        - base:drainable
 - name: CantBeFrozen
   itemTypes:
   - drainable
@@ -519,8 +524,17 @@ parameters:
     main: integer
   default: 10
 - name: ConsolidateOption
-  itemTypes:
-  - drainable
+  description: |-
+    By setting [cantBeConsolided](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-cantbeconsolided) to `false` and providing a [ConsolidateOption](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-consolidateoption) value, the item can be marked to merge its uses with other items of the same type in the inventory. This requires the item to be [Drainable type](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype).
+    
+    The ConsolidateOption value needs to be a translation key which will be passed through [getText](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/core/Translator.html#getText(java.lang.String)) to retrieve the translation value. The vanilla drainables (duct tape, wires, matches...) use the translation key `ContextMenu_Merge` which outputs a text 'Add to'.
+  needs:
+    - name: ItemType
+      values:
+        - base:drainable
+    - name: cantBeConsolided
+      values:
+        - false
 - name: CookingSound
   description: Custom sound to play when cooking this item.
   type:
@@ -691,11 +705,10 @@ parameters:
     main: string
   default: BaseballBatHit
 - name: DoubleClickRecipe
-  itemTypes:
-  - drainable
-  - food
-  - literature
-  - normal
+  type:
+    main: block
+    block:
+      name: craftRecipe
 - name: DropSound
   type:
     main: string
@@ -2163,14 +2176,21 @@ parameters:
   - food
   - literature
 - name: UseDelta
-  itemTypes:
-  - drainable
-  - food
-  - radio
-  - weaponpart
+  description: |-
+    Used to set the number of [uses](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html#getCurrentUses()) for the item where its durability has a value of `1` when full and `0` when empty. For example, a [base:drainable](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) item with a `UseDelta` of `0.03125` (the default value) will have 32 uses ($1/0.03125$) before it is depleted.
+
+    When used for [Clothing items](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype), the `UseDelta` is used to indicate the amount of durability lost for [oxygen tanks](https://pzwiki.net/wiki/Oxygen_Tank) for items with the [ItemTags](https://pz-wiki-modding.github.io/PZ-API-Docs/java/item_tags.html) `base:scba` or [gas mask filters](https://pzwiki.net/wiki/Gas_Mask_Filter) for items with the ItemTags `base:gasmask`, `base:respirator` or `base:improvisedgasmask`.
+
+    Some food items seem to be using that parameter but it doesn't seem to be used for those anywhere. There's uses for it in the Java for Drainable, Weapon and Radio items, but it doesn't seem to be limited to those.
   type:
     main: float
   default: 0.03125
+  needs:
+    - name: ItemType
+      values:
+        - base:drainable
+        - base:weapon
+        - base:radio
 - name: UseEndurance
   description: |-
     If `true`, the weapon will consume stamina on use based on the weapon [weight](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weight), [EnduranceMod](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-endurancemod), fatigue modifiers and traits.
