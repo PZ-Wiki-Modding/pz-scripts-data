@@ -237,6 +237,10 @@
                   },
                   "block": {
                     "$ref": "#/$defs/blockType"
+                  },
+                  "softOverride": {
+                    "type": "boolean",
+                    "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates."
                   }
                 }
               },
@@ -275,6 +279,10 @@
                   },
                   "valueBlock": {
                     "$ref": "#/$defs/blockType"
+                  },
+                  "softOverride": {
+                    "type": "boolean",
+                    "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates."
                   }
                 }
               }
