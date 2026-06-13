@@ -2575,9 +2575,15 @@
       },
       "itemwhendry": {
         "name": "ItemWhenDry",
-        "itemTypes": [
-          "normal"
-        ]
+        "#desc": "item/Wet",
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "item",
+            "fullType": true
+          }
+        },
+        "description": "[Wet](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-wet) marks the item as being wet. This is notably used for towels alongside the [WetCooldown](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-wetcooldown) which indicates how long the item will stay wet before drying out.\n\nWhen the item is dry, it is another item marked with the parameter [ItemWhenDry](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemwhendry)."
       },
       "jamgunchance": {
         "name": "JamGunChance",
@@ -3553,28 +3559,52 @@
       },
       "replaceondeplete": {
         "name": "ReplaceOnDeplete",
-        "itemTypes": [
-          "drainable"
-        ]
+        "description": "When providing a [ReplaceOnDeplete](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-replaceondeplete), the moment the item is depleted (e.g. a drainable item has no uses left anymore), it will be replaced by the item defined in this parameter. If this is empty, the item will be deleted without any replacement. This can notably be used to replace towels with a [wet](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-wet) towel.\n\n[ReplaceOnExtinguish](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-replaceonextinguish) on the other hand is used for [light sources items](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-lightstrength) to swap between the lit and unlit version of the item when it is fully drained.\n\n[ReplaceOnRotten](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-replaceonrotten) is used for food items to swap to a different rotten version of items when they are fully rotten. This is actually not used to make an item rotten, which is natively handled by the game when providing [DaysFresh](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-daysfresh) and [DaysTotallyRotten](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-daystotallyrotten) but instead when the item isn't necessary bad to eat after the days rotten duration, like ice cream becoming melted for example.\n\n[ReplaceOnUse](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-replaceonuse) is used whenever an item is used, to replace it with another item. Used for containers containing food items to provide the container back after the food is eaten, or for dirty items getting cleaned.",
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "item",
+            "fullType": true
+          }
+        }
       },
       "replaceonextinguish": {
         "name": "ReplaceOnExtinguish",
-        "itemTypes": [
-          "drainable"
-        ]
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "item",
+            "fullType": true
+          }
+        }
       },
       "replaceonrotten": {
         "name": "ReplaceOnRotten",
-        "itemTypes": [
-          "food"
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "item",
+            "fullType": true
+          }
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
         ]
       },
       "replaceonuse": {
         "name": "ReplaceOnUse",
-        "itemTypes": [
-          "food",
-          "normal"
-        ]
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "item",
+            "fullType": true
+          }
+        }
       },
       "requireinhandorinventory": {
         "name": "RequireInHandOrInventory",
@@ -4255,19 +4285,22 @@
       },
       "weight": {
         "name": "Weight",
-        "description": "Sets the weight of the item, or more commonly refered to as a encumbrance. [Weapon parts](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html) will impact the weight of the weapon when attached. Will also impact stamina drain when [UseEndurance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-useendurance) is `true`.",
+        "description": "[Weight](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weight) sets the weight of the item, or more commonly refered to as a [encumbrance](https://pzwiki.net/wiki/Heavy_load). [Weapon parts](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html) will impact the weight of the weapon when attached. Will also impact stamina drain when [UseEndurance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-useendurance) is `true`.\n\n[WeightEmpty](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weightempty) is used to set the weight of a drainable when it is empty.\n\n[WeightWet](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weightwet) is used to set the weight of a clothing item when it is wet. The weight of the clothing item will be interpolated between `Weight` and `WeightWet` based on the [wetness](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html#getWetness()) of the clothing item.",
         "type": {
           "main": "float"
         },
-        "default": 1.0
+        "default": 1.0,
+        "minimum": 0.0
       },
       "weightempty": {
         "name": "WeightEmpty",
-        "itemTypes": [
-          "drainable",
-          "food",
-          "normal"
-        ]
+        "#desc": "item/Weight",
+        "description": "[Weight](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weight) sets the weight of the item, or more commonly refered to as a [encumbrance](https://pzwiki.net/wiki/Heavy_load). [Weapon parts](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html) will impact the weight of the weapon when attached. Will also impact stamina drain when [UseEndurance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-useendurance) is `true`.\n\n[WeightEmpty](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weightempty) is used to set the weight of a drainable when it is empty.\n\n[WeightWet](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weightwet) is used to set the weight of a clothing item when it is wet. The weight of the clothing item will be interpolated between `Weight` and `WeightWet` based on the [wetness](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html#getWetness()) of the clothing item."
+      },
+      "weightwet": {
+        "name": "WeightWet",
+        "#desc": "item/Weight",
+        "description": "[Weight](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weight) sets the weight of the item, or more commonly refered to as a [encumbrance](https://pzwiki.net/wiki/Heavy_load). [Weapon parts](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html) will impact the weight of the weapon when attached. Will also impact stamina drain when [UseEndurance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-useendurance) is `true`.\n\n[WeightEmpty](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weightempty) is used to set the weight of a drainable when it is empty.\n\n[WeightWet](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weightwet) is used to set the weight of a clothing item when it is wet. The weight of the clothing item will be interpolated between `Weight` and `WeightWet` based on the [wetness](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html#getWetness()) of the clothing item."
       },
       "weightmodifier": {
         "name": "WeightModifier",
@@ -4283,15 +4316,19 @@
       },
       "wet": {
         "name": "Wet",
-        "itemTypes": [
-          "normal"
-        ]
+        "description": "[Wet](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-wet) marks the item as being wet. This is notably used for towels alongside the [WetCooldown](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-wetcooldown) which indicates how long the item will stay wet before drying out.\n\nWhen the item is dry, it is another item marked with the parameter [ItemWhenDry](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemwhendry).",
+        "type": {
+          "main": "boolean"
+        }
       },
       "wetcooldown": {
         "name": "WetCooldown",
-        "itemTypes": [
-          "normal"
-        ]
+        "#desc": "item/Wet",
+        "type": {
+          "main": "float"
+        },
+        "default": -1.0,
+        "description": "[Wet](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-wet) marks the item as being wet. This is notably used for towels alongside the [WetCooldown](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-wetcooldown) which indicates how long the item will stay wet before drying out.\n\nWhen the item is dry, it is another item marked with the parameter [ItemWhenDry](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemwhendry)."
       },
       "wheelfriction": {
         "name": "wheelFriction",
