@@ -125,8 +125,9 @@ parameters:
   itemTypes:
   - weapon
 - name: AlwaysWelcomeGift
-  itemTypes:
-  - normal
+  type:
+    main: boolean
+  isUseless: true
 - name: AmmoBox
   needs:
     - name: ItemType
@@ -200,9 +201,12 @@ parameters:
   itemTypes:
   - food
 - name: BadInMicrowave
-  description: Used to set whether this item will cause a fire when put in a microwave.
-  itemTypes:
-  - food
+  needs:
+    - name: ItemType
+      values:
+        - base:food
+  type:
+    main: boolean
 - name: BandagePower
   itemTypes:
   - normal
@@ -301,10 +305,18 @@ parameters:
   itemTypes:
   - clothing
 - name: Calories
-  itemTypes:
-  - drainable
-  - food
-  - normal
+  description: |-
+    The following stats are directly linked to the player's [nutrition](https://pzwiki.net/wiki/Nutrition), which are hidden stats that will impact the player's weight gains and more (positive values will increase the stat when eaten):
+    - [Calories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-calories)
+    - [Carbohydrates](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-carbohydrates)
+    - [Lipids](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-lipids)
+    - [Proteins](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-proteins)
+  type:
+    main: float
+  needs:
+    - name: ItemType
+      values:
+        - base:food
 - name: CanAttach
   itemTypes:
   - weaponpart
@@ -343,8 +355,14 @@ parameters:
   default: true
   description: Used to define whenever this item can get holes in it.
 - name: CannedFood
-  itemTypes:
-  - food
+  description: |-
+    [CannedFood](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-cannedfood) will mark the item as a canned food which will impact how it is spawned in the world. It will also impact the type of item where instead of being "Food" it will be "CannedFood".
+  type:
+    main: boolean
+  needs:
+    - name: ItemType
+      values:
+        - base:food
 - name: CanStack
   itemTypes:
   - normal
@@ -379,10 +397,13 @@ parameters:
     main: integer
   default: -1
 - name: Carbohydrates
-  itemTypes:
-  - drainable
-  - food
-  - normal
+  "#desc": item/Calories
+  type:
+    main: float
+  needs:
+    - name: ItemType
+      values:
+        - base:food
 - name: Categories
   itemTypes:
   - weapon
@@ -765,14 +786,36 @@ parameters:
     block:
       name: sound
 - name: EvolvedRecipe
-  description: List of evolved recipes this item can be used in.
-  itemTypes:
-  - drainable
-  - food
+  description: |-
+    [EvolvedRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-evolvedrecipe) is used to list the [evolved recipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/evolvedrecipe.html) this item can be used in as an ingredient. The syntax needs to be as follows:
+    ```cpp
+    EvolvedRecipe = recipeName1:quantity1;recipeName2:quantity2;recipeName3:quantity3,
+    ```
+
+    A custom flag `cooked` can also be added for specific recipes, for example:
+    ```cpp
+    EvolvedRecipe = recipeName1:quantity1|cooked;recipeName2:quantity2;recipeName3:quantity3,
+    ```
+    Here the `recipeName1` will require the item to be cooked first before being used in the recipe.
+
+    A simpler syntax is also technically supported where the quantity can be omitted:
+    ```cpp
+    EvolvedRecipe = recipeName1;recipeName2:quantity2;recipeName3,
+    ```
+
+    [EvolvedRecipeName](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-evolvedrecipename) can be used to set the name of the item that will be displayed in the result item. That parameter gets ignored if the game language is not english, and due to a bug it won't even use the translation of the item so it will use the fullType.
+  type:
+    main: object
+    object:
+      keyValueSeparator: ":"
+      keyType: block
+      pairsSeparator: ";"
+      valueType: string
+      keyBlock:
+        name: evolvedrecipe
+      softOverride: true
 - name: EvolvedRecipeName
-  itemTypes:
-  - drainable
-  - food
+  "#desc": item/EvolvedRecipe
 - name: ExplosionDuration
   "#desc": item/ExplosionRange
   needs:
@@ -1005,9 +1048,15 @@ parameters:
       name: sound
   default: BaseballBatHit
 - name: HungerChange
-  itemTypes:
-  - drainable
-  - food
+  description: |-
+    Different stats are available for food items which will impact the player's hunger, thirst, boredom etc.
+
+    - [HungerChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-hungerchange) when negative will reduce the hunger of the player, with `100` the maximum amount of hunger of a player
+    - [ThirstChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-thirstchange) when negative will reduce the thirst of the player, with `100` the maximum amount of thirst of a player
+    - [UnhappyChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-unhappychange) when positive will decrease the player's unhappiness, with `100` the maximum amount of unhappiness of a player
+    - [StressChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-stresschange) when negative will reduce the stress of the player, with `100` the maximum amount of stress of a player
+  type:
+    main: float
 - name: Icon
   description: |-
     Used to specify the icon of the item, usually used in the inventory and crafting menus to easily recognize the item. The icon file needs to be located inside the `media/textures/` folder and the file name must start with `Item_`, and be of the extension `.png`.
@@ -1150,11 +1199,16 @@ parameters:
   type:
     main: boolean
 - name: IsCookable
-  # needs:
-  #   - name: ItemType
-  #     values:
-  #       - base:food
-  #       - base:drainable
+  description: |-
+    [IsCookable](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iscookable) marks as the item as cookable.
+
+    [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) controls how many in-game minutes it takes for the food to be fully cooked. 
+    
+    [MinutesToBurn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestoburn) controls how many in-game minutes it takes for the food to burn. This value must be higher than [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) or your item will be instantly burnt before being fully cooked.
+
+    [RemoveNegativeEffectOnCooked](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-removenegativeeffectoncooked) will remove any negative changes in thirst, unhappiness and boredom when the food is cooked.
+
+    [BadInMicrowave](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-badinmicrowave) will set the unhappiness and boredom changes to `5.0` when cooked in a microwave.
   type:
     main: boolean
 - name: IsDung
@@ -1281,10 +1335,13 @@ parameters:
   type:
     main: float
 - name: Lipids
-  itemTypes:
-  - drainable
-  - food
-  - normal
+  "#desc": item/Calories
+  type:
+    main: float
+  needs:
+    - name: ItemType
+      values:
+        - base:food
 - name: LowLightBonus
   type:
     main: float
@@ -1494,35 +1551,23 @@ parameters:
         - base:weaponpart
   "#desc": item/MaxSightRange
 - name: MinutesToBurn
+  "#desc": item/IsCookable
   needs:
-    - name: ItemType
-      values:
-        - base:food
     - name: IsCookable
       values:
         - true
   type:
     main: float
   default: 120.0
-  description: |-
-    How many in-game minutes it takes to burn the food. This value must
-    be higher than [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook).
-    
-    In comparison with [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook), this parameter is not available for `base:drainable` [ItemTypes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype).
 - name: MinutesToCook
+  "#desc": item/IsCookable
   needs:
-    - name: ItemType
-      values:
-        - base:food
-        - base:drainable
     - name: IsCookable
       values:
         - true
   type:
     main: float
   default: 60.0
-  description: How many in-game minutes it takes to cook the food. This value must
-    be smaller than [MinutesToBurn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestoburn).
 - name: ModelWeaponPart
   type:
     main: array
@@ -1627,10 +1672,14 @@ parameters:
   itemTypes:
   - weapon
 - name: Packaged
-  itemTypes:
-  - drainable
-  - food
-  - normal
+  description: |-
+    Setting this to `true` will add readable content on the food item, which will display the [nutrional information](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-calories) of the food item.
+  type:
+    main: boolean
+  needs:
+    - name: ItemType
+      values:
+        - base:food
 - name: Padlock
   itemTypes:
   - key
@@ -1726,10 +1775,13 @@ parameters:
   itemTypes:
   - normal
 - name: Proteins
-  itemTypes:
-  - drainable
-  - food
-  - normal
+  "#desc": item/Calories
+  type:
+    main: float
+  needs:
+    - name: ItemType
+      values:
+        - base:food
 - name: PushBackMod
   description: |-
     Scales the magnitude of the hit-reaction push applied to the target character. A higher value will increase the time the target is staggered. It will also impact the spread of blood.
@@ -1813,8 +1865,13 @@ parameters:
   itemTypes:
   - normal
 - name: RemoveNegativeEffectOnCooked
-  itemTypes:
-  - food
+  "#desc": item/IsCookable
+  needs:
+    - name: ItemType
+      values:
+        - base:food
+  type:
+    main: boolean
 - name: RemoveOnBroken
   itemTypes:
   - clothing
@@ -1970,11 +2027,15 @@ parameters:
     main: float
   default: 1.0
 - name: SoundMap
-  itemTypes:
-  - drainable
-  - food
-  - weapon
-  - weaponpart
+  type:
+    main: object
+    object:
+      keyValueSeparator: " "
+      keyType: string
+      pairsSeparator: ;
+      valueType: block
+      valueBlock:
+        name: sound
   allowedDuplicate: true
 - name: SoundParameter
   itemTypes:
@@ -1993,9 +2054,15 @@ parameters:
   itemTypes:
   - clothing
 - name: Spice
-  itemTypes:
-  - drainable
-  - food
+  description: |-
+    Marks this item as a spice, which can be used in the [evolved recipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/evolvedrecipe.html) system.
+  type:
+    main: boolean
+  needs:
+    - name: ItemType
+      values:
+        - base:food
+        - base:drainable
 - name: SplatBloodOnNoDeath
   itemTypes:
   - weapon
@@ -2126,6 +2193,7 @@ parameters:
     array:
       type: string
       separator: ;
+      softOverride: true
 - name: ThirstChange
   itemTypes:
   - food
