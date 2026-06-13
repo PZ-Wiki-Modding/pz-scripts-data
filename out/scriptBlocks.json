@@ -1017,9 +1017,10 @@
       },
       "alwayswelcomegift": {
         "name": "AlwaysWelcomeGift",
-        "itemTypes": [
-          "normal"
-        ]
+        "type": {
+          "main": "boolean"
+        },
+        "isUseless": true
       },
       "ammobox": {
         "name": "AmmoBox",
@@ -1105,10 +1106,17 @@
       },
       "badinmicrowave": {
         "name": "BadInMicrowave",
-        "description": "Used to set whether this item will cause a fire when put in a microwave.",
-        "itemTypes": [
-          "food"
-        ]
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
+        ],
+        "type": {
+          "main": "boolean"
+        }
       },
       "bandagepower": {
         "name": "BandagePower",
@@ -1253,10 +1261,17 @@
       },
       "calories": {
         "name": "Calories",
-        "itemTypes": [
-          "drainable",
-          "food",
-          "normal"
+        "description": "The following stats are directly linked to the player's [nutrition](https://pzwiki.net/wiki/Nutrition), which are hidden stats that will impact the player's weight gains and more (positive values will increase the stat when eaten):\n- [Calories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-calories)\n- [Carbohydrates](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-carbohydrates)\n- [Lipids](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-lipids)\n- [Proteins](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-proteins)",
+        "type": {
+          "main": "float"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
         ]
       },
       "canattach": {
@@ -1329,8 +1344,17 @@
       },
       "cannedfood": {
         "name": "CannedFood",
-        "itemTypes": [
-          "food"
+        "description": "[CannedFood](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-cannedfood) will mark the item as a canned food which will impact how it is spawned in the world. It will also impact the type of item where instead of being \"Food\" it will be \"CannedFood\".",
+        "type": {
+          "main": "boolean"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
         ]
       },
       "canstack": {
@@ -1395,11 +1419,19 @@
       },
       "carbohydrates": {
         "name": "Carbohydrates",
-        "itemTypes": [
-          "drainable",
-          "food",
-          "normal"
-        ]
+        "#desc": "item/Calories",
+        "type": {
+          "main": "float"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
+        ],
+        "description": "The following stats are directly linked to the player's [nutrition](https://pzwiki.net/wiki/Nutrition), which are hidden stats that will impact the player's weight gains and more (positive values will increase the stat when eaten):\n- [Calories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-calories)\n- [Carbohydrates](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-carbohydrates)\n- [Lipids](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-lipids)\n- [Proteins](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-proteins)"
       },
       "categories": {
         "name": "Categories",
@@ -1959,18 +1991,25 @@
       },
       "evolvedrecipe": {
         "name": "EvolvedRecipe",
-        "description": "List of evolved recipes this item can be used in.",
-        "itemTypes": [
-          "drainable",
-          "food"
-        ]
+        "description": "[EvolvedRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-evolvedrecipe) is used to list the [evolved recipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/evolvedrecipe.html) this item can be used in as an ingredient. The syntax needs to be as follows:\n```cpp\nEvolvedRecipe = recipeName1:quantity1;recipeName2:quantity2;recipeName3:quantity3,\n```\n\nA custom flag `cooked` can also be added for specific recipes, for example:\n```cpp\nEvolvedRecipe = recipeName1:quantity1|cooked;recipeName2:quantity2;recipeName3:quantity3,\n```\nHere the `recipeName1` will require the item to be cooked first before being used in the recipe.\n\nA simpler syntax is also technically supported where the quantity can be omitted:\n```cpp\nEvolvedRecipe = recipeName1;recipeName2:quantity2;recipeName3,\n```\n\n[EvolvedRecipeName](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-evolvedrecipename) can be used to set the name of the item that will be displayed in the result item. That parameter gets ignored if the game language is not english, and due to a bug it won't even use the translation of the item so it will use the fullType.",
+        "type": {
+          "main": "object",
+          "object": {
+            "keyValueSeparator": ":",
+            "keyType": "block",
+            "pairsSeparator": ";",
+            "valueType": "string",
+            "keyBlock": {
+              "name": "evolvedrecipe"
+            },
+            "softOverride": true
+          }
+        }
       },
       "evolvedrecipename": {
         "name": "EvolvedRecipeName",
-        "itemTypes": [
-          "drainable",
-          "food"
-        ]
+        "#desc": "item/EvolvedRecipe",
+        "description": "[EvolvedRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-evolvedrecipe) is used to list the [evolved recipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/evolvedrecipe.html) this item can be used in as an ingredient. The syntax needs to be as follows:\n```cpp\nEvolvedRecipe = recipeName1:quantity1;recipeName2:quantity2;recipeName3:quantity3,\n```\n\nA custom flag `cooked` can also be added for specific recipes, for example:\n```cpp\nEvolvedRecipe = recipeName1:quantity1|cooked;recipeName2:quantity2;recipeName3:quantity3,\n```\nHere the `recipeName1` will require the item to be cooked first before being used in the recipe.\n\nA simpler syntax is also technically supported where the quantity can be omitted:\n```cpp\nEvolvedRecipe = recipeName1;recipeName2:quantity2;recipeName3,\n```\n\n[EvolvedRecipeName](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-evolvedrecipename) can be used to set the name of the item that will be displayed in the result item. That parameter gets ignored if the game language is not english, and due to a bug it won't even use the translation of the item so it will use the fullType."
       },
       "explosionduration": {
         "name": "ExplosionDuration",
@@ -2328,10 +2367,10 @@
       },
       "hungerchange": {
         "name": "HungerChange",
-        "itemTypes": [
-          "drainable",
-          "food"
-        ]
+        "description": "Different stats are available for food items which will impact the player's hunger, thirst, boredom etc.\n\n- [HungerChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-hungerchange) when negative will reduce the hunger of the player, with `100` the maximum amount of hunger of a player\n- [ThirstChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-thirstchange) when negative will reduce the thirst of the player, with `100` the maximum amount of thirst of a player\n- [UnhappyChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-unhappychange) when positive will decrease the player's unhappiness, with `100` the maximum amount of unhappiness of a player\n- [StressChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-stresschange) when negative will reduce the stress of the player, with `100` the maximum amount of stress of a player",
+        "type": {
+          "main": "float"
+        }
       },
       "icon": {
         "name": "Icon",
@@ -2492,6 +2531,7 @@
       },
       "iscookable": {
         "name": "IsCookable",
+        "description": "[IsCookable](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iscookable) marks as the item as cookable.\n\n[MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) controls how many in-game minutes it takes for the food to be fully cooked. \n\n[MinutesToBurn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestoburn) controls how many in-game minutes it takes for the food to burn. This value must be higher than [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) or your item will be instantly burnt before being fully cooked.\n\n[RemoveNegativeEffectOnCooked](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-removenegativeeffectoncooked) will remove any negative changes in thirst, unhappiness and boredom when the food is cooked.\n\n[BadInMicrowave](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-badinmicrowave) will set the unhappiness and boredom changes to `5.0` when cooked in a microwave.",
         "type": {
           "main": "boolean"
         }
@@ -2666,11 +2706,19 @@
       },
       "lipids": {
         "name": "Lipids",
-        "itemTypes": [
-          "drainable",
-          "food",
-          "normal"
-        ]
+        "#desc": "item/Calories",
+        "type": {
+          "main": "float"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
+        ],
+        "description": "The following stats are directly linked to the player's [nutrition](https://pzwiki.net/wiki/Nutrition), which are hidden stats that will impact the player's weight gains and more (positive values will increase the stat when eaten):\n- [Calories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-calories)\n- [Carbohydrates](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-carbohydrates)\n- [Lipids](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-lipids)\n- [Proteins](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-proteins)"
       },
       "lowlightbonus": {
         "name": "LowLightBonus",
@@ -2968,13 +3016,8 @@
       },
       "minutestoburn": {
         "name": "MinutesToBurn",
+        "#desc": "item/IsCookable",
         "needs": [
-          {
-            "name": "ItemType",
-            "values": [
-              "base:food"
-            ]
-          },
           {
             "name": "IsCookable",
             "values": [
@@ -2986,18 +3029,12 @@
           "main": "float"
         },
         "default": 120.0,
-        "description": "How many in-game minutes it takes to burn the food. This value must\nbe higher than [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook).\n\nIn comparison with [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook), this parameter is not available for `base:drainable` [ItemTypes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype)."
+        "description": "[IsCookable](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iscookable) marks as the item as cookable.\n\n[MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) controls how many in-game minutes it takes for the food to be fully cooked. \n\n[MinutesToBurn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestoburn) controls how many in-game minutes it takes for the food to burn. This value must be higher than [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) or your item will be instantly burnt before being fully cooked.\n\n[RemoveNegativeEffectOnCooked](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-removenegativeeffectoncooked) will remove any negative changes in thirst, unhappiness and boredom when the food is cooked.\n\n[BadInMicrowave](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-badinmicrowave) will set the unhappiness and boredom changes to `5.0` when cooked in a microwave."
       },
       "minutestocook": {
         "name": "MinutesToCook",
+        "#desc": "item/IsCookable",
         "needs": [
-          {
-            "name": "ItemType",
-            "values": [
-              "base:food",
-              "base:drainable"
-            ]
-          },
           {
             "name": "IsCookable",
             "values": [
@@ -3009,7 +3046,7 @@
           "main": "float"
         },
         "default": 60.0,
-        "description": "How many in-game minutes it takes to cook the food. This value must be smaller than [MinutesToBurn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestoburn)."
+        "description": "[IsCookable](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iscookable) marks as the item as cookable.\n\n[MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) controls how many in-game minutes it takes for the food to be fully cooked. \n\n[MinutesToBurn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestoburn) controls how many in-game minutes it takes for the food to burn. This value must be higher than [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) or your item will be instantly burnt before being fully cooked.\n\n[RemoveNegativeEffectOnCooked](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-removenegativeeffectoncooked) will remove any negative changes in thirst, unhappiness and boredom when the food is cooked.\n\n[BadInMicrowave](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-badinmicrowave) will set the unhappiness and boredom changes to `5.0` when cooked in a microwave."
       },
       "modelweaponpart": {
         "name": "ModelWeaponPart",
@@ -3194,10 +3231,17 @@
       },
       "packaged": {
         "name": "Packaged",
-        "itemTypes": [
-          "drainable",
-          "food",
-          "normal"
+        "description": "Setting this to `true` will add readable content on the food item, which will display the [nutrional information](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-calories) of the food item.",
+        "type": {
+          "main": "boolean"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
         ]
       },
       "padlock": {
@@ -3370,11 +3414,19 @@
       },
       "proteins": {
         "name": "Proteins",
-        "itemTypes": [
-          "drainable",
-          "food",
-          "normal"
-        ]
+        "#desc": "item/Calories",
+        "type": {
+          "main": "float"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
+        ],
+        "description": "The following stats are directly linked to the player's [nutrition](https://pzwiki.net/wiki/Nutrition), which are hidden stats that will impact the player's weight gains and more (positive values will increase the stat when eaten):\n- [Calories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-calories)\n- [Carbohydrates](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-carbohydrates)\n- [Lipids](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-lipids)\n- [Proteins](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-proteins)"
       },
       "pushbackmod": {
         "name": "PushBackMod",
@@ -3511,9 +3563,19 @@
       },
       "removenegativeeffectoncooked": {
         "name": "RemoveNegativeEffectOnCooked",
-        "itemTypes": [
-          "food"
-        ]
+        "#desc": "item/IsCookable",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
+        ],
+        "type": {
+          "main": "boolean"
+        },
+        "description": "[IsCookable](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iscookable) marks as the item as cookable.\n\n[MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) controls how many in-game minutes it takes for the food to be fully cooked. \n\n[MinutesToBurn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestoburn) controls how many in-game minutes it takes for the food to burn. This value must be higher than [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) or your item will be instantly burnt before being fully cooked.\n\n[RemoveNegativeEffectOnCooked](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-removenegativeeffectoncooked) will remove any negative changes in thirst, unhappiness and boredom when the food is cooked.\n\n[BadInMicrowave](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-badinmicrowave) will set the unhappiness and boredom changes to `5.0` when cooked in a microwave."
       },
       "removeonbroken": {
         "name": "RemoveOnBroken",
@@ -3761,12 +3823,18 @@
       },
       "soundmap": {
         "name": "SoundMap",
-        "itemTypes": [
-          "drainable",
-          "food",
-          "weapon",
-          "weaponpart"
-        ],
+        "type": {
+          "main": "object",
+          "object": {
+            "keyValueSeparator": " ",
+            "keyType": "string",
+            "pairsSeparator": ";",
+            "valueType": "block",
+            "valueBlock": {
+              "name": "sound"
+            }
+          }
+        },
         "allowedDuplicate": true
       },
       "soundparameter": {
@@ -3799,9 +3867,18 @@
       },
       "spice": {
         "name": "Spice",
-        "itemTypes": [
-          "drainable",
-          "food"
+        "description": "Marks this item as a spice, which can be used in the [evolved recipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/evolvedrecipe.html) system.",
+        "type": {
+          "main": "boolean"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food",
+              "base:drainable"
+            ]
+          }
         ]
       },
       "splatbloodonnodeath": {
@@ -3986,7 +4063,8 @@
           "main": "array",
           "array": {
             "type": "string",
-            "separator": ";"
+            "separator": ";",
+            "softOverride": true
           }
         }
       },
@@ -7367,34 +7445,93 @@
     },
     "parameters": {
       "addingredientifcooked": {
-        "name": "AddIngredientIfCooked"
+        "name": "AddIngredientIfCooked",
+        "description": "Whenever ingredients can be added even after the item has been cooked.",
+        "type": {
+          "main": "boolean"
+        }
       },
       "addingredientsound": {
-        "name": "AddIngredientSound"
+        "name": "AddIngredientSound",
+        "description": "The [sound](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/sound.html) which will be played when an ingredient is added.\n\nIf set to `AddItemInBeverage`, when the [ingredient](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html) has the [tag](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-tags) `base:wetbeverageingredient`, the sound will be changed to `AddWetItemInBeverage` but if not present, it will changed to `AddDryItemInBeverage`.",
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "sound"
+          }
+        },
+        "default": "AddItemInBeverage"
       },
       "baseitem": {
-        "name": "BaseItem"
+        "name": "BaseItem",
+        "description": "The [item](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html) which will serve as the base for this recipe, that is the item which will be combined with the ingredients to create the [ResultItem](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/evolvedrecipe.html#resultitem).",
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "item",
+            "fullType": true
+          }
+        }
       },
       "canaddspicesempty": {
-        "name": "CanAddSpicesEmpty"
+        "name": "CanAddSpicesEmpty",
+        "description": "If true, the [spices](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-spice) can be added to the [BaseItem](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/evolvedrecipe.html#baseitem) directly without any ingredients yet added.",
+        "type": {
+          "main": "boolean"
+        }
       },
       "cookable": {
-        "name": "Cookable"
+        "name": "Cookable",
+        "description": "If true, the [ResultItem](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/evolvedrecipe.html#resultitem) will be cookable.",
+        "type": {
+          "main": "boolean"
+        },
+        "values": [
+          "true"
+        ]
       },
       "maxitems": {
-        "name": "MaxItems"
+        "name": "MaxItems",
+        "description": "The maximum number of ingredients which will be used in this recipe. Unique [spices](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-spice) on the other hand can be added infinitely.",
+        "type": {
+          "main": "integer"
+        },
+        "minimum": 1
       },
       "minimumwater": {
-        "name": "MinimumWater"
+        "name": "MinimumWater",
+        "description": "The minimum amount of water which must be present in the [BaseItem](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/evolvedrecipe.html#baseitem) for this recipe to be valid.",
+        "type": {
+          "main": "float"
+        },
+        "default": 0.0
       },
       "name": {
-        "name": "Name"
+        "name": "Name",
+        "description": "The translation key for the name of this recipe which will be retrieved from the [Recipes.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#recipes) file.",
+        "type": {
+          "main": "string"
+        }
       },
       "resultitem": {
-        "name": "ResultItem"
+        "name": "ResultItem",
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "item",
+            "fullType": true
+          }
+        }
       },
       "template": {
-        "name": "Template"
+        "name": "Template",
+        "description": "Whenever an item uses this recipe via the [EvolvedRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-evolvedrecipe) parameter, and links to the recipe of the `Template`, that ingredient will be added to both the template and this evolved recipe. This allows you to make variants of the same evolved recipe with different containers, for example for beverages, where the same recipe can be used for a cup, a bottle or a jar.\n\nIt will not copy the parameters of the template recipe however, only the ingredients.",
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "evolvedrecipe"
+          }
+        }
       }
     }
   },
