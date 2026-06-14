@@ -6627,8 +6627,7 @@
         "type": {
           "main": "boolean"
         },
-        "description": "This parameter looks unused.",
-        "isUseless": true
+        "description": "Whenever this is set to `false`, the distance to the sound will not impact its volume. This parameter doesn't impact the sound directionality."
       },
       "loop": {
         "name": "loop",
