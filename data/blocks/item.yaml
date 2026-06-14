@@ -160,13 +160,13 @@ parameters:
     [MagazineType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-magazinetype) is used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. [MaxAmmo](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-maxammo) is used to set the capacity of either the magazine item or the gun.
 
     [WeaponReloadType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weaponreloadtype) is used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pzwiki.net/wiki/Conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:
-    - handgun
-    - shotgun
-    - boltactionnomag
-    - boltaction
-    - revolver
-    - doublebarrelshotgun
-    - doublebarrelshotgunsawn
+    - `handgun`
+    - `shotgun`
+    - `boltactionnomag`
+    - `boltaction`
+    - `revolver`
+    - `doublebarrelshotgun`
+    - `doublebarrelshotgunsawn`
 
     A custom `WeaponReloadType` can be used if the relevant animations and condition logic are properly set up in a custom [AnimNode](https://pzwiki.net/wiki/AnimNodes).
   needs:
