@@ -1106,6 +1106,8 @@ parameters:
         📄 Item_iconNameRotten.png
         📄 Item_iconNameBurnt.png
     ```
+
+    [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iconsfortexture) can be used alongside [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodelsbyindex) and [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodelsbyindex) to have variant icons for different models, and all for the same item definition. See those parameters definitions for more information.
   type:
     main: string
   default: None
@@ -1120,19 +1122,12 @@ parameters:
   - normal
   - weapon
 - name: IconsForTexture
+  "#desc": item/Icon
   type:
     main: array
     array:
       type: string
       separator: ;
-  itemTypes:
-  - clothing
-  - container
-  - food
-  - key
-  - literature
-  - normal
-  - weapon
 - name: IdleAnim
   itemTypes:
   - weapon
@@ -2079,32 +2074,26 @@ parameters:
     main: float
   default: 1.0
 - name: StaticModel
+  description: |-
+    [StaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodel) is used to define the model of the item being held in hands. On the other hand, [WorldStaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodel) is used to define the model of the item being placed in the world. The two models can be different, for example an item can have a handle that is up when held in hands, but down when placed in the world.
+
+    Alternatively, [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodelsbyindex) and [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodelsbyindex) can be used to define multiple models for the same item definition, which is useful for variants of the same item (e.g. a weapon with different skins). You can use [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iconsfortexture) alongside those to define different icons for each variant. Here's an example usage with three variants of the same item:
+    ```cpp
+    StaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,
+    WorldStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,
+    IconsForTexture = AK47;AK47_Desert;AK47_Woodland,
+    ```
   type:
-    main: string
+    main: block
     block:
       name: model
       fullType: true
-  itemTypes:
-  - clothing
-  - container
-  - drainable
-  - food
-  - literature
-  - map
-  - moveable
-  - normal
-  - radio
-  - weaponpart
 - name: StaticModelsByIndex
   type:
     main: array
     array:
       type: string
       separator: ;
-  itemTypes:
-  - food
-  - literature
-  - normal
 - name: StompPower
   itemTypes:
   - clothing
@@ -2424,8 +2413,9 @@ parameters:
   - radio
 - name: WorldRender
 - name: WorldStaticModel
+  "#desc": item/StaticModel
   type:
-    main: string
+    main: block
     block:
       name: model
       fullType: true
