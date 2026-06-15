@@ -2374,7 +2374,7 @@
       },
       "icon": {
         "name": "Icon",
-        "description": "Used to specify the icon of the item, usually used in the inventory and crafting menus to easily recognize the item. The icon file needs to be located inside the `media/textures/` folder and the file name must start with `Item_`, and be of the extension `.png`.\n```\n📁 media\n  📁 textures\n    📄 Item_iconName.png\n```\n\nWhen referencing the icon in the item script, you should not include the `Item_` prefix and the `.png` extension. For example, to reference the icon file above in the item script:\n```\nIcon = iconName,\n```\n\n##### Subfolders\nSubfolders are not directly supported, but you can use some tricks to have them working. Here's a simple example:\n```\nIcon = subFolder/iconName,\n```\nMeans your folder structure should be:\n```\n📁 media\n  📁 textures\n    📁 Item_subFolder\n      📄 iconName.png\n```\n\nNotice how the `Item_` prefix is not on the file but on the folder in this case.\n\n##### Food icons\nIcons can be specified for rotten, cooked and burned food (`ItemType = base:food,`) by adding the following suffix to the icon files:\n- `Rotten` or `Spoiled` for food that has rotten, meaning has passed the [DaysTotallyRotten](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-daystotallyrotten) value.\n- `Cooked` for food that has been cooked, meaning has passed the [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) value.\n- `Overdone` or `Burnt` for food that has been cooked to the point of burning, meaning has passed the [MinutesToBurn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestoburn) value.\n\nFor example, take a food item with the icon file defined as such:\n```\nIcon = iconName,\n```\n\nTo add variants based on food condition, you would have the following file structure:\n```\n📁 media\n  📁 textures\n    📄 Item_iconName.png\n    📄 Item_iconNameCooked.png\n    📄 Item_iconNameRotten.png\n    📄 Item_iconNameBurnt.png\n```",
+        "description": "Used to specify the icon of the item, usually used in the inventory and crafting menus to easily recognize the item. The icon file needs to be located inside the `media/textures/` folder and the file name must start with `Item_`, and be of the extension `.png`.\n```\n📁 media\n  📁 textures\n    📄 Item_iconName.png\n```\n\nWhen referencing the icon in the item script, you should not include the `Item_` prefix and the `.png` extension. For example, to reference the icon file above in the item script:\n```\nIcon = iconName,\n```\n\n##### Subfolders\nSubfolders are not directly supported, but you can use some tricks to have them working. Here's a simple example:\n```\nIcon = subFolder/iconName,\n```\nMeans your folder structure should be:\n```\n📁 media\n  📁 textures\n    📁 Item_subFolder\n      📄 iconName.png\n```\n\nNotice how the `Item_` prefix is not on the file but on the folder in this case.\n\n##### Food icons\nIcons can be specified for rotten, cooked and burned food (`ItemType = base:food,`) by adding the following suffix to the icon files:\n- `Rotten` or `Spoiled` for food that has rotten, meaning has passed the [DaysTotallyRotten](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-daystotallyrotten) value.\n- `Cooked` for food that has been cooked, meaning has passed the [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) value.\n- `Overdone` or `Burnt` for food that has been cooked to the point of burning, meaning has passed the [MinutesToBurn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestoburn) value.\n\nFor example, take a food item with the icon file defined as such:\n```\nIcon = iconName,\n```\n\nTo add variants based on food condition, you would have the following file structure:\n```\n📁 media\n  📁 textures\n    📄 Item_iconName.png\n    📄 Item_iconNameCooked.png\n    📄 Item_iconNameRotten.png\n    📄 Item_iconNameBurnt.png\n```\n\n[IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iconsfortexture) can be used alongside [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodelsbyindex) and [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodelsbyindex) to have variant icons for different models, and all for the same item definition. See those parameters definitions for more information.",
         "type": {
           "main": "string"
         },
@@ -2398,6 +2398,7 @@
       },
       "iconsfortexture": {
         "name": "IconsForTexture",
+        "#desc": "item/Icon",
         "type": {
           "main": "array",
           "array": {
@@ -2405,15 +2406,7 @@
             "separator": ";"
           }
         },
-        "itemTypes": [
-          "clothing",
-          "container",
-          "food",
-          "key",
-          "literature",
-          "normal",
-          "weapon"
-        ]
+        "description": "Used to specify the icon of the item, usually used in the inventory and crafting menus to easily recognize the item. The icon file needs to be located inside the `media/textures/` folder and the file name must start with `Item_`, and be of the extension `.png`.\n```\n📁 media\n  📁 textures\n    📄 Item_iconName.png\n```\n\nWhen referencing the icon in the item script, you should not include the `Item_` prefix and the `.png` extension. For example, to reference the icon file above in the item script:\n```\nIcon = iconName,\n```\n\n##### Subfolders\nSubfolders are not directly supported, but you can use some tricks to have them working. Here's a simple example:\n```\nIcon = subFolder/iconName,\n```\nMeans your folder structure should be:\n```\n📁 media\n  📁 textures\n    📁 Item_subFolder\n      📄 iconName.png\n```\n\nNotice how the `Item_` prefix is not on the file but on the folder in this case.\n\n##### Food icons\nIcons can be specified for rotten, cooked and burned food (`ItemType = base:food,`) by adding the following suffix to the icon files:\n- `Rotten` or `Spoiled` for food that has rotten, meaning has passed the [DaysTotallyRotten](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-daystotallyrotten) value.\n- `Cooked` for food that has been cooked, meaning has passed the [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestocook) value.\n- `Overdone` or `Burnt` for food that has been cooked to the point of burning, meaning has passed the [MinutesToBurn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-minutestoburn) value.\n\nFor example, take a food item with the icon file defined as such:\n```\nIcon = iconName,\n```\n\nTo add variants based on food condition, you would have the following file structure:\n```\n📁 media\n  📁 textures\n    📄 Item_iconName.png\n    📄 Item_iconNameCooked.png\n    📄 Item_iconNameRotten.png\n    📄 Item_iconNameBurnt.png\n```\n\n[IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iconsfortexture) can be used alongside [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodelsbyindex) and [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodelsbyindex) to have variant icons for different models, and all for the same item definition. See those parameters definitions for more information."
       },
       "idleanim": {
         "name": "IdleAnim",
@@ -3909,25 +3902,14 @@
       },
       "staticmodel": {
         "name": "StaticModel",
+        "description": "[StaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodel) is used to define the model of the item being held in hands. On the other hand, [WorldStaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodel) is used to define the model of the item being placed in the world. The two models can be different, for example an item can have a handle that is up when held in hands, but down when placed in the world.\n\nAlternatively, [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodelsbyindex) and [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodelsbyindex) can be used to define multiple models for the same item definition, which is useful for variants of the same item (e.g. a weapon with different skins). You can use [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iconsfortexture) alongside those to define different icons for each variant. Here's an example usage with three variants of the same item:\n```cpp\nStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nWorldStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nIconsForTexture = AK47;AK47_Desert;AK47_Woodland,\n```",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "model",
             "fullType": true
           }
-        },
-        "itemTypes": [
-          "clothing",
-          "container",
-          "drainable",
-          "food",
-          "literature",
-          "map",
-          "moveable",
-          "normal",
-          "radio",
-          "weaponpart"
-        ]
+        }
       },
       "staticmodelsbyindex": {
         "name": "StaticModelsByIndex",
@@ -3937,12 +3919,7 @@
             "type": "string",
             "separator": ";"
           }
-        },
-        "itemTypes": [
-          "food",
-          "literature",
-          "normal"
-        ]
+        }
       },
       "stomppower": {
         "name": "StompPower",
@@ -4446,13 +4423,15 @@
       },
       "worldstaticmodel": {
         "name": "WorldStaticModel",
+        "#desc": "item/StaticModel",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "model",
             "fullType": true
           }
-        }
+        },
+        "description": "[StaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodel) is used to define the model of the item being held in hands. On the other hand, [WorldStaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodel) is used to define the model of the item being placed in the world. The two models can be different, for example an item can have a handle that is up when held in hands, but down when placed in the world.\n\nAlternatively, [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodelsbyindex) and [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodelsbyindex) can be used to define multiple models for the same item definition, which is useful for variants of the same item (e.g. a weapon with different skins). You can use [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iconsfortexture) alongside those to define different icons for each variant. Here's an example usage with three variants of the same item:\n```cpp\nStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nWorldStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nIconsForTexture = AK47;AK47_Desert;AK47_Woodland,\n```"
       },
       "worldstaticmodelsbyindex": {
         "name": "WorldStaticModelsByIndex",
