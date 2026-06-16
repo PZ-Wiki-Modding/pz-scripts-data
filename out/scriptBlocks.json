@@ -1276,9 +1276,37 @@
       },
       "canattach": {
         "name": "CanAttach",
-        "itemTypes": [
-          "weaponpart"
-        ]
+        "description": "[CanAttach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-canattach) and [CanDetach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-candetach) are used to define whenever a [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) can be respectively attached or detached to and from a [HandWeapon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype).\n\n[OnAttach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-onattach) and [OnDetach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-ondetach) are used to define a callback function which will be called when the weapon part is attached or detached from the weapon.",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weaponpart"
+            ]
+          }
+        ],
+        "type": {
+          "main": "string",
+          "callback": {
+            "parameters": [
+              {
+                "name": "character",
+                "type": "IsoGameCharacter",
+                "isJava": true
+              },
+              {
+                "name": "weapon",
+                "type": "HandWeapon",
+                "isJava": true
+              },
+              {
+                "name": "part",
+                "type": "WeaponPart",
+                "isJava": true
+              }
+            ]
+          }
+        }
       },
       "canbandage": {
         "name": "CanBandage",
@@ -1325,9 +1353,38 @@
       },
       "candetach": {
         "name": "CanDetach",
-        "itemTypes": [
-          "weaponpart"
-        ]
+        "#desc": "item/CanAttach",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weaponpart"
+            ]
+          }
+        ],
+        "type": {
+          "main": "string",
+          "callback": {
+            "parameters": [
+              {
+                "name": "character",
+                "type": "IsoGameCharacter",
+                "isJava": true
+              },
+              {
+                "name": "weapon",
+                "type": "HandWeapon",
+                "isJava": true
+              },
+              {
+                "name": "part",
+                "type": "WeaponPart",
+                "isJava": true
+              }
+            ]
+          }
+        },
+        "description": "[CanAttach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-canattach) and [CanDetach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-candetach) are used to define whenever a [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) can be respectively attached or detached to and from a [HandWeapon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype).\n\n[OnAttach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-onattach) and [OnDetach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-ondetach) are used to define a callback function which will be called when the weapon part is attached or detached from the weapon."
       },
       "canhaveholes": {
         "name": "CanHaveHoles",
@@ -1473,8 +1530,32 @@
       },
       "clipsize": {
         "name": "ClipSize",
-        "itemTypes": [
-          "weapon"
+        "isUseless": true,
+        "type": {
+          "main": "integer"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ]
+      },
+      "clipsizemodifier": {
+        "name": "ClipSizeModifier",
+        "isUseless": true,
+        "type": {
+          "main": "integer"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weaponpart"
+            ]
+          }
         ]
       },
       "closekillmove": {
@@ -1859,6 +1940,22 @@
       },
       "displaycategory": {
         "name": "DisplayCategory"
+      },
+      "damagemodifier": {
+        "name": "DamageModifier",
+        "#desc": "item/MaxDamage",
+        "type": {
+          "main": "float"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weaponpart"
+            ]
+          }
+        ],
+        "description": "Rolls the hit damage of the weapon between `MinDamage` and `MaxDamage`.\n\n[WeaponParts](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) can modify the damage of the weapon with the [DamageModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-damagemodifier) parameter. When equipped, a [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) will increase the minimum and maximum damage of the weapon by the provided value. You are not limited to positive values, you can also add damage debuffs to the weapon by providing negative values."
       },
       "doordamage": {
         "name": "DoorDamage",
@@ -2828,7 +2925,7 @@
           "main": "float"
         },
         "default": 1.5,
-        "description": "Rolls the hit damage of the weapon between `MinDamage` and `MaxDamage`."
+        "description": "Rolls the hit damage of the weapon between `MinDamage` and `MaxDamage`.\n\n[WeaponParts](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) can modify the damage of the weapon with the [DamageModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-damagemodifier) parameter. When equipped, a [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) will increase the minimum and maximum damage of the weapon by the provided value. You are not limited to positive values, you can also add damage debuffs to the weapon by providing negative values."
       },
       "maxhitcount": {
         "name": "MaxHitcount",
@@ -2972,7 +3069,7 @@
         "type": {
           "main": "float"
         },
-        "description": "Rolls the hit damage of the weapon between `MinDamage` and `MaxDamage`."
+        "description": "Rolls the hit damage of the weapon between `MinDamage` and `MaxDamage`.\n\n[WeaponParts](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) can modify the damage of the weapon with the [DamageModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-damagemodifier) parameter. When equipped, a [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) will increase the minimum and maximum damage of the weapon by the provided value. You are not limited to positive values, you can also add damage debuffs to the weapon by providing negative values."
       },
       "minimumswingtime": {
         "name": "MinimumSwingtime",
@@ -3057,9 +3154,21 @@
       },
       "mounton": {
         "name": "MountOn",
-        "itemTypes": [
-          "weaponpart"
-        ]
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weaponpart"
+            ]
+          }
+        ],
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": ";",
+            "type": "string"
+          }
+        }
       },
       "multiplehitconditionaffected": {
         "name": "MultipleHitConditionAffected",
@@ -3147,6 +3256,41 @@
         },
         "default": 1
       },
+      "onattach": {
+        "name": "OnAttach",
+        "#desc": "item/CanAttach",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weaponpart"
+            ]
+          }
+        ],
+        "type": {
+          "main": "callback",
+          "callback": {
+            "parameters": [
+              {
+                "name": "character",
+                "type": "IsoGameCharacter",
+                "isJava": true
+              },
+              {
+                "name": "weapon",
+                "type": "HandWeapon",
+                "isJava": true
+              },
+              {
+                "name": "part",
+                "type": "WeaponPart",
+                "isJava": true
+              }
+            ]
+          }
+        },
+        "description": "[CanAttach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-canattach) and [CanDetach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-candetach) are used to define whenever a [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) can be respectively attached or detached to and from a [HandWeapon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype).\n\n[OnAttach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-onattach) and [OnDetach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-ondetach) are used to define a callback function which will be called when the weapon part is attached or detached from the weapon."
+      },
       "onbreak": {
         "name": "OnBreak",
         "itemTypes": [
@@ -3171,6 +3315,41 @@
           "normal",
           "weapon"
         ]
+      },
+      "ondetach": {
+        "name": "OnDetach",
+        "#desc": "item/CanAttach",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weaponpart"
+            ]
+          }
+        ],
+        "type": {
+          "main": "callback",
+          "callback": {
+            "parameters": [
+              {
+                "name": "character",
+                "type": "IsoGameCharacter",
+                "isJava": true
+              },
+              {
+                "name": "weapon",
+                "type": "HandWeapon",
+                "isJava": true
+              },
+              {
+                "name": "part",
+                "type": "WeaponPart",
+                "isJava": true
+              }
+            ]
+          }
+        },
+        "description": "[CanAttach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-canattach) and [CanDetach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-candetach) are used to define whenever a [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) can be respectively attached or detached to and from a [HandWeapon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype).\n\n[OnAttach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-onattach) and [OnDetach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-ondetach) are used to define a callback function which will be called when the weapon part is attached or detached from the weapon."
       },
       "oneat": {
         "name": "OnEat",
@@ -3257,9 +3436,18 @@
       },
       "parttype": {
         "name": "PartType",
-        "itemTypes": [
-          "weaponpart"
-        ]
+        "description": "Marks the [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) as a specific type of part. For proper tooltip of your weapon part, you need to either use one of the existing parts or use a custom part type but provide a translation entry inside [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) as `Tooltip_weapon_` followed by that part type value. For example, if you set `PartType = customPart`, you need to provide a translation entry as `Tooltip_weapon_customPart` with the name of your part.\n\nHere are the available part types in the base game:\n- RecoilPad\n- Clip\n- Canon\n- Scope\n- Sling\n- Stock\n\nThere are also some indirect part types. If the item has the [TorchCone](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-torchcone) parameter, that part will be valid as a torch attachment. If it has the [tag](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtag) `base:optics`, it will be valid as an optics attachment.\n\nTechnically, there are other `Tooltip_weapon_` combination than the ones listed above, but they are not used as part types, but due to them sharing the same translation entry format, they can technically be used as a part type. It means these should not be used as part types, as you'd have to overwrite their translation entries which could brake the translation of the base game:\n- Condition\n- HandleCondition\n- HeadCondition\n- Sharpness\n- Repaired\n- Damage\n- Unusable_at_max_exertion\n- Ammo\n- AmmoCount\n- Range\n- Type\n- CanBeMountOn\n- Jammed\n- NoRoundChambered\n- SpentRoundChambered\n- SpentRounds\n- ContainsClip\n- NoClip\n- NoMaintenanceXp",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weaponpart"
+            ]
+          }
+        ],
+        "type": {
+          "main": "string"
+        }
       },
       "physicsobject": {
         "name": "PhysicsObject",
@@ -3385,8 +3573,16 @@
       },
       "projectilespreadmodifier": {
         "name": "ProjectileSpreadModifier",
-        "itemTypes": [
-          "weaponpart"
+        "type": {
+          "main": "float"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weaponpart"
+            ]
+          }
         ]
       },
       "projectileweightcenter": {
@@ -3538,9 +3734,17 @@
       },
       "reloadtimemodifier": {
         "name": "ReloadTimeModifier",
-        "itemTypes": [
-          "weaponpart"
-        ]
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weaponpart"
+            ]
+          }
+        ],
+        "type": {
+          "main": "integer"
+        }
       },
       "remotecontroller": {
         "name": "RemoteController",
@@ -4359,8 +4563,16 @@
       },
       "weightmodifier": {
         "name": "WeightModifier",
-        "itemTypes": [
-          "weaponpart"
+        "type": {
+          "main": "float"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weaponpart"
+            ]
+          }
         ]
       },
       "weightreduction": {
@@ -6939,7 +7151,7 @@
   },
   "model": {
     "name": "model",
-    "description": "Defines a 3D model properties.",
+    "description": "Used to define a model properties so it can be used in other elements of the game, most notably in [items](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html) and [vehicles](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html). The basic structure of a model block is as follows:\n```cpp\nmodule YourModule {\n  model YourModel {\n    mesh = your_model,\n    texture = your_model_texture,\n  }\n}\n```\n\n[Attachments](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/attachment.html) blocks can also be added to the model definition to specify how the model should be placed, rotated and scaled when attached to a parent model.",
     "shouldHaveParent": true,
     "parents": [
       "module",
@@ -6956,7 +7168,13 @@
     },
     "parameters": {
       "animationsmesh": {
-        "name": "animationsMesh"
+        "name": "animationsMesh",
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "animationsMesh"
+          }
+        }
       },
       "boneweight": {
         "name": "boneWeight"
@@ -6980,7 +7198,8 @@
         "name": "invertX"
       },
       "mesh": {
-        "name": "mesh"
+        "name": "mesh",
+        "description": "Path to the model file relative to the `media/models_X` folder. The model file can be either of `.fbx` or `.glb` but also the not recommended `.x` (read more [here](https://pzwiki.net/wiki/Modeling#File_types)). The extension should not be included in the value of this parameter.\n\nIf your `mesh` parameter is set to `my_model`, the game will expect the model to be stored in the following path:\n```\n📁 media\n  📁 models_X\n    📄 my_model.fbx\n```\n\nIt is suggested to put your models in a subfolder of the `models_X` folder named after your mod to reduce the risk of model name conflicts with other mods."
       },
       "offset": {
         "name": "offset"
@@ -6990,13 +7209,14 @@
       },
       "scale": {
         "name": "scale",
-        "description": "Used to scale the model up or down.",
+        "description": "Used to scale the model up or down. A value of `1` means the model is at its original size.",
         "type": {
           "main": "float"
         }
       },
       "shader": {
-        "name": "shader"
+        "name": "shader",
+        "description": "Used to control what shader will apply on the model. The most common shaders which are used by the game are:\n- `animalEffect`\n- `door`\n- `vehicle`\n- `vehiclewheel`\n- `vehicle_multiuv`\n- `vehicle_norandom_multiuv`\n\nThe shaders are stored in the folder `media/shaders`."
       },
       "specialkeyring": {
         "name": "specialKeyRing"
@@ -7005,7 +7225,8 @@
         "name": "static"
       },
       "texture": {
-        "name": "texture"
+        "name": "texture",
+        "description": "Path to the texture file relative to the `media/textures` folder. The texture file should be of `.png` format only.\n\nFor example, if your `texture` parameter is set to `my_model_texture`, the game will expect the texture to be stored in the following path:\n```\n📁 media\n  📁 textures\n    📄 my_model_texture.png\n```\n\nIt is suggested to put your textures in a subfolder of the `textures` folder named after your mod to reduce the risk of texture name conflicts with other mods."
       },
       "undocorescale": {
         "name": "undoCoreScale"
