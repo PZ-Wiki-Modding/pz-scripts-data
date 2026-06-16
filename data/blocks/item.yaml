@@ -318,8 +318,27 @@ parameters:
       values:
         - base:food
 - name: CanAttach
-  itemTypes:
-  - weaponpart
+  description: |-
+    [CanAttach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-canattach) and [CanDetach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-candetach) are used to define whenever a [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) can be respectively attached or detached to and from a [HandWeapon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype).
+
+    [OnAttach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-onattach) and [OnDetach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-ondetach) are used to define a callback function which will be called when the weapon part is attached or detached from the weapon.
+  needs:
+    - name: ItemType
+      values:
+        - base:weaponpart
+  type:
+    main: string
+    callback:
+      parameters:
+        - name: character
+          type: IsoGameCharacter
+          isJava: true
+        - name: weapon
+          type: HandWeapon
+          isJava: true
+        - name: part
+          type: WeaponPart
+          isJava: true
 - name: CanBandage
   itemTypes:
   - normal
@@ -343,8 +362,24 @@ parameters:
   itemTypes:
   - literature
 - name: CanDetach
-  itemTypes:
-  - weaponpart
+  "#desc": item/CanAttach
+  needs:
+    - name: ItemType
+      values:
+        - base:weaponpart
+  type:
+    main: string
+    callback:
+      parameters:
+        - name: character
+          type: IsoGameCharacter
+          isJava: true
+        - name: weapon
+          type: HandWeapon
+          isJava: true
+        - name: part
+          type: WeaponPart
+          isJava: true
 - name: CanHaveHoles
   itemTypes:
   - clothing
@@ -426,8 +461,21 @@ parameters:
       name: sound
   default: Stormy9mmClick
 - name: ClipSize
-  itemTypes:
-  - weapon
+  isUseless: true
+  type:
+    main: integer
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+- name: ClipSizeModifier
+  isUseless: true
+  type:
+    main: integer
+  needs:
+    - name: ItemType
+      values:
+        - base:weaponpart
 - name: CloseKillMove
   itemTypes:
   - weapon
@@ -705,6 +753,14 @@ parameters:
   - clothing
   - container
 - name: DisplayCategory
+- name: DamageModifier
+  "#desc": item/MaxDamage
+  type:
+    main: float
+  needs:
+    - name: ItemType
+      values:
+        - base:weaponpart
 - name: DoorDamage
   itemTypes:
   - weapon
@@ -1403,7 +1459,10 @@ parameters:
   type:
     main: float
   default: 1.5
-  description: Rolls the hit damage of the weapon between `MinDamage` and `MaxDamage`.
+  description: |-
+    Rolls the hit damage of the weapon between `MinDamage` and `MaxDamage`.
+    
+    [WeaponParts](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) can modify the damage of the weapon with the [DamageModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-damagemodifier) parameter. When equipped, a [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) will increase the minimum and maximum damage of the weapon by the provided value. You are not limited to positive values, you can also add damage debuffs to the weapon by providing negative values.
 - name: MaxHitcount
   description: |-
     [MaxHitcount](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-maxhitcount) sets the maximum number of targets the weapon can hit with one attack. For ranged weapons, it will determine how many targets a single shot can hit. For melee weapons, a single swing can hit multiple targets if the relevant sandbox option allows it (Weapon Multi-Hit).
@@ -1573,8 +1632,15 @@ parameters:
   - weapon
   allowedDuplicate: true
 - name: MountOn
-  itemTypes:
-  - weaponpart
+  needs:
+    - name: ItemType
+      values:
+        - base:weaponpart
+  type:
+    main: array
+    array:
+      separator: ';'
+      type: string
 - name: MultipleHitConditionAffected
   itemTypes:
   - weapon
@@ -1624,6 +1690,25 @@ parameters:
   type:
     main: integer
   default: 1
+- name: OnAttach
+  "#desc": item/CanAttach
+  needs:
+    - name: ItemType
+      values:
+        - base:weaponpart
+  type:
+    main: callback
+    callback:
+      parameters:
+        - name: character
+          type: IsoGameCharacter
+          isJava: true
+        - name: weapon
+          type: HandWeapon
+          isJava: true
+        - name: part
+          type: WeaponPart
+          isJava: true
 - name: OnBreak
   itemTypes:
   - weapon
@@ -1640,6 +1725,25 @@ parameters:
   - moveable
   - normal
   - weapon
+- name: OnDetach
+  "#desc": item/CanAttach
+  needs:
+    - name: ItemType
+      values:
+        - base:weaponpart
+  type:
+    main: callback
+    callback:
+      parameters:
+        - name: character
+          type: IsoGameCharacter
+          isJava: true
+        - name: weapon
+          type: HandWeapon
+          isJava: true
+        - name: part
+          type: WeaponPart
+          isJava: true
 - name: OnEat
   itemTypes:
   - drainable
@@ -1685,8 +1789,45 @@ parameters:
   itemTypes:
   - food
 - name: PartType
-  itemTypes:
-  - weaponpart
+  description: |-
+    Marks the [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) as a specific type of part. For proper tooltip of your weapon part, you need to either use one of the existing parts or use a custom part type but provide a translation entry inside [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) as `Tooltip_weapon_` followed by that part type value. For example, if you set `PartType = customPart`, you need to provide a translation entry as `Tooltip_weapon_customPart` with the name of your part.
+
+    Here are the available part types in the base game:
+    - RecoilPad
+    - Clip
+    - Canon
+    - Scope
+    - Sling
+    - Stock
+
+    There are also some indirect part types. If the item has the [TorchCone](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-torchcone) parameter, that part will be valid as a torch attachment. If it has the [tag](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtag) `base:optics`, it will be valid as an optics attachment.
+
+    Technically, there are other `Tooltip_weapon_` combination than the ones listed above, but they are not used as part types, but due to them sharing the same translation entry format, they can technically be used as a part type. It means these should not be used as part types, as you'd have to overwrite their translation entries which could brake the translation of the base game:
+    - Condition
+    - HandleCondition
+    - HeadCondition
+    - Sharpness
+    - Repaired
+    - Damage
+    - Unusable_at_max_exertion
+    - Ammo
+    - AmmoCount
+    - Range
+    - Type
+    - CanBeMountOn
+    - Jammed
+    - NoRoundChambered
+    - SpentRoundChambered
+    - SpentRounds
+    - ContainsClip
+    - NoClip
+    - NoMaintenanceXp
+  needs:
+    - name: ItemType
+      values:
+        - base:weaponpart
+  type:
+    main: string
 - name: PhysicsObject
   description: |-
     Provides another item (or itself) as a throwable object. When used, the item will be thrown instead of used as an actual in hands weapon.
@@ -1758,8 +1899,12 @@ parameters:
   itemTypes:
   - weapon
 - name: ProjectileSpreadModifier
-  itemTypes:
-  - weaponpart
+  type:
+    main: float
+  needs:
+    - name: ItemType
+      values:
+        - base:weaponpart
 - name: ProjectileWeightCenter
   itemTypes:
   - weapon
@@ -1851,8 +1996,12 @@ parameters:
   itemTypes:
   - weapon
 - name: ReloadTimeModifier
-  itemTypes:
-  - weaponpart
+  needs:
+    - name: ItemType
+      values:
+        - base:weaponpart
+  type:
+    main: integer
 - name: RemoteController
   itemTypes:
   - normal
@@ -2376,8 +2525,12 @@ parameters:
 - name: WeightWet
   "#desc": item/Weight
 - name: WeightModifier
-  itemTypes:
-  - weaponpart
+  type:
+    main: float
+  needs:
+    - name: ItemType
+      values:
+        - base:weaponpart
 - name: WeightReduction
   itemTypes:
   - container
