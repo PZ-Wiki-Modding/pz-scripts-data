@@ -196,6 +196,7 @@
               { "properties": { "main": { "enum": ["array"] } }, "required": ["array"] },
               { "properties": { "main": { "enum": ["object"] } }, "required": ["object"] },
               { "properties": { "main": { "enum": ["block"] } }, "required": ["block"] },
+              { "properties": { "main": { "enum": ["callback"] } }, "required": ["callback"] },
               { "properties": { "main": { "enum": ["string", "float", "boolean", "integer"] } } }
             ],
             "required": ["main"],
@@ -203,7 +204,7 @@
               "main": {
                 "type": "string",
                 "description": "The main data type of the parameter.",
-                "enum": ["string", "float", "boolean", "array", "object", "integer", "block"]
+                "enum": ["string", "float", "boolean", "array", "object", "integer", "block", "callback"]
               },
               "block": {
                 "$ref": "#/$defs/blockType"
@@ -283,6 +284,39 @@
                   "softOverride": {
                     "type": "boolean",
                     "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates."
+                  }
+                }
+              },
+              "callback": {
+                "type": "object",
+                "default": true,
+                "description": "Indicates whether the parameter is a callback function.",
+                "properties": {
+                  "parameters": {
+                    "type": "array",
+                    "description": "A list of parameters that the callback function takes.",
+                    "items": { 
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "The name of the parameter."
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "The type of the parameter."
+                        },
+                        "isJava": {
+                          "type": "boolean",
+                          "default": true,
+                          "description": "Indicates whether the parameter is a Java object."
+                        }
+                      }
+                    }
+                  },
+                  "returns": {
+                    "type": "string",
+                    "description": "The return type of the callback function."
                   }
                 }
               }
@@ -370,7 +404,8 @@
           },
           "isUseless": {
             "type": "boolean",
-            "description": "Indicates whether the parameter is considered useless or not. This can be used to flag parameters that are no longer functional or have no effect in the game, but are still present for compatibility reasons."
+            "default": true,
+            "description": "Indicates whether the parameter is considered useless or not. This can be used to flag parameters that have no effect in the game. Not to be confused with deprecated which indicates a parameter that previously worked but no longer does."
           }
         }
       }
