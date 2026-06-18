@@ -28,8 +28,16 @@ ID: {}
 softOverride: true
 parameters:
 - name: AcceptItemFunction
-  itemTypes:
-  - container
+  type:
+    main: string
+    callback:
+      parameters:
+        - name: container
+          type: ItemContainer
+          isJava: true
+        - name: item
+          type: InventoryItem
+          isJava: true
 - name: AcceptMediaType
   itemTypes:
   - radio
@@ -270,13 +278,8 @@ parameters:
   - Foot_L
   - Foot_R
 - name: BodyLocation
-  itemTypes:
-  - alarmclockclothing
-  - clothing
-  - container
-  - normal
-  description: Used to define which location on the human character this clothing
-    item can be worn.
+  description: |-
+    Used to define which location on the human character this clothing item can be worn. Needs to be a valid [BodyLocation](https://pz-wiki-modding.github.io/PZ-API-Docs/java/item_body_locations.html) value. You can also create new ones via [registries](https://pzwiki.net/wiki/Registries).
 - name: book_subject
   itemTypes:
   - container
@@ -346,9 +349,13 @@ parameters:
   itemTypes:
   - weapon
 - name: CanBeEquipped
-  itemTypes:
-  - container
-  - radio
+  description: |-
+    Needs to reference a valid [BodyLocation](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-bodylocation) value which will serve as the equipment location.
+  needs:
+    - name: ItemType
+      values:
+        - base:container
+        - base:radio
 - name: CanBePlaced
   itemTypes:
   - weapon
@@ -426,11 +433,16 @@ parameters:
   - drainable
   - food
 - name: Capacity
-  itemTypes:
-  - container
+  description: |-
+    Sets the capacity of the container. This value is limited to a maximum of 50 minus its own [weight](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weight). The weight of the bag will follow the formula `equippedWeight = weight * EquippedOrWornEncumbranceMultiplier + contentWeight * (1.0 - weightReduction / 100)`.
+  needs:
+    - name: ItemType
+      values:
+        - base:container
   type:
     main: integer
   default: -1
+  maximum: 50
 - name: Carbohydrates
   "#desc": item/Calories
   type:
@@ -482,8 +494,10 @@ parameters:
   description: Used to whenever this weapon can be used to do a close kill move, like
     knives to assassinate in the back.
 - name: CloseSound
-  itemTypes:
-  - container
+  type:
+    main: block
+    block:
+      name: sound
 - name: ClothingExtraSubmenu
   '#desc': item/ClothingItem
   itemTypes:
@@ -1748,13 +1762,20 @@ parameters:
   itemTypes:
   - drainable
   - food
+- name: OnlyAcceptCategory
+  description: |-
+    Makes sure only items with the specified [ItemCategory](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/itemcategory.html) corresponding to the provided value of this parameter can be inserted into the container.
+  type:
+    main: string
 - name: OpeningRecipe
   itemTypes:
   - food
   - normal
 - name: OpenSound
-  itemTypes:
-  - container
+  type:
+    main: block
+    block:
+      name: sound
 - name: OriginX
   itemTypes:
   - key
@@ -1935,8 +1956,10 @@ parameters:
     main: float
   default: 1.0
 - name: PutInSound
-  itemTypes:
-  - container
+  type:
+    main: block
+    block:
+      name: sound
 - name: RackAfterShoot
   itemTypes:
   - weapon
@@ -2532,8 +2555,16 @@ parameters:
       values:
         - base:weaponpart
 - name: WeightReduction
-  itemTypes:
-  - container
+  description: |-
+    Percentage of the total contained weight in the bag that will be reduced. If the bag's content weights 10 and the reduction is 65, the bag content will only weight 
+  needs:
+    - name: ItemType
+      values:
+        - base:container
+  type:
+    main: integer
+  minimum: 0
+  maximum: 100
 - name: Wet
   description: |-
     [Wet](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-wet) marks the item as being wet. This is notably used for towels alongside the [WetCooldown](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-wetcooldown) which indicates how long the item will stay wet before drying out.
