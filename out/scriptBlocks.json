@@ -871,9 +871,23 @@
     "parameters": {
       "acceptitemfunction": {
         "name": "AcceptItemFunction",
-        "itemTypes": [
-          "container"
-        ]
+        "type": {
+          "main": "string",
+          "callback": {
+            "parameters": [
+              {
+                "name": "container",
+                "type": "ItemContainer",
+                "isJava": true
+              },
+              {
+                "name": "item",
+                "type": "InventoryItem",
+                "isJava": true
+              }
+            ]
+          }
+        }
       },
       "acceptmediatype": {
         "name": "AcceptMediaType",
@@ -1201,13 +1215,7 @@
       },
       "bodylocation": {
         "name": "BodyLocation",
-        "itemTypes": [
-          "alarmclockclothing",
-          "clothing",
-          "container",
-          "normal"
-        ],
-        "description": "Used to define which location on the human character this clothing item can be worn."
+        "description": "Used to define which location on the human character this clothing item can be worn. Needs to be a valid [BodyLocation](https://pz-wiki-modding.github.io/PZ-API-Docs/java/item_body_locations.html) value. You can also create new ones via [registries](https://pzwiki.net/wiki/Registries)."
       },
       "book_subject": {
         "name": "book_subject",
@@ -1322,9 +1330,15 @@
       },
       "canbeequipped": {
         "name": "CanBeEquipped",
-        "itemTypes": [
-          "container",
-          "radio"
+        "description": "Needs to reference a valid [BodyLocation](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-bodylocation) value which will serve as the equipment location.",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:container",
+              "base:radio"
+            ]
+          }
         ]
       },
       "canbeplaced": {
@@ -1466,13 +1480,20 @@
       },
       "capacity": {
         "name": "Capacity",
-        "itemTypes": [
-          "container"
+        "description": "Sets the capacity of the container. This value is limited to a maximum of 50 minus its own [weight](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weight). The weight of the bag will follow the formula `equippedWeight = weight * EquippedOrWornEncumbranceMultiplier + contentWeight * (1.0 - weightReduction / 100)`.",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:container"
+            ]
+          }
         ],
         "type": {
           "main": "integer"
         },
-        "default": -1
+        "default": -1,
+        "maximum": 50
       },
       "carbohydrates": {
         "name": "Carbohydrates",
@@ -1567,9 +1588,12 @@
       },
       "closesound": {
         "name": "CloseSound",
-        "itemTypes": [
-          "container"
-        ]
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "clothingextrasubmenu": {
         "name": "ClothingExtraSubmenu",
@@ -3358,6 +3382,13 @@
           "food"
         ]
       },
+      "onlyacceptcategory": {
+        "name": "OnlyAcceptCategory",
+        "description": "Makes sure only items with the specified [ItemCategory](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/itemcategory.html) corresponding to the provided value of this parameter can be inserted into the container.",
+        "type": {
+          "main": "string"
+        }
+      },
       "openingrecipe": {
         "name": "OpeningRecipe",
         "itemTypes": [
@@ -3367,9 +3398,12 @@
       },
       "opensound": {
         "name": "OpenSound",
-        "itemTypes": [
-          "container"
-        ]
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "originx": {
         "name": "OriginX",
@@ -3635,9 +3669,12 @@
       },
       "putinsound": {
         "name": "PutInSound",
-        "itemTypes": [
-          "container"
-        ]
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "sound"
+          }
+        }
       },
       "rackaftershoot": {
         "name": "RackAfterShoot",
@@ -4577,9 +4614,20 @@
       },
       "weightreduction": {
         "name": "WeightReduction",
-        "itemTypes": [
-          "container"
-        ]
+        "description": "Percentage of the total contained weight in the bag that will be reduced. If the bag's content weights 10 and the reduction is 65, the bag content will only weight ",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:container"
+            ]
+          }
+        ],
+        "type": {
+          "main": "integer"
+        },
+        "minimum": 0,
+        "maximum": 100
       },
       "wet": {
         "name": "Wet",
