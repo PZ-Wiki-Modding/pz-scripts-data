@@ -12,6 +12,7 @@ on:
     paths:
       - 'data/blocks/**'
       - 'chores/formatBlocks.py'
+      - 'chores/sortItemParameters.py'
       - '.github/workflows/format-blocks.yml'
   workflow_dispatch:
 
@@ -33,9 +34,11 @@ jobs:
         run: |
           pip install pyyaml
           pip install m2r
-          
+
       - name: Run formatBlocks
         run: python chores/formatBlocks.py
+      - name: Run sortItemParameters
+        run: python chores/sortItemParameters.py
 
       - name: Commit changes
         run: |
