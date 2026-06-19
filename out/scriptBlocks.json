@@ -1839,13 +1839,14 @@
       },
       "customeatsound": {
         "name": "CustomEatSound",
-        "itemTypes": [
-          "drainable",
-          "food",
-          "normal"
-        ],
         "canBeEmpty": true,
-        "description": "Custom sound to play when eating or drinking this item, refers to the ID of a sound script. Set to an empty string to disable any sound from playing."
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "sound"
+          }
+        },
+        "description": "Custom sound to play when eating or drinking this item. Set to an empty string to disable any sound from playing."
       },
       "cyclicratemultiplier": {
         "name": "CyclicRateMultiplier",
@@ -2068,9 +2069,9 @@
       },
       "endurancechange": {
         "name": "enduranceChange",
-        "itemTypes": [
-          "food"
-        ]
+        "type": {
+          "main": "float"
+        }
       },
       "endurancemod": {
         "name": "EnduranceMod",
@@ -2329,23 +2330,32 @@
       },
       "flureduction": {
         "name": "fluReduction",
-        "itemTypes": [
-          "food"
-        ]
+        "description": "When eating this food item, the player cold or pain will be reduced by the percentage of the food being eaten times respectively the values of [fluReduction](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-flureduction) and [painReduction](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-painreduction).",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
+        ],
+        "type": {
+          "main": "integer"
+        }
       },
       "foodsicknesschange": {
         "name": "FoodSicknessChange",
-        "itemTypes": [
-          "drainable",
-          "food"
-        ]
+        "description": "Set the base food sickness change.\n\nThe amount of food sickness you get varies based on this parameter and other factors:\n- burnt food will divide by 3 the amount of food sickness you get\n- stale food will divide by 1.3\n- rotten food will divide by 2.2\n- cooked food will multiply by 1.3\n- raw food provides this base value",
+        "type": {
+          "main": "integer"
+        }
       },
       "foodtype": {
         "name": "FoodType",
-        "itemTypes": [
-          "drainable",
-          "food"
-        ]
+        "description": "Sets the food type of the item. A translation entry needs to be made for custom types which has the key `ContextMenu_FoodType_<type>`.\n\nTo be a valid food item to feed to animals, the item needs to be of type `Fruits` or `Vegetables`.",
+        "type": {
+          "main": "string"
+        }
       },
       "goodhot": {
         "name": "GoodHot",
@@ -3323,9 +3333,27 @@
       },
       "oncooked": {
         "name": "OnCooked",
-        "itemTypes": [
-          "food"
-        ]
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:drainable",
+              "base:food"
+            ]
+          }
+        ],
+        "type": {
+          "main": "callback",
+          "callback": {
+            "parameters": [
+              {
+                "name": "food",
+                "type": "Food|DrainableComboItem",
+                "isJava": true
+              }
+            ]
+          }
+        }
       },
       "oncreate": {
         "name": "OnCreate",
@@ -3464,9 +3492,19 @@
       },
       "painreduction": {
         "name": "painReduction",
-        "itemTypes": [
-          "food"
-        ]
+        "#desc": "item/fluReduction",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
+        ],
+        "type": {
+          "main": "integer"
+        },
+        "description": "When eating this food item, the player cold or pain will be reduced by the percentage of the food being eaten times respectively the values of [fluReduction](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-flureduction) and [painReduction](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-painreduction)."
       },
       "parttype": {
         "name": "PartType",
@@ -3549,11 +3587,38 @@
           }
         }
       },
+      "poison": {
+        "name": "Poison",
+        "#desc": "item/PoisonPower",
+        "isUseless": true,
+        "type": {
+          "main": "boolean"
+        },
+        "default": false,
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
+        ],
+        "description": "[PoisonPower](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-poisonpower) defines the strength of the poison, where a positive value will make the food poisonous.\n\n[PoisonDetectionLevel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-poisondetectionlevel) doesn't seem to be useful, where a positive value will make it pass all the checks anyway, so increasing that value doesn't do anything.]\n\nYou can also mark an item to be shown as poisonous to the player by adding the [ItemTag](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtag) `base:showpoison`.\n\nThe parameters [Poison](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-poison) and [UseForPoison](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-useforpoison) look unused."
+      },
+      "poisondetectionlevel": {
+        "name": "PoisonDetectionLevel",
+        "#desc": "item/PoisonPower",
+        "type": {
+          "main": "integer"
+        },
+        "description": "[PoisonPower](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-poisonpower) defines the strength of the poison, where a positive value will make the food poisonous.\n\n[PoisonDetectionLevel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-poisondetectionlevel) doesn't seem to be useful, where a positive value will make it pass all the checks anyway, so increasing that value doesn't do anything.]\n\nYou can also mark an item to be shown as poisonous to the player by adding the [ItemTag](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtag) `base:showpoison`.\n\nThe parameters [Poison](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-poison) and [UseForPoison](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-useforpoison) look unused."
+      },
       "poisonpower": {
         "name": "PoisonPower",
-        "itemTypes": [
-          "food"
-        ]
+        "description": "[PoisonPower](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-poisonpower) defines the strength of the poison, where a positive value will make the food poisonous.\n\n[PoisonDetectionLevel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-poisondetectionlevel) doesn't seem to be useful, where a positive value will make it pass all the checks anyway, so increasing that value doesn't do anything.]\n\nYou can also mark an item to be shown as poisonous to the player by adding the [ItemTag](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtag) `base:showpoison`.\n\nThe parameters [Poison](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-poison) and [UseForPoison](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-useforpoison) look unused.",
+        "type": {
+          "main": "integer"
+        }
       },
       "pourtype": {
         "name": "PourType",
@@ -3849,8 +3914,22 @@
       },
       "replaceoncooked": {
         "name": "ReplaceOnCooked",
-        "itemTypes": [
-          "food"
+        "description": "A list of [items](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html) that will replace the cooked item by adding them to the player's inventory.",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": ";",
+            "type": "string"
+          }
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:drainable",
+              "base:food"
+            ]
+          }
         ]
       },
       "replaceondeplete": {
@@ -4288,9 +4367,9 @@
       },
       "thirstchange": {
         "name": "ThirstChange",
-        "itemTypes": [
-          "food"
-        ]
+        "type": {
+          "main": "float"
+        }
       },
       "ticksperequipuse": {
         "name": "ticksPerEquipUse",
@@ -4445,6 +4524,21 @@
           "main": "boolean"
         },
         "default": true
+      },
+      "useforpoison": {
+        "name": "UseForPoison",
+        "type": {
+          "main": "integer"
+        },
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:food"
+            ]
+          }
+        ],
+        "default": 0
       },
       "usesbattery": {
         "name": "UsesBattery",
@@ -7237,13 +7331,27 @@
         "name": "ColorRed"
       },
       "cullface": {
-        "name": "cullFace"
+        "name": "cullFace",
+        "description": "Sets an OpenGL face culling mode for the model. By default the culling mode will be `-1`, which defaults to `Front`\n\n`None` supposedly disables face culling, all polygons are rendered. `Back` culls back-facing polygons, only renders front faces. `Front` culls front-facing polygons, only renders back faces.\n\nThis is likely the reason why when you have inverted normals on your model, you'll see through those inverted faces. You should keep this parameter by default however unless you actually need a model that can be seen on both sides of faces (plane models for example). This is used for muzzle flashes for guns notably.",
+        "type": {
+          "main": "string"
+        },
+        "default": "Back",
+        "values": [
+          "Back",
+          "Front",
+          "None"
+        ]
       },
       "file": {
         "name": "file"
       },
       "invertx": {
-        "name": "invertX"
+        "name": "invertX",
+        "description": "If set to `true`, the model scale will be inverted on the X axis.",
+        "type": {
+          "main": "boolean"
+        }
       },
       "mesh": {
         "name": "mesh",
@@ -7253,7 +7361,11 @@
         "name": "offset"
       },
       "postprocess": {
-        "name": "postProcess"
+        "name": "postProcess",
+        "description": "Sets post-processing steps for assimp to use when importing the model. Steps should be separated with `;`, and prefixed with either `+` to add the step or `-` to remove the step (primarily used to remove a default step). Steps correspond to members of the [AiPostProcessSteps](https://github.com/assimp/assimp/blob/master/port/jassimp/jassimp/src/jassimp/AiPostProcessSteps.java) enum. The default steps are `FIND_INSTANCES`, `MAKE_LEFT_HANDED`, `LIMIT_BONE_WEIGHTS`, `TRIANGULATE`, `OPTIMIZE_MESHES`, `REMOVE_REDUNDANT_MATERIALS`, `JOIN_IDENTICAL_VERTICES`.\n\nIt is unclear what this is used for exactly and should probably not be modified unless you are looking into advanced model manipulation.",
+        "type": {
+          "main": "string"
+        }
       },
       "scale": {
         "name": "scale",
@@ -7270,14 +7382,23 @@
         "name": "specialKeyRing"
       },
       "static": {
-        "name": "static"
+        "name": "static",
+        "description": "If set to `true`, the model will not deform with the bones it is parented to.",
+        "type": {
+          "main": "boolean"
+        }
       },
       "texture": {
         "name": "texture",
         "description": "Path to the texture file relative to the `media/textures` folder. The texture file should be of `.png` format only.\n\nFor example, if your `texture` parameter is set to `my_model_texture`, the game will expect the texture to be stored in the following path:\n```\n📁 media\n  📁 textures\n    📄 my_model_texture.png\n```\n\nIt is suggested to put your textures in a subfolder of the `textures` folder named after your mod to reduce the risk of texture name conflicts with other mods."
       },
       "undocorescale": {
-        "name": "undoCoreScale"
+        "name": "undoCoreScale",
+        "description": "If set to `true`, the model scale will be multiplied by `0.6666667`. This seems to be mostly used for tile models.",
+        "type": {
+          "main": "boolean"
+        },
+        "default": false
       },
       "attachmentparent": {
         "name": "attachmentParent"
