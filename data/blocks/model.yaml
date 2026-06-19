@@ -33,8 +33,25 @@ parameters:
 - name: ColorGreen
 - name: ColorRed
 - name: cullFace
+  description: |-
+    Sets an OpenGL face culling mode for the model. By default the culling mode will be `-1`, which defaults to `Front`
+
+    `None` supposedly disables face culling, all polygons are rendered. `Back` culls back-facing polygons, only renders front faces. `Front` culls front-facing polygons, only renders back faces.
+
+    This is likely the reason why when you have inverted normals on your model, you'll see through those inverted faces. You should keep this parameter by default however unless you actually need a model that can be seen on both sides of faces (plane models for example). This is used for muzzle flashes for guns notably.
+  type:
+    main: string
+  default: Back # the final type of the field this is written to is an integer (-1), but seems to default the whole thing to `Back`
+  values:
+    - 'Back'
+    - 'Front'
+    - 'None'
 - name: file
 - name: invertX
+  description: |-
+    If set to `true`, the model scale will be inverted on the X axis.
+  type:
+    main: boolean
 - name: mesh
   description: |-
     Path to the model file relative to the `media/models_X` folder. The model file can be either of `.fbx` or `.glb` but also the not recommended `.x` (read more [here](https://pzwiki.net/wiki/Modeling#File_types)). The extension should not be included in the value of this parameter.
@@ -49,6 +66,12 @@ parameters:
     It is suggested to put your models in a subfolder of the `models_X` folder named after your mod to reduce the risk of model name conflicts with other mods.
 - name: offset
 - name: postProcess
+  description: |-
+    Sets post-processing steps for assimp to use when importing the model. Steps should be separated with `;`, and prefixed with either `+` to add the step or `-` to remove the step (primarily used to remove a default step). Steps correspond to members of the [AiPostProcessSteps](https://github.com/assimp/assimp/blob/master/port/jassimp/jassimp/src/jassimp/AiPostProcessSteps.java) enum. The default steps are `FIND_INSTANCES`, `MAKE_LEFT_HANDED`, `LIMIT_BONE_WEIGHTS`, `TRIANGULATE`, `OPTIMIZE_MESHES`, `REMOVE_REDUNDANT_MATERIALS`, `JOIN_IDENTICAL_VERTICES`.
+
+    It is unclear what this is used for exactly and should probably not be modified unless you are looking into advanced model manipulation.
+  type:
+    main: string
 - name: scale
   description: |-
     Used to scale the model up or down. A value of `1` means the model is at its original size.
@@ -67,6 +90,10 @@ parameters:
     The shaders are stored in the folder `media/shaders`.
 - name: specialKeyRing
 - name: static
+  description: |-
+    If set to `true`, the model will not deform with the bones it is parented to.
+  type:
+    main: boolean
 - name: texture
   description: |-
     Path to the texture file relative to the `media/textures` folder. The texture file should be of `.png` format only.
@@ -80,6 +107,11 @@ parameters:
 
     It is suggested to put your textures in a subfolder of the `textures` folder named after your mod to reduce the risk of texture name conflicts with other mods.
 - name: undoCoreScale
+  description: |-
+    If set to `true`, the model scale will be multiplied by `0.6666667`. This seems to be mostly used for tile models.
+  type:
+    main: boolean
+  default: false
 - name: attachmentParent
 - name: attachmentSelf
 - name: ignoreVehicleScale
