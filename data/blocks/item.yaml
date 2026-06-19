@@ -686,13 +686,13 @@ parameters:
   - food
   - normal
 - name: CustomEatSound
-  itemTypes:
-  - drainable
-  - food
-  - normal
   canBeEmpty: true
-  description: Custom sound to play when eating or drinking this item, refers to the
-    ID of a sound script. Set to an empty string to disable any sound from playing.
+  type:
+    main: block
+    block:
+      name: sound
+  description: |-
+    Custom sound to play when eating or drinking this item. Set to an empty string to disable any sound from playing.
 - name: CyclicRateMultiplier
   description: |-
     Only in `Auto` [fire mode](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-firemode). Drives the full-auto animation cycle rate via the `autoShootSpeed` [animation variable](https://pzwiki.net/wiki/Conditions).
@@ -833,8 +833,8 @@ parameters:
     block:
       name: sound
 - name: enduranceChange
-  itemTypes:
-  - food
+  type:
+    main: float
 - name: EnduranceMod
   "#desc": item/UseEndurance
   needs:
@@ -1006,16 +1006,35 @@ parameters:
   - food
   - normal
 - name: fluReduction
-  itemTypes:
-  - food
+  description: |-
+    When eating this food item, the player cold or pain will be reduced by the percentage of the food being eaten times respectively the values of [fluReduction](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-flureduction) and [painReduction](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-painreduction).
+  needs:
+    - name: ItemType
+      values:
+        - base:food
+  type:
+    main: integer
 - name: FoodSicknessChange
-  itemTypes:
-  - drainable
-  - food
+  description: |-
+    Set the base food sickness change.
+    
+    The amount of food sickness you get varies based on this parameter and other factors:
+    - burnt food will divide by 3 the amount of food sickness you get
+    - stale food will divide by 1.3
+    - rotten food will divide by 2.2
+    - cooked food will multiply by 1.3
+    - raw food provides this base value
+# FIXME: too tired I think, smthg is wrong ???     
+  type:
+    main: integer
 - name: FoodType
-  itemTypes:
-  - drainable
-  - food
+  description: |-
+    Sets the food type of the item. A translation entry needs to be made for custom types which has the key `ContextMenu_FoodType_<type>`.
+
+    To be a valid food item to feed to animals, the item needs to be of type `Fruits` or `Vegetables`.
+  type:
+    main: string
+  # no needs bcs the field can actually be accessed in Item via a global method getItemFoodType
 - name: GoodHot
   itemTypes:
   - food
@@ -1727,8 +1746,18 @@ parameters:
   itemTypes:
   - weapon
 - name: OnCooked
-  itemTypes:
-  - food
+  needs:
+    - name: ItemType
+      values:
+        - base:drainable
+        - base:food
+  type:
+    main: callback
+    callback:
+      parameters:
+        - name: food
+          type: Food|DrainableComboItem
+          isJava: true
 - name: OnCreate
   itemTypes:
   - clothing
@@ -1807,8 +1836,13 @@ parameters:
   itemTypes:
   - literature
 - name: painReduction
-  itemTypes:
-  - food
+  "#desc": item/fluReduction
+  needs:
+    - name: ItemType
+      values:
+        - base:food
+  type:
+    main: integer
 - name: PartType
   description: |-
     Marks the [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtype) as a specific type of part. For proper tooltip of your weapon part, you need to either use one of the existing parts or use a custom part type but provide a translation entry inside [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) as `Tooltip_weapon_` followed by that part type value. For example, if you set `PartType = customPart`, you need to provide a translation entry as `Tooltip_weapon_customPart` with the name of your part.
@@ -1885,9 +1919,31 @@ parameters:
     main: string
     block:
       name: sound
+- name: Poison
+  "#desc": item/PoisonPower
+  isUseless: true
+  type:
+    main: boolean
+  default: false
+  needs:
+    - name: ItemType
+      values:
+        - base:food
+- name: PoisonDetectionLevel
+  "#desc": item/PoisonPower
+  type:
+    main: integer
 - name: PoisonPower
-  itemTypes:
-  - food
+  description: |-
+    [PoisonPower](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-poisonpower) defines the strength of the poison, where a positive value will make the food poisonous.
+
+    [PoisonDetectionLevel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-poisondetectionlevel) doesn't seem to be useful, where a positive value will make it pass all the checks anyway, so increasing that value doesn't do anything.]
+
+    You can also mark an item to be shown as poisonous to the player by adding the [ItemTag](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-itemtag) `base:showpoison`.
+
+    The parameters [Poison](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-poison) and [UseForPoison](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-useforpoison) look unused.
+  type:
+    main: integer
 - name: PourType
   itemTypes:
   - drainable
@@ -2063,8 +2119,18 @@ parameters:
   - normal
   - radio
 - name: ReplaceOnCooked
-  itemTypes:
-  - food
+  description: |-
+    A list of [items](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html) that will replace the cooked item by adding them to the player's inventory.
+  type:
+    main: array
+    array:
+      separator: ';'
+      type: string
+  needs:
+    - name: ItemType
+      values:
+        - base:drainable
+        - base:food
 - name: ReplaceOnDeplete
   description: |-
     When providing a [ReplaceOnDeplete](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-replaceondeplete), the moment the item is depleted (e.g. a drainable item has no uses left anymore), it will be replaced by the item defined in this parameter. If this is empty, the item will be deleted without any replacement. This can notably be used to replace towels with a [wet](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-wet) towel.
@@ -2356,8 +2422,8 @@ parameters:
       separator: ;
       softOverride: true
 - name: ThirstChange
-  itemTypes:
-  - food
+  type:
+    main: float
 - name: ticksPerEquipUse
   itemTypes:
   - drainable
@@ -2459,6 +2525,14 @@ parameters:
   type:
     main: boolean
   default: true
+- name: UseForPoison
+  type:
+    main: integer
+  needs:
+    - name: ItemType
+      values:
+        - base:food
+  default: 0
 - name: UsesBattery
   itemTypes:
   - radio
