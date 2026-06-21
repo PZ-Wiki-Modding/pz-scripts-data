@@ -7332,7 +7332,7 @@
       },
       "cullface": {
         "name": "cullFace",
-        "description": "Sets an OpenGL face culling mode for the model. By default the culling mode will be `-1`, which defaults to `Front`\n\n`None` supposedly disables face culling, all polygons are rendered. `Back` culls back-facing polygons, only renders front faces. `Front` culls front-facing polygons, only renders back faces.\n\nThis is likely the reason why when you have inverted normals on your model, you'll see through those inverted faces. You should keep this parameter by default however unless you actually need a model that can be seen on both sides of faces (plane models for example). This is used for muzzle flashes for guns notably.",
+        "description": "Sets an OpenGL face culling mode for the model. By default the culling mode will be `-1`, which defaults to `Front`\n\n`None` supposedly disables face culling, all polygons are rendered. `Back` culls back-facing polygons, only renders front faces. `Front` culls front-facing polygons, only renders back faces.\n\nThis is likely the reason why when you have inverted normals on your model, you'll see through those inverted faces. You should keep this parameter by default however unless you actually need a model that can be seen on both sides of faces (plane models for example). This is used for muzzle flashes for guns notably.\n\nNote that this parameter defaulting to `Front` sounds abnormal as the faces pointing in the direction of the normals are rendered in the game, so this suggests that something is done at some point to invert the normals or something else is going on that would render the correct faces of the model.",
         "type": {
           "main": "string"
         },
