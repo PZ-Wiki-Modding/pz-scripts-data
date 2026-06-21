@@ -1,7 +1,7 @@
 version: 1
 name: timedAction
 description: |-
-  The timedAction script block is used to define an action which can be used in [craftRecipes](https://pz-wiki-modding.github.io/PZ-API-Docs/blocks/craftrecipe.html). You can specify the animation played, props in hands during the action, the sound played. Also define its impact on the player character, including effects on calories burned and body heat generation.
+  The timedAction script block is used to define an action which can be used in [craftRecipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html). You can specify the animation played, props in hands during the action, the sound played. Also define its impact on the player character, including effects on calories burned and body heat generation.
 
   Below are a few examples of `timedAction` blocks from the vanilla game:
 
@@ -51,9 +51,9 @@ parameters:
     main: string
 - name: animVarKey
   description: |-
-    The [animVarKey](https://pz-wiki-modding.github.io/PZ-API-Docs/blocks/timedaction.html#animVarKey) and [animVarVal](https://pz-wiki-modding.github.io/PZ-API-Docs/blocks/timedaction.html#animVarVal) parameters are used together to link to a specific [AnimNode Conditions](https://pzwiki.net/wiki/Conditions). `animVarKey` will correspond to the `m_Name` field and `animVarVal` to the `m_Value` field.
+    The [animVarKey](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/timedaction.html#animVarKey) and [animVarVal](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/timedaction.html#animVarVal) parameters are used together to link to a specific [AnimNode Conditions](https://pzwiki.net/wiki/Conditions). `animVarKey` will correspond to the `m_Name` field and `animVarVal` to the `m_Value` field.
 
-    This allows for easy swapping between variants of [actionAnim](https://pz-wiki-modding.github.io/PZ-API-Docs/blocks/timedaction.html#actionAnim). For example, for the AnimNode:
+    This allows for easy swapping between variants of [actionAnim](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/timedaction.html#actionAnim). For example, for the AnimNode:
 
     ```cpp
     <?xml version="1.0" encoding="utf-8"?>
@@ -93,11 +93,11 @@ parameters:
   description: |-
     Muscle strain is an effect which applies to the character limbs, simulating the fatigue and strain of performing certain actions. A timedAction script can be set to apply muscle strain to specific limbs and based on the level of the character in a specific skill.
 
-    [muscleStrainFactor](https://pz-wiki-modding.github.io/PZ-API-Docs/blocks/timedaction.html#muscleStrainFactor) serves as a parameter of how much muscle strain will be gained.
+    [muscleStrainFactor](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/timedaction.html#muscleStrainFactor) serves as a parameter of how much muscle strain will be gained.
 
-    [muscleStrainParts](https://pz-wiki-modding.github.io/PZ-API-Docs/blocks/timedaction.html#muscleStrainParts) will indicate the limbs affected by the muscle strain, which needs to be an array of [BodyPartType](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/BodyDamage/BodyPartType.html#enum-constant-summary).
+    [muscleStrainParts](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/timedaction.html#muscleStrainParts) will indicate the limbs affected by the muscle strain, which needs to be an array of [BodyPartType](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/characters/BodyDamage/BodyPartType.html#enum-constant-summary).
 
-    If [muscleStrainSkill](https://pz-wiki-modding.github.io/PZ-API-Docs/blocks/timedaction.html#muscleStrainSkill) is provided, the skill will be used to reduce the muscle strain when the player gets better at something.
+    If [muscleStrainSkill](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/timedaction.html#muscleStrainSkill) is provided, the skill will be used to reduce the muscle strain when the player gets better at something.
 
     ```
     strain = deltaTime * muscleStrainFactor * (1 - skillLevel * 0.5)
@@ -134,7 +134,7 @@ parameters:
       name: sound
 - name: soundTime
   description: |-
-    This parameter is used in the Lua to indicate when the sound should be played during the timed action. This is notably used to play a sound at the end or the start of the action during [crafting](https://pz-wiki-modding.github.io/PZ-API-Docs/blocks/craftRecipe.html#timedAction).
+    This parameter is used in the Lua to indicate when the sound should be played during the timed action. This is notably used to play a sound at the end or the start of the action during [crafting](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftRecipe.html#timedAction).
 
     By itself, this doesn't do anything and requires implementation in [Lua](https://pzwiki.net/wiki/Lua_(API)). For example inside `ISHandcraftAction`.
 
