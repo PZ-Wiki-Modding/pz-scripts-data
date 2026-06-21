@@ -154,7 +154,7 @@
   },
   "mannequin": {
     "name": "mannequin",
-    "description": "Defines a mannequin tile properties.",
+    "description": "Used to define [mannequins](https://pzwiki.net/wiki/Mannequin), which can be used in [mapping](https://pzwiki.net/wiki/Mapping) to create mannequins in the world.\n\nTo get a list of available mannequins, see [this](https://pzwiki.net/wiki/Mannequin_(scripts)#Available_mannequins).",
     "shouldHaveParent": true,
     "parents": [
       "module"
@@ -162,25 +162,60 @@
     "ID": {},
     "parameters": {
       "animset": {
-        "name": "animSet"
+        "name": "animSet",
+        "description": "[animSet](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html#mannequin-animset) defines the [AnimSet](https://pzwiki.net/wiki/AnimSet) used by the mannequin, which you probably should keep as `mannequin`. [animState](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html#mannequin-animstate) will set the [AnimState](https://pzwiki.net/wiki/AnimState) used in the provided animSet. The [pose](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html#mannequin-pose) parameter will set the [AnimNode](https://pzwiki.net/wiki/AnimNode) used by the mannequin, so the file inside the animState.\n\nFor example, take the vanilla mannequin AnimSets:\n```\n📁 media\n  📁 AnimSets\n    📁 mannequin\n      📁 female\n        📄 pose01.xml\n        📄 pose02.xml\n        📄 pose03.xml\n      📁 male\n        📄 pose01.xml\n        📄 pose02.xml\n        📄 pose03.xml\n      📁 scarecrow\n        📄 pose01.xml\n      📁 skeleton\n        📄 pose01.xml\n```\n\nIf we want to use the AnimState `female` and AnimNode `pose01.xml`, we need the following parameter combination:\n```cpp\nanimNode=mannequin,\nanimState=female,\npose=pose01,\n```",
+        "type": {
+          "main": "string"
+        }
       },
       "animstate": {
-        "name": "animState"
+        "name": "animState",
+        "#desc": "mannequin/animSet",
+        "type": {
+          "main": "string"
+        },
+        "description": "[animSet](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html#mannequin-animset) defines the [AnimSet](https://pzwiki.net/wiki/AnimSet) used by the mannequin, which you probably should keep as `mannequin`. [animState](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html#mannequin-animstate) will set the [AnimState](https://pzwiki.net/wiki/AnimState) used in the provided animSet. The [pose](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html#mannequin-pose) parameter will set the [AnimNode](https://pzwiki.net/wiki/AnimNode) used by the mannequin, so the file inside the animState.\n\nFor example, take the vanilla mannequin AnimSets:\n```\n📁 media\n  📁 AnimSets\n    📁 mannequin\n      📁 female\n        📄 pose01.xml\n        📄 pose02.xml\n        📄 pose03.xml\n      📁 male\n        📄 pose01.xml\n        📄 pose02.xml\n        📄 pose03.xml\n      📁 scarecrow\n        📄 pose01.xml\n      📁 skeleton\n        📄 pose01.xml\n```\n\nIf we want to use the AnimState `female` and AnimNode `pose01.xml`, we need the following parameter combination:\n```cpp\nanimNode=mannequin,\nanimState=female,\npose=pose01,\n```"
       },
       "female": {
-        "name": "female"
+        "name": "female",
+        "description": "Set to `true` to mark the mannequin as female, which wil change its body type.",
+        "type": {
+          "main": "boolean"
+        },
+        "default": true
       },
       "model": {
-        "name": "model"
+        "name": "model",
+        "description": "The [model](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html) used by the mannequin. Some of the models available are:\n- FemaleBody\n- MaleBody\n- Mannequin_Scarecrow\n- Mannequin_Skeleton\n\nBy combining it with the [texture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html#mannequin-texture) parameter, you can create a variety of mannequin appearances.",
+        "type": {
+          "main": "block",
+          "block": {
+            "name": "model"
+          }
+        }
       },
       "outfit": {
-        "name": "outfit"
+        "name": "outfit",
+        "description": "The outfit used by the mannequin.",
+        "type": {
+          "main": "string"
+        },
+        "canBeEmpty": true
       },
       "pose": {
-        "name": "pose"
+        "name": "pose",
+        "#desc": "mannequin/animSet",
+        "type": {
+          "main": "string"
+        },
+        "description": "[animSet](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html#mannequin-animset) defines the [AnimSet](https://pzwiki.net/wiki/AnimSet) used by the mannequin, which you probably should keep as `mannequin`. [animState](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html#mannequin-animstate) will set the [AnimState](https://pzwiki.net/wiki/AnimState) used in the provided animSet. The [pose](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html#mannequin-pose) parameter will set the [AnimNode](https://pzwiki.net/wiki/AnimNode) used by the mannequin, so the file inside the animState.\n\nFor example, take the vanilla mannequin AnimSets:\n```\n📁 media\n  📁 AnimSets\n    📁 mannequin\n      📁 female\n        📄 pose01.xml\n        📄 pose02.xml\n        📄 pose03.xml\n      📁 male\n        📄 pose01.xml\n        📄 pose02.xml\n        📄 pose03.xml\n      📁 scarecrow\n        📄 pose01.xml\n      📁 skeleton\n        📄 pose01.xml\n```\n\nIf we want to use the AnimState `female` and AnimNode `pose01.xml`, we need the following parameter combination:\n```cpp\nanimNode=mannequin,\nanimState=female,\npose=pose01,\n```"
       },
       "texture": {
-        "name": "texture"
+        "name": "texture",
+        "description": "Used to chose the texture that will be rendered on the mannequin model. The texture needs to be in the `media/textures/body` folder.",
+        "type": {
+          "main": "string"
+        }
       }
     }
   },
