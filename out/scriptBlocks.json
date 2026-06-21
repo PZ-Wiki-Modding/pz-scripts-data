@@ -4963,51 +4963,61 @@
     "parameters": {
       "event": {
         "name": "event",
+        "description": "Specifies an event that will trigger the playback of a specific sound. Used for sounds from FMOD sound banks (vanilla sound files).",
         "type": {
           "main": "string"
         }
       },
       "distancemax": {
         "name": "distanceMax",
+        "description": "[distanceMax](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/clip.html#distanceMax) and [distanceMin](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/clip.html#distanceMin) respectively set the maximum and minimum distances between which the sound will gradually decrease in volume.",
         "type": {
           "main": "integer"
         }
       },
       "file": {
         "name": "file",
+        "description": "The path to the sound file to be played, relative to the folder above the `media` folder. For the following file path:\n```\n📁 MyMod\n  📁 media\n    📁 sound\n      📄 my_sound.ogg\n```\n\nThis parameter will be:\n```cpp\nfile = media/sound/my_sound.ogg\n```\n\nA file can be both of file format `.ogg` or `.wav`, but `.ogg` is recommended for its smaller file size and better compression.",
         "type": {
           "main": "string"
         }
       },
       "distancemin": {
         "name": "distanceMin",
+        "#desc": "clip/distanceMax",
         "type": {
           "main": "integer"
-        }
+        },
+        "description": "[distanceMax](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/clip.html#distanceMax) and [distanceMin](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/clip.html#distanceMin) respectively set the maximum and minimum distances between which the sound will gradually decrease in volume."
       },
       "volume": {
         "name": "volume",
+        "description": "Adjusts the volume of the sound. Preferably your sound file should be properly normalized to a volume of 1.0.",
         "type": {
           "main": "float"
         }
       },
       "reverbfactor": {
         "name": "reverbFactor",
+        "description": "[reverbFactor](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/clip.html#reverbFactor) sets the amount of reverb applied to the sound while [reverbMaxRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/clip.html#reverbMaxRange) sets the maximum distance at which the reverb will be applied.",
         "type": {
           "main": "float"
         }
       },
       "pitch": {
         "name": "pitch",
+        "description": "The pitch of the sound.",
         "type": {
           "main": "float"
         }
       },
       "reverbmaxrange": {
         "name": "reverbMaxRange",
+        "#desc": "clip/reverbFactor",
         "type": {
           "main": "float"
-        }
+        },
+        "description": "[reverbFactor](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/clip.html#reverbFactor) sets the amount of reverb applied to the sound while [reverbMaxRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/clip.html#reverbMaxRange) sets the maximum distance at which the reverb will be applied."
       },
       "stopimmediate": {
         "name": "stopImmediate"
@@ -6856,6 +6866,7 @@
       },
       "category": {
         "name": "category",
+        "description": "Unclear what this parameter is for.",
         "type": {
           "main": "string"
         }
@@ -6964,7 +6975,7 @@
       },
       "loop": {
         "name": "loop",
-        "description": "Whether the sound should loop or not. The sound plays until turned off or the emitter is destroyed.",
+        "description": "Whether the sound should loop or not. The sound plays until turned off manually via Lua code or the emitter is destroyed.",
         "type": {
           "main": "boolean"
         }
@@ -6974,7 +6985,7 @@
         "type": {
           "main": "string"
         },
-        "description": "Links the sound to a sound handling setting, which controls the volume of all sounds linked to it. This seems to not properly work, as some methods that call sounds will simply note take into account the current sound settings. You can find a relevant request about this issue on the #mod_portal channel of the official Discord [here](https://discord.com/channels/136501320340209664/1476602902607954043/1505634480939860119).",
+        "description": "Links the sound to a sound handling setting, which controls the volume of all sounds linked to it. This doesn't seems to be working properly, as some methods that call sounds will simply not take into account the current sound settings. You can find a relevant request about this issue on the #mod_portal channel of the official Discord [here](https://discord.com/channels/136501320340209664/1476602902607954043/1505634480939860119).",
         "values": [
           "Primary",
           "Ambient",
@@ -6985,6 +6996,7 @@
       },
       "maxinstancesperemitter": {
         "name": "maxInstancesPerEmitter",
+        "description": "Specifies how many of this sound the sound emitter can play at the same time.",
         "type": {
           "main": "integer"
         }
@@ -7311,6 +7323,7 @@
     "parameters": {
       "animationsmesh": {
         "name": "animationsMesh",
+        "description": "Sets the [animations mesh](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/animationsmesh.html) for the model. This is used for models that are used for entities such as the character or animals.",
         "type": {
           "main": "block",
           "block": {
@@ -7319,7 +7332,19 @@
         }
       },
       "boneweight": {
-        "name": "boneWeight"
+        "name": "boneWeight",
+        "description": "Sets the bone weight for the model. This is notably used for vehicle bones but it is yet documented how this actually impacts the model or animations linked to it.",
+        "type": {
+          "main": "object",
+          "object": {
+            "keyValueSeparator": " ",
+            "keyType": "string",
+            "pairsSeparator": ";",
+            "valueType": "float",
+            "softOverride": true
+          }
+        },
+        "allowedDuplicate": true
       },
       "colorblue": {
         "name": "ColorBlue"
@@ -7383,7 +7408,7 @@
       },
       "static": {
         "name": "static",
-        "description": "If set to `true`, the model will not deform with the bones it is parented to.",
+        "description": "If set to `true`, the model will not deform with the bones it is parented to. This is typically used for non deformable objects, which means clothings should not be static.",
         "type": {
           "main": "boolean"
         }
