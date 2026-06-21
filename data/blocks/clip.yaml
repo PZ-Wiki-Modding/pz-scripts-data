@@ -24,27 +24,54 @@ parents:
 - sound
 parameters:
 - name: event
+  description: |-
+    Specifies an event that will trigger the playback of a specific sound. Used for sounds from FMOD sound banks (vanilla sound files).
   type:
     main: string
 - name: distanceMax
+  description: |-
+    [distanceMax](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/clip.html#distanceMax) and [distanceMin](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/clip.html#distanceMin) respectively set the maximum and minimum distances between which the sound will gradually decrease in volume.
   type:
     main: integer
 - name: file
+  description: |-
+    The path to the sound file to be played, relative to the folder above the `media` folder. For the following file path:
+    ```
+    📁 MyMod
+      📁 media
+        📁 sound
+          📄 my_sound.ogg
+    ```
+
+    This parameter will be:
+    ```cpp
+    file = media/sound/my_sound.ogg
+    ```
+
+    A file can be both of file format `.ogg` or `.wav`, but `.ogg` is recommended for its smaller file size and better compression.
   type:
     main: string
 - name: distanceMin
+  "#desc": clip/distanceMax
   type:
     main: integer
 - name: volume
+  description: |-
+    Adjusts the volume of the sound. Preferably your sound file should be properly normalized to a volume of 1.0.
   type:
     main: float
 - name: reverbFactor
+  description: |-
+    [reverbFactor](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/clip.html#reverbFactor) sets the amount of reverb applied to the sound while [reverbMaxRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/clip.html#reverbMaxRange) sets the maximum distance at which the reverb will be applied.
   type:
     main: float
 - name: pitch
+  description: |-
+    The pitch of the sound.
   type:
     main: float
 - name: reverbMaxRange
+  "#desc": clip/reverbFactor
   type:
     main: float
 - name: stopImmediate

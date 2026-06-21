@@ -24,11 +24,24 @@ ID:
   - part
 parameters:
 - name: animationsMesh
+  description: |-
+    Sets the [animations mesh](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/animationsmesh.html) for the model. This is used for models that are used for entities such as the character or animals.
   type:
     main: block
     block:
       name: animationsMesh
 - name: boneWeight
+  description: |-
+    Sets the bone weight for the model. This is notably used for vehicle bones but it is yet documented how this actually impacts the model or animations linked to it.
+  type:
+    main: object
+    object:
+      keyValueSeparator: " "
+      keyType: string
+      pairsSeparator: ";"
+      valueType: float
+      softOverride: true
+  allowedDuplicate: true
 - name: ColorBlue
 - name: ColorGreen
 - name: ColorRed
@@ -93,7 +106,7 @@ parameters:
 - name: specialKeyRing
 - name: static
   description: |-
-    If set to `true`, the model will not deform with the bones it is parented to.
+    If set to `true`, the model will not deform with the bones it is parented to. This is typically used for non deformable objects, which means clothings should not be static.
   type:
     main: boolean
 - name: texture
