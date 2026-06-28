@@ -595,14 +595,7 @@ parameters:
   - drainable
   - normal
 - name: ConditionMax
-  itemTypes:
-  - clothing
-  - container
-  - drainable
-  - food
-  - normal
-  - radio
-  - weapon
+  "#desc": item/ConditionLowerChanceOneIn
   type:
     main: integer
   default: 10
