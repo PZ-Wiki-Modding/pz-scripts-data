@@ -1768,19 +1768,12 @@
       },
       "conditionmax": {
         "name": "ConditionMax",
-        "itemTypes": [
-          "clothing",
-          "container",
-          "drainable",
-          "food",
-          "normal",
-          "radio",
-          "weapon"
-        ],
+        "#desc": "item/ConditionLowerChanceOneIn",
         "type": {
           "main": "integer"
         },
-        "default": 10
+        "default": 10,
+        "description": "[ConditionLowerChanceOneIn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-conditionlowerchanceonein) impacts the durability of the item, reducing the value\nused to calculate the chance by doing `chance = 1/ConditionLowerChanceOneIn`,\nwhich means increasing this parameter value will reduce the chance to damage the\nitem.\n\n[ConditionMax](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-conditionmax) sets the total durability pool, starting condition and repair ceiling. Make these two parameters high for robust military rifles, and low for a cheap civilian gun."
       },
       "consolidateoption": {
         "name": "ConsolidateOption",
