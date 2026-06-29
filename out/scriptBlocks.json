@@ -4250,7 +4250,7 @@
       },
       "staticmodel": {
         "name": "StaticModel",
-        "description": "[StaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodel) is used to define the model of the item being held in hands. On the other hand, [WorldStaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodel) is used to define the model of the item being placed in the world. The two models can be different, for example an item can have a handle that is up when held in hands, but down when placed in the world.\n\nAlternatively, [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodelsbyindex) and [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodelsbyindex) can be used to define multiple models for the same item definition, which is useful for variants of the same item (e.g. a weapon with different skins). You can use [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iconsfortexture) alongside those to define different icons for each variant. Here's an example usage with three variants of the same item:\n```cpp\nStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nWorldStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nIconsForTexture = AK47;AK47_Desert;AK47_Woodland,\n```",
+        "description": "[StaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodel) is used to define the model of the item being held in hands. On the other hand, [WorldStaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodel) is used to define the model of the item being placed in the world. The two models can be different, for example an item can have a handle that is up when held in hands, but down when placed in the world.\n\nAlternatively, [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodelsbyindex) and [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodelsbyindex) can be used to define multiple models for the same item definition, which is useful for variants of the same item (e.g. a weapon with different skins). You can use [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iconsfortexture) alongside those to define different [icons](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-icon) for each variant. Here's an example usage with three variants of the same item:\n```cpp\nStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nWorldStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nIconsForTexture = AK47;AK47_Desert;AK47_Woodland,\n```",
         "type": {
           "main": "block",
           "block": {
@@ -4261,13 +4261,15 @@
       },
       "staticmodelsbyindex": {
         "name": "StaticModelsByIndex",
+        "#desc": "item/StaticModel",
         "type": {
           "main": "array",
           "array": {
             "type": "string",
             "separator": ";"
           }
-        }
+        },
+        "description": "[StaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodel) is used to define the model of the item being held in hands. On the other hand, [WorldStaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodel) is used to define the model of the item being placed in the world. The two models can be different, for example an item can have a handle that is up when held in hands, but down when placed in the world.\n\nAlternatively, [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodelsbyindex) and [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodelsbyindex) can be used to define multiple models for the same item definition, which is useful for variants of the same item (e.g. a weapon with different skins). You can use [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iconsfortexture) alongside those to define different [icons](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-icon) for each variant. Here's an example usage with three variants of the same item:\n```cpp\nStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nWorldStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nIconsForTexture = AK47;AK47_Desert;AK47_Woodland,\n```"
       },
       "stomppower": {
         "name": "StompPower",
@@ -4813,10 +4815,11 @@
             "fullType": true
           }
         },
-        "description": "[StaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodel) is used to define the model of the item being held in hands. On the other hand, [WorldStaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodel) is used to define the model of the item being placed in the world. The two models can be different, for example an item can have a handle that is up when held in hands, but down when placed in the world.\n\nAlternatively, [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodelsbyindex) and [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodelsbyindex) can be used to define multiple models for the same item definition, which is useful for variants of the same item (e.g. a weapon with different skins). You can use [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iconsfortexture) alongside those to define different icons for each variant. Here's an example usage with three variants of the same item:\n```cpp\nStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nWorldStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nIconsForTexture = AK47;AK47_Desert;AK47_Woodland,\n```"
+        "description": "[StaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodel) is used to define the model of the item being held in hands. On the other hand, [WorldStaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodel) is used to define the model of the item being placed in the world. The two models can be different, for example an item can have a handle that is up when held in hands, but down when placed in the world.\n\nAlternatively, [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodelsbyindex) and [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodelsbyindex) can be used to define multiple models for the same item definition, which is useful for variants of the same item (e.g. a weapon with different skins). You can use [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iconsfortexture) alongside those to define different [icons](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-icon) for each variant. Here's an example usage with three variants of the same item:\n```cpp\nStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nWorldStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nIconsForTexture = AK47;AK47_Desert;AK47_Woodland,\n```"
       },
       "worldstaticmodelsbyindex": {
         "name": "WorldStaticModelsByIndex",
+        "#desc": "item/StaticModel",
         "type": {
           "main": "array",
           "array": {
@@ -4824,14 +4827,7 @@
             "separator": ";"
           }
         },
-        "itemTypes": [
-          "container",
-          "food",
-          "key",
-          "literature",
-          "normal",
-          "weapon"
-        ]
+        "description": "[StaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodel) is used to define the model of the item being held in hands. On the other hand, [WorldStaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodel) is used to define the model of the item being placed in the world. The two models can be different, for example an item can have a handle that is up when held in hands, but down when placed in the world.\n\nAlternatively, [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-staticmodelsbyindex) and [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-worldstaticmodelsbyindex) can be used to define multiple models for the same item definition, which is useful for variants of the same item (e.g. a weapon with different skins). You can use [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-iconsfortexture) alongside those to define different [icons](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-icon) for each variant. Here's an example usage with three variants of the same item:\n```cpp\nStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nWorldStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,\nIconsForTexture = AK47;AK47_Desert;AK47_Woodland,\n```"
       }
     }
   },
