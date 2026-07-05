@@ -14,6 +14,5 @@ description: |-
   Most scripts that are defined in a module will need to be refered to by their 'full type', that is `module.id`, but this is a bit inconsistent as some places where a script block needs to be refered to require no module reference. For example, for an item, you can refer to it by its full type `yourModule.yourItemID`.
 shouldHaveParent: true
 parents:
-- _DOCUMENT
 - ROOT-Scripts
 ID: {}

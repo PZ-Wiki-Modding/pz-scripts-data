@@ -1,7 +1,8 @@
 import os, json, yaml
+from pathlib import Path
 
-BLOCKS_DIR = "data/blocks"
-OUTPUT_FILE = "out/scriptBlocks.json"
+BLOCKS_DIR = Path("data/blocks")
+OUTPUT_FILE = Path("out/scriptBlocks.json")
 
 def prepare_parameters(data: dict) -> dict:
     # remove unnecessary fields
@@ -29,16 +30,28 @@ def prepare_parameters(data: dict) -> dict:
 
 # combine all block json files into one
 blocks = {}
-for filename in os.listdir(BLOCKS_DIR):
-    if filename.endswith('.yaml'):
-        key = os.path.splitext(filename)[0]
-        file_path = os.path.join(BLOCKS_DIR, filename)
-        with open(file_path, 'r', encoding='utf-8') as f:
-            blocks[key] = prepare_parameters(yaml.safe_load(f))
+block_name_to_id = {}
+for file_path in BLOCKS_DIR.glob("*.yaml"):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        data = prepare_parameters(yaml.safe_load(f))
+        key = data['name']
+        if key in blocks:
+            raise ValueError(f"Duplicate block name '{key}' found in '{file_path}'.")
+        blocks[key] = data
 
 # copy #ref and #desc
 for block_key, block_data in blocks.items():
     parameter = block_data.get('parameters', {})
+
+    # store ref to this block into parent block as a potential children
+    for parent in block_data.get("parents", []):
+        if parent not in blocks:
+            raise ValueError(f"Parent block '{parent}' not found for block '{block_key}'.")
+        parent_block = blocks[parent]
+        if "children" not in parent_block:
+            parent_block["children"] = []
+        if block_key not in parent_block["children"]:
+            parent_block["children"].append(block_key)
 
     # copy #desc of other block
     if "#desc" in block_data:
@@ -83,7 +96,7 @@ for block_key, block_data in blocks.items():
             # only copy description
             param_data['description'] = blocks[origin_block]['parameters'][origin_param]['description']
 
-os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
 with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
     json.dump(blocks, f, indent=2, ensure_ascii=False)
 
