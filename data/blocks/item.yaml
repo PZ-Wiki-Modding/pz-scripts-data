@@ -1966,8 +1966,19 @@ parameters:
   type:
     main: integer
 - name: ProjectileSpread
-  itemTypes:
-  - weapon
+  type:
+    main: float
+  description: |-
+    Projectile spread seems to be mostly a visual effect and doesn't affect the actual hit chance of the weapon. The spread will be calculated following a formula close to the following:
+    ```
+    spread = ProjectileSpread * 10 degrees +/- 2 degrees
+    ```
+
+    With the `spread` value being the total cone angle of the projectiles.
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
 - name: ProjectileSpreadModifier
   type:
     main: float
