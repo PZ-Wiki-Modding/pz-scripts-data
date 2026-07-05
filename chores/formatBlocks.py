@@ -53,6 +53,17 @@ for block_key, block_data in blocks.items():
         if block_key not in parent_block["children"]:
             parent_block["children"].append(block_key)
 
+    # store ref to variant blocks into original block as a potential variants
+    if "isVariant" in block_data and block_data["isVariant"]:
+        source_block = block_data["isVariant"]
+        if source_block not in blocks:
+            raise ValueError(f"Source block '{source_block}' not found for variant block '{block_key}'.")
+        source_block_data = blocks[source_block]
+        if "variants" not in source_block_data:
+            source_block_data["variants"] = []
+        if block_key not in source_block_data["variants"]:
+            source_block_data["variants"].append(block_key)
+
     # copy #desc of other block
     if "#desc" in block_data:
         desc_key = block_data['#desc']
