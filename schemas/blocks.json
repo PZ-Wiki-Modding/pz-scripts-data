@@ -106,7 +106,7 @@
     "pattern": {
       "type": "array",
       "items": { "type": "string" },
-      "description": "A list of regex patterns that can be used to match this block type."
+      "description": "A list of regex patterns that can be used to match this root file."
     },
     "noComma": {
       "type": "boolean",
