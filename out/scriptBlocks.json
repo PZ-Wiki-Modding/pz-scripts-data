@@ -8460,7 +8460,8 @@
               "name": "sound"
             }
           }
-        }
+        },
+        "allowedDuplicate": true
       },
       "test": {
         "name": "test",
