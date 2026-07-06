@@ -48,6 +48,7 @@ parameters:
       valueType: block
       valueBlock:
         name: sound
+  allowedDuplicate: true
 - name: test
   type:
     main: string
