@@ -3,7 +3,7 @@ name: spriteModel
 description: Used to define tileset properties.
 shouldHaveParent: true
 parents:
-- ROOT-Scripts
+- ROOT-SpriteModels
 parameters:
 - name: VERSION
   type:
