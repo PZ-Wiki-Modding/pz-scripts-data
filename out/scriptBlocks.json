@@ -6388,7 +6388,7 @@
     "description": "Used to define tileset properties.",
     "shouldHaveParent": true,
     "parents": [
-      "ROOT-Scripts"
+      "ROOT-SpriteModels"
     ],
     "parameters": {
       "version": {
@@ -6870,8 +6870,7 @@
     ],
     "parameters": {},
     "children": [
-      "module",
-      "spriteModel"
+      "module"
     ]
   },
   "polygon": {
@@ -8370,7 +8369,10 @@
     "pattern": [
       "media\\/spriteModels\\.txt$"
     ],
-    "parameters": {}
+    "parameters": {},
+    "children": [
+      "spriteModel"
+    ]
   },
   "contextEntry": {
     "name": "contextEntry",
