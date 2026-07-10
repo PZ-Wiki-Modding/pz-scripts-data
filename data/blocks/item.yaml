@@ -2613,7 +2613,7 @@ parameters:
   default: 1.0
 - name: Weight
   description: |-
-    [Weight](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weight) sets the weight of the item, or more commonly refered to as a [encumbrance](https://pzwiki.net/wiki/Heavy_load). [Weapon parts](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html) will impact the weight of the weapon when attached. Will also impact stamina drain when [UseEndurance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-useendurance) is `true`.
+    [Weight](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weight) sets the weight of the item, or more commonly refered to as a [encumbrance](https://pzwiki.net/wiki/Heavy_load). [Weapon parts](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html) will impact the weight of the weapon when attached. Will also impact stamina drain when [UseEndurance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-useendurance) is `true`. You need to make sure to add a [translation](https://pzwiki.net/wiki/Item_(scripts)#Display_name) to the item or the weight will not work in-game.
 
     [WeightEmpty](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weightempty) is used to set the weight of a drainable when it is empty.
 
