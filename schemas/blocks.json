@@ -15,7 +15,8 @@
         },
         "fullType": {
           "type": "boolean",
-          "description": "Indicates whether the parameter's value can match the module and block name, for example 'module.block'."
+          "description": "Indicates whether the parameter's value can match the module and block name, for example 'module.block'.",
+          "default": true
         }
       }
     }
