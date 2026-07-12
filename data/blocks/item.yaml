@@ -793,6 +793,7 @@ parameters:
     main: block
     block:
       name: craftRecipe
+      fullType: true
 - name: DropSound
   type:
     main: string
