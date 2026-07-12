@@ -1,7 +1,0 @@
-version: 1
-name: properties
-description: Provide properties for a [tile](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/tile.html).
-shouldHaveParent: true
-parents:
-- tile
-parameters: []
