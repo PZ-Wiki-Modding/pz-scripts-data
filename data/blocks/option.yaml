@@ -1,15 +1,16 @@
 version: 1
 name: option
-description: Defines a custom sandbox option for a mod.
+description: |-
+  Defines a custom sandbox option for a mod. You can find more information about sandbox options [here](https://pzwiki.net/wiki/Sandbox_options).
 shouldHaveParent: true
 parents:
 - ROOT-SandboxOptions
 ID: {}
 parameters:
 - name: type
+  description: The type of the option.
   type:
     main: string
-  description: The type of the option.
   values:
   - boolean
   - integer
@@ -20,8 +21,8 @@ parameters:
 - name: min
   type:
     main: float
-  description: The minimum value the option can have. Only for integer and double
-    types.
+  description: |-
+    The minimum value the option can have. Only for integer and double types.
   needs:
   - name: type
     values:
@@ -30,14 +31,16 @@ parameters:
 - name: max
   type:
     main: float
-  description: The maximum value the option can have. Only for integer and double
-    types.
+  description: |-
+    The maximum value the option can have. Only for integer and double types.
   needs:
   - name: type
     values:
     - integer
     - double
 - name: default
+  description: |-
+    The default value of the option. The type of the value must match the type of the option.
   needs:
   - name: type
     valueToType:
@@ -52,4 +55,14 @@ parameters:
 - name: translation
   type:
     main: string
-  description: The translation key for the option's name.
+  description: |-
+    The translation key for the option's name. The translation key in the [Sandbox](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#sandbox) translation file should have the prefix `Sandbox_`.
+
+    For example, with the translation parameter as such:
+    ```java
+    translation = MyMod_MyOption
+    ```
+    The translation key in the Sandbox translation file should be:
+    ```json
+    "Sandbox_MyMod_MyOption": "My Option"
+    ```
