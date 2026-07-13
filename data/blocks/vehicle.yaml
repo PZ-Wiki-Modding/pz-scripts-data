@@ -16,19 +16,27 @@ parameters:
   type:
     main: string
 - name: carModelName
+  description: |-
+    Set the [translation](https://pzwiki.net/wiki/Translation) key for the car name. The translation entry needs to be stored inside the [IG_UI](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig-ui) translation file and have `IGUI_VehicleName` as a prefix. For example:
+    ```cpp
+    carModelName = YourCar,
+    ```
+    
+    With the translation entry inside `IG_UI.json`:
+    ```json
+    {
+      "IGUI_VehicleNameYourCar": "Your car model"
+    }
+    ```
   type:
     main: string
-  description: "Set the [translation](https://pzwiki.net/wiki/Translation) key for\
-    \ the car name. The translation entry needs to be stored inside the IG_UI translation\
-    \ file and have `IGUI_VehicleName` as a prefix. \n\nFor example:\n```cpp\ncarModelName\
-    \ = YourCar,\n```\n\nWith the translation entry inside `IG_UI.json`:\n```json\n\
-    {\n  \"IGUI_VehicleNameYourCar\": \"Your car model\"\n}\n```"
 - name: centerOfMassOffset
 - name: engineForce
+  description: |-
+    `engineForce` is 10x what is displayed in the mechanics menu for horsepower.
   type:
     main: float
   default: 3000
-  description: engineForce is 10x what is displayed in the mechanics menu for horsepower.
 - name: engineIdleSpeed
   type:
     main: float
@@ -44,13 +52,14 @@ parameters:
 - name: engineRepairLevel
   type:
     main: integer
-  description: Required [mechanics skill](https://pzwiki.net/wiki/Mechanics) level
-    for repearing the vehicle's engine.
+  description: |-
+    Required [mechanics skill](https://pzwiki.net/wiki/Mechanics) level for repearing the vehicle's engine.
 - name: engineRPMType
   type:
     main: string
   default: jeep
-  description: Sets the engine to a RPM type ([See vehicleEngineRPM block](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicleenginerpm.html)).
+  description: |-
+    Sets the engine to a RPM type ([See vehicleEngineRPM block](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicleenginerpm.html)).
 - name: extents
   type:
     main: array
@@ -69,20 +78,19 @@ parameters:
     array:
       type: float
       separator: ' '
-  description: Sets a forced HSV color on the vehicle. The value needs to be of format
-    `hue sat val`.
+  description: |-
+    Sets a forced HSV color on the vehicle. The value needs to be of format `hue sat val`.
   default: -1 -1 -1
 - name: frontEndDurability
+  description: |-
+    It is unclear what that parameter does but as of 42.16.3, the game uses `frontEndHealth` which is a mistake.
   type:
     main: integer
   default: 100
-  description: It is unclear what that parameter does but as of 42.16.3, the game
-    uses `frontEndHealth` which is a mistake.
 - name: frontEndHealth
   deprecated:
-    description: While that parameter is present in vanilla scripts as of 42.16.3,
-      it actually does nothing because it is not parsed as `frontEndHealth` but as
-      `frontEndDurability`.
+    description: |-
+      While that parameter is present in vanilla scripts as of 42.16.3, it actually does nothing because it is not parsed as `frontEndHealth` but as `frontEndDurability`.
     replacedBy: frontEndDurability
 - name: gearRatioR
   '#desc': vehicle/gearRatioCount
@@ -113,32 +121,36 @@ parameters:
 - name: gearRatio8
   '#desc': vehicle/gearRatioCount
 - name: gearRatioCount
+  description: |-
+    [gearRatioCount](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratiocount) will set the number of gear ratios the car can have. The vanilla cars use 4, while sport cars use 5. 
+    
+    A maximum of 9 ratios can be set with the parameters:
+    - [gearRatioR](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratiocount) (the reverse gear ratio)
+    - [gearRatio1](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio1)
+    - [gearRatio2](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio2)
+    - [gearRatio3](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio3)
+    - [gearRatio4](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio4)
+    - [gearRatio5](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio5)
+    - [gearRatio6](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio6)
+    - [gearRatio7](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio7)
+    - [gearRatio8](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio8)
   default: 4
   type:
     main: integer
-  description: "[gearRatioCount](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratiocount)\
-    \ will set the number of gear ratios the car can have. The vanilla cars use 4,\
-    \ while sport cars use 5. \n\nA maximum of 9 ratios can be set with the parameters:\n\
-    - [gearRatioR](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratiocount)\
-    \ (the reverse gear ratio)\n- [gearRatio1](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio1)\n\
-    - [gearRatio2](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio2)\n\
-    - [gearRatio3](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio3)\n\
-    - [gearRatio4](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio4)\n\
-    - [gearRatio5](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio5)\n\
-    - [gearRatio6](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio6)\n\
-    - [gearRatio7](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio7)\n\
-    - [gearRatio8](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-gearratio8)\n\
-    \nThose ratios take floats"
 - name: hasLighter
+  description: Sets whenever this car has a lighter to light a cigarette.
   type:
     main: boolean
   default: true
-  description: Sets whenever this car has a lighter to light a cigarette.
 - name: hasSiren
+  description: |-
+    This is unused by the game.
   type:
     main: boolean
   isUseless: true
 - name: isSmallVehicle
+  description: |-
+    If the vehicle a small vehicle, the zombies will bang on the windows differently. If set to false they will thump by banging while if set to true, they will thump with their shoulder.
   type:
     main: boolean
   default: true
@@ -146,12 +158,10 @@ parameters:
   type:
     main: float
   default: 800
-  description: "Sets the mass of the vehicle which will notably be used for various\
-    \ physic calculations. \n\nBy default is equal to 800. As a reference, a car has\
-    \ a mass of around 800, pickup trucks have around 1100, a simple trailer around\
-    \ 200, a burnt vehicle 400 or 500. See the game scripts for more examples. Values\
-    \ in excess of 1400 can cause vehicle wheels to start sinking into the ground\
-    \ and be unable to move."
+  description: |-
+    Sets the mass of the vehicle which will notably be used for various physic calculations. 
+
+    By default is equal to 800. As a reference, cars have a mass of around 800, pickup trucks have around 1100, a simple trailer around 200, a burnt vehicle 400 or 500. See the game scripts for more examples. Values in excess of 1400 can cause vehicle wheels to start sinking into the ground and be unable to move.
 - name: maxSpeed
   type:
     main: float
@@ -167,8 +177,8 @@ parameters:
 - name: mechanicType
   type:
     main: integer
-  description: Defines what class the vehicle is, that is 1 for standard, 2 for heavy-duty
-    and 3 for performance.
+  description: |-
+    Defines what class the vehicle is, that is 1 for standard, 2 for heavy-duty and 3 for performance.
   values:
   - 1
   - 2
@@ -176,8 +186,8 @@ parameters:
 - name: neverSpawnKey
   type:
     main: boolean
-  description: Sets whenever this vehicle will never have a key spawning in buildings
-    or on zombies spawning around the vehicle.
+  description: 
+    Sets whenever this vehicle will never have a key spawning in buildings or on zombies spawning around the vehicle.
 - name: notKillCrops
   type:
     main: boolean
@@ -189,11 +199,6 @@ parameters:
   description: Affects horsepower reduction when offroad (Higher = less horsepower
     reduction when offroad.)
 - name: physicsChassisShape
-  type:
-    main: array
-    array:
-      separator: " "
-      type: float
   description: |-
     Defines the hitbox of the vehicle. The value should be three numbers defining the dimensions of a box:
     ```
@@ -206,35 +211,37 @@ parameters:
     ```
 
     When setting [useChassisPhysicsCollision](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-usechassisphysicscollision) to `false`, it will instead use [physics](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/physics.html) for the hitbox of the vehicle.
+  type:
+    main: array
+    array:
+      separator: " "
+      type: float
 - name: playerDamageProtection
+  description: |-
+    Multiplier applied to the amount of damage the player takes when crashing in the car. A value of 1 doesn't change the damage, but a lower value reduces it and a higher value increases it.
   type:
     main: float
-  description: Multiplier applied to the amount of damage the player takes when crashing
-    in the car. A value of 1 doesn't change the damage, but a lower value reduces
-    it and a higher value increases it.
 - name: rearEndDurability
   type:
     main: integer
   default: 100
-  description: It is unclear what that parameter does but as of 42.16.3, the game
-    uses `rearEndHealth` which is a mistake.
+  description: |-
+    It is unclear what that parameter does but as of 42.16.3, the game uses `rearEndHealth` which is a mistake.
 - name: rearEndHealth
   deprecated:
-    description: While that parameter is present in vanilla scripts as of 42.16.3,
-      it actually does nothing because it is not parsed as `rearEndHealth` but as
-      `rearEndDurability`.
+    description: |-
+      While that parameter is present in vanilla scripts as of 42.16.3, it actually does nothing because it is not parsed as `rearEndHealth` but as `rearEndDurability`.
     replacedBy: rearEndDurability
 - name: rollInfluence
   type:
     main: float
   default: 0.1
 - name: seats
+  description: |-
+    Sets the number of seats this vehicle can have. A seat [part](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/part.html) needs to be created which will hold a [container](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/container.html#container) block with a parameter [seat](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/container.html#container-seat).
   type:
     main: integer
   default: 2
-  description: Sets the number of seats this vehicle can have. A seat [part](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/part.html)
-    needs to be created which will hold a [container](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/container.html#container)
-    block with a parameter [seat](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/container.html#container-seat)
 - name: shadowExtents
   type:
     main: array
@@ -248,13 +255,13 @@ parameters:
       type: float
       separator: ' '
 - name: specialKeyRing
+  description: |-
+    [specialKeyRing](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-specialkeyring) needs to reference a keyring item to spawn. [specialKeyRingChance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-specialkeyringchance) is used to set the chance to spawn this keyring.
   type:
     main: array
     array:
       separator: ;
       type: string
-  description: '`specialKeyRing` needs to reference a keyring item to spawn. `specialKeyRingChance`
-    is used to set the chance to spawn this keyring.'
 - name: specialKeyRingChance
   '#desc': vehicle/specialKeyRing
   type:
@@ -302,6 +309,7 @@ parameters:
   description: Uses a template script data for this vehicle.
   allowedDuplicate: true
 - name: template!
+  "#desc": vehicle/template
   allowedDuplicate: true
 - name: textureDamage1Overlay
   type:
@@ -332,25 +340,22 @@ parameters:
   type:
     main: string
 - name: useChassisPhysicsCollision
+  description: |-
+    By default `true` which makes the vehicle use the [physicsChassisShape](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-physicschassisshape) for its hitbox. If set to false, it will instead use the [physics](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/physics.html) blocks as the hitbox of the vehicle.
   default: true
   type:
     main: boolean
-  description: By default `true` which makes the vehicle use the [physicsChassisShape](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicle.html#vehicle-physicschassisshape)
-    for its hitbox. If set to false, it will instead use the [physics](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/physics.html)
-    blocks as the hitbox of the vehicle.
 - name: wheelFriction
+  description: |-
+    It is 1.2 to 1.9 for all vanilla vehicles and controls turning and stopping (but not acceleration) tire friction limits, with 1.4 being the most common. Values over 1.8 can cause vehicles to flip in sharp turns. (Likely depends somewhat on center of mass).
   type:
     main: float
   default: 800.0
-  description: 'It is 1.2 to 1.9 for all vanilla vehicles and controls turning and
-    stopping (but not acceleration) tire friction limits, with 1.4 being the most
-    common. Values over 1.8 can cause vehicles to flip in sharp turns. (Likely depends
-    somewhat on center of mass) '
 - name: zombieType
+  description: |-
+    Used to chose what zombie may spawn around the vehicle and is likely to have the key of the vehicle.
   type:
     main: array
     array:
       type: string
       separator: ;
-  description: Used to chose what zombie may spawn around the vehicle and is likely
-    to have the key of the vehicle.
