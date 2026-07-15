@@ -31,6 +31,11 @@ parameters:
   type:
     main: string
 - name: centerOfMassOffset
+  type:
+    main: array
+    array:
+      type: float
+      separator: ' '
 - name: engineForce
   description: |-
     `engineForce` is 10x what is displayed in the mechanics menu for horsepower.
@@ -50,16 +55,16 @@ parameters:
     main: integer
   default: 100
 - name: engineRepairLevel
-  type:
-    main: integer
   description: |-
     Required [mechanics skill](https://pzwiki.net/wiki/Mechanics) level for repearing the vehicle's engine.
+  type:
+    main: integer
 - name: engineRPMType
+  description: |-
+    Sets the engine to a RPM type ([See vehicleEngineRPM block](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicleenginerpm.html)).
   type:
     main: string
   default: jeep
-  description: |-
-    Sets the engine to a RPM type ([See vehicleEngineRPM block](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicleenginerpm.html)).
 - name: extents
   type:
     main: array

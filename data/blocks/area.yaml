@@ -8,3 +8,8 @@ parents:
 ID: {}
 parameters:
 - name: xywh
+  type:
+    main: array
+    array:
+      type: float
+      separator: " "
