@@ -83,7 +83,7 @@ parameters:
   description: |-
     Defines the sound played at the end of the action.
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: metabolics
@@ -115,13 +115,13 @@ parameters:
   "#desc": timedAction/muscleStrainFactor
 - name: prop1
   type:
-    main: string
+    main: block
     block:
       name: model
       fullType: true
 - name: prop2
   type:
-    main: string
+    main: block
     block:
       name: model
       fullType: true
@@ -129,7 +129,7 @@ parameters:
   description: |-
     Defines the sound played during the action.
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: soundTime

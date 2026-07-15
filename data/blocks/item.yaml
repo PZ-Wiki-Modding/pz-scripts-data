@@ -29,7 +29,7 @@ softOverride: true
 parameters:
 - name: AcceptItemFunction
   type:
-    main: string
+    main: callback
     callback:
       parameters:
         - name: container
@@ -145,7 +145,7 @@ parameters:
       values:
         - true
   type:
-    main: string
+    main: block
     block:
       name: item
       fullType: true
@@ -293,12 +293,12 @@ parameters:
   - normal
 - name: BreakSound
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: BringToBearSound
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: BulletDefense
@@ -330,7 +330,7 @@ parameters:
       values:
         - base:weaponpart
   type:
-    main: string
+    main: callback
     callback:
       parameters:
         - name: character
@@ -375,7 +375,7 @@ parameters:
       values:
         - base:weaponpart
   type:
-    main: string
+    main: callback
     callback:
       parameters:
         - name: character
@@ -468,7 +468,7 @@ parameters:
       values:
         - base:weapon
   type:
-    main: string
+    main: block
     block:
       name: sound
   default: Stormy9mmClick
@@ -614,7 +614,7 @@ parameters:
 - name: CookingSound
   description: Custom sound to play when cooking this item.
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: CorpseSicknessDefense
@@ -796,7 +796,7 @@ parameters:
       fullType: true
 - name: DropSound
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: Eattime
@@ -805,25 +805,38 @@ parameters:
   - food
   - normal
 - name: EatType
-  itemTypes:
-  - clothing
-  - drainable
-  - food
-  - normal
-  - weapon
-- name: EjectAmmoSound
+  description: |-
+    Used mostly on the Lua side and in [AnimNodes](https://pzwiki.net/wiki/AnimNode) as a [condition](https://pz-wiki-modding.github.io/PZ-API-Docs/xml/animNode.html#m-conditions) to mark what animation to use when eating this item. Based on the type of item, this is directly applied to the `FoodType` animation condition.
+    
+    Here's a small summary of some special conditions:
+    - `Pot` and `PotForged` are applied directly, and will force the item to be held in the right hand and removing other items from the left hand, meant for a pot held with two hands.
+    - `popcan` forces drinking [timed action](https://pzwiki.net/wiki/Timed_Action_(Lua)) `maxTime` to a flat `160`.
+    - `Candrink` will make the player uses an item with the  spoon or [fork](https://pzwiki.net/wiki/Fork#Eating) tag in their inventory. A "scraping" sound will also be played when using an utensil and 70% of the eating action is passed.
+    - `Plate` can also use a fork or spoon.
+    - `2handbowl` will use only spoons in the player inventory.
+
+    There also exists more generic ones:
+    - `2hand`
+    - `plate` (different than `Plate`)
+    - `EatSmall`
+    - `EatBox`
+
+    You can use any custom value which will be passed to the `FoodType` condition.
   type:
     main: string
+- name: EjectAmmoSound
+  type:
+    main: block
     block:
       name: sound
 - name: EjectAmmoStartSound
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: EjectAmmoStopSound
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: enduranceChange
@@ -846,7 +859,7 @@ parameters:
   - normal
 - name: EquipSound
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: EvolvedRecipe
@@ -925,7 +938,7 @@ parameters:
 - name: ExplosionSound
   "#desc": item/ExplosionRange
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: ExplosionTimer
@@ -1132,7 +1145,7 @@ parameters:
       values:
         - base:weapon
   type:
-    main: string
+    main: block
     block:
       name: sound
   default: BatOnFloor
@@ -1142,7 +1155,7 @@ parameters:
       values:
         - base:weapon
   type:
-    main: string
+    main: block
     block:
       name: sound
   default: BaseballBatHit
@@ -1239,7 +1252,7 @@ parameters:
       values:
         - base:weapon
   type:
-    main: string
+    main: block
     block:
       name: sound
   default: BaseballBatHit
@@ -1248,17 +1261,17 @@ parameters:
   - weapon
 - name: InsertAmmoSound
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: InsertAmmoStartSound
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: InsertAmmoStopSound
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: Insulation
@@ -1468,7 +1481,7 @@ parameters:
       values:
         - true
   type:
-    main: string
+    main: block
     block:
       name: item
       fullType: true
@@ -1692,7 +1705,7 @@ parameters:
   default: true
 - name: MuzzleFlashModelKey
   type:
-    main: string
+    main: block
     block:
       name: model
   itemTypes:
@@ -1901,7 +1914,7 @@ parameters:
       values:
         - base:weapon
   type:
-    main: string
+    main: block
     block:
       name: item
       fullType: true
@@ -1926,7 +1939,7 @@ parameters:
   - normal
 - name: PlaceOneSound
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: Poison
@@ -2188,6 +2201,14 @@ parameters:
     block:
       name: item
       fullType: true
+- name: ReplaceOnUseOn
+  description: |-
+    Unclear what this does exactly.
+  type:
+    main: array
+    array:
+      separator: '-'
+      type: string
 - name: RequireInHandOrInventory
   itemTypes:
   - drainable
@@ -2251,7 +2272,7 @@ parameters:
       values:
         - base:weapon
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: ShoutMultiplier
@@ -2409,7 +2430,7 @@ parameters:
       values:
         - base:weapon
   type:
-    main: string
+    main: block
     block:
       name: sound
   default: BaseballBatSwing
@@ -2511,7 +2532,7 @@ parameters:
   - radio
 - name: UnequipSound
   type:
-    main: string
+    main: block
     block:
       name: sound
 - name: UnhappyChange

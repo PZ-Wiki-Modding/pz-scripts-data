@@ -194,11 +194,52 @@
             "description": "The data type of the parameter.",
             "additionalProperties": false,
             "oneOf": [
-              { "properties": { "main": { "enum": ["array"] } }, "required": ["array"] },
-              { "properties": { "main": { "enum": ["object"] } }, "required": ["object"] },
-              { "properties": { "main": { "enum": ["block"] } }, "required": ["block"] },
-              { "properties": { "main": { "enum": ["callback"] } }, "required": ["callback"] },
-              { "properties": { "main": { "enum": ["string", "float", "boolean", "integer"] } } }
+              { 
+                "properties": { "main": { "const": "array" } }, 
+                "required": ["main", "array"],
+                "not": { "anyOf": [
+                  { "required": ["object"] },
+                  { "required": ["block"] },
+                  { "required": ["callback"] }
+                ]}
+              },
+              { 
+                "properties": { "main": { "const": "object" } }, 
+                "required": ["main", "object"],
+                "not": { "anyOf": [
+                  { "required": ["array"] },
+                  { "required": ["block"] },
+                  { "required": ["callback"] }
+                ]}
+              },
+              { 
+                "properties": { "main": { "const": "block" } }, 
+                "required": ["main", "block"],
+                "not": { "anyOf": [
+                  { "required": ["array"] },
+                  { "required": ["object"] },
+                  { "required": ["callback"] }
+                ]}
+              },
+              { 
+                "properties": { "main": { "const": "callback" } }, 
+                "required": ["main", "callback"],
+                "not": { "anyOf": [
+                  { "required": ["array"] },
+                  { "required": ["object"] },
+                  { "required": ["block"] }
+                ]}
+              },
+              { 
+                "properties": { "main": { "enum": ["string", "float", "boolean", "integer"] } }, 
+                "required": ["main"],
+                "not": { "anyOf": [
+                  { "required": ["array"] },
+                  { "required": ["object"] },
+                  { "required": ["block"] },
+                  { "required": ["callback"] }
+                ]}
+              }
             ],
             "required": ["main"],
             "properties": {

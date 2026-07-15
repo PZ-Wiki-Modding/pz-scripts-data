@@ -16,7 +16,7 @@ parameters:
 - name: rotate
 - name: physicsShapeScript
   type:
-    main: string
+    main: block
     block:
       name: physicsShape
       fullType: true
