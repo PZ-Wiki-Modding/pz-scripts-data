@@ -2237,7 +2237,7 @@
         "name": "completionSound",
         "description": "Defines the sound played at the end of the action.",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -2276,7 +2276,7 @@
       "prop1": {
         "name": "prop1",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "model",
             "fullType": true
@@ -2286,7 +2286,7 @@
       "prop2": {
         "name": "prop2",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "model",
             "fullType": true
@@ -2297,7 +2297,7 @@
         "name": "sound",
         "description": "Defines the sound played during the action.",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -3572,7 +3572,7 @@
       "physicsshapescript": {
         "name": "physicsShapeScript",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "physicsShape",
             "fullType": true
@@ -3707,7 +3707,7 @@
       "acceptitemfunction": {
         "name": "AcceptItemFunction",
         "type": {
-          "main": "string",
+          "main": "callback",
           "callback": {
             "parameters": [
               {
@@ -3888,7 +3888,7 @@
           }
         ],
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "item",
             "fullType": true
@@ -4075,7 +4075,7 @@
       "breaksound": {
         "name": "BreakSound",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -4084,7 +4084,7 @@
       "bringtobearsound": {
         "name": "BringToBearSound",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -4129,7 +4129,7 @@
           }
         ],
         "type": {
-          "main": "string",
+          "main": "callback",
           "callback": {
             "parameters": [
               {
@@ -4212,7 +4212,7 @@
           }
         ],
         "type": {
-          "main": "string",
+          "main": "callback",
           "callback": {
             "parameters": [
               {
@@ -4377,7 +4377,7 @@
           }
         ],
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -4597,7 +4597,7 @@
         "name": "CookingSound",
         "description": "Custom sound to play when cooking this item.",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -4845,7 +4845,7 @@
       "dropsound": {
         "name": "DropSound",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -4861,18 +4861,15 @@
       },
       "eattype": {
         "name": "EatType",
-        "itemTypes": [
-          "clothing",
-          "drainable",
-          "food",
-          "normal",
-          "weapon"
-        ]
+        "description": "Used mostly on the Lua side and in [AnimNodes](https://pzwiki.net/wiki/AnimNode) as a [condition](https://pz-wiki-modding.github.io/PZ-API-Docs/xml/animNode.html#m-conditions) to mark what animation to use when eating this item. Based on the type of item, this is directly applied to the `FoodType` animation condition.\n\nHere's a small summary of some special conditions:\n- `Pot` and `PotForged` are applied directly, and will force the item to be held in the right hand and removing other items from the left hand, meant for a pot held with two hands.\n- `popcan` forces drinking [timed action](https://pzwiki.net/wiki/Timed_Action_(Lua)) `maxTime` to a flat `160`.\n- `Candrink` will make the player uses an item with the  spoon or [fork](https://pzwiki.net/wiki/Fork#Eating) tag in their inventory. A \"scraping\" sound will also be played when using an utensil and 70% of the eating action is passed.\n- `Plate` can also use a fork or spoon.\n- `2handbowl` will use only spoons in the player inventory.\n\nThere also exists more generic ones:\n- `2hand`\n- `plate` (different than `Plate`)\n- `EatSmall`\n- `EatBox`\n\nYou can use any custom value which will be passed to the `FoodType` condition.",
+        "type": {
+          "main": "string"
+        }
       },
       "ejectammosound": {
         "name": "EjectAmmoSound",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -4881,7 +4878,7 @@
       "ejectammostartsound": {
         "name": "EjectAmmoStartSound",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -4890,7 +4887,7 @@
       "ejectammostopsound": {
         "name": "EjectAmmoStopSound",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -4934,7 +4931,7 @@
       "equipsound": {
         "name": "EquipSound",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -5013,7 +5010,7 @@
         "name": "ExplosionSound",
         "#desc": "item/ExplosionRange",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -5317,7 +5314,7 @@
           }
         ],
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -5335,7 +5332,7 @@
           }
         ],
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -5406,7 +5403,7 @@
           }
         ],
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -5422,7 +5419,7 @@
       "insertammosound": {
         "name": "InsertAmmoSound",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -5431,7 +5428,7 @@
       "insertammostartsound": {
         "name": "InsertAmmoStartSound",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -5440,7 +5437,7 @@
       "insertammostopsound": {
         "name": "InsertAmmoStopSound",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -5744,7 +5741,7 @@
           }
         ],
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "item",
             "fullType": true
@@ -6063,7 +6060,7 @@
       "muzzleflashmodelkey": {
         "name": "MuzzleFlashModelKey",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "model"
           }
@@ -6379,7 +6376,7 @@
           }
         ],
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "item",
             "fullType": true
@@ -6427,7 +6424,7 @@
       "placeonesound": {
         "name": "PlaceOneSound",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -6836,6 +6833,17 @@
           }
         }
       },
+      "replaceonuseon": {
+        "name": "ReplaceOnUseOn",
+        "description": "Unclear what this does exactly.",
+        "type": {
+          "main": "array",
+          "array": {
+            "separator": "-",
+            "type": "string"
+          }
+        }
+      },
       "requireinhandorinventory": {
         "name": "RequireInHandOrInventory",
         "itemTypes": [
@@ -6939,7 +6947,7 @@
           }
         ],
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -7193,7 +7201,7 @@
           }
         ],
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
@@ -7334,7 +7342,7 @@
       "unequipsound": {
         "name": "UnequipSound",
         "type": {
-          "main": "string",
+          "main": "block",
           "block": {
             "name": "sound"
           }
