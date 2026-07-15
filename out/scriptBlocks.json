@@ -101,7 +101,14 @@
     "ID": {},
     "parameters": {
       "xywh": {
-        "name": "xywh"
+        "name": "xywh",
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "float",
+            "separator": " "
+          }
+        }
       }
     }
   },
@@ -5804,7 +5811,14 @@
         }
       },
       "centerofmassoffset": {
-        "name": "centerOfMassOffset"
+        "name": "centerOfMassOffset",
+        "type": {
+          "main": "array",
+          "array": {
+            "type": "float",
+            "separator": " "
+          }
+        }
       },
       "engineforce": {
         "name": "engineForce",
@@ -5837,18 +5851,18 @@
       },
       "enginerepairlevel": {
         "name": "engineRepairLevel",
+        "description": "Required [mechanics skill](https://pzwiki.net/wiki/Mechanics) level for repearing the vehicle's engine.",
         "type": {
           "main": "integer"
-        },
-        "description": "Required [mechanics skill](https://pzwiki.net/wiki/Mechanics) level for repearing the vehicle's engine."
+        }
       },
       "enginerpmtype": {
         "name": "engineRPMType",
+        "description": "Sets the engine to a RPM type ([See vehicleEngineRPM block](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicleenginerpm.html)).",
         "type": {
           "main": "string"
         },
-        "default": "jeep",
-        "description": "Sets the engine to a RPM type ([See vehicleEngineRPM block](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/vehicleenginerpm.html))."
+        "default": "jeep"
       },
       "extents": {
         "name": "extents",
