@@ -889,8 +889,7 @@ parameters:
   type:
     main: integer
 - name: ExplosionPower
-  description: |-
-    If set above 0, the explosion will burn tiles and set fire to them based on the provided [fireStartingChance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-firestartingchance)
+  "#desc": item/ExplosionRange
   needs:
     - name: ItemType
       values:
@@ -900,6 +899,15 @@ parameters:
 - name: ExplosionRange
   description: |-
     [FireStartingChance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-firestartingchance) out of 100 is a chance of the explosion to set on fire tiles and burn characters in the [ExplosionRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-explosionrange). A value above 100 means the explosion will always set on fire tiles and burn characters, while a value of 0 means it will never set on fire tiles nor burn characters. Each tiles in the explosion range will run the [FireStartingChance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-firestartingchance) check independently, so a value of 50 means that on average half of the tiles in the explosion range will be set on fire.
+
+    If [ExplosionPower](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-explosionpower) is set above 0, the explosion will burn tiles and set fire to them based on the provided [fireStartingChance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-firestartingchance).
+
+    [extraDamage](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-extradamage) is used to add a net bonus damage dealt by the trap.
+
+    The damage the trap deals is calculated as follows:
+    ```
+    damage = random(explosionPower/20, explosionPower/20 * 2) + extraDamage
+    ```
 
     [SmokeRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-smokerange) sets the range of the smoke effect. Squares in this range also can be set on fire individually based on [FireStartingChance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-firestartingchance).
 
@@ -923,6 +931,14 @@ parameters:
 - name: ExplosionTimer
   itemTypes:
   - weapon
+- name: extraDamage
+  "#desc": item/ExplosionRange
+  type:
+    main: float
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
 - name: FabricType
   itemTypes:
   - clothing
@@ -2577,8 +2593,12 @@ parameters:
   itemTypes:
   - clothing
 - name: WaterResistance
-  itemTypes:
-  - clothing
+  description: |-
+    [WaterResistance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-waterresistance) is used to define how much the clothing item will resist water. The higher the value, the more resistant the clothing item will be to water. A value of `1.0` means the clothing item is fully waterproof, while a value of `0.0` means it is not waterproof at all.
+
+    This is the exact same process for [WindResistance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-windresistance) but for wind instead of water.
+  type:
+    main: float
 - name: WeaponHitArmourSound
   itemTypes:
   - clothing
@@ -2661,9 +2681,7 @@ parameters:
   itemTypes:
   - normal
 - name: WindResistance
-  itemTypes:
-  - clothing
-  - normal
+  "#desc": item/WaterResistance
 - name: WithDrainable
   itemTypes:
   - clothing
