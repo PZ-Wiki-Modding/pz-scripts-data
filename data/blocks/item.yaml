@@ -167,7 +167,7 @@ parameters:
 
     [MagazineType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-magazinetype) is used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. [MaxAmmo](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-maxammo) is used to set the capacity of either the magazine item or the gun.
 
-    [WeaponReloadType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weaponreloadtype) is used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pzwiki.net/wiki/Conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:
+    [WeaponReloadType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weaponreloadtype) is used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pz-wiki-modding.github.io/PZ-API-Docs/xml/animNode.html#m-conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:
     - `handgun`
     - `shotgun`
     - `boltactionnomag`
@@ -1783,8 +1783,18 @@ parameters:
           type: WeaponPart
           isJava: true
 - name: OnBreak
-  itemTypes:
-  - weapon
+  description: |-
+    Triggered when the item condition drops below 0.
+  type:
+    main: callback
+    callback:
+      parameters:
+        - name: item
+          type: InventoryItem
+          isJava: true
+        - name: character
+          type: IsoGameCharacter
+          isJava: true
 - name: OnCooked
   needs:
     - name: ItemType
@@ -1799,15 +1809,15 @@ parameters:
           type: Food|DrainableComboItem
           isJava: true
 - name: OnCreate
-  itemTypes:
-  - clothing
-  - container
-  - drainable
-  - food
-  - literature
-  - moveable
-  - normal
-  - weapon
+  description: |-
+    Triggered when the item is instantiated.
+  type:
+    main: callback
+    callback:
+      parameters:
+        - name: item
+          type: InventoryItem
+          isJava: true
 - name: OnDetach
   "#desc": item/CanAttach
   needs:
