@@ -9,6 +9,7 @@ Preferably, commits should have the following prefix for clarity:
 - `DOC`: for changes in the documentation (README, CONTRIBUTING, and ScriptsDocs). Also includes schemas.
 - `SCRIPT`: for changes in the script files (e.g., formatting scripts, data generation scripts, etc.).
 - `OTHER`: for changes that don't fit in the above categories.
+- `CHORE`: should not use, these are used for automated workflows to indicate commits from the GitHub bot.
 
 ## Data format
 The [Scripts wiki page](https://pzwiki.net/wiki/Scripts) does the job of explaining the syntax and elements of scripts so I suggest reading through that. The [blocks.json](schemas/blocks.json) file explains the structure of the data files and its different elements.
