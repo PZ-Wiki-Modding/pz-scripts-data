@@ -20,5 +20,5 @@ The [Scripts wiki page](https://pzwiki.net/wiki/Scripts) does the job of explain
 
 - Properties (different from the "Properties" section in the [wiki](https://pzwiki.net/wiki/Scripts#Properties)) are special parameters based on specific blocks, such as the `inputs` block which doesn't follow normal `parameter = value` syntax. They may not follow the same structure as parameters.
 
-# License
-For the license, see [LICENSE](LICENSE).
+## Contact
+You can find the creator of this dataset (SimKDT) in the [PZ Modding Community](https://pzwiki.net/wiki/PZ_Modding_Community).
