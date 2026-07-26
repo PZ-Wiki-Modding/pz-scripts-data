@@ -2591,12 +2591,6 @@ parameters:
   type:
     main: float
   default: 0.03125
-  needs:
-    - name: ItemType
-      values:
-        - base:drainable
-        - base:weapon
-        - base:radio
 - name: UseEndurance
   description: |-
     If `true`, the weapon will consume stamina on use based on the weapon [weight](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-weight), [EnduranceMod](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#item-endurancemod), fatigue modifiers and traits.
