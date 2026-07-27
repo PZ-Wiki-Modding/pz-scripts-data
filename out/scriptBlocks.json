@@ -8519,7 +8519,8 @@
         "type": {
           "main": "block",
           "block": {
-            "name": "animationsMesh"
+            "name": "animationsMesh",
+            "fullType": true
           }
         }
       },
