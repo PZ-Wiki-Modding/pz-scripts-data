@@ -30,6 +30,7 @@ parameters:
     main: block
     block:
       name: animationsMesh
+      fullType: true
 - name: boneWeight
   description: |-
     Sets the bone weight for the model. This is notably used for vehicle bones but it is yet documented how this actually impacts the model or animations linked to it.
