@@ -4766,8 +4766,13 @@
         "type": {
           "main": "array",
           "array": {
-            "type": "string",
-            "separator": ";"
+            "type": "block",
+            "separator": ";",
+            "block": {
+              "name": "craftRecipe",
+              "fullType": true,
+              "noAutoImport": false
+            }
           }
         },
         "itemTypes": [
