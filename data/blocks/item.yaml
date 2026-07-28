@@ -177,11 +177,6 @@ parameters:
     - `doublebarrelshotgunsawn`
 
     A custom `WeaponReloadType` can be used if the relevant animations and condition logic are properly set up in a custom [AnimNode](https://pzwiki.net/wiki/AnimNodes).
-  needs:
-    - name: ItemType
-      values:
-      - base:weapon
-      - base:normal
   type:
     main: string
 - name: AngleFalloff
