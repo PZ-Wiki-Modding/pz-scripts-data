@@ -45,8 +45,10 @@ parameters:
     array:
       type: float
       separator: ' '
-  description: "The position offset of the model relative to the bone. This is a vector\
-    \ in the format `x y z`. \n\n```cpp\noffset = -0.0300 -0.1020 0.1210,\n```"
+  description: |-
+    The position offset of the model relative to the bone. This is a vector in the format `x y z`. ```cpp
+    offset = -0.0300 -0.1020 0.1210,
+    ```
 - name: rotate
   type:
     main: array
@@ -70,5 +72,9 @@ parameters:
     scale = 0.5,
     ```
 - name: bone
-  description: "\tThe name of the bone to which the model is attached to. \n\n ```cpp\n\
-    \ bone = Bip01_L_Hand,\n ```"
+  description: |-
+    The name of the bone to which the model is attached to.
+
+    ```cpp
+    bone = Bip01_L_Hand,
+    ```
