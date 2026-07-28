@@ -8520,7 +8520,8 @@
           "main": "block",
           "block": {
             "name": "animationsMesh",
-            "fullType": true
+            "fullType": true,
+            "noAutoImport": true
           }
         }
       },
@@ -8594,7 +8595,10 @@
       },
       "shader": {
         "name": "shader",
-        "description": "Used to control what shader will apply on the model. The most common shaders which are used by the game are:\n- `animalEffect`\n- `door`\n- `vehicle`\n- `vehiclewheel`\n- `vehicle_multiuv`\n- `vehicle_norandom_multiuv`\n\nThe shaders are stored in the folder `media/shaders`."
+        "description": "Used to control what shader will apply on the model. The most common shaders which are used by the game are:\n- `animalEffect`\n- `door`\n- `vehicle`\n- `vehiclewheel`\n- `vehicle_multiuv`\n- `vehicle_norandom_multiuv`\n\nThe shaders are stored in the folder `media/shaders`.",
+        "type": {
+          "main": "string"
+        }
       },
       "specialkeyring": {
         "name": "specialKeyRing"
