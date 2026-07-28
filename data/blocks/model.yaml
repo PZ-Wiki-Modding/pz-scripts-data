@@ -31,6 +31,7 @@ parameters:
     block:
       name: animationsMesh
       fullType: true
+      noAutoImport: true
 - name: boneWeight
   description: |-
     Sets the bone weight for the model. This is notably used for vehicle bones but it is yet documented how this actually impacts the model or animations linked to it.
@@ -104,6 +105,8 @@ parameters:
     - `vehicle_norandom_multiuv`
 
     The shaders are stored in the folder `media/shaders`.
+  type:
+    main: string
 - name: specialKeyRing
 - name: static
   description: |-
