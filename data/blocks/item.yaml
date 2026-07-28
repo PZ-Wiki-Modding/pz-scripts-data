@@ -2259,8 +2259,12 @@ parameters:
   type:
     main: array
     array:
-      type: string
+      type: block
       separator: ;
+      block:
+        name: craftRecipe
+        fullType: true
+        noAutoImport: false
   itemTypes:
   - clothing
   - container
