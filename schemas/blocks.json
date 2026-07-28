@@ -8,6 +8,7 @@
       "type": "object",
       "description": "If the parameter is of type 'block', this can be used to provide a description of the expected format of the block.",
       "additionalProperties": false,
+      "required": ["name"],
       "properties": {
         "name": {
           "type": "string",
@@ -17,6 +18,11 @@
           "type": "boolean",
           "description": "Indicates whether the parameter's value can match the module and block name, for example 'module.block'.",
           "default": true
+        },
+        "noAutoImport": {
+          "type": "boolean",
+          "description": "Indicates whenever this parameter can automatically check its own parent block module when fullType is set to true. If false, this means that the module won't be automatically imported.",
+          "default": false
         }
       }
     }
@@ -331,7 +337,6 @@
               },
               "callback": {
                 "type": "object",
-                "default": true,
                 "description": "Indicates whether the parameter is a callback function.",
                 "properties": {
                   "parameters": {
@@ -446,7 +451,7 @@
           },
           "isUseless": {
             "type": "boolean",
-            "default": true,
+            "default": false,
             "description": "Indicates whether the parameter is considered useless or not. This can be used to flag parameters that have no effect in the game. Not to be confused with deprecated which indicates a parameter that previously worked but no longer does."
           }
         }
