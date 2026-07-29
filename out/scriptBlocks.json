@@ -6429,6 +6429,18 @@
       "face"
     ],
     "parameters": {
+      "bonushealth": {
+        "name": "bonusHealth",
+        "type": {
+          "main": "integer"
+        }
+      },
+      "corner": {
+        "name": "corner",
+        "type": {
+          "main": "string"
+        }
+      },
       "isthumpable": {
         "name": "isThumpable"
       },
