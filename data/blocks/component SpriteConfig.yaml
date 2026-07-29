@@ -8,6 +8,12 @@ parents:
 needsChildren:
 - face
 parameters:
+- name: bonusHealth
+  type:
+    main: integer
+- name: corner
+  type:
+    main: string
 - name: isThumpable
 - name: OnCreate
 - name: isProp
