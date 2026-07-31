@@ -1259,7 +1259,7 @@
     "parameters": {
       "category": {
         "name": "category",
-        "description": "The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig_ui) translation file to be properly displayed in the crafting menu. For example:\n```java\ncategory = MyCategory,\n```\nAnd in the translation file:\n```json\n{\n  \"IGUI_CraftingCategories_MyCategory\": \"My Category\"\n}",
+        "description": "The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig-ui) translation file to be properly displayed in the crafting menu. For example:\n```java\ncategory = MyCategory,\n```\nAnd in the translation file:\n```json\n{\n  \"IGUI_CraftingCategories_MyCategory\": \"My Category\"\n}",
         "type": {
           "main": "string"
         },
@@ -6538,7 +6538,7 @@
       },
       "category": {
         "name": "category",
-        "description": "The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig_ui) translation file to be properly displayed in the crafting menu. For example:\n```java\ncategory = MyCategory,\n```\nAnd in the translation file:\n```json\n{\n  \"IGUI_CraftingCategories_MyCategory\": \"My Category\"\n}",
+        "description": "The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig-ui) translation file to be properly displayed in the crafting menu. For example:\n```java\ncategory = MyCategory,\n```\nAnd in the translation file:\n```json\n{\n  \"IGUI_CraftingCategories_MyCategory\": \"My Category\"\n}",
         "type": {
           "main": "string"
         },
