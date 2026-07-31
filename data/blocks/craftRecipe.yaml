@@ -6,7 +6,7 @@ description: |-
   A craftRecipe will usually require an [inputs](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/inputs.html) and [outputs](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/outputs.html) block. Other parameters are used to define properties of this recipe, such as the [time](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#time) it takes to craft or the [XP awarded](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#xpaward) for crafting it.
 
   For example:
-  ```cpp
+  ```java
   module yourModule /* or Base */
   {
       craftRecipe yourRecipeID
@@ -28,7 +28,7 @@ description: |-
   Notice how you shouldn't use the [module](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/module.html) in the translation file key and only the craftRecipe ID.
 
   Here's an example of a craftRecipe with some parameters defined:
-  ```cpp
+  ```java
   craftRecipe SawLogs
   {
       timedAction = SawLogs,
@@ -49,7 +49,7 @@ description: |-
   ```
 
   Or:
-  ```cpp
+  ```java
   craftRecipe CarveWhistle
   {
       time = 200,
@@ -74,7 +74,7 @@ description: |-
   ```
 
   And a more advanced one:
-  ```cpp
+  ```java
   craftRecipe RefillHurricaneLantern
   {
       timedAction = Making,
@@ -128,7 +128,7 @@ parameters:
     The [AutoLearnAll](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#autolearnall) parameter specifies that all the provided skills and their associated level need to be reached to automatically learn the recipe. On the other hand, [AutoLearnAny](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#autolearnany) specifies that at least one of the skills and its associated level need to be reached to automatically learn the recipe. Both can also be used together.
     
     Both parameters should be formatted this way:
-    ```cpp
+    ```java
     /* a single skill */
     autoLearnAll = <skill name>:<level amount>,
 
@@ -138,7 +138,7 @@ parameters:
     For the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).
 
     For example:
-    ```cpp
+    ```java
     autoLearnAll = Carving:3;Maintenance:2,
     ```
   type:
@@ -164,7 +164,15 @@ parameters:
   default: false
 - name: category
   description: |-
-    The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Currently doesn't support translations (confirmed last 42.19.0).
+    The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig_ui) translation file to be properly displayed in the crafting menu. For example:
+    ```java
+    category = MyCategory,
+    ```
+    And in the translation file:
+    ```json
+    {
+      "IGUI_CraftingCategories_MyCategory": "My Category"
+    }
   type:
     main: string
   default: Miscellaneous
@@ -181,7 +189,7 @@ parameters:
 
     In this example below, the recipe `MyRecipe1` will be known if the recipe `MyRecipe2` is known. However if the recipe `MyRecipe1` is known, the recipe `MyRecipe2` will not automatically be known and needs to be learnt.
 
-    ```cpp
+    ```java
     craftRecipe MyRecipe1
     {
         ...
@@ -295,7 +303,7 @@ parameters:
 - name: SkillRequired
   description: |-
     Specifies the skill level required to perform this crafting action. It should be formatted this way:
-    ```cpp
+    ```java
     /* a single skill */
     skillRequired = <skill name>:<level>,
 
@@ -305,7 +313,7 @@ parameters:
     For the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).
 
     For example:
-    ```cpp
+    ```java
     skillRequired = Blacksmith:3;Tailoring:2,
     ```
   type:
@@ -318,7 +326,7 @@ parameters:
 - name: tags
   description: |-
     Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:
-    ```cpp
+    ```java
     /* single tag */
     Tags = tag1,
 
@@ -327,7 +335,7 @@ parameters:
     ```
 
     For example:
-    ```cpp
+    ```java
     Tags = InHandCraft;CanAlwaysBeResearched,
     ```
 
@@ -356,7 +364,7 @@ parameters:
 - name: Tooltip
   description: |-
     Description of the crafting which is shown in the crafting menu. The value needs be a key in the [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) translation file. For example:
-    ```cpp
+    ```java
     Tooltip = MyTooltipKey,
     ```
     And in the translation file:
@@ -369,7 +377,7 @@ parameters:
 - name: xpAward
   description: |-
     Specifies the experience points awarded for crafting this item. The parameter should be formatted this way:
-    ```cpp
+    ```java
     /* a single skill */
     xpAward = <skill name>:<xp amount>,
 
@@ -379,6 +387,6 @@ parameters:
     For the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).
 
     For example:
-    ```cpp
+    ```java
     xpAward = Blacksmith:10;Tailoring:5,
     ```
