@@ -27,7 +27,7 @@ parents:
 - module
 ID:
   translation:
-    keyPattern: ${module}.${value}
+    keyPattern: '{module}.{value}'
     sourceFile: ItemName
 softOverride: true
 parameters:

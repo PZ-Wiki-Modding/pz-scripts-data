@@ -112,7 +112,7 @@ needsChildren:
 - inputs
 ID:
   translation:
-    keyPattern: ${value}
+    keyPattern: '{value}'
     sourceFile: Recipes
 softOverride: true
 parameters:
@@ -179,7 +179,7 @@ parameters:
   type:
     main: translation
     translation:
-      keyPattern: IGUI_CraftingCategories_${value}
+      keyPattern: 'IGUI_CraftingCategories_{value}'
       sourceFile: IG_UI
   default: Miscellaneous
 - name: Icon

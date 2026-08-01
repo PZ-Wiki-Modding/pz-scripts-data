@@ -34,7 +34,7 @@
       "properties": {
         "keyPattern": {
           "type": "string",
-          "description": "A regex pattern that the translation key in the source must match. The ${value} placeholder is replaced by the ID of the block or value of the parameter. ${module} is replaced by the module of the block."
+          "description": "A regex pattern that the translation key in the source must match. The '{value}' placeholder is replaced by the ID of the block or value of the parameter. '{module}' is replaced by the module of the block."
         },
         "sourceFile": {
           "type": "string",
