@@ -25,6 +25,22 @@
           "default": false
         }
       }
+    },
+    "translationDef": {
+      "type": "object",
+      "description": "If the parameter is of type 'translation', this can be used to provide a description of the expected format of the translation. For script blocks, this is associated to the ID of the block.",
+      "additionalProperties": false,
+      "required": ["keyPattern", "sourceFile"],
+      "properties": {
+        "keyPattern": {
+          "type": "string",
+          "description": "A regex pattern that the translation key in the source must match. The ${value} placeholder is replaced by the ID of the block or value of the parameter. ${module} is replaced by the module of the block."
+        },
+        "sourceFile": {
+          "type": "string",
+          "description": "The source file where the translation key is defined."
+        }
+      }
     }
   },
   "properties": {
@@ -89,6 +105,9 @@
           "type": "array",
           "items": { "type": "string" },
           "description": "A list of forbidden ID values for this block. If not provided, no values are forbidden."
+        },
+        "translation": {
+          "$ref": "#/$defs/translationDef"
         }
       }
     },
@@ -210,7 +229,8 @@
                 "not": { "anyOf": [
                   { "required": ["object"] },
                   { "required": ["block"] },
-                  { "required": ["callback"] }
+                  { "required": ["callback"] },
+                  { "required": ["translation"] }
                 ]}
               },
               { 
@@ -219,7 +239,8 @@
                 "not": { "anyOf": [
                   { "required": ["array"] },
                   { "required": ["block"] },
-                  { "required": ["callback"] }
+                  { "required": ["callback"] },
+                  { "required": ["translation"] }
                 ]}
               },
               { 
@@ -228,7 +249,8 @@
                 "not": { "anyOf": [
                   { "required": ["array"] },
                   { "required": ["object"] },
-                  { "required": ["callback"] }
+                  { "required": ["callback"] },
+                  { "required": ["translation"] }
                 ]}
               },
               { 
@@ -237,7 +259,18 @@
                 "not": { "anyOf": [
                   { "required": ["array"] },
                   { "required": ["object"] },
-                  { "required": ["block"] }
+                  { "required": ["block"] },
+                  { "required": ["translation"] }
+                ]}
+              },
+              { 
+                "properties": { "main": { "const": "translation" } }, 
+                "required": ["main", "translation"],
+                "not": { "anyOf": [
+                  { "required": ["array"] },
+                  { "required": ["object"] },
+                  { "required": ["block"] },
+                  { "required": ["callback"] }
                 ]}
               },
               { 
@@ -247,7 +280,8 @@
                   { "required": ["array"] },
                   { "required": ["object"] },
                   { "required": ["block"] },
-                  { "required": ["callback"] }
+                  { "required": ["callback"] },
+                  { "required": ["translation"] }
                 ]}
               }
             ],
@@ -256,7 +290,7 @@
               "main": {
                 "type": "string",
                 "description": "The main data type of the parameter.",
-                "enum": ["string", "float", "boolean", "array", "object", "integer", "block", "callback"]
+                "enum": ["string", "float", "boolean", "array", "object", "integer", "block", "callback", "translation"]
               },
               "block": {
                 "$ref": "#/$defs/blockType"
@@ -370,6 +404,9 @@
                     "description": "The return type of the callback function."
                   }
                 }
+              },
+              "translation": {
+                "$ref": "#/$defs/translationDef"
               }
             }
           },
