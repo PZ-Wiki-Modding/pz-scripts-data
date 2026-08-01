@@ -25,7 +25,10 @@ description: |-
 shouldHaveParent: true
 parents:
 - module
-ID: {}
+ID:
+  translation:
+    keyPattern: ${module}.${value}
+    sourceFile: ItemName
 softOverride: true
 parameters:
 - name: AcceptItemFunction

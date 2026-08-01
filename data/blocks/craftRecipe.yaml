@@ -110,7 +110,10 @@ parents:
 - module
 needsChildren:
 - inputs
-ID: {}
+ID:
+  translation:
+    keyPattern: ${value}
+    sourceFile: Recipes
 softOverride: true
 parameters:
 - name: AllowBatchCraft
@@ -174,7 +177,10 @@ parameters:
       "IGUI_CraftingCategories_MyCategory": "My Category"
     }
   type:
-    main: string
+    main: translation
+    translation:
+      keyPattern: IGUI_CraftingCategories_${value}
+      sourceFile: IG_UI
   default: Miscellaneous
 - name: Icon
   description: |-
