@@ -68,6 +68,8 @@ for block_key, block_data in blocks.items():
     if "#desc" in block_data:
         desc_key = block_data['#desc']
         block_data['description'] = blocks[desc_key]['description']
+        if 'shortDescription' in blocks[desc_key]:
+            block_data['shortDescription'] = blocks[desc_key]['shortDescription']
 
     # copy #ref of other block
     if "#ref" in block_data:

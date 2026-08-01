@@ -49,6 +49,10 @@
       "type": "boolean",
       "description": "A block with `anyName` can have any name. This requires strict placement in parent blocks to correctly validate the block parameters."
     },
+    "shortDescription": { 
+      "type": "string",
+      "description": "A brief description of the block type, used for quick reference in completion items."
+    },
     "description": { 
       "type": "string",
       "description": "A brief description of the block type."
