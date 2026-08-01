@@ -1,5 +1,6 @@
 version: 1
 name: item
+shortDescription: Defines an item with different properties.
 description: |-
   The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-items-itemtype).
 
