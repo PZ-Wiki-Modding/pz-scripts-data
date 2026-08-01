@@ -1263,7 +1263,7 @@
         "type": {
           "main": "translation",
           "translation": {
-            "keyPattern": "IGUI_CraftingCategories_${value}",
+            "keyPattern": "IGUI_CraftingCategories_{value}",
             "sourceFile": "IG_UI"
           }
         },
@@ -1574,7 +1574,7 @@
     ],
     "ID": {
       "translation": {
-        "keyPattern": "${module}.${value}",
+        "keyPattern": "{module}.{value}",
         "sourceFile": "ItemName"
       }
     },
@@ -6495,7 +6495,7 @@
     ],
     "ID": {
       "translation": {
-        "keyPattern": "${value}",
+        "keyPattern": "{value}",
         "sourceFile": "Recipes"
       }
     },
@@ -6557,7 +6557,7 @@
         "type": {
           "main": "translation",
           "translation": {
-            "keyPattern": "IGUI_CraftingCategories_${value}",
+            "keyPattern": "IGUI_CraftingCategories_{value}",
             "sourceFile": "IG_UI"
           }
         },
