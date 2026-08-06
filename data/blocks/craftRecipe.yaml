@@ -176,6 +176,7 @@ parameters:
     {
       "IGUI_CraftingCategories_MyCategory": "My Category"
     }
+    ```
   type:
     main: translation
     translation:
@@ -378,8 +379,12 @@ parameters:
     {
       "MyTooltipKey": "This is my tooltip description."
     }
+    ```
   type:
-    main: string
+    main: translation
+    translation:
+      keyPattern: '{value}'
+      sourceFile: Tooltip
 - name: xpAward
   description: |-
     Specifies the experience points awarded for crafting this item. The parameter should be formatted this way:
