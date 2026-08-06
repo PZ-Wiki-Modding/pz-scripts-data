@@ -10,7 +10,7 @@ help:
 	@echo "  format    - Format all block definitions"
 
 validate:
-	./.venv/bin/python ./chores/validateBlocks.py
+	./.venv/bin/python ./src/validateBlocks.py
 
 format:
-	./.venv/bin/python ./chores/formatBlocks.py
+	./.venv/bin/python ./src/formatBlocks.py

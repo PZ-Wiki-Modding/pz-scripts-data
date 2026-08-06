@@ -1,18 +1,14 @@
 name: Format Script Blocks
 
 on:
-  push:
-    branches: [main, dev]
-    paths:
-      - 'data/blocks/**'
-      - 'chores/formatBlocks.py'
-      - '.github/workflows/format-blocks.yml'
+  schedule:
+    - cron: '0 0 * * *' # every day at midnight
   pull_request:
     branches: [main, dev]
     paths:
       - 'data/blocks/**'
-      - 'chores/formatBlocks.py'
-      - 'chores/sortItemParameters.py'
+      - 'src/formatBlocks.py'
+      - 'src/sortItemParameters.py'
       - '.github/workflows/format-blocks.yml'
   workflow_dispatch:
 
@@ -32,13 +28,12 @@ jobs:
           
       - name: Install dependencies
         run: |
-          pip install pyyaml
-          pip install m2r
+          pip install .
 
       - name: Run formatBlocks
-        run: python chores/formatBlocks.py
+        run: python src/formatBlocks.py
       - name: Run sortItemParameters
-        run: python chores/sortItemParameters.py
+        run: python src/sortItemParameters.py
 
       - name: Commit changes
         run: |

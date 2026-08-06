@@ -5,7 +5,7 @@ on:
     branches: [main, dev]
     paths:
       - 'data/blocks/**'
-      - 'chores/validateBlocks.py'
+      - 'src/validateBlocks.py'
   pull_request:
     branches: [main, dev]
   workflow_dispatch:
@@ -23,8 +23,7 @@ jobs:
           
       - name: Install dependencies
         run: |
-          pip install pyyaml
-          pip install jsonschema
+          pip install .
           
       - name: Run validateBlocks
-        run: python chores/validateBlocks.py
+        run: python src/validateBlocks.py
