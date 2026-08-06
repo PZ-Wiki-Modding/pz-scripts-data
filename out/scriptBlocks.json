@@ -1259,7 +1259,7 @@
     "parameters": {
       "category": {
         "name": "category",
-        "description": "The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig-ui) translation file to be properly displayed in the crafting menu. For example:\n```java\ncategory = MyCategory,\n```\nAnd in the translation file:\n```json\n{\n  \"IGUI_CraftingCategories_MyCategory\": \"My Category\"\n}",
+        "description": "The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig-ui) translation file to be properly displayed in the crafting menu. For example:\n```java\ncategory = MyCategory,\n```\nAnd in the translation file:\n```json\n{\n  \"IGUI_CraftingCategories_MyCategory\": \"My Category\"\n}\n```",
         "type": {
           "main": "translation",
           "translation": {
@@ -1349,9 +1349,13 @@
       },
       "tooltip": {
         "name": "Tooltip",
-        "description": "Description of the crafting which is shown in the crafting menu. The value needs be a key in the [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) translation file. For example:\n```java\nTooltip = MyTooltipKey,\n```\nAnd in the translation file:\n```json\n{\n  \"MyTooltipKey\": \"This is my tooltip description.\"\n}",
+        "description": "Description of the crafting which is shown in the crafting menu. The value needs be a key in the [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) translation file. For example:\n```java\nTooltip = MyTooltipKey,\n```\nAnd in the translation file:\n```json\n{\n  \"MyTooltipKey\": \"This is my tooltip description.\"\n}\n```",
         "type": {
-          "main": "string"
+          "main": "translation",
+          "translation": {
+            "keyPattern": "{value}",
+            "sourceFile": "Tooltip"
+          }
         },
         "#ref": "craftRecipe/Tooltip"
       },
@@ -6553,7 +6557,7 @@
       },
       "category": {
         "name": "category",
-        "description": "The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig-ui) translation file to be properly displayed in the crafting menu. For example:\n```java\ncategory = MyCategory,\n```\nAnd in the translation file:\n```json\n{\n  \"IGUI_CraftingCategories_MyCategory\": \"My Category\"\n}",
+        "description": "The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig-ui) translation file to be properly displayed in the crafting menu. For example:\n```java\ncategory = MyCategory,\n```\nAnd in the translation file:\n```json\n{\n  \"IGUI_CraftingCategories_MyCategory\": \"My Category\"\n}\n```",
         "type": {
           "main": "translation",
           "translation": {
@@ -6741,9 +6745,13 @@
       },
       "tooltip": {
         "name": "Tooltip",
-        "description": "Description of the crafting which is shown in the crafting menu. The value needs be a key in the [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) translation file. For example:\n```java\nTooltip = MyTooltipKey,\n```\nAnd in the translation file:\n```json\n{\n  \"MyTooltipKey\": \"This is my tooltip description.\"\n}",
+        "description": "Description of the crafting which is shown in the crafting menu. The value needs be a key in the [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) translation file. For example:\n```java\nTooltip = MyTooltipKey,\n```\nAnd in the translation file:\n```json\n{\n  \"MyTooltipKey\": \"This is my tooltip description.\"\n}\n```",
         "type": {
-          "main": "string"
+          "main": "translation",
+          "translation": {
+            "keyPattern": "{value}",
+            "sourceFile": "Tooltip"
+          }
         }
       },
       "xpaward": {
