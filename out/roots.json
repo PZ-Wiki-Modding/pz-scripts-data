@@ -1,0 +1,356 @@
+{
+  "ROOT-Blends": {
+    "children": [
+      "blend"
+    ],
+    "description": "The `Blends.txt` file is used in the [mapping tools](https://pzwiki.net/wiki/Mapping#Mapping_tools) to assign blend tiles around the tiles you paint.",
+    "isRoot": true,
+    "name": "ROOT-Blends",
+    "noComma": true,
+    "parameters": {
+      "name": {
+        "name": "name"
+      }
+    },
+    "parents": [],
+    "pattern": [
+      "Blends\\.txt$"
+    ],
+    "shouldHaveParent": false
+  },
+  "ROOT-Default": {
+    "children": [
+      "mods",
+      "maps"
+    ],
+    "description": "The default.txt file is used to select the mods and maps that will be loaded by the game.",
+    "isRoot": true,
+    "name": "ROOT-Default",
+    "needsChildren": [
+      "mods",
+      "maps"
+    ],
+    "parameters": {
+      "version": {
+        "description": "The version of the default.txt file. Keep it at 1.",
+        "name": "VERSION",
+        "type": {
+          "main": "integer"
+        }
+      }
+    },
+    "parents": [],
+    "pattern": [
+      "mods/default\\.txt$"
+    ],
+    "shouldHaveParent": false
+  },
+  "ROOT-MapBaseXML": {
+    "description": "The `MapBaseXML.txt` file is used to configure the layers of the TMX file.",
+    "isRoot": true,
+    "name": "ROOT-MapBaseXML",
+    "noComma": true,
+    "parameters": {},
+    "parents": [],
+    "pattern": [
+      "MapBaseXML\\.txt$"
+    ],
+    "shouldHaveParent": false
+  },
+  "ROOT-MapInfo": {
+    "description": "The `map.info` file is used to define the map's information. It is used by the game to display the map in the map selection screen and to load the map into the world.\nIt needs to be located in:\n```\n📁 media\n    📁maps\n        📁 <map folder>\n            📄 map.info\n```",
+    "isRoot": true,
+    "name": "ROOT-MapInfo",
+    "noComma": true,
+    "parameters": {
+      "demovideo": {
+        "description": "[Video file](https://pzwiki.net/wiki/File_formats#Video_format) used to showcase the map when selecting it.",
+        "name": "demoVideo"
+      },
+      "description": {
+        "description": "Description of the map.",
+        "name": "description"
+      },
+      "fixed2x": {
+        "description": "Boolean which fixes rendering issues. Leave it as `true` if you are not sure.",
+        "name": "fixed2x"
+      },
+      "lots": {
+        "description": "Refers to the world map the map will be loaded into. For a map which is inside the vanilla world map, use `lots=Muldraugh, KY`.",
+        "name": "lots"
+      },
+      "title": {
+        "description": "Title of the map.",
+        "name": "title"
+      },
+      "zooms": {
+        "description": "Zoom parameter used to define the position of the camera on the world map when chosing the map to spawn in.",
+        "name": "zoomS"
+      },
+      "zoomx": {
+        "description": "Position parameter used to define the position of the camera on the world map when chosing the map to spawn in.",
+        "name": "zoomX"
+      },
+      "zoomy": {
+        "description": "Position parameter used to define the position of the camera on the world map when chosing the map to spawn in.",
+        "name": "zoomY"
+      }
+    },
+    "parents": [],
+    "pattern": [
+      "media\\/maps\\/[\\s\\S]+\\/map\\.info$"
+    ],
+    "shouldHaveParent": false
+  },
+  "ROOT-ModInfo": {
+    "description": "The mod.info file, which contains all the information about a mod.",
+    "isRoot": true,
+    "name": "ROOT-ModInfo",
+    "noComma": true,
+    "parameters": {
+      "author": {
+        "description": "Name of the author(s) of the mod. Multiple authors are often separated by commas but no convention exists.",
+        "name": "author",
+        "type": {
+          "main": "string"
+        }
+      },
+      "category": {
+        "description": "Category is used for filtering mods in the in-game ModManager. Known categories are \"map\", \"vehicle\", \"features\", \"modpack\". Using other terms will not generate a new filter category.",
+        "name": "category",
+        "type": {
+          "main": "string"
+        }
+      },
+      "description": {
+        "description": "Description of your mod, which shows up in the mod manager. The description supports [ISRichTextPanel](https://pzwiki.net/wiki/ISRichTextPanel) tags. A translation can be provided in the [Mod.json translation file](https://pzwiki.net/wiki/Translation).",
+        "name": "description",
+        "type": {
+          "main": "string"
+        }
+      },
+      "icon": {
+        "description": "Image which will be used in the mod manager to put next to the name of the mod in the list of available mods. This image will be small and while you can use a full image size, you do not need it. You can set your poster as the icon too to not ship two images if desired.",
+        "name": "icon",
+        "type": {
+          "main": "string"
+        }
+      },
+      "id": {
+        "description": "The unique identifier of the mod, used in a mod list of the user or\nservers to activate the mod. Make sure to use something unique which isn't shared\nbetween mods. \n\n**Note:** This is not the same as the [Workshop ID](https://pzwiki.net/wiki/Workshop_ID).",
+        "name": "id",
+        "type": {
+          "main": "string"
+        }
+      },
+      "incompatible": {
+        "description": "Mods that cannot be enabled at the same time as this mod. When enabled, the other mods will be unselectable. This mod will also become unselectable if any of the other mods are enabled.\n\nExample:\n```\nincompatible=theUnwantedMod,theOtherOne\n```",
+        "name": "incompatible",
+        "type": {
+          "main": "string"
+        }
+      },
+      "loadmodafter": {
+        "description": "Loads the mod only after the set of mods listed.\n\nExample:\n```\nloadModAfter=someMod,anotherMod\n```",
+        "name": "loadModAfter",
+        "type": {
+          "main": "string"
+        }
+      },
+      "loadmodbefore": {
+        "description": "Loads the mod before the set of mods listed.\n\nExample:\n```\nloadModBefore=someMod,anotherMod\n```",
+        "name": "loadModBefore",
+        "type": {
+          "main": "string"
+        }
+      },
+      "modversion": {
+        "description": "Version of the mod.",
+        "name": "modversion",
+        "type": {
+          "main": "string"
+        }
+      },
+      "name": {
+        "description": "The displayed name for your mod in the game's mod manager. A translation can be provided in the [Mod.json translation file](https://pzwiki.net/wiki/Translation).",
+        "name": "name",
+        "type": {
+          "main": "string"
+        }
+      },
+      "pack": {
+        "description": "Name of pack files that need to be loaded by the game. Notably used for [Texture pack](https://pzwiki.net/wiki/Texture_pack) and [Tile pack](https://pzwiki.net/wiki/Mapping).",
+        "name": "pack",
+        "type": {
+          "main": "string"
+        }
+      },
+      "poster": {
+        "allowedDuplicate": true,
+        "description": "Image which will show up in the mod manager as the mod image. Multiple posters can be used to show multiple images, but the first one will be used as the main poster in the mod manager. The rest will be in a list of images of the mod that users can click on to view.\n\nExample:\n```\nposter=poster.png\nposter=showcase.png\nposter=flying_chickens.png\nposter=credits.png\n```\n\nIf you have multiple versions of your mod (e.g., 42.12 and 42.13) and don't want to copy your images, you can leave them in the common folder and use the following (but use unique names for these images since it will use the pool of all mods and their images in the common folder):\n```\nposter=../common/mymodname_poster.png\nposter=../common/mymodname_showcase.png\nposter=../common/mymodname_flying_chickens.png\nposter=../common/mymodname_credits.png\n```",
+        "name": "poster",
+        "type": {
+          "main": "string"
+        }
+      },
+      "require": {
+        "description": "Mods required to run this mod. Multiple mods can be specified separated by commas.\n\nExample:\n```\nrequire=theNeededMod,theOtherOne\n```",
+        "name": "require",
+        "type": {
+          "main": "string"
+        }
+      },
+      "tiledef": {
+        "description": "Name of the tiledef with its ID that are added by the mod. You can find a community managed list of already used tiledef IDs in [Tiledefs used by mods](https://pzwiki.net/wiki/Tiledefs_used_by_mods).\n\nExample:\n```\ntiledef=Excavation 2112\n```\n\nIf you upload your mod with a new tiledef ID, you can update the list to reduce the chance of incompatibility with other mods adding tile packs.",
+        "name": "tiledef",
+        "type": {
+          "main": "string"
+        }
+      },
+      "url": {
+        "description": "Shows a URL link in the mod manager on the page of your mod for users to click on to open in their internet browser. The parameter appears as \"Homepage\" in the mod manager. For a list of valid links, see [URL](https://pzwiki.net/wiki/URL).",
+        "name": "url",
+        "type": {
+          "main": "string"
+        }
+      },
+      "versionmax": {
+        "description": "The maximum version of the game the mod can be used on. This number needs to be in the format `build.major` at the very least, and not just `build` or it won't work. Example `42.12`.",
+        "name": "versionMax",
+        "type": {
+          "main": "string"
+        }
+      },
+      "versionmin": {
+        "description": "The minimum version of the game the mod can be used on. This number needs to be in the format `build.major` at the very least, and not just `build` or it won't work. Example `42.0`.",
+        "name": "versionMin",
+        "type": {
+          "main": "string"
+        }
+      }
+    },
+    "parents": [],
+    "pattern": [
+      "mod\\.info$"
+    ],
+    "shouldHaveParent": false
+  },
+  "ROOT-Rules": {
+    "children": [
+      "rule",
+      "alias"
+    ],
+    "description": "The `Rules.txt` file is used in the [mapping tools](https://pzwiki.net/wiki/Mapping#Mapping_tools) to define new [BMP to TMX](https://pzwiki.net/wiki/BMP_to_TMX) conversion rules. You can store this file anywhere on your computer and you need to reference it in the BMP Tool settings.\n\nA reference image containing the exact pixel colors you need to use for your BMP can be found [here](https://github.com/Unofficial-PZ-Mapping-Discord/B42-Colors/tree/main).",
+    "isRoot": true,
+    "name": "ROOT-Rules",
+    "parameters": {
+      "version": {
+        "description": "Version of the rules file. Should be 1 for now.",
+        "name": "version",
+        "type": {
+          "main": "integer"
+        }
+      }
+    },
+    "parents": [],
+    "pattern": [
+      "Rules\\.txt$"
+    ],
+    "shouldHaveParent": false
+  },
+  "ROOT-SandboxOptions": {
+    "children": [
+      "option"
+    ],
+    "description": "The root of a sandbox options file. The file should be stored in the following path:\n```\n📁 media\n  📄 sandbox-options.txt\n```\n\nYou can find more information about sandbox options [here](https://pzwiki.net/wiki/Sandbox_options).",
+    "isRoot": true,
+    "name": "ROOT-SandboxOptions",
+    "parameters": {
+      "version": {
+        "description": "The version of the handler of the sandbox options. Keep this equal to 1.",
+        "name": "VERSION",
+        "required": true,
+        "values": [
+          1
+        ]
+      }
+    },
+    "parents": [],
+    "pattern": [
+      "media\\/sandbox-options\\.txt$"
+    ],
+    "shouldHaveParent": false
+  },
+  "ROOT-Scripts": {
+    "children": [
+      "module"
+    ],
+    "description": "The root of a script file. Blocks than need to be in the root of the document should have this as parent.",
+    "isRoot": true,
+    "name": "ROOT-Scripts",
+    "parameters": {},
+    "parents": [],
+    "pattern": [
+      "media\\/scripts\\/[\\s\\S]+\\.txt$"
+    ],
+    "shouldHaveParent": false
+  },
+  "ROOT-SpriteModels": {
+    "children": [
+      "spriteModel"
+    ],
+    "description": "The `spriteModels.txt` file is used to register [models](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html) and animations to tiles. This is notably used for radio items as well as doors and ramps.",
+    "isRoot": true,
+    "name": "ROOT-SpriteModels",
+    "parameters": {},
+    "parents": [],
+    "pattern": [
+      "media\\/spriteModels\\.txt$"
+    ],
+    "shouldHaveParent": false
+  },
+  "ROOT-TMXconfig": {
+    "children": [
+      "layers"
+    ],
+    "description": "The `TMXconfig.txt` file is used to configure the default layers which will be created in the TMX file.",
+    "isRoot": true,
+    "name": "ROOT-TMXconfig",
+    "noComma": true,
+    "parameters": {
+      "revision": {
+        "description": "Revision of the TMXconfig file. Keep it to 11 for now.",
+        "name": "revision",
+        "type": {
+          "main": "integer"
+        }
+      },
+      "version": {
+        "description": "Version of the TMXconfig file. Should be 1 for now.",
+        "name": "version",
+        "type": {
+          "main": "integer"
+        }
+      }
+    },
+    "parents": [],
+    "pattern": [
+      "TMXconfig\\.txt$"
+    ],
+    "shouldHaveParent": false
+  },
+  "ROOT-TileGeometry": {
+    "children": [
+      "tileGeometry"
+    ],
+    "description": "The `tileGeometry.txt` file is used to register the tile depth of tiles. The file needs to be located inside the [common/media](https://pzwiki.net/wiki/Mod_structure#Common_and_versioning_folders) folder.",
+    "isRoot": true,
+    "name": "ROOT-TileGeometry",
+    "parameters": {},
+    "parents": [],
+    "pattern": [
+      "media\\/tileGeometry\\.txt$"
+    ],
+    "shouldHaveParent": false
+  }
+}
