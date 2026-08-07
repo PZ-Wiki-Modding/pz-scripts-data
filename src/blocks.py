@@ -10,7 +10,7 @@ class BlockProperties(StrEnum):
     DESCRIPTION = 'description'
     SHORT_DESCRIPTION = 'short_descrition'
 
-    VARIANT = 'isVariant'
+    VARIANT = 'variantOf'
     VARIANTS = 'variants'
 
     PARENTS = 'parents'
