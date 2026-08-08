@@ -16,7 +16,7 @@ class Item(TypedDict):
 items: list[Item] = [
     Item(
         input=Path("data/blocks"),
-        output=Path("out/scriptBlocks.json"),
+        output=Path("out/scriptsBlocks.json"),
         data=None,
     ),
     Item(
