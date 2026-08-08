@@ -17,7 +17,6 @@ description: |-
   - `Water`
 
   Do note that some of these don't seem to do anything.
-shouldHaveParent: true
 parents:
 - fluid
 - BlendWhiteList

@@ -6,7 +6,6 @@ description: By importing a module, you give your scripts direct access to the e
   module is by default already parsed, so you don't need to import it. It is overall
   suggested to not import modules and instead directly reference the IDs with their
   module.
-shouldHaveParent: true
 parents:
 - module
 - xuiSkin

@@ -2,7 +2,6 @@ version: 1
 name: blend
 description: Used to define blend rules for the [mapping tools](https://pzwiki.net/wiki/Mapping#Mapping_tools)
   painting tool.
-shouldHaveParent: true
 parents:
 - ROOT-Blends
 parameters:

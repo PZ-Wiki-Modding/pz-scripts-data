@@ -1,7 +1,6 @@
 version: 1
 name: component SpriteConfig
 description: ''
-shouldHaveParent: true
 variantOf: component
 parents:
 - entity

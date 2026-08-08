@@ -4,7 +4,6 @@ description: |-
   Component blocks are used in the [components](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/components.html) block to provide a new component element for [xuiSkin](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/xuiskin.html).
 
   Unclear what these are used for.
-shouldHaveParent: true
 anyName: true
 parents:
 - components

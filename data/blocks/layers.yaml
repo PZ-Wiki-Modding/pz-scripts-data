@@ -1,7 +1,6 @@
 version: 1
 name: layers
 description: Used to define the default layers of a new TMX file.
-shouldHaveParent: true
 noComma: true
 parents:
 - ROOT-TMXconfig

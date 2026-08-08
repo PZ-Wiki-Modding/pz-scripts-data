@@ -1,7 +1,6 @@
 version: 1
 name: vehicle
 description: Defines a vehicle.
-shouldHaveParent: true
 parents:
 - module
 ID: {}

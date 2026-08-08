@@ -2,7 +2,6 @@ version: 1
 name: ROOT-Scripts
 description: The root of a script file. Blocks than need to be in the root of the
   document should have this as parent.
-shouldHaveParent: false
 parents: []
 isRoot: true
 pattern:

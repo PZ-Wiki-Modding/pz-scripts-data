@@ -6,7 +6,6 @@ description: |-
   - [Categories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/categories.html) act as tags for the fluid, to easily identify it.
   - [BlendWhiteList](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/blendwhitelist.html) and [BlendBlackList](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/blendblacklist.html) are used to provide rules for the blending of this fluid with other fluids.
   - [Poison](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/poison.html) is used to define poison properties for the fluid.
-shouldHaveParent: true
 parents:
 - module
 ID: {}

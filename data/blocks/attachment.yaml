@@ -32,7 +32,6 @@ description: |-
   ```
 
   For a full list of attachment points, see the [attachment](https://pzwiki.net/wiki/Attachment_(scripts)#Attachment_Points) page on the PZ Wiki.
-shouldHaveParent: true
 parents:
 - vehicle
 - model

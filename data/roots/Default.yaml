@@ -1,7 +1,6 @@
 version: 1
 name: ROOT-Default
 description: The default.txt file is used to select the mods and maps that will be loaded by the game.
-shouldHaveParent: false
 parents: []
 needsChildren:
   - mods

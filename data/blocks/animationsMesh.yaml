@@ -1,7 +1,6 @@
 version: 1
 name: animationsMesh
 description: Defines an animated mesh, usually for characters or animals.
-shouldHaveParent: true
 parents:
 - module
 ID: {}
