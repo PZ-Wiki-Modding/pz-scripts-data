@@ -1033,7 +1033,6 @@
       "contextEntry"
     ],
     "description": "",
-    "isVariant": "component",
     "name": "component ContextMenuConfig",
     "needsChildren": [
       "contextEntry"
@@ -1043,11 +1042,11 @@
       "item",
       "entity"
     ],
-    "shouldHaveParent": true
+    "shouldHaveParent": true,
+    "variantOf": "component"
   },
   "component CraftBench": {
     "description": "Used to add a crafting bench property to an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) script, which can then be used in the [tags](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#tags) parameter of a [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html) script to create a crafting bench tag.",
-    "isVariant": "component",
     "name": "component CraftBench",
     "parameters": {
       "recipes": {
@@ -1065,11 +1064,11 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true
+    "shouldHaveParent": true,
+    "variantOf": "component"
   },
   "component CraftBenchSounds": {
     "description": "",
-    "isVariant": "component",
     "name": "component CraftBenchSounds",
     "parameters": {
       "addfuel": {
@@ -1094,14 +1093,14 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true
+    "shouldHaveParent": true,
+    "variantOf": "component"
   },
   "component CraftRecipe": {
     "children": [
       "inputs"
     ],
     "description": "",
-    "isVariant": "component",
     "name": "component CraftRecipe",
     "needsChildren": [
       "inputs"
@@ -1218,11 +1217,11 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true
+    "shouldHaveParent": true,
+    "variantOf": "component"
   },
   "component DryingCraftLogic": {
     "description": "",
-    "isVariant": "component",
     "name": "component DryingCraftLogic",
     "parameters": {
       "actionanim": {
@@ -1244,17 +1243,18 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true
+    "shouldHaveParent": true,
+    "variantOf": "component"
   },
   "component Durability": {
     "description": "",
-    "isVariant": "component",
     "name": "component Durability",
     "parameters": {},
     "parents": [
       "item"
     ],
-    "shouldHaveParent": true
+    "shouldHaveParent": true,
+    "variantOf": "component"
   },
   "component FluidContainer": {
     "children": [
@@ -1262,7 +1262,6 @@
       "whitelist"
     ],
     "description": "Adds a fluid container to an item",
-    "isVariant": "component",
     "name": "component FluidContainer",
     "parameters": {
       "capacity": {
@@ -1382,27 +1381,27 @@
       "item",
       "entity"
     ],
-    "shouldHaveParent": true
+    "shouldHaveParent": true,
+    "variantOf": "component"
   },
   "component Resources": {
     "children": [
       "group"
     ],
     "description": "",
-    "isVariant": "component",
     "name": "component Resources",
     "parameters": {},
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true
+    "shouldHaveParent": true,
+    "variantOf": "component"
   },
   "component SpriteConfig": {
     "children": [
       "face"
     ],
     "description": "",
-    "isVariant": "component",
     "name": "component SpriteConfig",
     "needsChildren": [
       "face"
@@ -1451,24 +1450,24 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true
+    "shouldHaveParent": true,
+    "variantOf": "component"
   },
   "component SpriteOverlayConfig": {
     "children": [
       "style"
     ],
     "description": "",
-    "isVariant": "component",
     "name": "component SpriteOverlayConfig",
     "parameters": {},
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true
+    "shouldHaveParent": true,
+    "variantOf": "component"
   },
   "component UiConfig": {
     "description": "",
-    "isVariant": "component",
     "name": "component UiConfig",
     "parameters": {
       "entitystyle": {
@@ -1484,11 +1483,11 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true
+    "shouldHaveParent": true,
+    "variantOf": "component"
   },
   "component WallCoveringConfig": {
     "description": "",
-    "isVariant": "component",
     "name": "component WallCoveringConfig",
     "parameters": {
       "sign": {
@@ -1501,7 +1500,8 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true
+    "shouldHaveParent": true,
+    "variantOf": "component"
   },
   "components": {
     "children": [
