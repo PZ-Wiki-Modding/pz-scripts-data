@@ -43,6 +43,22 @@
       }
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "required": ["isRoot"],
+        "properties": {
+          "isRoot": { "const": true }
+        }
+      },
+      "then": {
+        "required": ["pattern"]
+      }
+    }
+  ],
+  "required": [
+    "name"
+  ],
   "properties": {
     "version": { "type": ["number", "string"] },
     "#desc": { 
@@ -110,10 +126,6 @@
           "$ref": "#/$defs/translationDef"
         }
       }
-    },
-    "shouldHaveParent": { 
-      "type": "boolean",
-      "description": "Indicates if the block should have a parent block."
     },
     "parents": {
       "type": "array",
