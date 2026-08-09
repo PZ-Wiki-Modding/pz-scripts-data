@@ -685,10 +685,11 @@ parameters:
 
     `CriticalChance` sets the floor for unskilled players while `AimingPerkCritModifier` rewards more or less the character ability to aim. High modified and low base chance means the weapon is a skill-gated crit machine, making the weapon a sort of "experts" weapon.
 - name: CustomContextMenu
-  itemTypes:
-  - drainable
-  - food
-  - normal
+  type:
+    main: translation
+    translation:
+      keyPattern: ContextMenu_{value}
+      sourceFile: ContextMenu
 - name: CustomEatSound
   canBeEmpty: true
   type:
