@@ -1,6 +1,6 @@
 import json
 
-INPUT_FILE = "out/scriptBlocks.json"
+INPUT_FILE = "out/scriptsBlocks.json"
 OUTPUT_FILE = "out/itemParameters.json"
 
 
