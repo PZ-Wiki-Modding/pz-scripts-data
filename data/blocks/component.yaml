@@ -2,7 +2,6 @@ version: 1
 name: component
 description: A component is a block which can be added as a child to a specific block
   type like an item, vehicle etc, to provide additional functionalities.
-shouldHaveParent: true
 parents:
 - item
 - entity

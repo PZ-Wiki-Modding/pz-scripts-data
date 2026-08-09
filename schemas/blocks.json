@@ -43,6 +43,22 @@
       }
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "required": ["isRoot"],
+        "properties": {
+          "isRoot": { "const": true }
+        }
+      },
+      "then": {
+        "required": ["pattern"]
+      }
+    }
+  ],
+  "required": [
+    "name"
+  ],
   "properties": {
     "version": { "type": ["number", "string"] },
     "#desc": { 
@@ -53,7 +69,7 @@
       "type": "string",
       "description": "A reference to another block type. This allows sharing the same properties between multiple block types."
     },
-    "isVariant": {
+    "variantOf": {
       "type": "string",
       "description": "Indicates whether this block type is a variant of another block type. The value corresponds to the block type it is a variant of."
     },
@@ -110,10 +126,6 @@
           "$ref": "#/$defs/translationDef"
         }
       }
-    },
-    "shouldHaveParent": { 
-      "type": "boolean",
-      "description": "Indicates if the block should have a parent block."
     },
     "parents": {
       "type": "array",

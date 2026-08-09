@@ -1,8 +1,7 @@
 version: 1
 name: component FluidContainer
 description: Adds a fluid container to an item
-shouldHaveParent: true
-isVariant: component
+variantOf: component
 parents:
 - item
 - entity

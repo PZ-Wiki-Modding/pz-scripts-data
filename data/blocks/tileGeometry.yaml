@@ -1,7 +1,6 @@
 version: 1
 name: tileGeometry
 description: Used to define tile geometries for each [tile](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/tile.html) in a [tileset](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/tileset.html).
-shouldHaveParent: true
 parents:
 - ROOT-TileGeometry
 parameters:

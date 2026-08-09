@@ -24,7 +24,6 @@ description: |-
       item 1 Base.ScratchTicket,
   }
   ```
-shouldHaveParent: true
 softOverride: false
 parents:
 - craftRecipe

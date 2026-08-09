@@ -50,7 +50,6 @@ description: |-
       layer = 0_Vegetation
   }
   ```
-shouldHaveParent: true
 noComma: true
 parents:
 - ROOT-Rules

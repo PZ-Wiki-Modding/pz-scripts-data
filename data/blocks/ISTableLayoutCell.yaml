@@ -1,7 +1,6 @@
 version: 1
 name: ISTableLayoutCell
 description: ''
-shouldHaveParent: true
 parents:
 - xuiSkin
 ID:

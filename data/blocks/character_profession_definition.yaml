@@ -15,7 +15,6 @@ description: |-
       GrantedRecipes = Advanced_Forge;Blast_Furnace,
   }
   ```
-shouldHaveParent: true
 parents:
 - module
 ID: {}

@@ -3,14 +3,20 @@
     "base:alarmclockclothing": [],
     "base:animal": [],
     "base:clothing": [],
-    "base:container": [],
+    "base:container": [
+        "CanBeEquipped",
+        "Capacity",
+        "WeightReduction"
+    ],
     "base:drainable": [
         "cantBeConsolided",
         "ConsolidateOption",
-        "Spice",
-        "UseDelta"
+        "OnCooked",
+        "ReplaceOnCooked",
+        "Spice"
     ],
     "base:food": [
+        "BadCold",
         "BadInMicrowave",
         "Calories",
         "CannedFood",
@@ -18,12 +24,18 @@
         "DangerousUncooked",
         "DaysFresh",
         "DaysTotallyRotten",
+        "fluReduction",
         "Lipids",
+        "OnCooked",
         "Packaged",
+        "painReduction",
+        "Poison",
         "Proteins",
         "RemoveNegativeEffectOnCooked",
+        "ReplaceOnCooked",
         "ReplaceOnRotten",
-        "Spice"
+        "Spice",
+        "UseForPoison"
     ],
     "base:key": [],
     "base:literature": [
@@ -32,25 +44,24 @@
     ],
     "base:map": [],
     "base:moveable": [],
-    "base:normal": [
-        "AmmoType"
-    ],
+    "base:normal": [],
     "base:radio": [
-        "UseDelta"
+        "CanBeEquipped"
     ],
     "base:weapon": [
         "AimingPerkMinAngleModifier",
         "AimingPerkRangeModifier",
         "Aimingtime",
         "AmmoBox",
-        "AmmoType",
         "ClickSound",
+        "ClipSize",
         "CriticalChance",
         "CyclicRateMultiplier",
         "EnduranceMod",
         "ExplosionDuration",
         "ExplosionPower",
         "ExplosionRange",
+        "extraDamage",
         "FireMode",
         "FireModePossibilities",
         "FireRange",
@@ -71,6 +82,7 @@
         "PhysicsObject",
         "PiercingBullets",
         "Projectilecount",
+        "ProjectileSpread",
         "PushBackMod",
         "Ranged",
         "RangeFalloff",
@@ -79,16 +91,26 @@
         "StopPower",
         "SwingSound",
         "TwoHandWeapon",
-        "UseDelta",
         "UseEndurance",
         "WeaponReloadType"
     ],
     "base:weaponpart": [
         "AimingTimeModifier",
+        "CanAttach",
+        "CanDetach",
+        "ClipSizeModifier",
+        "DamageModifier",
         "HitChanceModifier",
         "MaxRangeModifier",
         "MaxSightRange",
         "MinSightRange",
-        "RecoilDelayModifier"
+        "MountOn",
+        "OnAttach",
+        "OnDetach",
+        "PartType",
+        "ProjectileSpreadModifier",
+        "RecoilDelayModifier",
+        "ReloadTimeModifier",
+        "WeightModifier"
     ]
 }

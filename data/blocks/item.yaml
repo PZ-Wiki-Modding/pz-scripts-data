@@ -22,7 +22,6 @@ description: |-
     "yourModule.yourID": "Your Item Name"
   }
   ```
-shouldHaveParent: true
 parents:
 - module
 ID:

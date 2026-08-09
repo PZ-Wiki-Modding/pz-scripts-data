@@ -12,7 +12,6 @@ description: |-
   ```
 
   [Attachments](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/attachment.html) blocks can also be added to the model definition to specify how the model should be placed, rotated and scaled when attached to a parent model.
-shouldHaveParent: true
 parents:
 - module
 - vehicle

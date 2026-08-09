@@ -1,7 +1,6 @@
 version: 1
 name: tile
 description: Defines some tile properties of a specific tile on a tileset.
-shouldHaveParent: true
 parents:
 - tileset
 parameters:

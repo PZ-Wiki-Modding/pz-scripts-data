@@ -19,7 +19,6 @@ description: |-
     }
   }
   ```
-shouldHaveParent: true
 parents:
 - sound
 parameters:

@@ -39,7 +39,6 @@ description: |-
       completionSound = BuildMetalStructureSmallWiredFence,
   }
   ```
-shouldHaveParent: true
 parents:
 - module
 ID: {}

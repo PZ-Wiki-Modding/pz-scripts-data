@@ -25,7 +25,6 @@ description: |-
       ...
   }
   ```
-shouldHaveParent: true
 parents:
 - module
 ID:

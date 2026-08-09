@@ -1,7 +1,6 @@
 version: 1
 name: Poison
 description: Defines poison properties for a fluid script.
-shouldHaveParent: true
 parents:
 - fluid
 parameters:

@@ -8,7 +8,6 @@ description: |-
   ```
   
   You can find more information about sandbox options [here](https://pzwiki.net/wiki/Sandbox_options).
-shouldHaveParent: false
 parents: []
 isRoot: true
 pattern:

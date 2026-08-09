@@ -4,7 +4,6 @@ description: |-
   Used to define [mannequins](https://pzwiki.net/wiki/Mannequin), which can be used in [mapping](https://pzwiki.net/wiki/Mapping) to create mannequins in the world.
 
   To get a list of available mannequins, see [this](https://pzwiki.net/wiki/Mannequin_(scripts)#Available_mannequins).
-shouldHaveParent: true
 parents:
 - module
 ID: {}
