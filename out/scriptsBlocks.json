@@ -9,8 +9,7 @@
     "parameters": {},
     "parents": [
       "fluid"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "BlendWhiteList": {
     "children": [
@@ -58,8 +57,7 @@
     },
     "parents": [
       "fluid"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "Categories": {
     "description": "Acts as a sort of tag list. Notably used in fluid scripts. Doesn't have parameters and instead just functions as a list.\n\nAvailable categories for fluids are:\n- `Alcoholic`\n- `Beverage`\n- `Poisons`\n- `Colors`\n- `Medical`\n- `Industrial`\n- `Dyes`\n- `HairDyes`\n- `Paint`\n- `Fuel`\n- `Water`\n\nDo note that some of these don't seem to do anything.",
@@ -69,8 +67,7 @@
       "fluid",
       "BlendWhiteList",
       "BlendBlackList"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "CopyFrame": {
     "description": "It is unknown what this block does.",
@@ -88,8 +85,7 @@
     },
     "parents": [
       "animation"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "CopyFrames": {
     "description": "It is unknown what this block does.",
@@ -110,8 +106,7 @@
     },
     "parents": [
       "animation"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "Fluids": {
     "description": "Used to make a list of fluids to appear in a [FluidContainer component](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component_fluidcontainer.html).",
@@ -125,8 +120,7 @@
     },
     "parents": [
       "component FluidContainer"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "ISBaseComponentPanel": {
     "description": "",
@@ -134,8 +128,7 @@
     "parameters": {},
     "parents": [
       "xuiSkin"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "ISTableLayoutCell": {
     "ID": {
@@ -148,8 +141,7 @@
     "parameters": {},
     "parents": [
       "xuiSkin"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "Poison": {
     "description": "Defines poison properties for a fluid script.",
@@ -187,8 +179,7 @@
     },
     "parents": [
       "fluid"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "Properties": {
     "description": "Define stat changes applied to the player drinking this [fluid](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/fluid.html) or properties for a [tile](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/tile.html).",
@@ -392,8 +383,7 @@
     "parents": [
       "fluid",
       "tile"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "_COMPONENT_BLOCK": {
     "anyName": true,
@@ -439,8 +429,7 @@
     },
     "parents": [
       "components"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "alias": {
     "description": "Defines an alias for a list of tiles. This can be directly be refered to in [rule](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/rule.html) blocks to list a bunch of tiles in different blocks or to organize them by type. Say for example you can list all the trees in an alias to use later, or split by tree type to easily associate to a color.\n\nHere is an example of how to use it:\n```cpp\nalias\n{\n    name = treez1\n    tiles = [\n        e_americanholly_1_3\n        e_americanholly_1_2\n        e_americanholly_1_1\n        e_americanlinden_1_11\n        e_americanlinden_1_10\n        e_americanlinden_1_15\n        e_americanlinden_1_14\n        e_canadianhemlock_1_3\n        e_canadianhemlock_1_2\n        e_canadianhemlock_1_1\n        e_carolinasilverbell_1_15\n        e_carolinasilverbell_1_14\n        e_cockspurhawthorn_1_15\n        e_cockspurhawthorn_1_14\n        e_cockspurhawthorn_1_13\n        e_dogwood_1_15\n        e_dogwood_1_14\n        e_easternredbud_1_15\n        e_easternredbud_1_14\n        vegetation_trees_01_13\n        vegetation_trees_01_14\n        vegetation_trees_01_15\n        vegetation_trees_01_8\n        vegetation_trees_01_9\n        vegetation_trees_01_10\n        vegetation_trees_01_11\n        vegetation_trees_01_17\n    ]\n}\n\nrule\n{\n    label = General Trees\n    bitmap = 1\n    color = 139 156 68\n    tiles = [\n      treez1\n    ]\n    layer = 0_Vegetation\n}\n```",
@@ -459,8 +448,7 @@
     },
     "parents": [
       "ROOT-Rules"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "anim": {
     "ID": {},
@@ -489,8 +477,7 @@
     "parents": [
       "part",
       "passenger"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "animation": {
     "ID": {},
@@ -503,8 +490,7 @@
     "parameters": {},
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "animationsMesh": {
     "ID": {},
@@ -531,8 +517,7 @@
     },
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "area": {
     "ID": {},
@@ -553,8 +538,7 @@
     "parents": [
       "template",
       "vehicle"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "attachment": {
     "ID": {},
@@ -602,8 +586,7 @@
       "vehicle",
       "model",
       "template"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "blend": {
     "description": "Used to define blend rules for the [mapping tools](https://pzwiki.net/wiki/Mapping#Mapping_tools) painting tool.",
@@ -645,8 +628,7 @@
     },
     "parents": [
       "ROOT-Blends"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "box": {
     "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile.\n\nYou can find more information [here](https://pzwiki.net/wiki/Tile_depth).",
@@ -695,8 +677,7 @@
     },
     "parents": [
       "tile"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "character_profession_definition": {
     "ID": {},
@@ -775,8 +756,7 @@
     },
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "character_trait_definition": {
     "ID": {
@@ -878,8 +858,7 @@
     },
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "clip": {
     "description": "Defines a clip to be used in a [sound script](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/sound.html), which is a single sound file with properties that determine how it is played in the game.\n\n```cpp\nmodule yourModule {\n  sound yourSound {\n    category = Animal,\n    loop = true,\n    is3D = true,\n    clip {\n      file = media/sound/RideOfTheValkyries.ogg,\n      distanceMin = 20,\n      distanceMax = 650,\n      reverbFactor = 0.1,\n      volume = 0.7,\n    }\n  }\n}\n```",
@@ -949,8 +928,7 @@
     },
     "parents": [
       "sound"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "clock": {
     "ID": {},
@@ -962,8 +940,7 @@
     "parameters": {},
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "colors": {
     "ID": {},
@@ -984,8 +961,7 @@
     },
     "parents": [
       "xuiSkin"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "component": {
     "ID": {
@@ -1012,19 +988,18 @@
       "item",
       "entity"
     ],
-    "shouldHaveParent": true,
     "variants": [
-      "component SpriteConfig",
-      "component CraftBench",
       "component SpriteOverlayConfig",
       "component CraftRecipe",
-      "component Resources",
-      "component DryingCraftLogic",
-      "component WallCoveringConfig",
-      "component FluidContainer",
-      "component Durability",
       "component UiConfig",
       "component ContextMenuConfig",
+      "component WallCoveringConfig",
+      "component SpriteConfig",
+      "component Resources",
+      "component CraftBench",
+      "component FluidContainer",
+      "component Durability",
+      "component DryingCraftLogic",
       "component CraftBenchSounds"
     ]
   },
@@ -1042,7 +1017,6 @@
       "item",
       "entity"
     ],
-    "shouldHaveParent": true,
     "variantOf": "component"
   },
   "component CraftBench": {
@@ -1064,7 +1038,6 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true,
     "variantOf": "component"
   },
   "component CraftBenchSounds": {
@@ -1093,7 +1066,6 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true,
     "variantOf": "component"
   },
   "component CraftRecipe": {
@@ -1217,7 +1189,6 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true,
     "variantOf": "component"
   },
   "component DryingCraftLogic": {
@@ -1243,7 +1214,6 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true,
     "variantOf": "component"
   },
   "component Durability": {
@@ -1253,7 +1223,6 @@
     "parents": [
       "item"
     ],
-    "shouldHaveParent": true,
     "variantOf": "component"
   },
   "component FluidContainer": {
@@ -1381,7 +1350,6 @@
       "item",
       "entity"
     ],
-    "shouldHaveParent": true,
     "variantOf": "component"
   },
   "component Resources": {
@@ -1394,7 +1362,6 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true,
     "variantOf": "component"
   },
   "component SpriteConfig": {
@@ -1450,7 +1417,6 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true,
     "variantOf": "component"
   },
   "component SpriteOverlayConfig": {
@@ -1463,7 +1429,6 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true,
     "variantOf": "component"
   },
   "component UiConfig": {
@@ -1483,7 +1448,6 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true,
     "variantOf": "component"
   },
   "component WallCoveringConfig": {
@@ -1500,7 +1464,6 @@
     "parents": [
       "entity"
     ],
-    "shouldHaveParent": true,
     "variantOf": "component"
   },
   "components": {
@@ -1512,8 +1475,7 @@
     "parameters": {},
     "parents": [
       "entity"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "container": {
     "description": "",
@@ -1573,8 +1535,7 @@
     },
     "parents": [
       "part"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "contextEntry": {
     "description": "",
@@ -1589,8 +1550,7 @@
     },
     "parents": [
       "component ContextMenuConfig"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "craftRecipe": {
     "ID": {
@@ -1600,10 +1560,10 @@
       }
     },
     "children": [
-      "itemMapper",
-      "overlayMapper",
       "outputs",
-      "inputs"
+      "inputs",
+      "overlayMapper",
+      "itemMapper"
     ],
     "description": "The 'craftRecipe' script block is used to define a crafting recipe, which allows players to craft items or tiles in the game based on the parent script block. For example, a craftRecipe defined inside a [module](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/module.html) will be a recipe to craft an item usually, while when defined inside an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) it will be the building recipe for that entity.\n\nA craftRecipe will usually require an [inputs](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/inputs.html) and [outputs](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/outputs.html) block. Other parameters are used to define properties of this recipe, such as the [time](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#time) it takes to craft or the [XP awarded](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#xpaward) for crafting it.\n\nFor example:\n```java\nmodule yourModule /* or Base */\n{\n    craftRecipe yourRecipeID\n    {\n        ...\n    }\n}\n```\n\nSome methods to modify existing recipes are documented on the [wiki](https://pzwiki.net/wiki/CraftRecipe#Modifying_existing_recipes).\n\nTo define a translation for this recipe, you need to create an entry in the translation file [Recipes.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#recipes). The translation entry should be formatted like this:\n```json\n{\n  \"yourRecipeID\": \"Your recipe\"\n}\n```\n\nNotice how you shouldn't use the [module](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/module.html) in the translation file key and only the craftRecipe ID.\n\nHere's an example of a craftRecipe with some parameters defined:\n```java\ncraftRecipe SawLogs\n{\n    timedAction = SawLogs,\n    Time = 230,\n    Tags = InHandCraft;CanBeDoneFromFloor,\n    category = Carpentry,\n    xpAward = Woodwork:5,\n    inputs\n    {\n        item 1 [Base.Log] flags[Prop2],\n        item 1 tags[Saw] mode:keep flags[MayDegradeLight;Prop1],\n    }\n    outputs\n    {\n        item 3 Base.Plank,\n    }\n}\n```\n\nOr:\n```java\ncraftRecipe CarveWhistle\n{\n    time = 200,\n    tags = AnySurfaceCraft;Survivalist,\n    category = Carving,\n    xpAward = Carving:60,\n    SkillRequired = Carving:6,\n    needTobeLearn = true,\n    AutoLearnAny = Carving:8,\n    timedAction = SharpenStake,\n    inputs\n    {\n        item 1 tags[DrillWood;DrillMetal;DrillWoodPoor] mode:keep flags[MayDegradeLight],\n        item 1 tags[SharpKnife] mode:keep flags[MayDegradeLight],\n        item 1 [Base.SmallAnimalBone] flags[Prop2;AllowDestroyedItem],\n    }\n    outputs\n    {\n        item 1 Base.Whistle_Bone,\n    }\n}\n```\n\nAnd a more advanced one:\n```java\ncraftRecipe RefillHurricaneLantern\n{\n    timedAction = Making,\n    Time = 50,\n    OnCreate = Recipe.OnCreate.RefillHurricaneLantern,\n    /* OnTest = Recipe.OnTest.RefillHurricaneLantern, */\n    Tags = InHandCraft;CanBeDoneInDark,\n    category = Miscellaneous, /*category = Survival,*/\n    inputs\n    {\n        item 1 [Base.Lantern_Hurricane;Base.Lantern_Hurricane_Copper;Base.Lantern_Hurricane_Forged;Base.Lantern_Hurricane_Gold;Base.Lantern_Hurricane_Silver] mode:destroy flags[NotFull;AllowFavorite;InheritFavorite;ItemCount] mappers[LampMapper],\n        item 1 [*],\n        -fluid 1.0 [Petrol],\n    }\n    outputs\n    {\n        item 1 mapper:LampMapper,\n    }\n    itemMapper LampMapper\n    {\n        Base.Lantern_Hurricane = Base.Lantern_Hurricane,\n        Base.Lantern_Hurricane_Copper = Base.Lantern_Hurricane_Copper,\n        Base.Lantern_Hurricane_Forged = Base.Lantern_Hurricane_Forged,\n        Base.Lantern_Hurricane_Gold = Base.Lantern_Hurricane_Gold,\n        Base.Lantern_Hurricane_Silver = Base.Lantern_Hurricane_Silver,\n\n        default = Base.Lantern_Hurricane,\n    }\n}\n```",
     "name": "craftRecipe",
@@ -1868,7 +1828,6 @@
     "parents": [
       "module"
     ],
-    "shouldHaveParent": true,
     "softOverride": true
   },
   "crawlThroughWheel": {
@@ -1880,8 +1839,7 @@
     "parents": [
       "template",
       "vehicle"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "cylinder": {
     "#desc": "box",
@@ -1931,8 +1889,7 @@
     },
     "parents": [
       "tile"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "data": {
     "description": "",
@@ -1955,8 +1912,7 @@
     },
     "parents": [
       "vehicleEngineRPM"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "door": {
     "ID": {
@@ -1969,8 +1925,7 @@
     "parameters": {},
     "parents": [
       "part"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "energy": {
     "ID": {},
@@ -1979,8 +1934,7 @@
     "parameters": {},
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "entity": {
     "ID": {
@@ -1989,18 +1943,18 @@
       ]
     },
     "children": [
-      "component SpriteConfig",
-      "component CraftBench",
       "component SpriteOverlayConfig",
-      "component CraftRecipe",
-      "component Resources",
-      "component DryingCraftLogic",
       "components",
-      "component WallCoveringConfig",
-      "component FluidContainer",
-      "component",
+      "component CraftRecipe",
       "component UiConfig",
+      "component",
       "component ContextMenuConfig",
+      "component WallCoveringConfig",
+      "component SpriteConfig",
+      "component Resources",
+      "component CraftBench",
+      "component FluidContainer",
+      "component DryingCraftLogic",
       "component CraftBenchSounds"
     ],
     "description": "Defines a tile with special properties.",
@@ -2019,8 +1973,7 @@
     "parents": [
       "module",
       "xuiSkin"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "evolvedrecipe": {
     "ID": {
@@ -2118,8 +2071,7 @@
     },
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "face": {
     "ID": {
@@ -2145,8 +2097,7 @@
       "component SpriteConfig",
       "style",
       "progress"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "fixing": {
     "ID": {
@@ -2197,16 +2148,15 @@
     },
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "fluid": {
     "ID": {},
     "children": [
-      "Categories",
-      "BlendWhiteList",
+      "Properties",
       "Poison",
-      "Properties"
+      "Categories",
+      "BlendWhiteList"
     ],
     "description": "Create a new fluid definition. Different properties can be provided for the fluid v ia the use of different children blocks:\n- [Properties](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/properties.html) is used to indicate the various stats change that drinking this fluid would cause to the player.\n- [Categories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/categories.html) act as tags for the fluid, to easily identify it.\n- [BlendWhiteList](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/blendwhitelist.html) and [BlendBlackList](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/blendblacklist.html) are used to provide rules for the blending of this fluid with other fluids.\n- [Poison](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/poison.html) is used to define poison properties for the fluid.",
     "name": "fluid",
@@ -2222,8 +2172,7 @@
     },
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "group": {
     "ID": {
@@ -2237,8 +2186,7 @@
     "parameters": {},
     "parents": [
       "component Resources"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "hand": {
     "ID": {},
@@ -2247,8 +2195,7 @@
     "parameters": {},
     "parents": [
       "clock"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "imports": {
     "description": "By importing a module, you give your scripts direct access to the elements from these modules, and you can use item IDs directly without the module prefix (for example, you can use `ThatModItem` instead of `ThisMod.ThatModItem`). The `Base` module is by default already parsed, so you don't need to import it. It is overall suggested to not import modules and instead directly reference the IDs with their module.",
@@ -2257,8 +2204,7 @@
     "parents": [
       "module",
       "xuiSkin"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "inputs": {
     "description": "",
@@ -2361,7 +2307,6 @@
         }
       }
     },
-    "shouldHaveParent": true,
     "softOverride": false
   },
   "item": {
@@ -2372,10 +2317,10 @@
       }
     },
     "children": [
-      "component FluidContainer",
-      "component Durability",
       "component",
-      "component ContextMenuConfig"
+      "component ContextMenuConfig",
+      "component FluidContainer",
+      "component Durability"
     ],
     "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-items-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:\n```cpp\nmodule yourModule\n{\n  item yourID\n  {\n    ItemType = base:normal,\n    ...\n  }\n}\n```\n\nTo add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:\n```json\n{\n  \"yourModule.yourID\": \"Your Item Name\"\n}\n```",
     "name": "item",
@@ -3339,12 +3284,14 @@
         }
       },
       "customcontextmenu": {
-        "itemTypes": [
-          "drainable",
-          "food",
-          "normal"
-        ],
-        "name": "CustomContextMenu"
+        "name": "CustomContextMenu",
+        "type": {
+          "main": "translation",
+          "translation": {
+            "keyPattern": "ContextMenu_{value}",
+            "sourceFile": "ContextMenu"
+          }
+        }
       },
       "customeatsound": {
         "canBeEmpty": true,
@@ -6366,7 +6313,6 @@
       "module"
     ],
     "shortDescription": "Defines an item with different properties.",
-    "shouldHaveParent": true,
     "softOverride": true
   },
   "itemMapper": {
@@ -6377,7 +6323,6 @@
     "parents": [
       "craftRecipe"
     ],
-    "shouldHaveParent": true,
     "softOverride": true
   },
   "layer": {
@@ -6391,8 +6336,7 @@
     },
     "parents": [
       "face"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "layers": {
     "description": "Used to define the default layers of a new TMX file.",
@@ -6418,8 +6362,7 @@
     },
     "parents": [
       "ROOT-TMXconfig"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "lightbar": {
     "description": "",
@@ -6441,8 +6384,7 @@
     "parents": [
       "template",
       "vehicle"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "lua": {
     "description": "",
@@ -6450,8 +6392,7 @@
     "parameters": {},
     "parents": [
       "part"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "mannequin": {
     "ID": {},
@@ -6517,8 +6458,7 @@
     },
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "maps": {
     "description": "A list of maps in the [default.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-default.html) file.",
@@ -6526,8 +6466,7 @@
     "parameters": {},
     "parents": [
       "ROOT-Default"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "model": {
     "ID": {
@@ -6670,8 +6609,7 @@
       "module",
       "vehicle",
       "part"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "mods": {
     "description": "A list of mods in the [default.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-default.html) file. The [mod ID](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-modinfo.html#root-modinfo-id) should be used to reference the mods.\n\nIt should use the following syntax:\n```\nmods\n{\n  mod = mod1,\n  mod = mod2,\n  ...\n}\n```",
@@ -6688,45 +6626,43 @@
     },
     "parents": [
       "ROOT-Default"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "module": {
     "ID": {},
     "children": [
-      "mannequin",
-      "fixing",
-      "fluid",
-      "energy",
+      "character_profession_definition",
       "character_trait_definition",
       "timedAction",
-      "entity",
+      "fluid",
+      "mannequin",
+      "evolvedrecipe",
       "item",
-      "character_profession_definition",
-      "soundTimeline",
+      "fixing",
       "physicsHitReaction",
-      "imports",
-      "model",
-      "physicsShape",
-      "sound",
-      "clock",
-      "craftRecipe",
-      "animationsMesh",
-      "ragdoll",
-      "xuiSkin",
       "vehicle",
-      "vehicleEngineRPM",
+      "craftRecipe",
+      "imports",
+      "entity",
       "template",
+      "sound",
+      "energy",
+      "vehicleEngineRPM",
+      "ragdoll",
       "animation",
-      "evolvedrecipe"
+      "clock",
+      "physicsShape",
+      "soundTimeline",
+      "animationsMesh",
+      "xuiSkin",
+      "model"
     ],
     "description": "A module serves as a namespace for your scripts and is the barebone for most scripts you will create in your mod. The game's namespace is `Base`, and while you can insert in it, it is recommended to use your own module for your mod's scripts to avoid conflicts with the game and other mods.\n\nTo define a module, you need to create a block as follows, by changing the ID to a unique name for your mods:\n```cpp\nmodule yourID\n{\n  ...\n}\n```\n\nMost scripts that are defined in a module will need to be refered to by their 'full type', that is `module.id`, but this is a bit inconsistent as some places where a script block needs to be refered to require no module reference. For example, for an item, you can refer to it by its full type `yourModule.yourItemID`.",
     "name": "module",
     "parameters": {},
     "parents": [
       "ROOT-Scripts"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "option": {
     "ID": {},
@@ -6812,8 +6748,7 @@
     },
     "parents": [
       "ROOT-SandboxOptions"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "outputs": {
     "description": "The `outputs` block defines the items that will be created when the recipe is finished. Outputs are listed one after the other and follow the format below:\n```cpp\noutputs\n{\n\n    /* simple item output */\n    item quantity item,\n\n    /* using mappers */\n    item quantity mapper:mapperID,\n\n    ...\n}\n```\n\nFor example:\n```cpp\noutputs\n{\n    item 1 Base.Tissue,\n    item 1 Base.ScratchTicket,\n}\n```",
@@ -6822,7 +6757,6 @@
     "parents": [
       "craftRecipe"
     ],
-    "shouldHaveParent": true,
     "softOverride": false
   },
   "overlayMapper": {
@@ -6831,19 +6765,18 @@
     "parameters": {},
     "parents": [
       "craftRecipe"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "part": {
     "ID": {},
     "children": [
       "anim",
-      "door",
-      "model",
-      "window",
-      "lua",
       "table",
-      "container"
+      "container",
+      "door",
+      "lua",
+      "window",
+      "model"
     ],
     "description": "",
     "name": "part",
@@ -6882,15 +6815,14 @@
     "parents": [
       "template",
       "vehicle"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "passenger": {
     "ID": {},
     "children": [
-      "switchSeat",
       "anim",
-      "position"
+      "position",
+      "switchSeat"
     ],
     "description": "Defines a passenger position in a vehicle script.",
     "name": "passenger",
@@ -6904,8 +6836,7 @@
     },
     "parents": [
       "vehicle"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "physics": {
     "ID": {
@@ -6941,8 +6872,7 @@
     "parents": [
       "template",
       "vehicle"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "physicsHitReaction": {
     "ID": {},
@@ -6951,8 +6881,7 @@
     "parameters": {},
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "physicsShape": {
     "ID": {},
@@ -6991,8 +6920,7 @@
     },
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "polygon": {
     "#desc": "box",
@@ -7048,8 +6976,7 @@
     },
     "parents": [
       "tile"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "position": {
     "ID": {},
@@ -7068,8 +6995,7 @@
     },
     "parents": [
       "passenger"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "progress": {
     "ID": {},
@@ -7081,8 +7007,7 @@
     "parameters": {},
     "parents": [
       "style"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "ragdoll": {
     "ID": {},
@@ -7091,8 +7016,7 @@
     "parameters": {},
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "rule": {
     "description": "A `rule` block defines a conversion rule for the [BMP to TMX](https://pzwiki.net/wiki/BMP_to_TMX) conversion process in the [mapping tools](https://pzwiki.net/wiki/Mapping#Mapping_tools). It is used to associate a color on the BMP for the vegetation or main image to a list of tiles to apply on a specific layer in the TMX.\n\nFor example:\n```cpp\nrule\n{\n  label = Sand\n  bitmap = 0\n  color = 210 200 160\n  tiles = sand\n  layer = 0_Floor\n}\n```",
@@ -7137,8 +7061,7 @@
     },
     "parents": [
       "ROOT-Rules"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "skin": {
     "description": "",
@@ -7151,8 +7074,7 @@
     "parents": [
       "template",
       "vehicle"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "sound": {
     "ID": {
@@ -7352,8 +7274,7 @@
       "module",
       "vehicle",
       "template"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "soundTimeline": {
     "ID": {},
@@ -7362,8 +7283,7 @@
     "parameters": {},
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "spriteModel": {
     "children": [
@@ -7381,8 +7301,7 @@
     },
     "parents": [
       "ROOT-SpriteModels"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "style": {
     "ID": {},
@@ -7395,8 +7314,7 @@
     "parameters": {},
     "parents": [
       "component SpriteOverlayConfig"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "switchSeat": {
     "ID": {},
@@ -7415,8 +7333,7 @@
     },
     "parents": [
       "passenger"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "table": {
     "ID": {},
@@ -7425,19 +7342,18 @@
     "parameters": {},
     "parents": [
       "part"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "template": {
     "ID": {},
     "children": [
-      "physics",
       "attachment",
-      "part",
       "wheel",
       "lightbar",
-      "sound",
+      "physics",
       "area",
+      "part",
+      "sound",
       "skin"
     ],
     "description": "",
@@ -7445,15 +7361,14 @@
     "parameters": {},
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "tile": {
     "children": [
-      "polygon",
       "cylinder",
+      "Properties",
       "box",
-      "Properties"
+      "polygon"
     ],
     "description": "Defines some tile properties of a specific tile on a tileset.",
     "name": "tile",
@@ -7521,8 +7436,7 @@
     },
     "parents": [
       "tileset"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "tileGeometry": {
     "children": [
@@ -7545,8 +7459,7 @@
     },
     "parents": [
       "ROOT-TileGeometry"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "tileset": {
     "children": [
@@ -7566,8 +7479,7 @@
     "parents": [
       "spriteModel",
       "tileGeometry"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "timedAction": {
     "ID": {},
@@ -7672,22 +7584,21 @@
     },
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "vehicle": {
     "ID": {},
     "children": [
-      "physics",
       "attachment",
-      "part",
       "passenger",
       "wheel",
-      "model",
       "lightbar",
-      "sound",
+      "physics",
       "area",
-      "skin"
+      "part",
+      "sound",
+      "skin",
+      "model"
     ],
     "description": "Defines a vehicle.",
     "name": "vehicle",
@@ -8217,8 +8128,7 @@
     },
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "vehicleEngineRPM": {
     "ID": {},
@@ -8238,8 +8148,7 @@
     },
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "wheel": {
     "ID": {},
@@ -8262,8 +8171,7 @@
     "parents": [
       "template",
       "vehicle"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "whitelist": {
     "description": "Whitelists a fluid to be allowed to put inside a [fluid container](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component_fluidcontainer.html).",
@@ -8280,8 +8188,7 @@
     },
     "parents": [
       "component FluidContainer"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "window": {
     "description": "",
@@ -8296,8 +8203,7 @@
     },
     "parents": [
       "part"
-    ],
-    "shouldHaveParent": true
+    ]
   },
   "xuiSkin": {
     "ID": {
@@ -8306,18 +8212,17 @@
       ]
     },
     "children": [
-      "colors",
-      "entity",
       "ISTableLayoutCell",
+      "imports",
+      "entity",
       "ISBaseComponentPanel",
-      "imports"
+      "colors"
     ],
     "description": "Defines a XUI interface skin.",
     "name": "xuiSkin",
     "parameters": {},
     "parents": [
       "module"
-    ],
-    "shouldHaveParent": true
+    ]
   }
 }
