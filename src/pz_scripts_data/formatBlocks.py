@@ -2,7 +2,7 @@ import os, json, yaml
 from pathlib import Path
 from typing import TypedDict, Optional, Any
 
-from pz_scripts_data.blocks import BlockProperties
+from pz_scripts_data.blocks import BlockProperties, ParameterProperties, IDProperties, PropertyData
 
 
 type ScriptsBlock = dict[str, Any]
@@ -37,7 +37,7 @@ def fetchBlocks(item: Item):
     for file_path in item['input'].glob("*.yaml"):
         with open(file_path, 'r', encoding='utf-8') as f:
             data = yaml.safe_load(f)
-            key = data[BlockProperties.NAME]
+            key = data[ParameterProperties.NAME]
             if key in blocks:
                 raise ValueError(f"Duplicate block name '{key}' found in '{file_path}'.")
             blocks[key] = data
@@ -52,21 +52,21 @@ def process_parameters(data: ScriptsBlock) -> ScriptsBlock:
     parameters_data = data.get(BlockProperties.PARAMETERS, [])
     parameters_new = {}
     for param_data in parameters_data:
-        name = param_data[BlockProperties.NAME]
+        name = param_data[ParameterProperties.NAME]
         parameters_new[name.lower()] = param_data
     data[BlockProperties.PARAMETERS] = parameters_new
 
     # handle properties
     properties_data = data.get(BlockProperties.PROPERTIES, None)
     if properties_data is not None:
-        for param_data in properties_data.values():
+        for property_data in properties_data.values():
             # transform into dictionary too
             new_properties = {}
-            properties: list = param_data[BlockProperties.PROPERTIES]
+            properties: list = property_data[PropertyData.PROPERTIES]
             for prop_data in properties:
-                prop_name = prop_data[BlockProperties.NAME]
+                prop_name = prop_data[PropertyData.NAME]
                 new_properties[prop_name] = prop_data
-            param_data[BlockProperties.PROPERTIES] = new_properties
+            property_data[PropertyData.PROPERTIES] = new_properties
 
     return data
 
@@ -217,8 +217,8 @@ def get_source_parameter(ref_key: str, items: list[Item]) -> dict:
 
 def copy_parameters_ref(parameters: dict[str, dict], items: list[Item]):
     for param_key, param_data in parameters.items():
-        if BlockProperties.REF_FULL in param_data:
-            ref_key = param_data[BlockProperties.REF_FULL]
+        if ParameterProperties.REF_FULL in param_data:
+            ref_key = param_data[ParameterProperties.REF_FULL]
             
             source_param_data = get_source_parameter(ref_key, items)
             assert source_param_data is not None, f"Source parameter '{ref_key}' not found for parameter '{param_key}'."
@@ -229,18 +229,18 @@ def copy_parameters_ref(parameters: dict[str, dict], items: list[Item]):
                 if key not in param_data:
                     param_data[key] = value
 
-        if BlockProperties.REF_DESC in param_data:
-            desc_key = param_data[BlockProperties.REF_DESC]
+        if ParameterProperties.REF_DESC in param_data:
+            desc_key = param_data[ParameterProperties.REF_DESC]
 
             source_param_data = get_source_parameter(desc_key, items)
             assert source_param_data is not None, f"Source parameter '{desc_key}' not found for parameter '{param_key}'."
 
             # make sure the source parameter has a description
-            if BlockProperties.DESCRIPTION not in source_param_data:
+            if ParameterProperties.DESCRIPTION not in source_param_data:
                 raise ValueError(f"Parameter '{param_key}' has #desc but source has no description.")
 
             # only copy the description
-            param_data[BlockProperties.DESCRIPTION] = source_param_data[BlockProperties.DESCRIPTION]
+            param_data[ParameterProperties.DESCRIPTION] = source_param_data[ParameterProperties.DESCRIPTION]
 
 
 # main
