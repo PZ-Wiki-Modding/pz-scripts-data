@@ -506,6 +506,11 @@
             "type": "boolean",
             "default": false,
             "description": "Indicates whether the parameter is considered useless or not. This can be used to flag parameters that have no effect in the game. Not to be confused with deprecated which indicates a parameter that previously worked but no longer does."
+          },
+          "seeAlso": {
+            "type": "array",
+            "description": "A list of other parameters that are related to this one.",
+            "items": { "type": "string" }
           }
         }
       }
