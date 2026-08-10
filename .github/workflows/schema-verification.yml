@@ -23,7 +23,10 @@ jobs:
           
       - name: Install dependencies
         run: |
+          python -m venv .venv
+          source .venv/bin/activate
           pip install .
-          
-      - name: Run validateBlocks
-        run: python src/validateBlocks.py
+
+      - name: Run schema validation
+        run: |
+          make validate

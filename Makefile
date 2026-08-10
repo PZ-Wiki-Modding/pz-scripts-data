@@ -14,3 +14,4 @@ validate:
 
 format:
 	./.venv/bin/python ./src/pz_scripts_data/formatBlocks.py
+	./.venv/bin/python ./src/pz_scripts_data/sortItemParameters.py

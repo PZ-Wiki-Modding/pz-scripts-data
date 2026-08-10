@@ -28,12 +28,13 @@ jobs:
           
       - name: Install dependencies
         run: |
+          python -m venv .venv
+          source .venv/bin/activate
           pip install .
 
-      - name: Run formatBlocks
-        run: python src/formatBlocks.py
-      - name: Run sortItemParameters
-        run: python src/sortItemParameters.py
+      - name: Run output formatting
+        run: |
+          make format
 
       - name: Commit changes
         run: |
