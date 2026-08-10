@@ -10,7 +10,7 @@ help:
 	@echo "  format    - Format all block definitions"
 
 validate:
-	./.venv/bin/python ./src/validateBlocks.py
+	./.venv/bin/python ./src/pz_scripts_data/validateBlocks.py
 
 format:
-	./.venv/bin/python ./src/formatBlocks.py
+	./.venv/bin/python ./src/pz_scripts_data/formatBlocks.py

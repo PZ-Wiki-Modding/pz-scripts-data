@@ -1,9 +1,8 @@
 import os, json, yaml
 from pathlib import Path
 from typing import TypedDict, Optional, Any
-from copy import deepcopy
 
-from blocks import BlockProperties
+from pz_scripts_data.blocks import BlockProperties
 
 
 type ScriptsBlock = dict[str, Any]
