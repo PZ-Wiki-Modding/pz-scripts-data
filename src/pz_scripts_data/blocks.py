@@ -19,3 +19,4 @@ class BlockProperties(StrEnum):
     PROPERTIES = 'properties'
 
     SEE_ALSO = 'seeAlso'
+    IS_ROOT = 'isRoot'
