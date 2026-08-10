@@ -40,4 +40,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add out/scriptsBlocks.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "CHORE: format scriptsBlocks.json" && git push)
+          git add out/roots.json
+          git add out/itemParameters.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "CHORE: format output data" && git push)
