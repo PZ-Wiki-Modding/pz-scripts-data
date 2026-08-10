@@ -17,3 +17,5 @@ class BlockProperties(StrEnum):
     CHILDREN = 'children'
     PARAMETERS = 'parameters'
     PROPERTIES = 'properties'
+
+    SEE_ALSO = 'seeAlso'
