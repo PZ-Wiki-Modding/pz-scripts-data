@@ -631,7 +631,7 @@
     ]
   },
   "box": {
-    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile.\n\nYou can find more information [here](https://pzwiki.net/wiki/Tile_depth).",
+    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/tilegeometry.html) to define the tile depth of a tile.\n\nYou can find more information [here](https://pzwiki.net/wiki/Tile_depth).",
     "name": "box",
     "parameters": {
       "max": {
@@ -1843,7 +1843,7 @@
   },
   "cylinder": {
     "#desc": "box",
-    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile.\n\nYou can find more information [here](https://pzwiki.net/wiki/Tile_depth).",
+    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/tilegeometry.html) to define the tile depth of a tile.\n\nYou can find more information [here](https://pzwiki.net/wiki/Tile_depth).",
     "name": "cylinder",
     "parameters": {
       "height": {
@@ -6461,7 +6461,7 @@
     ]
   },
   "maps": {
-    "description": "A list of maps in the [default.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-default.html) file.",
+    "description": "A list of maps in the [default.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/default.html) file.",
     "name": "maps",
     "parameters": {},
     "parents": [
@@ -6612,12 +6612,12 @@
     ]
   },
   "mods": {
-    "description": "A list of mods in the [default.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-default.html) file. The [mod ID](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-modinfo.html#root-modinfo-id) should be used to reference the mods.\n\nIt should use the following syntax:\n```\nmods\n{\n  mod = mod1,\n  mod = mod2,\n  ...\n}\n```",
+    "description": "A list of mods in the [default.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/default.html) file. The [mod ID](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/modinfo.html#root-modinfo-id) should be used to reference the mods.\n\nIt should use the following syntax:\n```\nmods\n{\n  mod = mod1,\n  mod = mod2,\n  ...\n}\n```",
     "name": "mods",
     "parameters": {
       "mod": {
         "allowedDuplicate": true,
-        "description": "The mod ID of the mod to load, which can be found in the [mod.info](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-modinfo.html) file of the mod.",
+        "description": "The mod ID of the mod to load, which can be found in the [mod.info](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/modinfo.html) file of the mod.",
         "name": "mod",
         "type": {
           "main": "string"
@@ -6924,7 +6924,7 @@
   },
   "polygon": {
     "#desc": "box",
-    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) to define the tile depth of a tile.\n\nYou can find more information [here](https://pzwiki.net/wiki/Tile_depth).",
+    "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/tilegeometry.html) to define the tile depth of a tile.\n\nYou can find more information [here](https://pzwiki.net/wiki/Tile_depth).",
     "name": "polygon",
     "parameters": {
       "plane": {
@@ -7430,7 +7430,7 @@
         }
       },
       "xy": {
-        "description": "The position of the tile in the tileset.\n\nIf inside a [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-tilegeometry.html) file, the separator is `x` but when inside a [spriteModels.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-spritemodels.html)",
+        "description": "The position of the tile in the tileset.\n\nIf inside a [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/tilegeometry.html) file, the separator is `x` but when inside a [spriteModels.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/spritemodels.html)",
         "name": "xy"
       }
     },

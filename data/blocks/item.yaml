@@ -85,7 +85,7 @@ parameters:
     main: float
 - name: Aimingtime
   description: |-
-    [Aimingtime](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingtime) is a stat which is directly applied to a [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) while [AimingTimeModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingtimemodifier) is applied to [weapon parts](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html). The attachments directly add or subtract their [AimingTimeModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingtimemodifier) to the aiming delay.
+    [Aimingtime](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingtime) is a stat which is directly applied to a [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) while [AimingTimeModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingtimemodifier) is applied to [weapon parts](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html). The attachments directly add their [AimingTimeModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingtimemodifier) to the aiming delay.
 
     It controls the aim-settling delay, the aiming delay counter that must tick down to 0 before the weapon is "settled". Lower values means faster target reacquisition after each shots. The primary "how snappy does this gun feel" lever for semi-automatic guns. It tick down the aiming via the following formula:
     ```java
@@ -105,6 +105,11 @@ parameters:
             * (Dextrous ? 0.8 : AllThumbs ? 1.2 : 1.0)
             * (in vehicle ? 1.5 : 1.0)
     ```
+  seeAlso:
+    - AimingTimeModifier
+    - RecoilDelay
+    - HitChance
+    - CriticalChance
   type:
     main: integer
   needs:
@@ -113,6 +118,11 @@ parameters:
         - base:weapon
 - name: AimingTimeModifier
   "#desc": item/AimingTime
+  seeAlso:
+    - AimingTime
+    - RecoilDelay
+    - HitChance
+    - CriticalChance
   type:
     main: integer
   needs:
@@ -140,6 +150,11 @@ parameters:
     main: boolean
   isUseless: true
 - name: AmmoBox
+  description: |-
+    Used to indicate the type of ammo box associated to the weapon. This is mostly used to spawn this type of ammo box alongside the gun.
+  seeAlso:
+    - AmmoType
+    - MaxAmmo
   needs:
     - name: ItemType
       values:
@@ -154,7 +169,9 @@ parameters:
       fullType: true
 - name: AmmoType
   description: |-
-    [AmmoType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-ammotype) indicates what ammo is consumed when shooting, but it also determines tracer and hit-reaction sound lookups. The value needs to reference the [registries](https://pzwiki.net/wiki/Registries) entry of the ammo you want to use. The vanilla ammunition types which are available by default are:
+    [AmmoType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-ammotype) indicates what ammo is consumed when shooting, but it also determines tracer and hit-reaction sound lookups. The value needs to reference the [registries](https://pzwiki.net/wiki/Registries) entry of the ammo you want to use.
+    
+    Here is a list of some of the ammo types available in the vanilla game:
     - `base:bullets_3030`
     - `base:bullets_308`
     - `base:bullets_357`
@@ -165,21 +182,11 @@ parameters:
     - `base:bullets_9mm`
     - `base:cap_gun_cap`
     - `base:shotgun_shells`
-    
-    [AmmoBox](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-ammobox) is used to indicate the type of ammo box associated to the weapon. This is mostly used to spawn this type of ammo box alongside the gun.
-
-    [MagazineType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-magazinetype) is used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. [MaxAmmo](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-maxammo) is used to set the capacity of either the magazine item or the gun.
-
-    [WeaponReloadType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-weaponreloadtype) is used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pz-wiki-modding.github.io/PZ-API-Docs/xml/animNode.html#m-conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:
-    - `handgun`
-    - `shotgun`
-    - `boltactionnomag`
-    - `boltaction`
-    - `revolver`
-    - `doublebarrelshotgun`
-    - `doublebarrelshotgunsawn`
-
-    A custom `WeaponReloadType` can be used if the relevant animations and condition logic are properly set up in a custom [AnimNode](https://pzwiki.net/wiki/AnimNodes).
+  seeAlso:
+    - MagazineType
+    - MaxAmmo
+    - WeaponReloadType
+    - AmmoBox
   type:
     main: string
 - name: AngleFalloff
@@ -296,7 +303,13 @@ parameters:
       separator: ;
       type: string
 - name: BoredomChange
-  "#desc": item/HungerChange
+  description: |-
+    When negative, the item being consumed will reduce the [player's boredom](https://pzwiki.net/wiki/Bored), with `100` the maximum amount of boredom of a player.
+  seeAlso:
+    - HungerChange
+    - ThirstChange
+    - UnhappyChange
+    - StressChange
   type:
     main: integer
 - name: brakeForce
@@ -655,15 +668,6 @@ parameters:
   itemTypes:
   - weapon
 - name: CriticalChance
-  itemTypes:
-  - weapon
-  type:
-    main: float
-  default: 20.0
-  needs:
-    - name: ItemType
-      values:
-      - base:weapon
   description: |-
     [CriticalChance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-criticalchance) sets the base critical hit chance of the weapon. The final `CriticalChance` value after all applied bonuses and penalties have been applied is compared on a 0-100 roll.
     
@@ -684,6 +688,20 @@ parameters:
     ```
 
     `CriticalChance` sets the floor for unskilled players while `AimingPerkCritModifier` rewards more or less the character ability to aim. High modified and low base chance means the weapon is a skill-gated crit machine, making the weapon a sort of "experts" weapon.
+  seeAlso:
+    - AimingTime
+    - RecoilDelay
+    - HitChance
+    - MinSightRange
+    - MaxSightRange
+    - StopPower
+  type:
+    main: float
+  default: 20.0
+  needs:
+    - name: ItemType
+      values:
+      - base:weapon
 - name: CustomContextMenu
   type:
     main: translation
@@ -1177,13 +1195,12 @@ parameters:
   default: BaseballBatHit
 - name: HungerChange
   description: |-
-    Different stats are available for food items which will impact the player's hunger, thirst, boredom etc.
-
-    - [HungerChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-hungerchange) when negative will reduce the hunger of the player, with `100` the maximum amount of hunger of a player
-    - [ThirstChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-thirstchange) when negative will reduce the thirst of the player, with `100` the maximum amount of thirst of a player
-    - [UnhappyChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-unhappychange) when positive will decrease the player's unhappiness, with `100` the maximum amount of unhappiness of a player
-    - [StressChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-stresschange) when negative will reduce the stress of the player, with `100` the maximum amount of stress of a player
-    - [BoredomChange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-boredomchange) when negative will reduce the boredom of the player, with `100` the maximum amount of boredom of a player
+    When negative, the item being consumed will reduce the [player's hunger](https://pzwiki.net/wiki/Hungry), with `100` the maximum amount of hunger of a player.
+  seeAlso:
+    - UnhappyChange
+    - ThirstChange
+    - StressChange
+    - BoredomChange
   type:
     main: float
 - name: Icon
@@ -1252,6 +1269,9 @@ parameters:
   - weapon
 - name: IconsForTexture
   "#desc": item/Icon
+  seeAlso:
+    - StaticModelsByIndex
+    - WorldStaticModelsByIndex
   type:
     main: array
     array:
@@ -1490,7 +1510,13 @@ parameters:
   itemTypes:
   - literature
 - name: MagazineType
-  "#desc": item/AmmoType
+  description: |-
+    Used to set the magazine item the gun uses. If not provided, then the gun doesn't use a magazine item and loads rounds individually. [MaxAmmo](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-maxammo) is used to set the capacity of either the magazine item or the gun.
+  seeAlso:
+    - AmmoType
+    - MaxAmmo
+    - AmmoBox
+    - WeaponReloadType
   needs:
     - name: ItemType
       values:
@@ -1511,6 +1537,11 @@ parameters:
   - weapon
 - name: Map
 - name: MaxAmmo
+  "#desc": item/MagazineType
+  seeAlso:
+    - MagazineType
+    - AmmoType
+    - AmmoBox
   type:
     main: integer
 - name: MaxCapacity
@@ -2130,12 +2161,21 @@ parameters:
     ```
 
     Aim countdown starts when the recoil delay counter is less than `effectiveDelay * AimingLevel / 30`. Higher aiming also lets aim recovery start earlier in the recoil window.
+  seeAlso:
+    - RecoilDelayModifier
+    - AimingTime
+    - HitChance
   needs:
     - name: ItemType
       values:
         - base:weapon
 - name: RecoilDelayModifier
   "#desc": item/RecoilDelay
+  seeAlso:
+    - RecoilDelay
+    - AimingTime
+    - AimingTimeModifier
+    - HitChance
   needs:
     - name: ItemType
       values:
@@ -2400,20 +2440,28 @@ parameters:
 - name: StaticModel
   description: |-
     [StaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-staticmodel) is used to define the model of the item being held in hands. On the other hand, [WorldStaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-worldstaticmodel) is used to define the model of the item being placed in the world. The two models can be different, for example a bucket can have a handle that is up when held in hands, but down when placed in the world.
-
-    Alternatively, [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-staticmodelsbyindex) and [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-worldstaticmodelsbyindex) can be used to define multiple models for the same item definition, which is useful for variants of the same item (e.g. a weapon with different skins). You can use [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-iconsfortexture) alongside those to define different [icons](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-icon) for each variant. Here's an example usage with three variants of the same item:
-    ```cpp
-    StaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,
-    WorldStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,
-    IconsForTexture = AK47;AK47_Desert;AK47_Woodland,
-    ```
+  seeAlso:
+    - WeaponSprite
+    - WorldStaticModel
+    - StaticModelsByIndex
+    - WorldStaticModelsByIndex
   type:
     main: block
     block:
       name: model
       fullType: true
 - name: StaticModelsByIndex
-  "#desc": item/StaticModel
+  description: |-
+    [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-staticmodelsbyindex) and [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-worldstaticmodelsbyindex) can be used to define multiple models for the same item definition, which is useful for variants of the same item (e.g. a weapon with different skins). You can use [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-iconsfortexture) alongside those to define different [icons](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-icon) for each variant. Here's an example usage with three variants of the same item:
+    ```cpp
+    StaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,
+    WorldStaticModelsByIndex = AK47;AK47_Desert;AK47_Woodland,
+    IconsForTexture = AK47;AK47_Desert;AK47_Woodland,
+    ```
+  seeAlso:
+    - StaticModel
+    - WorldStaticModel
+    - IconsForTexture
   type:
     main: array
     array:
@@ -2435,10 +2483,15 @@ parameters:
     main: float
   default: 5.0
 - name: StressChange
-  itemTypes:
-  - drainable
-  - food
-  - literature
+  description: |-
+    When positive, the item being consumed will decrease the [player's stress](https://pzwiki.net/wiki/Stressed), with `100` the maximum amount of stress of a player.
+  seeAlso:
+    - HungerChange
+    - ThirstChange
+    - UnhappyChange
+    - BoredomChange
+  type:
+    main: float
 - name: SubCategory
   itemTypes:
   - weapon
@@ -2509,6 +2562,13 @@ parameters:
       separator: ;
       softOverride: true
 - name: ThirstChange
+  description: |-
+    When positive, the item being consumed will decrease the [player's thirst](https://pzwiki.net/wiki/Thirsty), with `100` the maximum amount of thirst of a player.
+  seeAlso:
+    - HungerChange
+    - UnhappyChange
+    - StressChange
+    - BoredomChange
   type:
     main: float
 - name: ticksPerEquipUse
@@ -2580,17 +2640,22 @@ parameters:
     block:
       name: sound
 - name: UnhappyChange
-  itemTypes:
-  - drainable
-  - food
-  - literature
+  description: |-
+    When positive, the item being consumed will decrease the [player's unhappiness](https://pzwiki.net/wiki/Unhappy), with `100` the maximum amount of unhappiness of a player.
+  seeAlso:
+    - HungerChange
+    - ThirstChange
+    - StressChange
+    - BoredomChange
+  type:
+    main: float
 - name: UseDelta
   description: |-
     Used to set the number of [uses](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html#getCurrentUses()) for the item where its durability has a value of `1` when full and `0` when empty. For example, a [base:drainable](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype) item with a `UseDelta` of `0.03125` (the default value) will have 32 uses ($1/0.03125$) before it is depleted.
 
-    When used for [Clothing items](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype), the `UseDelta` is used to indicate the amount of durability lost for [oxygen tanks](https://pzwiki.net/wiki/Oxygen_Tank) for items with the [ItemTags](https://pz-wiki-modding.github.io/PZ-API-Docs/java/item_tags.html) `base:scba` or [gas mask filters](https://pzwiki.net/wiki/Gas_Mask_Filter) for items with the ItemTags `base:gasmask`, `base:respirator` or `base:improvisedgasmask`.
+    When used for [Clothing items](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype), the `UseDelta` is used to indicate the amount of durability lost for [oxygen tanks](https://pzwiki.net/wiki/Oxygen_Tank) for items with the [ItemTag](https://pz-wiki-modding.github.io/PZ-API-Docs/java/item_tags.html) `base:scba` or [gas mask filters](https://pzwiki.net/wiki/Gas_Mask_Filter) for items with the ItemTags `base:gasmask`, `base:respirator` or `base:improvisedgasmask`.
 
-    Some food items seem to be using that parameter but it doesn't seem to be used for those anywhere. There's uses for it in the Java for Drainable, Weapon and Radio items, but it doesn't seem to be limited to those.
+    Some vanilla food items are using that parameter but it doesn't seem to be used for those anywhere. There's uses for it in the Java for Drainable, Weapon and Radio items, but it doesn't seem to be limited to those.
   type:
     main: float
   default: 0.03125
@@ -2668,7 +2733,20 @@ parameters:
     main: float
   default: 0.4
 - name: WeaponReloadType
-  "#desc": item/AmmoType
+  description: |-
+    Used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pz-wiki-modding.github.io/PZ-API-Docs/xml/animnode.html#m-conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:
+    - `handgun`
+    - `shotgun`
+    - `boltactionnomag`
+    - `boltaction`
+    - `revolver`
+    - `doublebarrelshotgun`
+    - `doublebarrelshotgunsawn`
+
+    A custom `WeaponReloadType` can be used if the relevant animations and condition logic are properly set up in a custom [AnimNode](https://pzwiki.net/wiki/AnimNodes).
+  seeAlso:
+    - AmmoType
+    - MagazineType
   needs:
     - name: ItemType
       values:
@@ -2681,7 +2759,11 @@ parameters:
   default: handgun
 - name: WeaponSprite
   description: |-
-    Defines the model of the weapon. If [StaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-staticmodel) is not provided, the static model will be WeaponSprite. 
+    Defines the model of the weapon. If [StaticModel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-staticmodel) is not provided, the static model will be WeaponSprite. You can also define variants of a weapon model by using [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-staticmodelsbyindex).
+  seeAlso:
+    - StaticModel
+    - WorldStaticModel
+    - StaticModelsByIndex
   type:
     main: block
     block:
@@ -2766,7 +2848,7 @@ parameters:
       name: model
       fullType: true
 - name: WorldStaticModelsByIndex
-  "#desc": item/StaticModel
+  "#desc": item/StaticModelsByIndex
   type:
     main: array
     array:

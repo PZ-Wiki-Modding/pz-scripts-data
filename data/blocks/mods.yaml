@@ -1,7 +1,7 @@
 version: 1
 name: mods
 description: |-
-  A list of mods in the [default.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-default.html) file. The [mod ID](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-modinfo.html#root-modinfo-id) should be used to reference the mods.
+  A list of mods in the [default.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/default.html) file. The [mod ID](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/modinfo.html#root-modinfo-id) should be used to reference the mods.
   
   It should use the following syntax:
   ```
@@ -18,5 +18,5 @@ parameters:
 - name: mod
   type:
     main: string
-  description: The mod ID of the mod to load, which can be found in the [mod.info](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root-modinfo.html) file of the mod.
+  description: The mod ID of the mod to load, which can be found in the [mod.info](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/modinfo.html) file of the mod.
   allowedDuplicate: true
