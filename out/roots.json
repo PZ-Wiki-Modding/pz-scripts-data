@@ -15,8 +15,7 @@
     "parents": [],
     "pattern": [
       "Blends\\.txt$"
-    ],
-    "shouldHaveParent": false
+    ]
   },
   "ROOT-Default": {
     "children": [
@@ -42,8 +41,7 @@
     "parents": [],
     "pattern": [
       "mods/default\\.txt$"
-    ],
-    "shouldHaveParent": false
+    ]
   },
   "ROOT-MapBaseXML": {
     "description": "The `MapBaseXML.txt` file is used to configure the layers of the TMX file.",
@@ -54,8 +52,7 @@
     "parents": [],
     "pattern": [
       "MapBaseXML\\.txt$"
-    ],
-    "shouldHaveParent": false
+    ]
   },
   "ROOT-MapInfo": {
     "description": "The `map.info` file is used to define the map's information. It is used by the game to display the map in the map selection screen and to load the map into the world.\nIt needs to be located in:\n```\n📁 media\n    📁maps\n        📁 <map folder>\n            📄 map.info\n```",
@@ -99,8 +96,7 @@
     "parents": [],
     "pattern": [
       "media\\/maps\\/[\\s\\S]+\\/map\\.info$"
-    ],
-    "shouldHaveParent": false
+    ]
   },
   "ROOT-ModInfo": {
     "description": "The mod.info file, which contains all the information about a mod.",
@@ -232,13 +228,12 @@
     "parents": [],
     "pattern": [
       "mod\\.info$"
-    ],
-    "shouldHaveParent": false
+    ]
   },
   "ROOT-Rules": {
     "children": [
-      "rule",
-      "alias"
+      "alias",
+      "rule"
     ],
     "description": "The `Rules.txt` file is used in the [mapping tools](https://pzwiki.net/wiki/Mapping#Mapping_tools) to define new [BMP to TMX](https://pzwiki.net/wiki/BMP_to_TMX) conversion rules. You can store this file anywhere on your computer and you need to reference it in the BMP Tool settings.\n\nA reference image containing the exact pixel colors you need to use for your BMP can be found [here](https://github.com/Unofficial-PZ-Mapping-Discord/B42-Colors/tree/main).",
     "isRoot": true,
@@ -255,8 +250,7 @@
     "parents": [],
     "pattern": [
       "Rules\\.txt$"
-    ],
-    "shouldHaveParent": false
+    ]
   },
   "ROOT-SandboxOptions": {
     "children": [
@@ -278,8 +272,7 @@
     "parents": [],
     "pattern": [
       "media\\/sandbox-options\\.txt$"
-    ],
-    "shouldHaveParent": false
+    ]
   },
   "ROOT-Scripts": {
     "children": [
@@ -292,8 +285,7 @@
     "parents": [],
     "pattern": [
       "media\\/scripts\\/[\\s\\S]+\\.txt$"
-    ],
-    "shouldHaveParent": false
+    ]
   },
   "ROOT-SpriteModels": {
     "children": [
@@ -306,8 +298,7 @@
     "parents": [],
     "pattern": [
       "media\\/spriteModels\\.txt$"
-    ],
-    "shouldHaveParent": false
+    ]
   },
   "ROOT-TMXconfig": {
     "children": [
@@ -336,8 +327,7 @@
     "parents": [],
     "pattern": [
       "TMXconfig\\.txt$"
-    ],
-    "shouldHaveParent": false
+    ]
   },
   "ROOT-TileGeometry": {
     "children": [
@@ -350,7 +340,6 @@
     "parents": [],
     "pattern": [
       "media\\/tileGeometry\\.txt$"
-    ],
-    "shouldHaveParent": false
+    ]
   }
 }
