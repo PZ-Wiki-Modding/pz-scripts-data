@@ -63,6 +63,13 @@ parameters:
     - 'Front'
     - 'None'
 - name: file
+  description: |-
+    Points to a [model](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html) block to use as the vehicle model.
+  type:
+    main: block
+    block:
+      name: model
+      fullType: false
 - name: invertX
   description: |-
     If set to `true`, the model scale will be inverted on the X axis.
