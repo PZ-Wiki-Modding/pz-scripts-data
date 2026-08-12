@@ -1,9 +1,15 @@
 version: 1
 name: ROOT-MapInfo
-description: "The `map.info` file is used to define the map's information. It is used\
-  \ by the game to display the map in the map selection screen and to load the map\
-  \ into the world.\nIt needs to be located in:\n```\n\U0001F4C1 media\n    \U0001F4C1\
-  maps\n        \U0001F4C1 <map folder>\n            \U0001F4C4 map.info\n```"
+description: |-
+  The `map.info` file is used to define the map's information. It is used by the game to display the map in the map selection screen and to load the map into the world.
+  
+  It needs to be located in:
+  ```
+  📁 media
+    📁 maps
+      📁 <map folder>
+        📄 map.info
+  ```
 parents: []
 isRoot: true
 noComma: true

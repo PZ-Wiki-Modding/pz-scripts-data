@@ -55,7 +55,7 @@
     ]
   },
   "ROOT-MapInfo": {
-    "description": "The `map.info` file is used to define the map's information. It is used by the game to display the map in the map selection screen and to load the map into the world.\nIt needs to be located in:\n```\n📁 media\n    📁maps\n        📁 <map folder>\n            📄 map.info\n```",
+    "description": "The `map.info` file is used to define the map's information. It is used by the game to display the map in the map selection screen and to load the map into the world.\n\nIt needs to be located in:\n```\n📁 media\n  📁 maps\n    📁 <map folder>\n      📄 map.info\n```",
     "isRoot": true,
     "name": "ROOT-MapInfo",
     "noComma": true,
@@ -99,7 +99,7 @@
     ]
   },
   "ROOT-ModInfo": {
-    "description": "The mod.info file, which contains all the information about a mod.",
+    "description": "The `mod.info` file, which contains all the information about a mod. It needs to be located alongside the media folder. See the wiki page [Mod structure](https://pzwiki.net/wiki/Mod_structure) for more information.\n\n```\n📁 MyMod\n  📁 <version>\n    📁 media\n    📄 mod.info\n```",
     "isRoot": true,
     "name": "ROOT-ModInfo",
     "noComma": true,
@@ -122,7 +122,11 @@
         "description": "Description of your mod, which shows up in the mod manager. The description supports [ISRichTextPanel](https://pzwiki.net/wiki/ISRichTextPanel) tags. A translation can be provided in the [Mod.json translation file](https://pzwiki.net/wiki/Translation).",
         "name": "description",
         "type": {
-          "main": "string"
+          "main": "translation",
+          "translation": {
+            "keyPattern": "description",
+            "sourceFile": "Mod"
+          }
         }
       },
       "icon": {
@@ -171,7 +175,11 @@
         "description": "The displayed name for your mod in the game's mod manager. A translation can be provided in the [Mod.json translation file](https://pzwiki.net/wiki/Translation).",
         "name": "name",
         "type": {
-          "main": "string"
+          "main": "translation",
+          "translation": {
+            "keyPattern": "name",
+            "sourceFile": "Mod"
+          }
         }
       },
       "pack": {

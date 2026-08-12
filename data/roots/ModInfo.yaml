@@ -1,6 +1,14 @@
 version: 1
 name: ROOT-ModInfo
-description: The mod.info file, which contains all the information about a mod.
+description: |-
+  The `mod.info` file, which contains all the information about a mod. It needs to be located alongside the media folder. See the wiki page [Mod structure](https://pzwiki.net/wiki/Mod_structure) for more information.
+
+  ```
+  📁 MyMod
+    📁 <version>
+      📁 media
+      📄 mod.info
+  ```
 parents: []
 isRoot: true
 noComma: true
@@ -9,9 +17,12 @@ pattern:
 parameters:
 - name: name
   type:
-    main: string
-  description: The displayed name for your mod in the game's mod manager. A translation
-    can be provided in the [Mod.json translation file](https://pzwiki.net/wiki/Translation).
+    main: translation
+    translation:
+      keyPattern: 'name'
+      sourceFile: Mod
+  description: |-
+    The displayed name for your mod in the game's mod manager. A translation can be provided in the [Mod.json translation file](https://pzwiki.net/wiki/Translation).
 - name: id
   type:
     main: string
@@ -24,20 +35,21 @@ parameters:
 - name: author
   type:
     main: string
-  description: Name of the author(s) of the mod. Multiple authors are often separated
-    by commas but no convention exists.
+  description: |-
+    Name of the author(s) of the mod. Multiple authors are often separated by commas but no convention exists.
 - name: description
   type:
-    main: string
-  description: Description of your mod, which shows up in the mod manager. The description
-    supports [ISRichTextPanel](https://pzwiki.net/wiki/ISRichTextPanel) tags. A translation
-    can be provided in the [Mod.json translation file](https://pzwiki.net/wiki/Translation).
+    main: translation
+    translation:
+      keyPattern: 'description'
+      sourceFile: Mod
+  description: |-
+    Description of your mod, which shows up in the mod manager. The description supports [ISRichTextPanel](https://pzwiki.net/wiki/ISRichTextPanel) tags. A translation can be provided in the [Mod.json translation file](https://pzwiki.net/wiki/Translation).
 - name: url
   type:
     main: string
-  description: Shows a URL link in the mod manager on the page of your mod for users
-    to click on to open in their internet browser. The parameter appears as "Homepage"
-    in the mod manager. For a list of valid links, see [URL](https://pzwiki.net/wiki/URL).
+  description: |-
+    Shows a URL link in the mod manager on the page of your mod for users to click on to open in their internet browser. The parameter appears as "Homepage" in the mod manager. For a list of valid links, see [URL](https://pzwiki.net/wiki/URL).
 - name: poster
   type:
     main: string
@@ -63,14 +75,13 @@ parameters:
 - name: icon
   type:
     main: string
-  description: Image which will be used in the mod manager to put next to the name
-    of the mod in the list of available mods. This image will be small and while you
-    can use a full image size, you do not need it. You can set your poster as the
-    icon too to not ship two images if desired.
+  description: |-
+    Image which will be used in the mod manager to put next to the name of the mod in the list of available mods. This image will be small and while you can use a full image size, you do not need it. You can set your poster as the icon too to not ship two images if desired.
 - name: modversion
   type:
     main: string
-  description: Version of the mod.
+  description: |-
+    Version of the mod.
 - name: require
   type:
     main: string
@@ -114,14 +125,13 @@ parameters:
 - name: category
   type:
     main: string
-  description: Category is used for filtering mods in the in-game ModManager. Known
-    categories are "map", "vehicle", "features", "modpack". Using other terms will
-    not generate a new filter category.
+  description: |-
+    Category is used for filtering mods in the in-game ModManager. Known categories are "map", "vehicle", "features", "modpack". Using other terms will not generate a new filter category.
 - name: pack
   type:
     main: string
-  description: Name of pack files that need to be loaded by the game. Notably used
-    for [Texture pack](https://pzwiki.net/wiki/Texture_pack) and [Tile pack](https://pzwiki.net/wiki/Mapping).
+  description: |-
+    Name of pack files that need to be loaded by the game. Notably used for [Texture pack](https://pzwiki.net/wiki/Texture_pack) and [Tile pack](https://pzwiki.net/wiki/Mapping).
 - name: tiledef
   type:
     main: string
@@ -137,12 +147,10 @@ parameters:
 - name: versionMin
   type:
     main: string
-  description: The minimum version of the game the mod can be used on. This number
-    needs to be in the format `build.major` at the very least, and not just `build`
-    or it won't work. Example `42.0`.
+  description: |-
+    The minimum version of the game the mod can be used on. This number needs to be in the format `build.major` at the very least, and not just `build` or it won't work. Example `42.0`.
 - name: versionMax
   type:
     main: string
-  description: The maximum version of the game the mod can be used on. This number
-    needs to be in the format `build.major` at the very least, and not just `build`
-    or it won't work. Example `42.12`.
+  description: |-
+    The maximum version of the game the mod can be used on. This number needs to be in the format `build.major` at the very least, and not just `build` or it won't work. Example `42.12`.
