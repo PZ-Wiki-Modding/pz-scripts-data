@@ -49,11 +49,17 @@ parameters:
       string: string
 - name: page
   type:
-    main: string
+    main: translation
+    translation:
+      keyPattern: Sandbox_{value}
+      sourceFile: Sandbox
   description: The sandbox option to add the option to. Can be a custom page.
 - name: translation
   type:
-    main: string
+    main: translation
+    translation:
+      keyPattern: Sandbox_{value}
+      sourceFile: Sandbox
   description: |-
     The translation key for the option's name. The translation key in the [Sandbox](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#sandbox) translation file should have the prefix `Sandbox_`.
 
