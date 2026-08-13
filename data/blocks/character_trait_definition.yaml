@@ -13,10 +13,12 @@ parameters:
     main: boolean
   required: true
 - name: DisabledInMultiplayer
-  description: If true, this trait will be disabled in multiplayer games.
+  description: Previously was used to mark traits as disabled in multiplayer, but is now deprecated and has no effect.
   type:
     main: boolean
   required: true
+  deprecated:
+    description: This parameter is no longer used and now has no effect.
 - name: Cost
   description: The cost of the trait when selecting a character. Negative values give
     points, positive values take points.
