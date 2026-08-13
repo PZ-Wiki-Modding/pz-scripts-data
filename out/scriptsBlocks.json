@@ -782,7 +782,10 @@
         }
       },
       "disabledinmultiplayer": {
-        "description": "If true, this trait will be disabled in multiplayer games.",
+        "deprecated": {
+          "description": "This parameter is no longer used and now has no effect."
+        },
+        "description": "Previously was used to mark traits as disabled in multiplayer, but is now deprecated and has no effect.",
         "name": "DisabledInMultiplayer",
         "required": true,
         "type": {
@@ -6834,14 +6837,22 @@
         "description": "The sandbox option to add the option to. Can be a custom page.",
         "name": "page",
         "type": {
-          "main": "string"
+          "main": "translation",
+          "translation": {
+            "keyPattern": "Sandbox_{value}",
+            "sourceFile": "Sandbox"
+          }
         }
       },
       "translation": {
         "description": "The translation key for the option's name. The translation key in the [Sandbox](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#sandbox) translation file should have the prefix `Sandbox_`.\n\nFor example, with the translation parameter as such:\n```java\ntranslation = MyMod_MyOption\n```\nThe translation key in the Sandbox translation file should be:\n```json\n\"Sandbox_MyMod_MyOption\": \"My Option\"\n```",
         "name": "translation",
         "type": {
-          "main": "string"
+          "main": "translation",
+          "translation": {
+            "keyPattern": "Sandbox_{value}",
+            "sourceFile": "Sandbox"
+          }
         }
       },
       "type": {
