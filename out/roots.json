@@ -19,8 +19,8 @@
   },
   "ROOT-Default": {
     "children": [
-      "mods",
-      "maps"
+      "maps",
+      "mods"
     ],
     "description": "The default.txt file is used to select the mods and maps that will be loaded by the game.",
     "isRoot": true,
