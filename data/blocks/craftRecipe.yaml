@@ -113,6 +113,7 @@ ID:
   translation:
     keyPattern: '{value}'
     sourceFile: Recipes
+  canHaveSpace: true
 softOverride: true
 parameters:
 - name: AllowBatchCraft
