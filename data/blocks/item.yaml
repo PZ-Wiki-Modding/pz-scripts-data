@@ -2653,6 +2653,8 @@ parameters:
   description: |-
     Used to set the number of [uses](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/InventoryItem.html#getCurrentUses()) for the item where its durability has a value of `1` when full and `0` when empty. For example, a [base:drainable](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype) item with a `UseDelta` of `0.03125` (the default value) will have 32 uses ($1/0.03125$) before it is depleted.
 
+    Additionally, a modder can determine how long a battery will last (as In-Game Hours) for a battery-powered device by using the following formula: `# of Hours = 1 / (useDelta * 6)`
+
     When used for [Clothing items](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype), the `UseDelta` is used to indicate the amount of durability lost for [oxygen tanks](https://pzwiki.net/wiki/Oxygen_Tank) for items with the [ItemTag](https://pz-wiki-modding.github.io/PZ-API-Docs/java/item_tags.html) `base:scba` or [gas mask filters](https://pzwiki.net/wiki/Gas_Mask_Filter) for items with the ItemTags `base:gasmask`, `base:respirator` or `base:improvisedgasmask`.
 
     Some vanilla food items are using that parameter but it doesn't seem to be used for those anywhere. There's uses for it in the Java for Drainable, Weapon and Radio items, but it doesn't seem to be limited to those.
