@@ -792,6 +792,15 @@ parameters:
   - clothing
   - container
 - name: DisplayCategory
+  description: |-
+    Used to define the category being displayed in the inventory menu. The value needs to be a key which is used to refer to the translation in the [IG_UI](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig-ui) translation file. The translation key will be <code>IGUI_ItemCat_{value}</code> where <code>{value}</code> is the value of this parameter. 
+
+    For example, if you want to display the category as "Weapons", the translation key will be `IGUI_ItemCat_Weapons`.
+  type:
+    main: translation
+    translation:
+      keyPattern: IGUI_ItemCat_{value}
+      sourceFile: IG_UI
 - name: DamageModifier
   "#desc": item/MaxDamage
   type:
@@ -2584,18 +2593,13 @@ parameters:
     main: float
   default: 1.0
 - name: Tooltip
-  itemTypes:
-  - clothing
-  - container
-  - drainable
-  - food
-  - key
-  - literature
-  - moveable
-  - normal
-  - radio
-  - weapon
-  - weaponpart
+  description: |-
+    Defines the tooltip of the item. The value needs to be a translation key preferably in the [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) translation file. If the translation key doesn't exist, the value will be used as the tooltip instead.
+  type:
+    main: translation
+    translation:
+      keyPattern: "{value}"
+      sourceFile: Tooltip
 - name: TorchCone
   itemTypes:
   - drainable
