@@ -1446,14 +1446,16 @@ parameters:
   - clothing
   - drainable
 - name: KnockBackOnNoDeath
-  itemTypes:
-  - weapon
+  type:
+    main: boolean
+  default: true
 - name: KnockdownMod
-  itemTypes:
-  - weapon
   type:
     main: float
   default: 1.0
+  deprecated:
+    description: |-
+      This parameter is not used by the base game.
 - name: LearnedRecipes
   description: |-
     List of [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html) this item will teach the player when read.
@@ -1754,11 +1756,11 @@ parameters:
       separator: ';'
       type: string
 - name: MultipleHitConditionAffected
-  itemTypes:
-  - weapon
   type:
     main: boolean
-  default: true
+  deprecated:
+    description: |-
+      This parameter is not used by the base game.
 - name: MuzzleFlashModelKey
   type:
     main: block
@@ -2587,11 +2589,12 @@ parameters:
     main: integer
   default: 30
 - name: ToHitModifier
-  itemTypes:
-  - weapon
   type:
     main: float
   default: 1.0
+  deprecated:
+    description: |-
+      This parameter is not used by the base game.
 - name: Tooltip
   description: |-
     Defines the tooltip of the item. The value needs to be a translation key preferably in the [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) translation file. If the translation key doesn't exist, the value will be used as the tooltip instead.
