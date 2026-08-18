@@ -2068,9 +2068,9 @@ parameters:
     - name: IsAimedFirearm
       values:
         - true
-    - name: RangeFalloff
-      values:
-        - true
+    # - name: RangeFalloff
+    #   values:
+    #     - true
   type:
     main: integer
 - name: ProjectileSpread
