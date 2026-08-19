@@ -4293,16 +4293,17 @@
         "name": "KeepOnDeplete"
       },
       "knockbackonnodeath": {
-        "itemTypes": [
-          "weapon"
-        ],
-        "name": "KnockBackOnNoDeath"
+        "default": true,
+        "name": "KnockBackOnNoDeath",
+        "type": {
+          "main": "boolean"
+        }
       },
       "knockdownmod": {
         "default": 1.0,
-        "itemTypes": [
-          "weapon"
-        ],
+        "deprecated": {
+          "description": "This parameter is not used by the base game."
+        },
         "name": "KnockdownMod",
         "type": {
           "main": "float"
@@ -4736,10 +4737,9 @@
         }
       },
       "multiplehitconditionaffected": {
-        "default": true,
-        "itemTypes": [
-          "weapon"
-        ],
+        "deprecated": {
+          "description": "This parameter is not used by the base game."
+        },
         "name": "MultipleHitConditionAffected",
         "type": {
           "main": "boolean"
@@ -5203,12 +5203,6 @@
           },
           {
             "name": "IsAimedFirearm",
-            "values": [
-              true
-            ]
-          },
-          {
-            "name": "RangeFalloff",
             "values": [
               true
             ]
@@ -5995,9 +5989,9 @@
       },
       "tohitmodifier": {
         "default": 1.0,
-        "itemTypes": [
-          "weapon"
-        ],
+        "deprecated": {
+          "description": "This parameter is not used by the base game."
+        },
         "name": "ToHitModifier",
         "type": {
           "main": "float"
