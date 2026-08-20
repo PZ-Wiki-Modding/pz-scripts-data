@@ -38,7 +38,7 @@
         },
         "sourceFile": {
           "type": "string",
-          "description": "The source file where the translation key is defined."
+          "description": "The source file where the translation key is defined (without the .json extension)."
         }
       }
     }

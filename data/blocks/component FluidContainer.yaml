@@ -13,12 +13,14 @@ parameters:
   description: The fluid capacity of the container, the minimum value is `0.05`.
 - name: ContainerName
   type:
-    main: string
+    main: translation
+    translation:
+      keyPattern: Fluid_Container_{value}
+      sourceFile: Fluid
   default: FluidContainer
-  description: The name of the fluid container, seems to be unused. The name cannot
+  description: The name of the fluid container. The name cannot
     have whitespaces, the game will sanitize it to remove them and show an error in
     the console about it.
-  isUseless: true
 - name: CustomDrinkSound
   description: Refers to a [sound block](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/sound.html)
     to trigger when drinking.
