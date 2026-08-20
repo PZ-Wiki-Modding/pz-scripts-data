@@ -32,6 +32,10 @@ jobs:
           source .venv/bin/activate
           pip install .
 
+      - name: Run schema validation
+        run: |
+          make validate
+
       - name: Run output formatting
         run: |
           make format
