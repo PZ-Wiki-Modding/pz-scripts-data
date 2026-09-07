@@ -27,3 +27,6 @@ release:
 	latest_release=$$(python3 -c "import json; print(json.load(open('./manifest.json'))['latest'])"); \
 	echo "Latest release: $$latest_release"; \
 	gh release create "$$latest_release" --title "$$latest_release" --notes "Automated release"
+	git add manifest.json
+	git commit -m "Add release $$latest_release to manifest"
+	git push
