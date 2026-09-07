@@ -24,5 +24,6 @@ set_stable:
 
 release:
 	./.venv/bin/python ./src/pz_scripts_data/release.py
-	latest_release=$(shell cat ./manifest.json | jq -r '.latest') 
-	gh release create "v$(latest_release)" --title "Release $(latest_release)" --notes "Automated release"
+	latest_release=$$(python3 -c "import json; print(json.load(open('./manifest.json'))['latest'])"); \
+	echo "Latest release: $$latest_release"; \
+	gh release create "$$latest_release" --title "$$latest_release" --notes "Automated release"
