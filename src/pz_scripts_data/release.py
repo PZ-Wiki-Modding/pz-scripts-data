@@ -16,9 +16,21 @@ def assert_release_number(version: str) -> tuple[int, int, int]:
         raise ValueError(f"Error parsing build version: {e}")
     return major, minor, patch
 
+def assert_release_with_version(version: str) -> tuple[int, int, int, int]:
+    splitted = version.split('.')
+    if len(splitted) != 4:
+        raise ValueError("Invalid release version format. Expected format: 'major.minor.patch.version'")
+    try:
+        major, minor, patch, release_version = [int(x) for x in splitted]
+    except ValueError:
+        raise ValueError("Invalid release version format. Expected format: 'major.minor.patch.version' with integers")
+    except Exception as e:
+        raise ValueError(f"Error parsing release version: {e}")
+    return major, minor, patch, release_version
+
 def main():
     parser = argparse.ArgumentParser(description="Release a dataset build")
-    parser.add_argument("--set-stable", action="store_true", help="Move the stable to the current build version")
+    parser.add_argument("--set-stable", type=str, help="Move the stable to the provided build version")
     parser.add_argument("--set-latest-build", type=str, help="Update the latest build version in the manifest")
     parser.add_argument("--set-latest-release", type=str, help="Update the latest release version in the manifest")
     parser.add_argument("--build", type=str, help="Specify the new build version")
@@ -52,13 +64,13 @@ def main():
 
     # set new stable
     elif set_stable:
-        print(f"Setting stable to {latest_build}")
-        MANIFEST_DATA['stable'] = latest_build
+        print(f"Setting stable to {set_stable}")
+        MANIFEST_DATA['stable'] = set_stable
 
     # handle set-latest-release argument
     elif set_latest_release is not None:
         print(f"Setting latest release to {set_latest_release}")
-        assert_release_number(set_latest_release)
+        assert_release_with_version(set_latest_release)
 
         # get associated release
         releases = MANIFEST_DATA['releases']
