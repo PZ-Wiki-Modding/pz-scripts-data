@@ -1,6 +1,11 @@
 {
     "latest": {},
     "latest_build": "42.20.4",
-    "releases": {},
+    "releases": {
+        "42.20.4": {
+            "date": "2026-09-08T02:31:28.491498",
+            "version": 0
+        }
+    },
     "stable": "42.20.4"
 }
