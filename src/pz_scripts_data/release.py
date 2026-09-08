@@ -18,7 +18,7 @@ def assert_release_number(version: str) -> tuple[int, int, int]:
 
 def main():
     parser = argparse.ArgumentParser(description="Release a dataset build")
-    parser.add_argument("--set-stable", type=str, help="Move the stable to the specified build version")
+    parser.add_argument("--set-stable", action="store_true", help="Move the stable to the current build version")
     parser.add_argument("--set-latest-build", type=str, help="Update the latest build version in the manifest")
     parser.add_argument("--set-latest-release", type=str, help="Update the latest release version in the manifest")
     parser.add_argument("--build", type=str, help="Specify the new build version")
@@ -38,7 +38,10 @@ def main():
     set_latest_build = args.set_latest_build
     set_latest_release = args.set_latest_release
     set_stable = args.set_stable
+
+    pushed_new_release = None
     if set_latest_build is not None:
+        print(f"Setting latest build to {set_latest_build}")
         splitted = set_latest_build.split('.')
         if len(splitted) != 3:
             raise ValueError("Invalid build version format. Expected format: 'major.minor.patch'")
@@ -48,13 +51,13 @@ def main():
         MANIFEST_DATA['latest_build'] = set_latest_build
 
     # set new stable
-    elif set_stable is not None:
-        assert_release_number(set_stable)
-
-        MANIFEST_DATA['stable'] = set_stable
+    elif set_stable:
+        print(f"Setting stable to {latest_build}")
+        MANIFEST_DATA['stable'] = latest_build
 
     # handle set-latest-release argument
     elif set_latest_release is not None:
+        print(f"Setting latest release to {set_latest_release}")
         assert_release_number(set_latest_release)
 
         # get associated release
@@ -65,25 +68,37 @@ def main():
 
     # no args, push a new release
     else:
+        print("Pushing a new release")
         current_date = datetime.datetime.now().isoformat()
         releases = MANIFEST_DATA['releases']
         build = args.build if args.build is not None else f"{major}.{minor}.{patch}"
+        version = 0
         if build not in releases.keys():
             releases[build] = {
                 'date': current_date,
-                'version': 0,
+                'version': version,
             }
         else:
             existing_build = releases[build]
             existing_build['date'] = current_date
             existing_build['version'] += 1
+            version = existing_build['version']
+        pushed_new_release = f"{build}.{version}"
 
     # write latest changes
     MANIFEST_FILE.write_text(json.dumps(MANIFEST_DATA, indent=4))
 
     # commit latest manifest changes
-    subprocess.run(["git", "add", str(MANIFEST_FILE)], check=True)
-    subprocess.run(["git", "commit", "-m", "MANIFEST"], check=True)
+    try:
+        subprocess.run(["git", "add", str(MANIFEST_FILE)], check=True)
+        message = "MANIFEST"
+        if pushed_new_release is not None:
+            message += f": {pushed_new_release}"
+        subprocess.run(["git", "commit", "-m", message], check=True)
+    except Exception as e:
+        print(f"Error committing changes: {e}")
+
+    # that one we don't ignore, since that could been connection issues
     subprocess.run(["git", "push"], check=True)
 
     # if set as stable is active
@@ -91,7 +106,12 @@ def main():
     if set_stable is not None:
         subprocess.run(["git", "tag", "-fa", "stable", "-m", "Moved stable tag"], check=True)
         subprocess.run(["git", "push", "-f", "--tags"], check=True)
+        print(f"Moved stable tag")
 
+    if pushed_new_release is not None:
+        subprocess.run(["git", "tag", "-fa", pushed_new_release, "-m", "New release"], check=True)
+        subprocess.run(["git", "push", "-f", "--tags"], check=True)
+        print(f"Pushed new release: {pushed_new_release}")
 
 
 
