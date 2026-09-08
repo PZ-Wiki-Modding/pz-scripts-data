@@ -106,6 +106,8 @@ def main():
         message = "MANIFEST"
         if pushed_new_release is not None:
             message += f": {pushed_new_release}"
+        elif set_stable is not None:
+            message += f": New stable {set_stable}"
         subprocess.run(["git", "commit", "-m", message], check=True)
     except Exception as e:
         print(f"Error committing changes: {e}")

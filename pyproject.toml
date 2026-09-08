@@ -11,3 +11,6 @@ dependencies = [
     "pyyaml",
     "jsonschema",
 ]
+
+[project.scripts]
+release = "pz_scripts_data.release:main"
