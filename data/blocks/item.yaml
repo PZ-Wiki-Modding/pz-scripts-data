@@ -2757,7 +2757,7 @@ parameters:
     - `doublebarrelshotgun`
     - `doublebarrelshotgunsawn`
 
-    A custom `WeaponReloadType` can be used if the relevant animations and condition logic are properly set up in a custom [AnimNode](https://pzwiki.net/wiki/AnimNodes).
+    A custom `WeaponReloadType` cannot be defined due to them being hardcoded in the game's Java via an [enum](https://albion.codeberg.page/PZ-JavaDocs/zombie/scripting/objects/WeaponReloadType.html). You can read more about it [here](https://discord.com/channels/136501320340209664/1476602902607954043/1492110660858024026).
   seeAlso:
     - AmmoType
     - MagazineType
