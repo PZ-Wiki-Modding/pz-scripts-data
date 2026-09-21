@@ -6240,7 +6240,7 @@
       },
       "weaponreloadtype": {
         "default": "handgun",
-        "description": "Used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pz-wiki-modding.github.io/PZ-API-Docs/xml/animnode.html#m-conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:\n- `handgun`\n- `shotgun`\n- `boltactionnomag`\n- `boltaction`\n- `revolver`\n- `doublebarrelshotgun`\n- `doublebarrelshotgunsawn`\n\nA custom `WeaponReloadType` can be used if the relevant animations and condition logic are properly set up in a custom [AnimNode](https://pzwiki.net/wiki/AnimNodes).",
+        "description": "Used to select the reload workflow of the gun. Notably affects rack-after-shot, insertion style and animations. The provided value references the [variable condition](https://pz-wiki-modding.github.io/PZ-API-Docs/xml/animnode.html#m-conditions) `WeaponReloadType` in [AnimNodes](https://pzwiki.net/wiki/AnimNodes). The game has the following values available by default:\n- `handgun`\n- `shotgun`\n- `boltactionnomag`\n- `boltaction`\n- `revolver`\n- `doublebarrelshotgun`\n- `doublebarrelshotgunsawn`\n\nA custom `WeaponReloadType` cannot be defined due to them being hardcoded in the game's Java via an [enum](https://albion.codeberg.page/PZ-JavaDocs/zombie/scripting/objects/WeaponReloadType.html). You can read more about it [here](https://discord.com/channels/136501320340209664/1476602902607954043/1492110660858024026).",
         "name": "WeaponReloadType",
         "needs": [
           {
