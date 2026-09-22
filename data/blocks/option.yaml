@@ -64,8 +64,8 @@ parameters:
     The translation key for the option's name. The translation key in the [Sandbox](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#sandbox) translation file should have the prefix `Sandbox_`.
 
     For example, with the translation parameter as such:
-    ```java
-    translation = MyMod_MyOption
+    ```cpp
+    translation = MyMod_MyOption,
     ```
     The translation key in the Sandbox translation file should be:
     ```json
