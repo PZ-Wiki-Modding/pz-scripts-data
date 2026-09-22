@@ -1084,7 +1084,7 @@
       "category": {
         "#ref": "craftRecipe/category",
         "default": "Miscellaneous",
-        "description": "The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig-ui) translation file to be properly displayed in the crafting menu. For example:\n```java\ncategory = MyCategory,\n```\nAnd in the translation file:\n```json\n{\n  \"IGUI_CraftingCategories_MyCategory\": \"My Category\"\n}\n```",
+        "description": "The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig-ui) translation file to be properly displayed in the crafting menu. For example:\n```cpp\ncategory = MyCategory,\n```\nAnd in the translation file:\n```json\n{\n  \"IGUI_CraftingCategories_MyCategory\": \"My Category\"\n}\n```",
         "name": "category",
         "type": {
           "main": "translation",
@@ -1126,7 +1126,7 @@
       },
       "skillrequired": {
         "#ref": "craftRecipe/SkillRequired",
-        "description": "Specifies the skill level required to perform this crafting action. It should be formatted this way:\n```java\n/* a single skill */\nskillRequired = <skill name>:<level>,\n\n/* multiple skills */\nskillRequired = <skill1 name>:<level>;<skill2 name>:<level>,\n```\nFor the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```java\nskillRequired = Blacksmith:3;Tailoring:2,\n```",
+        "description": "Specifies the skill level required to perform this crafting action. It should be formatted this way:\n```cpp\n/* a single skill */\nskillRequired = <skill name>:<level>,\n\n/* multiple skills */\nskillRequired = <skill1 name>:<level>;<skill2 name>:<level>,\n```\nFor the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nskillRequired = Blacksmith:3;Tailoring:2,\n```",
         "name": "SkillRequired",
         "type": {
           "main": "object",
@@ -1140,7 +1140,7 @@
       },
       "tags": {
         "#ref": "craftRecipe/tags",
-        "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:\n```java\n/* single tag */\nTags = tag1,\n\n/* multiple tags */\nTags = tag1;tag2;...,\n```\n\nFor example:\n```java\nTags = InHandCraft;CanAlwaysBeResearched,\n```\n\nA crafting bench tag can be created by adding a [component CraftBench](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component-craftbench.html) to an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) script, which can then be used in this tags parameter.\n\nYou can find a list of tags available on the [wiki](https://pzwiki.net/wiki/CraftRecipe#List_of_tags).",
+        "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:\n```cpp\n/* single tag */\nTags = tag1,\n\n/* multiple tags */\nTags = tag1;tag2;...,\n```\n\nFor example:\n```cpp\nTags = InHandCraft;CanAlwaysBeResearched,\n```\n\nA crafting bench tag can be created by adding a [component CraftBench](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component-craftbench.html) to an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) script, which can then be used in this tags parameter.\n\nYou can find a list of tags available on the [wiki](https://pzwiki.net/wiki/CraftRecipe#List_of_tags).",
         "name": "tags",
         "required": true,
         "type": {
@@ -1173,7 +1173,7 @@
       },
       "tooltip": {
         "#ref": "craftRecipe/Tooltip",
-        "description": "Description of the crafting which is shown in the crafting menu. The value needs be a key in the [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) translation file. For example:\n```java\nTooltip = MyTooltipKey,\n```\nAnd in the translation file:\n```json\n{\n  \"MyTooltipKey\": \"This is my tooltip description.\"\n}\n```",
+        "description": "Description of the crafting which is shown in the crafting menu. The value needs be a key in the [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) translation file. For example:\n```cpp\nTooltip = MyTooltipKey,\n```\nAnd in the translation file:\n```json\n{\n  \"MyTooltipKey\": \"This is my tooltip description.\"\n}\n```",
         "name": "Tooltip",
         "type": {
           "main": "translation",
@@ -1185,7 +1185,7 @@
       },
       "xpaward": {
         "#ref": "craftRecipe/xpAward",
-        "description": "Specifies the experience points awarded for crafting this item. The parameter should be formatted this way:\n```java\n/* a single skill */\nxpAward = <skill name>:<xp amount>,\n\n/* multiple skills */\nxpAward = <skill1 name>:<xp amount>;<skill2 name>:<xp amount>,format\n```\nFor the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```java\nxpAward = Blacksmith:10;Tailoring:5,\n```",
+        "description": "Specifies the experience points awarded for crafting this item. The parameter should be formatted this way:\n```cpp\n/* a single skill */\nxpAward = <skill name>:<xp amount>,\n\n/* multiple skills */\nxpAward = <skill1 name>:<xp amount>;<skill2 name>:<xp amount>,format\n```\nFor the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nxpAward = Blacksmith:10;Tailoring:5,\n```",
         "name": "xpAward"
       }
     },
@@ -1572,7 +1572,7 @@
       "inputs",
       "itemMapper"
     ],
-    "description": "The 'craftRecipe' script block is used to define a crafting recipe, which allows players to craft items or tiles in the game based on the parent script block. For example, a craftRecipe defined inside a [module](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/module.html) will be a recipe to craft an item usually, while when defined inside an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) it will be the building recipe for that entity.\n\nA craftRecipe will usually require an [inputs](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/inputs.html) and [outputs](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/outputs.html) block. Other parameters are used to define properties of this recipe, such as the [time](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#time) it takes to craft or the [XP awarded](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#xpaward) for crafting it.\n\nFor example:\n```java\nmodule yourModule /* or Base */\n{\n    craftRecipe yourRecipeID\n    {\n        ...\n    }\n}\n```\n\nSome methods to modify existing recipes are documented on the [wiki](https://pzwiki.net/wiki/CraftRecipe#Modifying_existing_recipes).\n\nTo define a translation for this recipe, you need to create an entry in the translation file [Recipes.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#recipes). The translation entry should be formatted like this:\n```json\n{\n  \"yourRecipeID\": \"Your recipe\"\n}\n```\n\nNotice how you shouldn't use the [module](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/module.html) in the translation file key and only the craftRecipe ID.\n\nHere's an example of a craftRecipe with some parameters defined:\n```java\ncraftRecipe SawLogs\n{\n    timedAction = SawLogs,\n    Time = 230,\n    Tags = InHandCraft;CanBeDoneFromFloor,\n    category = Carpentry,\n    xpAward = Woodwork:5,\n    inputs\n    {\n        item 1 [Base.Log] flags[Prop2],\n        item 1 tags[Saw] mode:keep flags[MayDegradeLight;Prop1],\n    }\n    outputs\n    {\n        item 3 Base.Plank,\n    }\n}\n```\n\nOr:\n```java\ncraftRecipe CarveWhistle\n{\n    time = 200,\n    tags = AnySurfaceCraft;Survivalist,\n    category = Carving,\n    xpAward = Carving:60,\n    SkillRequired = Carving:6,\n    needTobeLearn = true,\n    AutoLearnAny = Carving:8,\n    timedAction = SharpenStake,\n    inputs\n    {\n        item 1 tags[DrillWood;DrillMetal;DrillWoodPoor] mode:keep flags[MayDegradeLight],\n        item 1 tags[SharpKnife] mode:keep flags[MayDegradeLight],\n        item 1 [Base.SmallAnimalBone] flags[Prop2;AllowDestroyedItem],\n    }\n    outputs\n    {\n        item 1 Base.Whistle_Bone,\n    }\n}\n```\n\nAnd a more advanced one:\n```java\ncraftRecipe RefillHurricaneLantern\n{\n    timedAction = Making,\n    Time = 50,\n    OnCreate = Recipe.OnCreate.RefillHurricaneLantern,\n    /* OnTest = Recipe.OnTest.RefillHurricaneLantern, */\n    Tags = InHandCraft;CanBeDoneInDark,\n    category = Miscellaneous, /*category = Survival,*/\n    inputs\n    {\n        item 1 [Base.Lantern_Hurricane;Base.Lantern_Hurricane_Copper;Base.Lantern_Hurricane_Forged;Base.Lantern_Hurricane_Gold;Base.Lantern_Hurricane_Silver] mode:destroy flags[NotFull;AllowFavorite;InheritFavorite;ItemCount] mappers[LampMapper],\n        item 1 [*],\n        -fluid 1.0 [Petrol],\n    }\n    outputs\n    {\n        item 1 mapper:LampMapper,\n    }\n    itemMapper LampMapper\n    {\n        Base.Lantern_Hurricane = Base.Lantern_Hurricane,\n        Base.Lantern_Hurricane_Copper = Base.Lantern_Hurricane_Copper,\n        Base.Lantern_Hurricane_Forged = Base.Lantern_Hurricane_Forged,\n        Base.Lantern_Hurricane_Gold = Base.Lantern_Hurricane_Gold,\n        Base.Lantern_Hurricane_Silver = Base.Lantern_Hurricane_Silver,\n\n        default = Base.Lantern_Hurricane,\n    }\n}\n```",
+    "description": "The 'craftRecipe' script block is used to define a crafting recipe, which allows players to craft items or tiles in the game based on the parent script block. For example, a craftRecipe defined inside a [module](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/module.html) will be a recipe to craft an item usually, while when defined inside an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) it will be the building recipe for that entity.\n\nA craftRecipe will usually require an [inputs](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/inputs.html) and [outputs](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/outputs.html) block. Other parameters are used to define properties of this recipe, such as the [time](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#time) it takes to craft or the [XP awarded](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#xpaward) for crafting it.\n\nFor example:\n```cpp\nmodule yourModule /* or Base */\n{\n    craftRecipe yourRecipeID\n    {\n        ...\n    }\n}\n```\n\nSome methods to modify existing recipes are documented on the [wiki](https://pzwiki.net/wiki/CraftRecipe#Modifying_existing_recipes).\n\nTo define a translation for this recipe, you need to create an entry in the translation file [Recipes.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#recipes). The translation entry should be formatted like this:\n```json\n{\n  \"yourRecipeID\": \"Your recipe\"\n}\n```\n\nNotice how you shouldn't use the [module](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/module.html) in the translation file key and only the craftRecipe ID.\n\nHere's an example of a craftRecipe with some parameters defined:\n```cpp\ncraftRecipe SawLogs\n{\n    timedAction = SawLogs,\n    Time = 230,\n    Tags = InHandCraft;CanBeDoneFromFloor,\n    category = Carpentry,\n    xpAward = Woodwork:5,\n    inputs\n    {\n        item 1 [Base.Log] flags[Prop2],\n        item 1 tags[Saw] mode:keep flags[MayDegradeLight;Prop1],\n    }\n    outputs\n    {\n        item 3 Base.Plank,\n    }\n}\n```\n\nOr:\n```cpp\ncraftRecipe CarveWhistle\n{\n    time = 200,\n    tags = AnySurfaceCraft;Survivalist,\n    category = Carving,\n    xpAward = Carving:60,\n    SkillRequired = Carving:6,\n    needTobeLearn = true,\n    AutoLearnAny = Carving:8,\n    timedAction = SharpenStake,\n    inputs\n    {\n        item 1 tags[DrillWood;DrillMetal;DrillWoodPoor] mode:keep flags[MayDegradeLight],\n        item 1 tags[SharpKnife] mode:keep flags[MayDegradeLight],\n        item 1 [Base.SmallAnimalBone] flags[Prop2;AllowDestroyedItem],\n    }\n    outputs\n    {\n        item 1 Base.Whistle_Bone,\n    }\n}\n```\n\nAnd a more advanced one:\n```cpp\ncraftRecipe RefillHurricaneLantern\n{\n    timedAction = Making,\n    Time = 50,\n    OnCreate = Recipe.OnCreate.RefillHurricaneLantern,\n    /* OnTest = Recipe.OnTest.RefillHurricaneLantern, */\n    Tags = InHandCraft;CanBeDoneInDark,\n    category = Miscellaneous, /*category = Survival,*/\n    inputs\n    {\n        item 1 [Base.Lantern_Hurricane;Base.Lantern_Hurricane_Copper;Base.Lantern_Hurricane_Forged;Base.Lantern_Hurricane_Gold;Base.Lantern_Hurricane_Silver] mode:destroy flags[NotFull;AllowFavorite;InheritFavorite;ItemCount] mappers[LampMapper],\n        item 1 [*],\n        -fluid 1.0 [Petrol],\n    }\n    outputs\n    {\n        item 1 mapper:LampMapper,\n    }\n    itemMapper LampMapper\n    {\n        Base.Lantern_Hurricane = Base.Lantern_Hurricane,\n        Base.Lantern_Hurricane_Copper = Base.Lantern_Hurricane_Copper,\n        Base.Lantern_Hurricane_Forged = Base.Lantern_Hurricane_Forged,\n        Base.Lantern_Hurricane_Gold = Base.Lantern_Hurricane_Gold,\n        Base.Lantern_Hurricane_Silver = Base.Lantern_Hurricane_Silver,\n\n        default = Base.Lantern_Hurricane,\n    }\n}\n```",
     "name": "craftRecipe",
     "needsChildren": [
       "inputs"
@@ -1594,7 +1594,7 @@
         }
       },
       "autolearnall": {
-        "description": "The [AutoLearnAll](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#autolearnall) parameter specifies that all the provided skills and their associated level need to be reached to automatically learn the recipe. On the other hand, [AutoLearnAny](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#autolearnany) specifies that at least one of the skills and its associated level need to be reached to automatically learn the recipe. Both can also be used together.\n\nBoth parameters should be formatted this way:\n```java\n/* a single skill */\nautoLearnAll = <skill name>:<level amount>,\n\n/* multiple skills */\nautoLearnAll = <skill1 name>:<level amount>;<skill2 name>:<level amount>,\n```\nFor the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```java\nautoLearnAll = Carving:3;Maintenance:2,\n```",
+        "description": "The [AutoLearnAll](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#autolearnall) parameter specifies that all the provided skills and their associated level need to be reached to automatically learn the recipe. On the other hand, [AutoLearnAny](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#autolearnany) specifies that at least one of the skills and its associated level need to be reached to automatically learn the recipe. Both can also be used together.\n\nBoth parameters should be formatted this way:\n```cpp\n/* a single skill */\nautoLearnAll = <skill name>:<level amount>,\n\n/* multiple skills */\nautoLearnAll = <skill1 name>:<level amount>;<skill2 name>:<level amount>,\n```\nFor the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nautoLearnAll = Carving:3;Maintenance:2,\n```",
         "name": "AutoLearnAll",
         "type": {
           "main": "object",
@@ -1608,7 +1608,7 @@
       },
       "autolearnany": {
         "#desc": "craftRecipe/AutoLearnAll",
-        "description": "The [AutoLearnAll](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#autolearnall) parameter specifies that all the provided skills and their associated level need to be reached to automatically learn the recipe. On the other hand, [AutoLearnAny](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#autolearnany) specifies that at least one of the skills and its associated level need to be reached to automatically learn the recipe. Both can also be used together.\n\nBoth parameters should be formatted this way:\n```java\n/* a single skill */\nautoLearnAll = <skill name>:<level amount>,\n\n/* multiple skills */\nautoLearnAll = <skill1 name>:<level amount>;<skill2 name>:<level amount>,\n```\nFor the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```java\nautoLearnAll = Carving:3;Maintenance:2,\n```",
+        "description": "The [AutoLearnAll](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#autolearnall) parameter specifies that all the provided skills and their associated level need to be reached to automatically learn the recipe. On the other hand, [AutoLearnAny](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#autolearnany) specifies that at least one of the skills and its associated level need to be reached to automatically learn the recipe. Both can also be used together.\n\nBoth parameters should be formatted this way:\n```cpp\n/* a single skill */\nautoLearnAll = <skill name>:<level amount>,\n\n/* multiple skills */\nautoLearnAll = <skill1 name>:<level amount>;<skill2 name>:<level amount>,\n```\nFor the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nautoLearnAll = Carving:3;Maintenance:2,\n```",
         "name": "AutoLearnAny",
         "type": {
           "main": "object",
@@ -1630,7 +1630,7 @@
       },
       "category": {
         "default": "Miscellaneous",
-        "description": "The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig-ui) translation file to be properly displayed in the crafting menu. For example:\n```java\ncategory = MyCategory,\n```\nAnd in the translation file:\n```json\n{\n  \"IGUI_CraftingCategories_MyCategory\": \"My Category\"\n}\n```",
+        "description": "The category under which the recipe will be listed in the crafting menu. Helps to organize and identify recipes in crafting menu. Your category should have a key with the suffix `IGUI_CraftingCategories_` in the [IG_UI.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#ig-ui) translation file to be properly displayed in the crafting menu. For example:\n```cpp\ncategory = MyCategory,\n```\nAnd in the translation file:\n```json\n{\n  \"IGUI_CraftingCategories_MyCategory\": \"My Category\"\n}\n```",
         "name": "category",
         "type": {
           "main": "translation",
@@ -1648,7 +1648,7 @@
         }
       },
       "metarecipe": {
-        "description": "A meta recipe is used to link two recipes so that if the meta recipe is known then this recipe will be known. The opposite however is not true, if the main recipe is known the meta recipe is not automatically known.\n\nIn this example below, the recipe `MyRecipe1` will be known if the recipe `MyRecipe2` is known. However if the recipe `MyRecipe1` is known, the recipe `MyRecipe2` will not automatically be known and needs to be learnt.\n\n```java\ncraftRecipe MyRecipe1\n{\n    ...\n}\n\ncraftRecipe MyRecipe2\n{\n    ...\n    metaRecipe = MyRecipe1,\n    ...\n}\n```",
+        "description": "A meta recipe is used to link two recipes so that if the meta recipe is known then this recipe will be known. The opposite however is not true, if the main recipe is known the meta recipe is not automatically known.\n\nIn this example below, the recipe `MyRecipe1` will be known if the recipe `MyRecipe2` is known. However if the recipe `MyRecipe1` is known, the recipe `MyRecipe2` will not automatically be known and needs to be learnt.\n\n```cpp\ncraftRecipe MyRecipe1\n{\n    ...\n}\n\ncraftRecipe MyRecipe2\n{\n    ...\n    metaRecipe = MyRecipe1,\n    ...\n}\n```",
         "name": "MetaRecipe"
       },
       "needtobelearn": {
@@ -1774,7 +1774,7 @@
         }
       },
       "skillrequired": {
-        "description": "Specifies the skill level required to perform this crafting action. It should be formatted this way:\n```java\n/* a single skill */\nskillRequired = <skill name>:<level>,\n\n/* multiple skills */\nskillRequired = <skill1 name>:<level>;<skill2 name>:<level>,\n```\nFor the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```java\nskillRequired = Blacksmith:3;Tailoring:2,\n```",
+        "description": "Specifies the skill level required to perform this crafting action. It should be formatted this way:\n```cpp\n/* a single skill */\nskillRequired = <skill name>:<level>,\n\n/* multiple skills */\nskillRequired = <skill1 name>:<level>;<skill2 name>:<level>,\n```\nFor the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nskillRequired = Blacksmith:3;Tailoring:2,\n```",
         "name": "SkillRequired",
         "type": {
           "main": "object",
@@ -1787,7 +1787,7 @@
         }
       },
       "tags": {
-        "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:\n```java\n/* single tag */\nTags = tag1,\n\n/* multiple tags */\nTags = tag1;tag2;...,\n```\n\nFor example:\n```java\nTags = InHandCraft;CanAlwaysBeResearched,\n```\n\nA crafting bench tag can be created by adding a [component CraftBench](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component-craftbench.html) to an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) script, which can then be used in this tags parameter.\n\nYou can find a list of tags available on the [wiki](https://pzwiki.net/wiki/CraftRecipe#List_of_tags).",
+        "description": "Specifies specific conditions which need to be respected to craft this item. At least one crafting bench tag is necessary for the craft to be recognized, such as `AnySurfaceCraft`. The syntax is as follows:\n```cpp\n/* single tag */\nTags = tag1,\n\n/* multiple tags */\nTags = tag1;tag2;...,\n```\n\nFor example:\n```cpp\nTags = InHandCraft;CanAlwaysBeResearched,\n```\n\nA crafting bench tag can be created by adding a [component CraftBench](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component-craftbench.html) to an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) script, which can then be used in this tags parameter.\n\nYou can find a list of tags available on the [wiki](https://pzwiki.net/wiki/CraftRecipe#List_of_tags).",
         "name": "tags",
         "required": true,
         "type": {
@@ -1817,7 +1817,7 @@
         }
       },
       "tooltip": {
-        "description": "Description of the crafting which is shown in the crafting menu. The value needs be a key in the [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) translation file. For example:\n```java\nTooltip = MyTooltipKey,\n```\nAnd in the translation file:\n```json\n{\n  \"MyTooltipKey\": \"This is my tooltip description.\"\n}\n```",
+        "description": "Description of the crafting which is shown in the crafting menu. The value needs be a key in the [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) translation file. For example:\n```cpp\nTooltip = MyTooltipKey,\n```\nAnd in the translation file:\n```json\n{\n  \"MyTooltipKey\": \"This is my tooltip description.\"\n}\n```",
         "name": "Tooltip",
         "type": {
           "main": "translation",
@@ -1828,7 +1828,7 @@
         }
       },
       "xpaward": {
-        "description": "Specifies the experience points awarded for crafting this item. The parameter should be formatted this way:\n```java\n/* a single skill */\nxpAward = <skill name>:<xp amount>,\n\n/* multiple skills */\nxpAward = <skill1 name>:<xp amount>;<skill2 name>:<xp amount>,format\n```\nFor the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```java\nxpAward = Blacksmith:10;Tailoring:5,\n```",
+        "description": "Specifies the experience points awarded for crafting this item. The parameter should be formatted this way:\n```cpp\n/* a single skill */\nxpAward = <skill name>:<xp amount>,\n\n/* multiple skills */\nxpAward = <skill1 name>:<xp amount>;<skill2 name>:<xp amount>,format\n```\nFor the list of available skills, see the [wiki](https://pzwiki.net/wiki/CraftRecipe#Available_skills).\n\nFor example:\n```cpp\nxpAward = Blacksmith:10;Tailoring:5,\n```",
         "name": "xpAward"
       }
     },
@@ -6848,7 +6848,7 @@
         }
       },
       "translation": {
-        "description": "The translation key for the option's name. The translation key in the [Sandbox](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#sandbox) translation file should have the prefix `Sandbox_`.\n\nFor example, with the translation parameter as such:\n```java\ntranslation = MyMod_MyOption\n```\nThe translation key in the Sandbox translation file should be:\n```json\n\"Sandbox_MyMod_MyOption\": \"My Option\"\n```",
+        "description": "The translation key for the option's name. The translation key in the [Sandbox](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#sandbox) translation file should have the prefix `Sandbox_`.\n\nFor example, with the translation parameter as such:\n```cpp\ntranslation = MyMod_MyOption,\n```\nThe translation key in the Sandbox translation file should be:\n```json\n\"Sandbox_MyMod_MyOption\": \"My Option\"\n```",
         "name": "translation",
         "type": {
           "main": "translation",
