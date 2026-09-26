@@ -51,12 +51,9 @@ Whenever you do a pull request or a push to the branches `main` or `dev`, the JS
 The format of the data files will also be validated against the JSON schema automatically to ensure that the data is consistent and follows the expected structure. The [PZ API Docs](https://pz-wiki-modding.github.io/PZ-API-Docs/index.html) will be updated to reflect any changes made to the data files after they have been accepted, so ensure that the information is accurate and up-to-date with the latest version.
 
 ## Commits
-Preferably, commits should have the following prefix for clarity:
-- `DATA`: for changes in the data files.
-- `DOC`: for changes in the documentation (README, CONTRIBUTING, and ScriptsDocs). Also includes schemas.
-- `SCRIPT`: for changes in the script files (e.g., formatting scripts, data generation scripts, etc.).
-- `OTHER`: for changes that don't fit in the above categories.
-- `CHORE`: should not use, these are used for automated workflows to indicate commits from the GitHub bot.
+Follow the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with the following custom types specific to this repository:
+- `data:` for dataset modifications. Alternatively you can be more precise with `data(block)` when doing edits to a specific block.
+- ci: should not use, these are used for automated workflows to indicate commits from the GitHub bot.
 
 ## Contact
 You can find the creator of this dataset (SimKDT) in the [PZ Modding Community](https://pzwiki.net/wiki/PZ_Modding_Community).
