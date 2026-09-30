@@ -103,7 +103,7 @@ def main():
     # commit latest manifest changes
     try:
         subprocess.run(["git", "add", str(MANIFEST_FILE)], check=True)
-        message = "MANIFEST"
+        message = "manifest"
         if pushed_new_release is not None:
             message += f": {pushed_new_release}"
         elif set_stable is not None:
