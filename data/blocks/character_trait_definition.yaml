@@ -36,14 +36,20 @@ parameters:
     to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations)
     for more information.
   type:
-    main: string
+    main: translation
+    translation:
+      keyPattern: '{value}'
+      sourceFile: UI
   required: true
 - name: UIDescription
   description: The translation key for the trait's description. The translation key
     needs to be in the UI translation file. See the wiki page about [translations](https://pzwiki.net/wiki/Translations)
     for more information.
   type:
-    main: string
+    main: translation
+    translation:
+      keyPattern: '{value}'
+      sourceFile: UI
   required: true
 - name: MutuallyExclusiveTraits
   description: A list of trait IDs that are mutually exclusive with this trait. If
