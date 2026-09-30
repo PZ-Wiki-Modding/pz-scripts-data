@@ -65,6 +65,7 @@ def main():
     # set new stable
     elif set_stable:
         print(f"Setting stable to {set_stable}")
+        assert_release_with_version(set_stable)
         MANIFEST_DATA['stable'] = set_stable
 
     # handle set-latest-release argument
