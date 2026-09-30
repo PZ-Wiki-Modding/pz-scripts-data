@@ -388,12 +388,14 @@
               "callback": {
                 "type": "object",
                 "description": "Indicates whether the parameter is a callback function.",
+                "required": ["parameters"],
                 "properties": {
                   "parameters": {
                     "type": "array",
                     "description": "A list of parameters that the callback function takes.",
                     "items": { 
                       "type": "object",
+                      "required": ["name", "type"],
                       "properties": {
                         "name": {
                           "type": "string",
@@ -405,7 +407,7 @@
                         },
                         "isJava": {
                           "type": "boolean",
-                          "default": true,
+                          "default": false,
                           "description": "Indicates whether the parameter is a Java object."
                         }
                       }
