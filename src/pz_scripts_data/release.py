@@ -108,6 +108,10 @@ def main():
             message += f": {pushed_new_release}"
         elif set_stable is not None:
             message += f": New stable {set_stable}"
+        elif set_latest_release is not None:
+            message += f": New latest release {set_latest_release}"
+        elif set_latest_build is not None:
+            message += f": New latest build {set_latest_build}"
         subprocess.run(["git", "commit", "-m", message], check=True)
     except Exception as e:
         print(f"Error committing changes: {e}")
