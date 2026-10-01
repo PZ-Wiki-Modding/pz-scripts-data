@@ -834,7 +834,11 @@
         "name": "UIDescription",
         "required": true,
         "type": {
-          "main": "string"
+          "main": "translation",
+          "translation": {
+            "keyPattern": "{value}",
+            "sourceFile": "UI"
+          }
         }
       },
       "uiname": {
@@ -842,7 +846,11 @@
         "name": "UIName",
         "required": true,
         "type": {
-          "main": "string"
+          "main": "translation",
+          "translation": {
+            "keyPattern": "{value}",
+            "sourceFile": "UI"
+          }
         }
       },
       "xpboosts": {
