@@ -2,7 +2,7 @@
 name = "pz-scripts-data"
 description = "Dataset for the Scripts of Project Zomboid."
 requires-python = ">=3.12.3"
-version = "1.0.3"
+version = "1.1.0"
 license-files = ["LICENSE"]
 authors = [
     { name = "SimKDT" },
@@ -24,6 +24,9 @@ classifiers = [
 
 [project.scripts]
 release = "pz_scripts_data.release:main"
+
+[tool.uv]
+package = true
 
 [tool.setuptools.package-data]
 pz_scripts_data = [
