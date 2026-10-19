@@ -20,3 +20,10 @@ format:
 
 release:
 	./.venv/bin/python ./src/pz_scripts_data/release.py
+
+release_package:
+	uv build
+	uv publish
+	VERSION=$(shell uv version --short)
+	git tag -a "v$$VERSION" -m "Release version $$VERSION"
+	git push --tags
