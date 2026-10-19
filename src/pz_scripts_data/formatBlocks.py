@@ -12,7 +12,7 @@ from pz_scripts_data.schema import BlockDefinition, ParameterDefinition
 class ScriptsBlock(BlockDefinition):
     """Block used by the pipeline: parameters are keyed by lowercase name and relations are filled in during preparation."""
 
-    parameters: dict[str, ParameterDefinition] = Field(default_factory=dict)
+    parameters: dict[str, ParameterDefinition] = Field(default_factory=dict) # type: ignore
     children: list[str] | None = None
     variants: list[str] | None = None
 
