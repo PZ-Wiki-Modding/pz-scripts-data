@@ -47,4 +47,4 @@ jobs:
           git add out/scriptsBlocks.json
           git add out/roots.json
           git add out/itemParameters.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "CHORE: format output data" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "ci: format output data" && git push)

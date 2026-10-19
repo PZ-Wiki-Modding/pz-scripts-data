@@ -59,7 +59,7 @@ The format of the data files will also be validated against the JSON schema auto
 ## Commits
 Follow the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with the following custom types specific to this repository:
 - `data:` for dataset modifications. Alternatively you can be more precise with `data(block)` when doing edits to a specific block.
-- ci: should not use, these are used for automated workflows to indicate commits from the GitHub bot.
+- `ci`: should not use, these are used for automated workflows to indicate commits from the GitHub bot.
 
 ## Contact
 You can find the creator of this dataset (SimKDT) in the [PZ Modding Community](https://pzwiki.net/wiki/PZ_Modding_Community).
