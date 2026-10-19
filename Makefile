@@ -18,9 +18,5 @@ format:
 	./.venv/bin/python ./src/pz_scripts_data/formatBlocks.py
 	./.venv/bin/python ./src/pz_scripts_data/sortItemParameters.py
 
-set_stable:
-	git tag -fa stable -m "Moved stable tag"
-	git push -f --tags
-
 release:
 	./.venv/bin/python ./src/pz_scripts_data/release.py
