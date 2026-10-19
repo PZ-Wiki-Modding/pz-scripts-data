@@ -1,391 +1,5 @@
 {
-  "BlendBlackList": {
-    "#ref": "BlendWhiteList",
-    "children": [
-      "Categories"
-    ],
-    "description": "BlendWhiteList defines a whitelist for fluids that the fluid can be blended with, while BlendBlackList defines a blacklist. By default those blocks are set whitelist, but you can add one of the available parameters to indicate whenever the block is a whitelist or a blacklist.\n\nFluids that are whitelisted/blacklisted can be identified either by their category via the use of a [categories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/categories.html) child block, or by their name via the use of the [fluid](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/blendwhitelist.html#fluid) parameter.",
-    "name": "BlendBlackList",
-    "parameters": {},
-    "parents": [
-      "fluid"
-    ]
-  },
-  "BlendWhiteList": {
-    "children": [
-      "Categories"
-    ],
-    "description": "BlendWhiteList defines a whitelist for fluids that the fluid can be blended with, while BlendBlackList defines a blacklist. By default those blocks are set whitelist, but you can add one of the available parameters to indicate whenever the block is a whitelist or a blacklist.\n\nFluids that are whitelisted/blacklisted can be identified either by their category via the use of a [categories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/categories.html) child block, or by their name via the use of the [fluid](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/blendwhitelist.html#fluid) parameter.",
-    "name": "BlendWhiteList",
-    "parameters": {
-      "blacklist": {
-        "description": "Indicates whenever blending with other fluids is disallowed.",
-        "name": "blacklist",
-        "type": {
-          "main": "boolean"
-        }
-      },
-      "category": {
-        "description": "Unclear what this is for since this is usually achieved with a [categories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/categories.html) child block.",
-        "name": "category"
-      },
-      "filtertype": {
-        "description": "Just use [whitelist](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/blendwhitelist.html#whitelist) or [blacklist](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/blendwhitelist.html#blacklist).",
-        "name": "filterType",
-        "values": [
-          "whitelist"
-        ]
-      },
-      "fluid": {
-        "description": "A list of fluids.",
-        "name": "fluid",
-        "type": {
-          "array": {
-            "separator": "/",
-            "type": "string"
-          },
-          "main": "array"
-        }
-      },
-      "whitelist": {
-        "description": "Indicates whenever blending with other fluids is allowed.",
-        "name": "whitelist",
-        "type": {
-          "main": "boolean"
-        }
-      }
-    },
-    "parents": [
-      "fluid"
-    ]
-  },
-  "Categories": {
-    "description": "Acts as a sort of tag list. Notably used in fluid scripts. Doesn't have parameters and instead just functions as a list.\n\nAvailable categories for fluids are:\n- `Alcoholic`\n- `Beverage`\n- `Poisons`\n- `Colors`\n- `Medical`\n- `Industrial`\n- `Dyes`\n- `HairDyes`\n- `Paint`\n- `Fuel`\n- `Water`\n\nDo note that some of these don't seem to do anything.",
-    "name": "Categories",
-    "parameters": {},
-    "parents": [
-      "fluid",
-      "BlendWhiteList",
-      "BlendBlackList"
-    ]
-  },
-  "CopyFrame": {
-    "description": "It is unknown what this block does.",
-    "name": "CopyFrame",
-    "parameters": {
-      "frame": {
-        "name": "frame"
-      },
-      "source": {
-        "name": "source"
-      },
-      "sourceframe": {
-        "name": "sourceFrame"
-      }
-    },
-    "parents": [
-      "animation"
-    ]
-  },
-  "CopyFrames": {
-    "description": "It is unknown what this block does.",
-    "name": "CopyFrames",
-    "parameters": {
-      "frame": {
-        "name": "frame"
-      },
-      "source": {
-        "name": "source"
-      },
-      "sourceframe1": {
-        "name": "sourceFrame1"
-      },
-      "sourceframe2": {
-        "name": "sourceFrame2"
-      }
-    },
-    "parents": [
-      "animation"
-    ]
-  },
-  "Fluids": {
-    "description": "Used to make a list of fluids to appear in a [FluidContainer component](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component_fluidcontainer.html).",
-    "name": "Fluids",
-    "parameters": {
-      "fluid": {
-        "allowedDuplicate": true,
-        "description": "Refers to a fluid script",
-        "name": "fluid"
-      }
-    },
-    "parents": [
-      "component FluidContainer"
-    ]
-  },
-  "ISBaseComponentPanel": {
-    "description": "",
-    "name": "ISBaseComponentPanel",
-    "parameters": {},
-    "parents": [
-      "xuiSkin"
-    ]
-  },
-  "ISTableLayoutCell": {
-    "ID": {
-      "optional": [
-        "xuiSkin"
-      ]
-    },
-    "description": "",
-    "name": "ISTableLayoutCell",
-    "parameters": {},
-    "parents": [
-      "xuiSkin"
-    ]
-  },
-  "Poison": {
-    "description": "Defines poison properties for a fluid script.",
-    "name": "Poison",
-    "parameters": {
-      "diluteratio": {
-        "description": "The ratio at which the poison is diluted when mixed with other fluids.",
-        "name": "diluteRatio",
-        "type": {
-          "main": "float"
-        }
-      },
-      "maxeffect": {
-        "description": "Defines the strength of the poison.",
-        "name": "maxEffect",
-        "type": {
-          "main": "string"
-        },
-        "values": [
-          "None",
-          "Mild",
-          "Medium",
-          "Severe",
-          "Extreme",
-          "Deadly"
-        ]
-      },
-      "minamount": {
-        "description": "The minimum amount required to consume to poison the player.",
-        "name": "minAmount",
-        "type": {
-          "main": "float"
-        }
-      }
-    },
-    "parents": [
-      "fluid"
-    ]
-  },
-  "Properties": {
-    "description": "Define stat changes applied to the player drinking this [fluid](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/fluid.html) or properties for a [tile](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/tile.html).",
-    "name": "Properties",
-    "parameters": {
-      "alcohol": {
-        "name": "alcohol",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "calories": {
-        "description": "The number of calories this fluid provides when consumed.",
-        "name": "Calories",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "carbohydrates": {
-        "description": "The amount of carbohydrates this fluid provides when consumed.",
-        "name": "Carbohydrates",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "endurancechange": {
-        "description": "The amount of endurance given back.",
-        "name": "enduranceChange",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "fatiguechange": {
-        "description": "The amount of fatigue this fluid changes when consumed. Positive values increase fatigue, negative values decrease it.",
-        "name": "fatigueChange",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "flureduction": {
-        "name": "fluReduction",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "foodsicknesschange": {
-        "description": "The amount of food sickness provides.",
-        "name": "foodSicknessChange",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "hungerchange": {
-        "description": "The amount of hunger this fluid changes when consumed. Positive values increase hunger, negative values decrease it.",
-        "name": "HungerChange",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "lipids": {
-        "description": "The amount of lipids (fats) this fluid provides when consumed.",
-        "name": "Lipids",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "painreduction": {
-        "description": "The amount of pain this fluid reduces when consumed.",
-        "name": "painReduction",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "proteins": {
-        "description": "The amount of proteins this fluid provides when consumed.",
-        "name": "Proteins",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "stresschange": {
-        "description": "The amount of stress this fluid changes when consumed. Positive values increase stress, negative values decrease it.",
-        "name": "StressChange",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "thirstchange": {
-        "description": "The amount of thirst this fluid changes when consumed. Positive values increase thirst, negative values decrease it.",
-        "name": "ThirstChange",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      },
-      "unhappychange": {
-        "description": "The amount of unhappiness this fluid changes when consumed. Positive values increase unhappiness, negative values decrease it.",
-        "name": "UnhappyChange",
-        "needs": [
-          {
-            "parents": [
-              "fluid"
-            ]
-          }
-        ],
-        "type": {
-          "main": "float"
-        }
-      }
-    },
-    "parents": [
-      "fluid",
-      "tile"
-    ]
-  },
-  "_COMPONENT_BLOCK": {
+  "_component_block": {
     "anyName": true,
     "description": "Component blocks are used in the [components](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/components.html) block to provide a new component element for [xuiSkin](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/xuiskin.html).\n\nUnclear what these are used for.",
     "name": "_COMPONENT_BLOCK",
@@ -492,7 +106,7 @@
       "module"
     ]
   },
-  "animationsMesh": {
+  "animationsmesh": {
     "ID": {},
     "description": "Defines an animated mesh, usually for characters or animals.",
     "name": "animationsMesh",
@@ -630,6 +244,66 @@
       "ROOT-Blends"
     ]
   },
+  "blendblacklist": {
+    "#ref": "BlendWhiteList",
+    "children": [
+      "Categories"
+    ],
+    "description": "BlendWhiteList defines a whitelist for fluids that the fluid can be blended with, while BlendBlackList defines a blacklist. By default those blocks are set whitelist, but you can add one of the available parameters to indicate whenever the block is a whitelist or a blacklist.\n\nFluids that are whitelisted/blacklisted can be identified either by their category via the use of a [categories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/categories.html) child block, or by their name via the use of the [fluid](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/blendwhitelist.html#fluid) parameter.",
+    "name": "BlendBlackList",
+    "parameters": {},
+    "parents": [
+      "fluid"
+    ]
+  },
+  "blendwhitelist": {
+    "children": [
+      "Categories"
+    ],
+    "description": "BlendWhiteList defines a whitelist for fluids that the fluid can be blended with, while BlendBlackList defines a blacklist. By default those blocks are set whitelist, but you can add one of the available parameters to indicate whenever the block is a whitelist or a blacklist.\n\nFluids that are whitelisted/blacklisted can be identified either by their category via the use of a [categories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/categories.html) child block, or by their name via the use of the [fluid](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/blendwhitelist.html#fluid) parameter.",
+    "name": "BlendWhiteList",
+    "parameters": {
+      "blacklist": {
+        "description": "Indicates whenever blending with other fluids is disallowed.",
+        "name": "blacklist",
+        "type": {
+          "main": "boolean"
+        }
+      },
+      "category": {
+        "description": "Unclear what this is for since this is usually achieved with a [categories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/categories.html) child block.",
+        "name": "category"
+      },
+      "filtertype": {
+        "description": "Just use [whitelist](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/blendwhitelist.html#whitelist) or [blacklist](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/blendwhitelist.html#blacklist).",
+        "name": "filterType",
+        "values": [
+          "whitelist"
+        ]
+      },
+      "fluid": {
+        "description": "A list of fluids.",
+        "name": "fluid",
+        "type": {
+          "array": {
+            "separator": "/",
+            "type": "string"
+          },
+          "main": "array"
+        }
+      },
+      "whitelist": {
+        "description": "Indicates whenever blending with other fluids is allowed.",
+        "name": "whitelist",
+        "type": {
+          "main": "boolean"
+        }
+      }
+    },
+    "parents": [
+      "fluid"
+    ]
+  },
   "box": {
     "description": "[box](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/box.html), [cylinder](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/cylinder.html) and [polygon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/polygon.html) are used in [tileGeometry.txt](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/root_files/tilegeometry.html) to define the tile depth of a tile.\n\nYou can find more information [here](https://pzwiki.net/wiki/Tile_depth).",
     "name": "box",
@@ -677,6 +351,16 @@
     },
     "parents": [
       "tile"
+    ]
+  },
+  "categories": {
+    "description": "Acts as a sort of tag list. Notably used in fluid scripts. Doesn't have parameters and instead just functions as a list.\n\nAvailable categories for fluids are:\n- `Alcoholic`\n- `Beverage`\n- `Poisons`\n- `Colors`\n- `Medical`\n- `Industrial`\n- `Dyes`\n- `HairDyes`\n- `Paint`\n- `Fuel`\n- `Water`\n\nDo note that some of these don't seem to do anything.",
+    "name": "Categories",
+    "parameters": {},
+    "parents": [
+      "fluid",
+      "BlendWhiteList",
+      "BlendBlackList"
     ]
   },
   "character_profession_definition": {
@@ -1014,7 +698,7 @@
       "component CraftBench"
     ]
   },
-  "component ContextMenuConfig": {
+  "component contextmenuconfig": {
     "children": [
       "contextEntry"
     ],
@@ -1030,7 +714,7 @@
     ],
     "variantOf": "component"
   },
-  "component CraftBench": {
+  "component craftbench": {
     "description": "Used to add a crafting bench property to an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) script, which can then be used in the [tags](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#tags) parameter of a [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html) script to create a crafting bench tag.",
     "name": "component CraftBench",
     "parameters": {
@@ -1051,7 +735,7 @@
     ],
     "variantOf": "component"
   },
-  "component CraftBenchSounds": {
+  "component craftbenchsounds": {
     "description": "",
     "name": "component CraftBenchSounds",
     "parameters": {
@@ -1079,7 +763,7 @@
     ],
     "variantOf": "component"
   },
-  "component CraftRecipe": {
+  "component craftrecipe": {
     "children": [
       "inputs"
     ],
@@ -1202,7 +886,7 @@
     ],
     "variantOf": "component"
   },
-  "component DryingCraftLogic": {
+  "component dryingcraftlogic": {
     "description": "",
     "name": "component DryingCraftLogic",
     "parameters": {
@@ -1227,7 +911,7 @@
     ],
     "variantOf": "component"
   },
-  "component Durability": {
+  "component durability": {
     "description": "",
     "name": "component Durability",
     "parameters": {},
@@ -1236,7 +920,7 @@
     ],
     "variantOf": "component"
   },
-  "component FluidContainer": {
+  "component fluidcontainer": {
     "children": [
       "whitelist",
       "Fluids"
@@ -1366,7 +1050,7 @@
     ],
     "variantOf": "component"
   },
-  "component Resources": {
+  "component resources": {
     "children": [
       "group"
     ],
@@ -1378,7 +1062,7 @@
     ],
     "variantOf": "component"
   },
-  "component SpriteConfig": {
+  "component spriteconfig": {
     "children": [
       "face"
     ],
@@ -1433,7 +1117,7 @@
     ],
     "variantOf": "component"
   },
-  "component SpriteOverlayConfig": {
+  "component spriteoverlayconfig": {
     "children": [
       "style"
     ],
@@ -1445,7 +1129,7 @@
     ],
     "variantOf": "component"
   },
-  "component UiConfig": {
+  "component uiconfig": {
     "description": "",
     "name": "component UiConfig",
     "parameters": {
@@ -1464,7 +1148,7 @@
     ],
     "variantOf": "component"
   },
-  "component WallCoveringConfig": {
+  "component wallcoveringconfig": {
     "description": "",
     "name": "component WallCoveringConfig",
     "parameters": {
@@ -1551,7 +1235,7 @@
       "part"
     ]
   },
-  "contextEntry": {
+  "contextentry": {
     "description": "",
     "name": "contextEntry",
     "parameters": {
@@ -1566,7 +1250,46 @@
       "component ContextMenuConfig"
     ]
   },
-  "craftRecipe": {
+  "copyframe": {
+    "description": "It is unknown what this block does.",
+    "name": "CopyFrame",
+    "parameters": {
+      "frame": {
+        "name": "frame"
+      },
+      "source": {
+        "name": "source"
+      },
+      "sourceframe": {
+        "name": "sourceFrame"
+      }
+    },
+    "parents": [
+      "animation"
+    ]
+  },
+  "copyframes": {
+    "description": "It is unknown what this block does.",
+    "name": "CopyFrames",
+    "parameters": {
+      "frame": {
+        "name": "frame"
+      },
+      "source": {
+        "name": "source"
+      },
+      "sourceframe1": {
+        "name": "sourceFrame1"
+      },
+      "sourceframe2": {
+        "name": "sourceFrame2"
+      }
+    },
+    "parents": [
+      "animation"
+    ]
+  },
+  "craftrecipe": {
     "ID": {
       "canHaveSpace": true,
       "translation": {
@@ -1845,7 +1568,7 @@
     ],
     "softOverride": true
   },
-  "crawlThroughWheel": {
+  "crawlthroughwheel": {
     "#ref": "wheel",
     "ID": {},
     "description": "Similar implementation as a [wheel](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/wheel.html), but unclear what it does exactly.",
@@ -2189,6 +1912,20 @@
       "module"
     ]
   },
+  "fluids": {
+    "description": "Used to make a list of fluids to appear in a [FluidContainer component](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component_fluidcontainer.html).",
+    "name": "Fluids",
+    "parameters": {
+      "fluid": {
+        "allowedDuplicate": true,
+        "description": "Refers to a fluid script",
+        "name": "fluid"
+      }
+    },
+    "parents": [
+      "component FluidContainer"
+    ]
+  },
   "group": {
     "ID": {
       "values": [
@@ -2323,6 +2060,27 @@
       }
     },
     "softOverride": false
+  },
+  "isbasecomponentpanel": {
+    "description": "",
+    "name": "ISBaseComponentPanel",
+    "parameters": {},
+    "parents": [
+      "xuiSkin"
+    ]
+  },
+  "istablelayoutcell": {
+    "ID": {
+      "optional": [
+        "xuiSkin"
+      ]
+    },
+    "description": "",
+    "name": "ISTableLayoutCell",
+    "parameters": {},
+    "parents": [
+      "xuiSkin"
+    ]
   },
   "item": {
     "ID": {
@@ -6435,7 +6193,7 @@
     "shortDescription": "Defines an item with different properties.",
     "softOverride": true
   },
-  "itemMapper": {
+  "itemmapper": {
     "ID": {},
     "description": "",
     "name": "itemMapper",
@@ -6895,7 +6653,7 @@
     ],
     "softOverride": false
   },
-  "overlayMapper": {
+  "overlaymapper": {
     "description": "",
     "name": "overlayMapper",
     "parameters": {},
@@ -7010,7 +6768,7 @@
       "vehicle"
     ]
   },
-  "physicsHitReaction": {
+  "physicshitreaction": {
     "ID": {},
     "description": "Defines the physics reaction a bullet or bomb imposes to objects.",
     "name": "physicsHitReaction",
@@ -7019,7 +6777,7 @@
       "module"
     ]
   },
-  "physicsShape": {
+  "physicsshape": {
     "ID": {},
     "description": "Defines a 3D object's physical shape to be used as a world object.\n\nFor example:\n```cpp\nmodule YourModule {\n  physicsShape ramp20segment5w {\n      mesh = physics/ramp20|Segment5,\n      translate = 4.0 0.0 0.0,\n      rotate = 0.0 270.0 0.0,\n  }\n}\n```",
     "name": "physicsShape",
@@ -7056,6 +6814,44 @@
     },
     "parents": [
       "module"
+    ]
+  },
+  "poison": {
+    "description": "Defines poison properties for a fluid script.",
+    "name": "Poison",
+    "parameters": {
+      "diluteratio": {
+        "description": "The ratio at which the poison is diluted when mixed with other fluids.",
+        "name": "diluteRatio",
+        "type": {
+          "main": "float"
+        }
+      },
+      "maxeffect": {
+        "description": "Defines the strength of the poison.",
+        "name": "maxEffect",
+        "type": {
+          "main": "string"
+        },
+        "values": [
+          "None",
+          "Mild",
+          "Medium",
+          "Severe",
+          "Extreme",
+          "Deadly"
+        ]
+      },
+      "minamount": {
+        "description": "The minimum amount required to consume to poison the player.",
+        "name": "minAmount",
+        "type": {
+          "main": "float"
+        }
+      }
+    },
+    "parents": [
+      "fluid"
     ]
   },
   "polygon": {
@@ -7143,6 +6939,210 @@
     "parameters": {},
     "parents": [
       "style"
+    ]
+  },
+  "properties": {
+    "description": "Define stat changes applied to the player drinking this [fluid](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/fluid.html) or properties for a [tile](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/tile.html).",
+    "name": "Properties",
+    "parameters": {
+      "alcohol": {
+        "name": "alcohol",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "calories": {
+        "description": "The number of calories this fluid provides when consumed.",
+        "name": "Calories",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "carbohydrates": {
+        "description": "The amount of carbohydrates this fluid provides when consumed.",
+        "name": "Carbohydrates",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "endurancechange": {
+        "description": "The amount of endurance given back.",
+        "name": "enduranceChange",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "fatiguechange": {
+        "description": "The amount of fatigue this fluid changes when consumed. Positive values increase fatigue, negative values decrease it.",
+        "name": "fatigueChange",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "flureduction": {
+        "name": "fluReduction",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "foodsicknesschange": {
+        "description": "The amount of food sickness provides.",
+        "name": "foodSicknessChange",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "hungerchange": {
+        "description": "The amount of hunger this fluid changes when consumed. Positive values increase hunger, negative values decrease it.",
+        "name": "HungerChange",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "lipids": {
+        "description": "The amount of lipids (fats) this fluid provides when consumed.",
+        "name": "Lipids",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "painreduction": {
+        "description": "The amount of pain this fluid reduces when consumed.",
+        "name": "painReduction",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "proteins": {
+        "description": "The amount of proteins this fluid provides when consumed.",
+        "name": "Proteins",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "stresschange": {
+        "description": "The amount of stress this fluid changes when consumed. Positive values increase stress, negative values decrease it.",
+        "name": "StressChange",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "thirstchange": {
+        "description": "The amount of thirst this fluid changes when consumed. Positive values increase thirst, negative values decrease it.",
+        "name": "ThirstChange",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      },
+      "unhappychange": {
+        "description": "The amount of unhappiness this fluid changes when consumed. Positive values increase unhappiness, negative values decrease it.",
+        "name": "UnhappyChange",
+        "needs": [
+          {
+            "parents": [
+              "fluid"
+            ]
+          }
+        ],
+        "type": {
+          "main": "float"
+        }
+      }
+    },
+    "parents": [
+      "fluid",
+      "tile"
     ]
   },
   "ragdoll": {
@@ -7412,7 +7412,7 @@
       "template"
     ]
   },
-  "soundTimeline": {
+  "soundtimeline": {
     "ID": {},
     "description": "",
     "name": "soundTimeline",
@@ -7421,7 +7421,7 @@
       "module"
     ]
   },
-  "spriteModel": {
+  "spritemodel": {
     "children": [
       "tileset"
     ],
@@ -7452,7 +7452,7 @@
       "component SpriteOverlayConfig"
     ]
   },
-  "switchSeat": {
+  "switchseat": {
     "ID": {},
     "description": "",
     "name": "switchSeat",
@@ -7574,7 +7574,7 @@
       "tileset"
     ]
   },
-  "tileGeometry": {
+  "tilegeometry": {
     "children": [
       "tileset"
     ],
@@ -7617,7 +7617,7 @@
       "tileGeometry"
     ]
   },
-  "timedAction": {
+  "timedaction": {
     "ID": {},
     "description": "The timedAction script block is used to define an action which can be used in [craftRecipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html). You can specify the animation played, props in hands during the action, the sound played. Also define its impact on the player character, including effects on calories burned and body heat generation.\n\nBelow are a few examples of `timedAction` blocks from the vanilla game:\n\n```cpp\ntimedAction UseLathe\n{\n    metabolics      = Default,\n    actionAnim      = UseLathe,\n}\n```\n\n```cpp\ntimedAction BuildCairn\n{\n    metabolics      = HeavyWork,\n    actionAnim      = Loot,\n    animVarKey      = LootPosition,\n    animVarVal      = Low,\n    sound           = BuildingGeneric,\n    completionSound = BuildFenceCairn,\n    muscleStrainFactor = 0.0025,\n    muscleStrainSkill = Strength,\n    muscleStrainParts = Neck,\n}\n```\n\n```cpp\ntimedAction BuildBarbedWireFence\n{\n    metabolics      = HeavyWork,\n    actionAnim      = Loot,\n    animVarKey      = LootPosition,\n    animVarVal      = Low,\n    sound           = BuildingGeneric,\n    completionSound = BuildMetalStructureSmallWiredFence,\n}\n```",
     "name": "timedAction",
@@ -8266,7 +8266,7 @@
       "module"
     ]
   },
-  "vehicleEngineRPM": {
+  "vehicleenginerpm": {
     "ID": {},
     "children": [
       "data"
@@ -8341,7 +8341,7 @@
       "part"
     ]
   },
-  "xuiSkin": {
+  "xuiskin": {
     "ID": {
       "forbidden": [
         "default"

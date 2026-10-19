@@ -1,5 +1,5 @@
 {
-  "ROOT-Blends": {
+  "root-blends": {
     "children": [
       "blend"
     ],
@@ -17,7 +17,7 @@
       "Blends\\.txt$"
     ]
   },
-  "ROOT-Default": {
+  "root-default": {
     "children": [
       "mods",
       "maps"
@@ -43,7 +43,7 @@
       "mods/default\\.txt$"
     ]
   },
-  "ROOT-MapBaseXML": {
+  "root-mapbasexml": {
     "description": "The `MapBaseXML.txt` file is used to configure the layers of the TMX file.",
     "isRoot": true,
     "name": "ROOT-MapBaseXML",
@@ -54,7 +54,7 @@
       "MapBaseXML\\.txt$"
     ]
   },
-  "ROOT-MapInfo": {
+  "root-mapinfo": {
     "description": "The `map.info` file is used to define the map's information. It is used by the game to display the map in the map selection screen and to load the map into the world.\n\nIt needs to be located in:\n```\n📁 media\n  📁 maps\n    📁 <map folder>\n      📄 map.info\n```",
     "isRoot": true,
     "name": "ROOT-MapInfo",
@@ -98,7 +98,7 @@
       "media\\/maps\\/[\\s\\S]+\\/map\\.info$"
     ]
   },
-  "ROOT-ModInfo": {
+  "root-modinfo": {
     "description": "The `mod.info` file, which contains all the information about a mod. It needs to be located alongside the media folder. See the wiki page [Mod structure](https://pzwiki.net/wiki/Mod_structure) for more information.\n\n```\n📁 MyMod\n  📁 <version>\n    📁 media\n    📄 mod.info\n```",
     "isRoot": true,
     "name": "ROOT-ModInfo",
@@ -238,7 +238,7 @@
       "mod\\.info$"
     ]
   },
-  "ROOT-Rules": {
+  "root-rules": {
     "children": [
       "alias",
       "rule"
@@ -260,7 +260,7 @@
       "Rules\\.txt$"
     ]
   },
-  "ROOT-SandboxOptions": {
+  "root-sandboxoptions": {
     "children": [
       "option"
     ],
@@ -282,7 +282,7 @@
       "media\\/sandbox-options\\.txt$"
     ]
   },
-  "ROOT-Scripts": {
+  "root-scripts": {
     "children": [
       "module"
     ],
@@ -295,7 +295,7 @@
       "media\\/scripts\\/[\\s\\S]+\\.txt$"
     ]
   },
-  "ROOT-SpriteModels": {
+  "root-spritemodels": {
     "children": [
       "spriteModel"
     ],
@@ -308,7 +308,20 @@
       "media\\/spriteModels\\.txt$"
     ]
   },
-  "ROOT-TMXconfig": {
+  "root-tilegeometry": {
+    "children": [
+      "tileGeometry"
+    ],
+    "description": "The `tileGeometry.txt` file is used to register the tile depth of tiles. The file needs to be located inside the [common/media](https://pzwiki.net/wiki/Mod_structure#Common_and_versioning_folders) folder.",
+    "isRoot": true,
+    "name": "ROOT-TileGeometry",
+    "parameters": {},
+    "parents": [],
+    "pattern": [
+      "media\\/tileGeometry\\.txt$"
+    ]
+  },
+  "root-tmxconfig": {
     "children": [
       "layers"
     ],
@@ -335,19 +348,6 @@
     "parents": [],
     "pattern": [
       "TMXconfig\\.txt$"
-    ]
-  },
-  "ROOT-TileGeometry": {
-    "children": [
-      "tileGeometry"
-    ],
-    "description": "The `tileGeometry.txt` file is used to register the tile depth of tiles. The file needs to be located inside the [common/media](https://pzwiki.net/wiki/Mod_structure#Common_and_versioning_folders) folder.",
-    "isRoot": true,
-    "name": "ROOT-TileGeometry",
-    "parameters": {},
-    "parents": [],
-    "pattern": [
-      "media\\/tileGeometry\\.txt$"
     ]
   }
 }

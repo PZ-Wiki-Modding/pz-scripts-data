@@ -69,9 +69,9 @@ def fetchBlocks(item: Item):
             block = ScriptsBlock.model_validate(data)
         except ValidationError as exc:
             raise ValueError(f"Invalid block definition in '{file_path}':\n{exc}") from exc
-        if block.name in blocks:
+        if block.name.lower() in blocks:
             raise ValueError(f"Duplicate block name '{block.name}' found in '{file_path}'.")
-        blocks[block.name] = block
+        blocks[block.name.lower()] = block
     return blocks
 
 def process_properties(block: ScriptsBlock) -> ScriptsBlock:
@@ -120,7 +120,7 @@ def add_source_ref_to_targets(
 
         # add children_name ref to every parents
         for parent_name in targets_names:
-            parent_block = blocks.get(parent_name, None)
+            parent_block = blocks.get(parent_name.lower(), None)
             if parent_block is None:
                 continue
 
@@ -163,8 +163,8 @@ def find_block_in_items(block_name: str, items: list[Item]) -> ScriptsBlock | No
         blocks = item['data']
         assert blocks is not None, "Something is wrong."
 
-        if block_name in blocks:
-            return blocks[block_name]
+        if block_name.lower() in blocks:
+            return blocks[block_name.lower()]
     return None
 
 
