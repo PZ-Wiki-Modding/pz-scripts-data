@@ -30,10 +30,16 @@ def assert_release_with_version(version: str) -> tuple[int, int, int, int]:
 
 def main():
     parser = argparse.ArgumentParser(description="Release a dataset build")
-    parser.add_argument("--set-stable", type=str, help="Move the stable to the provided build version")
-    parser.add_argument("--set-latest-build", type=str, help="Update the latest build version in the manifest")
-    parser.add_argument("--set-latest-release", type=str, help="Update the latest release version in the manifest")
-    parser.add_argument("--build", type=str, help="Specify the new build version")
+    parser.add_argument("--set-stable", type=str, 
+                        help="Move the stable to the provided build version")
+    parser.add_argument("--set-latest-build", type=str, 
+                        help="Update the latest build version in the manifest")
+    parser.add_argument("--set-latest-release", type=str, 
+                        help="Update the latest release version in the manifest")
+    parser.add_argument("--build", type=str, 
+                        help="Specify the new build version")
+    parser.add_argument("--dry-run", action="store_true", 
+                        help="Perform a dry run without making any changes")
     args = parser.parse_args()
 
     # retrieve manifest file
@@ -50,6 +56,7 @@ def main():
     set_latest_build = args.set_latest_build
     set_latest_release = args.set_latest_release
     set_stable = args.set_stable
+    dry_run = args.dry_run
 
     pushed_new_release = None
     if set_latest_build is not None:
@@ -99,37 +106,42 @@ def main():
         pushed_new_release = f"{build}.{version}"
 
     # write latest changes
-    MANIFEST_FILE.write_text(json.dumps(MANIFEST_DATA, indent=4))
+    if not dry_run:
+        MANIFEST_FILE.write_text(json.dumps(MANIFEST_DATA, indent=4))
 
     # commit latest manifest changes
     try:
-        subprocess.run(["git", "add", str(MANIFEST_FILE)], check=True)
-        message = "manifest"
-        if pushed_new_release is not None:
-            message += f": {pushed_new_release}"
-        elif set_stable is not None:
-            message += f": New stable {set_stable}"
-        elif set_latest_release is not None:
-            message += f": New latest release {set_latest_release}"
-        elif set_latest_build is not None:
-            message += f": New latest build {set_latest_build}"
-        subprocess.run(["git", "commit", "-m", message], check=True)
+        if not dry_run:
+            subprocess.run(["git", "add", str(MANIFEST_FILE)], check=True)
+            message = "manifest"
+            if pushed_new_release is not None:
+                message += f": {pushed_new_release}"
+            elif set_stable is not None:
+                message += f": New stable {set_stable}"
+            elif set_latest_release is not None:
+                message += f": New latest release {set_latest_release}"
+            elif set_latest_build is not None:
+                message += f": New latest build {set_latest_build}"
+            subprocess.run(["git", "commit", "-m", message], check=True)
     except Exception as e:
         print(f"Error committing changes: {e}")
 
     # that one we don't ignore, since that could been connection issues
-    subprocess.run(["git", "push"], check=True)
+    if not dry_run:
+        subprocess.run(["git", "push"], check=True)
 
     # if set as stable is active
     # move stable tag
     if set_stable is not None:
-        subprocess.run(["git", "tag", "-fa", "stable", "-m", "Moved stable tag"], check=True)
-        subprocess.run(["git", "push", "-f", "--tags"], check=True)
+        if not dry_run:
+            subprocess.run(["git", "tag", "-fa", "stable", "-m", "Moved stable tag"], check=True)
+            subprocess.run(["git", "push", "-f", "--tags"], check=True)
         print(f"Moved stable tag")
 
     if pushed_new_release is not None:
-        subprocess.run(["git", "tag", "-fa", pushed_new_release, "-m", "New release"], check=True)
-        subprocess.run(["git", "push", "-f", "--tags"], check=True)
+        if not dry_run:
+            subprocess.run(["git", "tag", "-fa", pushed_new_release, "-m", "New release"], check=True)
+            subprocess.run(["git", "push", "-f", "--tags"], check=True)
         print(f"Pushed new release: {pushed_new_release}")
 
 
