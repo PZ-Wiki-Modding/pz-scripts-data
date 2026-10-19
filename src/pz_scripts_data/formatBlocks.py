@@ -1,11 +1,39 @@
-import os, json, yaml
+import json
 from pathlib import Path
-from typing import TypedDict, Optional, Any
+from typing import Any, Literal, Optional, TypedDict
 
-from pz_scripts_data.blocks import BlockProperties, ParameterProperties, IDProperties, PropertyData
+import yaml
+from pydantic import BaseModel, Field, ValidationError, model_validator
+
+from pz_scripts_data.blocks import PropertyData
+from pz_scripts_data.schema import BlockDefinition, ParameterDefinition
 
 
-type ScriptsBlock = dict[str, Any]
+class ScriptsBlock(BlockDefinition):
+    """Block used by the pipeline: parameters are keyed by lowercase name and relations are filled in during preparation."""
+
+    parameters: dict[str, ParameterDefinition] = Field(default_factory=dict)
+    children: list[str] | None = None
+    variants: list[str] | None = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def _key_parameters_by_name(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        parameters = data.get("parameters", [])
+        if not isinstance(parameters, list):
+            return data
+
+        keyed: dict[str, Any] = {}
+        for param in parameters:
+            name = param.get("name") if isinstance(param, dict) else None
+            if not isinstance(name, str):
+                raise ValueError("every parameter must have a 'name' to be referenced")
+            keyed[name.lower()] = param
+        return {**data, "parameters": keyed}
+
+
 class Item(TypedDict):
     input: Path
     output: Path
@@ -32,50 +60,35 @@ items: list[Item] = [
 ## PROCESS ITEM
 
 def fetchBlocks(item: Item):
-    # combine all block json files into one
+    # combine all block yaml files into one, validating each against the schema
     blocks: dict[str, ScriptsBlock] = {}
     for file_path in item['input'].glob("*.yaml"):
         with open(file_path, 'r', encoding='utf-8') as f:
             data = yaml.safe_load(f)
-            key = data[ParameterProperties.NAME]
-            if key in blocks:
-                raise ValueError(f"Duplicate block name '{key}' found in '{file_path}'.")
-            blocks[key] = data
+        try:
+            block = ScriptsBlock.model_validate(data)
+        except ValidationError as exc:
+            raise ValueError(f"Invalid block definition in '{file_path}':\n{exc}") from exc
+        if block.name in blocks:
+            raise ValueError(f"Duplicate block name '{block.name}' found in '{file_path}'.")
+        blocks[block.name] = block
     return blocks
 
-def process_parameters(data: ScriptsBlock) -> ScriptsBlock:
-    # remove unnecessary fields
-    data.pop(BlockProperties.VERSION)
-
-    # replace parameters array into dictionary
-    # where keys are lowercased parameter names
-    parameters_data = data.get(BlockProperties.PARAMETERS, [])
-    parameters_new = {}
-    for param_data in parameters_data:
-        name = param_data[ParameterProperties.NAME]
-        parameters_new[name.lower()] = param_data
-    data[BlockProperties.PARAMETERS] = parameters_new
-
-    # handle properties
-    properties_data = data.get(BlockProperties.PROPERTIES, None)
-    if properties_data is not None:
-        for property_data in properties_data.values():
-            # transform into dictionary too
-            new_properties = {}
-            properties: list = property_data[PropertyData.PROPERTIES]
-            for prop_data in properties:
-                prop_name = prop_data[PropertyData.NAME]
-                new_properties[prop_name] = prop_data
-            property_data[PropertyData.PROPERTIES] = new_properties
-
-    return data
+def process_properties(block: ScriptsBlock) -> ScriptsBlock:
+    # transform each property group's list into a dictionary keyed by property name
+    if block.properties is None:
+        return block
+    for property_data in block.properties.values():
+        properties: list = property_data[PropertyData.PROPERTIES]
+        property_data[PropertyData.PROPERTIES] = {prop[PropertyData.NAME]: prop for prop in properties}
+    return block
 
 # main
 
 def process(item: Item):
     blocks = fetchBlocks(item)
-    for key, block in blocks.items():
-        blocks[key] = process_parameters(block)
+    for block in blocks.values():
+        process_properties(block)
 
     return blocks
 
@@ -89,7 +102,7 @@ def add_source_ref_to_targets(
         source_name: str, 
         targets_names: list[str], 
         items: list[Item],
-        array_type: BlockProperties):
+        array_type: Literal["children", "variants"]):
     """
     This is used to add source_name to the targets's array_type.
 
@@ -112,11 +125,11 @@ def add_source_ref_to_targets(
                 continue
 
             # init if needed
-            if array_type not in parent_block:
-                parent_block[array_type] = []
+            if getattr(parent_block, array_type) is None:
+                setattr(parent_block, array_type, [])
 
             # add name
-            children: list[str] = parent_block[array_type]
+            children: list[str] = getattr(parent_block, array_type)
             if source_name not in children:
                 children.append(source_name)
             _processed.append(parent_name)
@@ -133,18 +146,14 @@ def prepare_relationship(block: ScriptsBlock, items: list[Item]):
     of this parent block
     """
     # handle parents
-    parents = block.get(BlockProperties.PARENTS, [])
+    parents = block.parents
     if parents:
-        add_source_ref_to_targets(
-            block[BlockProperties.NAME], parents, items,
-            BlockProperties.CHILDREN)
+        add_source_ref_to_targets(block.name, parents, items, "children")
 
     # handle variants
-    variant = block.get(BlockProperties.VARIANT, None)
+    variant = block.variant_of
     if variant:
-        add_source_ref_to_targets(
-            block[BlockProperties.NAME], [variant], items,
-            BlockProperties.VARIANTS)
+        add_source_ref_to_targets(block.name, [variant], items, "variants")
 
 
 # description and reference
@@ -159,42 +168,44 @@ def find_block_in_items(block_name: str, items: list[Item]) -> ScriptsBlock | No
     return None
 
 
+def copy_missing_fields(target: BaseModel, source: BaseModel) -> None:
+    """Copies every field explicitly set on source that isn't already set on target."""
+    for field_name in source.model_fields_set:
+        if field_name not in target.model_fields_set:
+            setattr(target, field_name, getattr(source, field_name))
+
 def copy_block_ref(block: ScriptsBlock, items: list[Item]) -> ScriptsBlock:
     """
     #desc copies the description of the source block
-    #ref copies every key values of that source block into the block (if not already present)
+    #ref copies every field of that source block into the block (if not already present)
     """
     # copy #desc
-    if BlockProperties.REF_DESC in block:
-        desc_source_key: str = block[BlockProperties.REF_DESC]
-        desc_source = find_block_in_items(desc_source_key, items)
+    if block.ref_desc is not None:
+        desc_source = find_block_in_items(block.ref_desc, items)
 
         if desc_source is not None:
-            block[BlockProperties.DESCRIPTION] = desc_source[BlockProperties.DESCRIPTION]
+            if desc_source.description is None:
+                raise ValueError(f"Block '{block.name}' has #desc but source has no description.")
+            block.description = desc_source.description
 
             # copy the short description if available too
-            if BlockProperties.SHORT_DESCRIPTION in desc_source:
-                block[BlockProperties.SHORT_DESCRIPTION] = desc_source[BlockProperties.SHORT_DESCRIPTION]
+            if desc_source.short_description is not None:
+                block.short_description = desc_source.short_description
 
     # copy #ref
-    if BlockProperties.REF_FULL in block:
-        ref_source_key: str = block[BlockProperties.REF_FULL]
-        ref_source = find_block_in_items(ref_source_key, items)
+    if block.ref is not None:
+        ref_source = find_block_in_items(block.ref, items)
         if ref_source is not None:
-            # we copy every key-value from the ref_block
-            # that doesn't already exist in the block
-            for key, value in ref_source.items():
-                if key not in block:
-                    block[key] = value
+            copy_missing_fields(block, ref_source)
 
     return block
 
 
 # parameters
 
-def get_source_parameter(ref_key: str, items: list[Item]) -> dict:
+def get_source_parameter(ref_key: str, items: list[Item]) -> ParameterDefinition:
     """
-    This will return the source parameter data from the ref_key.
+    This will return the source parameter from the ref_key.
     The ref_key is in the format "BlockName/ParameterName"
     """
     # find the source block and parameter
@@ -208,39 +219,29 @@ def get_source_parameter(ref_key: str, items: list[Item]) -> dict:
     # make sure the source block and parameter exist
     if origin_block_data is None:
         raise ValueError(f"Source block '{origin_block}' not found for parameter '{origin_param}'.")
-    if BlockProperties.PARAMETERS not in origin_block_data:
-        raise ValueError(f"Source block '{origin_block}' has no parameters for parameter '{origin_param}'.")
-    if origin_param not in origin_block_data[BlockProperties.PARAMETERS]:
+    if origin_param not in origin_block_data.parameters:
         raise ValueError(f"Source block '{origin_block}' has no parameter '{origin_param}'.")
 
-    return origin_block_data[BlockProperties.PARAMETERS][origin_param]
+    return origin_block_data.parameters[origin_param]
 
-def copy_parameters_ref(parameters: dict[str, dict], items: list[Item]):
-    for param_key, param_data in parameters.items():
-        if ParameterProperties.REF_FULL in param_data:
-            ref_key = param_data[ParameterProperties.REF_FULL]
-            
-            source_param_data = get_source_parameter(ref_key, items)
-            assert source_param_data is not None, f"Source parameter '{ref_key}' not found for parameter '{param_key}'."
+def copy_parameters_ref(parameters: dict[str, ParameterDefinition], items: list[Item]):
+    for param_key, param in parameters.items():
+        if param.ref is not None:
+            source_param = get_source_parameter(param.ref, items)
 
-            # copy every key-value from the source parameter data
-            # that doesn't already exist in the parameter data
-            for key, value in source_param_data.items():
-                if key not in param_data:
-                    param_data[key] = value
+            # copy every field from the source parameter
+            # that isn't already set on the parameter
+            copy_missing_fields(param, source_param)
 
-        if ParameterProperties.REF_DESC in param_data:
-            desc_key = param_data[ParameterProperties.REF_DESC]
-
-            source_param_data = get_source_parameter(desc_key, items)
-            assert source_param_data is not None, f"Source parameter '{desc_key}' not found for parameter '{param_key}'."
+        if param.ref_desc is not None:
+            source_param = get_source_parameter(param.ref_desc, items)
 
             # make sure the source parameter has a description
-            if ParameterProperties.DESCRIPTION not in source_param_data:
+            if source_param.description is None:
                 raise ValueError(f"Parameter '{param_key}' has #desc but source has no description.")
 
             # only copy the description
-            param_data[ParameterProperties.DESCRIPTION] = source_param_data[ParameterProperties.DESCRIPTION]
+            param.description = source_param.description
 
 
 # main
@@ -252,16 +253,21 @@ def prepare(item: Item, items: list[Item]):
     for block in blocks.values():
         prepare_relationship(block, items)
         copy_block_ref(block, items)
-
-        parameters = block.get(BlockProperties.PARAMETERS, {})
-        copy_parameters_ref(parameters, items)
+        copy_parameters_ref(block.parameters, items)
 
 
     return blocks
 
 
+# serialization
 
-
+def serialize(blocks: dict[str, ScriptsBlock]) -> dict[str, dict[str, Any]]:
+    # only write the fields that were set, using their schema (alias) names
+    # the version is only used for validation, so it is not written
+    return {
+        name: block.model_dump(by_alias=True, exclude_unset=True, exclude={"version"})
+        for name, block in blocks.items()
+    }
 
 
 def main():
@@ -273,7 +279,9 @@ def main():
         output_file = item['output']
         output_file.parent.mkdir(parents=True, exist_ok=True)
         with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(item['data'], f, indent=2, ensure_ascii=False, sort_keys=True)
+            assert item['data'] is not None
+            json.dump(serialize(item['data']), f, indent=2, 
+                      ensure_ascii=False, sort_keys=True)
 
 if __name__ == "__main__":
     main()

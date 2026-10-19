@@ -7,15 +7,18 @@
 import json
 import sys
 from pathlib import Path
-from typing import Any, Literal, Self
+from typing import Annotated, Any, Literal, Self
 
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, WithJsonSchema, model_validator
 from pydantic.json_schema import GenerateJsonSchema, JsonSchemaValue
 from pydantic_core import core_schema
 
 DEFAULT_OUTPUT = Path(__file__).resolve().parents[2] / "schemas" / "blocks.json"
 
 ScalarType = Literal["string", "float", "boolean", "integer"]
+
+# Accepts whole numbers as int so they are not widened to float on output. The JSON Schema stays "number".
+Number = Annotated[int | float, WithJsonSchema({"type": "number"})]
 
 
 class SchemaModel(BaseModel):
@@ -109,12 +112,12 @@ class BlockDeprecation(SchemaModel):
 
 class _ArrayBase(SchemaModel):
     separator: str = Field(description="Specifies the separator used to split the string into array items.")
-    min_items: float | None = Field(
+    min_items: Number | None = Field(
         None,
         alias="min",
         description="The minimum number of items required in the array.",
     )
-    max_items: float | None = Field(
+    max_items: Number | None = Field(
         None,
         alias="max",
         description="The maximum number of items allowed in the array.",
@@ -270,7 +273,7 @@ class ParameterNeed(SchemaModel):
     """A condition on another parameter that must be met for this parameter to be valid."""
 
     name: str | None = Field(None, description="The name of the parameter that this condition depends on.")
-    values: list[str | float | bool] | None = Field(
+    values: list[str | Number | bool] | None = Field(
         None,
         description="The values of the dependent parameter that must be met for this parameter to be valid.",
     )
@@ -280,11 +283,11 @@ class ParameterNeed(SchemaModel):
         description="A mapping of values of the dependent parameter to the expected type of this parameter. For example, if the dependent parameter is 'type' and it has a value 'integer', then this parameter should be of type 'float'. The key is the value of the dependent parameter, and the value is the expected type of this parameter when the dependent parameter has that value.",
         examples=[{"integer": "float", "double": "float", "boolean": "boolean", "string": "string"}],
     )
-    minimum: float | None = Field(
+    minimum: Number | None = Field(
         None,
         description="The minimum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'.",
     )
-    maximum: float | None = Field(
+    maximum: Number | None = Field(
         None,
         description="The maximum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'.",
     )
@@ -335,16 +338,16 @@ class ParameterDefinition(SchemaModel):
         description="DEPRECATED: A list of parent block types for which this parameter is applicable.",
     )
     required: bool | None = Field(None, description="Indicates whether the parameter is required.")
-    default_value: str | float | bool | list[Any] | dict[str, Any] | None = Field(
+    default_value: str | Number | bool | list[Any] | dict[str, Any] | None = Field(
         None,
         alias="default",
         description="The default value for the parameter if not specified.",
     )
-    minimum: float | None = Field(
+    minimum: Number | None = Field(
         None,
         description="The minimum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable.",
     )
-    maximum: float | None = Field(
+    maximum: Number | None = Field(
         None,
         description="The maximum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable.",
     )
@@ -353,7 +356,7 @@ class ParameterDefinition(SchemaModel):
         alias="type",
         description="The data type of the parameter.",
     )
-    values: list[str | float] | None = Field(None, description="A list of allowed values for the parameter.")
+    values: list[str | Number] | None = Field(None, description="A list of allowed values for the parameter.")
     deprecated: ParameterDeprecation | None = None
     needs: list[ParameterNeed] | None = Field(
         None,
