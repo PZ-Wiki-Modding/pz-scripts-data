@@ -1,525 +1,882 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Blocks Folder General Schema",
-  "type": "object",
-  "additionalProperties": false,
   "$defs": {
-    "blockType": {
-      "type": "object",
-      "description": "If the parameter is of type 'block', this can be used to provide a description of the expected format of the block.",
+    "ArrayParameterType": {
       "additionalProperties": false,
-      "required": ["name"],
       "properties": {
-        "name": {
-          "type": "string",
-          "description": "The name of the block type that this parameter references to."
+        "main": {
+          "const": "array",
+          "description": "The main data type of the parameter.",
+          "type": "string"
         },
-        "fullType": {
-          "type": "boolean",
-          "description": "Indicates whether the parameter's value can match the module and block name, for example 'module.block'.",
-          "default": true
-        },
-        "noAutoImport": {
-          "type": "boolean",
-          "description": "Indicates whenever this parameter can automatically check its own parent block module when fullType is set to true. If false, this means that the module won't be automatically imported.",
-          "default": false
-        }
-      }
-    },
-    "translationDef": {
-      "type": "object",
-      "description": "If the parameter is of type 'translation', this can be used to provide a description of the expected format of the translation. For script blocks, this is associated to the ID of the block.",
-      "additionalProperties": false,
-      "required": ["keyPattern", "sourceFile"],
-      "properties": {
-        "keyPattern": {
-          "type": "string",
-          "description": "A regex pattern that the translation key in the source must match. The '{value}' placeholder is replaced by the ID of the block or value of the parameter. '{module}' is replaced by the module of the block."
-        },
-        "sourceFile": {
-          "type": "string",
-          "description": "The source file where the translation key is defined (without the .json extension)."
-        }
-      }
-    }
-  },
-  "allOf": [
-    {
-      "if": {
-        "required": ["isRoot"],
-        "properties": {
-          "isRoot": { "const": true }
+        "array": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ScalarArrayDefinition"
+            },
+            {
+              "$ref": "#/$defs/BlockArrayDefinition"
+            }
+          ],
+          "description": "If the parameter is of type 'array', this can be used to provide a description of the expected format of the array."
         }
       },
-      "then": {
-        "required": ["pattern"]
-      }
-    }
-  ],
-  "required": [
-    "name"
-  ],
-  "properties": {
-    "version": { "type": ["number", "string"] },
-    "#desc": { 
-      "type": "string",
-      "description": "A reference to the description of another block type. This allows sharing the same description between multiple block types without using #ref, which would also share other properties."
+      "required": [
+        "main",
+        "array"
+      ],
+      "type": "object"
     },
-    "#ref": {
-      "type": "string",
-      "description": "A reference to another block type. This allows sharing the same properties between multiple block types."
-    },
-    "variantOf": {
-      "type": "string",
-      "description": "Indicates whether this block type is a variant of another block type. The value corresponds to the block type it is a variant of."
-    },
-    "name": { 
-      "type": "string",
-      "description": "The name of the block type." 
-    },
-    "anyName": {
-      "type": "boolean",
-      "description": "A block with `anyName` can have any name. This requires strict placement in parent blocks to correctly validate the block parameters."
-    },
-    "shortDescription": { 
-      "type": "string",
-      "description": "A brief description of the block type, used for quick reference in completion items."
-    },
-    "description": { 
-      "type": "string",
-      "description": "A brief description of the block type."
-    },
-    "ID": { 
-      "type": "object",
+    "BlockArrayDefinition": {
       "additionalProperties": false,
-      "description": "Defines the ID properties for this block type. If not specified, the block type does not have an ID.",
       "properties": {
-        "parentsWithout": {
-          "type": "array",
-          "items": { "type": "string" },
-          "description": "A list of block names that cannot be parents if this block has an ID."
+        "separator": {
+          "description": "Specifies the separator used to split the string into array items.",
+          "type": "string"
         },
-        "values": {
-          "type": "array",
-          "items": { "type": "string" },
-          "description": "A list of allowed ID values for this block. If not given, any value is allowed."
+        "min": {
+          "description": "The minimum number of items required in the array.",
+          "type": "number"
         },
-        "asType": {
-          "type": "boolean",
-          "description": "Specifies if the ID of the block should count as the block type. For example, components have specific definitions based on their ID. This means a script block needs to be defined with the name 'component <componentID>' as well as 'component' to cover all component types available with the 'values' attribute."
+        "max": {
+          "description": "The maximum number of items allowed in the array.",
+          "type": "number"
         },
-        "optional": {
-          "type": "array",
-          "items": { "type": "string" },
-          "description": "Indicates whether the ID is optional for this block type. If false or not specified, the block must have an ID when the ID field is provided."
+        "softOverride": {
+          "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
+          "type": "boolean"
         },
-        "canHaveSpace": {
-          "type": "boolean",
-          "description": "Indicates whether the ID of the block can contain spaces. If false or not specified, the ID cannot contain spaces."
+        "type": {
+          "const": "block",
+          "description": "Specifies the data type of the items in the array.",
+          "type": "string"
         },
-        "forbidden": {
-          "type": "array",
-          "items": { "type": "string" },
-          "description": "A list of forbidden ID values for this block. If not provided, no values are forbidden."
-        },
-        "translation": {
-          "$ref": "#/$defs/translationDef"
+        "block": {
+          "$ref": "#/$defs/BlockReference",
+          "description": "The block type of the items in the array."
         }
-      }
+      },
+      "required": [
+        "separator",
+        "type",
+        "block"
+      ],
+      "type": "object"
     },
-    "parents": {
-      "type": "array",
-      "items": { "type": "string" },
-      "description": "A list of valid parent block types."
-    },
-    "needsChildren": {
-      "type": "array",
-      "items": { "type": "string" },
-      "description": "A list of required child block types."
-    },
-    "softOverride": {
-      "type": "boolean",
-      "description": "Indicates whether the block can be soft overridden in scripts."
-    },
-    "isRoot": {
-      "type": "boolean",
-      "description": "Indicates whether the block is a root document."
-    },
-    "pattern": {
-      "type": "array",
-      "items": { "type": "string" },
-      "description": "A list of regex patterns that can be used to match this root file."
-    },
-    "noComma": {
-      "type": "boolean",
-      "description": "Indicates whether the block parameters should not be followed by a comma."
-    },
-    "deprecated": {
-      "type": "object",
+    "BlockDeprecation": {
       "additionalProperties": false,
       "description": "Indicates whether the block type is deprecated.",
       "properties": {
         "replacedBy": {
-          "type": "string",
-          "description": "The name of the block type that replaces this deprecated block type."
+          "description": "The name of the block type that replaces this deprecated block type.",
+          "type": "string"
         },
         "description": {
-          "type": "string",
-          "description": "A brief description of why the block type is deprecated and any additional information about the deprecation."
+          "description": "A brief description of why the block type is deprecated and any additional information about the deprecation.",
+          "type": "string"
         }
-      }
+      },
+      "type": "object"
     },
-    "parameters": { 
-      "type": "array",
+    "BlockID": {
+      "additionalProperties": false,
+      "description": "Defines the ID properties for this block type. If not specified, the block type does not have an ID.",
+      "properties": {
+        "parentsWithout": {
+          "description": "A list of block names that cannot be parents if this block has an ID.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "values": {
+          "description": "A list of allowed ID values for this block. If not given, any value is allowed.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "asType": {
+          "description": "Specifies if the ID of the block should count as the block type. For example, components have specific definitions based on their ID. This means a script block needs to be defined with the name 'component <componentID>' as well as 'component' to cover all component types available with the 'values' attribute.",
+          "type": "boolean"
+        },
+        "optional": {
+          "description": "A list of ID values that are optional for this block type.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "canHaveSpace": {
+          "description": "Indicates whether the ID of the block can contain spaces. If false or not specified, the ID cannot contain spaces.",
+          "type": "boolean"
+        },
+        "forbidden": {
+          "description": "A list of forbidden ID values for this block. If not provided, no values are forbidden.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "translation": {
+          "$ref": "#/$defs/TranslationDefinition"
+        }
+      },
+      "type": "object"
+    },
+    "BlockKeyBlockValueObject": {
+      "additionalProperties": false,
+      "properties": {
+        "keyValueSeparator": {
+          "description": "Specifies the separator used to split the key and the value in the key-value pairs. The parameter 'pairsSeparator' is used to split the pairs from each others.",
+          "type": "string"
+        },
+        "pairsSeparator": {
+          "description": "Specifies the separator used to split the pairs from each others. The parameter 'keyValueSeparator' is used to split the keys and values.",
+          "type": "string"
+        },
+        "softOverride": {
+          "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
+          "type": "boolean"
+        },
+        "keyType": {
+          "const": "block",
+          "description": "Specifies the data type of the keys in the object.",
+          "type": "string"
+        },
+        "keyBlock": {
+          "$ref": "#/$defs/BlockReference",
+          "description": "The block type of the keys in the object."
+        },
+        "valueType": {
+          "const": "block",
+          "description": "Specifies the data type of the values in the object.",
+          "type": "string"
+        },
+        "valueBlock": {
+          "$ref": "#/$defs/BlockReference",
+          "description": "The block type of the values in the object."
+        }
+      },
+      "required": [
+        "keyValueSeparator",
+        "pairsSeparator",
+        "keyType",
+        "keyBlock",
+        "valueType",
+        "valueBlock"
+      ],
+      "type": "object"
+    },
+    "BlockKeyScalarValueObject": {
+      "additionalProperties": false,
+      "properties": {
+        "keyValueSeparator": {
+          "description": "Specifies the separator used to split the key and the value in the key-value pairs. The parameter 'pairsSeparator' is used to split the pairs from each others.",
+          "type": "string"
+        },
+        "pairsSeparator": {
+          "description": "Specifies the separator used to split the pairs from each others. The parameter 'keyValueSeparator' is used to split the keys and values.",
+          "type": "string"
+        },
+        "softOverride": {
+          "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
+          "type": "boolean"
+        },
+        "keyType": {
+          "const": "block",
+          "description": "Specifies the data type of the keys in the object.",
+          "type": "string"
+        },
+        "keyBlock": {
+          "$ref": "#/$defs/BlockReference",
+          "description": "The block type of the keys in the object."
+        },
+        "valueType": {
+          "description": "Specifies the data type of the values in the object.",
+          "enum": [
+            "string",
+            "float",
+            "boolean",
+            "integer"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyValueSeparator",
+        "pairsSeparator",
+        "keyType",
+        "keyBlock",
+        "valueType"
+      ],
+      "type": "object"
+    },
+    "BlockParameterType": {
+      "additionalProperties": false,
+      "properties": {
+        "main": {
+          "const": "block",
+          "description": "The main data type of the parameter.",
+          "type": "string"
+        },
+        "block": {
+          "$ref": "#/$defs/BlockReference"
+        }
+      },
+      "required": [
+        "main",
+        "block"
+      ],
+      "type": "object"
+    },
+    "BlockReference": {
+      "additionalProperties": false,
+      "description": "If the parameter is of type 'block', this can be used to provide a description of the expected format of the block.",
+      "properties": {
+        "name": {
+          "description": "The name of the block type that this parameter references to.",
+          "type": "string"
+        },
+        "fullType": {
+          "default": true,
+          "description": "Indicates whether the parameter's value can match the module and block name, for example 'module.block'.",
+          "type": "boolean"
+        },
+        "noAutoImport": {
+          "default": false,
+          "description": "Indicates whenever this parameter can automatically check its own parent block module when fullType is set to true. If false, this means that the module won't be automatically imported.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "CallbackDefinition": {
+      "additionalProperties": false,
+      "description": "Indicates whether the parameter is a callback function.",
+      "properties": {
+        "parameters": {
+          "description": "A list of parameters that the callback function takes.",
+          "items": {
+            "$ref": "#/$defs/CallbackParameter"
+          },
+          "type": "array"
+        },
+        "returns": {
+          "description": "The return type of the callback function.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameters"
+      ],
+      "type": "object"
+    },
+    "CallbackParameter": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "The name of the parameter.",
+          "type": "string"
+        },
+        "type": {
+          "description": "The type of the parameter.",
+          "type": "string"
+        },
+        "isJava": {
+          "default": false,
+          "description": "Indicates whether the parameter is a Java object.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "type": "object"
+    },
+    "CallbackParameterType": {
+      "additionalProperties": false,
+      "properties": {
+        "main": {
+          "const": "callback",
+          "description": "The main data type of the parameter.",
+          "type": "string"
+        },
+        "callback": {
+          "$ref": "#/$defs/CallbackDefinition"
+        }
+      },
+      "required": [
+        "main",
+        "callback"
+      ],
+      "type": "object"
+    },
+    "ObjectParameterType": {
+      "additionalProperties": false,
+      "properties": {
+        "main": {
+          "const": "object",
+          "description": "The main data type of the parameter.",
+          "type": "string"
+        },
+        "object": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ScalarKeyScalarValueObject"
+            },
+            {
+              "$ref": "#/$defs/BlockKeyBlockValueObject"
+            },
+            {
+              "$ref": "#/$defs/BlockKeyScalarValueObject"
+            },
+            {
+              "$ref": "#/$defs/ScalarKeyBlockValueObject"
+            }
+          ],
+          "description": "If the parameter is of type 'object', this can be used to provide a description of the expected format of the object."
+        }
+      },
+      "required": [
+        "main",
+        "object"
+      ],
+      "type": "object"
+    },
+    "ParameterDefinition": {
+      "additionalProperties": false,
+      "description": "A parameter available for a block type.",
+      "properties": {
+        "name": {
+          "description": "The name of the parameter.",
+          "type": "string"
+        },
+        "anyName": {
+          "description": "A parameter with `anyName` can have any name.",
+          "type": "boolean"
+        },
+        "#ref": {
+          "description": "A reference to another block parameter.",
+          "type": "string"
+        },
+        "#desc": {
+          "description": "A reference to the description of another block parameter. This allows sharing the same description between multiple parameters without using #ref, which would also share other properties.",
+          "type": "string"
+        },
+        "description": {
+          "description": "A brief description of what the parameter does.",
+          "type": "string"
+        },
+        "allowedDuplicate": {
+          "description": "Indicates whether the parameter can be duplicated.",
+          "type": "boolean"
+        },
+        "canBeEmpty": {
+          "description": "Indicates whether the parameter can be empty.",
+          "type": "boolean"
+        },
+        "itemTypes": {
+          "description": "DEPRECATED: Specifies the type of item the parameter is associated with (e.g., 'vehicle', 'item', etc.). Only for item scripts.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "parentsOnly": {
+          "description": "DEPRECATED: A list of parent block types for which this parameter is applicable.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "required": {
+          "description": "Indicates whether the parameter is required.",
+          "type": "boolean"
+        },
+        "default": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "items": {},
+              "type": "array"
+            },
+            {
+              "additionalProperties": true,
+              "type": "object"
+            }
+          ],
+          "description": "The default value for the parameter if not specified."
+        },
+        "minimum": {
+          "description": "The minimum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable.",
+          "type": "number"
+        },
+        "maximum": {
+          "description": "The maximum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable.",
+          "type": "number"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ArrayParameterType"
+            },
+            {
+              "$ref": "#/$defs/ObjectParameterType"
+            },
+            {
+              "$ref": "#/$defs/BlockParameterType"
+            },
+            {
+              "$ref": "#/$defs/CallbackParameterType"
+            },
+            {
+              "$ref": "#/$defs/TranslationParameterType"
+            },
+            {
+              "$ref": "#/$defs/ScalarParameterType"
+            }
+          ],
+          "description": "The data type of the parameter."
+        },
+        "values": {
+          "description": "A list of allowed values for the parameter.",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "deprecated": {
+          "$ref": "#/$defs/ParameterDeprecation"
+        },
+        "needs": {
+          "description": "A list of conditions of other parameters that must be met for this parameter to be valid.",
+          "items": {
+            "$ref": "#/$defs/ParameterNeed"
+          },
+          "type": "array"
+        },
+        "incompatibleWith": {
+          "description": "List of other parameters which are incompatible with this one.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "isUseless": {
+          "default": false,
+          "description": "Indicates whether the parameter is considered useless or not. This can be used to flag parameters that have no effect in the game. Not to be confused with deprecated which indicates a parameter that previously worked but no longer does.",
+          "type": "boolean"
+        },
+        "seeAlso": {
+          "description": "A list of other parameters that are related to this one.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ParameterDeprecation": {
+      "additionalProperties": false,
+      "description": "Indicates whether the parameter is deprecated.",
+      "properties": {
+        "replacedBy": {
+          "description": "The name of the parameter that replaces this deprecated parameter.",
+          "type": "string"
+        },
+        "description": {
+          "description": "A brief description of why the parameter is deprecated and any additional information about the deprecation.",
+          "type": "string"
+        },
+        "version": {
+          "description": "The version(s) in which the parameter is deprecated.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ParameterNeed": {
+      "additionalProperties": false,
+      "description": "A condition on another parameter that must be met for this parameter to be valid.",
+      "properties": {
+        "name": {
+          "description": "The name of the parameter that this condition depends on.",
+          "type": "string"
+        },
+        "values": {
+          "description": "The values of the dependent parameter that must be met for this parameter to be valid.",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "valueToType": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "A mapping of values of the dependent parameter to the expected type of this parameter. For example, if the dependent parameter is 'type' and it has a value 'integer', then this parameter should be of type 'float'. The key is the value of the dependent parameter, and the value is the expected type of this parameter when the dependent parameter has that value.",
+          "examples": [
+            {
+              "boolean": "boolean",
+              "double": "float",
+              "integer": "float",
+              "string": "string"
+            }
+          ],
+          "type": "object"
+        },
+        "minimum": {
+          "description": "The minimum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'.",
+          "type": "number"
+        },
+        "maximum": {
+          "description": "The maximum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'.",
+          "type": "number"
+        },
+        "children": {
+          "description": "A list of child blocks that must be present for this parameter to be valid.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "parents": {
+          "description": "A list of parent blocks that must be present for this parameter to be valid.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ScalarArrayDefinition": {
+      "additionalProperties": false,
+      "properties": {
+        "separator": {
+          "description": "Specifies the separator used to split the string into array items.",
+          "type": "string"
+        },
+        "min": {
+          "description": "The minimum number of items required in the array.",
+          "type": "number"
+        },
+        "max": {
+          "description": "The maximum number of items allowed in the array.",
+          "type": "number"
+        },
+        "softOverride": {
+          "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
+          "type": "boolean"
+        },
+        "type": {
+          "description": "Specifies the data type of the items in the array.",
+          "enum": [
+            "string",
+            "float",
+            "boolean",
+            "integer"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "separator",
+        "type"
+      ],
+      "type": "object"
+    },
+    "ScalarKeyBlockValueObject": {
+      "additionalProperties": false,
+      "properties": {
+        "keyValueSeparator": {
+          "description": "Specifies the separator used to split the key and the value in the key-value pairs. The parameter 'pairsSeparator' is used to split the pairs from each others.",
+          "type": "string"
+        },
+        "pairsSeparator": {
+          "description": "Specifies the separator used to split the pairs from each others. The parameter 'keyValueSeparator' is used to split the keys and values.",
+          "type": "string"
+        },
+        "softOverride": {
+          "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
+          "type": "boolean"
+        },
+        "keyType": {
+          "description": "Specifies the data type of the keys in the object.",
+          "enum": [
+            "string",
+            "float",
+            "boolean",
+            "integer"
+          ],
+          "type": "string"
+        },
+        "valueType": {
+          "const": "block",
+          "description": "Specifies the data type of the values in the object.",
+          "type": "string"
+        },
+        "valueBlock": {
+          "$ref": "#/$defs/BlockReference",
+          "description": "The block type of the values in the object."
+        }
+      },
+      "required": [
+        "keyValueSeparator",
+        "pairsSeparator",
+        "keyType",
+        "valueType",
+        "valueBlock"
+      ],
+      "type": "object"
+    },
+    "ScalarKeyScalarValueObject": {
+      "additionalProperties": false,
+      "properties": {
+        "keyValueSeparator": {
+          "description": "Specifies the separator used to split the key and the value in the key-value pairs. The parameter 'pairsSeparator' is used to split the pairs from each others.",
+          "type": "string"
+        },
+        "pairsSeparator": {
+          "description": "Specifies the separator used to split the pairs from each others. The parameter 'keyValueSeparator' is used to split the keys and values.",
+          "type": "string"
+        },
+        "softOverride": {
+          "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
+          "type": "boolean"
+        },
+        "keyType": {
+          "description": "Specifies the data type of the keys in the object.",
+          "enum": [
+            "string",
+            "float",
+            "boolean",
+            "integer"
+          ],
+          "type": "string"
+        },
+        "valueType": {
+          "description": "Specifies the data type of the values in the object.",
+          "enum": [
+            "string",
+            "float",
+            "boolean",
+            "integer"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyValueSeparator",
+        "pairsSeparator",
+        "keyType",
+        "valueType"
+      ],
+      "type": "object"
+    },
+    "ScalarParameterType": {
+      "additionalProperties": false,
+      "properties": {
+        "main": {
+          "description": "The main data type of the parameter.",
+          "enum": [
+            "string",
+            "float",
+            "boolean",
+            "integer"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "main"
+      ],
+      "type": "object"
+    },
+    "TranslationDefinition": {
+      "additionalProperties": false,
+      "description": "If the parameter is of type 'translation', this can be used to provide a description of the expected format of the translation. For script blocks, this is associated to the ID of the block.",
+      "properties": {
+        "keyPattern": {
+          "description": "A regex pattern that the translation key in the source must match. The '{value}' placeholder is replaced by the ID of the block or value of the parameter. '{module}' is replaced by the module of the block.",
+          "type": "string"
+        },
+        "sourceFile": {
+          "description": "The source file where the translation key is defined (without the .json extension).",
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyPattern",
+        "sourceFile"
+      ],
+      "type": "object"
+    },
+    "TranslationParameterType": {
+      "additionalProperties": false,
+      "properties": {
+        "main": {
+          "const": "translation",
+          "description": "The main data type of the parameter.",
+          "type": "string"
+        },
+        "translation": {
+          "$ref": "#/$defs/TranslationDefinition",
+          "description": "If the parameter is of type 'translation', this can be used to provide a description of the expected format of the translation."
+        }
+      },
+      "required": [
+        "main",
+        "translation"
+      ],
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "isRoot": {
+            "const": true
+          }
+        },
+        "required": [
+          "isRoot"
+        ]
+      },
+      "then": {
+        "required": [
+          "pattern"
+        ]
+      }
+    }
+  ],
+  "description": "Schema of a block definition file.",
+  "properties": {
+    "version": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "#desc": {
+      "description": "A reference to the description of another block type. This allows sharing the same description between multiple block types without using #ref, which would also share other properties.",
+      "type": "string"
+    },
+    "#ref": {
+      "description": "A reference to another block type. This allows sharing the same properties between multiple block types.",
+      "type": "string"
+    },
+    "variantOf": {
+      "description": "Indicates whether this block type is a variant of another block type. The value corresponds to the block type it is a variant of.",
+      "type": "string"
+    },
+    "name": {
+      "description": "The name of the block type.",
+      "type": "string"
+    },
+    "anyName": {
+      "description": "A block with `anyName` can have any name. This requires strict placement in parent blocks to correctly validate the block parameters.",
+      "type": "boolean"
+    },
+    "shortDescription": {
+      "description": "A brief description of the block type, used for quick reference in completion items.",
+      "type": "string"
+    },
+    "description": {
+      "description": "A brief description of the block type.",
+      "type": "string"
+    },
+    "ID": {
+      "$ref": "#/$defs/BlockID"
+    },
+    "parents": {
+      "description": "A list of valid parent block types.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "needsChildren": {
+      "description": "A list of required child block types.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "softOverride": {
+      "description": "Indicates whether the block can be soft overridden in scripts.",
+      "type": "boolean"
+    },
+    "isRoot": {
+      "description": "Indicates whether the block is a root document.",
+      "type": "boolean"
+    },
+    "pattern": {
+      "description": "A list of regex patterns that can be used to match this root file. Required when 'isRoot' is true.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "noComma": {
+      "description": "Indicates whether the block parameters should not be followed by a comma.",
+      "type": "boolean"
+    },
+    "deprecated": {
+      "$ref": "#/$defs/BlockDeprecation"
+    },
+    "parameters": {
       "description": "A list of parameters available for this block type.",
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "The name of the parameter. (required)"
-          },
-          "anyName": {
-            "type": "boolean",
-            "description": "A parameter with `anyName` can have any name."
-          },
-          "#ref": {
-            "type": "string",
-            "description": "A reference to another block parameter."
-          },
-          "#desc": {
-            "type": "string",
-            "description": "A reference to the description of another block parameter. This allows sharing the same description between multiple parameters without using #ref, which would also share other properties."
-          },
-          "description": {
-            "type": "string",
-            "description": "A brief description of what the parameter does."
-          },
-          "allowedDuplicate": {
-            "type": "boolean",
-            "description": "Indicates whether the parameter can be duplicated."
-          },
-          "canBeEmpty": {
-            "type": "boolean",
-            "description": "Indicates whether the parameter can be empty."
-          },
-          "itemTypes": {
-            "type": "array",
-            "description": "DEPRECATED: Specifies the type of item the parameter is associated with (e.g., 'vehicle', 'item', etc.). Only for item scripts.",
-            "items": { "type": "string" }
-          },
-          "parentsOnly": {
-            "type": "array",
-            "description": "DEPRECATED: A list of parent block types for which this parameter is applicable.",
-            "items": { "type": "string" }
-          },
-          "required": {
-            "type": "boolean",
-            "description": "Indicates whether the parameter is required."
-          },
-          "default": {
-            "type": ["string", "number", "boolean", "array", "object"],
-            "description": "The default value for the parameter if not specified."
-          },
-          "minimum": {
-            "type": "number",
-            "description": "The minimum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable."
-          },
-          "maximum": {
-            "type": "number",
-            "description": "The maximum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable."
-          },
-          "type": {
-            "type": "object",
-            "description": "The data type of the parameter.",
-            "additionalProperties": false,
-            "oneOf": [
-              { 
-                "properties": { "main": { "const": "array" } }, 
-                "required": ["main", "array"],
-                "not": { "anyOf": [
-                  { "required": ["object"] },
-                  { "required": ["block"] },
-                  { "required": ["callback"] },
-                  { "required": ["translation"] }
-                ]}
-              },
-              { 
-                "properties": { "main": { "const": "object" } }, 
-                "required": ["main", "object"],
-                "not": { "anyOf": [
-                  { "required": ["array"] },
-                  { "required": ["block"] },
-                  { "required": ["callback"] },
-                  { "required": ["translation"] }
-                ]}
-              },
-              { 
-                "properties": { "main": { "const": "block" } }, 
-                "required": ["main", "block"],
-                "not": { "anyOf": [
-                  { "required": ["array"] },
-                  { "required": ["object"] },
-                  { "required": ["callback"] },
-                  { "required": ["translation"] }
-                ]}
-              },
-              { 
-                "properties": { "main": { "const": "callback" } }, 
-                "required": ["main", "callback"],
-                "not": { "anyOf": [
-                  { "required": ["array"] },
-                  { "required": ["object"] },
-                  { "required": ["block"] },
-                  { "required": ["translation"] }
-                ]}
-              },
-              { 
-                "properties": { "main": { "const": "translation" } }, 
-                "required": ["main", "translation"],
-                "not": { "anyOf": [
-                  { "required": ["array"] },
-                  { "required": ["object"] },
-                  { "required": ["block"] },
-                  { "required": ["callback"] }
-                ]}
-              },
-              { 
-                "properties": { "main": { "enum": ["string", "float", "boolean", "integer"] } }, 
-                "required": ["main"],
-                "not": { "anyOf": [
-                  { "required": ["array"] },
-                  { "required": ["object"] },
-                  { "required": ["block"] },
-                  { "required": ["callback"] },
-                  { "required": ["translation"] }
-                ]}
-              }
-            ],
-            "required": ["main"],
-            "properties": {
-              "main": {
-                "type": "string",
-                "description": "The main data type of the parameter.",
-                "enum": ["string", "float", "boolean", "array", "object", "integer", "block", "callback", "translation"]
-              },
-              "block": {
-                "$ref": "#/$defs/blockType"
-              },
-              "array": {
-                "type": "object",
-                "description": "If the parameter is of type 'array', this can be used to provide a description of the expected format of the array.",
-                "additionalProperties": false,
-                "oneOf": [
-                  { "properties": { "type": { "enum": ["string", "float", "boolean", "integer"] } }, "required": ["type"] },
-                  { "properties": { "type": { "enum": ["block"] } }, "required": ["type", "block"] }
-                ],
-                "required": ["separator", "type"],
-                "properties": {
-                  "separator": {
-                    "type": "string",
-                    "description": "Specifies the separator used to split the string into array items."
-                  },
-                  "type": {
-                    "type": "string",
-                    "description": "Specifies the data type of the items in the array.",
-                    "enum": ["string", "float", "boolean", "integer", "block"]
-                  },
-                  "min": {
-                    "type": "number",
-                    "description": "The minimum number of items required in the array."
-                  },
-                  "max": {
-                    "type": "number",
-                    "description": "The maximum number of items allowed in the array."
-                  },
-                  "block": {
-                    "$ref": "#/$defs/blockType"
-                  },
-                  "softOverride": {
-                    "type": "boolean",
-                    "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates."
-                  }
-                }
-              },
-              "object": {
-                "type": "object",
-                "description": "If the parameter is of type 'object', this can be used to provide a description of the expected format of the object.",
-                "required": ["keyValueSeparator", "pairsSeparator", "keyType", "valueType"],
-                "additionalProperties": false,
-                "oneOf": [
-                  { "properties": { "keyType": { "enum": ["string", "float", "boolean", "integer"] }, "valueType": { "enum": ["string", "float", "boolean", "integer"] } }, "required": ["keyType", "valueType"] },
-                  { "properties": { "keyType": { "enum": ["block"] }, "valueType": { "enum": ["block"] } }, "required": ["keyBlock", "valueBlock"] },
-                  { "properties": { "keyType": { "enum": ["block"] }, "valueType": { "enum": ["string", "float", "boolean", "integer"] } }, "required": ["keyBlock", "valueType"] },
-                  { "properties": { "keyType": { "enum": ["string", "float", "boolean", "integer"] }, "valueType": { "enum": ["block"] } }, "required": ["keyType", "valueBlock"] }
-                ],
-                "properties": {
-                  "keyValueSeparator": {
-                    "type": "string",
-                    "description": "Specifies the separator used to split the key and the value in the key-value pairs. The parameter 'pairsSeparator' is used to split the pairs from each others."
-                  },
-                  "keyType": {
-                    "type": "string",
-                    "description": "Specifies the data type of the keys in the object.",
-                    "enum": ["string", "float", "boolean", "integer", "block"]
-                  },
-                  "keyBlock": {
-                    "$ref": "#/$defs/blockType"
-                  },
-                  "pairsSeparator": {
-                    "type": "string",
-                    "description": "Specifies the separator used to split the pairs from each others. The parameter 'keyValueSeparator' is used to split the keys and values."
-                  },
-                  "valueType": {
-                    "type": "string",
-                    "description": "Specifies the data type of the values in the object.",
-                    "enum": ["string", "float", "boolean", "integer", "block"]
-                  },
-                  "valueBlock": {
-                    "$ref": "#/$defs/blockType"
-                  },
-                  "softOverride": {
-                    "type": "boolean",
-                    "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates."
-                  }
-                }
-              },
-              "callback": {
-                "type": "object",
-                "description": "Indicates whether the parameter is a callback function.",
-                "required": ["parameters"],
-                "properties": {
-                  "parameters": {
-                    "type": "array",
-                    "description": "A list of parameters that the callback function takes.",
-                    "items": { 
-                      "type": "object",
-                      "required": ["name", "type"],
-                      "properties": {
-                        "name": {
-                          "type": "string",
-                          "description": "The name of the parameter."
-                        },
-                        "type": {
-                          "type": "string",
-                          "description": "The type of the parameter."
-                        },
-                        "isJava": {
-                          "type": "boolean",
-                          "default": false,
-                          "description": "Indicates whether the parameter is a Java object."
-                        }
-                      }
-                    }
-                  },
-                  "returns": {
-                    "type": "string",
-                    "description": "The return type of the callback function."
-                  }
-                }
-              },
-              "translation": {
-                "$ref": "#/$defs/translationDef"
-              }
-            }
-          },
-          "values": {
-            "type": "array",
-            "description": "A list of allowed values for the parameter.",
-            "items": { "type": ["string", "number"] }
-          },
-          "deprecated": {
-            "type": "object",
-            "additionalProperties": false,
-            "description": "Indicates whether the parameter is deprecated.",
-            "properties": {
-              "replacedBy": {
-                "type": "string",
-                "description": "The name of the parameter that replaces this deprecated parameter."
-              },
-              "description": {
-                "type": "string",
-                "description": "A brief description of why the parameter is deprecated and any additional information about the deprecation."
-              },
-              "version": {
-                "type": "string",
-                "description": "The version(s) in which the parameter is deprecated."
-              }
-            }
-          },
-          "needs": {
-            "type": "array",
-            "description": "A list of conditions of other parameters that must be met for this parameter to be valid.",
-            "items": {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "description": "The name of the parameter that this condition depends on."
-                },
-                "values": {
-                  "type": "array",
-                  "description": "The values of the dependent parameter that must be met for this parameter to be valid."
-                },
-                "valueToType": {
-                  "type": "object",
-                  "description": "A mapping of values of the dependent parameter to the expected type of this parameter. For example, if the dependent parameter is 'type' and it has a value 'integer', then this parameter should be of type 'float'. The key is the value of the dependent parameter, and the value is the expected type of this parameter when the dependent parameter has that value.",
-                  "examples": [
-                    {
-                      "name": "type",
-                      "valueToType": {
-                        "integer": "float",
-                        "double": "float",
-                        "boolean": "boolean",
-                        "string": "string"
-                      }
-                    }
-                  ]
-                },
-                "minimum": {
-                  "type": "number",
-                  "description": "The minimum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'."
-                },
-                "maximum": {
-                  "type": "number",
-                  "description": "The maximum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'."
-                },
-                "children": {
-                  "type": "array",
-                  "description": "A list of child blocks that must be present for this parameter to be valid.",
-                  "items": { "type": "string" }
-                },
-                "parents": {
-                  "type": "array",
-                  "description": "A list of parent blocks that must be present for this parameter to be valid.",
-                  "items": { "type": "string" }
-                }
-              }
-            }
-          },
-          "incompatibleWith": {
-            "type": "array",
-            "description": "List of other parameters which are incompatible with this one.",
-            "items": { "type": "string" }
-          },
-          "isUseless": {
-            "type": "boolean",
-            "default": false,
-            "description": "Indicates whether the parameter is considered useless or not. This can be used to flag parameters that have no effect in the game. Not to be confused with deprecated which indicates a parameter that previously worked but no longer does."
-          },
-          "seeAlso": {
-            "type": "array",
-            "description": "A list of other parameters that are related to this one.",
-            "items": { "type": "string" }
-          }
-        }
-      }
+        "$ref": "#/$defs/ParameterDefinition"
+      },
+      "type": "array"
     },
     "properties": {
       "type": "object",
+      "additionalProperties": true,
       "description": "Custom additional properties for the block type."
     }
-  }
+  },
+  "required": [
+    "name"
+  ],
+  "title": "Blocks Folder General Schema",
+  "type": "object"
 }

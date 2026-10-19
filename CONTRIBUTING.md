@@ -5,6 +5,11 @@ Preferably, install the extension [YAML Language Support by Red Hat](https://mar
 
 For a detailed explanation of the data syntax, check the [schema](schemas/blocks.json) file.
 
+The schema is defined with Pydantic models in [schema.py](src/pz_scripts_data/schema.py). After changing a model, regenerate the JSON Schema from the repository root with:
+```bash
+uv run python -m pz_scripts_data.schema
+```
+
 ## Structure
 The repository is structured in the following way:
 ```bash
@@ -18,11 +23,12 @@ The repository is structured in the following way:
     📄 roots.json                   # every root files definition in a single file
     📄 scriptsBlocks.json           # every scripts blocks definition in a single file
 📁 schemas                        # JSON schemas that describe the data files
-    📄 blocks.json                  # main definitions for the data files
+    📄 blocks.json                  # main definitions for the data files (generated, do not edit by hand)
 📁 scripts                        # utilitary Python scripts for debugging
 📁 src                            # Python files to format and validate the dataset
     📁 pz_scripts_data              # package 
         📄 blocks.py                  # enums of properties
+        📄 schema.py                  # Pydantic models defining the data format, exported to schemas/blocks.json
         📄 formatBlocks.py            # outputs out/scriptsBlocks.json and out/roots.json
         📄 sortItemParameters.py      # outputs out/itemParameters.json
         📄 validateBlocks.py          # validates every YAML files against the schemas/blocks.json
