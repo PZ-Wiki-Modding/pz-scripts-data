@@ -7,7 +7,7 @@
 import json
 import sys
 from pathlib import Path
-from typing import Annotated, Any, Literal, Self
+from typing import Annotated, Any, Literal, Self, TypeVar, Generic
 
 from pydantic import BaseModel, ConfigDict, Field, WithJsonSchema, model_validator
 from pydantic.json_schema import GenerateJsonSchema, JsonSchemaValue
@@ -15,7 +15,30 @@ from pydantic_core import core_schema
 
 DEFAULT_OUTPUT = Path(__file__).resolve().parents[2] / "schemas" / "blocks.json"
 
-ScalarType = Literal["string", "float", "boolean", "integer"]
+StringType = Literal["string"]
+FloatType = Literal["float"]
+BooleanType = Literal["boolean"]
+IntegerType = Literal["integer"]
+ScalarType = (
+    StringType 
+    | FloatType 
+    | BooleanType 
+    | IntegerType
+)
+TranslationType = Literal["translation"]
+CallBackType = Literal["callback"]
+BlockType = Literal["block"]
+ObjectType = Literal["object"]
+ArrayType = Literal["array"]
+ParameterMainType = (
+    ScalarType 
+    | TranslationType 
+    | CallBackType 
+    | BlockType 
+    | ObjectType 
+    | ArrayType
+)
+
 
 # Accepts whole numbers as int so they are not widened to float on output. The JSON Schema stays "number".
 Number = Annotated[int | float, WithJsonSchema({"type": "number"})]
@@ -206,45 +229,51 @@ class CallbackDefinition(SchemaModel):
     returns: str | None = Field(None, description="The return type of the callback function.")
 
 
-class ArrayParameterType(SchemaModel):
-    main: Literal["array"] = Field(description="The main data type of the parameter.")
+T = TypeVar('T')
+class ParameterType(SchemaModel, Generic[T]):
+    """Represents the type of a parameter."""
+    main: T = Field(description="The main data type of the parameter.")
+
+
+class ArrayParameterType(ParameterType[ArrayType]):
+    main: ArrayType = Field(description="The main data type of the parameter.")
     array: ArrayDefinition = Field(
         description="If the parameter is of type 'array', this can be used to provide a description of the expected format of the array.",
     )
 
 
-class ObjectParameterType(SchemaModel):
-    main: Literal["object"] = Field(description="The main data type of the parameter.")
-    object_: ObjectDefinition = Field(
+class ObjectParameterType(ParameterType[ObjectType]):
+    main: ObjectType = Field(description="The main data type of the parameter.")
+    object: ObjectDefinition = Field(
         alias="object",
         description="If the parameter is of type 'object', this can be used to provide a description of the expected format of the object.",
     )
 
 
-class BlockParameterType(SchemaModel):
-    main: Literal["block"] = Field(description="The main data type of the parameter.")
+class BlockParameterType(ParameterType[BlockType]):
+    main: BlockType = Field(description="The main data type of the parameter.")
     block: BlockReference = Field(
         description="If the parameter is of type 'block', this can be used to provide a description of the expected format of the block.",
     )
 
 
-class CallbackParameterType(SchemaModel):
-    main: Literal["callback"] = Field(description="The main data type of the parameter.")
+class CallbackParameterType(ParameterType[CallBackType]):
+    main: CallBackType = Field(description="The main data type of the parameter.")
     callback: CallbackDefinition = Field(description="Indicates whether the parameter is a callback function.")
 
 
-class TranslationParameterType(SchemaModel):
-    main: Literal["translation"] = Field(description="The main data type of the parameter.")
+class TranslationParameterType(ParameterType[TranslationType]):
+    main: TranslationType = Field(description="The main data type of the parameter.")
     translation: TranslationDefinition = Field(
         description="If the parameter is of type 'translation', this can be used to provide a description of the expected format of the translation.",
     )
 
 
-class ScalarParameterType(SchemaModel):
+class ScalarParameterType(ParameterType[ScalarType]):
     main: ScalarType = Field(description="The main data type of the parameter.")
 
 
-ParameterType = (
+ParameterTypeUnion = (
     ArrayParameterType
     | ObjectParameterType
     | BlockParameterType
@@ -351,7 +380,7 @@ class ParameterDefinition(SchemaModel):
         None,
         description="The maximum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable.",
     )
-    data_type: ParameterType | None = Field(
+    data_type: ParameterTypeUnion | None = Field(
         None,
         alias="type",
         description="The data type of the parameter.",

@@ -192,14 +192,25 @@
           "description": "The block type of the keys in the object."
         },
         "valueType": {
-          "description": "Specifies the data type of the values in the object.",
-          "enum": [
-            "string",
-            "float",
-            "boolean",
-            "integer"
+          "anyOf": [
+            {
+              "const": "string",
+              "type": "string"
+            },
+            {
+              "const": "float",
+              "type": "string"
+            },
+            {
+              "const": "boolean",
+              "type": "string"
+            },
+            {
+              "const": "integer",
+              "type": "string"
+            }
           ],
-          "type": "string"
+          "description": "Specifies the data type of the values in the object."
         }
       },
       "required": [
@@ -600,14 +611,25 @@
           "type": "boolean"
         },
         "type": {
-          "description": "Specifies the data type of the items in the array.",
-          "enum": [
-            "string",
-            "float",
-            "boolean",
-            "integer"
+          "anyOf": [
+            {
+              "const": "string",
+              "type": "string"
+            },
+            {
+              "const": "float",
+              "type": "string"
+            },
+            {
+              "const": "boolean",
+              "type": "string"
+            },
+            {
+              "const": "integer",
+              "type": "string"
+            }
           ],
-          "type": "string"
+          "description": "Specifies the data type of the items in the array."
         }
       },
       "required": [
@@ -632,14 +654,25 @@
           "type": "boolean"
         },
         "keyType": {
-          "description": "Specifies the data type of the keys in the object.",
-          "enum": [
-            "string",
-            "float",
-            "boolean",
-            "integer"
+          "anyOf": [
+            {
+              "const": "string",
+              "type": "string"
+            },
+            {
+              "const": "float",
+              "type": "string"
+            },
+            {
+              "const": "boolean",
+              "type": "string"
+            },
+            {
+              "const": "integer",
+              "type": "string"
+            }
           ],
-          "type": "string"
+          "description": "Specifies the data type of the keys in the object."
         },
         "valueType": {
           "const": "block",
@@ -676,24 +709,46 @@
           "type": "boolean"
         },
         "keyType": {
-          "description": "Specifies the data type of the keys in the object.",
-          "enum": [
-            "string",
-            "float",
-            "boolean",
-            "integer"
+          "anyOf": [
+            {
+              "const": "string",
+              "type": "string"
+            },
+            {
+              "const": "float",
+              "type": "string"
+            },
+            {
+              "const": "boolean",
+              "type": "string"
+            },
+            {
+              "const": "integer",
+              "type": "string"
+            }
           ],
-          "type": "string"
+          "description": "Specifies the data type of the keys in the object."
         },
         "valueType": {
-          "description": "Specifies the data type of the values in the object.",
-          "enum": [
-            "string",
-            "float",
-            "boolean",
-            "integer"
+          "anyOf": [
+            {
+              "const": "string",
+              "type": "string"
+            },
+            {
+              "const": "float",
+              "type": "string"
+            },
+            {
+              "const": "boolean",
+              "type": "string"
+            },
+            {
+              "const": "integer",
+              "type": "string"
+            }
           ],
-          "type": "string"
+          "description": "Specifies the data type of the values in the object."
         }
       },
       "required": [
@@ -708,14 +763,25 @@
       "additionalProperties": false,
       "properties": {
         "main": {
-          "description": "The main data type of the parameter.",
-          "enum": [
-            "string",
-            "float",
-            "boolean",
-            "integer"
+          "anyOf": [
+            {
+              "const": "string",
+              "type": "string"
+            },
+            {
+              "const": "float",
+              "type": "string"
+            },
+            {
+              "const": "boolean",
+              "type": "string"
+            },
+            {
+              "const": "integer",
+              "type": "string"
+            }
           ],
-          "type": "string"
+          "description": "The main data type of the parameter."
         }
       },
       "required": [
