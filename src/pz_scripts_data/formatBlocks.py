@@ -62,7 +62,7 @@ items: list[Item] = [
 def fetchBlocks(item: Item):
     # combine all block yaml files into one, validating each against the schema
     blocks: dict[str, ScriptsBlock] = {}
-    for file_path in item['input'].glob("*.yaml"):
+    for file_path in sorted(item['input'].glob("*.yaml")):
         with open(file_path, 'r', encoding='utf-8') as f:
             data = yaml.safe_load(f)
         try:
@@ -255,6 +255,12 @@ def prepare(item: Item, items: list[Item]):
         copy_block_ref(block, items)
         copy_parameters_ref(block.parameters, items)
 
+    # children and variants are appended in processing order, so sort them for stable output
+    for block in blocks.values():
+        if block.children:
+            block.children.sort()
+        if block.variants:
+            block.variants.sort()
 
     return blocks
 
