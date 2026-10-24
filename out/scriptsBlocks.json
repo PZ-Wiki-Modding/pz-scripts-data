@@ -3809,7 +3809,12 @@
         "description": "Used to specify the icon of the item, usually used in the inventory and crafting menus to easily recognize the item. The icon file needs to be located inside the `media/textures/` folder and the file name must start with `Item_`, and be of the extension `.png`.\n```\n📁 media\n  📁 textures\n    📄 Item_iconName.png\n```\n\nWhen referencing the icon in the item script, you should not include the `Item_` prefix and the `.png` extension. For example, to reference the icon file above in the item script:\n```\nIcon = iconName,\n```\n\n##### Subfolders\nSubfolders are not directly supported, but you can use some tricks to have them working. Here's a simple example:\n```\nIcon = subFolder/iconName,\n```\nMeans your folder structure should be:\n```\n📁 media\n  📁 textures\n    📁 Item_subFolder\n      📄 iconName.png\n```\n\nNotice how the `Item_` prefix is not on the file but on the folder in this case.\n\n##### Food icons\nIcons can be specified for rotten, cooked and burned food (`ItemType = base:food,`) by adding the following suffix to the icon files:\n- `Rotten` or `Spoiled` for food that has rotten, meaning has passed the [DaysTotallyRotten](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-daystotallyrotten) value.\n- `Cooked` for food that has been cooked, meaning has passed the [MinutesToCook](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-minutestocook) value.\n- `Overdone` or `Burnt` for food that has been cooked to the point of burning, meaning has passed the [MinutesToBurn](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-minutestoburn) value.\n\nFor example, take a food item with the icon file defined as such:\n```\nIcon = iconName,\n```\n\nTo add variants based on food condition, you would have the following file structure:\n```\n📁 media\n  📁 textures\n    📄 Item_iconName.png\n    📄 Item_iconNameCooked.png\n    📄 Item_iconNameRotten.png\n    📄 Item_iconNameBurnt.png\n```\n\n[IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-iconsfortexture) can be used alongside [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-worldstaticmodelsbyindex) and [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-staticmodelsbyindex) to have variant icons for different models, and all for the same item definition. See those parameters definitions for more information.",
         "name": "Icon",
         "type": {
-          "main": "string"
+          "file": {
+            "extension": "png",
+            "prefix": "Item_",
+            "relativeTo": "media/textures"
+          },
+          "main": "file"
         }
       },
       "iconcolormask": {
@@ -6480,7 +6485,14 @@
       },
       "texture": {
         "description": "Path to the texture file relative to the `media/textures` folder. The texture file should be of `.png` format only.\n\nFor example, if your `texture` parameter is set to `my_model_texture`, the game will expect the texture to be stored in the following path:\n```\n📁 media\n  📁 textures\n    📄 my_model_texture.png\n```\n\nIt is suggested to put your textures in a subfolder of the `textures` folder named after your mod to reduce the risk of texture name conflicts with other mods.",
-        "name": "texture"
+        "name": "texture",
+        "type": {
+          "file": {
+            "extension": "png",
+            "relativeTo": "media/textures"
+          },
+          "main": "file"
+        }
       },
       "undocorescale": {
         "default": false,

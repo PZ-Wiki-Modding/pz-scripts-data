@@ -326,6 +326,48 @@
       ],
       "type": "object"
     },
+    "FileDefinition": {
+      "additionalProperties": false,
+      "description": "Describes the expected format of a file parameter.",
+      "properties": {
+        "relativeTo": {
+          "description": "The relative path of the file, relative to version and common folders.",
+          "type": "string"
+        },
+        "prefix": {
+          "description": "An optional prefix for the file path.",
+          "type": "string"
+        },
+        "extension": {
+          "description": "The file extension for the file parameter.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "relativeTo",
+        "extension"
+      ],
+      "type": "object"
+    },
+    "FileParameterType": {
+      "additionalProperties": false,
+      "properties": {
+        "main": {
+          "const": "file",
+          "description": "The main data type of the parameter.",
+          "type": "string"
+        },
+        "file": {
+          "$ref": "#/$defs/FileDefinition",
+          "description": "If the parameter is of type 'file', this can be used to provide a description of the expected format of the file."
+        }
+      },
+      "required": [
+        "main",
+        "file"
+      ],
+      "type": "object"
+    },
     "ObjectParameterType": {
       "additionalProperties": false,
       "properties": {
@@ -454,6 +496,9 @@
             },
             {
               "$ref": "#/$defs/TranslationParameterType"
+            },
+            {
+              "$ref": "#/$defs/FileParameterType"
             },
             {
               "$ref": "#/$defs/ScalarParameterType"

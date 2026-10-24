@@ -131,6 +131,11 @@ parameters:
     ```
 
     It is suggested to put your textures in a subfolder of the `textures` folder named after your mod to reduce the risk of texture name conflicts with other mods.
+  type:
+    main: file
+    file:
+      relativeTo: media/textures
+      extension: png
 - name: undoCoreScale
   description: |-
     If set to `true`, the model scale will be multiplied by `0.6666667`. This seems to be mostly used for tile models.

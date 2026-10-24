@@ -1264,7 +1264,11 @@ parameters:
 
     [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-iconsfortexture) can be used alongside [WorldStaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-worldstaticmodelsbyindex) and [StaticModelsByIndex](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-staticmodelsbyindex) to have variant icons for different models, and all for the same item definition. See those parameters definitions for more information.
   type:
-    main: string
+    main: file
+    file:
+      relativeTo: media/textures
+      prefix: Item_
+      extension: png
   default: None
 - name: IconColorMask
   itemTypes:

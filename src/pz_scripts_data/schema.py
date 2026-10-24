@@ -30,6 +30,7 @@ CallBackType = Literal["callback"]
 BlockType = Literal["block"]
 ObjectType = Literal["object"]
 ArrayType = Literal["array"]
+FileType = Literal["file"]
 ParameterMainType = (
     ScalarType 
     | TranslationType 
@@ -37,6 +38,7 @@ ParameterMainType = (
     | BlockType 
     | ObjectType 
     | ArrayType
+    | FileType
 )
 
 
@@ -130,6 +132,21 @@ class BlockDeprecation(SchemaModel):
     description: str | None = Field(
         None,
         description="A brief description of why the block type is deprecated and any additional information about the deprecation.",
+    )
+
+class FileDefinition(SchemaModel):
+    """Describes the expected format of a file parameter."""
+
+    relative_to: str = Field(
+        description="The relative path of the file, relative to version and common folders.",
+        alias="relativeTo",
+    )
+    prefix: str | None = Field(
+        None,
+        description="An optional prefix for the file path.",
+    )
+    extension: str = Field(
+        description="The file extension for the file parameter.",
     )
 
 
@@ -268,6 +285,12 @@ class TranslationParameterType(ParameterType[TranslationType]):
         description="If the parameter is of type 'translation', this can be used to provide a description of the expected format of the translation.",
     )
 
+class FileParameterType(ParameterType[FileType]):
+    main: FileType = Field(description="The main data type of the parameter.")
+    file: FileDefinition = Field(
+        description="If the parameter is of type 'file', this can be used to provide a description of the expected format of the file.",
+    )
+
 
 class ScalarParameterType(ParameterType[ScalarType]):
     main: ScalarType = Field(description="The main data type of the parameter.")
@@ -279,6 +302,7 @@ ParameterTypeUnion = (
     | BlockParameterType
     | CallbackParameterType
     | TranslationParameterType
+    | FileParameterType
     | ScalarParameterType
 )
 
