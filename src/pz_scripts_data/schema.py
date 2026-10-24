@@ -357,7 +357,7 @@ class ParameterNeed(SchemaModel):
 class ParameterDefinition(SchemaModel):
     """A parameter available for a block type."""
 
-    name: str | None = Field(None, description="The name of the parameter.")
+    name: str = Field(description="The name of the parameter.")
     any_name: bool | None = Field(
         None,
         alias="anyName",

@@ -550,6 +550,9 @@
           "type": "array"
         }
       },
+      "required": [
+        "name"
+      ],
       "type": "object"
     },
     "ParameterDeprecation": {
