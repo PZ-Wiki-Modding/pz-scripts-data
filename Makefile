@@ -27,6 +27,9 @@ release:
 	./.venv/bin/python ./src/pz_scripts_data/release.py
 
 release_package:
+	rm -rf dist
+	rm -rf build
+
 	uv build
 	uv publish
 	VERSION=$(shell uv version --short)
