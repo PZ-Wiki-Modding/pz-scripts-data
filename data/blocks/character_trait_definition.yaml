@@ -81,7 +81,11 @@ parameters:
     main: array
     array:
       separator: ;
-      type: string
+      type: block
+      block:
+        name: craftRecipe
+        fullType: false
+        noAutoImport: false
 - name: Texture
   description: The path to the trait's icon texture. This should be a .png file located in the textures folder of your mod.
   type:
