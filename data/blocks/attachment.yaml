@@ -44,6 +44,8 @@ parameters:
     array:
       type: float
       separator: ' '
+      min: 3
+      max: 3
   description: |-
     The position offset of the model relative to the bone. This is a vector in the format `x y z`. ```cpp
     offset = -0.0300 -0.1020 0.1210,
@@ -54,6 +56,8 @@ parameters:
     array:
       type: float
       separator: ' '
+      min: 3
+      max: 3
   description: |-
     The rotation of the model relative to the bone. This is a vector in the format `x y z`. The values are degrees.
 
