@@ -168,6 +168,8 @@
         "name": "offset",
         "type": {
           "array": {
+            "max": 3,
+            "min": 3,
             "separator": " ",
             "type": "float"
           },
@@ -179,6 +181,8 @@
         "name": "rotate",
         "type": {
           "array": {
+            "max": 3,
+            "min": 3,
             "separator": " ",
             "type": "float"
           },
@@ -481,8 +485,13 @@
         "name": "GrantedRecipes",
         "type": {
           "array": {
+            "block": {
+              "fullType": false,
+              "name": "craftRecipe",
+              "noAutoImport": false
+            },
             "separator": ";",
-            "type": "string"
+            "type": "block"
           },
           "main": "array"
         }
