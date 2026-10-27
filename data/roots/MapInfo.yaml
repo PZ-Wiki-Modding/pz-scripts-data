@@ -38,3 +38,8 @@ parameters:
 - name: demoVideo
   description: '[Video file](https://pzwiki.net/wiki/File_formats#Video_format) used
     to showcase the map when selecting it.'
+- name: only_for_game_mode
+  description: |-
+    Specifies the game mode for which the map is intended.
+  type: 
+    main: string
