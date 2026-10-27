@@ -110,6 +110,7 @@ def main():
         MANIFEST_FILE.write_text(json.dumps(MANIFEST_DATA, indent=4))
 
     # commit latest manifest changes
+    input("Commit changes? Press Enter to continue...")
     try:
         if not dry_run:
             subprocess.run(["git", "add", str(MANIFEST_FILE)], check=True)
@@ -123,26 +124,37 @@ def main():
             elif set_latest_build is not None:
                 message += f": New latest build {set_latest_build}"
             subprocess.run(["git", "commit", "-m", message], check=True)
+        else:
+            print("Dry run, not committing changes")
     except Exception as e:
         print(f"Error committing changes: {e}")
 
     # that one we don't ignore, since that could been connection issues
+    input("Push changes? Press Enter to continue...")
     if not dry_run:
         subprocess.run(["git", "push"], check=True)
+    else:
+        print("Dry run, not pushing changes")
 
     # if set as stable is active
     # move stable tag
     if set_stable is not None:
+        input("Move stable tag? Press Enter to continue...")
         if not dry_run:
             subprocess.run(["git", "tag", "-fa", "stable", "-m", "Moved stable tag"], check=True)
             subprocess.run(["git", "push", "-f", "--tags"], check=True)
-        print(f"Moved stable tag")
+            print(f"Moved stable tag")
+        else:
+            print("Dry run, not moving stable tag")
 
     if pushed_new_release is not None:
+        input("Push new release? Press Enter to continue...")
         if not dry_run:
             subprocess.run(["git", "tag", "-fa", pushed_new_release, "-m", "New release"], check=True)
             subprocess.run(["git", "push", "-f", "--tags"], check=True)
-        print(f"Pushed new release: {pushed_new_release}")
+            print(f"Pushed new release: {pushed_new_release}")
+        else:
+            print("Dry run, not pushing new release")
 
 
 
