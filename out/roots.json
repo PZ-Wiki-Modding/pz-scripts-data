@@ -76,6 +76,13 @@
         "description": "Refers to the world map the map will be loaded into. For a map which is inside the vanilla world map, use `lots=Muldraugh, KY`.",
         "name": "lots"
       },
+      "only_for_game_mode": {
+        "description": "Specifies the game mode for which the map is intended.",
+        "name": "only_for_game_mode",
+        "type": {
+          "main": "string"
+        }
+      },
       "title": {
         "description": "Title of the map.",
         "name": "title"
