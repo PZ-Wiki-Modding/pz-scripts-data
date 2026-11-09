@@ -1,6 +1,10 @@
 {
-    "base:alarmclock": [],
-    "base:alarmclockclothing": [],
+    "base:alarmclock": [
+        "AlarmSound"
+    ],
+    "base:alarmclockclothing": [
+        "AlarmSound"
+    ],
     "base:animal": [],
     "base:clothing": [],
     "base:container": [
