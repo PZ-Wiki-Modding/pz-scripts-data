@@ -156,6 +156,8 @@ parameters:
   itemTypes:
   - weapon
 - name: AlwaysWelcomeGift
+  description: |-
+    It was found that this parameter does nothing.
   type:
     main: boolean
   isUseless: true
@@ -215,11 +217,30 @@ parameters:
   - clothing
   - container
 - name: AttachmentType
-  itemTypes:
-  - drainable
-  - normal
-  - radio
-  - weapon
+  description: |-
+    Used to indicate where the item can be attached on the hotbar. The following values are commonly used in the base game:
+    - Bedroll
+    - BigBlade
+    - BigWeapon
+    - Guitar
+    - GuitarAcoustic
+    - Hammer
+    - Holster
+    - HolsterSmall
+    - Knife
+    - MeatCleaver
+    - Nightstick
+    - NotKnife
+    - Pan
+    - Racket
+    - Rifle
+    - Saucepan
+    - Screwdriver
+    - Shovel
+    - Sword
+    - Walkie
+    - Webbing
+    - Wrench
 - name: BadCold
   description: |-
   type:
@@ -838,11 +859,13 @@ parameters:
     main: string
   default: BaseballBatHit
 - name: DoubleClickRecipe
+  description: |-
+    Double clicking this item will trigger the specified crafting recipe, if possible to craft it.
   type:
     main: block
     block:
       name: craftRecipe
-      fullType: true
+      fullType: false
 - name: DropSound
   type:
     main: block
@@ -2407,6 +2430,8 @@ parameters:
   type:
     main: boolean
 - name: Researchablerecipes
+  description: |-
+    Specifies a list of crafting recipes that this item can be used to research.
   type:
     main: array
     array:
@@ -2416,15 +2441,6 @@ parameters:
         name: craftRecipe
         fullType: true
         noAutoImport: false
-  itemTypes:
-  - clothing
-  - container
-  - drainable
-  - food
-  - moveable
-  - normal
-  - radio
-  - weapon
 - name: RunAnim
   itemTypes:
   - weapon
@@ -2610,13 +2626,10 @@ parameters:
     main: string
   default: ''
 - name: SurvivalGear
-  itemTypes:
-  - container
-  - drainable
-  - food
-  - map
-  - normal
-  - weapon
+  description: |-
+    If set to true, this will mark this item's loot type as `SurvivalGears`, which affects how likely the item is to appear based on the sandbox option `SurvivalGearsLootNew`. By default, the loot modifier for `SurvivalGears` items is set to `0.6`.
+  type:
+    main: boolean
 - name: suspensionCompression
   itemTypes:
   - normal
