@@ -443,10 +443,11 @@ parameters:
   itemTypes:
   - normal
 - name: CanStoreWater
-  itemTypes:
-  - drainable
-  - normal
-  - weapon
+  description: |-
+    Completely unused by the game.
+  type:
+    main: boolean
+  isUseless: true
 - name: CantAttackWithLowestEndurance
   itemTypes:
   - weapon
@@ -1009,19 +1010,78 @@ parameters:
   - drainable
   - food
 - name: FillFromDispenserSound
-  itemTypes:
-  - drainable
-  - normal
+  description: |-
+    The sound played when taking water from a dispenser. Some of the sounds that are commonly used in the base game are:
+    - `GetWaterFromDispenser` (default)
+    - `GetWaterFromDispenserGlass`
+    - `GetWaterFromDispenserCeramic`
+    - `GetWaterFromDispenserPlasticMedium`
+    - `GetWaterFromDispenserPlasticBig`
+    - `GetWaterFromDispenserMetalMedium`
+    - `GetWaterFromDispenserMetalBig`
+  type:
+    main: block
+    block:
+      name: sound
+      fullType: true
+      noAutoImport: false
+  default: GetWaterFromDispenser
+  seeAlso:
+  - FillFromLakeSound
+  - FillFromTapSound
+  - FillFromToiletSound
 - name: FillFromLakeSound
-  itemTypes:
-  - normal
+  description: |-
+    The sound played when taking water from a lake. Some of the sounds that are commonly used in the base game are:
+    - `GetWaterFromLake` (default)
+    - `GetWaterFromLakeSmall`
+    - `GetWaterFromLakeBottle`
+  type:
+    main: block
+    block:
+      name: sound
+      fullType: true
+      noAutoImport: false
+  default: GetWaterFromLake
+  seeAlso:
+    - FillFromDispenserSound
+    - FillFromTapSound
+    - FillFromToiletSound
 - name: FillFromTapSound
-  itemTypes:
-  - drainable
-  - normal
+  description: |-
+    The sound played when taking water from a tap. Some of the sounds that are commonly used in the base game are:
+    - `GetWaterFromTap` (default)
+    - `GetWaterFromTapGlass`
+    - `GetWaterFromTapCeramic`
+    - `GetWaterFromTapPlasticMedium`
+    - `GetWaterFromTapPlasticBig`
+    - `GetWaterFromTapMetalMedium`
+    - `GetWaterFromTapMetalBig`
+  type:
+    main: block
+    block:
+      name: sound
+      fullType: true
+      noAutoImport: false
+  default: GetWaterFromTap
+  seeAlso:
+    - FillFromDispenserSound
+    - FillFromLakeSound
+    - FillFromToiletSound
 - name: FillFromToiletSound
-  itemTypes:
-  - normal
+  description: |-
+    The sound played when taking water from a toilet. The only sound used by the base game is `GetWaterFromToilet`.
+  type:
+    main: block
+    block:
+      name: sound
+      fullType: true
+      noAutoImport: false
+  default: GetWaterFromToilet
+  seeAlso:
+    - FillFromDispenserSound
+    - FillFromLakeSound
+    - FillFromTapSound
 - name: FireFuelRatio
   isUseless: true
 - name: FireMode
@@ -1284,9 +1344,30 @@ parameters:
   - normal
   - weapon
 - name: IconFluidMask
-  itemTypes:
-  - normal
-  - weapon
+  description: |-
+    Defines a mask that will receive the tint color of the [fluid contained](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component-fluidcontainer.html#scripts-component-fluidcontainer) within the item. This mask is applied over the original [icon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-icon).
+
+    There is no official support for [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-iconsfortexture) with fluid masks but the [Fluid Mask By Index API](https://pzwiki.net/wiki/Fluid_Mask_By_Index_API) can be used to achieve similar functionality.
+
+    Similarly to the [icon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-icon) parameter, the texture file of the mask must be stored inside the `media/textures` directory with the `Item_` prefix and `png` extension.
+
+    Taking on the example file structure in the [icon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-icon) parameter description, your masks can be the following:
+    ```
+    📁 media
+      📁 textures
+        📄 Item_iconName_Mask.png
+        📄 Item_iconNameCooked_Mask.png
+        📄 Item_iconNameRotten_MyFluidMask.png
+        📄 Item_iconNameBurnt_DifferentNamingMask.png
+    ```
+
+    *Note: the `_Mask` suffix is not mandatory (notice it not present in the two last icons) but is simply what the base game uses, so it's probably best to keep that convention.*
+  type:
+    main: file
+    file:
+      relativeTo: media/textures
+      prefix: Item_
+      extension: png
 - name: IconsForTexture
   "#desc": item/Icon
   seeAlso:
