@@ -2294,6 +2294,7 @@
         "name": "AlwaysKnockdown"
       },
       "alwayswelcomegift": {
+        "description": "It was found that this parameter does nothing.",
         "isUseless": true,
         "name": "AlwaysWelcomeGift",
         "type": {
@@ -2370,12 +2371,7 @@
         "name": "AttachmentsProvided"
       },
       "attachmenttype": {
-        "itemTypes": [
-          "drainable",
-          "normal",
-          "radio",
-          "weapon"
-        ],
+        "description": "Used to indicate where the item can be attached on the hotbar. The following values are commonly used in the base game:\n- Bedroll\n- BigBlade\n- BigWeapon\n- Guitar\n- GuitarAcoustic\n- Hammer\n- Holster\n- HolsterSmall\n- Knife\n- MeatCleaver\n- Nightstick\n- NotKnife\n- Pan\n- Racket\n- Rifle\n- Saucepan\n- Screwdriver\n- Shovel\n- Sword\n- Walkie\n- Webbing\n- Wrench",
         "name": "AttachmentType"
       },
       "badcold": {
@@ -2720,12 +2716,12 @@
         "name": "CanStack"
       },
       "canstorewater": {
-        "itemTypes": [
-          "drainable",
-          "normal",
-          "weapon"
-        ],
-        "name": "CanStoreWater"
+        "description": "Completely unused by the game.",
+        "isUseless": true,
+        "name": "CanStoreWater",
+        "type": {
+          "main": "boolean"
+        }
       },
       "cantattackwithlowestendurance": {
         "itemTypes": [
@@ -3301,10 +3297,11 @@
         }
       },
       "doubleclickrecipe": {
+        "description": "Double clicking this item will trigger the specified crafting recipe, if possible to craft it.",
         "name": "DoubleClickRecipe",
         "type": {
           "block": {
-            "fullType": true,
+            "fullType": false,
             "name": "craftRecipe"
           },
           "main": "block"
@@ -3522,34 +3519,83 @@
         "name": "fatigueChange"
       },
       "fillfromdispensersound": {
-        "itemTypes": [
-          "drainable",
-          "normal"
+        "default": "GetWaterFromDispenser",
+        "description": "The sound played when taking water from a dispenser. Some of the sounds that are commonly used in the base game are:\n- `GetWaterFromDispenser` (default)\n- `GetWaterFromDispenserGlass`\n- `GetWaterFromDispenserCeramic`\n- `GetWaterFromDispenserPlasticMedium`\n- `GetWaterFromDispenserPlasticBig`\n- `GetWaterFromDispenserMetalMedium`\n- `GetWaterFromDispenserMetalBig`",
+        "name": "FillFromDispenserSound",
+        "seeAlso": [
+          "FillFromLakeSound",
+          "FillFromTapSound",
+          "FillFromToiletSound"
         ],
-        "name": "FillFromDispenserSound"
+        "type": {
+          "block": {
+            "fullType": true,
+            "name": "sound",
+            "noAutoImport": false
+          },
+          "main": "block"
+        }
       },
       "fillfromlakesound": {
-        "itemTypes": [
-          "normal"
+        "default": "GetWaterFromLake",
+        "description": "The sound played when taking water from a lake. Some of the sounds that are commonly used in the base game are:\n- `GetWaterFromLake` (default)\n- `GetWaterFromLakeSmall`\n- `GetWaterFromLakeBottle`",
+        "name": "FillFromLakeSound",
+        "seeAlso": [
+          "FillFromDispenserSound",
+          "FillFromTapSound",
+          "FillFromToiletSound"
         ],
-        "name": "FillFromLakeSound"
+        "type": {
+          "block": {
+            "fullType": true,
+            "name": "sound",
+            "noAutoImport": false
+          },
+          "main": "block"
+        }
       },
       "fillfromtapsound": {
-        "itemTypes": [
-          "drainable",
-          "normal"
+        "default": "GetWaterFromTap",
+        "description": "The sound played when taking water from a tap. Some of the sounds that are commonly used in the base game are:\n- `GetWaterFromTap` (default)\n- `GetWaterFromTapGlass`\n- `GetWaterFromTapCeramic`\n- `GetWaterFromTapPlasticMedium`\n- `GetWaterFromTapPlasticBig`\n- `GetWaterFromTapMetalMedium`\n- `GetWaterFromTapMetalBig`",
+        "name": "FillFromTapSound",
+        "seeAlso": [
+          "FillFromDispenserSound",
+          "FillFromLakeSound",
+          "FillFromToiletSound"
         ],
-        "name": "FillFromTapSound"
+        "type": {
+          "block": {
+            "fullType": true,
+            "name": "sound",
+            "noAutoImport": false
+          },
+          "main": "block"
+        }
       },
       "fillfromtoiletsound": {
-        "itemTypes": [
-          "normal"
+        "default": "GetWaterFromToilet",
+        "description": "The sound played when taking water from a toilet. The only sound used by the base game is `GetWaterFromToilet`.",
+        "name": "FillFromToiletSound",
+        "seeAlso": [
+          "FillFromDispenserSound",
+          "FillFromLakeSound",
+          "FillFromTapSound"
         ],
-        "name": "FillFromToiletSound"
+        "type": {
+          "block": {
+            "fullType": true,
+            "name": "sound",
+            "noAutoImport": false
+          },
+          "main": "block"
+        }
       },
       "firefuelratio": {
-        "isUseless": true,
-        "name": "FireFuelRatio"
+        "description": "The ratio of fire fuel provided by the item. This value is multiplied by the item's [weight](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-weight) which provides a burn time in hours.\n```\nburn time (hours) = weight * FireFuelRatio\n```",
+        "name": "FireFuelRatio",
+        "type": {
+          "main": "float"
+        }
       },
       "firemode": {
         "description": "[FireModePossibilities](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-firemodepossibilities) lists the available fire modes of the weapon, and the player can automatically switch between them with the relevant keybind. [FireMode](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-firemode) sets the default fire mode of the weapon, which is the one it will spawn with.\n\nThe vanilla fire modes are:\n- `Single`\n- `Auto`\n\nOther values are not supported by the game and will be considered as `Single`.",
@@ -3844,11 +3890,16 @@
         "name": "IconColorMask"
       },
       "iconfluidmask": {
-        "itemTypes": [
-          "normal",
-          "weapon"
-        ],
-        "name": "IconFluidMask"
+        "description": "Defines a mask that will receive the tint color of the [fluid contained](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component-fluidcontainer.html#scripts-component-fluidcontainer) within the item. This mask is applied over the original [icon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-icon).\n\nThere is no official support for [IconsForTexture](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-iconsfortexture) with fluid masks but the [Fluid Mask By Index API](https://pzwiki.net/wiki/Fluid_Mask_By_Index_API) can be used to achieve similar functionality.\n\nSimilarly to the [icon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-icon) parameter, the texture file of the mask must be stored inside the `media/textures` directory with the `Item_` prefix and `png` extension.\n\nTaking on the example file structure in the [icon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-icon) parameter description, your masks can be the following:\n```\n📁 media\n  📁 textures\n    📄 Item_iconName_Mask.png\n    📄 Item_iconNameCooked_Mask.png\n    📄 Item_iconNameRotten_MyFluidMask.png\n    📄 Item_iconNameBurnt_DifferentNamingMask.png\n```\n\n*Note: the `_Mask` suffix is not mandatory (notice it not present in the two last icons) but is simply what the base game uses, so it's probably best to keep that convention.*",
+        "name": "IconFluidMask",
+        "type": {
+          "file": {
+            "extension": "png",
+            "prefix": "Item_",
+            "relativeTo": "media/textures"
+          },
+          "main": "file"
+        }
       },
       "iconsfortexture": {
         "#desc": "item/Icon",
@@ -5359,16 +5410,7 @@
         }
       },
       "researchablerecipes": {
-        "itemTypes": [
-          "clothing",
-          "container",
-          "drainable",
-          "food",
-          "moveable",
-          "normal",
-          "radio",
-          "weapon"
-        ],
+        "description": "Specifies a list of crafting recipes that this item can be used to research.",
         "name": "Researchablerecipes",
         "type": {
           "array": {
@@ -5436,10 +5478,8 @@
         "name": "SensorRange"
       },
       "sharpness": {
-        "itemTypes": [
-          "normal",
-          "weapon"
-        ],
+        "description": "This parameter is not handled by the base game it seems (see report [here](https://discord.com/channels/136501320340209664/1476602902607954043/1569520609883455488)) but is heavily present in the base game.",
+        "isUseless": true,
         "name": "Sharpness"
       },
       "shellfallsound": {
@@ -5669,15 +5709,11 @@
         }
       },
       "survivalgear": {
-        "itemTypes": [
-          "container",
-          "drainable",
-          "food",
-          "map",
-          "normal",
-          "weapon"
-        ],
-        "name": "SurvivalGear"
+        "description": "If set to true, this will mark this item's loot type as `SurvivalGears`, which affects how likely the item is to appear based on the sandbox option `SurvivalGearsLootNew`. By default, the loot modifier for `SurvivalGears` items is set to `0.6`.",
+        "name": "SurvivalGear",
+        "type": {
+          "main": "boolean"
+        }
       },
       "suspensioncompression": {
         "itemTypes": [
