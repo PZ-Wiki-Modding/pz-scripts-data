@@ -1106,7 +1106,13 @@ parameters:
     - FillFromLakeSound
     - FillFromTapSound
 - name: FireFuelRatio
-  isUseless: true
+  description: |-
+    The ratio of fire fuel provided by the item. This value is multiplied by the item's [weight](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-weight) which provides a burn time in hours.
+    ```
+    burn time (hours) = weight * FireFuelRatio
+    ```
+  type:
+    main: float
 - name: FireMode
   description: |-
     [FireModePossibilities](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-firemodepossibilities) lists the available fire modes of the weapon, and the player can automatically switch between them with the relevant keybind. [FireMode](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-firemode) sets the default fire mode of the weapon, which is the one it will spawn with.
