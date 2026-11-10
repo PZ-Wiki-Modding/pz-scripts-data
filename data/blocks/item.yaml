@@ -2479,9 +2479,9 @@ parameters:
   itemTypes:
   - weapon
 - name: Sharpness
-  itemTypes:
-  - normal
-  - weapon
+  description: |-
+    This parameter is not handled by the base game it seems (see report [here](https://discord.com/channels/136501320340209664/1476602902607954043/1569520609883455488)) but is heavily present in the base game.
+  isUseless: true
 - name: ShellFallSound
   needs:
     - name: ItemType
