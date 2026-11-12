@@ -347,6 +347,8 @@ parameters:
   itemTypes:
   - normal
 - name: BreakSound
+  description: |-
+    The sound that will be played when the item breaks.
   type:
     main: block
     block:
@@ -508,8 +510,55 @@ parameters:
       values:
         - base:food
 - name: Categories
-  itemTypes:
-  - weapon
+  description: |-
+    Categories are used for **melee** weapons and should not be used for ranged weapons. This is because the game notably sets a flag `isMelee` if there are any provided categories, which means adding categories to a ranged weapon will incorrectly mark it as melee. They are notably used to define the perk associated to the weapon, for XP gain purposes or weapon handling considerations.
+    
+    Available values are the following, defined by the [WeaponCategory](https://albion.codeberg.page/PZ-JavaDocs/zombie/scripting/objects/WeaponCategory.html) registry (which means you can define custom ones):
+    - `base:axe`
+    - `base:blunt`
+    - `base:spear`
+    - `base:improvised`
+    - `base:longblade`
+    - `base:smallblade`
+    - `base:smallblunt`
+    - `base:unarmed`
+    
+    They also provide a damage modifier based on the category of the weapon (spear, axe, blunt):
+    ```java
+    damageMod = blunt  ? (3 < bluntLevel < 6 ? 1.1 : (bluntLevel > 7 ? 1.2 : 1.0)
+              : (axe   ? (3 <  axeLevel  < 6 ? 1.1 : ( axeLevel  > 7 ? 1.2 : 1.0)
+              : (spear ? (3 < spearLevel < 6 ? 1.1 : (spearLevel > 7 ? 1.2 : 1.0)
+              : 1.0)))))
+    ```
+
+    Items with the `base:axe` category will have lower chance of being damaged when hitting a tree. Items with the `base:smallblade` will reduce the time of staggering zombies from back attacks to the minimum.
+
+# UNUSED BY THE GAME CURRENTLY
+#    It will also modify the speed modifier applied to the weapon's attack speed for blunt, axe and spear weapons. The skill levels of the mentioned categories apply the following modifiers to the speed modifier:
+#
+#    | Level | Modifier |
+#    | ----- | -------- |
+#    | 0     | 1.0      |
+#    | 1     | 0.95     |
+#    | 2     | 0.9      |
+#    | 3     | 0.86     |
+#    | 4     | 0.83     |
+#    | 5     | 0.8      |
+#    | 6     | 0.77     |
+#    | 7     | 0.74     |
+#    | 8     | 0.71     |
+#    | 9     | 0.68     |
+#    | 10    | 0.65     |
+#
+#    The axe man trait also reduces the speed modifier by 95% when using an axe weapon.
+  type:
+    main: array
+    array:
+      type: string
+      separator: ';'
+      softOverride: true
+  seeAlso:
+    - DisplayCategory
 - name: ChanceToFall
   itemTypes:
   - clothing
@@ -764,11 +813,61 @@ parameters:
   default: 1.0
   minimum: 0.0
 - name: DamageCategory
-  itemTypes:
-  - weapon
+  description: |-
+    Defines the type of damage this weapon deals. This is used by the game to apply visual damage to zombies when hit. By default, only one type is available: `Slash`, which will apply slashing visual damage to zombies. These are also impacted by critical hits, providing different results.
+    
+    This is Lua sided in the `DamageModelDefinitions` class so you can easily add custom damage categories and visuals. Here is how the game does it:
+    ```lua
+    DamageModelDefinitions.addDefinition = function(texture, bodyPart, damageCategories, criticalHit)
+      local damage = {};
+      damage.texture = texture;
+      damage.bodyPart = bodyPart;
+      damage.damageCategories = damageCategories;
+      damage.criticalHit = criticalHit;
+      table.insert(DamageModelDefinitions.list, damage);
+    end
+
+    -- media/lua/shared/Definitions/DamageModelDefinitions.lua
+    DamageModelDefinitions.addDefinition("ZedDmg_BELLY_Slash", BodyPartType.Torso_Lower, {"Slash"});
+    DamageModelDefinitions.addDefinition("ZedDmg_BELLY_Skin", BodyPartType.Torso_Lower, {"Slash"}, true);
+
+    DamageModelDefinitions.addDefinition("ZedDmg_CHEST_Slash", BodyPartType.Torso_Upper, {"Slash"});
+    DamageModelDefinitions.addDefinition("ZedDmg_BELLY_Skin", BodyPartType.Torso_Upper, {"Slash"}, true);
+
+    DamageModelDefinitions.addDefinition("ZedDmg_HEAD_Slash", BodyPartType.Head, {"Slash"});
+    DamageModelDefinitions.addDefinition("ZedDmg_HEAD_Skin", BodyPartType.Head, {"Slash"}, true);
+    ```
+
+    This means you could easily add your own type thanks to the `DamageModelDefinitions.addDefinition` function. The `texture` parameter (i.e. `ZedDmg_BELLY_Slash`) refers to a [clothingItem XML file](https://pz-wiki-modding.github.io/PZ-API-Docs/xml/clothingitem.html) that defines the clothing information of the texture.
+
+    ```xml
+    <!-- clothing/clothingItems/ZedDmg_BELLY_Skin.xml -->
+    <?xml version="1.0" encoding="utf-8"?>
+    <clothingItem>
+      <m_MaleModel></m_MaleModel>
+      <m_FemaleModel></m_FemaleModel>
+      <m_GUID>0d1e3942-0a8d-4309-956c-c59c0d15eab2</m_GUID>
+      <m_Static>false</m_Static>
+      <m_AllowRandomHue>false</m_AllowRandomHue>
+      <m_AllowRandomTint>false</m_AllowRandomTint>
+      <m_AttachBone></m_AttachBone>
+      <m_BaseTextures>bodydmg\m_zeddmg_ribsleft</m_BaseTextures>
+      <m_BaseTextures>bodydmg\m_zeddmg_ribsright</m_BaseTextures>
+    </clothingItem>
+    ```
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
 - name: DamageMakeHole
-  itemTypes:
-  - weapon
+  description: |-
+    Whenever this weapon will add holes in a zombie's clothing upon hitting them. This is generally set to true for slashing and piercing weapons, but not blunt weapons.
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  type:
+    main: boolean
 - name: DangerousUncooked
   description: |-
     If true, the item will cause food poisoning when eaten raw. Used for example for raw meat. The [iron gut](https://pzwiki.net/wiki/Iron_Gut) trait will stop you from getting sick from eating a raw food with the [tag](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-tags) `Egg`. The severity of the food poisoning is not impacted by traits or other criteria, only by the quantity of food you eat.
@@ -853,10 +952,12 @@ parameters:
 
     More parameters will impact the door damage based on where it is used.
 - name: DoorHitSound
-  itemTypes:
-  - weapon
+  description: |-
+    Defines the sound that plays when hitting a door, window or any [thumpable](https://albion.codeberg.page/PZ-JavaDocs/zombie/iso/objects/IsoThumpable.html) object.
   type:
-    main: string
+    main: block
+    block:
+      name: sound
   default: BaseballBatHit
 - name: DoubleClickRecipe
   description: |-
@@ -1212,19 +1313,49 @@ parameters:
   description: Whether the weapon has a chamber that can hold a round in addition
     to its magazine.
 - name: HeadCondition
-  itemTypes:
-  - normal
-  - weapon
+  description: |-
+    The head condition of the item, which needs to be a value between 0 and 1000 (which is an extremely high limit). The following values are commonly used by the game are more around ~10:
+    - 3: spear with glass shard (the head is the glass shard, so breaks easily)
+    - 4: crude spear
+    - 5: long crude spear, jawbone bovide club
+    - 6: spear with hand fork
+    - 8: stone hammer
+    - 10: scythe, club hammer, forged hammer, hatchet, garden hoe
+    - 13: axes, pickaxes
+    - 15: stone axe, wood axe (higher because looks more durable ?)
+    - 20: stone mace
+    - 30: maces
+
+    This parameter is handled as an [attribute](https://albion.codeberg.page/PZ-JavaDocs/zombie/entity/components/attributes/Attribute.html#HeadCondition) of the item.
+
+    The chance for the head condition to be lowered is impacted by [HeadConditionLowerChanceMultiplier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-headconditionlowerchancemultiplier), the [maintenance](https://pzwiki.net/wiki/Maintenance) level of the player as well as the level of the player in the skill used to achieve the action (combat, crafting, etc.). The general [condition lowering chance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-conditionlowerchanceonein) of the item will also impact the head condition lowering chance. Lots of steps are involved for the final chance so it isn't detailed here.
+
+    If the head condition reaches zero, the item itself will break. The head condition will also impact the max [sharpness](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-sharpness) of the item.
+  type:
+    main: integer
+  seeAlso:
+    - Sharpness
+    - HeadConditionMax
+    - HeadConditionLowerChanceMultiplier
+    - ConditionLowerChanceOneIn
 - name: HeadConditionLowerChanceMultiplier
-  itemTypes:
-  - normal
-  - weapon
+  description: |-
+    A multiplier used to determine the chance of the head condition being lowered when the item is used.
   type:
     main: float
   default: 1.0
+  seeAlso:
+    - HeadCondition
+    - HeadConditionMax
 - name: HeadConditionMax
-  itemTypes:
-  - weapon
+  description: |-
+    The maximum value for the [head condition](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-headcondition) of the item, between 0 and 1000. If the head condition goes over this value, it will be capped at this maximum.
+
+    If not provided but HeadCondition is set, the [max condition](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-conditionmax) of the item is used instead.
+  seeAlso:
+    - HeadCondition
+    - HeadConditionLowerChanceMultiplier
+    - ConditionMax
 - name: HearingModifier
   itemTypes:
   - clothing
@@ -1279,6 +1410,8 @@ parameters:
       values:
         - base:weaponpart
 - name: HitFloorSound
+  description: |-
+    Defines the sound that plays when hitting the floor with the weapon.
   needs:
     - name: ItemType
       values:
@@ -1289,6 +1422,8 @@ parameters:
       name: sound
   default: BatOnFloor
 - name: HitSound
+  description: |-
+    Defines the sound that plays when hitting a zombie with the weapon. To have no sound play, set the value to `null`.
   needs:
     - name: ItemType
       values:
@@ -1408,21 +1543,27 @@ parameters:
       type: string
       separator: ;
 - name: IdleAnim
-  itemTypes:
-  - weapon
+  description: |-
+    This parameter looks unused.
   type:
     main: string
   default: Idle
-- name: ImpactSound
   needs:
     - name: ItemType
       values:
         - base:weapon
+  isUseless: true
+  seeAlso:
+    - RunAnim
+- name: ImpactSound
+  description: |-
+    This parameter is unused by the game. You can pass `null` to define no sound.
   type:
     main: block
     block:
       name: sound
   default: BaseballBatHit
+  isUseless: true
 - name: InsertAllBulletsReload
   itemTypes:
   - weapon
@@ -2448,11 +2589,18 @@ parameters:
         fullType: true
         noAutoImport: false
 - name: RunAnim
-  itemTypes:
-  - weapon
+  description: |-
+    This parameter looks unused.
   type:
     main: string
   default: Run
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  isUseless: true
+  seeAlso:
+    - IdleAnim
 - name: RunSpeedModifier
   itemTypes:
   - clothing
@@ -2480,8 +2628,52 @@ parameters:
   - weapon
 - name: Sharpness
   description: |-
-    This parameter is not handled by the base game it seems (see report [here](https://discord.com/channels/136501320340209664/1476602902607954043/1569520609883455488)) but is heavily present in the base game.
-  isUseless: true
+    The sharpness of the item which needs to be a value between 0.0 and 1.0. By default however, it should be set to 1.0 which represents maximum sharpness. If you set it to a lower value, it means the item will never spawn with 100% sharpness.
+
+    This parameter is handled as an [attribute](https://albion.codeberg.page/PZ-JavaDocs/zombie/entity/components/attributes/Attribute.html#Sharpness) of the item.
+
+    The sharpness value is used for a sharpness multipler that is applied to the weapon maximum damage, door damage and tree damage. Its value decreases when using the item.
+
+    It is calculated the following way:
+    ```java
+    sharpness = sharpness attribute ? (sharpness + 1.0) / 2.0 : 1.0
+    ```
+
+    This means that if the item has no sharpness attribute, it will be considered to have a sharpness multipler of 1.0, but if the sharpness attribute is present, then the multiplier varies from 0.5 (sharpness=0.0) to 1.0 (sharpness=1.0).
+
+    The weapon's maximum damage varies between the minimum and maximum damage values based on the current sharpness multiplier:
+    ```java
+    maxDamage = sharpness attribute 
+                ? (maxDamage - minDamage) * sharpnessMultiplier + minDamage 
+                : maxDamage
+    ```
+
+    Door and tree damage vary the same way with the sharpness multiplier:
+    ```java
+    finalDamage = damage * sharpnessMultiplier
+    ```
+
+    The critical damage multiplier is also impacted by the sharpness multiplier:
+    ```java
+    finalCriticalDamage = sharpness attribute 
+                          ? criticalDamage * sharpnessMultiplier 
+                          : criticalDamage
+    ```
+
+    This critical damage multiplier is applied to the damage value that the player receives, with a maximum value of 5.0.
+
+    The maximum sharpness value of the item is also impacted by the [head condition](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-headcondition) of the item, if present:
+    ```java
+    maxSharpness = head condition attribute
+                   ? headCondition / maxHeadCondition
+                   : condition / maxCondition
+    ```
+
+    Sharppening the item has a chance to lower the item's [condition](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-conditionlowerchanceonein).
+  type:
+    main: float
+  seeAlso:
+    - HeadCondition
 - name: ShellFallSound
   needs:
     - name: ItemType
@@ -2662,8 +2854,6 @@ parameters:
       name: sound
   default: BaseballBatSwing
 - name: Swingtime
-  itemTypes:
-  - weapon
   type:
     main: float
   default: 1.0
@@ -2761,6 +2951,8 @@ parameters:
   itemTypes:
   - radio
 - name: UnequipSound
+  description: |-
+    Defines the sound that plays when the item gets unequipped.
   type:
     main: block
     block:
