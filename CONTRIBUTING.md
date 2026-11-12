@@ -61,6 +61,13 @@ Follow the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/
 - `data:` for dataset modifications. Alternatively you can be more precise with `data(block)` when doing edits to a specific block.
 - `ci`: should not use, these are used for automated workflows to indicate commits from the GitHub bot.
 
+## Manifest
+The manifest is used to keep track of the dataset versions, including the latest game build, the available dataset releases which are available by tags, and the current stable release. To get started with managing the manifest, you can run the `release` command wrapper around the `release.py` script.
+
+```bash
+uv run release -h
+```
+
 ## Contact
 You can find the creator of this dataset (SimKDT) in the [PZ Modding Community](https://pzwiki.net/wiki/PZ_Modding_Community).
 

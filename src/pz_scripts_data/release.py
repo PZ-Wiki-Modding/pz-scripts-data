@@ -4,6 +4,14 @@ import argparse
 import subprocess
 from pathlib import Path
 
+WORKSPACE = Path(__file__).parent.parent.parent
+MANIFEST_FILE = WORKSPACE / "manifest.json"
+
+def load_manifest():
+    assert MANIFEST_FILE.exists(), f"Manifest file not found at {MANIFEST_FILE}"
+    return json.loads(MANIFEST_FILE.read_text())
+
+
 def assert_release_number(version: str) -> tuple[int, int, int]:
     splitted = version.split('.')
     if len(splitted) != 3:
@@ -29,7 +37,32 @@ def assert_release_with_version(version: str) -> tuple[int, int, int, int]:
     return major, minor, patch, release_version
 
 def main():
-    parser = argparse.ArgumentParser(description="Release a dataset build")
+    MANIFEST_DATA = load_manifest()
+
+    parser = argparse.ArgumentParser(
+        description=f"""Release a dataset build.
+Current latest build: {MANIFEST_DATA['latest_build']}
+Current stable: {MANIFEST_DATA.get('stable', 'N/A')}
+
+Usage:
+
+    # release a new manifest version on current build version
+    uv run release
+
+    # fix the stable version to the provided dataset version
+    uv run release --set-stable <version>
+
+    # update the latest build version in the manifest
+    uv run release --set-latest-build <version>
+
+    # update the latest release
+    uv run release --set-latest-release <version>
+
+    # perform a dry run without making any changes
+    uv run release --dry-run
+""",
+        formatter_class=argparse.RawTextHelpFormatter
+    )
     parser.add_argument("--set-stable", type=str, 
                         help="Move the stable to the provided build version")
     parser.add_argument("--set-latest-build", type=str, 
@@ -42,21 +75,14 @@ def main():
                         help="Perform a dry run without making any changes")
     args = parser.parse_args()
 
-    # retrieve manifest file
-    WORKSPACE = Path(__file__).parent.parent.parent
-    MANIFEST_FILE = WORKSPACE / "manifest.json"
-    assert MANIFEST_FILE.exists(), f"Manifest file not found at {MANIFEST_FILE}"
-
-    # retrieve the latest manifest data
-    MANIFEST_DATA = json.loads(MANIFEST_FILE.read_text())
     latest_build = MANIFEST_DATA['latest_build']
     major, minor, patch = assert_release_number(latest_build)
 
     # handle set-latest-build argument
-    set_latest_build = args.set_latest_build
-    set_latest_release = args.set_latest_release
-    set_stable = args.set_stable
-    dry_run = args.dry_run
+    set_latest_build : str = args.set_latest_build
+    set_latest_release : str = args.set_latest_release
+    set_stable : str = args.set_stable
+    dry_run : bool = args.dry_run
 
     pushed_new_release = None
     if set_latest_build is not None:
