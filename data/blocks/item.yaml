@@ -781,6 +781,18 @@ parameters:
       values:
       - base:weapon
 - name: CustomContextMenu
+  description: |-
+    Defines the context menu option name when eating or drinking an item. The value will be used to look up the corresponding translation key in the [ContextMenu](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#contextmenu) translation file using the prefix `ContextMenu_`. For example, if the value is `Gobble`, the translation key `ContextMenu_Gobble` will be used.
+    
+    By default, if the item is a `base:food` ItemType or has a [OpeningRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-openingrecipe), the context menu option will be `ContextMenu_Eat`. If the item has a [fluid container](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component-fluidcontainer.html) component, the option will be `ContextMenu_Drink`.
+
+    The game uses the following values:
+    - `Eat`
+    - `Drink`
+    - `Smoke`
+    - `Sniff`
+    - `Chew`
+    - `Take`
   type:
     main: translation
     translation:
