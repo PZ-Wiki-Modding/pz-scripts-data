@@ -24,6 +24,7 @@ classifiers = [
 
 [project.scripts]
 release = "pz_scripts_data.release:main"
+validate_data = "pz_scripts_data.tests.test_data:main"
 
 [tool.uv]
 package = true
