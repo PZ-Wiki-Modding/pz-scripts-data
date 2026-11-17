@@ -1,10 +1,6 @@
-import json
 import datetime
 import argparse
 import subprocess
-from pathlib import Path
-
-from pydantic import BaseModel, Field
 
 from pz_scripts_data import Manifest, MANIFEST_FILE, BuildVersion, ReleaseVersion
 
@@ -73,13 +69,13 @@ Usage:
     # set new stable
     elif set_stable:
         print(f"Setting stable to {set_stable}")
-        assert_release_with_version(set_stable)
+        ReleaseVersion.assert_release_with_version(set_stable)
         MANIFEST_DATA.stable = set_stable
 
     # handle set-latest-release argument
     elif set_latest_release is not None:
         print(f"Setting latest release to {set_latest_release}")
-        assert_release_with_version(set_latest_release)
+        ReleaseVersion.assert_release_with_version(set_latest_release)
 
         # get associated release
         releases = MANIFEST_DATA.releases
