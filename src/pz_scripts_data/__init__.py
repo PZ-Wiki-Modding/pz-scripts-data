@@ -1,6 +1,6 @@
 import json
 import datetime
-from typing import Any
+from typing import Any, TypeVar, Generic
 from pathlib import Path
 from pydantic import BaseModel, GetCoreSchemaHandler, GetJsonSchemaHandler
 from pydantic_core import core_schema
@@ -10,29 +10,33 @@ WORKSPACE = Path(__file__).parent.parent.parent
 MANIFEST_FILE = WORKSPACE / "manifest.json"
 
 
+P = TypeVar("P", bound=tuple[int, ...])
 
-
-class BuildVersion:
-    pattern: str = r"^\d+\.\d+\.\d+$"
-    def __init__(self, major: int, minor: int, patch: int):
-        self.major = major
-        self.minor = minor
-        self.patch = patch
+class BaseVersion(Generic[P]):
+    pattern: str
+    def __init__(self, *args: int):
+        self._parts: P = args  # type: ignore - due to generic tuple type not being passable to __init__ directly
 
     def __str__(self) -> str:
-        return f"{self.major}.{self.minor}.{self.patch}"
+        return ".".join(map(str, self._key()))
+
+    def _key(self) -> P:
+        return self._parts
 
     def __repr__(self) -> str:
         return f"{type(self).__name__}({str(self)})"
 
     def __eq__(self, other: object) -> bool:
-        if not isinstance(other, BuildVersion):
+        if not isinstance(other, BaseVersion):
             return NotImplemented
         return type(self) is type(other) and str(self) == str(other)
 
     def __hash__(self) -> int:
         return hash((type(self), str(self)))
 
+    @classmethod
+    def from_string(cls, version: str) -> 'BaseVersion':
+        raise NotImplemented
 
     @classmethod
     def __get_pydantic_core_schema__(cls, source: Any, handler: GetCoreSchemaHandler) -> core_schema.CoreSchema:
@@ -45,6 +49,15 @@ class BuildVersion:
     def __get_pydantic_json_schema__(cls, schema: core_schema.CoreSchema, handler: GetJsonSchemaHandler) -> JsonSchemaValue:
         return {"type": "string", "pattern": cls.pattern}
 
+
+
+class BuildVersion(BaseVersion[tuple[int, int, int]]):
+    pattern: str = r"^\d+\.\d+\.\d+$"
+    def __init__(self, major: int, minor: int, patch: int):
+        super().__init__(major, minor, patch)
+        self.major = major
+        self.minor = minor
+        self.patch = patch
 
     @staticmethod
     def assert_release_number(version: 'str | BuildVersion') -> tuple[int, int, int]:
@@ -60,18 +73,26 @@ class BuildVersion:
         return major, minor, patch
 
     @classmethod
-    def from_string(cls, version: str) -> "BuildVersion":
+    def from_string(cls, version: str) -> 'BuildVersion':
         major, minor, patch = cls.assert_release_number(version)
         return cls(major, minor, patch)
 
-class ReleaseVersion(BuildVersion):
+    def to_release_version(self, release_version: int) -> 'ReleaseVersion':
+        """Convert the current build version to a release version
+        with the specified release version number."""
+        return ReleaseVersion(self.major, self.minor, self.patch, release_version)
+
+class ReleaseVersion(BaseVersion[tuple[int, int, int, int]]):
     pattern: str = r"^\d+\.\d+\.\d+\.\d+$"
     def __init__(self, major: int, minor: int, patch: int, release_version: int):
-        super().__init__(major, minor, patch)
-        self.release_version = release_version
+        super().__init__(major, minor, patch, release_version)
+        self.major: int = major
+        self.minor: int = minor
+        self.patch: int = patch
+        self.release_version: int = release_version
 
-    def __str__(self) -> str:
-        return f"{self.major}.{self.minor}.{self.patch}.{self.release_version}"
+    def _key(self) -> tuple[int, int, int, int]:
+        return super()._key()
 
     @staticmethod
     def assert_release_with_version(version: 'str | ReleaseVersion') -> tuple[int, int, int, int]:
@@ -87,10 +108,14 @@ class ReleaseVersion(BuildVersion):
         return major, minor, patch, release_version
 
     @classmethod
-    def from_string(cls, version: str) -> "ReleaseVersion":
+    def from_string(cls, version: str) -> 'ReleaseVersion':
         major, minor, patch, release_version = cls.assert_release_with_version(version)
         return cls(major, minor, patch, release_version)
 
+    def to_build_version(self) -> 'BuildVersion':
+        """Convert the current release version to a build version
+        by discarding the release version number."""
+        return BuildVersion(self.major, self.minor, self.patch)
 
 
 
@@ -108,6 +133,14 @@ class Manifest(BaseModel):
     def load_manifest(cls) -> "Manifest":
         assert MANIFEST_FILE.exists(), f"Manifest file not found at {MANIFEST_FILE}"
         return Manifest.model_validate(json.loads(MANIFEST_FILE.read_text()))
+
+    def make_releases_list(self) -> list[str]:
+        """Retrieve a sorted list of all release versions as strings."""
+        releases_list: list[str] = []
+        for build, release in self.releases.items():
+            for v in range(release.version):
+                releases_list.append(str(build.to_release_version(v)))
+        return sorted(releases_list)
 
 if __name__ == "__main__":
     build1 = BuildVersion.from_string("42.22.2")

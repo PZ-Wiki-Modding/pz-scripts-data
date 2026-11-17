@@ -41,14 +41,14 @@ Usage:
                         help="Update the latest build version in the manifest")
     parser.add_argument("--set-latest-release", type=str, 
                         help="Update the latest release version in the manifest")
-    parser.add_argument("--build", type=str, 
+    parser.add_argument("--build", type=BuildVersion.from_string, 
                         help="Specify the new build version")
     parser.add_argument("--dry-run", action="store_true", 
                         help="Perform a dry run without making any changes")
     args = parser.parse_args()
 
     latest_build = MANIFEST_DATA.latest_build
-    major, minor, patch = ReleaseVersion.assert_release_number(latest_build)
+    BuildVersion.assert_release_number(latest_build)
 
     # handle set-latest-build argument
     set_latest_build : str = args.set_latest_build
@@ -88,10 +88,13 @@ Usage:
         print("Pushing a new release")
         current_date = datetime.datetime.now().isoformat()
         releases = MANIFEST_DATA.releases
-        build = BuildVersion.from_string(args.build) if args.build is not None else BuildVersion(major, minor, patch)
+        build: BuildVersion = args.build if args.build is not None else latest_build
         version = 0
         if build not in releases.keys():
-            releases[build] = Release(version=version, date=current_date)
+            releases[build] = Release(
+                version=version, 
+                date=current_date
+            )
         else:
             existing_build = releases[build]
             existing_build.date = current_date
