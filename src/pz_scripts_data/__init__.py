@@ -27,9 +27,24 @@ class BaseVersion(Generic[P]):
         return f"{type(self).__name__}({str(self)})"
 
     def __eq__(self, other: object) -> bool:
-        if not isinstance(other, BaseVersion):
-            return NotImplemented
-        return type(self) is type(other) and str(self) == str(other)
+        if not isinstance(other, BaseVersion): return NotImplemented
+        return self._key() == other._key()
+
+    def __lt__(self, other: object) -> bool:
+        if not isinstance(other, BaseVersion): return NotImplemented
+        return self._key() < other._key()
+
+    def __le__(self, other: object) -> bool:
+        if not isinstance(other, BaseVersion): return NotImplemented
+        return self._key() <= other._key()
+
+    def __gt__(self, other: object) -> bool:
+        if not isinstance(other, BaseVersion): return NotImplemented
+        return self._key() > other._key()
+
+    def __ge__(self, other: object) -> bool:
+        if not isinstance(other, BaseVersion): return NotImplemented
+        return self._key() >= other._key()
 
     def __hash__(self) -> int:
         return hash((type(self), str(self)))
