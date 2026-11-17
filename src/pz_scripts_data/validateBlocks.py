@@ -75,7 +75,7 @@ def get_yaml_files(path: Path) -> list[Path]:
     
     return []
 
-def validate_target(target_path: Path) -> Literal[0] | Literal[1]:
+def validate_target(target_path: Path = DEFAULT_BLOCKS_DIR) -> Literal[0] | Literal[1]:
     # Check if project root is correct
     if not DEFAULT_SCHEMA_OUTPUT.exists():
         print(f"Error: Schema not found at {DEFAULT_SCHEMA_OUTPUT}")
