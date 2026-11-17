@@ -13,7 +13,7 @@ from pydantic import BaseModel, ConfigDict, Field, WithJsonSchema, model_validat
 from pydantic.json_schema import GenerateJsonSchema, JsonSchemaValue
 from pydantic_core import core_schema
 
-DEFAULT_OUTPUT = Path(__file__).resolve().parents[2] / "schemas" / "blocks.json"
+DEFAULT_SCHEMA_OUTPUT = Path(__file__).resolve().parents[2] / "schemas" / "blocks.json"
 
 StringType = Literal["string"]
 FloatType = Literal["float"]
@@ -544,11 +544,15 @@ class _BlocksJsonSchemaGenerator(GenerateJsonSchema):
 def build_json_schema() -> dict[str, Any]:
     return BlockDefinition.model_json_schema(by_alias=True, schema_generator=_BlocksJsonSchemaGenerator)
 
+def output_json_schema(output: Path | str = DEFAULT_SCHEMA_OUTPUT) -> None:
+    output_path = Path(output)
+    output_path.write_text(json.dumps(build_json_schema(), indent=2) + "\n", encoding="utf-8")
+    print(f"Wrote {output_path}")
+
 
 def main(argv: list[str]) -> int:
-    output = Path(argv[0]) if argv else DEFAULT_OUTPUT
-    output.write_text(json.dumps(build_json_schema(), indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {output}")
+    output = Path(argv[0]) if argv else DEFAULT_SCHEMA_OUTPUT
+    output_json_schema(output)
     return 0
 
 
