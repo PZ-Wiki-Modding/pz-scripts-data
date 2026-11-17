@@ -9,10 +9,10 @@ Usage:
     python validateBlocks.py --help              # Show this help message
 """
 
-import json, yaml, sys, os
+import json, yaml, sys
 from pathlib import Path
 from jsonschema import Draft7Validator
-from typing import List, Tuple
+from typing import Literal
 
 from pz_scripts_data.schema import DEFAULT_SCHEMA_OUTPUT, output_json_schema
 
@@ -31,7 +31,7 @@ def load_yaml_file(file_path: Path) -> dict:
     with open(file_path, 'r') as f:
         return yaml.safe_load(f)
 
-def validate_file(file_path: Path, schema: dict) -> Tuple[bool, List[str]]:
+def validate_file(file_path: Path, schema: dict) -> tuple[bool, list[str]]:
     """
     Validate a single YAML file against the schema.
     
@@ -63,7 +63,7 @@ def validate_file(file_path: Path, schema: dict) -> Tuple[bool, List[str]]:
     except Exception as e:
         return False, [f"  Error: {str(e)}"]
 
-def get_yaml_files(path: Path) -> List[Path]:
+def get_yaml_files(path: Path) -> list[Path]:
     """Get all YAML files from a path (file or directory)."""
     if path.is_file():
         if path.suffix.lower() in ['.yaml', '.yml']:
@@ -75,21 +75,9 @@ def get_yaml_files(path: Path) -> List[Path]:
     
     return []
 
-def main():
-    import argparse
-
-    parser = argparse.ArgumentParser(
-        description="Validate YAML block files against the JSON schema."
-    )
-    parser.add_argument("target", nargs="?", default=DEFAULT_BLOCKS_DIR, 
-                        help="Target file or directory to validate.")
-    args = parser.parse_args()
-
-    # Parse arguments
-    target_path = Path(args.target)
-    
+def validate_target(target_path: Path) -> Literal[0] | Literal[1]:
     # Check if project root is correct
-    if not os.path.exists(DEFAULT_SCHEMA_OUTPUT):
+    if not DEFAULT_SCHEMA_OUTPUT.exists():
         print(f"Error: Schema not found at {DEFAULT_SCHEMA_OUTPUT}")
         print("Please run this script from the project root directory.")
         return 1
@@ -138,5 +126,20 @@ def main():
     
     return 0 if invalid_count == 0 else 1
 
+def main():
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Validate YAML block files against the JSON schema."
+    )
+    parser.add_argument("target", nargs="?", default=DEFAULT_BLOCKS_DIR, 
+                        help="Target file or directory to validate.")
+    args = parser.parse_args()
+
+    # Parse arguments
+    target_path = Path(args.target)
+    return validate_target(target_path)
+    
+    
 if __name__ == "__main__":
     sys.exit(main())
