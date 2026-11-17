@@ -32,3 +32,8 @@ package = true
 pz_scripts_data = [
     "py.typed"
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]

@@ -1,48 +1,20 @@
-import json
 import datetime
 import argparse
 import subprocess
-from pathlib import Path
 
-WORKSPACE = Path(__file__).parent.parent.parent
-MANIFEST_FILE = WORKSPACE / "manifest.json"
+from pz_scripts_data import Manifest, MANIFEST_FILE, BuildVersion, ReleaseVersion
 
-def load_manifest():
-    assert MANIFEST_FILE.exists(), f"Manifest file not found at {MANIFEST_FILE}"
-    return json.loads(MANIFEST_FILE.read_text())
-
-
-def assert_release_number(version: str) -> tuple[int, int, int]:
-    splitted = version.split('.')
-    if len(splitted) != 3:
-        raise ValueError("Invalid build version format. Expected format: 'major.minor.patch'")
-    try:
-        major, minor, patch = [int(x) for x in splitted]
-    except ValueError:
-        raise ValueError("Invalid build version format. Expected format: 'major.minor.patch' with integers")
-    except Exception as e:
-        raise ValueError(f"Error parsing build version: {e}")
-    return major, minor, patch
-
-def assert_release_with_version(version: str) -> tuple[int, int, int, int]:
-    splitted = version.split('.')
-    if len(splitted) != 4:
-        raise ValueError("Invalid release version format. Expected format: 'major.minor.patch.version'")
-    try:
-        major, minor, patch, release_version = [int(x) for x in splitted]
-    except ValueError:
-        raise ValueError("Invalid release version format. Expected format: 'major.minor.patch.version' with integers")
-    except Exception as e:
-        raise ValueError(f"Error parsing release version: {e}")
-    return major, minor, patch, release_version
+def assert_release_exists(version: str, manifest: Manifest) -> None:
+    ...
+    
 
 def main():
-    MANIFEST_DATA = load_manifest()
+    MANIFEST_DATA = Manifest.load_manifest()
 
     parser = argparse.ArgumentParser(
         description=f"""Release a dataset build.
-Current latest build: {MANIFEST_DATA['latest_build']}
-Current stable: {MANIFEST_DATA.get('stable', 'N/A')}
+Current latest build: {MANIFEST_DATA.latest_build}
+Current stable: {MANIFEST_DATA.stable}
 
 Usage:
 
@@ -69,14 +41,14 @@ Usage:
                         help="Update the latest build version in the manifest")
     parser.add_argument("--set-latest-release", type=str, 
                         help="Update the latest release version in the manifest")
-    parser.add_argument("--build", type=str, 
+    parser.add_argument("--build", type=BuildVersion.from_string, 
                         help="Specify the new build version")
     parser.add_argument("--dry-run", action="store_true", 
                         help="Perform a dry run without making any changes")
     args = parser.parse_args()
 
-    latest_build = MANIFEST_DATA['latest_build']
-    major, minor, patch = assert_release_number(latest_build)
+    latest_build = MANIFEST_DATA.latest_build
+    BuildVersion.assert_release_number(latest_build)
 
     # handle set-latest-build argument
     set_latest_build : str = args.set_latest_build
@@ -90,50 +62,49 @@ Usage:
         splitted = set_latest_build.split('.')
         if len(splitted) != 3:
             raise ValueError("Invalid build version format. Expected format: 'major.minor.patch'")
-        assert_release_number(set_latest_build)
 
         # set new version in the manifest
-        MANIFEST_DATA['latest_build'] = set_latest_build
+        MANIFEST_DATA.latest_build = BuildVersion.from_string(set_latest_build)
 
     # set new stable
     elif set_stable:
         print(f"Setting stable to {set_stable}")
-        assert_release_with_version(set_stable)
-        MANIFEST_DATA['stable'] = set_stable
+        ReleaseVersion.assert_release_with_version(set_stable)
+        MANIFEST_DATA.stable = set_stable
 
     # handle set-latest-release argument
     elif set_latest_release is not None:
         print(f"Setting latest release to {set_latest_release}")
-        assert_release_with_version(set_latest_release)
+        ReleaseVersion.assert_release_with_version(set_latest_release)
 
         # get associated release
-        releases = MANIFEST_DATA['releases']
+        releases = MANIFEST_DATA.releases
         if set_latest_release not in releases.keys():
             raise ValueError(f"Release version {set_latest_release} not found in manifest")
-        MANIFEST_DATA['latest_release'] = set_latest_release
+        MANIFEST_DATA.latest_release = set_latest_release
 
     # no args, push a new release
     else:
         print("Pushing a new release")
         current_date = datetime.datetime.now().isoformat()
-        releases = MANIFEST_DATA['releases']
-        build = args.build if args.build is not None else f"{major}.{minor}.{patch}"
+        releases = MANIFEST_DATA.releases
+        build: BuildVersion = args.build if args.build is not None else latest_build
         version = 0
         if build not in releases.keys():
-            releases[build] = {
-                'date': current_date,
-                'version': version,
-            }
+            releases[build] = Release(
+                version=version, 
+                date=current_date
+            )
         else:
             existing_build = releases[build]
-            existing_build['date'] = current_date
-            existing_build['version'] += 1
-            version = existing_build['version']
+            existing_build.date = current_date
+            existing_build.version += 1
+            version = existing_build.version
         pushed_new_release = f"{build}.{version}"
 
     # write latest changes
     if not dry_run:
-        MANIFEST_FILE.write_text(json.dumps(MANIFEST_DATA, indent=4))
+        MANIFEST_FILE.write_text(MANIFEST_DATA.model_dump_json(indent=4))
 
     # commit latest manifest changes
     input("Commit changes? Press Enter to continue...")
