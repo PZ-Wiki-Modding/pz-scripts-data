@@ -53,16 +53,26 @@ def commit_changes(release_type: ReleaseType, dry_run: bool = False, yes: bool =
     # commit latest manifest changes
     if not yes:
         input("Commit changes? Press Enter to continue...")
+    result = None
     try:
         assert release_type in commit_message, f"Unknown release type commit message: {release_type}-{release_type.name}"
         message = "manifest: " + commit_message[release_type].format(**kargs)
+        print(message)
         if not dry_run:
-            subprocess.run(["git", "add", str(MANIFEST_FILE)], check=True)
-            subprocess.run(["git", "commit", "-m", message], check=True)
+            result = subprocess.run(["git", "add", str(MANIFEST_FILE)], check=True,
+                                    capture_output=True)
+            print(result.stdout.decode())
+            print(result.stderr.decode())
+            result = subprocess.run(["git", "commit", "-m", message], check=True,
+                                    capture_output=True)
+            print(result.stdout.decode())
+            print(result.stderr.decode())
         else:
             print("Dry run, not committing changes")
-            print(message)
     except Exception as e:
+        if result is not None:
+            print(result.stdout.decode())
+            print(result.stderr.decode())
         print(f"Error committing changes: {e}")
 
 def push_changes(dry_run: bool = False, yes: bool = False) -> None:
