@@ -59,7 +59,7 @@ items: list[Item] = [
 
 ## PROCESS ITEM
 
-def fetchBlocks(item: Item):
+def fetchBlocks(item: Item) -> dict[str, ScriptsBlock]:
     # combine all block yaml files into one, validating each against the schema
     blocks: dict[str, ScriptsBlock] = {}
     for file_path in sorted(item['input'].glob("*.yaml")):
@@ -85,7 +85,7 @@ def process_properties(block: ScriptsBlock) -> ScriptsBlock:
 
 # main
 
-def process(item: Item):
+def process(item: Item) -> dict[str, ScriptsBlock]:
     blocks = fetchBlocks(item)
     for block in blocks.values():
         process_properties(block)
@@ -102,7 +102,7 @@ def add_source_ref_to_targets(
         source_name: str, 
         targets_names: list[str], 
         items: list[Item],
-        array_type: Literal["children", "variants"]):
+        array_type: Literal["children", "variants"]) -> None:
     """
     This is used to add source_name to the targets's array_type.
 
@@ -140,7 +140,7 @@ def add_source_ref_to_targets(
             raise ValueError(f"Parent block '{parent_name}' not found for block '{source_name}'.")
 
 
-def prepare_relationship(block: ScriptsBlock, items: list[Item]):
+def prepare_relationship(block: ScriptsBlock, items: list[Item]) -> None:
     """
     This will retrieve the parents of this block and add a reference to itself inside the data,
     of this parent block
@@ -224,7 +224,7 @@ def get_source_parameter(ref_key: str, items: list[Item]) -> ParameterDefinition
 
     return origin_block_data.parameters[origin_param]
 
-def copy_parameters_ref(parameters: dict[str, ParameterDefinition], items: list[Item]):
+def copy_parameters_ref(parameters: dict[str, ParameterDefinition], items: list[Item]) -> None:
     for param_key, param in parameters.items():
         if param.ref is not None:
             source_param = get_source_parameter(param.ref, items)
@@ -246,7 +246,7 @@ def copy_parameters_ref(parameters: dict[str, ParameterDefinition], items: list[
 
 # main
 
-def prepare(item: Item, items: list[Item]):
+def prepare(item: Item, items: list[Item]) -> dict[str, ScriptsBlock]:
     blocks = item['data']
     assert blocks is not None, "Something went wrong."
 
