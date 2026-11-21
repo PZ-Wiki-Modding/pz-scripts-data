@@ -1,20 +1,199 @@
 import datetime
 import argparse
 import subprocess
+import enum
+import typed_argparse as tap
 
-from pz_scripts_data import Manifest, MANIFEST_FILE, BuildVersion, ReleaseVersion
+from pz_scripts_data import Manifest, MANIFEST_FILE, BuildVersion, ReleaseVersion, Release
+
+class ReleaseType(enum.Enum):
+    STABLE = enum.auto()
+    NEW_RELEASE = enum.auto()
+    LATEST_BUILD = enum.auto()
+
+
+commit_message = {
+    ReleaseType.STABLE: r"Bump stable to {release_version}",
+    ReleaseType.NEW_RELEASE: r"{pushed_new_release}",
+    ReleaseType.LATEST_BUILD: r"Bump latest build to {new_build}",
+}
+
+class BaseReleaseArgs(tap.TypedArgs):
+    dry_run: bool = tap.arg('-d,--dry-run', default=False,
+                            help="perform a dry run without making any changes")
+    yes: bool = tap.arg('-y,--yes', default=False,
+                         help="automatically confirm committing changes")
+
+class StableBumpArgs(BaseReleaseArgs):
+    release: ReleaseVersion | None = tap.arg('-b,--build', type=ReleaseVersion.from_string, default=None,
+                                  help="specify the new release stable version")
+
+class NewReleaseArgs(BaseReleaseArgs):
+    build: BuildVersion | None = tap.arg('-b,--build', type=BuildVersion.from_string, default=None,
+                                         help="specify the new build version")
+
+class LatestBuildArgs(BaseReleaseArgs):
+    build: BuildVersion = tap.arg(positional=True,
+                                         help="specify the new latest build version")
+
+
 
 def assert_release_exists(version: str, manifest: Manifest) -> None:
     ...
-    
+
+def write_manifest(manifest: Manifest, dry_run: bool = False):
+    print(f"Writing manifest to {MANIFEST_FILE}")
+    if not dry_run:
+        manifest.write(MANIFEST_FILE)
+    else:
+        print("Dry run, not writing manifest")
+
+def commit_changes(release_type: ReleaseType, dry_run: bool = False, yes: bool = False,
+                   **kargs) -> None:
+    # commit latest manifest changes
+    if not yes:
+        input("Commit changes? Press Enter to continue...")
+    try:
+        assert release_type in commit_message, f"Unknown release type commit message: {release_type}-{release_type.name}"
+        message = "manifest: " + commit_message[release_type].format(**kargs)
+        if not dry_run:
+            subprocess.run(["git", "add", str(MANIFEST_FILE)], check=True)
+            subprocess.run(["git", "commit", "-m", message], check=True)
+        else:
+            print("Dry run, not committing changes")
+            print(message)
+    except Exception as e:
+        print(f"Error committing changes: {e}")
+
+def push_changes(dry_run: bool = False, yes: bool = False) -> None:
+    # that one we don't ignore, since that could been connection issues
+    if not yes:
+        input("Push changes? Press Enter to continue...")
+    if not dry_run:
+        subprocess.run(["git", "push"], check=True)
+    else:
+        print("Dry run, not pushing changes")
+
+
+
+
+def stable_bump_runner(args: StableBumpArgs):
+    print("Bumping stable release")
+    dry_run = args.dry_run
+    yes = args.yes
+
+    manifest = Manifest.load_manifest()
+
+    # if no release version is specified, use the latest release from the manifest
+    # else, verify the provided version exists
+    release_version = args.release
+    if release_version is None:
+        release_version = manifest.get_latest_release()
+    else:
+        manifest.assert_release_exists(release_version)
+
+    print(f"{release_version}")
+
+    write_manifest(manifest, dry_run=dry_run)
+    commit_changes(ReleaseType.STABLE, dry_run=dry_run, yes=yes,
+                   release_version=release_version)
+    push_changes(dry_run=dry_run, yes=yes)
+
+    if not yes:
+        input("Move stable tag? Press Enter to continue...")
+    if not dry_run:
+        subprocess.run(["git", "tag", "-fa", "stable", "-m", "Moved stable tag"], check=True)
+        subprocess.run(["git", "push", "-f", "--tags"], check=True)
+        print(f"Moved stable tag")
+    else:
+        print("Dry run, not moving stable tag")
+
+def new_release_runner(args: NewReleaseArgs):
+    print("Creating new release")
+    dry_run = args.dry_run
+    yes = args.yes
+    current_date = datetime.datetime.now()
+
+    manifest = Manifest.load_manifest()
+
+    # default to latest build
+    build_version = args.build
+    if build_version is None:
+        build_version = manifest.get_latest_build()
+
+    # bump or create new release for the build version
+    releases = manifest.get_releases()
+    if build_version not in releases:
+        releases[build_version] = Release(
+            version=0,
+            date=current_date
+        )
+    else:
+        existing_build = releases[build_version]
+        existing_build.date = current_date
+        existing_build.version += 1
+    pushed_new_release = str(releases[build_version])
+
+    # push changes
+    write_manifest(manifest, dry_run=dry_run)
+    commit_changes(ReleaseType.NEW_RELEASE, dry_run=dry_run, yes=yes,
+                   pushed_new_release=pushed_new_release)
+    push_changes(dry_run=dry_run, yes=yes)
+
+    # make a git tag for the newly released version
+    if not yes:
+        input("Push new release? Press Enter to continue...")
+    if not dry_run:
+        subprocess.run(["git", "tag", "-fa", pushed_new_release, "-m", "New release"], check=True)
+        subprocess.run(["git", "push", "-f", "--tags"], check=True)
+        print(f"Pushed new release: {pushed_new_release}")
+    else:
+        print("Dry run, not pushing new release")
+
+def latest_build_runner(args: LatestBuildArgs):
+    print("Updating latest build")
+    dry_run = args.dry_run
+    yes = args.yes
+    new_build = args.build
+
+    manifest = Manifest.load_manifest()
+
+    if not yes:
+        input("Update latest build? Press Enter to continue...")
+    if not dry_run:
+        manifest.latest_build = new_build
+    else:
+        print(f"Dry run, not updating latest build to: {new_build}")
+
+    # push changes
+    write_manifest(manifest, dry_run=dry_run)
+    commit_changes(ReleaseType.NEW_RELEASE, dry_run=dry_run, yes=yes,
+                   new_build=new_build)
+    push_changes(dry_run=dry_run, yes=yes)
+
+
 
 def main():
-    MANIFEST_DATA = Manifest.load_manifest()
+    manifest = Manifest.load_manifest()
 
-    parser = argparse.ArgumentParser(
+    tap.Parser(
+        tap.SubParserGroup(
+            tap.SubParser(
+                "stable",
+                StableBumpArgs
+            ),
+            tap.SubParser(
+                "release",
+                NewReleaseArgs
+            ),
+            tap.SubParser(
+                "build",
+                LatestBuildArgs
+            ),
+        ),
         description=f"""Release a dataset build.
-Current latest build: {MANIFEST_DATA.latest_build}
-Current stable: {MANIFEST_DATA.stable}
+Current latest build: {manifest.latest_build}
+Current stable: {manifest.stable}
 
 Usage:
 
@@ -32,127 +211,12 @@ Usage:
 
     # perform a dry run without making any changes
     uv run release --dry-run
-""",
-        formatter_class=argparse.RawTextHelpFormatter
-    )
-    parser.add_argument("--set-stable", type=str, 
-                        help="Move the stable to the provided build version")
-    parser.add_argument("--set-latest-build", type=str, 
-                        help="Update the latest build version in the manifest")
-    parser.add_argument("--set-latest-release", type=str, 
-                        help="Update the latest release version in the manifest")
-    parser.add_argument("--build", type=BuildVersion.from_string, 
-                        help="Specify the new build version")
-    parser.add_argument("--dry-run", action="store_true", 
-                        help="Perform a dry run without making any changes")
-    args = parser.parse_args()
-
-    latest_build = MANIFEST_DATA.latest_build
-    BuildVersion.assert_release_number(latest_build)
-
-    # handle set-latest-build argument
-    set_latest_build : str = args.set_latest_build
-    set_latest_release : str = args.set_latest_release
-    set_stable : str = args.set_stable
-    dry_run : bool = args.dry_run
-
-    pushed_new_release = None
-    if set_latest_build is not None:
-        print(f"Setting latest build to {set_latest_build}")
-        splitted = set_latest_build.split('.')
-        if len(splitted) != 3:
-            raise ValueError("Invalid build version format. Expected format: 'major.minor.patch'")
-
-        # set new version in the manifest
-        MANIFEST_DATA.latest_build = BuildVersion.from_string(set_latest_build)
-
-    # set new stable
-    elif set_stable:
-        print(f"Setting stable to {set_stable}")
-        ReleaseVersion.assert_release_with_version(set_stable)
-        MANIFEST_DATA.stable = set_stable
-
-    # handle set-latest-release argument
-    elif set_latest_release is not None:
-        print(f"Setting latest release to {set_latest_release}")
-        ReleaseVersion.assert_release_with_version(set_latest_release)
-
-        # get associated release
-        releases = MANIFEST_DATA.releases
-        if set_latest_release not in releases.keys():
-            raise ValueError(f"Release version {set_latest_release} not found in manifest")
-        MANIFEST_DATA.latest_release = set_latest_release
-
-    # no args, push a new release
-    else:
-        print("Pushing a new release")
-        current_date = datetime.datetime.now().isoformat()
-        releases = MANIFEST_DATA.releases
-        build: BuildVersion = args.build if args.build is not None else latest_build
-        version = 0
-        if build not in releases.keys():
-            releases[build] = Release(
-                version=version, 
-                date=current_date
-            )
-        else:
-            existing_build = releases[build]
-            existing_build.date = current_date
-            existing_build.version += 1
-            version = existing_build.version
-        pushed_new_release = f"{build}.{version}"
-
-    # write latest changes
-    if not dry_run:
-        MANIFEST_FILE.write_text(MANIFEST_DATA.model_dump_json(indent=4))
-
-    # commit latest manifest changes
-    input("Commit changes? Press Enter to continue...")
-    try:
-        if not dry_run:
-            subprocess.run(["git", "add", str(MANIFEST_FILE)], check=True)
-            message = "manifest"
-            if pushed_new_release is not None:
-                message += f": {pushed_new_release}"
-            elif set_stable is not None:
-                message += f": New stable {set_stable}"
-            elif set_latest_release is not None:
-                message += f": New latest release {set_latest_release}"
-            elif set_latest_build is not None:
-                message += f": New latest build {set_latest_build}"
-            subprocess.run(["git", "commit", "-m", message], check=True)
-        else:
-            print("Dry run, not committing changes")
-    except Exception as e:
-        print(f"Error committing changes: {e}")
-
-    # that one we don't ignore, since that could been connection issues
-    input("Push changes? Press Enter to continue...")
-    if not dry_run:
-        subprocess.run(["git", "push"], check=True)
-    else:
-        print("Dry run, not pushing changes")
-
-    # if set as stable is active
-    # move stable tag
-    if set_stable is not None:
-        input("Move stable tag? Press Enter to continue...")
-        if not dry_run:
-            subprocess.run(["git", "tag", "-fa", "stable", "-m", "Moved stable tag"], check=True)
-            subprocess.run(["git", "push", "-f", "--tags"], check=True)
-            print(f"Moved stable tag")
-        else:
-            print("Dry run, not moving stable tag")
-
-    if pushed_new_release is not None:
-        input("Push new release? Press Enter to continue...")
-        if not dry_run:
-            subprocess.run(["git", "tag", "-fa", pushed_new_release, "-m", "New release"], check=True)
-            subprocess.run(["git", "push", "-f", "--tags"], check=True)
-            print(f"Pushed new release: {pushed_new_release}")
-        else:
-            print("Dry run, not pushing new release")
-
+"""
+    ).bind(
+        stable_bump_runner,
+        new_release_runner,
+        latest_build_runner,
+    ).run()
 
 
 if __name__ == "__main__":

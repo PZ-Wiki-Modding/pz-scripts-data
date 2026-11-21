@@ -157,6 +157,29 @@ class Manifest(BaseModel):
                 releases_list.append(str(build.to_release_version(v)))
         return sorted(releases_list)
 
+    def get_latest_release(self) -> ReleaseVersion:
+        releases_list = self.make_releases_list()
+        if len(releases_list) == 0:
+            raise ValueError("No releases found in the manifest")
+        latest_release_str = releases_list[-1]
+        return ReleaseVersion.from_string(latest_release_str)
+
+    def get_latest_build(self) -> BuildVersion:
+        return self.latest_build
+
+    def get_releases(self) -> dict[BuildVersion, Release]:
+        return self.releases
+
+    def assert_release_exists(self, release_version: 'str | ReleaseVersion') -> None:
+        release_version_str = str(release_version)
+        releases_list = self.make_releases_list()
+        if release_version_str not in releases_list:
+            raise ValueError(f"Release version {release_version_str} not found in the manifest")
+
+    def write(self, path: Path | str) -> None:
+        path = Path(path)
+        path.write_text(self.model_dump_json(indent=4))
+
 if __name__ == "__main__":
     build1 = BuildVersion.from_string("42.22.2")
     build2 = BuildVersion.from_string("42.22.2")
