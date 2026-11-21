@@ -143,7 +143,8 @@ def new_release_runner(args: NewReleaseArgs):
         existing_build = releases[build_version]
         existing_build.date = current_date
         existing_build.version += 1
-    pushed_new_release = str(releases[build_version])
+    released_version = build_version.to_release_version(releases[build_version].version)
+    pushed_new_release = str(released_version)
 
     # push changes
     write_manifest(manifest, dry_run=dry_run)
