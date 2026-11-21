@@ -50,9 +50,13 @@
     "base:moveable": [],
     "base:normal": [],
     "base:radio": [
+        "AcceptMediaType",
         "CanBeEquipped"
     ],
     "base:weapon": [
+        "AimingMod",
+        "AimingPerkCritModifier",
+        "AimingPerkHitChanceModifier",
         "AimingPerkMinAngleModifier",
         "AimingPerkRangeModifier",
         "Aimingtime",

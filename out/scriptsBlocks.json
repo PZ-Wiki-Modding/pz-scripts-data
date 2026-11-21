@@ -2129,53 +2129,85 @@
       },
       "acceptmediatype": {
         "default": -1,
-        "itemTypes": [
-          "radio"
-        ],
+        "description": "Specifies the type of media that is accepted by the item type radio item. When set to `0`, the accepted items will be CDs, and when set to `1`, the accepted items will be tapes.",
         "name": "AcceptMediaType",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:radio"
+            ]
+          }
+        ],
         "type": {
           "main": "integer"
         }
       },
       "activateditem": {
-        "itemTypes": [
-          "clothing",
-          "drainable",
-          "weaponpart"
-        ],
-        "name": "ActivatedItem"
+        "name": "ActivatedItem",
+        "type": {
+          "main": "string"
+        }
       },
       "aimingmod": {
-        "itemTypes": [
-          "weapon"
+        "default": 1.0,
+        "description": "This parameter looks unusued.",
+        "isUseless": true,
+        "name": "AimingMod",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
         ],
-        "name": "AimingMod"
+        "type": {
+          "main": "float"
+        }
       },
       "aimingperkcritmodifier": {
-        "#desc": "item/CriticalChance",
-        "description": "[CriticalChance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-criticalchance) sets the base critical hit chance of the weapon. The final `CriticalChance` value after all applied bonuses and penalties have been applied is compared on a 0-100 roll.\n\nBelow is a table listing the different elements which can influence the critical hit chance of a weapon:\n\n| Element | Type | Description | Formula |\n|---|---|---|---|\n| [AimingPerkCritModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingperkcritmodifier) and [aiming skill](https://pzwiki.net/wiki/Aiming) of the character | Weapon parameter | The aiming level of the character impacts the player's critical hit chance by adding the following to the `CriticalChance` value. | `CriticalChance += AimingPerkCritModifier * Aiming level` |\n| Sight bonus / penalty | Weapon parameter | In the formula, `sightWindowBonus` refers to the bonus from [MinSightRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-minsightrange) and [MaxSightRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-maxsightrange). `sightlessBonus` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result. The aim delay penalty depends on [Aimingtime](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingtime) | `CriticalChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)` |\n| Moodles penalty | Player condition | Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the `CriticalChance`. | `CriticalChance -= moodlesPenalty` |\n| Weather penalty | Environment | Wind, rain, fog, low-light will all negatively impact the `CriticalChance`. | `CriticalChance -= weatherPenalty` |\n| Movement penalty | Player condition | The shooter speed and the distance will negatively impact the `CriticalChance`. | `CriticalChance -= movementPenalty` |\n| [Marksman trait](https://pzwiki.net/wiki/Marksman) | Player condition | This condition can never be reached as the Marksman trait no longer exists. | `CriticalChance += 10` |\n\nFor PvP targets, the entire formula is bypassed and [StopPower](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-stoppower) is used instead. `StopPower` is never used against non-player targets.\n```\nCriticalChance = StopPower * ( 1 + Aiming level / 15)\n```\n\n`CriticalChance` sets the floor for unskilled players while `AimingPerkCritModifier` rewards more or less the character ability to aim. High modified and low base chance means the weapon is a skill-gated crit machine, making the weapon a sort of \"experts\" weapon.",
-        "itemTypes": [
-          "weapon"
-        ],
+        "description": "This parameter modifies the [critical chance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-criticalchance) for the [aiming skill](https://pzwiki.net/wiki/Aiming):\n```\nCriticalChance += AimingPerkCritModifier * Aiming level\n```",
         "name": "AimingPerkCritModifier",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ],
+        "seeAlso": [
+          "CriticalChance",
+          "AimingPerkHitChanceModifier",
+          "AimingPerkMinAngleModifier"
+        ],
         "type": {
           "main": "integer"
         }
       },
       "aimingperkhitchancemodifier": {
-        "#desc": "item/HitChance",
-        "description": "[HitChance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-hitchance) is a stat which is directly applied to a [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) while [HitChanceModified](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-hitchancemodifier) is applied to [weapon parts](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html).\n\nThe initial hitchance is determined by the following configuration:\n```\nHitChance = min(HitChance, CombatConfigKey.MAXIMUM_START_TO_HIT_CHANCE)\n```\n\n[MAXIMUM_START_TO_HIT_CHANCE](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_START_TO_HIT_CHANCE) is a configuration of the combat system of Project Zomboid. In this case, the default value is `95.0`, which means the initial HitChance cannot be above `95.0`.\n\nBelow is a table listing the different elements which can influence the hit chance of a weapon:\n\n| Element | Type | Description | Formula |\n|---|---|---|---|\n| [AimingPerkHitChanceModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingperkhitchancemodifier) and [aiming skill](https://pzwiki.net/wiki/Aiming) of the character | Weapon parameter | The aiming level of the character impacts the player's hit chance. | `HitChance += AimingPerkHitChanceModifier * Aiming level` |\n| Sight bonus / penalty | Weapon parameter | In the formula, `sightWindowBonus` refers to the bonus from [MinSightRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-minsightrange) and [MaxSightRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-maxsightrange). `sightlessBonus` on the other hand is a simpler parameter which uses a distance falloff when there is not active sight. The best path is used for the better result. | `HitChance += max(sightlessBonus - sightlessAimDelayPenalty, sightWindowBonus - sightWindowAimDelayPenalty)` |\n| Moodles penalty | Player condition | Being panicked, stressed, tired, drunk or lacking endurance will all negatively impact the `HitChance`. | `HitChance -= moodlesPenalty` |\n| Weather penalty | Environment | Wind, rain, fog, low-light will all negatively impact the `HitChance`. | `HitChance -= weatherPenalty` |\n| Movement penalty | Player condition | The shooter speed and the distance will negatively impact the `HitChance`. | `HitChance -= movementPenalty` |\n| Arm pain penalty | Player condition | The character's level of [pain](https://pzwiki.net/wiki/Pain) will impact its aiming. | `HitChance -= armPainPenalty` |\n| Headgear vision penalty | Player condition | Headgear will impact aiming, if the relevant sandbox option is enabled. | `HitChance -= headgearVisionPenalty` |\n\nThe final obtained value of `HitChance` is clamped against the [MINIMUM_TO_HIT_CHANCE](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MINIMUM_TO_HIT_CHANCE) and [MAXIMUM_TO_HIT_CHANCE](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/combat/CombatConfigKey.html#MAXIMUM_TO_HIT_CHANCE), both respectively equal to `5.0` and `100.0` by default.\n\nAt point-blank range, all combined penalties are scaled toward zero, so close shots are always more forgiving. The [HitChance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-hitchance) parameter will set the floor for all players while [AimingPerkHitChanceModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingperkhitchancemodifier) will increase accuracy with the level of aiming of the player. Low base and high modifier makes the gun terrible while unskilled but excellent with investment in aiming.",
-        "itemTypes": [
-          "weapon"
-        ],
+        "description": "This parameter modifies the [hit chance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-hitchance) for the [aiming skill](https://pzwiki.net/wiki/Aiming):\n```\nHitChance += AimingPerkHitChanceModifier * Aiming level\n```",
         "name": "AimingPerkHitChanceModifier",
+        "needs": [
+          {
+            "name": "ItemType",
+            "values": [
+              "base:weapon"
+            ]
+          }
+        ],
+        "seeAlso": [
+          "HitChance",
+          "AimingPerkCritModifier",
+          "AimingPerkMinAngleModifier"
+        ],
         "type": {
           "main": "float"
         }
       },
       "aimingperkminanglemodifier": {
-        "#desc": "item/MinAngle",
-        "description": "For [IsAimedFirearm](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-isaimedfirearm) set to `true`, the ballistics controller handles target detection and does not use [MinAngle](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-minangle) in the ranged hit-chance formula. These serve one narrow purpose: the `isMeleeTargetTooCloseToShoot()` check, detecting if a target is so close it should trigger a melee strike instead of a shot.\n\n`MinAngle` is a dot-product threshold (-1 to 1). Values near 1.0 mean the target must be almost directly in front to trigger the melee-swap check, while lower values widen the angle.\n\n[AimingPerkMinAngleModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingperkminanglemodifier) is parsed and stored and impacts the minimum angle with the following formula:\n```java\neffectiveMinAngle = MinAngle - AimingPerkMinAngleModifier * Aiming level\n```",
+        "description": "This parameter modifies the [minimum angle](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-minangle) for the [aiming skill](https://pzwiki.net/wiki/Aiming). It impacts the minimum angle with the following formula:\n```java\neffectiveMinAngle = MinAngle - AimingPerkMinAngleModifier * Aiming level\n```",
         "name": "AimingPerkMinAngleModifier",
         "needs": [
           {
@@ -2184,6 +2216,11 @@
               "base:weapon"
             ]
           }
+        ],
+        "seeAlso": [
+          "MinAngle",
+          "AimingPerkCritModifier",
+          "AimingPerkHitChanceModifier"
         ],
         "type": {
           "main": "float"
@@ -3835,6 +3872,9 @@
             ]
           }
         ],
+        "seeAlso": [
+          "AimingPerkHitChanceModifier"
+        ],
         "type": {
           "main": "integer"
         }
@@ -4489,6 +4529,9 @@
               "base:weapon"
             ]
           }
+        ],
+        "seeAlso": [
+          "AimingPerkMinAngleModifier"
         ],
         "type": {
           "main": "float"
