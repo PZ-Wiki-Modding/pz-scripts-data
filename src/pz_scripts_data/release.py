@@ -103,7 +103,7 @@ def stable_bump_runner(args: StableBumpArgs):
         manifest.assert_release_exists(release_version)
 
     print(f"{release_version}")
-    
+
     manifest.stable = release_version
     write_manifest(manifest, dry_run=dry_run)
     commit_changes(ReleaseType.STABLE, dry_run=dry_run, yes=yes,
@@ -178,7 +178,7 @@ def latest_build_runner(args: LatestBuildArgs):
 
     # push changes
     write_manifest(manifest, dry_run=dry_run)
-    commit_changes(ReleaseType.NEW_RELEASE, dry_run=dry_run, yes=yes,
+    commit_changes(ReleaseType.LATEST_BUILD, dry_run=dry_run, yes=yes,
                    new_build=new_build)
     push_changes(dry_run=dry_run, yes=yes)
 
