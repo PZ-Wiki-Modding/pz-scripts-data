@@ -19,17 +19,17 @@ commit_message = {
 }
 
 class BaseReleaseArgs(tap.TypedArgs):
-    dry_run: bool = tap.arg('-d,--dry-run', default=False,
+    dry_run: bool = tap.arg('-d','--dry-run', default=False,
                             help="perform a dry run without making any changes")
-    yes: bool = tap.arg('-y,--yes', default=False,
+    yes: bool = tap.arg('-y','--yes', default=False,
                          help="automatically confirm committing changes")
 
 class StableBumpArgs(BaseReleaseArgs):
-    release: ReleaseVersion | None = tap.arg('-b,--build', type=ReleaseVersion.from_string, default=None,
+    release: ReleaseVersion | None = tap.arg('-b','--build', type=ReleaseVersion.from_string, default=None,
                                   help="specify the new release stable version")
 
 class NewReleaseArgs(BaseReleaseArgs):
-    build: BuildVersion | None = tap.arg('-b,--build', type=BuildVersion.from_string, default=None,
+    build: BuildVersion | None = tap.arg('-b','--build', type=BuildVersion.from_string, default=None,
                                          help="specify the new build version")
 
 class LatestBuildArgs(BaseReleaseArgs):
