@@ -42,45 +42,83 @@ parameters:
           type: InventoryItem
           isJava: true
 - name: AcceptMediaType
-  itemTypes:
-  - radio
+  description: |-
+    Specifies the type of media that is accepted by the item type radio item. When set to `0`, the accepted items will be CDs, and when set to `1`, the accepted items will be tapes.
   type:
     main: integer
   default: -1
+  needs:
+    - name: ItemType
+      values:
+        - base:radio
 - name: ActivatedItem
-  itemTypes:
-  - clothing
-  - drainable
-  - weaponpart
-- name: AimingMod
-  itemTypes:
-  - weapon
-- name: AimingPerkCritModifier
   type:
-    main: integer
-  itemTypes:
-  - weapon
-  "#desc": item/CriticalChance
-- name: AimingPerkHitChanceModifier
+    main: string
+- name: AimingMod
+  description: |-
+    This parameter looks unusued.
   type:
     main: float
-  "#desc": item/HitChance
-  itemTypes:
-  - weapon
+  default: 1.0
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  isUseless: true
+- name: AimingPerkCritModifier
+  description: |-
+    This parameter modifies the [critical chance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-criticalchance) for the [aiming skill](https://pzwiki.net/wiki/Aiming):
+    ```
+    CriticalChance += AimingPerkCritModifier * Aiming level
+    ```
+  type:
+    main: integer
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  seeAlso:
+    - CriticalChance
+    - AimingPerkHitChanceModifier
+    - AimingPerkMinAngleModifier
+- name: AimingPerkHitChanceModifier
+  description: |-
+    This parameter modifies the [hit chance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-hitchance) for the [aiming skill](https://pzwiki.net/wiki/Aiming):
+    ```
+    HitChance += AimingPerkHitChanceModifier * Aiming level
+    ```
+  type:
+    main: float
+  needs:
+    - name: ItemType
+      values:
+        - base:weapon
+  seeAlso:
+    - HitChance
+    - AimingPerkCritModifier
+    - AimingPerkMinAngleModifier
 - name: AimingPerkMinAngleModifier
-  "#desc": item/MinAngle
+  description: |-
+    This parameter modifies the [minimum angle](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-minangle) for the [aiming skill](https://pzwiki.net/wiki/Aiming). It impacts the minimum angle with the following formula:
+    ```java
+    effectiveMinAngle = MinAngle - AimingPerkMinAngleModifier * Aiming level
+    ```
   needs:
     - name: ItemType
       values:
         - base:weapon
   type:
     main: float
+  seeAlso:
+    - MinAngle
+    - AimingPerkCritModifier
+    - AimingPerkHitChanceModifier
 - name: AimingPerkRangeModifier
   "#desc": item/MaxRange
   needs:
-  - name: ItemType
-    values:
-      - base:weapon
+    - name: ItemType
+      values:
+        - base:weapon
   type:
     main: float
 - name: Aimingtime
@@ -1413,6 +1451,8 @@ parameters:
     - name: ItemType
       values:
         - base:weapon
+  seeAlso:
+    - AimingPerkHitChanceModifier
 - name: HitChanceModifier
   "#desc": item/HitChance
   type:
@@ -1966,6 +2006,8 @@ parameters:
   type:
     main: float
   default: 1.0
+  seeAlso:
+    - AimingPerkMinAngleModifier
 - name: MinChannel
   itemTypes:
   - radio
