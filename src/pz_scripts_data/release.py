@@ -103,7 +103,8 @@ def stable_bump_runner(args: StableBumpArgs):
         manifest.assert_release_exists(release_version)
 
     print(f"{release_version}")
-
+    
+    manifest.stable = release_version
     write_manifest(manifest, dry_run=dry_run)
     commit_changes(ReleaseType.STABLE, dry_run=dry_run, yes=yes,
                    release_version=release_version)
