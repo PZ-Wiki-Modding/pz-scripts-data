@@ -17,14 +17,11 @@ validate_data:
 	uv run pytest src/pz_scripts_data/tests/test_data.py
 
 format: validate_data
-	./.venv/bin/python ./src/pz_scripts_data/formatBlocks.py
-	./.venv/bin/python ./src/pz_scripts_data/sortItemParameters.py
+	uv run python ./src/pz_scripts_data/formatBlocks.py
+	uv run python ./src/pz_scripts_data/sortItemParameters.py
 
 schema:
-	./.venv/bin/python ./src/pz_scripts_data/schema.py
-
-release:
-	./.venv/bin/python ./src/pz_scripts_data/release.py
+	uv run python ./src/pz_scripts_data/schema.py
 
 release_package:
 	rm -rf dist
