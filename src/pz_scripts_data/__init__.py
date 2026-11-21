@@ -153,7 +153,7 @@ class Manifest(BaseModel):
         """Retrieve a sorted list of all release versions as strings."""
         releases_list: list[str] = []
         for build, release in self.releases.items():
-            for v in range(release.version):
+            for v in range(release.version+1):
                 releases_list.append(str(build.to_release_version(v)))
         return sorted(releases_list)
 
