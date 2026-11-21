@@ -33,7 +33,7 @@ class NewReleaseArgs(BaseReleaseArgs):
                                          help="specify the new build version")
 
 class LatestBuildArgs(BaseReleaseArgs):
-    build: BuildVersion = tap.arg(positional=True,
+    build: BuildVersion = tap.arg(positional=True, type=BuildVersion.from_string,
                                          help="specify the new latest build version")
 
 
