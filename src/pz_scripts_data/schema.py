@@ -484,16 +484,10 @@ class BlockDefinition(SchemaModel):
         None,
         alias="#ref",
     )
-<<<<<<< HEAD
     variant_of_deprecated: str | None = Field(
-=======
-    """A reference to another block type. This allows sharing the same properties between multiple block types."""
-    variant_of: str | None = Field(
->>>>>>> d23ecea (refactor(schema): use docstrings instead of description parameter for fields, making docstrings available for devs)
         None,
         alias="variantOf",
     )
-<<<<<<< HEAD
     @property
     @deprecated(reason="This property is deprecated. It has now been replaced by `variant.source`.")
     def variant_of(self) -> str | None:
@@ -506,11 +500,6 @@ class BlockDefinition(SchemaModel):
         description="Defines a variant of this block type.",
     )
     name: str = Field(description="The name of the block type.")
-=======
-    """Indicates whether this block type is a variant of another block type. The value corresponds to the block type it is a variant of."""
-    name: str
-    """The name of the block type."""
->>>>>>> d23ecea (refactor(schema): use docstrings instead of description parameter for fields, making docstrings available for devs)
     any_name: bool | None = Field(
         None,
         alias="anyName",
