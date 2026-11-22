@@ -3082,8 +3082,10 @@ parameters:
   - drainable
   - normal
 - name: VisionModifier
-  itemTypes:
-  - clothing
+  description: |-
+    Modifier to the ability for the player [to see clearly](https://albion.codeberg.page/PZ-JavaDocs/zombie/characters/IsoGameCharacter.html#getWornItemsVisionModifier()). A value of `1.0` means no changes, while lower values reduce the player's vision. Multiple clothing items with vision modifiers will have their effects combined.
+
+    This stat also seems to be affecting zombies' vision and might in theory be able to make zombies pratically blind thanks to a very low vision modifier (a value of `0.0` is not possible as it will cause zero division errors).
   type:
     main: float
   default: 1.0
