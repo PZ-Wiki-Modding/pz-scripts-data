@@ -446,17 +446,12 @@ class ParameterDefinition(SchemaModel):
 class VariantDefinition(SchemaModel):
     """Schema for defining a variant of a block type."""
 
-    source: str = Field(
-        description="The source block type that this variant is based on.",
-    )
-    parameters: list[ParameterNeed] | None = Field(
-        None,
-        description="A list of parameters that must be met for this variant to be valid.",
-    )
-    id: list[str] | None = Field(
-        None,
-        description="A list of IDs that this variant must have.",
-    )
+    source: str
+    """The source block type that this variant is based on."""
+    parameters: list[ParameterNeed] | None = None
+    """A list of parameters that must be met for this variant to be valid."""
+    id: list[str] | None = None
+    """A list of IDs that this variant must have."""
 
 
 class BlockDefinition(SchemaModel):
@@ -495,11 +490,10 @@ class BlockDefinition(SchemaModel):
         if variant is not None and variant.source is not None:
             return variant.source
         return self.variant_of_deprecated
-    variant: VariantDefinition | None = Field(
-        None,
-        description="Defines a variant of this block type.",
-    )
-    name: str = Field(description="The name of the block type.")
+    variant: VariantDefinition | None = None
+    """Defines a variant of this block type."""
+    name: str
+    """The name of the block type."""
     any_name: bool | None = Field(
         None,
         alias="anyName",
