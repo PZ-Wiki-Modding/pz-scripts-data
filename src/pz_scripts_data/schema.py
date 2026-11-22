@@ -50,7 +50,12 @@ Number = Annotated[int | float, WithJsonSchema({"type": "number"})]
 class SchemaModel(BaseModel):
     """Base model. Unknown keys are rejected and no value may be null."""
 
-    model_config = ConfigDict(extra="forbid", strict=True, validate_by_name=True)
+    model_config = ConfigDict(
+        extra="forbid",
+        strict=True,
+        validate_by_name=True,
+        use_attribute_docstrings=True,
+    )
 
     @model_validator(mode="before")
     @classmethod
@@ -63,17 +68,18 @@ class SchemaModel(BaseModel):
 class BlockReference(SchemaModel):
     """If the parameter is of type 'block', this can be used to provide a description of the expected format of the block."""
 
-    name: str = Field(description="The name of the block type that this parameter references to.")
+    name: str
+    """The name of the block type that this parameter references to."""
     full_type: bool = Field(
         True,
         alias="fullType",
-        description="Indicates whether the parameter's value can match the module and block name, for example 'module.block'.",
     )
+    """Indicates whether the parameter's value can match the module and block name, for example 'module.block'."""
     no_auto_import: bool = Field(
         False,
         alias="noAutoImport",
-        description="Indicates whenever this parameter can automatically check its own parent block module when fullType is set to true. If false, this means that the module won't be automatically imported.",
     )
+    """Indicates whenever this parameter can automatically check its own parent block module when fullType is set to true. If false, this means that the module won't be automatically imported."""
 
 
 class TranslationDefinition(SchemaModel):
@@ -81,12 +87,12 @@ class TranslationDefinition(SchemaModel):
 
     key_pattern: str = Field(
         alias="keyPattern",
-        description="A regex pattern that the translation key in the source must match. The '{value}' placeholder is replaced by the ID of the block or value of the parameter. '{module}' is replaced by the module of the block.",
     )
+    """A regex pattern that the translation key in the source must match. The '{value}' placeholder is replaced by the ID of the block or value of the parameter. '{module}' is replaced by the module of the block."""
     source_file: str = Field(
         alias="sourceFile",
-        description="The source file where the translation key is defined (without the .json extension).",
     )
+    """The source file where the translation key is defined (without the .json extension)."""
 
 
 class BlockID(SchemaModel):
@@ -95,30 +101,26 @@ class BlockID(SchemaModel):
     parents_without: list[str] | None = Field(
         None,
         alias="parentsWithout",
-        description="A list of block names that cannot be parents if this block has an ID.",
     )
+    """A list of block names that cannot be parents if this block has an ID."""
     values: list[str] | None = Field(
         None,
-        description="A list of allowed ID values for this block. If not given, any value is allowed.",
     )
+    """A list of allowed ID values for this block. If not given, any value is allowed."""
     as_type: bool | None = Field(
         None,
         alias="asType",
-        description="Specifies if the ID of the block should count as the block type. For example, components have specific definitions based on their ID. This means a script block needs to be defined with the name 'component <componentID>' as well as 'component' to cover all component types available with the 'values' attribute.",
     )
-    optional: list[str] | None = Field(
-        None,
-        description="A list of ID values that are optional for this block type.",
-    )
+    """Specifies if the ID of the block should count as the block type. For example, components have specific definitions based on their ID. This means a script block needs to be defined with the name 'component <componentID>' as well as 'component' to cover all component types available with the 'values' attribute."""
+    optional: list[str] | None = None
+    """A list of ID values that are optional for this block type."""
     can_have_space: bool | None = Field(
         None,
         alias="canHaveSpace",
-        description="Indicates whether the ID of the block can contain spaces. If false or not specified, the ID cannot contain spaces.",
     )
-    forbidden: list[str] | None = Field(
-        None,
-        description="A list of forbidden ID values for this block. If not provided, no values are forbidden.",
-    )
+    """Indicates whether the ID of the block can contain spaces. If false or not specified, the ID cannot contain spaces."""
+    forbidden: list[str] | None = None
+    """A list of forbidden ID values for this block. If not provided, no values are forbidden."""
     translation: TranslationDefinition | None = None
 
 
@@ -128,55 +130,54 @@ class BlockDeprecation(SchemaModel):
     replaced_by: str | None = Field(
         None,
         alias="replacedBy",
-        description="The name of the block type that replaces this deprecated block type.",
     )
-    description: str | None = Field(
-        None,
-        description="A brief description of why the block type is deprecated and any additional information about the deprecation.",
-    )
+    """The name of the block type that replaces this deprecated block type."""
+    description: str | None = None
+    """A brief description of why the block type is deprecated and any additional information about the deprecation."""
 
 class FileDefinition(SchemaModel):
     """Describes the expected format of a file parameter."""
 
     relative_to: str = Field(
-        description="The relative path of the file, relative to version and common folders.",
         alias="relativeTo",
     )
-    prefix: str | None = Field(
-        None,
-        description="An optional prefix for the file path.",
-    )
-    extension: str = Field(
-        description="The file extension for the file parameter.",
-    )
+    """The relative path of the file, relative to version and common folders."""
+    prefix: str | None = None
+    """An optional prefix for the file path."""
+    extension: str
+    """The file extension for the file parameter."""
 
 
 class _ArrayBase(SchemaModel):
-    separator: str = Field(description="Specifies the separator used to split the string into array items.")
+    separator: str
+    """Specifies the separator used to split the string into array items."""
     min_items: Number | None = Field(
         None,
         alias="min",
-        description="The minimum number of items required in the array.",
     )
+    """The minimum number of items required in the array."""
     max_items: Number | None = Field(
         None,
         alias="max",
-        description="The maximum number of items allowed in the array.",
     )
+    """The maximum number of items allowed in the array."""
     soft_override: bool | None = Field(
         None,
         alias="softOverride",
-        description="If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
     )
+    """If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates."""
 
 
 class ScalarArrayDefinition(_ArrayBase):
-    item_type: ScalarType = Field(alias="type", description="Specifies the data type of the items in the array.")
+    item_type: ScalarType = Field(alias="type")
+    """Specifies the data type of the items in the array."""
 
 
 class BlockArrayDefinition(_ArrayBase):
-    item_type: Literal["block"] = Field(alias="type", description="Specifies the data type of the items in the array.")
-    block: BlockReference = Field(description="The block type of the items in the array.")
+    item_type: Literal["block"] = Field(alias="type")
+    """Specifies the data type of the items in the array."""
+    block: BlockReference
+    """The block type of the items in the array."""
 
 
 ArrayDefinition = ScalarArrayDefinition | BlockArrayDefinition
@@ -185,41 +186,53 @@ ArrayDefinition = ScalarArrayDefinition | BlockArrayDefinition
 class _ObjectBase(SchemaModel):
     key_value_separator: str = Field(
         alias="keyValueSeparator",
-        description="Specifies the separator used to split the key and the value in the key-value pairs. The parameter 'pairsSeparator' is used to split the pairs from each others.",
     )
+    """Specifies the separator used to split the key and the value in the key-value pairs. The parameter 'pairsSeparator' is used to split the pairs from each others."""
     pairs_separator: str = Field(
         alias="pairsSeparator",
-        description="Specifies the separator used to split the pairs from each others. The parameter 'keyValueSeparator' is used to split the keys and values.",
     )
+    """Specifies the separator used to split the pairs from each others. The parameter 'keyValueSeparator' is used to split the keys and values."""
     soft_override: bool | None = Field(
         None,
         alias="softOverride",
-        description="If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
     )
+    """If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates."""
 
 
 class ScalarKeyScalarValueObject(_ObjectBase):
-    key_type: ScalarType = Field(alias="keyType", description="Specifies the data type of the keys in the object.")
-    value_type: ScalarType = Field(alias="valueType", description="Specifies the data type of the values in the object.")
+    key_type: ScalarType = Field(alias="keyType")
+    """Specifies the data type of the keys in the object."""
+    value_type: ScalarType = Field(alias="valueType")
+    """Specifies the data type of the values in the object."""
 
 
 class BlockKeyBlockValueObject(_ObjectBase):
-    key_type: Literal["block"] = Field(alias="keyType", description="Specifies the data type of the keys in the object.")
-    key_block: BlockReference = Field(alias="keyBlock", description="The block type of the keys in the object.")
-    value_type: Literal["block"] = Field(alias="valueType", description="Specifies the data type of the values in the object.")
-    value_block: BlockReference = Field(alias="valueBlock", description="The block type of the values in the object.")
+    key_type: Literal["block"] = Field(alias="keyType")
+    """Specifies the data type of the keys in the object."""
+    key_block: BlockReference = Field(alias="keyBlock")
+    """The block type of the keys in the object."""
+    value_type: Literal["block"] = Field(alias="valueType")
+    """Specifies the data type of the values in the object."""
+    value_block: BlockReference = Field(alias="valueBlock")
+    """The block type of the values in the object."""
 
 
 class BlockKeyScalarValueObject(_ObjectBase):
-    key_type: Literal["block"] = Field(alias="keyType", description="Specifies the data type of the keys in the object.")
-    key_block: BlockReference = Field(alias="keyBlock", description="The block type of the keys in the object.")
-    value_type: ScalarType = Field(alias="valueType", description="Specifies the data type of the values in the object.")
+    key_type: Literal["block"] = Field(alias="keyType")
+    """Specifies the data type of the keys in the object."""
+    key_block: BlockReference = Field(alias="keyBlock")
+    """The block type of the keys in the object."""
+    value_type: ScalarType = Field(alias="valueType")
+    """Specifies the data type of the values in the object."""
 
 
 class ScalarKeyBlockValueObject(_ObjectBase):
-    key_type: ScalarType = Field(alias="keyType", description="Specifies the data type of the keys in the object.")
-    value_type: Literal["block"] = Field(alias="valueType", description="Specifies the data type of the values in the object.")
-    value_block: BlockReference = Field(alias="valueBlock", description="The block type of the values in the object.")
+    key_type: ScalarType = Field(alias="keyType")
+    """Specifies the data type of the keys in the object."""
+    value_type: Literal["block"] = Field(alias="valueType")
+    """Specifies the data type of the values in the object."""
+    value_block: BlockReference = Field(alias="valueBlock")
+    """The block type of the values in the object."""
 
 
 ObjectDefinition = (
@@ -231,70 +244,79 @@ ObjectDefinition = (
 
 
 class CallbackParameter(SchemaModel):
-    name: str = Field(description="The name of the parameter.")
-    param_type: str = Field(alias="type", description="The type of the parameter.")
+    name: str
+    """The name of the parameter."""
+    param_type: str = Field(alias="type")
+    """The type of the parameter."""
     is_java: bool = Field(
         False,
         alias="isJava",
-        description="Indicates whether the parameter is a Java object.",
     )
+    """Indicates whether the parameter is a Java object."""
 
 
 class CallbackDefinition(SchemaModel):
     """Indicates whether the parameter is a callback function."""
 
-    parameters: list[CallbackParameter] = Field(description="A list of parameters that the callback function takes.")
-    returns: str | None = Field(None, description="The return type of the callback function.")
+    parameters: list[CallbackParameter]
+    """A list of parameters that the callback function takes."""
+    returns: str | None = None
+    """The return type of the callback function."""
 
 
 T = TypeVar('T')
 class ParameterType(SchemaModel, Generic[T]):
     """Represents the type of a parameter."""
-    main: T = Field(description="The main data type of the parameter.")
+    main: T
+    """The main data type of the parameter."""
 
 
 class ArrayParameterType(ParameterType[ArrayType]):
-    main: ArrayType = Field(description="The main data type of the parameter.")
-    array: ArrayDefinition = Field(
-        description="If the parameter is of type 'array', this can be used to provide a description of the expected format of the array.",
-    )
+    main: ArrayType
+    """The main data type of the parameter."""
+    array: ArrayDefinition
+    """If the parameter is of type 'array', this can be used to provide a description of the expected format of the array."""
 
 
 class ObjectParameterType(ParameterType[ObjectType]):
-    main: ObjectType = Field(description="The main data type of the parameter.")
+    main: ObjectType
+    """The main data type of the parameter."""
     object: ObjectDefinition = Field(
         alias="object",
-        description="If the parameter is of type 'object', this can be used to provide a description of the expected format of the object.",
     )
+    """If the parameter is of type 'object', this can be used to provide a description of the expected format of the object."""
 
 
 class BlockParameterType(ParameterType[BlockType]):
-    main: BlockType = Field(description="The main data type of the parameter.")
-    block: BlockReference = Field(
-        description="If the parameter is of type 'block', this can be used to provide a description of the expected format of the block.",
-    )
+    main: BlockType
+    """The main data type of the parameter."""
+    block: BlockReference
+    """If the parameter is of type 'block', this can be used to provide a description of the expected format of the block."""
 
 
 class CallbackParameterType(ParameterType[CallBackType]):
-    main: CallBackType = Field(description="The main data type of the parameter.")
-    callback: CallbackDefinition = Field(description="Indicates whether the parameter is a callback function.")
+    main: CallBackType
+    """The main data type of the parameter."""
+    callback: CallbackDefinition
+    """Indicates whether the parameter is a callback function."""
 
 
 class TranslationParameterType(ParameterType[TranslationType]):
-    main: TranslationType = Field(description="The main data type of the parameter.")
-    translation: TranslationDefinition = Field(
-        description="If the parameter is of type 'translation', this can be used to provide a description of the expected format of the translation.",
-    )
+    main: TranslationType
+    """The main data type of the parameter."""
+    translation: TranslationDefinition
+    """If the parameter is of type 'translation', this can be used to provide a description of the expected format of the translation."""
 
 class FileParameterType(ParameterType[FileType]):
-    main: FileType = Field(description="The main data type of the parameter.")
-    file: FileDefinition = Field(
-        description="If the parameter is of type 'file', this can be used to provide a description of the expected format of the file.",
-    )
+    main: FileType
+    """The main data type of the parameter."""
+    file: FileDefinition
+    """If the parameter is of type 'file', this can be used to provide a description of the expected format of the file."""
 
 
 class ScalarParameterType(ParameterType[ScalarType]):
-    main: ScalarType = Field(description="The main data type of the parameter.")
+    main: ScalarType
+    """The main data type of the parameter."""
 
 
 ParameterTypeUnion = (
@@ -314,123 +336,112 @@ class ParameterDeprecation(SchemaModel):
     replaced_by: str | None = Field(
         None,
         alias="replacedBy",
-        description="The name of the parameter that replaces this deprecated parameter.",
     )
-    description: str | None = Field(
-        None,
-        description="A brief description of why the parameter is deprecated and any additional information about the deprecation.",
-    )
-    version: str | None = Field(None, description="The version(s) in which the parameter is deprecated.")
+    """The name of the parameter that replaces this deprecated parameter."""
+    description: str | None = None
+    """A brief description of why the parameter is deprecated and any additional information about the deprecation."""
+    version: str | None = None
+    """The version(s) in which the parameter is deprecated."""
 
 
 class ParameterNeed(SchemaModel):
     """A condition on another parameter that must be met for this parameter to be valid."""
 
-    name: str | None = Field(None, description="The name of the parameter that this condition depends on.")
-    values: list[str | Number | bool] | None = Field(
-        None,
-        description="The values of the dependent parameter that must be met for this parameter to be valid.",
-    )
+    name: str | None = None
+    """The name of the parameter that this condition depends on."""
+    values: list[str | Number | bool] | None = None
+    """The values of the dependent parameter that must be met for this parameter to be valid."""
     value_to_type: dict[str, str] | None = Field(
         None,
         alias="valueToType",
-        description="A mapping of values of the dependent parameter to the expected type of this parameter. For example, if the dependent parameter is 'type' and it has a value 'integer', then this parameter should be of type 'float'. The key is the value of the dependent parameter, and the value is the expected type of this parameter when the dependent parameter has that value.",
         examples=[{"integer": "float", "double": "float", "boolean": "boolean", "string": "string"}],
     )
-    minimum: Number | None = Field(
-        None,
-        description="The minimum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'.",
-    )
-    maximum: Number | None = Field(
-        None,
-        description="The maximum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'.",
-    )
-    children: list[str] | None = Field(
-        None,
-        description="A list of child blocks that must be present for this parameter to be valid.",
-    )
-    parents: list[str] | None = Field(
-        None,
-        description="A list of parent blocks that must be present for this parameter to be valid.",
-    )
+    """A mapping of values of the dependent parameter to the expected type of this parameter. For example, if the dependent parameter is 'type' and it has a value 'integer', then this parameter should be of type 'float'. The key is the value of the dependent parameter, and the value is the expected type of this parameter when the dependent parameter has that value."""
+    minimum: Number | None = None
+    """The minimum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'."""
+    maximum: Number | None = None
+    """The maximum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'."""
+    children: list[str] | None = None
+    """A list of child blocks that must be present for this parameter to be valid."""
+    parents: list[str] | None = None
+    """A list of parent blocks that must be present for this parameter to be valid."""
 
 
 class ParameterDefinition(SchemaModel):
     """A parameter available for a block type."""
 
-    name: str = Field(description="The name of the parameter.")
+    name: str
+    """The name of the parameter."""
     any_name: bool | None = Field(
         None,
         alias="anyName",
-        description="A parameter with `anyName` can have any name.",
     )
-    ref: str | None = Field(None, alias="#ref", description="A reference to another block parameter.")
+    """A parameter with `anyName` can have any name."""
+    ref: str | None = Field(None, alias="#ref")
+    """A reference to another block parameter."""
     ref_desc: str | None = Field(
         None,
         alias="#desc",
-        description="A reference to the description of another block parameter. This allows sharing the same description between multiple parameters without using #ref, which would also share other properties.",
     )
-    description: str | None = Field(None, description="A brief description of what the parameter does.")
+    """A reference to the description of another block parameter. This allows sharing the same description between multiple parameters without using #ref, which would also share other properties."""
+    description: str | None = None
+    """A brief description of what the parameter does."""
     allowed_duplicate: bool | None = Field(
         None,
         alias="allowedDuplicate",
-        description="Indicates whether the parameter can be duplicated.",
     )
+    """Indicates whether the parameter can be duplicated."""
     can_be_empty: bool | None = Field(
         None,
         alias="canBeEmpty",
-        description="Indicates whether the parameter can be empty.",
     )
+    """Indicates whether the parameter can be empty."""
     item_types: list[str] | None = Field(
         None,
         alias="itemTypes",
-        description="DEPRECATED: Specifies the type of item the parameter is associated with (e.g., 'vehicle', 'item', etc.). Only for item scripts.",
     )
+    """DEPRECATED: Specifies the type of item the parameter is associated with (e.g., 'vehicle', 'item', etc.). Only for item scripts."""
     parents_only: list[str] | None = Field(
         None,
         alias="parentsOnly",
-        description="DEPRECATED: A list of parent block types for which this parameter is applicable.",
     )
-    required: bool | None = Field(None, description="Indicates whether the parameter is required.")
+    """DEPRECATED: A list of parent block types for which this parameter is applicable."""
+    required: bool | None = None
+    """Indicates whether the parameter is required."""
     default_value: str | Number | bool | list[Any] | dict[str, Any] | None = Field(
         None,
         alias="default",
-        description="The default value for the parameter if not specified.",
     )
-    minimum: Number | None = Field(
-        None,
-        description="The minimum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable.",
-    )
-    maximum: Number | None = Field(
-        None,
-        description="The maximum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable.",
-    )
+    """The default value for the parameter if not specified."""
+    minimum: Number | None = None
+    """The minimum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable."""
+    maximum: Number | None = None
+    """The maximum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable."""
     data_type: ParameterTypeUnion | None = Field(
         None,
         alias="type",
-        description="The data type of the parameter.",
     )
-    values: list[str | Number] | None = Field(None, description="A list of allowed values for the parameter.")
+    """The data type of the parameter."""
+    values: list[str | Number] | None = None
+    """A list of allowed values for the parameter."""
     deprecated: ParameterDeprecation | None = None
-    needs: list[ParameterNeed] | None = Field(
-        None,
-        description="A list of conditions of other parameters that must be met for this parameter to be valid.",
-    )
+    needs: list[ParameterNeed] | None = None
+    """A list of conditions of other parameters that must be met for this parameter to be valid."""
     incompatible_with: list[str] | None = Field(
         None,
         alias="incompatibleWith",
-        description="List of other parameters which are incompatible with this one.",
     )
+    """List of other parameters which are incompatible with this one."""
     is_useless: bool = Field(
         False,
         alias="isUseless",
-        description="Indicates whether the parameter is considered useless or not. This can be used to flag parameters that have no effect in the game. Not to be confused with deprecated which indicates a parameter that previously worked but no longer does.",
     )
+    """Indicates whether the parameter is considered useless or not. This can be used to flag parameters that have no effect in the game. Not to be confused with deprecated which indicates a parameter that previously worked but no longer does."""
     see_also: list[str] | None = Field(
         None,
         alias="seeAlso",
-        description="A list of other parameters that are related to this one.",
     )
+    """A list of other parameters that are related to this one."""
 
 class VariantDefinition(SchemaModel):
     """Schema for defining a variant of a block type."""
@@ -467,18 +478,22 @@ class BlockDefinition(SchemaModel):
     ref_desc: str | None = Field(
         None,
         alias="#desc",
-        description="A reference to the description of another block type. This allows sharing the same description between multiple block types without using #ref, which would also share other properties.",
     )
+    """A reference to the description of another block type. This allows sharing the same description between multiple block types without using #ref, which would also share other properties."""
     ref: str | None = Field(
         None,
         alias="#ref",
-        description="A reference to another block type. This allows sharing the same properties between multiple block types.",
     )
+<<<<<<< HEAD
     variant_of_deprecated: str | None = Field(
+=======
+    """A reference to another block type. This allows sharing the same properties between multiple block types."""
+    variant_of: str | None = Field(
+>>>>>>> d23ecea (refactor(schema): use docstrings instead of description parameter for fields, making docstrings available for devs)
         None,
         alias="variantOf",
-        description="Indicates whether this block type is a variant of another block type. The value corresponds to the block type it is a variant of.",
     )
+<<<<<<< HEAD
     @property
     @deprecated(reason="This property is deprecated. It has now been replaced by `variant.source`.")
     def variant_of(self) -> str | None:
@@ -491,52 +506,53 @@ class BlockDefinition(SchemaModel):
         description="Defines a variant of this block type.",
     )
     name: str = Field(description="The name of the block type.")
+=======
+    """Indicates whether this block type is a variant of another block type. The value corresponds to the block type it is a variant of."""
+    name: str
+    """The name of the block type."""
+>>>>>>> d23ecea (refactor(schema): use docstrings instead of description parameter for fields, making docstrings available for devs)
     any_name: bool | None = Field(
         None,
         alias="anyName",
-        description="A block with `anyName` can have any name. This requires strict placement in parent blocks to correctly validate the block parameters.",
     )
+    """A block with `anyName` can have any name. This requires strict placement in parent blocks to correctly validate the block parameters."""
     short_description: str | None = Field(
         None,
         alias="shortDescription",
-        description="A brief description of the block type, used for quick reference in completion items.",
     )
-    description: str | None = Field(None, description="A brief description of the block type.")
+    """A brief description of the block type, used for quick reference in completion items."""
+    description: str | None = None
+    """A brief description of the block type."""
     block_id: BlockID | None = Field(None, alias="ID")
-    parents: list[str] | None = Field(None, description="A list of valid parent block types.")
+    parents: list[str] | None = None
+    """A list of valid parent block types."""
     needs_children: list[str] | None = Field(
         None,
         alias="needsChildren",
-        description="A list of required child block types.",
     )
+    """A list of required child block types."""
     soft_override: bool | None = Field(
         None,
         alias="softOverride",
-        description="Indicates whether the block can be soft overridden in scripts.",
     )
+    """Indicates whether the block can be soft overridden in scripts."""
     is_root: bool | None = Field(
         None,
         alias="isRoot",
-        description="Indicates whether the block is a root document.",
     )
-    pattern: list[str] | None = Field(
-        None,
-        description="A list of regex patterns that can be used to match this root file. Required when 'isRoot' is true.",
-    )
+    """Indicates whether the block is a root document."""
+    pattern: list[str] | None = None
+    """A list of regex patterns that can be used to match this root file. Required when 'isRoot' is true."""
     no_comma: bool | None = Field(
         None,
         alias="noComma",
-        description="Indicates whether the block parameters should not be followed by a comma.",
     )
+    """Indicates whether the block parameters should not be followed by a comma."""
     deprecated: BlockDeprecation | None = None
-    parameters: list[ParameterDefinition] | None = Field(
-        None,
-        description="A list of parameters available for this block type.",
-    )
-    properties: dict[str, Any] | None = Field(
-        None,
-        description="Custom additional properties for the block type.",
-    )
+    parameters: list[ParameterDefinition] | None = None
+    """A list of parameters available for this block type."""
+    properties: dict[str, Any] | None = None
+    """Custom additional properties for the block type."""
 
     @model_validator(mode="after")
     def _root_requires_pattern(self) -> Self:
