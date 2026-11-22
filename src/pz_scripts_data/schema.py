@@ -8,6 +8,7 @@ import json
 import sys
 from pathlib import Path
 from typing import Annotated, Any, Literal, Self, TypeVar, Generic
+from deprecated import deprecated
 
 from pydantic import BaseModel, ConfigDict, Field, WithJsonSchema, model_validator
 from pydantic.json_schema import GenerateJsonSchema, JsonSchemaValue
@@ -431,6 +432,21 @@ class ParameterDefinition(SchemaModel):
         description="A list of other parameters that are related to this one.",
     )
 
+class VariantDefinition(SchemaModel):
+    """Schema for defining a variant of a block type."""
+
+    source: str = Field(
+        description="The source block type that this variant is based on.",
+    )
+    parameters: list[ParameterNeed] | None = Field(
+        None,
+        description="A list of parameters that must be met for this variant to be valid.",
+    )
+    id: list[str] | None = Field(
+        None,
+        description="A list of IDs that this variant must have.",
+    )
+
 
 class BlockDefinition(SchemaModel):
     """Schema of a block definition file."""
@@ -458,10 +474,21 @@ class BlockDefinition(SchemaModel):
         alias="#ref",
         description="A reference to another block type. This allows sharing the same properties between multiple block types.",
     )
-    variant_of: str | None = Field(
+    variant_of_deprecated: str | None = Field(
         None,
         alias="variantOf",
         description="Indicates whether this block type is a variant of another block type. The value corresponds to the block type it is a variant of.",
+    )
+    @property
+    @deprecated(reason="This property is deprecated. It has now been replaced by `variant.source`.")
+    def variant_of(self) -> str | None:
+        variant = self.variant
+        if variant is not None and variant.source is not None:
+            return variant.source
+        return self.variant_of_deprecated
+    variant: VariantDefinition | None = Field(
+        None,
+        description="Defines a variant of this block type.",
     )
     name: str = Field(description="The name of the block type.")
     any_name: bool | None = Field(
@@ -546,7 +573,7 @@ def build_json_schema() -> dict[str, Any]:
 
 def output_json_schema(output: Path | str = DEFAULT_SCHEMA_OUTPUT) -> None:
     output_path = Path(output)
-    output_path.write_text(json.dumps(build_json_schema(), indent=2) + "\n", encoding="utf-8")
+    output_path.write_text(json.dumps(build_json_schema(), indent=2), encoding="utf-8")
     print(f"Wrote {output_path}")
 
 

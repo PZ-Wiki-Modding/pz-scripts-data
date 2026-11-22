@@ -874,6 +874,34 @@
         "translation"
       ],
       "type": "object"
+    },
+    "VariantDefinition": {
+      "additionalProperties": false,
+      "description": "Schema for defining a variant of a block type.",
+      "properties": {
+        "source": {
+          "description": "The source block type that this variant is based on.",
+          "type": "string"
+        },
+        "parameters": {
+          "description": "A list of parameters that must be met for this variant to be valid.",
+          "items": {
+            "$ref": "#/$defs/ParameterNeed"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "A list of IDs that this variant must have.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "source"
+      ],
+      "type": "object"
     }
   },
   "additionalProperties": false,
@@ -919,6 +947,10 @@
     "variantOf": {
       "description": "Indicates whether this block type is a variant of another block type. The value corresponds to the block type it is a variant of.",
       "type": "string"
+    },
+    "variant": {
+      "$ref": "#/$defs/VariantDefinition",
+      "description": "Defines a variant of this block type."
     },
     "name": {
       "description": "The name of the block type.",

@@ -1,0 +1,64 @@
+variant:
+  source: item
+  parameters:
+    - name: ItemType
+      values:
+        - base:drainable
+name: item
+parameters:
+  - name: cantBeConsolided
+    "#desc": item/ConsolidateOption
+    type:
+      main: boolean
+    needs:
+      - name: ItemType
+        values:
+          - base:drainable
+  - name: ConsolidateOption
+    description: |-
+      By setting [cantBeConsolided](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-cantbeconsolided) to `false` and providing a [ConsolidateOption](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-consolidateoption) value, the item can be marked to merge its uses with other items of the same type in the inventory. This requires the item to be [Drainable type](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype).
+
+      The ConsolidateOption value needs to be a translation key which will be passed through [getText](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/core/Translator.html#getText(java.lang.String)) to retrieve the translation value. The vanilla drainables (duct tape, wires, matches...) use the translation key `ContextMenu_Merge` which outputs a text 'Add to'.
+    needs:
+      - name: ItemType
+        values:
+          - base:drainable
+      - name: cantBeConsolided
+        values:
+          - false
+  - name: OnCooked
+    type:
+      main: callback
+      callback:
+        parameters:
+          - name: food
+            type: Food|DrainableComboItem
+            isJava: true
+    needs:
+      - name: ItemType
+        values:
+          - base:drainable
+          - base:food
+  - name: ReplaceOnCooked
+    description: |-
+      A list of [items](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html) that will replace the cooked item by adding them to the player's inventory.
+    type:
+      main: array
+      array:
+        separator: ;
+        type: string
+    needs:
+      - name: ItemType
+        values:
+          - base:drainable
+          - base:food
+  - name: Spice
+    description: |-
+      Marks this item as a spice, which can be used in the [evolved recipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/evolvedrecipe.html) system.
+    type:
+      main: boolean
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+          - base:drainable

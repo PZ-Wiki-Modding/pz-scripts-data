@@ -1,0 +1,22 @@
+variant:
+  source: item
+  parameters:
+    - name: ItemType
+      values:
+        - base:alarmclockclothing
+name: item
+parameters:
+  - name: AlarmSound
+    description: |-
+      The sound played by the alarm.
+    default: AlarmClockLoop
+    type:
+      main: block
+      block:
+        name: sound
+        fullType: true
+    needs:
+      - name: ItemType
+        values:
+          - base:alarmclock
+          - base:alarmclockclothing

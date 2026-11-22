@@ -12,7 +12,7 @@ from pz_scripts_data.schema import BlockDefinition, ParameterDefinition
 class ScriptsBlock(BlockDefinition):
     """Block used by the pipeline: parameters are keyed by lowercase name and relations are filled in during preparation."""
 
-    parameters: dict[str, ParameterDefinition] = Field(default_factory=dict) # type: ignore
+    parameters: dict[str, ParameterDefinition] = Field(default_factory=dict) # pyright: ignore[reportIncompatibleVariableOverride]
     children: list[str] | None = None
     variants: list[str] | None = None
 
@@ -59,10 +59,10 @@ items: list[Item] = [
 
 ## PROCESS ITEM
 
-def fetchBlocks(item: Item) -> dict[str, ScriptsBlock]:
+def fetchBlocks(input: Path) -> dict[str, ScriptsBlock]:
     # combine all block yaml files into one, validating each against the schema
     blocks: dict[str, ScriptsBlock] = {}
-    for file_path in sorted(item['input'].glob("*.yaml")):
+    for file_path in sorted(input.glob("*.yaml")):
         with open(file_path, 'r', encoding='utf-8') as f:
             data = yaml.safe_load(f)
         try:
@@ -86,7 +86,7 @@ def process_properties(block: ScriptsBlock) -> ScriptsBlock:
 # main
 
 def process(item: Item) -> dict[str, ScriptsBlock]:
-    blocks = fetchBlocks(item)
+    blocks = fetchBlocks(item['input'])
     for block in blocks.values():
         process_properties(block)
 
@@ -151,7 +151,7 @@ def prepare_relationship(block: ScriptsBlock, items: list[Item]) -> None:
         add_source_ref_to_targets(block.name, parents, items, "children")
 
     # handle variants
-    variant = block.variant_of
+    variant = block.variant_of_deprecated
     if variant:
         add_source_ref_to_targets(block.name, [variant], items, "variants")
 

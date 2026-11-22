@@ -1,0 +1,197 @@
+variant:
+  source: item
+  parameters:
+    - name: ItemType
+      values:
+        - base:food
+name: item
+parameters:
+  - name: BadCold
+    description: ""
+    type:
+      main: boolean
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: BadInMicrowave
+    type:
+      main: boolean
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: Calories
+    description: |-
+      The following stats are directly linked to the player's [nutrition](https://pzwiki.net/wiki/Nutrition), which are hidden stats that will impact the player's weight gains and more (positive values will increase the stat when eaten):
+      - [Calories](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-calories)
+      - [Carbohydrates](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-carbohydrates)
+      - [Lipids](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-lipids)
+      - [Proteins](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-proteins)
+    type:
+      main: float
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: CannedFood
+    description: |-
+      [CannedFood](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-cannedfood) will mark the item as a canned food which will impact how it is spawned in the world. It will also impact the type of item where instead of being "Food" it will be "CannedFood".
+    type:
+      main: boolean
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: Carbohydrates
+    "#desc": item/Calories
+    type:
+      main: float
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: DangerousUncooked
+    description: |-
+      If true, the item will cause food poisoning when eaten raw. Used for example for raw meat. The [iron gut](https://pzwiki.net/wiki/Iron_Gut) trait will stop you from getting sick from eating a raw food with the [tag](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-tags) `Egg`. The severity of the food poisoning is not impacted by traits or other criteria, only by the quantity of food you eat.
+    type:
+      main: boolean
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: DaysFresh
+    description: |-
+      [DaysFresh](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-daysfresh) sets how many days this food item will stay fresh with default sandbox settings. [DaysTotallyRotten](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-daystotallyrotten) sets how many days this food item will take to rot.
+
+      [Icon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-icon) provides the ability to set a different icon for the rotten and stale version of the food.
+    default: 1000000000
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: DaysTotallyRotten
+    "#desc": item/DaysFresh
+    default: 1000000000
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: fluReduction
+    description: |-
+      When eating this food item, the player cold or pain will be reduced by the percentage of the food being eaten times respectively the values of [fluReduction](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-flureduction) and [painReduction](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-painreduction).
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: Lipids
+    "#desc": item/Calories
+    type:
+      main: float
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: OnCooked
+    type:
+      main: callback
+      callback:
+        parameters:
+          - name: food
+            type: Food|DrainableComboItem
+            isJava: true
+    needs:
+      - name: ItemType
+        values:
+          - base:drainable
+          - base:food
+  - name: Packaged
+    description: |-
+      Setting this to `true` will add readable content on the food item, which will display the [nutrional information](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-calories) of the food item.
+    type:
+      main: boolean
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: painReduction
+    "#desc": item/fluReduction
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: Poison
+    "#desc": item/PoisonPower
+    default: false
+    type:
+      main: boolean
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+    isUseless: true
+  - name: Proteins
+    "#desc": item/Calories
+    type:
+      main: float
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: RemoveNegativeEffectOnCooked
+    "#desc": item/IsCookable
+    type:
+      main: boolean
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: ReplaceOnCooked
+    description: |-
+      A list of [items](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html) that will replace the cooked item by adding them to the player's inventory.
+    type:
+      main: array
+      array:
+        separator: ;
+        type: string
+    needs:
+      - name: ItemType
+        values:
+          - base:drainable
+          - base:food
+  - name: ReplaceOnRotten
+    type:
+      main: block
+      block:
+        name: item
+        fullType: true
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+  - name: Spice
+    description: |-
+      Marks this item as a spice, which can be used in the [evolved recipes](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/evolvedrecipe.html) system.
+    type:
+      main: boolean
+    needs:
+      - name: ItemType
+        values:
+          - base:food
+          - base:drainable
+  - name: UseForPoison
+    default: 0
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:food

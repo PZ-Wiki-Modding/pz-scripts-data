@@ -1,0 +1,33 @@
+variant:
+  source: item
+  parameters:
+    - name: ItemType
+      values:
+        - base:literature
+name: item
+parameters:
+  - name: LearnedRecipes
+    description: |-
+      List of [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html) this item will teach the player when read.
+    itemTypes:
+      - literature
+    type:
+      main: array
+      array:
+        separator: ;
+        type: block
+        block:
+          name: craftRecipe
+    needs:
+      - name: ItemType
+        values:
+          - base:literature
+  - name: LvlSkillTrained
+    "#desc": item/SkillTrained
+    default: -1
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:literature

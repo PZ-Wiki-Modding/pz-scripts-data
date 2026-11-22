@@ -1,0 +1,26 @@
+variant:
+  source: item
+  parameters:
+    - name: ItemType
+      values:
+        - base:radio
+name: item
+parameters:
+  - name: AcceptMediaType
+    description: |-
+      Specifies the type of media that is accepted by the item type radio item. When set to `0`, the accepted items will be CDs, and when set to `1`, the accepted items will be tapes.
+    default: -1
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:radio
+  - name: CanBeEquipped
+    description: |-
+      Needs to reference a valid [BodyLocation](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-bodylocation) value which will serve as the equipment location.
+    needs:
+      - name: ItemType
+        values:
+          - base:container
+          - base:radio

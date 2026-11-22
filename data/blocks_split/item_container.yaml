@@ -1,0 +1,40 @@
+variant:
+  source: item
+  parameters:
+    - name: ItemType
+      values:
+        - base:container
+name: item
+parameters:
+  - name: CanBeEquipped
+    description: |-
+      Needs to reference a valid [BodyLocation](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-bodylocation) value which will serve as the equipment location.
+    needs:
+      - name: ItemType
+        values:
+          - base:container
+          - base:radio
+  - name: Capacity
+    description: |-
+      Sets the capacity of the container. This value is limited to a maximum of 50 minus its own [weight](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-weight). The weight of the bag will follow the formula `equippedWeight = weight * EquippedOrWornEncumbranceMultiplier + contentWeight * (1.0 - weightReduction / 100)`.
+    default: -1
+    maximum: 50
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:container
+  - name: WeightReduction
+    description:
+      "Percentage of the total contained weight in the bag that will be reduced.\
+      \ If the bag's content weights 10 and the reduction is 65, the bag content will\
+      \ only weight "
+    minimum: 0
+    maximum: 100
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:container

@@ -1,0 +1,247 @@
+variant:
+  source: item
+  parameters:
+    - name: ItemType
+      values:
+        - base:weaponpart
+name: item
+parameters:
+  - name: AimingTimeModifier
+    "#desc": item/AimingTime
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+    seeAlso:
+      - AimingTime
+      - RecoilDelay
+      - HitChance
+      - CriticalChance
+  - name: CanAttach
+    description: |-
+      [CanAttach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-canattach) and [CanDetach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-candetach) are used to define whenever a [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype) can be respectively attached or detached to and from a [HandWeapon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype).
+
+      [OnAttach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-onattach) and [OnDetach](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-ondetach) are used to define a callback function which will be called when the weapon part is attached or detached from the weapon.
+    type:
+      main: callback
+      callback:
+        parameters:
+          - name: character
+            type: IsoGameCharacter
+            isJava: true
+          - name: weapon
+            type: HandWeapon
+            isJava: true
+          - name: part
+            type: WeaponPart
+            isJava: true
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+  - name: CanDetach
+    "#desc": item/CanAttach
+    type:
+      main: callback
+      callback:
+        parameters:
+          - name: character
+            type: IsoGameCharacter
+            isJava: true
+          - name: weapon
+            type: HandWeapon
+            isJava: true
+          - name: part
+            type: WeaponPart
+            isJava: true
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+  - name: ClipSizeModifier
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+    isUseless: true
+  - name: DamageModifier
+    "#desc": item/MaxDamage
+    type:
+      main: float
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+  - name: HitChanceModifier
+    "#desc": item/HitChance
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+  - name: MaxRangeModifier
+    "#desc": item/MaxRange
+    type:
+      main: float
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+  - name: MaxSightRange
+    description: |-
+      [MinSightRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-minsightrange) and [MaxSightRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-maxsightrange) define the optimal sight window, to be more specific, the distance band where hits and critical hits bonuses peak.
+
+      The [aiming skill](https://pzwiki.net/wiki/Aiming) and [eagle eyed](https://pzwiki.net/wiki/Eagle_Eyed) will impact these values:
+      ```
+      effectiveMin = MinSightRange x (1 - AimingLevel / 30)
+      effectiveMax = MaxSightRange x (1 + AimingLevel / 30) x (EagleEyed ? 1.2 : 1.0)
+      ```
+
+      At aiming 10, the minimum shrinks by 33% and the max grows by 33%, which widens the window significantly. When the trait [Short Sighted](https://pzwiki.net/wiki/Short_Sighted) is present and the character doesn't wear glasses, the `effectiveMax` equals `effectiveMin`, making the entire bonus window disappear.
+
+      Inside the the `effectiveMin` and `effectiveMax` window, the bonus follows a [Gaussian](https://en.wikipedia.org/wiki/Bell-shaped_function) with the bonus peaking at the midpoint. Aim-delay penalty is also reduced inside the window.
+
+      Below `effectiveMin`, a small linear penalty is applied as the gun is not suited for point-blank. Above `effectiveMax`, a growing quadratic penalty is applied, the bonus degrades rapidly past the edge.
+
+      A CQC gun should have a low [MaxSightRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-maxsightrange) while a marksman riffle should have a high [MinSightRange](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-minsightrange) with a wide window.
+    type:
+      main: float
+    needs:
+      - name: ItemType
+        values:
+          - base:weapon
+          - base:weaponpart
+  - name: MinSightRange
+    "#desc": item/MaxSightRange
+    type:
+      main: float
+    needs:
+      - name: ItemType
+        values:
+          - base:weapon
+          - base:weaponpart
+  - name: MountOn
+    type:
+      main: array
+      array:
+        separator: ;
+        type: string
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+  - name: OnAttach
+    "#desc": item/CanAttach
+    type:
+      main: callback
+      callback:
+        parameters:
+          - name: character
+            type: IsoGameCharacter
+            isJava: true
+          - name: weapon
+            type: HandWeapon
+            isJava: true
+          - name: part
+            type: WeaponPart
+            isJava: true
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+  - name: OnDetach
+    "#desc": item/CanAttach
+    type:
+      main: callback
+      callback:
+        parameters:
+          - name: character
+            type: IsoGameCharacter
+            isJava: true
+          - name: weapon
+            type: HandWeapon
+            isJava: true
+          - name: part
+            type: WeaponPart
+            isJava: true
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+  - name: PartType
+    description: |-
+      Marks the [WeaponPart](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype) as a specific type of part. For proper tooltip of your weapon part, you need to either use one of the existing parts or use a custom part type but provide a translation entry inside [Tooltip.json](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#tooltip) as `Tooltip_weapon_` followed by that part type value. For example, if you set `PartType = customPart`, you need to provide a translation entry as `Tooltip_weapon_customPart` with the name of your part.
+
+      Here are the available part types in the base game:
+      - RecoilPad
+      - Clip
+      - Canon
+      - Scope
+      - Sling
+      - Stock
+
+      There are also some indirect part types. If the item has the [TorchCone](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-torchcone) parameter, that part will be valid as a torch attachment. If it has the [tag](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtag) `base:optics`, it will be valid as an optics attachment.
+
+      Technically, there are other `Tooltip_weapon_` combination than the ones listed above, but they are not used as part types, but due to them sharing the same translation entry format, they can technically be used as a part type. It means these should not be used as part types, as you'd have to overwrite their translation entries which could brake the translation of the base game:
+      - Condition
+      - HandleCondition
+      - HeadCondition
+      - Sharpness
+      - Repaired
+      - Damage
+      - Unusable_at_max_exertion
+      - Ammo
+      - AmmoCount
+      - Range
+      - Type
+      - CanBeMountOn
+      - Jammed
+      - NoRoundChambered
+      - SpentRoundChambered
+      - SpentRounds
+      - ContainsClip
+      - NoClip
+      - NoMaintenanceXp
+    type:
+      main: string
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+  - name: ProjectileSpreadModifier
+    type:
+      main: float
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+  - name: RecoilDelayModifier
+    "#desc": item/RecoilDelay
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+    seeAlso:
+      - RecoilDelay
+      - AimingTime
+      - AimingTimeModifier
+      - HitChance
+  - name: ReloadTimeModifier
+    type:
+      main: integer
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
+  - name: WeightModifier
+    type:
+      main: float
+    needs:
+      - name: ItemType
+        values:
+          - base:weaponpart
