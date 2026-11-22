@@ -541,7 +541,7 @@ class BlockDefinition(SchemaModel):
     @deprecated(reason="This property is deprecated. It has now been replaced by `variant.source`.")
     def variant_of(self) -> str | None:
         variant = self.variant
-        if variant is not None and variant.source is not None:
+        if variant is not None:
             return variant.source
         return self.variant_of_deprecated
     variant: VariantDefinition | None = None
@@ -623,6 +623,34 @@ class _BlocksJsonSchemaGenerator(GenerateJsonSchema):
         if schema.get("default") is None:
             return self.generate_inner(schema["schema"])
         return super().default_schema(schema)
+
+
+class ScriptsBlock(BlockDefinition):
+    """Block used by the pipeline: parameters are keyed by lowercase name and relations are filled in during preparation."""
+
+    # we change the parameters field structure from list to a dictionary
+    parameters: dict[str, ParameterDefinition] = Field(default_factory=dict) # pyright: ignore[reportIncompatibleVariableOverride]
+    children: list[str] | None = None
+    variants: list[str] | None = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def _key_parameters_by_name(cls, data: Any) -> Any:
+        if not isinstance(data, dict):
+            return data
+        parameters = data.get("parameters", [])
+        if not isinstance(parameters, list):
+            return data
+
+        keyed: dict[str, Any] = {}
+        for param in parameters:
+            name = param.get("name") if isinstance(param, dict) else None
+            if not isinstance(name, str):
+                raise ValueError("every parameter must have a 'name' to be referenced")
+            keyed[name.lower()] = param
+        return {**data, "parameters": keyed}
+
+
 
 
 def build_json_schema() -> dict[str, Any]:

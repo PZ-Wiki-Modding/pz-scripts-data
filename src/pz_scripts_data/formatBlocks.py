@@ -3,35 +3,10 @@ from pathlib import Path
 from typing import Any, Literal, Optional, TypedDict
 
 import yaml
-from pydantic import BaseModel, Field, ValidationError, model_validator
+from pydantic import BaseModel, ValidationError
 
 from pz_scripts_data.blocks import PropertyData
-from pz_scripts_data.schema import BlockDefinition, ParameterDefinition
-
-
-class ScriptsBlock(BlockDefinition):
-    """Block used by the pipeline: parameters are keyed by lowercase name and relations are filled in during preparation."""
-
-    parameters: dict[str, ParameterDefinition] = Field(default_factory=dict) # pyright: ignore[reportIncompatibleVariableOverride]
-    children: list[str] | None = None
-    variants: list[str] | None = None
-
-    @model_validator(mode="before")
-    @classmethod
-    def _key_parameters_by_name(cls, data: Any) -> Any:
-        if not isinstance(data, dict):
-            return data
-        parameters = data.get("parameters", [])
-        if not isinstance(parameters, list):
-            return data
-
-        keyed: dict[str, Any] = {}
-        for param in parameters:
-            name = param.get("name") if isinstance(param, dict) else None
-            if not isinstance(name, str):
-                raise ValueError("every parameter must have a 'name' to be referenced")
-            keyed[name.lower()] = param
-        return {**data, "parameters": keyed}
+from pz_scripts_data.schema import ScriptsBlock, ParameterDefinition
 
 
 class Item(TypedDict):

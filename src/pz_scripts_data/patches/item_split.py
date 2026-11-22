@@ -100,7 +100,6 @@ def main() -> None:
             variant=VariantDefinition(
                 source="item",
                 parameters=[parameter_need],
-                id=None
             )
         ) # pyright: ignore[reportCallIssue]
 
