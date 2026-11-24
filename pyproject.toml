@@ -38,4 +38,5 @@ pz_scripts_data = [
 [dependency-groups]
 dev = [
     "pytest>=9.2.0",
+    "ruamel-yaml>=0.19.1",
 ]
