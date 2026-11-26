@@ -3,7 +3,7 @@ name: blend
 description: Used to define blend rules for the [mapping tools](https://pzwiki.net/wiki/Mapping#Mapping_tools)
   painting tool.
 parents:
-- ROOT-Blends
+- root_Blends
 parameters:
 - name: layer
   description: The layer the blend rule applies to. Should be one of the layers defined

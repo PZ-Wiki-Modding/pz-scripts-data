@@ -40,13 +40,15 @@ def fetchBlocks(input: Path) -> dict[str, ScriptsBlock]:
     for file_path in sorted(input.glob("*.yaml")):
         with open(file_path, 'r', encoding='utf-8') as f:
             data = yaml.safe_load(f)
+        def_id = file_path.stem.lower()
+        data['def_id'] = def_id
         try:
             block = ScriptsBlock.model_validate(data)
         except ValidationError as exc:
             raise ValueError(f"Invalid block definition in '{file_path}':\n{exc}") from exc
-        if block.name.lower() in blocks:
-            raise ValueError(f"Duplicate block name '{block.name}' found in '{file_path}'.")
-        blocks[block.name.lower()] = block
+        if def_id in blocks and block.variant is None:
+            raise ValueError(f"Duplicate block name '{def_id}' found in '{file_path}'. Only variant duplicates are allowed.")
+        blocks[def_id] = block
     return blocks
 
 def process_properties(block: ScriptsBlock) -> ScriptsBlock:
@@ -195,7 +197,7 @@ def get_source_parameter(ref_key: str, items: list[Item]) -> ParameterDefinition
     if origin_block_data is None:
         raise ValueError(f"Source block '{origin_block}' not found for parameter '{origin_param}'.")
     if origin_param not in origin_block_data.parameters:
-        raise ValueError(f"Source block '{origin_block}' has no parameter '{origin_param}'.")
+        raise ValueError(f"Source block '{origin_block}' has no parameter '{origin_param}' ({ref_key}).")
 
     return origin_block_data.parameters[origin_param]
 
@@ -218,6 +220,25 @@ def copy_parameters_ref(parameters: dict[str, ParameterDefinition], items: list[
             # only copy the description
             param.description = source_param.description
 
+def find_variants(blocks: dict[str, ScriptsBlock]) -> None:
+    # gather variants hierarchy
+    # key is source block id
+    # value is the block that's a variant
+    variants_hierarchy = {}
+    for block_id, block in blocks.items():
+        variant = block.variant
+        if variant is None:
+            continue
+        variants_hierarchy.setdefault(variant.source, []).append(block_id)
+
+    # assign variants to their source blocks
+    for source_id, variant_ids in variants_hierarchy.items():
+        source_block = blocks.get(source_id)
+        if source_block is None:
+            raise ValueError(f"Source block '{source_id}' not found for variants.")
+        if source_block.variants is None:
+            source_block.variants = []
+        source_block.variants.extend(variant_ids)
 
 # main
 
@@ -229,6 +250,9 @@ def prepare(item: Item, items: list[Item]) -> dict[str, ScriptsBlock]:
         prepare_relationship(block, items)
         copy_block_ref(block, items)
         copy_parameters_ref(block.parameters, items)
+
+    # find and assign variants to their source blocks
+    find_variants(blocks)
 
     # children and variants are appended in processing order, so sort them for stable output
     for block in blocks.values():

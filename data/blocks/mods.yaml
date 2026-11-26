@@ -13,7 +13,7 @@ description: |-
   }
   ```
 parents:
-- ROOT-Default
+- root_Default
 parameters:
 - name: mod
   type:

@@ -44,7 +44,7 @@ def main() -> None:
             continue
         item_type_needs = None
         for need in needs:
-            if need.name == "ItemType":
+            if need.parameter == "ItemType":
                 item_type_needs = need
                 break
         if item_type_needs is None:
@@ -73,7 +73,7 @@ def main() -> None:
             if parameter_need is None:
                 for need_source in needs:
                     need = need_source.model_copy()
-                    if need.name != "ItemType":
+                    if need.parameter != "ItemType":
                         continue
                     values = need.values
                     assert values is not None

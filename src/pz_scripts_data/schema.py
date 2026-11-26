@@ -8,7 +8,7 @@ import json
 import sys
 from pathlib import Path
 from typing import Annotated, Any, Literal, Self, TypeVar, Generic
-from deprecated import deprecated
+from deprecated.sphinx import deprecated
 
 from pydantic import BaseModel, ConfigDict, Field, WithJsonSchema, model_validator
 from pydantic.json_schema import GenerateJsonSchema, JsonSchemaValue
@@ -118,7 +118,7 @@ class BlockID(SchemaModel):
     )
     """A list of allowed ID values for this block. If not given, any value is 
     allowed."""
-    as_type: bool | None = Field(
+    deprecated_as_type: bool | None = Field(
         None,
         alias="asType",
     )
@@ -127,6 +127,13 @@ class BlockID(SchemaModel):
     a script block needs to be defined with the name 'component <componentID>' 
     as well as 'component' to cover all component types available with the 
     'values' attribute."""
+    @property
+    @deprecated(
+        reason="as_type is deprecated, use deprecated_as_type instead.",
+        version="1.4.0",
+    )
+    def as_type(self) -> bool | None:
+        return self.deprecated_as_type
     optional: list[str] | None = None
     """A list of ID values that are optional for this block type."""
     can_have_space: bool | None = Field(
@@ -375,12 +382,15 @@ class ParameterDeprecation(SchemaModel):
     """The version(s) in which the parameter is deprecated."""
 
 
-class ParameterNeed(SchemaModel):
+class Need(SchemaModel):
     """A condition on another parameter that must be met for this parameter to 
     be valid."""
 
-    name: str | None = None
+    parameter: str | None = Field(None, alias='name')
     """The name of the parameter that this condition depends on."""
+    # TODO: mark parameter as required when `forbidden_parameter` is not None
+    forbidden_parameter: bool | None = Field(None, alias='forbiddenParameter')
+    """Whenever the provided `parameter` is forbidden from being present."""
     values: list[str | Number | bool] | None = None
     """The values of the dependent parameter that must be met for this parameter 
     to be valid."""
@@ -473,7 +483,7 @@ class ParameterDefinition(SchemaModel):
     values: list[str | Number] | None = None
     """A list of allowed values for the parameter."""
     deprecated: ParameterDeprecation | None = None
-    needs: list[ParameterNeed] | None = None
+    needs: list[Need] | None = None
     """A list of conditions of other parameters that must be met for this 
     parameter to be valid."""
     incompatible_with: list[str] | None = Field(
@@ -500,7 +510,7 @@ class VariantDefinition(SchemaModel):
 
     source: str
     """The source block type that this variant is based on."""
-    parameters: list[ParameterNeed] | None = None
+    parameters: list[Need] | None = None
     """A list of parameters that must be met for this variant to be valid."""
     id: list[str] | None = None
     """A list of IDs that this variant must have."""
@@ -538,12 +548,12 @@ class BlockDefinition(SchemaModel):
         alias="variantOf",
     )
     @property
-    @deprecated(reason="This property is deprecated. It has now been replaced by `variant.source`.")
+    @deprecated(
+        reason="Accessing the variant source through the `variant_of` property is deprecated. Use `get_variant_source` instead.",
+        version="1.4.0"
+    )
     def variant_of(self) -> str | None:
-        variant = self.variant
-        if variant is not None:
-            return variant.source
-        return self.variant_of_deprecated
+        return self.get_variant_source()
     variant: VariantDefinition | None = None
     """Defines a variant of this block type."""
     name: str
@@ -600,6 +610,20 @@ class BlockDefinition(SchemaModel):
             raise ValueError("'pattern' is required when 'isRoot' is true")
         return self
 
+    def get_variant_source(self) -> str | None:
+        variant = self.variant
+        if variant is not None:
+            return variant.source
+        variant_of_deprecated = self.variant_of_deprecated
+        if variant_of_deprecated is not None:
+            @deprecated(
+                reason="The variant_of property is deprecated. It has now been replaced with `variant.source`.",
+                version="1.4.0"
+            )
+            def _get_deprecated_variant_of() -> str | None:
+                return variant_of_deprecated
+            return _get_deprecated_variant_of()
+        return None
 
 class _BlocksJsonSchemaGenerator(GenerateJsonSchema):
     """Draft-07 output without null members, titles or `default: null` 
@@ -629,6 +653,7 @@ class ScriptsBlock(BlockDefinition):
     """Block used by the pipeline: parameters are keyed by lowercase name and relations are filled in during preparation."""
 
     # we change the parameters field structure from list to a dictionary
+    def_id: str = Field(..., alias="def_id")
     parameters: dict[str, ParameterDefinition] = Field(default_factory=dict) # pyright: ignore[reportIncompatibleVariableOverride]
     children: list[str] | None = None
     variants: list[str] | None = None
@@ -649,7 +674,6 @@ class ScriptsBlock(BlockDefinition):
                 raise ValueError("every parameter must have a 'name' to be referenced")
             keyed[name.lower()] = param
         return {**data, "parameters": keyed}
-
 
 
 

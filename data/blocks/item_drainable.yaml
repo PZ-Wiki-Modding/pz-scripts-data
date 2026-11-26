@@ -7,7 +7,7 @@ variant:
 name: item
 parameters:
   - name: cantBeConsolided
-    "#desc": item/ConsolidateOption
+    "#desc": item_drainable/ConsolidateOption
     type:
       main: boolean
     needs:

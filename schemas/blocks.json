@@ -17,7 +17,7 @@
               "$ref": "#/$defs/BlockArrayDefinition"
             }
           ],
-          "description": "If the parameter is of type 'array', this can be used to provide a description of the expected format of the array."
+          "description": "If the parameter is of type 'array', this can be used to provide \na description of the expected format of the array."
         }
       },
       "required": [
@@ -42,7 +42,7 @@
           "type": "number"
         },
         "softOverride": {
-          "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
+          "description": "If true, a soft override of this property will add its content to the \npreviously already existing array. Thus adding the old entries is not \nnecessary and should be avoided to prevent duplicates.",
           "type": "boolean"
         },
         "type": {
@@ -71,7 +71,7 @@
           "type": "string"
         },
         "description": {
-          "description": "A brief description of why the block type is deprecated and any additional information about the deprecation.",
+          "description": "A brief description of why the block type is deprecated and any additional \ninformation about the deprecation.",
           "type": "string"
         }
       },
@@ -79,7 +79,7 @@
     },
     "BlockID": {
       "additionalProperties": false,
-      "description": "Defines the ID properties for this block type. If not specified, the block type does not have an ID.",
+      "description": "Defines the ID properties for this block type. If not specified, the \nblock type does not have an ID.",
       "properties": {
         "parentsWithout": {
           "description": "A list of block names that cannot be parents if this block has an ID.",
@@ -89,14 +89,14 @@
           "type": "array"
         },
         "values": {
-          "description": "A list of allowed ID values for this block. If not given, any value is allowed.",
+          "description": "A list of allowed ID values for this block. If not given, any value is \nallowed.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "asType": {
-          "description": "Specifies if the ID of the block should count as the block type. For example, components have specific definitions based on their ID. This means a script block needs to be defined with the name 'component <componentID>' as well as 'component' to cover all component types available with the 'values' attribute.",
+          "description": "Specifies if the ID of the block should count as the block type. For \nexample, components have specific definitions based on their ID. This means \na script block needs to be defined with the name 'component <componentID>' \nas well as 'component' to cover all component types available with the \n'values' attribute.",
           "type": "boolean"
         },
         "optional": {
@@ -107,11 +107,11 @@
           "type": "array"
         },
         "canHaveSpace": {
-          "description": "Indicates whether the ID of the block can contain spaces. If false or not specified, the ID cannot contain spaces.",
+          "description": "Indicates whether the ID of the block can contain spaces. If false or not \nspecified, the ID cannot contain spaces.",
           "type": "boolean"
         },
         "forbidden": {
-          "description": "A list of forbidden ID values for this block. If not provided, no values are forbidden.",
+          "description": "A list of forbidden ID values for this block. If not provided, no values \nare forbidden.",
           "items": {
             "type": "string"
           },
@@ -127,15 +127,15 @@
       "additionalProperties": false,
       "properties": {
         "keyValueSeparator": {
-          "description": "Specifies the separator used to split the key and the value in the key-value pairs. The parameter 'pairsSeparator' is used to split the pairs from each others.",
+          "description": "Specifies the separator used to split the key and the value in the \nkey-value pairs. The parameter 'pairsSeparator' is used to split the pairs \nfrom each others.",
           "type": "string"
         },
         "pairsSeparator": {
-          "description": "Specifies the separator used to split the pairs from each others. The parameter 'keyValueSeparator' is used to split the keys and values.",
+          "description": "Specifies the separator used to split the pairs from each others. \nThe parameter 'keyValueSeparator' is used to split the keys and values.",
           "type": "string"
         },
         "softOverride": {
-          "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
+          "description": "If true, a soft override of this property will add its content to \nthe previously already existing array. Thus adding the old entries is \nnot necessary and should be avoided to prevent duplicates.",
           "type": "boolean"
         },
         "keyType": {
@@ -171,15 +171,15 @@
       "additionalProperties": false,
       "properties": {
         "keyValueSeparator": {
-          "description": "Specifies the separator used to split the key and the value in the key-value pairs. The parameter 'pairsSeparator' is used to split the pairs from each others.",
+          "description": "Specifies the separator used to split the key and the value in the \nkey-value pairs. The parameter 'pairsSeparator' is used to split the pairs \nfrom each others.",
           "type": "string"
         },
         "pairsSeparator": {
-          "description": "Specifies the separator used to split the pairs from each others. The parameter 'keyValueSeparator' is used to split the keys and values.",
+          "description": "Specifies the separator used to split the pairs from each others. \nThe parameter 'keyValueSeparator' is used to split the keys and values.",
           "type": "string"
         },
         "softOverride": {
-          "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
+          "description": "If true, a soft override of this property will add its content to \nthe previously already existing array. Thus adding the old entries is \nnot necessary and should be avoided to prevent duplicates.",
           "type": "boolean"
         },
         "keyType": {
@@ -242,7 +242,7 @@
     },
     "BlockReference": {
       "additionalProperties": false,
-      "description": "If the parameter is of type 'block', this can be used to provide a description of the expected format of the block.",
+      "description": "If the parameter is of type 'block', this can be used to provide \na description of the expected format of the block.",
       "properties": {
         "name": {
           "description": "The name of the block type that this parameter references to.",
@@ -250,12 +250,12 @@
         },
         "fullType": {
           "default": true,
-          "description": "Indicates whether the parameter's value can match the module and block name, for example 'module.block'.",
+          "description": "Indicates whether the parameter's value can match the module and \nblock name, for example 'module.block'.",
           "type": "boolean"
         },
         "noAutoImport": {
           "default": false,
-          "description": "Indicates whenever this parameter can automatically check its own parent block module when fullType is set to true. If false, this means that the module won't be automatically imported.",
+          "description": "Indicates whenever this parameter can automatically check its own \nparent block module when fullType is set to true. If false, this \nmeans that the module won't be automatically imported.",
           "type": "boolean"
         }
       },
@@ -359,13 +359,82 @@
         },
         "file": {
           "$ref": "#/$defs/FileDefinition",
-          "description": "If the parameter is of type 'file', this can be used to provide a description of the expected format of the file."
+          "description": "If the parameter is of type 'file', this can be used to provide a \ndescription of the expected format of the file."
         }
       },
       "required": [
         "main",
         "file"
       ],
+      "type": "object"
+    },
+    "Need": {
+      "additionalProperties": false,
+      "description": "A condition on another parameter that must be met for this parameter to \nbe valid.",
+      "properties": {
+        "name": {
+          "description": "The name of the parameter that this condition depends on.",
+          "type": "string"
+        },
+        "forbiddenParameter": {
+          "description": "Whenever the provided `parameter` is forbidden from being present.",
+          "type": "boolean"
+        },
+        "values": {
+          "description": "The values of the dependent parameter that must be met for this parameter \nto be valid.",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "valueToType": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "A mapping of values of the dependent parameter to the expected type \nof this parameter. For example, if the dependent parameter is 'type' \nand it has a value 'integer', then this parameter should be of type 'float'. \nThe key is the value of the dependent parameter, and the value is the \nexpected type of this parameter when the dependent parameter has that value.",
+          "examples": [
+            {
+              "boolean": "boolean",
+              "double": "float",
+              "integer": "float",
+              "string": "string"
+            }
+          ],
+          "type": "object"
+        },
+        "minimum": {
+          "description": "The minimum value for this parameter when the dependent parameter \nhas a specific value. Requires the target parameter to be of type 'float' \nor 'integer'.",
+          "type": "number"
+        },
+        "maximum": {
+          "description": "The maximum value for this parameter when the dependent parameter \nhas a specific value. Requires the target parameter to be of type 'float' \nor 'integer'.",
+          "type": "number"
+        },
+        "children": {
+          "description": "A list of child blocks that must be present for this parameter to be valid.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "parents": {
+          "description": "A list of parent blocks that must be present for this parameter to \nbe valid.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
       "type": "object"
     },
     "ObjectParameterType": {
@@ -391,7 +460,7 @@
               "$ref": "#/$defs/ScalarKeyBlockValueObject"
             }
           ],
-          "description": "If the parameter is of type 'object', this can be used to provide a description of the expected format of the object."
+          "description": "If the parameter is of type 'object', this can be used to provide \na description of the expected format of the object."
         }
       },
       "required": [
@@ -417,7 +486,7 @@
           "type": "string"
         },
         "#desc": {
-          "description": "A reference to the description of another block parameter. This allows sharing the same description between multiple parameters without using #ref, which would also share other properties.",
+          "description": "A reference to the description of another block parameter. This \nallows sharing the same description between multiple parameters without \nusing #ref, which would also share other properties.",
           "type": "string"
         },
         "description": {
@@ -433,14 +502,14 @@
           "type": "boolean"
         },
         "itemTypes": {
-          "description": "DEPRECATED: Specifies the type of item the parameter is associated with (e.g., 'vehicle', 'item', etc.). Only for item scripts.",
+          "description": "DEPRECATED: Specifies the type of item the parameter is associated \nwith (e.g., 'vehicle', 'item', etc.). Only for item scripts.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "parentsOnly": {
-          "description": "DEPRECATED: A list of parent block types for which this parameter is applicable.",
+          "description": "DEPRECATED: A list of parent block types for which this parameter \nis applicable.",
           "items": {
             "type": "string"
           },
@@ -473,11 +542,11 @@
           "description": "The default value for the parameter if not specified."
         },
         "minimum": {
-          "description": "The minimum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable.",
+          "description": "The minimum value for the parameter if it is a number. Needs \ntype.main to be 'float' or 'integer' to be applicable.",
           "type": "number"
         },
         "maximum": {
-          "description": "The maximum value for the parameter if it is a number. Needs type.main to be 'float' or 'integer' to be applicable.",
+          "description": "The maximum value for the parameter if it is a number. Needs \ntype.main to be 'float' or 'integer' to be applicable.",
           "type": "number"
         },
         "type": {
@@ -524,9 +593,9 @@
           "$ref": "#/$defs/ParameterDeprecation"
         },
         "needs": {
-          "description": "A list of conditions of other parameters that must be met for this parameter to be valid.",
+          "description": "A list of conditions of other parameters that must be met for this \nparameter to be valid.",
           "items": {
-            "$ref": "#/$defs/ParameterNeed"
+            "$ref": "#/$defs/Need"
           },
           "type": "array"
         },
@@ -539,7 +608,7 @@
         },
         "isUseless": {
           "default": false,
-          "description": "Indicates whether the parameter is considered useless or not. This can be used to flag parameters that have no effect in the game. Not to be confused with deprecated which indicates a parameter that previously worked but no longer does.",
+          "description": "Indicates whether the parameter is considered useless or not. \nThis can be used to flag parameters that have no effect in the game. \nNot to be confused with deprecated which indicates a parameter that \npreviously worked but no longer does.",
           "type": "boolean"
         },
         "seeAlso": {
@@ -564,77 +633,12 @@
           "type": "string"
         },
         "description": {
-          "description": "A brief description of why the parameter is deprecated and any additional information about the deprecation.",
+          "description": "A brief description of why the parameter is deprecated and any additional \ninformation about the deprecation.",
           "type": "string"
         },
         "version": {
           "description": "The version(s) in which the parameter is deprecated.",
           "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "ParameterNeed": {
-      "additionalProperties": false,
-      "description": "A condition on another parameter that must be met for this parameter to be valid.",
-      "properties": {
-        "name": {
-          "description": "The name of the parameter that this condition depends on.",
-          "type": "string"
-        },
-        "values": {
-          "description": "The values of the dependent parameter that must be met for this parameter to be valid.",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "number"
-              },
-              {
-                "type": "boolean"
-              }
-            ]
-          },
-          "type": "array"
-        },
-        "valueToType": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "A mapping of values of the dependent parameter to the expected type of this parameter. For example, if the dependent parameter is 'type' and it has a value 'integer', then this parameter should be of type 'float'. The key is the value of the dependent parameter, and the value is the expected type of this parameter when the dependent parameter has that value.",
-          "examples": [
-            {
-              "boolean": "boolean",
-              "double": "float",
-              "integer": "float",
-              "string": "string"
-            }
-          ],
-          "type": "object"
-        },
-        "minimum": {
-          "description": "The minimum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'.",
-          "type": "number"
-        },
-        "maximum": {
-          "description": "The maximum value for this parameter when the dependent parameter has a specific value. Requires the target parameter to be of type 'float' or 'integer'.",
-          "type": "number"
-        },
-        "children": {
-          "description": "A list of child blocks that must be present for this parameter to be valid.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "parents": {
-          "description": "A list of parent blocks that must be present for this parameter to be valid.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
         }
       },
       "type": "object"
@@ -655,7 +659,7 @@
           "type": "number"
         },
         "softOverride": {
-          "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
+          "description": "If true, a soft override of this property will add its content to the \npreviously already existing array. Thus adding the old entries is not \nnecessary and should be avoided to prevent duplicates.",
           "type": "boolean"
         },
         "type": {
@@ -690,15 +694,15 @@
       "additionalProperties": false,
       "properties": {
         "keyValueSeparator": {
-          "description": "Specifies the separator used to split the key and the value in the key-value pairs. The parameter 'pairsSeparator' is used to split the pairs from each others.",
+          "description": "Specifies the separator used to split the key and the value in the \nkey-value pairs. The parameter 'pairsSeparator' is used to split the pairs \nfrom each others.",
           "type": "string"
         },
         "pairsSeparator": {
-          "description": "Specifies the separator used to split the pairs from each others. The parameter 'keyValueSeparator' is used to split the keys and values.",
+          "description": "Specifies the separator used to split the pairs from each others. \nThe parameter 'keyValueSeparator' is used to split the keys and values.",
           "type": "string"
         },
         "softOverride": {
-          "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
+          "description": "If true, a soft override of this property will add its content to \nthe previously already existing array. Thus adding the old entries is \nnot necessary and should be avoided to prevent duplicates.",
           "type": "boolean"
         },
         "keyType": {
@@ -745,15 +749,15 @@
       "additionalProperties": false,
       "properties": {
         "keyValueSeparator": {
-          "description": "Specifies the separator used to split the key and the value in the key-value pairs. The parameter 'pairsSeparator' is used to split the pairs from each others.",
+          "description": "Specifies the separator used to split the key and the value in the \nkey-value pairs. The parameter 'pairsSeparator' is used to split the pairs \nfrom each others.",
           "type": "string"
         },
         "pairsSeparator": {
-          "description": "Specifies the separator used to split the pairs from each others. The parameter 'keyValueSeparator' is used to split the keys and values.",
+          "description": "Specifies the separator used to split the pairs from each others. \nThe parameter 'keyValueSeparator' is used to split the keys and values.",
           "type": "string"
         },
         "softOverride": {
-          "description": "If true, a soft override of this property will add its content to the previously already existing array. Thus adding the old entries is not necessary and should be avoided to prevent duplicates.",
+          "description": "If true, a soft override of this property will add its content to \nthe previously already existing array. Thus adding the old entries is \nnot necessary and should be avoided to prevent duplicates.",
           "type": "boolean"
         },
         "keyType": {
@@ -839,14 +843,14 @@
     },
     "TranslationDefinition": {
       "additionalProperties": false,
-      "description": "If the parameter is of type 'translation', this can be used to provide a description of the expected format of the translation. For script blocks, this is associated to the ID of the block.",
+      "description": "If the parameter is of type 'translation', this can be used to provide \na description of the expected format of the translation. For script blocks, \nthis is associated to the ID of the block.",
       "properties": {
         "keyPattern": {
-          "description": "A regex pattern that the translation key in the source must match. The '{value}' placeholder is replaced by the ID of the block or value of the parameter. '{module}' is replaced by the module of the block.",
+          "description": "A regex pattern that the translation key in the source must match. The \n'{value}' placeholder is replaced by the ID of the block or value of the \nparameter. '{module}' is replaced by the module of the block.",
           "type": "string"
         },
         "sourceFile": {
-          "description": "The source file where the translation key is defined (without the .json extension).",
+          "description": "The source file where the translation key is defined (without the \n.json extension).",
           "type": "string"
         }
       },
@@ -866,7 +870,7 @@
         },
         "translation": {
           "$ref": "#/$defs/TranslationDefinition",
-          "description": "If the parameter is of type 'translation', this can be used to provide a description of the expected format of the translation."
+          "description": "If the parameter is of type 'translation', this can be used to provide \na description of the expected format of the translation."
         }
       },
       "required": [
@@ -886,7 +890,7 @@
         "parameters": {
           "description": "A list of parameters that must be met for this variant to be valid.",
           "items": {
-            "$ref": "#/$defs/ParameterNeed"
+            "$ref": "#/$defs/Need"
           },
           "type": "array"
         },
@@ -937,15 +941,13 @@
       ]
     },
     "#desc": {
-      "description": "A reference to the description of another block type. This allows sharing the same description between multiple block types without using #ref, which would also share other properties.",
+      "description": "A reference to the description of another block type. This allows \nsharing the same description between multiple block types without \nusing #ref, which would also share other properties.",
       "type": "string"
     },
     "#ref": {
-      "description": "A reference to another block type. This allows sharing the same properties between multiple block types.",
       "type": "string"
     },
     "variantOf": {
-      "description": "Indicates whether this block type is a variant of another block type. The value corresponds to the block type it is a variant of.",
       "type": "string"
     },
     "variant": {
@@ -957,7 +959,7 @@
       "type": "string"
     },
     "anyName": {
-      "description": "A block with `anyName` can have any name. This requires strict placement in parent blocks to correctly validate the block parameters.",
+      "description": "A block with `anyName` can have any name. This requires strict \nplacement in parent blocks to correctly validate the block parameters.",
       "type": "boolean"
     },
     "shortDescription": {
@@ -994,14 +996,14 @@
       "type": "boolean"
     },
     "pattern": {
-      "description": "A list of regex patterns that can be used to match this root file. Required when 'isRoot' is true.",
+      "description": "A list of regex patterns that can be used to match this root file. \nRequired when 'isRoot' is true.",
       "items": {
         "type": "string"
       },
       "type": "array"
     },
     "noComma": {
-      "description": "Indicates whether the block parameters should not be followed by a comma.",
+      "description": "Indicates whether the block parameters should not be followed \nby a comma.",
       "type": "boolean"
     },
     "deprecated": {

@@ -52,7 +52,7 @@ description: |-
   ```
 noComma: true
 parents:
-- ROOT-Rules
+- root_Rules
 parameters:
 - name: name
   type:

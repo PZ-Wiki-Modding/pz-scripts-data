@@ -3,7 +3,7 @@ name: layers
 description: Used to define the default layers of a new TMX file.
 noComma: true
 parents:
-- ROOT-TMXconfig
+- root_TMXconfig
 parameters:
 - name: tile
   allowedDuplicate: true
@@ -11,6 +11,6 @@ parameters:
     main: string
 - name: object
   parentsOnly:
-  - ROOT-MapBaseXML
+  - root_MapBaseXML
   type:
     main: string

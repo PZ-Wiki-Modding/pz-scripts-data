@@ -44,7 +44,7 @@ parameters:
         values:
           - base:food
   - name: Carbohydrates
-    "#desc": item/Calories
+    "#desc": item_food/Calories
     type:
       main: float
     needs:
@@ -73,7 +73,7 @@ parameters:
         values:
           - base:food
   - name: DaysTotallyRotten
-    "#desc": item/DaysFresh
+    "#desc": item_food/DaysFresh
     default: 1000000000
     type:
       main: integer
@@ -91,7 +91,7 @@ parameters:
         values:
           - base:food
   - name: Lipids
-    "#desc": item/Calories
+    "#desc": item_food/Calories
     type:
       main: float
     needs:
@@ -121,7 +121,7 @@ parameters:
         values:
           - base:food
   - name: painReduction
-    "#desc": item/fluReduction
+    "#desc": item_food/fluReduction
     type:
       main: integer
     needs:
@@ -139,7 +139,7 @@ parameters:
           - base:food
     isUseless: true
   - name: Proteins
-    "#desc": item/Calories
+    "#desc": item_food/Calories
     type:
       main: float
     needs:

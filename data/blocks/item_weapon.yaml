@@ -252,7 +252,7 @@ parameters:
         values:
           - base:weapon
   - name: EnduranceMod
-    "#desc": item/UseEndurance
+    "#desc": item_weapon/UseEndurance
     default: 1.0
     type:
       main: float
@@ -261,7 +261,7 @@ parameters:
         values:
           - base:weapon
   - name: ExplosionDuration
-    "#desc": item/ExplosionRange
+    "#desc": item_weapon/ExplosionRange
     type:
       main: integer
     needs:
@@ -269,7 +269,7 @@ parameters:
         values:
           - base:weapon
   - name: ExplosionPower
-    "#desc": item/ExplosionRange
+    "#desc": item_weapon/ExplosionRange
     type:
       main: integer
     needs:
@@ -302,8 +302,15 @@ parameters:
       - name: ItemType
         values:
           - base:weapon
+    seeAlso:
+      - item/ExplosionSound
+      - item_weapon/ExtraDamage
+      - item_weapon/FireRange
+      - item_weapon/FireStartingEnergy
+      - item_weapon/FireStartingChance
+      - item_weapon/SmokeRange
   - name: extraDamage
-    "#desc": item/ExplosionRange
+    "#desc": item_weapon/ExplosionRange
     type:
       main: float
     needs:
@@ -326,7 +333,7 @@ parameters:
         values:
           - base:weapon
   - name: FireModePossibilities
-    "#desc": item/FireMode
+    "#desc": item_weapon/FireMode
     type:
       main: array
       array:
@@ -338,13 +345,13 @@ parameters:
           - base:weapon
       - name: FireMode
   - name: FireRange
-    "#desc": item/ExplosionRange
+    "#desc": item_weapon/ExplosionRange
     needs:
       - name: ItemType
         values:
           - base:weapon
   - name: FireStartingChance
-    "#desc": item/ExplosionRange
+    "#desc": item_weapon/ExplosionRange
     type:
       main: integer
     needs:
@@ -538,7 +545,7 @@ parameters:
     seeAlso:
       - AimingPerkMinAngleModifier
   - name: MinSightRange
-    "#desc": item/MaxSightRange
+    "#desc": item_weapon/MaxSightRange
     type:
       main: float
     needs:
@@ -559,7 +566,7 @@ parameters:
         values:
           - base:weapon
   - name: PiercingBullets
-    "#desc": item/MaxHitcount
+    "#desc": item_weapon/MaxHitcount
     type:
       main: boolean
     needs:
@@ -613,7 +620,7 @@ parameters:
         values:
           - base:weapon
   - name: Ranged
-    "#desc": item/IsAimedFirearm
+    "#desc": item_weapon/IsAimedFirearm
     type:
       main: boolean
     needs:
@@ -671,7 +678,7 @@ parameters:
         values:
           - base:weapon
   - name: StopPower
-    "#desc": item/CriticalChance
+    "#desc": item_weapon/CriticalChance
     default: 5.0
     type:
       main: float

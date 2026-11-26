@@ -2,7 +2,7 @@ version: 1
 name: spriteModel
 description: Used to define tileset properties.
 parents:
-- ROOT-SpriteModels
+- root_SpriteModels
 parameters:
 - name: VERSION
   type:

@@ -1,8 +1,9 @@
 {
-  "root-blends": {
+  "root_blends": {
     "children": [
       "blend"
     ],
+    "def_id": "root_blends",
     "description": "The `Blends.txt` file is used in the [mapping tools](https://pzwiki.net/wiki/Mapping#Mapping_tools) to assign blend tiles around the tiles you paint.",
     "isRoot": true,
     "name": "ROOT-Blends",
@@ -17,11 +18,12 @@
       "Blends\\.txt$"
     ]
   },
-  "root-default": {
+  "root_default": {
     "children": [
       "maps",
       "mods"
     ],
+    "def_id": "root_default",
     "description": "The default.txt file is used to select the mods and maps that will be loaded by the game.",
     "isRoot": true,
     "name": "ROOT-Default",
@@ -43,7 +45,8 @@
       "mods/default\\.txt$"
     ]
   },
-  "root-mapbasexml": {
+  "root_mapbasexml": {
+    "def_id": "root_mapbasexml",
     "description": "The `MapBaseXML.txt` file is used to configure the layers of the TMX file.",
     "isRoot": true,
     "name": "ROOT-MapBaseXML",
@@ -54,7 +57,8 @@
       "MapBaseXML\\.txt$"
     ]
   },
-  "root-mapinfo": {
+  "root_mapinfo": {
+    "def_id": "root_mapinfo",
     "description": "The `map.info` file is used to define the map's information. It is used by the game to display the map in the map selection screen and to load the map into the world.\n\nIt needs to be located in:\n```\n📁 media\n  📁 maps\n    📁 <map folder>\n      📄 map.info\n```",
     "isRoot": true,
     "name": "ROOT-MapInfo",
@@ -105,7 +109,8 @@
       "media\\/maps\\/[\\s\\S]+\\/map\\.info$"
     ]
   },
-  "root-modinfo": {
+  "root_modinfo": {
+    "def_id": "root_modinfo",
     "description": "The `mod.info` file, which contains all the information about a mod. It needs to be located alongside the media folder. See the wiki page [Mod structure](https://pzwiki.net/wiki/Mod_structure) for more information.\n\n```\n📁 MyMod\n  📁 <version>\n    📁 media\n    📄 mod.info\n```",
     "isRoot": true,
     "name": "ROOT-ModInfo",
@@ -245,11 +250,12 @@
       "mod\\.info$"
     ]
   },
-  "root-rules": {
+  "root_rules": {
     "children": [
       "alias",
       "rule"
     ],
+    "def_id": "root_rules",
     "description": "The `Rules.txt` file is used in the [mapping tools](https://pzwiki.net/wiki/Mapping#Mapping_tools) to define new [BMP to TMX](https://pzwiki.net/wiki/BMP_to_TMX) conversion rules. You can store this file anywhere on your computer and you need to reference it in the BMP Tool settings.\n\nA reference image containing the exact pixel colors you need to use for your BMP can be found [here](https://github.com/Unofficial-PZ-Mapping-Discord/B42-Colors/tree/main).",
     "isRoot": true,
     "name": "ROOT-Rules",
@@ -267,10 +273,11 @@
       "Rules\\.txt$"
     ]
   },
-  "root-sandboxoptions": {
+  "root_sandboxoptions": {
     "children": [
       "option"
     ],
+    "def_id": "root_sandboxoptions",
     "description": "The root of a sandbox options file. The file should be stored in the following path:\n```\n📁 media\n  📄 sandbox-options.txt\n```\n\nYou can find more information about sandbox options [here](https://pzwiki.net/wiki/Sandbox_options).",
     "isRoot": true,
     "name": "ROOT-SandboxOptions",
@@ -289,10 +296,11 @@
       "media\\/sandbox-options\\.txt$"
     ]
   },
-  "root-scripts": {
+  "root_scripts": {
     "children": [
       "module"
     ],
+    "def_id": "root_scripts",
     "description": "The root of a script file. Blocks than need to be in the root of the document should have this as parent.",
     "isRoot": true,
     "name": "ROOT-Scripts",
@@ -302,10 +310,11 @@
       "media\\/scripts\\/[\\s\\S]+\\.txt$"
     ]
   },
-  "root-spritemodels": {
+  "root_spritemodels": {
     "children": [
       "spriteModel"
     ],
+    "def_id": "root_spritemodels",
     "description": "The `spriteModels.txt` file is used to register [models](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html) and animations to tiles. This is notably used for radio items as well as doors and ramps.",
     "isRoot": true,
     "name": "ROOT-SpriteModels",
@@ -315,10 +324,11 @@
       "media\\/spriteModels\\.txt$"
     ]
   },
-  "root-tilegeometry": {
+  "root_tilegeometry": {
     "children": [
       "tileGeometry"
     ],
+    "def_id": "root_tilegeometry",
     "description": "The `tileGeometry.txt` file is used to register the tile depth of tiles. The file needs to be located inside the [common/media](https://pzwiki.net/wiki/Mod_structure#Common_and_versioning_folders) folder.",
     "isRoot": true,
     "name": "ROOT-TileGeometry",
@@ -328,10 +338,11 @@
       "media\\/tileGeometry\\.txt$"
     ]
   },
-  "root-tmxconfig": {
+  "root_tmxconfig": {
     "children": [
       "layers"
     ],
+    "def_id": "root_tmxconfig",
     "description": "The `TMXconfig.txt` file is used to configure the default layers which will be created in the TMX file.",
     "isRoot": true,
     "name": "ROOT-TMXconfig",

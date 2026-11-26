@@ -7,7 +7,7 @@ variant:
 name: item
 parameters:
   - name: AimingTimeModifier
-    "#desc": item/AimingTime
+    "#desc": item_weapon/AimingTime
     type:
       main: integer
     needs:
@@ -42,7 +42,7 @@ parameters:
         values:
           - base:weaponpart
   - name: CanDetach
-    "#desc": item/CanAttach
+    "#desc": item_weaponpart/CanAttach
     type:
       main: callback
       callback:
@@ -77,7 +77,7 @@ parameters:
         values:
           - base:weaponpart
   - name: HitChanceModifier
-    "#desc": item/HitChance
+    "#desc": item_weapon/HitChance
     type:
       main: integer
     needs:
@@ -117,7 +117,7 @@ parameters:
           - base:weapon
           - base:weaponpart
   - name: MinSightRange
-    "#desc": item/MaxSightRange
+    "#desc": item_weapon/MaxSightRange
     type:
       main: float
     needs:
@@ -136,7 +136,7 @@ parameters:
         values:
           - base:weaponpart
   - name: OnAttach
-    "#desc": item/CanAttach
+    "#desc": item_weaponpart/CanAttach
     type:
       main: callback
       callback:
@@ -155,7 +155,7 @@ parameters:
         values:
           - base:weaponpart
   - name: OnDetach
-    "#desc": item/CanAttach
+    "#desc": item_weaponpart/CanAttach
     type:
       main: callback
       callback:
@@ -221,7 +221,7 @@ parameters:
         values:
           - base:weaponpart
   - name: RecoilDelayModifier
-    "#desc": item/RecoilDelay
+    "#desc": item_weapon/RecoilDelay
     needs:
       - name: ItemType
         values:

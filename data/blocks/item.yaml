@@ -656,11 +656,17 @@ parameters:
 - name: EvolvedRecipeName
   "#desc": item/EvolvedRecipe
 - name: ExplosionSound
-  "#desc": item/ExplosionRange
   type:
     main: block
     block:
       name: sound
+  seeAlso:
+    - item_weapon/ExplosionRange
+    - item_weapon/ExtraDamage
+    - item_weapon/FireRange
+    - item_weapon/FireStartingEnergy
+    - item_weapon/FireStartingChance
+    - item_weapon/SmokeRange
 - name: ExplosionTimer
   itemTypes:
   - weapon
@@ -1127,7 +1133,7 @@ parameters:
   - weapon
 - name: Map
 - name: MaxAmmo
-  "#desc": item/MagazineType
+  "#desc": item_weapon/MagazineType
   seeAlso:
     - MagazineType
     - AmmoType

@@ -3,7 +3,7 @@ name: option
 description: |-
   Defines a custom sandbox option for a mod. You can find more information about sandbox options [here](https://pzwiki.net/wiki/Sandbox_options).
 parents:
-- ROOT-SandboxOptions
+- root_SandboxOptions
 ID: {}
 parameters:
 - name: type
