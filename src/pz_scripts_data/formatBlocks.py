@@ -225,11 +225,12 @@ def find_variants(blocks: dict[str, ScriptsBlock]) -> None:
     # key is source block id
     # value is the block that's a variant
     variants_hierarchy = {}
-    for block_id, block in blocks.items():
+    for block in blocks.values():
         variant = block.variant
+        def_id = block.def_id
         if variant is None:
             continue
-        variants_hierarchy.setdefault(variant.source, []).append(block_id)
+        variants_hierarchy.setdefault(variant.source, []).append(def_id)
 
     # assign variants to their source blocks
     for source_id, variant_ids in variants_hierarchy.items():
