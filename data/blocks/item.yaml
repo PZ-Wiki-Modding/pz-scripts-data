@@ -44,71 +44,6 @@ parameters:
 - name: ActivatedItem
   type:
     main: string
-- name: AimingPerkCritModifier
-  description: |-
-    This parameter modifies the [critical chance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-criticalchance) for the [aiming skill](https://pzwiki.net/wiki/Aiming):
-    ```
-    CriticalChance += AimingPerkCritModifier * Aiming level
-    ```
-  type:
-    main: integer
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
-  seeAlso:
-    - CriticalChance
-    - AimingPerkHitChanceModifier
-    - AimingPerkMinAngleModifier
-- name: AimingPerkMinAngleModifier
-  description: |-
-    This parameter modifies the [minimum angle](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-minangle) for the [aiming skill](https://pzwiki.net/wiki/Aiming). It impacts the minimum angle with the following formula:
-    ```java
-    effectiveMinAngle = MinAngle - AimingPerkMinAngleModifier * Aiming level
-    ```
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
-  type:
-    main: float
-  seeAlso:
-    - MinAngle
-    - AimingPerkCritModifier
-    - AimingPerkHitChanceModifier
-- name: Aimingtime
-  description: |-
-    [Aimingtime](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingtime) is a stat which is directly applied to a [HandWeapon](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/HandWeapon.html) while [AimingTimeModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingtimemodifier) is applied to [weapon parts](https://demiurgequantified.github.io/ProjectZomboidJavaDocs/zombie/inventory/types/WeaponPart.html). The attachments directly add their [AimingTimeModifier](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-aimingtimemodifier) to the aiming delay.
-
-    It controls the aim-settling delay, the aiming delay counter that must tick down to 0 before the weapon is "settled". Lower values means faster target reacquisition after each shots. The primary "how snappy does this gun feel" lever for semi-automatic guns. It tick down the aiming via the following formula:
-    ```java
-    rate = 0.625 x gameSpeed x (1 + 0.05 x AimingLevel + (Marksman ? 0.1 : 0))
-    ```
-
-    The [marksman](https://pzwiki.net/wiki/Marksman) trait being no longer accessible in the recent versions of the game, the condition involving it will never be reached.
-
-    > Note:
-    > This formula might not be fully accurate as [time deltas](https://github.com/demiurgeQuantified/PZModdingGuides/blob/main/guides/GameTime.md) don't appear in the formula.
-
-    While `aimingDelay > 0`, both [hit chance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-hitchance) and [critical chance](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-criticalchance) take an aim-delay penalty proportional to the remaining delay. The countdown only starts after `recoilDelay` has recovered, so high [RecoilDelay](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-recoildelay) directly delays when `AimingTime` begins ticking.
-
-    On each shots or equip, the aiming delay will be increased or reduced, being impacted by aiming while in a [vehicle](https://pzwiki.net/wiki/Vehicle), being reduced by the trait [Dextrous](https://pzwiki.net/wiki/Dextrous) or increased by [All Thumbs](https://pzwiki.net/wiki/All_Thumbs). The following formula is used:
-    ```java
-    aimingDelay = AimingTime
-            * (Dextrous ? 0.8 : AllThumbs ? 1.2 : 1.0)
-            * (in vehicle ? 1.5 : 1.0)
-    ```
-  seeAlso:
-    - AimingTimeModifier
-    - RecoilDelay
-    - HitChance
-    - CriticalChance
-  type:
-    main: integer
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
 - name: AimReleaseSound
   itemTypes:
   - weapon
@@ -189,13 +124,6 @@ parameters:
     - Walkie
     - Webbing
     - Wrench
-- name: BadInMicrowave
-  needs:
-    - name: ItemType
-      values:
-        - base:food
-  type:
-    main: boolean
 - name: BandagePower
   itemTypes:
   - normal
@@ -409,14 +337,6 @@ parameters:
   itemTypes:
   - drainable
   - normal
-- name: ClipSize
-  isUseless: true
-  type:
-    main: integer
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
 - name: CloseKillMove
   itemTypes:
   - weapon
@@ -584,65 +504,6 @@ parameters:
       name: sound
   description: |-
     Custom sound to play when eating or drinking this item. Set to an empty string to disable any sound from playing.
-- name: DamageCategory
-  description: |-
-    Defines the type of damage this weapon deals. This is used by the game to apply visual damage to zombies when hit. By default, only one type is available: `Slash`, which will apply slashing visual damage to zombies. These are also impacted by critical hits, providing different results.
-    
-    This is Lua sided in the `DamageModelDefinitions` class so you can easily add custom damage categories and visuals. Here is how the game does it:
-    ```lua
-    DamageModelDefinitions.addDefinition = function(texture, bodyPart, damageCategories, criticalHit)
-      local damage = {};
-      damage.texture = texture;
-      damage.bodyPart = bodyPart;
-      damage.damageCategories = damageCategories;
-      damage.criticalHit = criticalHit;
-      table.insert(DamageModelDefinitions.list, damage);
-    end
-
-    -- media/lua/shared/Definitions/DamageModelDefinitions.lua
-    DamageModelDefinitions.addDefinition("ZedDmg_BELLY_Slash", BodyPartType.Torso_Lower, {"Slash"});
-    DamageModelDefinitions.addDefinition("ZedDmg_BELLY_Skin", BodyPartType.Torso_Lower, {"Slash"}, true);
-
-    DamageModelDefinitions.addDefinition("ZedDmg_CHEST_Slash", BodyPartType.Torso_Upper, {"Slash"});
-    DamageModelDefinitions.addDefinition("ZedDmg_BELLY_Skin", BodyPartType.Torso_Upper, {"Slash"}, true);
-
-    DamageModelDefinitions.addDefinition("ZedDmg_HEAD_Slash", BodyPartType.Head, {"Slash"});
-    DamageModelDefinitions.addDefinition("ZedDmg_HEAD_Skin", BodyPartType.Head, {"Slash"}, true);
-    ```
-
-    This means you could easily add your own type thanks to the `DamageModelDefinitions.addDefinition` function. The `texture` parameter (i.e. `ZedDmg_BELLY_Slash`) refers to a [clothingItem XML file](https://pz-wiki-modding.github.io/PZ-API-Docs/xml/clothingitem.html) that defines the clothing information of the texture.
-
-    ```xml
-    <!-- clothing/clothingItems/ZedDmg_BELLY_Skin.xml -->
-    <?xml version="1.0" encoding="utf-8"?>
-    <clothingItem>
-      <m_MaleModel></m_MaleModel>
-      <m_FemaleModel></m_FemaleModel>
-      <m_GUID>0d1e3942-0a8d-4309-956c-c59c0d15eab2</m_GUID>
-      <m_Static>false</m_Static>
-      <m_AllowRandomHue>false</m_AllowRandomHue>
-      <m_AllowRandomTint>false</m_AllowRandomTint>
-      <m_AttachBone></m_AttachBone>
-      <m_BaseTextures>bodydmg\m_zeddmg_ribsleft</m_BaseTextures>
-      <m_BaseTextures>bodydmg\m_zeddmg_ribsright</m_BaseTextures>
-    </clothingItem>
-    ```
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
-- name: DaysFresh
-  needs:
-    - name: ItemType
-      values:
-        - base:food
-  description: |-
-    [DaysFresh](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-daysfresh) sets how many days this food item will stay fresh with default sandbox settings. [DaysTotallyRotten](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-daystotallyrotten) sets how many days this food item will take to rot.
-
-    [Icon](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-icon) provides the ability to set a different icon for the rotten and stale version of the food.
-  default: 1000000000
-  type:
-    main: integer
 - name: DigitalPadlock
   description: |-
     Looks unused by the game.
@@ -794,14 +655,6 @@ parameters:
       softOverride: true
 - name: EvolvedRecipeName
   "#desc": item/EvolvedRecipe
-- name: ExplosionPower
-  "#desc": item/ExplosionRange
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
-  type:
-    main: integer
 - name: ExplosionSound
   "#desc": item/ExplosionRange
   type:
@@ -900,26 +753,6 @@ parameters:
     ```
   type:
     main: float
-- name: FireModePossibilities
-  "#desc": item/FireMode
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
-    - name: FireMode
-  type:
-    main: array
-    array:
-      type: string
-      separator: /
-- name: FireStartingChance
-  "#desc": item/ExplosionRange
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
-  type:
-    main: integer
 - name: FishingLure
   itemTypes:
   - food
@@ -1018,18 +851,6 @@ parameters:
 - name: HitAngleMod
   itemTypes:
   - weapon
-- name: HitSound
-  description: |-
-    Defines the sound that plays when hitting a zombie with the weapon. To have no sound play, set the value to `null`.
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
-  type:
-    main: block
-    block:
-      name: sound
-  default: BaseballBatHit
 - name: HungerChange
   description: |-
     When negative, the item being consumed will reduce the [player's hunger](https://pzwiki.net/wiki/Hungry), with `100` the maximum amount of hunger of a player.
@@ -1178,13 +999,6 @@ parameters:
   itemTypes:
   - drainable
   - food
-- name: IsAimedHandWeapon
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
-  type:
-    main: boolean
 - name: IsCookable
   description: |-
     [IsCookable](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-iscookable) marks as the item as cookable.
@@ -1560,19 +1374,6 @@ parameters:
 - name: PageToWrite
   itemTypes:
   - literature
-- name: PiercingBullets
-  "#desc": item/MaxHitcount
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
-    - name: IsAimedFirearm
-      values:
-        - true
-    - name: MaxHitcount
-      minimum: 2
-  type:
-    main: boolean
 - name: PlacedSprite
   itemTypes:
   - weapon
@@ -1617,20 +1418,6 @@ parameters:
   - drainable
   - normal
   - weaponpart
-- name: ProjectileSpread
-  type:
-    main: float
-  description: |-
-    Projectile spread seems to be mostly a visual effect and doesn't affect the actual hit chance of the weapon. The spread will be calculated following a formula close to the following:
-    ```
-    spread = ProjectileSpread * 10 degrees +/- 2 degrees
-    ```
-
-    With the `spread` value being the total cone angle of the projectiles.
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
 - name: ProjectileWeightCenter
   itemTypes:
   - weapon
@@ -1656,13 +1443,6 @@ parameters:
   - drainable
   - normal
   - weapon
-- name: RangeFalloff
-  needs:
-    - name: ItemType
-      values:
-        - base:weapon
-  type:
-    main: boolean
 - name: ReadType
   itemTypes:
   - literature
