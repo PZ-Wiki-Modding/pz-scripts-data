@@ -312,7 +312,7 @@
   },
   "root_spritemodels": {
     "children": [
-      "spriteModel"
+      "spritemodel"
     ],
     "def_id": "root_spritemodels",
     "description": "The `spriteModels.txt` file is used to register [models](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/model.html) and animations to tiles. This is notably used for radio items as well as doors and ramps.",
@@ -326,7 +326,7 @@
   },
   "root_tilegeometry": {
     "children": [
-      "tileGeometry"
+      "tilegeometry"
     ],
     "def_id": "root_tilegeometry",
     "description": "The `tileGeometry.txt` file is used to register the tile depth of tiles. The file needs to be located inside the [common/media](https://pzwiki.net/wiki/Mod_structure#Common_and_versioning_folders) folder.",

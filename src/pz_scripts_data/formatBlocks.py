@@ -108,14 +108,26 @@ def add_source_ref_to_targets(
             # add name
             children: list[str] = getattr(parent_block, array_type)
             if source_name not in children:
-                children.append(source_name)
+                children.append(source_name.lower())
             _processed.append(parent_name)
 
     # we make sure they were all properly processed
-    for parent_name in targets_names:
-        if parent_name not in _processed:
-            raise ValueError(f"Parent block '{parent_name}' not found for block '{source_name}'.")
+    if len(targets_names) != len(_processed):
+        missing = set(targets_names) - set(_processed)
+        raise ValueError(f"Some {array_type} blocks not found for block '{source_name}': {', '.join(missing)}")
 
+def verify_parents(block: ScriptsBlock, items: list[Item]) -> None:
+    """
+    Verifies that all parents of the block exist in the items.
+    Raises a ValueError if any parent is missing.
+    """
+    if not block.parents:
+        return
+
+    for parent_name in block.parents:
+        parent_block = find_block_in_items(parent_name, items)
+        if parent_block is None:
+            raise ValueError(f"Parent block '{parent_name}' not found for block '{block.name}'.")
 
 def prepare_relationship(block: ScriptsBlock, items: list[Item]) -> None:
     """

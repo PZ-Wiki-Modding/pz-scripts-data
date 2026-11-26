@@ -394,7 +394,7 @@ class Need(SchemaModel):
     values: list[str | Number | bool] | None = None
     """The values of the dependent parameter that must be met for this parameter 
     to be valid."""
-    value_to_type: dict[str, str] | None = Field(
+    deprecated_value_to_type: dict[str, str] | None = Field(
         None,
         alias="valueToType",
         examples=[{"integer": "float", "double": "float", "boolean": "boolean", "string": "string"}],
@@ -404,19 +404,27 @@ class Need(SchemaModel):
     and it has a value 'integer', then this parameter should be of type 'float'. 
     The key is the value of the dependent parameter, and the value is the 
     expected type of this parameter when the dependent parameter has that value."""
+    @property
+    @deprecated(
+        reason="Use 'deprecated_value_to_type' instead.",
+        version="1.4.0",
+    )
+    def value_to_type(self) -> dict[str, str] | None:
+        return self.deprecated_value_to_type
     minimum: Number | None = None
-    """The minimum value for this parameter when the dependent parameter 
+    """The minimum value for the provided parameter when the dependent parameter 
     has a specific value. Requires the target parameter to be of type 'float' 
     or 'integer'."""
     maximum: Number | None = None
-    """The maximum value for this parameter when the dependent parameter 
+    """The maximum value for the provided parameter when the dependent parameter 
     has a specific value. Requires the target parameter to be of type 'float' 
     or 'integer'."""
     children: list[str] | None = None
-    """A list of child blocks that must be present for this parameter to be valid."""
+    """A list of child blocks that must be present."""
     parents: list[str] | None = None
-    """A list of parent blocks that must be present for this parameter to 
-    be valid."""
+    """A list of parent blocks that must be present."""
+    id: list[str] | None = None
+    """A list of IDs the script block must have."""
 
 
 class ParameterDefinition(SchemaModel):
@@ -510,10 +518,8 @@ class VariantDefinition(SchemaModel):
 
     source: str
     """The source block type that this variant is based on."""
-    parameters: list[Need] | None = None
+    needs: list[Need] | None = None
     """A list of parameters that must be met for this variant to be valid."""
-    id: list[str] | None = None
-    """A list of IDs that this variant must have."""
 
 
 class BlockDefinition(SchemaModel):

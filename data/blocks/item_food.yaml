@@ -1,6 +1,6 @@
 variant:
   source: item
-  parameters:
+  needs:
     - name: ItemType
       values:
         - base:food
