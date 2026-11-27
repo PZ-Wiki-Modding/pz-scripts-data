@@ -2,7 +2,7 @@ version: 1
 name: whitelist
 description: Whitelists a fluid to be allowed to put inside a [fluid container](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component_fluidcontainer.html).
 parents:
-- component FluidContainer
+- component_FluidContainer
 parameters:
 - name: fluid
   type:

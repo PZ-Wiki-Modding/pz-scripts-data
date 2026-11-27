@@ -1,7 +1,13 @@
 version: 1
-name: component CraftRecipe
+name: component
+"#ref": component
 description: ''
-variantOf: component
+variant:
+  name: component CraftRecipe
+  source: component
+  needs:
+    - id:
+        - CraftRecipe
 parents:
 - entity
 needsChildren:

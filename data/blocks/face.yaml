@@ -2,7 +2,7 @@ version: 1
 name: face
 description: ''
 parents:
-- component SpriteConfig
+- component_SpriteConfig
 - style
 - progress
 ID:

@@ -664,27 +664,45 @@
       "entity"
     ],
     "variants": [
-      "component contextmenuconfig",
-      "component craftbench",
-      "component craftbenchsounds",
-      "component craftrecipe",
-      "component dryingcraftlogic",
-      "component durability",
-      "component fluidcontainer",
-      "component resources",
-      "component spriteconfig",
-      "component spriteoverlayconfig",
-      "component uiconfig",
-      "component wallcoveringconfig"
+      "component_contextmenuconfig",
+      "component_craftbench",
+      "component_craftbenchsounds",
+      "component_craftrecipe",
+      "component_dryingcraftlogic",
+      "component_durability",
+      "component_fluidcontainer",
+      "component_resources",
+      "component_spriteconfig",
+      "component_spriteoverlayconfig",
+      "component_uiconfig",
+      "component_wallcoveringconfig"
     ]
   },
-  "component contextmenuconfig": {
+  "component_contextmenuconfig": {
+    "#ref": "component",
+    "ID": {
+      "asType": true,
+      "values": [
+        "CraftRecipe",
+        "SpriteConfig",
+        "UiConfig",
+        "CraftBench",
+        "CraftBenchSounds",
+        "Resources",
+        "DryingCraftLogic",
+        "SpriteOverlayConfig",
+        "Durability",
+        "FluidContainer",
+        "ContextMenuConfig",
+        "WallCoveringConfig"
+      ]
+    },
     "children": [
       "contextentry"
     ],
-    "def_id": "component contextmenuconfig",
+    "def_id": "component_contextmenuconfig",
     "description": "",
-    "name": "component ContextMenuConfig",
+    "name": "component",
     "needsChildren": [
       "contextEntry"
     ],
@@ -693,12 +711,40 @@
       "item",
       "entity"
     ],
-    "variantOf": "component"
+    "variant": {
+      "name": "component ContextMenuConfig",
+      "needs": [
+        {
+          "id": [
+            "ContextMenuConfig"
+          ]
+        }
+      ],
+      "source": "component"
+    }
   },
-  "component craftbench": {
-    "def_id": "component craftbench",
+  "component_craftbench": {
+    "#ref": "component",
+    "ID": {
+      "asType": true,
+      "values": [
+        "CraftRecipe",
+        "SpriteConfig",
+        "UiConfig",
+        "CraftBench",
+        "CraftBenchSounds",
+        "Resources",
+        "DryingCraftLogic",
+        "SpriteOverlayConfig",
+        "Durability",
+        "FluidContainer",
+        "ContextMenuConfig",
+        "WallCoveringConfig"
+      ]
+    },
+    "def_id": "component_craftbench",
     "description": "Used to add a crafting bench property to an [entity](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/entity.html) script, which can then be used in the [tags](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#tags) parameter of a [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html) script to create a crafting bench tag.",
-    "name": "component CraftBench",
+    "name": "component",
     "parameters": {
       "recipes": {
         "description": "The tag name for this crafting bench to be used in the [tags](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html#tags) parameter of a [craftRecipe](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/craftrecipe.html) script.",
@@ -715,12 +761,40 @@
     "parents": [
       "entity"
     ],
-    "variantOf": "component"
+    "variant": {
+      "name": "component CraftBench",
+      "needs": [
+        {
+          "id": [
+            "CraftBench"
+          ]
+        }
+      ],
+      "source": "component"
+    }
   },
-  "component craftbenchsounds": {
-    "def_id": "component craftbenchsounds",
+  "component_craftbenchsounds": {
+    "#ref": "component",
+    "ID": {
+      "asType": true,
+      "values": [
+        "CraftRecipe",
+        "SpriteConfig",
+        "UiConfig",
+        "CraftBench",
+        "CraftBenchSounds",
+        "Resources",
+        "DryingCraftLogic",
+        "SpriteOverlayConfig",
+        "Durability",
+        "FluidContainer",
+        "ContextMenuConfig",
+        "WallCoveringConfig"
+      ]
+    },
+    "def_id": "component_craftbenchsounds",
     "description": "",
-    "name": "component CraftBenchSounds",
+    "name": "component",
     "parameters": {
       "addfuel": {
         "name": "AddFuel"
@@ -744,15 +818,43 @@
     "parents": [
       "entity"
     ],
-    "variantOf": "component"
+    "variant": {
+      "name": "component CraftBenchSounds",
+      "needs": [
+        {
+          "id": [
+            "CraftBenchSounds"
+          ]
+        }
+      ],
+      "source": "component"
+    }
   },
-  "component craftrecipe": {
+  "component_craftrecipe": {
+    "#ref": "component",
+    "ID": {
+      "asType": true,
+      "values": [
+        "CraftRecipe",
+        "SpriteConfig",
+        "UiConfig",
+        "CraftBench",
+        "CraftBenchSounds",
+        "Resources",
+        "DryingCraftLogic",
+        "SpriteOverlayConfig",
+        "Durability",
+        "FluidContainer",
+        "ContextMenuConfig",
+        "WallCoveringConfig"
+      ]
+    },
     "children": [
       "inputs"
     ],
-    "def_id": "component craftrecipe",
+    "def_id": "component_craftrecipe",
     "description": "",
-    "name": "component CraftRecipe",
+    "name": "component",
     "needsChildren": [
       "inputs"
     ],
@@ -868,12 +970,40 @@
     "parents": [
       "entity"
     ],
-    "variantOf": "component"
+    "variant": {
+      "name": "component CraftRecipe",
+      "needs": [
+        {
+          "id": [
+            "CraftRecipe"
+          ]
+        }
+      ],
+      "source": "component"
+    }
   },
-  "component dryingcraftlogic": {
-    "def_id": "component dryingcraftlogic",
+  "component_dryingcraftlogic": {
+    "#ref": "component",
+    "ID": {
+      "asType": true,
+      "values": [
+        "CraftRecipe",
+        "SpriteConfig",
+        "UiConfig",
+        "CraftBench",
+        "CraftBenchSounds",
+        "Resources",
+        "DryingCraftLogic",
+        "SpriteOverlayConfig",
+        "Durability",
+        "FluidContainer",
+        "ContextMenuConfig",
+        "WallCoveringConfig"
+      ]
+    },
+    "def_id": "component_dryingcraftlogic",
     "description": "",
-    "name": "component DryingCraftLogic",
+    "name": "component",
     "parameters": {
       "actionanim": {
         "name": "actionAnim"
@@ -894,26 +1024,82 @@
     "parents": [
       "entity"
     ],
-    "variantOf": "component"
+    "variant": {
+      "name": "component DryingCraftLogic",
+      "needs": [
+        {
+          "id": [
+            "DryingCraftLogic"
+          ]
+        }
+      ],
+      "source": "component"
+    }
   },
-  "component durability": {
-    "def_id": "component durability",
+  "component_durability": {
+    "#ref": "component",
+    "ID": {
+      "asType": true,
+      "values": [
+        "CraftRecipe",
+        "SpriteConfig",
+        "UiConfig",
+        "CraftBench",
+        "CraftBenchSounds",
+        "Resources",
+        "DryingCraftLogic",
+        "SpriteOverlayConfig",
+        "Durability",
+        "FluidContainer",
+        "ContextMenuConfig",
+        "WallCoveringConfig"
+      ]
+    },
+    "def_id": "component_durability",
     "description": "",
-    "name": "component Durability",
+    "name": "component",
     "parameters": {},
     "parents": [
       "item"
     ],
-    "variantOf": "component"
+    "variant": {
+      "name": "component Durability",
+      "needs": [
+        {
+          "id": [
+            "Durability"
+          ]
+        }
+      ],
+      "source": "component"
+    }
   },
-  "component fluidcontainer": {
+  "component_fluidcontainer": {
+    "#ref": "component",
+    "ID": {
+      "asType": true,
+      "values": [
+        "CraftRecipe",
+        "SpriteConfig",
+        "UiConfig",
+        "CraftBench",
+        "CraftBenchSounds",
+        "Resources",
+        "DryingCraftLogic",
+        "SpriteOverlayConfig",
+        "Durability",
+        "FluidContainer",
+        "ContextMenuConfig",
+        "WallCoveringConfig"
+      ]
+    },
     "children": [
       "fluids",
       "whitelist"
     ],
-    "def_id": "component fluidcontainer",
+    "def_id": "component_fluidcontainer",
     "description": "Adds a fluid container to an item",
-    "name": "component FluidContainer",
+    "name": "component",
     "parameters": {
       "capacity": {
         "default": 1.0,
@@ -1035,28 +1221,84 @@
       "item",
       "entity"
     ],
-    "variantOf": "component"
+    "variant": {
+      "name": "component FluidContainer",
+      "needs": [
+        {
+          "id": [
+            "FluidContainer"
+          ]
+        }
+      ],
+      "source": "component"
+    }
   },
-  "component resources": {
+  "component_resources": {
+    "#ref": "component",
+    "ID": {
+      "asType": true,
+      "values": [
+        "CraftRecipe",
+        "SpriteConfig",
+        "UiConfig",
+        "CraftBench",
+        "CraftBenchSounds",
+        "Resources",
+        "DryingCraftLogic",
+        "SpriteOverlayConfig",
+        "Durability",
+        "FluidContainer",
+        "ContextMenuConfig",
+        "WallCoveringConfig"
+      ]
+    },
     "children": [
       "group"
     ],
-    "def_id": "component resources",
+    "def_id": "component_resources",
     "description": "",
-    "name": "component Resources",
+    "name": "component",
     "parameters": {},
     "parents": [
       "entity"
     ],
-    "variantOf": "component"
+    "variant": {
+      "name": "component Resources",
+      "needs": [
+        {
+          "id": [
+            "Resources"
+          ]
+        }
+      ],
+      "source": "component"
+    }
   },
-  "component spriteconfig": {
+  "component_spriteconfig": {
+    "#ref": "component",
+    "ID": {
+      "asType": true,
+      "values": [
+        "CraftRecipe",
+        "SpriteConfig",
+        "UiConfig",
+        "CraftBench",
+        "CraftBenchSounds",
+        "Resources",
+        "DryingCraftLogic",
+        "SpriteOverlayConfig",
+        "Durability",
+        "FluidContainer",
+        "ContextMenuConfig",
+        "WallCoveringConfig"
+      ]
+    },
     "children": [
       "face"
     ],
-    "def_id": "component spriteconfig",
+    "def_id": "component_spriteconfig",
     "description": "",
-    "name": "component SpriteConfig",
+    "name": "component",
     "needsChildren": [
       "face"
     ],
@@ -1104,25 +1346,81 @@
     "parents": [
       "entity"
     ],
-    "variantOf": "component"
+    "variant": {
+      "name": "component SpriteConfig",
+      "needs": [
+        {
+          "id": [
+            "SpriteConfig"
+          ]
+        }
+      ],
+      "source": "component"
+    }
   },
-  "component spriteoverlayconfig": {
+  "component_spriteoverlayconfig": {
+    "#ref": "component",
+    "ID": {
+      "asType": true,
+      "values": [
+        "CraftRecipe",
+        "SpriteConfig",
+        "UiConfig",
+        "CraftBench",
+        "CraftBenchSounds",
+        "Resources",
+        "DryingCraftLogic",
+        "SpriteOverlayConfig",
+        "Durability",
+        "FluidContainer",
+        "ContextMenuConfig",
+        "WallCoveringConfig"
+      ]
+    },
     "children": [
       "style"
     ],
-    "def_id": "component spriteoverlayconfig",
+    "def_id": "component_spriteoverlayconfig",
     "description": "",
-    "name": "component SpriteOverlayConfig",
+    "name": "component",
     "parameters": {},
     "parents": [
       "entity"
     ],
-    "variantOf": "component"
+    "variant": {
+      "name": "component SpriteOverlayConfig",
+      "needs": [
+        {
+          "id": [
+            "SpriteOverlayConfig"
+          ]
+        }
+      ],
+      "source": "component"
+    }
   },
-  "component uiconfig": {
-    "def_id": "component uiconfig",
+  "component_uiconfig": {
+    "#ref": "component",
+    "ID": {
+      "asType": true,
+      "values": [
+        "CraftRecipe",
+        "SpriteConfig",
+        "UiConfig",
+        "CraftBench",
+        "CraftBenchSounds",
+        "Resources",
+        "DryingCraftLogic",
+        "SpriteOverlayConfig",
+        "Durability",
+        "FluidContainer",
+        "ContextMenuConfig",
+        "WallCoveringConfig"
+      ]
+    },
+    "def_id": "component_uiconfig",
     "description": "",
-    "name": "component UiConfig",
+    "name": "component",
     "parameters": {
       "entitystyle": {
         "name": "entityStyle"
@@ -1137,12 +1435,40 @@
     "parents": [
       "entity"
     ],
-    "variantOf": "component"
+    "variant": {
+      "name": "component UiConfig",
+      "needs": [
+        {
+          "id": [
+            "UiConfig"
+          ]
+        }
+      ],
+      "source": "component"
+    }
   },
-  "component wallcoveringconfig": {
-    "def_id": "component wallcoveringconfig",
+  "component_wallcoveringconfig": {
+    "#ref": "component",
+    "ID": {
+      "asType": true,
+      "values": [
+        "CraftRecipe",
+        "SpriteConfig",
+        "UiConfig",
+        "CraftBench",
+        "CraftBenchSounds",
+        "Resources",
+        "DryingCraftLogic",
+        "SpriteOverlayConfig",
+        "Durability",
+        "FluidContainer",
+        "ContextMenuConfig",
+        "WallCoveringConfig"
+      ]
+    },
+    "def_id": "component_wallcoveringconfig",
     "description": "",
-    "name": "component WallCoveringConfig",
+    "name": "component",
     "parameters": {
       "sign": {
         "name": "sign"
@@ -1154,7 +1480,17 @@
     "parents": [
       "entity"
     ],
-    "variantOf": "component"
+    "variant": {
+      "name": "component WallCoveringConfig",
+      "needs": [
+        {
+          "id": [
+            "WallCoveringConfig"
+          ]
+        }
+      ],
+      "source": "component"
+    }
   },
   "componentblock": {
     "anyName": true,
@@ -1289,7 +1625,7 @@
       }
     },
     "parents": [
-      "component ContextMenuConfig"
+      "component_ContextMenuConfig"
     ]
   },
   "copyframe": {
@@ -1732,17 +2068,6 @@
     },
     "children": [
       "component",
-      "component contextmenuconfig",
-      "component craftbench",
-      "component craftbenchsounds",
-      "component craftrecipe",
-      "component dryingcraftlogic",
-      "component fluidcontainer",
-      "component resources",
-      "component spriteconfig",
-      "component spriteoverlayconfig",
-      "component uiconfig",
-      "component wallcoveringconfig",
       "components"
     ],
     "def_id": "entity",
@@ -1885,7 +2210,7 @@
     "name": "face",
     "parameters": {},
     "parents": [
-      "component SpriteConfig",
+      "component_SpriteConfig",
       "style",
       "progress"
     ]
@@ -1979,7 +2304,7 @@
       }
     },
     "parents": [
-      "component FluidContainer"
+      "component_FluidContainer"
     ]
   },
   "group": {
@@ -1994,7 +2319,7 @@
     "name": "group",
     "parameters": {},
     "parents": [
-      "component Resources"
+      "component_Resources"
     ]
   },
   "hand": {
@@ -2024,7 +2349,7 @@
     "parameters": {},
     "parents": [
       "craftRecipe",
-      "component CraftRecipe"
+      "component_CraftRecipe"
     ],
     "properties": {
       "+fluid": {
@@ -2152,10 +2477,7 @@
       }
     },
     "children": [
-      "component",
-      "component contextmenuconfig",
-      "component durability",
-      "component fluidcontainer"
+      "component"
     ],
     "def_id": "item",
     "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:\n```cpp\nmodule yourModule\n{\n  item yourID\n  {\n    ItemType = base:normal,\n    ...\n  }\n}\n```\n\nTo add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:\n```json\n{\n  \"yourModule.yourID\": \"Your Item Name\"\n}\n```",
@@ -4705,10 +5027,7 @@
       }
     },
     "children": [
-      "component",
-      "component contextmenuconfig",
-      "component durability",
-      "component fluidcontainer"
+      "component"
     ],
     "def_id": "item_alarmclock",
     "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:\n```cpp\nmodule yourModule\n{\n  item yourID\n  {\n    ItemType = base:normal,\n    ...\n  }\n}\n```\n\nTo add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:\n```json\n{\n  \"yourModule.yourID\": \"Your Item Name\"\n}\n```",
@@ -7281,10 +7600,7 @@
       }
     },
     "children": [
-      "component",
-      "component contextmenuconfig",
-      "component durability",
-      "component fluidcontainer"
+      "component"
     ],
     "def_id": "item_alarmclockclothing",
     "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:\n```cpp\nmodule yourModule\n{\n  item yourID\n  {\n    ItemType = base:normal,\n    ...\n  }\n}\n```\n\nTo add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:\n```json\n{\n  \"yourModule.yourID\": \"Your Item Name\"\n}\n```",
@@ -9857,10 +10173,7 @@
       }
     },
     "children": [
-      "component",
-      "component contextmenuconfig",
-      "component durability",
-      "component fluidcontainer"
+      "component"
     ],
     "def_id": "item_container",
     "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:\n```cpp\nmodule yourModule\n{\n  item yourID\n  {\n    ItemType = base:normal,\n    ...\n  }\n}\n```\n\nTo add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:\n```json\n{\n  \"yourModule.yourID\": \"Your Item Name\"\n}\n```",
@@ -12459,10 +12772,7 @@
       }
     },
     "children": [
-      "component",
-      "component contextmenuconfig",
-      "component durability",
-      "component fluidcontainer"
+      "component"
     ],
     "def_id": "item_drainable",
     "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:\n```cpp\nmodule yourModule\n{\n  item yourID\n  {\n    ItemType = base:normal,\n    ...\n  }\n}\n```\n\nTo add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:\n```json\n{\n  \"yourModule.yourID\": \"Your Item Name\"\n}\n```",
@@ -15108,10 +15418,7 @@
       }
     },
     "children": [
-      "component",
-      "component contextmenuconfig",
-      "component durability",
-      "component fluidcontainer"
+      "component"
     ],
     "def_id": "item_food",
     "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:\n```cpp\nmodule yourModule\n{\n  item yourID\n  {\n    ItemType = base:normal,\n    ...\n  }\n}\n```\n\nTo add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:\n```json\n{\n  \"yourModule.yourID\": \"Your Item Name\"\n}\n```",
@@ -17991,10 +18298,7 @@
       }
     },
     "children": [
-      "component",
-      "component contextmenuconfig",
-      "component durability",
-      "component fluidcontainer"
+      "component"
     ],
     "def_id": "item_literature",
     "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:\n```cpp\nmodule yourModule\n{\n  item yourID\n  {\n    ItemType = base:normal,\n    ...\n  }\n}\n```\n\nTo add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:\n```json\n{\n  \"yourModule.yourID\": \"Your Item Name\"\n}\n```",
@@ -20588,10 +20892,7 @@
       }
     },
     "children": [
-      "component",
-      "component contextmenuconfig",
-      "component durability",
-      "component fluidcontainer"
+      "component"
     ],
     "def_id": "item_radio",
     "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:\n```cpp\nmodule yourModule\n{\n  item yourID\n  {\n    ItemType = base:normal,\n    ...\n  }\n}\n```\n\nTo add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:\n```json\n{\n  \"yourModule.yourID\": \"Your Item Name\"\n}\n```",
@@ -23172,10 +23473,7 @@
       }
     },
     "children": [
-      "component",
-      "component contextmenuconfig",
-      "component durability",
-      "component fluidcontainer"
+      "component"
     ],
     "def_id": "item_weapon",
     "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:\n```cpp\nmodule yourModule\n{\n  item yourID\n  {\n    ItemType = base:normal,\n    ...\n  }\n}\n```\n\nTo add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:\n```json\n{\n  \"yourModule.yourID\": \"Your Item Name\"\n}\n```",
@@ -26643,10 +26941,7 @@
       }
     },
     "children": [
-      "component",
-      "component contextmenuconfig",
-      "component durability",
-      "component fluidcontainer"
+      "component"
     ],
     "def_id": "item_weaponpart",
     "description": "The item block is used to create items in the game, from weapons to food and clothing. The parameters available in this block mostly depend on the type of item you are creating, set with [ItemType](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/item.html#scripts-item-itemtype).\n\nTo get started, create a simple item structure by setting that parameter up correctly, then add more parameters as you need. For example, for a normal item:\n```cpp\nmodule yourModule\n{\n  item yourID\n  {\n    ItemType = base:normal,\n    ...\n  }\n}\n```\n\nTo add a name to display for your item, you need to add the item full type, that is its `module.id`, inside the [ItemName](https://pz-wiki-modding.github.io/PZ-API-Docs/translations/translation_files.html#itemname) translation file. Taking the example from above, your translation file would be:\n```json\n{\n  \"yourModule.yourID\": \"Your Item Name\"\n}\n```",
@@ -30833,7 +31128,7 @@
     "name": "style",
     "parameters": {},
     "parents": [
-      "component SpriteOverlayConfig"
+      "component_SpriteOverlayConfig"
     ]
   },
   "switchseat": {
@@ -31718,7 +32013,7 @@
       }
     },
     "parents": [
-      "component FluidContainer"
+      "component_FluidContainer"
     ]
   },
   "window": {

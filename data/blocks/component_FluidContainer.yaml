@@ -1,7 +1,13 @@
 version: 1
-name: component FluidContainer
+name: component
+"#ref": component
 description: Adds a fluid container to an item
-variantOf: component
+variant:
+  name: component FluidContainer
+  source: component
+  needs:
+    - id:
+        - FluidContainer
 parents:
 - item
 - entity

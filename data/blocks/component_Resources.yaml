@@ -1,7 +1,13 @@
 version: 1
-name: component Resources
+name: component
+"#ref": component
 description: ''
-variantOf: component
+variant:
+  name: component Resources
+  source: component
+  needs:
+    - id:
+        - Resources
 parents:
 - entity
 parameters: []

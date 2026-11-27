@@ -2,7 +2,7 @@ version: 1
 name: Fluids
 description: Used to make a list of fluids to appear in a [FluidContainer component](https://pz-wiki-modding.github.io/PZ-API-Docs/scripts/component/component_fluidcontainer.html).
 parents:
-- component FluidContainer
+- component_FluidContainer
 parameters:
 - name: fluid
   allowedDuplicate: true

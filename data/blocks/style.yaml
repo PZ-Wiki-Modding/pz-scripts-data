@@ -2,6 +2,6 @@ version: 1
 name: style
 description: ''
 parents:
-- component SpriteOverlayConfig
+- component_SpriteOverlayConfig
 ID: {}
 parameters: []

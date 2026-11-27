@@ -2,7 +2,7 @@ version: 1
 name: group
 description: ''
 parents:
-- component Resources
+- component_Resources
 ID:
   values:
   - craft_inputs

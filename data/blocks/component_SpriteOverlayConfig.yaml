@@ -1,7 +1,13 @@
 version: 1
-name: component SpriteOverlayConfig
+name: component
+"#ref": component
 description: ''
-variantOf: component
+variant:
+  name: component SpriteOverlayConfig
+  source: component
+  needs:
+    - id:
+        - SpriteOverlayConfig
 parents:
 - entity
 parameters: []

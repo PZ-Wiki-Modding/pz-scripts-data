@@ -1,7 +1,13 @@
 version: 1
-name: component Durability
+name: component
+"#ref": component
 description: ''
-variantOf: component
+variant:
+  name: component Durability
+  source: component
+  needs:
+    - id:
+        - Durability
 parents:
 - item
 parameters: []

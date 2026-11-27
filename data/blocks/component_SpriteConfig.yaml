@@ -1,7 +1,13 @@
 version: 1
-name: component SpriteConfig
+name: component
+"#ref": component
 description: ''
-variantOf: component
+variant:
+  name: component SpriteConfig
+  source: component
+  needs:
+    - id:
+        - SpriteConfig
 parents:
 - entity
 needsChildren:

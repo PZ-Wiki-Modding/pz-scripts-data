@@ -2,7 +2,7 @@ version: 1
 name: contextEntry
 description: ''
 parents:
-- component ContextMenuConfig
+- component_ContextMenuConfig
 parameters:
 - name: menu
 - name: customFunction

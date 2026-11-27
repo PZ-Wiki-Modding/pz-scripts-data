@@ -1,7 +1,13 @@
 version: 1
-name: component ContextMenuConfig
+name: component
+"#ref": component
 description: ''
-variantOf: component
+variant:
+  name: component ContextMenuConfig
+  source: component
+  needs:
+    - id:
+        - ContextMenuConfig
 parents:
 - item
 - entity

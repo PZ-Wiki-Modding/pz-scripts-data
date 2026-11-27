@@ -1,7 +1,13 @@
 version: 1
-name: component WallCoveringConfig
+name: component
+"#ref": component
 description: ''
-variantOf: component
+variant:
+  name: component WallCoveringConfig
+  source: component
+  needs:
+    - id:
+        - WallCoveringConfig
 parents:
 - entity
 parameters:

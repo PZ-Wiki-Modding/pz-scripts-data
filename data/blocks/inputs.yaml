@@ -4,7 +4,7 @@ description: ''
 softOverride: false
 parents:
 - craftRecipe
-- component CraftRecipe
+- component_CraftRecipe
 properties:
   item:
     description: Defines an item input needed for the recipe. Different properties

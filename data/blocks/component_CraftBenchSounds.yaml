@@ -1,7 +1,13 @@
 version: 1
-name: component CraftBenchSounds
+name: component
+"#ref": component
 description: ''
-variantOf: component
+variant:
+  name: component CraftBenchSounds
+  source: component
+  needs:
+    - id:
+        - CraftBenchSounds
 parents:
 - entity
 parameters:

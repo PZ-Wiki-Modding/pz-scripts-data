@@ -1,7 +1,13 @@
 version: 1
-name: component UiConfig
+name: component
+"#ref": component
 description: ''
-variantOf: component
+variant:
+  name: component UiConfig
+  source: component
+  needs:
+    - id:
+        - UiConfig
 parents:
 - entity
 parameters:

@@ -1,7 +1,13 @@
 version: 1
-name: component DryingCraftLogic
+name: component
+"#ref": component
 description: ''
-variantOf: component
+variant:
+  name: component DryingCraftLogic
+  source: component
+  needs:
+    - id:
+        - DryingCraftLogic
 parents:
 - entity
 parameters:
