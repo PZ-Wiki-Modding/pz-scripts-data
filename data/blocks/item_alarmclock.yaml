@@ -1,10 +1,13 @@
 variant:
+  name: item (alarmclock)
   source: item
+  copySourceParameters: true
   needs:
     - name: ItemType
       values:
         - base:alarmclock
 name: item
+"#ref": item
 parameters:
   - name: AlarmSound
     description: |-

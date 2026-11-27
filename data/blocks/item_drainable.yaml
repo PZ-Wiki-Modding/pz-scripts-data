@@ -1,10 +1,13 @@
 variant:
+  name: item (drainable)
   source: item
+  copySourceParameters: true
   needs:
     - name: ItemType
       values:
         - base:drainable
 name: item
+"#ref": item
 parameters:
   - name: cantBeConsolided
     "#desc": item_drainable/ConsolidateOption

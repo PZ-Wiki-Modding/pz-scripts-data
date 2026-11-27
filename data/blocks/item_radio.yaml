@@ -1,10 +1,13 @@
 variant:
+  name: item (radio)
   source: item
+  copySourceParameters: true
   needs:
     - name: ItemType
       values:
         - base:radio
 name: item
+"#ref": item
 parameters:
   - name: AcceptMediaType
     description: |-

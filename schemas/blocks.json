@@ -413,22 +413,29 @@
           "type": "object"
         },
         "minimum": {
-          "description": "The minimum value for this parameter when the dependent parameter \nhas a specific value. Requires the target parameter to be of type 'float' \nor 'integer'.",
+          "description": "The minimum value for the provided parameter when the dependent parameter \nhas a specific value. Requires the target parameter to be of type 'float' \nor 'integer'.",
           "type": "number"
         },
         "maximum": {
-          "description": "The maximum value for this parameter when the dependent parameter \nhas a specific value. Requires the target parameter to be of type 'float' \nor 'integer'.",
+          "description": "The maximum value for the provided parameter when the dependent parameter \nhas a specific value. Requires the target parameter to be of type 'float' \nor 'integer'.",
           "type": "number"
         },
         "children": {
-          "description": "A list of child blocks that must be present for this parameter to be valid.",
+          "description": "A list of child blocks that must be present.",
           "items": {
             "type": "string"
           },
           "type": "array"
         },
         "parents": {
-          "description": "A list of parent blocks that must be present for this parameter to \nbe valid.",
+          "description": "A list of parent blocks that must be present.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "description": "A list of IDs the script block must have.",
           "items": {
             "type": "string"
           },
@@ -883,26 +890,28 @@
       "additionalProperties": false,
       "description": "Schema for defining a variant of a block type.",
       "properties": {
+        "name": {
+          "description": "A representative name for the variant.",
+          "type": "string"
+        },
         "source": {
           "description": "The source block type that this variant is based on.",
           "type": "string"
         },
-        "parameters": {
+        "copySourceParameters": {
+          "description": "Indicates whether to copy source parameters from the source block type.",
+          "type": "boolean"
+        },
+        "needs": {
           "description": "A list of parameters that must be met for this variant to be valid.",
           "items": {
             "$ref": "#/$defs/Need"
           },
           "type": "array"
-        },
-        "id": {
-          "description": "A list of IDs that this variant must have.",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
         }
       },
       "required": [
+        "name",
         "source"
       ],
       "type": "object"

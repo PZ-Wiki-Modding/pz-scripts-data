@@ -516,8 +516,15 @@ class ParameterDefinition(SchemaModel):
 class VariantDefinition(SchemaModel):
     """Schema for defining a variant of a block type."""
 
+    name: str
+    """A representative name for the variant."""
     source: str
     """The source block type that this variant is based on."""
+    copy_source_parameters: bool | None = Field(
+        None,
+        alias="copySourceParameters",
+    )
+    """Indicates whether to copy source parameters from the source block type."""
     needs: list[Need] | None = None
     """A list of parameters that must be met for this variant to be valid."""
 

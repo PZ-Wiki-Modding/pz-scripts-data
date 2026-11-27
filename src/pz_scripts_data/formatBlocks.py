@@ -1,4 +1,5 @@
 import json
+import copy
 from pathlib import Path
 from typing import Any, Literal, Optional, TypedDict
 
@@ -243,6 +244,21 @@ def find_variants(blocks: dict[str, ScriptsBlock]) -> None:
         if variant is None:
             continue
         variants_hierarchy.setdefault(variant.source, []).append(def_id)
+
+        # copy parameters if needed
+        if variant.copy_source_parameters:
+            source_block = blocks.get(variant.source)
+            if source_block is None:
+                raise ValueError(f"Source block '{variant.source}' not found for variant '{def_id}'.")
+            # deep copy source params
+            source_params = copy.deepcopy(source_block.parameters)
+
+            # update source parameters with the block's parameters
+            # to override any existing parameters with the block's parameters
+            block_params = block.parameters
+            for key, value in block_params.items():
+                source_params[key] = value
+            block.parameters = source_params
 
     # assign variants to their source blocks
     for source_id, variant_ids in variants_hierarchy.items():
