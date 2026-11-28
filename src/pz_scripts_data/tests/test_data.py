@@ -14,7 +14,7 @@ from pathlib import Path
 from jsonschema import Draft7Validator
 from typing import Literal
 
-from pz_scripts_data.schema import DEFAULT_SCHEMA_OUTPUT, output_json_schema
+from pz_scripts_data.schema import ScriptsBlock, DEFAULT_SCHEMA_OUTPUT, output_json_schema
 
 # Default paths
 DEFAULT_BLOCKS_DIR = Path("data/blocks")
@@ -129,6 +129,15 @@ def validate_target(target_path: Path = DEFAULT_BLOCKS_DIR) -> Literal[0] | Lite
 
 def test_validate_blocks():
     assert validate_target() == 0
+
+
+def test_default_def_id():
+    data = {
+        "name": "test_block"
+    }
+    block = ScriptsBlock.model_validate(data)
+    print(block.def_id)
+    assert block.def_id == "test_block"
 
 
 

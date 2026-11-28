@@ -661,6 +661,8 @@ class _BlocksJsonSchemaGenerator(GenerateJsonSchema):
             return self.generate_inner(schema["schema"])
         return super().default_schema(schema)
 
+def _generate_default_def_id(data: dict[str, Any]) -> str:
+    return data['name']
 
 class ScriptsBlock(BlockDefinition):
     """Block used by the pipeline: parameters are keyed by lowercase name and relations are filled in during preparation."""
